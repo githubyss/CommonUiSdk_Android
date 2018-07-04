@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/comresBothMatchParentStyle"
+        android:background="@color/comresLayoutBgColorTransparent"
+        android:orientation="vertical"
+        >
+
+    <include layout="@layout/comui_toolbar_base" />
+
+    <FrameLayout
+            android:id="@+id/flFragmentContainer"
+            style="@style/comresBothMatchParentStyle"
+            android:background="@color/comresLayoutBgColorTransparent"
+            />
+</LinearLayout>
