@@ -6,8 +6,10 @@ apply plugin: 'kotlin-android-extensions'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(':CommonKitSdk_Android')
+
     /* Kotlin */
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jre7:$KOTLIN_VERSION"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$KOTLIN_VERSION"
 
     /* Compatibility Support */
     implementation "com.android.support:appcompat-v7:$ANDROID_SUPPORT_V7_VERSION"
