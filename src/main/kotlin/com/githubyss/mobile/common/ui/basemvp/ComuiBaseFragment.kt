@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.basemvp
 
 import android.app.Fragment
 import android.widget.Button
-import com.githubyss.mobile.common.kit.constant.ComkitKeyConstants
+import com.githubyss.mobile.common.res.ComresKeyConstants
 import com.githubyss.mobile.common.ui.R
 import kotlinx.android.synthetic.main.comui_toolbar_base.*
 
@@ -50,7 +50,7 @@ abstract class ComuiBaseFragment : Fragment() {
             return
         }
 
-        fragment.arguments.putBundle(ComkitKeyConstants.CommonKey.ACTIVITY_BUNDLE, activity.intent.extras)
+        fragment.arguments.putBundle(ComresKeyConstants.CommonKey.ACTIVITY_BUNDLE, activity.intent.extras)
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.flFragmentContainer, fragment, tag)
         if (addToBackStack) {
@@ -64,7 +64,7 @@ abstract class ComuiBaseFragment : Fragment() {
             return
         }
 
-        fragment.arguments.putBundle(ComkitKeyConstants.CommonKey.ACTIVITY_BUNDLE, activity.intent.extras)
+        fragment.arguments.putBundle(ComresKeyConstants.CommonKey.ACTIVITY_BUNDLE, activity.intent.extras)
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.flFragmentContainer, fragment, tag)
         if (addToBackStack) {
