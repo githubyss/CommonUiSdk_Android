@@ -3,6 +3,7 @@ package com.githubyss.mobile.common.ui.floatingwindow
 import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.app.Application
 import android.content.Context
 import android.os.Handler
 import android.os.Message
@@ -10,7 +11,10 @@ import android.support.annotation.RequiresPermission
 import android.view.*
 import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
+import com.bumptech.glide.Glide
+import com.githubyss.mobile.common.kit.ComkitApplication
 import com.githubyss.mobile.common.kit.logcat.ComkitLogcatUtils
 import com.githubyss.mobile.common.kit.processor.ComkitScreenProcessor
 import com.githubyss.mobile.common.ui.R
@@ -26,21 +30,29 @@ import java.lang.ref.WeakReference
  * @author Ace Yan
  * @github githubyss
  */
-class ComuiAutoHideFloatingWindow private constructor(context: Context) : View.OnClickListener, View.OnTouchListener, Animator.AnimatorListener, ValueAnimator.AnimatorUpdateListener {
-    companion object {
-        @Volatile
-        var instance: ComuiAutoHideFloatingWindow? = null
+class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, View.OnTouchListener, Animator.AnimatorListener, ValueAnimator.AnimatorUpdateListener {
+//    companion object {
+//        @Volatile
+//        var instance: ComuiAutoHideFloatingWindow? = null
+//
+//        fun instance(application: Application): ComuiAutoHideFloatingWindow? {
+//            if (instance == null) {
+//                synchronized(ComuiAutoHideFloatingWindow::class) {
+//                    if (instance == null) {
+//                        instance = ComuiAutoHideFloatingWindow(application)
+//                    }
+//                }
+//            }
+//            return instance
+//        }
+//    }
 
-        fun getInstance(context: Context): ComuiAutoHideFloatingWindow? {
-            if (instance == null) {
-                synchronized(ComuiAutoHideFloatingWindow::class) {
-                    if (instance == null) {
-                        instance = ComuiAutoHideFloatingWindow(context)
-                    }
-                }
-            }
-            return instance
-        }
+    companion object {
+        var instance = Holder.INSTANCE
+    }
+
+    private object Holder {
+        val INSTANCE = ComuiAutoHideFloatingWindow()
     }
 
 
@@ -54,6 +66,7 @@ class ComuiAutoHideFloatingWindow private constructor(context: Context) : View.O
     //    private var windowView: ViewGroup? = null
     private var rootView: ViewGroup? = null
 
+    private var ivCenter: ImageView? = null
     private var btnCenter: Button? = null
     private var llTouchMove: LinearLayout? = null
 
@@ -79,18 +92,11 @@ class ComuiAutoHideFloatingWindow private constructor(context: Context) : View.O
     private var autoHideRunnable: AutoHideRunnable? = null
 
 
-    init {
-        inflateView(context)
-        initView(rootView)
-        initLayoutParams()
-    }
-
-
-    private class AutoHideHandler constructor(val floatingWindowWeakRefComui: WeakReference<ComuiAutoHideFloatingWindow>) : Handler() {
+    private class AutoHideHandler constructor(private val autoHideFloatingWindowWeakRef: WeakReference<ComuiAutoHideFloatingWindow>) : Handler() {
         override fun handleMessage(msg: Message?) {
             when (msg?.what) {
-                floatingWindowWeakRefComui.get()?.MSG_HIDE_FLOATING_WINDOW -> {
-                    floatingWindowWeakRefComui.get()?.hide()
+                autoHideFloatingWindowWeakRef.get()?.MSG_HIDE_FLOATING_WINDOW -> {
+                    autoHideFloatingWindowWeakRef.get()?.hide()
                 }
             }
         }
@@ -183,6 +189,7 @@ class ComuiAutoHideFloatingWindow private constructor(context: Context) : View.O
             beSlidingUp -> {
                 beSlidingUp = false
                 removeView()
+                releaseView()
             }
         }
     }
@@ -197,17 +204,30 @@ class ComuiAutoHideFloatingWindow private constructor(context: Context) : View.O
 
 
     @RequiresPermission(android.Manifest.permission.SYSTEM_ALERT_WINDOW)
-    fun show() {
+    fun show(application: Application): ComuiAutoHideFloatingWindow {
+        inflateView(application)
+        initView(rootView)
+        initLayoutParams()
         addView()
         slideDown()
+        return this@ComuiAutoHideFloatingWindow
     }
 
-    fun hide() {
+    fun hide(): ComuiAutoHideFloatingWindow {
         slideUp()
+        return this@ComuiAutoHideFloatingWindow
+    }
+
+    fun setImage(path: String): ComuiAutoHideFloatingWindow {
+        ivCenter ?: return this@ComuiAutoHideFloatingWindow
+        Glide.with(ComkitApplication.instance.application)
+                .load(path)
+                .into(ivCenter ?: return this@ComuiAutoHideFloatingWindow)
+        return this@ComuiAutoHideFloatingWindow
     }
 
     private fun inflateView(context: Context) {
-        val inflater = LayoutInflater.from(context.applicationContext)
+        val inflater = LayoutInflater.from(context)
         if (rootView == null) {
             rootView = inflater.inflate(R.layout.comui_auto_hide_floating_window, null, false) as FrameLayout
         }
@@ -218,6 +238,7 @@ class ComuiAutoHideFloatingWindow private constructor(context: Context) : View.O
     }
 
     private fun initView(view: View?) {
+        ivCenter = view?.findViewById(R.id.ivCenter)
         btnCenter = view?.findViewById(R.id.btnCenter)
         llTouchMove = view?.findViewById(R.id.llTouchMove)
         btnCenter?.setOnClickListener(this@ComuiAutoHideFloatingWindow)
@@ -270,7 +291,10 @@ class ComuiAutoHideFloatingWindow private constructor(context: Context) : View.O
         }
 
         logcatViewProperty(rootView, "After removeView rootView\t\t")
-        instance = null
+    }
+
+    private fun releaseView() {
+        ivCenter?.setImageResource(0)
     }
 
     private fun slideDown() {

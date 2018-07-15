@@ -15,6 +15,12 @@ dependencies {
     /* Compatibility Support */
     implementation "com.android.support:appcompat-v7:$ANDROID_SUPPORT_V7_VERSION"
 
+    /* Glide */
+    implementation("com.github.bumptech.glide:glide:$GLIDE_API_VERSION") {
+        exclude group: "com.android.support"
+    }
+    kapt "com.github.bumptech.glide:compiler:$GLIDE_COMPILE_VERSION"
+
     /* Test */
     testImplementation "junit:junit:$JUNIT_VERSION"
     androidTestImplementation "com.android.support.test:runner:$ANDROID_TEST_RUNNER_VERSION"
