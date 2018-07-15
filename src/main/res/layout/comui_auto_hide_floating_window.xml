@@ -10,16 +10,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="14dp"
-            android:alpha="0.5"
-            android:background="@color/comresColorYellow"
+            android:layout_marginLeft="@dimen/comresSideMarginDefault"
+            android:layout_marginRight="@dimen/comresSideMarginDefault"
+            android:layout_marginTop="@dimen/comresSideMarginDefault"
+            android:background="@drawable/comui_auto_hide_floating_window_bg_default"
             android:orientation="vertical"
             >
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:layout_marginTop="@dimen/comresSideMarginDefault"
                 android:gravity="center"
                 android:orientation="horizontal"
                 >
