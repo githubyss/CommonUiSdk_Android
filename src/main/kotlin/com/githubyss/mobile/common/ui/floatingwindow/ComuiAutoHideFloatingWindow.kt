@@ -82,9 +82,9 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     private var beSlidingUp = false
 
     private var rootViewMeasuredHeight = FAULT_VALUE
-    private var moveBeginCoordinateY = FAULT_VALUE
-    private var moveCurrentCoordinateY = FAULT_VALUE
-    private var moveDeltaCoordinateY = FAULT_VALUE
+    private var moveBeginY = FAULT_VALUE
+    private var moveCurrentY = FAULT_VALUE
+    private var moveDeltaY = FAULT_VALUE
 
     private var autoHideHandler: AutoHideHandler? = null
     private var autoHideRunnable: AutoHideRunnable? = null
@@ -108,7 +108,13 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     private inner class AutoHideRunnable : Runnable {
         override fun run() {
             if (beShown && !beAnimating) {
+                /**
+                 * It is not necessary to send message because there is no child thread running at this condition.
+                 * But for specification, Here is sending message to use handler to hide the window.
+                 * by Ace Yan
+                 */
                 autoHideHandler?.sendMessage(autoHideHandler?.obtainMessage(MSG_HIDE_FLOATING_WINDOW))
+//                hide()
             }
         }
     }
@@ -133,31 +139,31 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
 
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
-                moveBeginCoordinateY = event.rawY.toInt()
+                moveBeginY = event.rawY.toInt()
                 autoHideHandler?.removeCallbacks(autoHideRunnable)
 
                 logcatViewProperty(rootView, "ACTION_DOWN rootView\t")
             }
 
             MotionEvent.ACTION_MOVE -> {
-                moveCurrentCoordinateY = event.rawY.toInt()
-                moveDeltaCoordinateY = moveCurrentCoordinateY - moveBeginCoordinateY
+                moveCurrentY = event.rawY.toInt()
+                moveDeltaY = moveCurrentY - moveBeginY
 
                 if ((windowLayoutParams?.y ?: 0) >= 0) {
-                    windowLayoutParams?.y = windowLayoutParams?.y?.plus(moveDeltaCoordinateY)
+                    windowLayoutParams?.y = windowLayoutParams?.y?.plus(moveDeltaY)
                     windowManager?.updateViewLayout(rootView, windowLayoutParams)
                 } else {
 
                 }
 
-                moveBeginCoordinateY = moveCurrentCoordinateY
+                moveBeginY = moveCurrentY
 
                 logcatViewProperty(rootView, "ACTION_MOVE rootView\t")
             }
 
             MotionEvent.ACTION_UP -> {
-                moveCurrentCoordinateY = event.rawY.toInt()
-                moveDeltaCoordinateY = moveCurrentCoordinateY - moveBeginCoordinateY
+                moveCurrentY = event.rawY.toInt()
+                moveDeltaY = moveCurrentY - moveBeginY
 
                 if ((windowLayoutParams?.y ?: 0) < 0) {
                     hide()
