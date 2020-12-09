@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.basemvp
 
-import android.app.Fragment
 import android.widget.Button
+import androidx.fragment.app.Fragment
 import com.githubyss.mobile.common.ui.R
 import kotlinx.android.synthetic.main.comui_toolbar_base.*
 
@@ -35,38 +35,42 @@ abstract class ComuiBaseFragment : Fragment() {
 
     /** Setup Toolbar title by ResId. by Ace Yan */
     protected fun setToolbarTitle(titleResId: Int) {
-        activity.toolbarBase.setTitle(titleResId)
+        activity?.let { it.toolbarBase.setTitle(titleResId) }
     }
 
     /** Setup Toolbar title by String. by Ace Yan */
     protected fun setToolbarTitle(titleString: String) {
-        activity.toolbarBase.title = titleString
+        activity?.let { it.toolbarBase.title = titleString }
     }
 
     /** Add fragment to activity. by Ace Yan */
     protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean) {
-        if (fragmentManager.findFragmentByTag(tag) != null) {
-            return
-        }
+        fragmentManager?.let {
+            if (it.findFragmentByTag(tag) != null) {
+                return
+            }
 
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.flFragmentContainer, fragment, tag)
-        if (addToBackStack) {
-            fragmentTransaction.addToBackStack(null)
+            val fragmentTransaction = it.beginTransaction()
+            fragmentTransaction.add(R.id.flFragmentContainer, fragment, tag)
+            if (addToBackStack) {
+                fragmentTransaction.addToBackStack(null)
+            }
+            fragmentTransaction.commitAllowingStateLoss()
         }
-        fragmentTransaction.commitAllowingStateLoss()
     }
 
     protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean) {
-        if (fragmentManager.findFragmentByTag(tag) != null) {
-            return
-        }
+        fragmentManager?.let {
+            if (it.findFragmentByTag(tag) != null) {
+                return
+            }
 
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.flFragmentContainer, fragment, tag)
-        if (addToBackStack) {
-            fragmentTransaction.addToBackStack(null)
+            val fragmentTransaction = it.beginTransaction()
+            fragmentTransaction.replace(R.id.flFragmentContainer, fragment, tag)
+            if (addToBackStack) {
+                fragmentTransaction.addToBackStack(null)
+            }
+            fragmentTransaction.commitAllowingStateLoss()
         }
-        fragmentTransaction.commitAllowingStateLoss()
     }
 }

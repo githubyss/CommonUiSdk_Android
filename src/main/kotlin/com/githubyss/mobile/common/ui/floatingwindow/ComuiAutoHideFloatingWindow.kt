@@ -7,12 +7,12 @@ import android.content.Context
 import android.graphics.PixelFormat
 import android.os.Handler
 import android.os.Message
-import android.support.annotation.RequiresPermission
 import android.view.*
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.annotation.RequiresPermission
 import com.bumptech.glide.Glide
 import com.githubyss.mobile.common.kit.ComkitApplication
 import com.githubyss.mobile.common.kit.logcat.ComkitLogcatUtils

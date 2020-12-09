@@ -1,8 +1,6 @@
 package com.githubyss.mobile.common.ui.dialog
 
 import android.annotation.SuppressLint
-import android.app.DialogFragment
-import android.app.FragmentManager
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Gravity
@@ -11,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 import com.githubyss.mobile.common.kit.logcat.ComkitLogcatUtils
 import com.githubyss.mobile.common.kit.resource.ComkitResUtils
 import com.githubyss.mobile.common.ui.R
@@ -23,8 +23,7 @@ import com.githubyss.mobile.common.ui.R
  * @author Ace Yan
  * @github githubyss
  */
-class ComuiCommonDialog @SuppressLint("ValidFragment")
-private constructor() : DialogFragment() {
+class ComuiCommonDialog @SuppressLint("ValidFragment") private constructor() : DialogFragment() {
     companion object {
         var instance = Holder.INSTANCE
 
@@ -40,13 +39,7 @@ private constructor() : DialogFragment() {
         private val KEY_CENTER_STATUS = "centerStatus"
 
 
-        fun showByMsg(manager: FragmentManager?,
-                      titleStr: String = "", firstLineStr: String = "", secondLineStr: String = "",
-                      btnLeftStr: String = "", btnRightStr: String = "",
-                      onBtnLeftClickListener: View.OnClickListener? = null,
-                      onBtnRightClickListener: View.OnClickListener? = null,
-                      btnLeftHighlightStatus: Boolean = false, btnRightHighlightStatus: Boolean = true,
-                      centerStatus: Boolean = true, cancelale: Boolean = true): ComuiCommonDialog {
+        fun showByMsg(manager: FragmentManager?, titleStr: String = "", firstLineStr: String = "", secondLineStr: String = "", btnLeftStr: String = "", btnRightStr: String = "", onBtnLeftClickListener: View.OnClickListener? = null, onBtnRightClickListener: View.OnClickListener? = null, btnLeftHighlightStatus: Boolean = false, btnRightHighlightStatus: Boolean = true, centerStatus: Boolean = true, cancelale: Boolean = true): ComuiCommonDialog {
             checkOld(manager)
 
             instance.onBtnLeftClickListener = onBtnLeftClickListener
@@ -64,9 +57,11 @@ private constructor() : DialogFragment() {
             bundle.putBoolean(KEY_CENTER_STATUS, centerStatus)
 
             manager?.executePendingTransactions()
-            if (!instance.isAdded) {
-                instance.arguments = bundle
-                instance.show(manager, TAG)
+            manager?.let {
+                if (!instance.isAdded) {
+                    instance.arguments = bundle
+                    instance.show(manager, TAG)
+                }
             }
 
             return instance
@@ -77,8 +72,10 @@ private constructor() : DialogFragment() {
 
             val dialog = manager.findFragmentByTag(TAG)
             try {
-                manager.executePendingTransactions()
-                manager.beginTransaction().remove(dialog).commitAllowingStateLoss()
+                dialog?.let {
+                    manager.executePendingTransactions()
+                    manager.beginTransaction().remove(dialog).commitAllowingStateLoss()
+                }
             } catch (exception: IllegalStateException) {
                 ComkitLogcatUtils.e(t = exception)
             } catch (exception: Exception) {
@@ -201,10 +198,10 @@ private constructor() : DialogFragment() {
     }
 
 
-    override fun show(manager: FragmentManager?, tag: String?) {
-        val transaction = manager?.beginTransaction()
-        transaction?.add(this, tag)
-        transaction?.commitAllowingStateLoss()
+    override fun show(manager: FragmentManager, tag: String?) {
+        val transaction = manager.beginTransaction()
+        transaction.add(this, tag)
+        transaction.commitAllowingStateLoss()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -212,8 +209,8 @@ private constructor() : DialogFragment() {
         instance.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.comuiCommonDialogStyle)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater?.inflate(R.layout.comui_dialog_common, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        rootView = inflater.inflate(R.layout.comui_dialog_common, container, false)
 
         initView(rootView)
         initData()

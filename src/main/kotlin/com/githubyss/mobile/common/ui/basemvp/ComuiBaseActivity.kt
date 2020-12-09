@@ -1,12 +1,12 @@
 package com.githubyss.mobile.common.ui.basemvp
 
-import android.app.Fragment
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.githubyss.mobile.common.ui.R
 import kotlinx.android.synthetic.main.comui_toolbar_base.*
 
@@ -96,12 +96,12 @@ abstract class ComuiBaseActivity : AppCompatActivity() {
 
     /** Add fragment to activity. by Ace Yan */
     protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean) {
-        if (fragmentManager.findFragmentByTag(tag) != null) {
+        if (supportFragmentManager.findFragmentByTag(tag) != null) {
             return
         }
 
         fragment.arguments = intent.extras
-        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.flFragmentContainer, fragment, tag)
         if (addToBackStack) {
             fragmentTransaction.addToBackStack(null)
@@ -110,12 +110,12 @@ abstract class ComuiBaseActivity : AppCompatActivity() {
     }
 
     protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean) {
-        if (fragmentManager.findFragmentByTag(tag) != null) {
+        if (supportFragmentManager.findFragmentByTag(tag) != null) {
             return
         }
 
         fragment.arguments = intent.extras
-        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.flFragmentContainer, fragment, tag)
         if (addToBackStack) {
             fragmentTransaction.addToBackStack(null)
