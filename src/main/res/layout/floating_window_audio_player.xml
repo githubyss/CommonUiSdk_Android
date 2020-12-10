@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_floating_window_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+    <FrameLayout
+            android:layout_width="255dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="14dp"
+            >
+
+        <LinearLayout
+                android:layout_width="255dp"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:alpha="0.8"
+                android:layout_gravity="bottom"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_audio_player_floating_window"
+                >
+
+            <LinearLayout
+                    android:layout_width="57dp"
+                    android:layout_height="50dp"
+                    />
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:orientation="vertical"
+                    >
+
+                <TextView
+                        android:id="@+id/textView_title"
+                        android:layout_width="60dp"
+                        android:layout_height="14dp"
+                        android:text="我是一个滚动标题呀"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp"
+                        />
+
+                <TextView
+                        android:id="@+id/textView_timeFlow"
+                        android:layout_width="57dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="2dp"
+                        android:text="01:23/08:50"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp"
+                        />
+            </LinearLayout>
+
+            <ImageView
+                    android:id="@+id/imageView_playController"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/icon_audio_player_pause"
+                    />
+
+            <ImageView
+                    android:id="@+id/imageView_switchVoice"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/icon_audio_player_voice_man"
+                    />
+
+            <ImageView
+                    android:id="@+id/imageView_close"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_audio_player_close"
+                    android:scaleType="center"
+                    android:visibility="visible"
+                    />
+
+            <ImageView
+                    android:id="@+id/imageView_lengthen"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_audio_player_extent"
+                    android:scaleType="center"
+                    android:visibility="gone"
+                    />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/cd_disk"
+                    />
+
+            <ImageView
+                    android:layout_width="17dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="-10dp"
+                    android:src="@drawable/cd_disk_head"
+                    />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!--<LinearLayout-->
+    <!--        android:id="@+id/ll_touch_move_btn"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="15dp"-->
+    <!--        android:orientation="vertical"-->
+    <!--        android:gravity="center"-->
+    <!--        >-->
+
+    <!--    <ImageView-->
+    <!--            android:layout_width="30dp"-->
+    <!--            android:layout_height="4dp"-->
+    <!--            android:layout_gravity="center_horizontal"-->
+    <!--            android:background="@drawable/bg_screenshot_bottom_line"-->
+    <!--            />-->
+    <!--</LinearLayout>-->
+</LinearLayout>

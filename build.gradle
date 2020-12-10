@@ -23,6 +23,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
     implementation "androidx.core:core-ktx:$androidx_core_ktx_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_recyclerview_version"
+    implementation "androidx.localbroadcastmanager:localbroadcastmanager:$androidx_localbroadcastmanager_version"
 
     /* Glide */
     implementation("com.github.bumptech.glide:glide:$glide_api_version") {
