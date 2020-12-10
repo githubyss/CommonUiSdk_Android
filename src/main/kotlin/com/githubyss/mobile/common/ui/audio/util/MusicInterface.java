@@ -11,7 +11,6 @@ import com.githubyss.mobile.common.ui.audio.music.AudioState;
 
 public interface MusicInterface {
 
-
     /**
      * 当前状态改变
      */
@@ -20,7 +19,7 @@ public interface MusicInterface {
     /**
      * 当前播放进度
      */
-    void onPlayProgress(int CurrentPosition);
+    void onPlayProgress(int currentPosition);
 
     /**
      * 当前缓存进度

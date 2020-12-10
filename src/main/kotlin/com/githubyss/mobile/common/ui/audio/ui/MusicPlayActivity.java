@@ -1,4 +1,4 @@
-// package com.githubyss.mobile.common.ui.audio.ui;// package com.ace.accessibility.automatic.audio.ui;
+// package com.githubyss.mobile.common.ui.audio.ui;
 //
 // import android.content.ActivityNotFoundException;
 // import android.content.Intent;
@@ -9,13 +9,22 @@
 // import android.os.Bundle;
 // import android.os.Handler;
 // import android.provider.Settings;
+// import android.text.TextUtils;
 // import android.view.KeyEvent;
 // import android.view.View;
 //
 // import com.githubyss.mobile.common.ui.R;
+// import com.githubyss.mobile.common.ui.audio.model.AudioInfo;
+// import com.githubyss.mobile.common.ui.audio.model.MusicModel;
+// import com.githubyss.mobile.common.ui.audio.music.AudioState;
+// import com.githubyss.mobile.common.ui.audio.music.MusicManager;
+// import com.githubyss.mobile.common.ui.audio.util.MusicInterface;
 // import com.githubyss.mobile.common.ui.audio.views.MusicView;
+//
 // import org.json.JSONException;
 // import org.json.JSONObject;
+//
+// import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 //
 // /**
 //  * 88396251
@@ -58,8 +67,7 @@
 //         hideFloat();
 //         mMusicNotification.initBroadcastReceiver();
 //         EventBus.getDefault().register(this);
-//         if (getIntent().getBooleanExtra("startNew", false) ||
-//                 MusicManager.getInstance().getPlayList() == null || MusicManager.getInstance().getPlayList().size() == 0) {
+//         if (getIntent().getBooleanExtra("startNew", false) || MusicManager.getInstance().getPlayList() == null || MusicManager.getInstance().getPlayList().size() == 0) {
 //             AudioInfo info = (AudioInfo) getIntent().getSerializableExtra("AudioInfo");
 //             if (info != null) {
 //                 MusicManager.getInstance().setInfo(info);
@@ -81,7 +89,7 @@
 //             }
 //
 //             @Override
-//             public void onPlayProgress(int CurrentPosition) {
+//             public void onPlayProgress(int currentPosition) {
 //
 //             }
 //
@@ -171,9 +179,7 @@
 //                 hasPermission(false);
 //             }
 //         }
-//         if (requestCode == Constants.REQUEST_QQ_SHARE ||
-//                 requestCode == Constants.REQUEST_QZONE_SHARE ||
-//                 requestCode == Constants.REQUEST_OLD_SHARE) {
+//         if (requestCode == Constants.REQUEST_QQ_SHARE || requestCode == Constants.REQUEST_QZONE_SHARE || requestCode == Constants.REQUEST_OLD_SHARE) {
 //             Tencent.handleResultData(data, qqShareCallback);
 //         }
 //     }
@@ -197,8 +203,7 @@
 //      * 分享
 //      */
 //     private void share() {
-//         if (MusicManager.getInstance().getPlayList() == null ||
-//                 (MusicManager.getInstance().getPlayList().size() <= MusicManager.getInstance().getPosition())) {
+//         if (MusicManager.getInstance().getPlayList() == null || (MusicManager.getInstance().getPlayList().size() <= MusicManager.getInstance().getPosition())) {
 //             return;
 //         }
 //         MusicModel item = MusicManager.getInstance().getPlayList().get(MusicManager.getInstance().getPosition());

@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.githubyss.mobile.common.ui.R;
@@ -42,9 +43,11 @@ public class AudioPlayerFloatingWindow {
     private ViewGroup rootView;
 
     private TextView textView_title;
-    private TextView textView_timeFlow;
-    private ImageView imageView_playController;
-    private ImageView imageView_switchVoice;
+    private TextView textView_timePosition;
+    private TextView textView_timeDuration;
+    private SeekBar seekBar_audioPlayer;
+    private ImageView imageView_playStartPauseController;
+    private ImageView imageView_voiceSwitch;
     private ImageView imageView_close;
     private ImageView imageView_lengthen;
 
@@ -88,7 +91,7 @@ public class AudioPlayerFloatingWindow {
 
         LayoutInflater inflater = LayoutInflater.from(containerContext);
         if (null == rootView) {
-            rootView = (LinearLayout) inflater.inflate(R.layout.floating_window_audio_player, null, false);
+            rootView = (LinearLayout) inflater.inflate(R.layout.comui_floating_audio_player_view, null, false);
         }
 
         if (null == containerView) {
@@ -96,8 +99,8 @@ public class AudioPlayerFloatingWindow {
         }
 
         initViewFindById(rootView);
-        initAnimator();
         initListener();
+        initAnimator();
         initLayoutParams();
     }
 
@@ -119,10 +122,8 @@ public class AudioPlayerFloatingWindow {
         @Override
         public void onClick(View v) {
             int id = v.getId();
-            if (id == R.id.textView_title) {
-            } else if (id == R.id.textView_timeFlow) {
-            } else if (id == R.id.imageView_playController) {
-            } else if (id == R.id.imageView_switchVoice) {
+            if (id == R.id.imageView_playStartPauseController) {
+            } else if (id == R.id.imageView_voiceSwitch) {
             } else if (id == R.id.imageView_close) {
                 // hideFloatingWindow();
                 shortenFloatingWindow();
@@ -198,11 +199,20 @@ public class AudioPlayerFloatingWindow {
 
     private void initViewFindById(View view) {
         textView_title = view.findViewById(R.id.textView_title);
-        textView_timeFlow = view.findViewById(R.id.textView_timeFlow);
-        imageView_playController = view.findViewById(R.id.imageView_playController);
-        imageView_switchVoice = view.findViewById(R.id.imageView_switchVoice);
+        textView_timePosition = view.findViewById(R.id.textView_timePosition);
+        textView_timeDuration = view.findViewById(R.id.textView_timeDuration);
+        seekBar_audioPlayer = view.findViewById(R.id.seekBar_audioPlayer);
+        imageView_playStartPauseController = view.findViewById(R.id.imageView_playStartPauseController);
+        imageView_voiceSwitch = view.findViewById(R.id.imageView_voiceSwitch);
         imageView_close = view.findViewById(R.id.imageView_close);
         imageView_lengthen = view.findViewById(R.id.imageView_lengthen);
+    }
+
+    private void initListener() {
+        imageView_playStartPauseController.setOnClickListener(onClickListener);
+        imageView_voiceSwitch.setOnClickListener(onClickListener);
+        imageView_close.setOnClickListener(onClickListener);
+        imageView_lengthen.setOnClickListener(onClickListener);
     }
 
     private void initAnimator() {
@@ -220,15 +230,6 @@ public class AudioPlayerFloatingWindow {
         animatorSlideRightLengthen.setDuration(ANIM_DURATION);
         animatorSlideLeftHide.setDuration(ANIM_DURATION);
         animatorSlideLeftShorten.setDuration(ANIM_DURATION);
-    }
-
-    private void initListener() {
-        textView_title.setOnClickListener(onClickListener);
-        textView_timeFlow.setOnClickListener(onClickListener);
-        imageView_playController.setOnClickListener(onClickListener);
-        imageView_switchVoice.setOnClickListener(onClickListener);
-        imageView_close.setOnClickListener(onClickListener);
-        imageView_lengthen.setOnClickListener(onClickListener);
 
         animatorSlideRightShow.addListener(animatorListenerAdapter);
         animatorSlideRightLengthen.addListener(animatorListenerAdapter);

@@ -34,6 +34,8 @@ public interface ApiFloatingAudioPlayerViewInterface {
 
     ApiFloatingAudioPlayerView detach(FrameLayout container);
 
+    ApiFloatingAudioPlayerView initData();
+
     BaseFloatingAutoShortedView getAutoShortedView();
 
     ApiFloatingAudioPlayerView customView(DesignatedFloatingAudioPlayerView viewGroup);

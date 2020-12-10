@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class AudioInfo implements Serializable {
     public int currentIndex;
-    private List<MusicModel> audioInfoList;
+    private List<MusicModel> audioList;
 
     public int getCurrentIndex() {
         return currentIndex;
@@ -26,12 +26,12 @@ public class AudioInfo implements Serializable {
         return this;
     }
 
-    public List<MusicModel> getAudioInfoList() {
-        return audioInfoList;
+    public List<MusicModel> getAudioList() {
+        return audioList;
     }
 
-    public AudioInfo setAudioInfoList(List<MusicModel> audioInfoList) {
-        this.audioInfoList = audioInfoList;
+    public AudioInfo setAudioList(List<MusicModel> audioList) {
+        this.audioList = audioList;
         return this;
     }
 }

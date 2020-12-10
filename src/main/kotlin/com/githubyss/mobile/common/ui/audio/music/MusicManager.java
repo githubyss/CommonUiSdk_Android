@@ -251,7 +251,7 @@ public class MusicManager {
         }
         musicInfo.currentIndex--;
         if (musicInfo.currentIndex < 0) {
-            musicInfo.currentIndex = musicInfo.getAudioInfoList().size() - 1;
+            musicInfo.currentIndex = musicInfo.getAudioList().size() - 1;
         }
         audioPrepare();
         return 0;
@@ -307,7 +307,7 @@ public class MusicManager {
      * 下一首歌
      */
     public void next() {
-        if (!loop && musicInfo != null && musicInfo.currentIndex >= musicInfo.getAudioInfoList().size() - 1) {
+        if (!loop && musicInfo != null && musicInfo.currentIndex >= musicInfo.getAudioList().size() - 1) {
             return;
         }
         if (mediaPlayer == null) {
@@ -318,7 +318,7 @@ public class MusicManager {
             stop();
         }
         musicInfo.currentIndex++;
-        if (musicInfo.currentIndex >= musicInfo.getAudioInfoList().size()) {
+        if (musicInfo.currentIndex >= musicInfo.getAudioList().size()) {
             musicInfo.currentIndex = 0;
         }
         audioPrepare();
@@ -343,14 +343,14 @@ public class MusicManager {
      * 每一首歌开始前的准备工作
      */
     private void audioPrepare() {
-        if (musicInfo == null || musicInfo.getAudioInfoList().size() == 0) {
+        if (musicInfo == null || musicInfo.getAudioList().size() == 0) {
             return;
         }
         if (!audioInit()) {
             mediaPlayer.reset();
         }
         try {
-            mediaPlayer.setDataSource(musicInfo.getAudioInfoList().get(musicInfo.currentIndex).getUrl());
+            mediaPlayer.setDataSource(musicInfo.getAudioList().get(musicInfo.currentIndex).getUrl());
         } catch (Exception e) {
             // LogUtils.e(TAG, e.getStackTrace().toString() + "");
             return;
@@ -400,7 +400,7 @@ public class MusicManager {
         if (musicInfo == null) {
             return null;
         }
-        return musicInfo.getAudioInfoList();
+        return musicInfo.getAudioList();
     }
 
     public int getPosition() {

@@ -33,6 +33,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="7dp"
                     android:orientation="vertical"
+                    android:gravity="center"
                     >
 
                 <TextView
@@ -44,19 +45,62 @@
                         android:textSize="10sp"
                         />
 
-                <TextView
-                        android:id="@+id/textView_timeFlow"
+                <LinearLayout
                         android:layout_width="57dp"
                         android:layout_height="14dp"
                         android:layout_marginTop="2dp"
-                        android:text="01:23/08:50"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                    <TextView
+                            android:id="@+id/textView_timePosition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="--:--"
+                            android:textColor="#ff8000"
+                            android:textColorHint="#ff8000"
+                            android:textSize="10sp"
+                            android:text="2:00"
+                            />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" / "
+                            android:textColor="#999999"
+                            android:textSize="10sp"
+                            />
+
+                    <TextView
+                            android:id="@+id/textView_timeDuration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="--:--"
+                            android:textColor="#999999"
+                            android:textColorHint="#999999"
+                            android:textSize="10sp"
+                            android:text="10:00"
+                            />
+                </LinearLayout>
+
+                <SeekBar
+                        android:id="@+id/seekBar_audioPlayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:maxHeight="1dp"
+                        android:minHeight="1dp"
+                        android:progress="20"
+                        android:secondaryProgress="0"
+                        android:progressDrawable="@drawable/comui_audio_player_seek_bar_progress"
+                        android:thumb="@drawable/comui_audio_player_seek_bar_thumb"
+                        android:thumbOffset="1dp"
                         />
             </LinearLayout>
 
             <ImageView
-                    android:id="@+id/imageView_playController"
+                    android:id="@+id/imageView_playStartPauseController"
                     android:layout_width="29dp"
                     android:layout_height="29dp"
                     android:layout_marginLeft="16dp"
@@ -64,7 +108,7 @@
                     />
 
             <ImageView
-                    android:id="@+id/imageView_switchVoice"
+                    android:id="@+id/imageView_voiceSwitch"
                     android:layout_width="29dp"
                     android:layout_height="29dp"
                     android:layout_marginLeft="16dp"

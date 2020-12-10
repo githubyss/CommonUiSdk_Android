@@ -81,10 +81,10 @@ public abstract class BaseMusicLayout extends LinearLayout implements View.OnCli
             }
 
             @Override
-            public void onPlayProgress(int CurrentPosition) {
-                PlayProgress(CurrentPosition);
+            public void onPlayProgress(int currentPosition) {
+                PlayProgress(currentPosition);
                 if (mMusicInterface != null) {
-                    mMusicInterface.onPlayProgress(CurrentPosition);
+                    mMusicInterface.onPlayProgress(currentPosition);
                 }
             }
 

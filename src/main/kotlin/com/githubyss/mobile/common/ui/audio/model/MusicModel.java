@@ -1,5 +1,7 @@
 package com.githubyss.mobile.common.ui.audio.model;
 
+import com.githubyss.mobile.common.ui.audio.music.AudioState;
+
 import java.io.Serializable;
 
 
@@ -20,13 +22,13 @@ public class MusicModel implements Serializable {
     private String url;
     private String maleUrl;
     private String femaleUrl;
-    private String playStatus;
+    private AudioState playStatus;
 
 
     public MusicModel() {
     }
 
-    public MusicModel(String id, String title, String author, String icon, String url, String maleUrl, String femaleUrl, String playStatus) {
+    public MusicModel(String id, String title, String author, String icon, String url, String maleUrl, String femaleUrl, AudioState playStatus) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -65,7 +67,7 @@ public class MusicModel implements Serializable {
         return femaleUrl;
     }
 
-    public String getPlayStatus() {
+    public AudioState getPlayStatus() {
         return playStatus;
     }
 

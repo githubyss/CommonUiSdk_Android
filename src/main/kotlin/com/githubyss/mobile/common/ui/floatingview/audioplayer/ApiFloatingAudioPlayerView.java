@@ -9,10 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.githubyss.mobile.common.kit.hint.ComkitToastUtils;
+import com.githubyss.mobile.common.kit.resource.ComkitResUtils;
 import com.githubyss.mobile.common.ui.R;
+import com.githubyss.mobile.common.ui.audio.model.AudioInfo;
+import com.githubyss.mobile.common.ui.audio.model.MusicModel;
+import com.githubyss.mobile.common.ui.audio.music.AudioState;
+import com.githubyss.mobile.common.ui.audio.music.MusicManager;
+import com.githubyss.mobile.common.ui.audio.util.MusicInterface;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.LayoutRes;
 import androidx.core.view.ViewCompat;
@@ -35,7 +45,7 @@ public class ApiFloatingAudioPlayerView implements ApiFloatingAudioPlayerViewInt
     private DesignatedFloatingAudioPlayerView mDesignatedFloatingView;
     private ViewGroup.LayoutParams mLayoutParams = getLayoutParams();
     @LayoutRes
-    private int mLayoutId = R.layout.floating_window_audio_player;
+    private int mLayoutId = R.layout.comui_floating_audio_player_view;
 
     private ApiFloatingAudioPlayerView(Context context) {
         mContext = context;
@@ -61,6 +71,7 @@ public class ApiFloatingAudioPlayerView implements ApiFloatingAudioPlayerViewInt
 
     @Override
     public ApiFloatingAudioPlayerView close() {
+        MusicManager.getInstance().destory();
         if (mDesignatedFloatingView != null) {
             mDesignatedFloatingView.closeFloatingWindow();
         }
@@ -119,6 +130,49 @@ public class ApiFloatingAudioPlayerView implements ApiFloatingAudioPlayerViewInt
         }
         if (getContainer() == container) {
             mContainer = null;
+        }
+        return this;
+    }
+
+    @Override
+    public ApiFloatingAudioPlayerView initData() {
+        if (mDesignatedFloatingView != null) {
+            if (MusicManager.getInstance().getPlayList() == null || MusicManager.getInstance().getPlayList().size() == 0) {
+                // Fake data
+                List<MusicModel> audioList = new ArrayList<>();
+                audioList.add(new MusicModel("0", "ReviewMyKisses", "Amiena", "", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", AudioState.STOP));
+                AudioInfo info = new AudioInfo();
+                info.setAudioList(audioList);
+                info.setCurrentIndex(0);
+
+                if (info != null) {
+                    MusicManager.getInstance().setInfo(info);
+                    MusicManager.getInstance().play(mContext);
+                } else {
+                    ComkitToastUtils.INSTANCE.showMessage(mContext, ComkitResUtils.INSTANCE.getString(mContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+                }
+            } else {
+                mDesignatedFloatingView.initData();
+            }
+
+            mDesignatedFloatingView.setMusicInterface(new MusicInterface() {
+                @Override
+                public void onStateChanged(AudioState audioState) {
+                    // if (mMusicNotification != null && !misShow && !mfinished && !isFinishing()) {
+                    //     mMusicNotification.showNotify();
+                    // }
+                }
+
+                @Override
+                public void onPlayProgress(int currentPosition) {
+
+                }
+
+                @Override
+                public void onBufferingUpdateProgress(int percent) {
+
+                }
+            });
         }
         return this;
     }
