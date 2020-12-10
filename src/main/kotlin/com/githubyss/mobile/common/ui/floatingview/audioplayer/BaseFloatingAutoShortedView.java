@@ -26,7 +26,7 @@ public class BaseFloatingAutoShortedView extends FrameLayout {
 
     protected View rootView;
 
-    private final long AUTO_HIDE_DELAY_TIME = 1000;
+    private final long AUTO_HIDE_DELAY_TIME = 2500;
     private final long ANIM_DURATION = 500;
 
     private Context containerContext;
@@ -96,6 +96,7 @@ public class BaseFloatingAutoShortedView extends FrameLayout {
     }
 
     protected void shortenFloatingWindow() {
+        removeAutoShortenHandleCallbacks();
         if (isShown && !isAnimating) {
             animatorSlideLeftShorten.start();
         }

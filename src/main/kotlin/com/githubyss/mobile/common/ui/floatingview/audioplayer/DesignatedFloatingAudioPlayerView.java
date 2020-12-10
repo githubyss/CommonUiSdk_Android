@@ -253,8 +253,8 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
             } else if (id == R.id.imageView_voiceSwitch) {
 
             } else if (id == R.id.imageView_close) {
-                // hideFloatingWindow();
-                shortenFloatingWindow();
+                MusicManager.getInstance().destory();
+                closeFloatingWindow();
             } else if (id == R.id.imageView_lengthen) {
                 lengthenFloatingWindow();
             }
