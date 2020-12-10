@@ -6,31 +6,31 @@ import java.util.List;
 
 /**
  * AudioInfo
- * <Description> 音频列表信息
+ * <Description> 音频列表信息数据结构
  * <Details>
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2020/12/10 11:04:00
  */
-public class AudioInfo implements Serializable {
+public class AudioListModel implements Serializable {
     public int currentIndex;
-    private List<MusicModel> audioList;
+    private List<AudioModel> audioList;
 
     public int getCurrentIndex() {
         return currentIndex;
     }
 
-    public AudioInfo setCurrentIndex(int currentIndex) {
+    public AudioListModel setCurrentIndex(int currentIndex) {
         this.currentIndex = currentIndex;
         return this;
     }
 
-    public List<MusicModel> getAudioList() {
+    public List<AudioModel> getAudioList() {
         return audioList;
     }
 
-    public AudioInfo setAudioList(List<MusicModel> audioList) {
+    public AudioListModel setAudioList(List<AudioModel> audioList) {
         this.audioList = audioList;
         return this;
     }

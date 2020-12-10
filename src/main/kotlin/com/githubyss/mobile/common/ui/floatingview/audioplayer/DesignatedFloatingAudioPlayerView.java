@@ -23,7 +23,7 @@ import static com.githubyss.mobile.common.ui.audio.music.AudioState.START;
 /**
  * DesignatedFloatingAudioPlayerView
  * <Description> 特定的音频播放器悬浮窗
- * <Details>
+ * <Details> 针对特此的布局，实现布局元素的显示和操作响应。
  *
  * @author Ace Yan
  * @github githubyss
@@ -68,32 +68,32 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
      */
     public void initData() {
         if (seekBar_audioPlayer != null) {
-            StateChanged(START);
+            stateChanged(START);
             // 先把一些漏掉的东西初始化下
-            StateChanged(READY);
-            StateChanged(MusicManager.getInstance().audioState);
+            stateChanged(READY);
+            stateChanged(MusicManager.getInstance().audioState);
             seekBar_audioPlayer.setProgress(MusicManager.getInstance().getCurrentPosition());
             seekBar_audioPlayer.setSecondaryProgress(MusicManager.getInstance().getUpdateProgress());
         }
     }
 
-    protected void PlayProgress(int CurrentPosition) {
+    protected void playProgress(int CurrentPosition) {
         if (!seekBar_audioPlayer.isPressed()) {
             seekBar_audioPlayer.setProgress(CurrentPosition);
         }
     }
 
-    public void BufferingUpdateProgress(int percent) {
+    public void bufferingUpdateProgress(int percent) {
         seekBar_audioPlayer.setSecondaryProgress(percent);
     }
 
-    protected void StateChanged(AudioState audioState) {
+    protected void stateChanged(AudioState audioState) {
         switch (audioState) {
             case START:
-                if (MusicManager.getInstance().getPlayList() == null || MusicManager.getInstance().getPlayList().size() == 0) {
+                if (MusicManager.getInstance().getAudioList() == null || MusicManager.getInstance().getAudioList().size() == 0) {
                     break;
                 }
-                textView_title.setText(MusicManager.getInstance().getPlayList().get(MusicManager.getInstance().getPosition()).getTitle());
+                textView_title.setText(MusicManager.getInstance().getAudioList().get(MusicManager.getInstance().getPosition()).getTitle());
                 // mMusicPlayAuthorTv.setText(mContext.getString(R.string.music_play_author) + MusicManager.getInstance().getPlayList().get(MusicManager.getInstance().getPosition()).getAuthor());
                 // mMusicPreviousIv.setImageResource(R.drawable.music_play_previous_click_icon);
                 // mMusicNextIv.setImageResource(R.drawable.music_play_next_click_icon);
@@ -196,7 +196,7 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
         MusicManager.getInstance().setMusicListener(new MusicInterface() {
             @Override
             public void onStateChanged(AudioState audioState) {
-                StateChanged(audioState);
+                stateChanged(audioState);
                 if (musicInterface != null) {
                     musicInterface.onStateChanged(audioState);
                 }
@@ -204,7 +204,7 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
 
             @Override
             public void onPlayProgress(int currentPosition) {
-                PlayProgress(currentPosition);
+                playProgress(currentPosition);
                 if (musicInterface != null) {
                     musicInterface.onPlayProgress(currentPosition);
                 }
@@ -212,7 +212,7 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
 
             @Override
             public void onBufferingUpdateProgress(int percent) {
-                BufferingUpdateProgress(percent);
+                bufferingUpdateProgress(percent);
                 if (musicInterface != null) {
                     musicInterface.onBufferingUpdateProgress(percent);
                 }
@@ -240,7 +240,7 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
     private OnClickListener onClickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (MusicManager.getInstance().getPlayList() == null || MusicManager.getInstance().getPlayList().size() == 0) {
+            if (MusicManager.getInstance().getAudioList() == null || MusicManager.getInstance().getAudioList().size() == 0) {
                 return;
             }
             int id = v.getId();

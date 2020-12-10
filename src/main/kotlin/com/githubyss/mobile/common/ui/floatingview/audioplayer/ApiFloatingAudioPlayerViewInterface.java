@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.githubyss.mobile.common.ui.audio.model.AudioModel;
+
+import java.util.List;
+
 import androidx.annotation.LayoutRes;
 
 
@@ -34,7 +38,7 @@ public interface ApiFloatingAudioPlayerViewInterface {
 
     ApiFloatingAudioPlayerView detach(FrameLayout container);
 
-    ApiFloatingAudioPlayerView initData();
+    ApiFloatingAudioPlayerView initData(List<AudioModel> audioList);
 
     BaseFloatingAutoShortedView getAutoShortedView();
 

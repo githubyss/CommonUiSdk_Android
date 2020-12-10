@@ -23,13 +23,13 @@
                 android:background="@drawable/bg_audio_player_floating_window"
                 >
 
-            <LinearLayout
+            <View
                     android:layout_width="57dp"
-                    android:layout_height="50dp"
+                    android:layout_height="0dp"
                     />
 
             <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="7dp"
                     android:orientation="vertical"
@@ -38,7 +38,7 @@
 
                 <TextView
                         android:id="@+id/textView_title"
-                        android:layout_width="60dp"
+                        android:layout_width="match_parent"
                         android:layout_height="14dp"
                         android:text="我是一个滚动标题呀"
                         android:textColor="#FFFFFF"
@@ -46,7 +46,7 @@
                         />
 
                 <LinearLayout
-                        android:layout_width="57dp"
+                        android:layout_width="match_parent"
                         android:layout_height="14dp"
                         android:layout_marginTop="2dp"
                         android:orientation="horizontal"
@@ -61,7 +61,7 @@
                             android:textColor="#ff8000"
                             android:textColorHint="#ff8000"
                             android:textSize="10sp"
-                            android:text="2:00"
+                            android:text="02:00"
                             />
 
                     <TextView
@@ -115,28 +115,35 @@
                     android:src="@drawable/icon_audio_player_voice_man"
                     />
 
-            <ImageView
-                    android:id="@+id/imageView_close"
+            <FrameLayout
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/icon_audio_player_close"
-                    android:scaleType="center"
-                    android:visibility="visible"
-                    />
+                    >
 
-            <ImageView
-                    android:id="@+id/imageView_lengthen"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/icon_audio_player_extent"
-                    android:scaleType="center"
-                    android:visibility="gone"
-                    />
+                <ImageView
+                        android:id="@+id/imageView_close"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_audio_player_close"
+                        android:scaleType="center"
+                        android:visibility="visible"
+                        />
+
+                <ImageView
+                        android:id="@+id/imageView_lengthen"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_audio_player_extent"
+                        android:scaleType="center"
+                        android:visibility="gone"
+                        />
+            </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 >
 
             <ImageView
@@ -156,20 +163,4 @@
                     />
         </LinearLayout>
     </FrameLayout>
-
-    <!--<LinearLayout-->
-    <!--        android:id="@+id/ll_touch_move_btn"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="15dp"-->
-    <!--        android:orientation="vertical"-->
-    <!--        android:gravity="center"-->
-    <!--        >-->
-
-    <!--    <ImageView-->
-    <!--            android:layout_width="30dp"-->
-    <!--            android:layout_height="4dp"-->
-    <!--            android:layout_gravity="center_horizontal"-->
-    <!--            android:background="@drawable/bg_screenshot_bottom_line"-->
-    <!--            />-->
-    <!--</LinearLayout>-->
 </LinearLayout>

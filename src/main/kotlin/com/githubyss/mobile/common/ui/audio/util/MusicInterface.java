@@ -4,11 +4,14 @@ package com.githubyss.mobile.common.ui.audio.util;
 import com.githubyss.mobile.common.ui.audio.music.AudioState;
 
 /**
- * 88396251
- * 2018/5/23
- * 播放状态
+ * MusicInterface
+ * <Description> 播放状态
+ * <Details>
+ *
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2020/12/10 17:59:28
  */
-
 public interface MusicInterface {
 
     /**
@@ -25,5 +28,4 @@ public interface MusicInterface {
      * 当前缓存进度
      */
     void onBufferingUpdateProgress(int percent);
-
 }

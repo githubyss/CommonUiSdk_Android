@@ -14,8 +14,8 @@ import android.widget.Toast;
 import com.githubyss.mobile.common.kit.hint.ComkitToastUtils;
 import com.githubyss.mobile.common.kit.resource.ComkitResUtils;
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.audio.model.AudioInfo;
-import com.githubyss.mobile.common.ui.audio.model.MusicModel;
+import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
+import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.music.AudioState;
 import com.githubyss.mobile.common.ui.audio.music.MusicManager;
 import com.githubyss.mobile.common.ui.audio.util.MusicInterface;
@@ -135,18 +135,19 @@ public class ApiFloatingAudioPlayerView implements ApiFloatingAudioPlayerViewInt
     }
 
     @Override
-    public ApiFloatingAudioPlayerView initData() {
+    public ApiFloatingAudioPlayerView initData(List<AudioModel> audioList) {
         if (mDesignatedFloatingView != null) {
-            if (MusicManager.getInstance().getPlayList() == null || MusicManager.getInstance().getPlayList().size() == 0) {
-                // Fake data
-                List<MusicModel> audioList = new ArrayList<>();
-                audioList.add(new MusicModel("0", "ReviewMyKisses", "Amiena", "", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", AudioState.STOP));
-                AudioInfo info = new AudioInfo();
-                info.setAudioList(audioList);
-                info.setCurrentIndex(0);
+            if (MusicManager.getInstance().getAudioList() == null || MusicManager.getInstance().getAudioList().size() == 0) {
 
-                if (info != null) {
-                    MusicManager.getInstance().setInfo(info);
+                // Fake data
+                // List<AudioModel> audioList1 = new ArrayList<>();
+                // audioList1.add(new AudioModel("0", "ReviewMyKisses", "Amiena", "", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", AudioState.STOP));
+                AudioListModel audioListModel = new AudioListModel();
+                audioListModel.setAudioList(audioList);
+                audioListModel.setCurrentIndex(1);
+
+                if (audioListModel != null) {
+                    MusicManager.getInstance().setInfo(audioListModel);
                     MusicManager.getInstance().play(mContext);
                 } else {
                     ComkitToastUtils.INSTANCE.showMessage(mContext, ComkitResUtils.INSTANCE.getString(mContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);

@@ -6,9 +6,10 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
 
-import com.githubyss.mobile.common.ui.audio.model.AudioInfo;
-import com.githubyss.mobile.common.ui.audio.model.MusicModel;
+import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
+import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.util.MusicInterface;
+import com.githubyss.mobile.common.ui.audio.util.ProgressTextUtils;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class MusicManager {
     private static final String TAG = "MusicManager";
     public AudioState audioState;
     private MediaPlayer mediaPlayer;
-    private AudioInfo musicInfo;
+    private AudioListModel audioListModel;
     private MusicInterface musicInterface;
     private static final int WHAT_REFRESH = 0x268;
     private static final int MAX_PROGRESS = 100;
@@ -108,14 +109,13 @@ public class MusicManager {
      * 屏蔽8.0方法，升级后打开
      */
     private void requestFocus() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            if (mFocusRequest != null && mAudioManager != null) {
-//                AudioFocusChange(mAudioManager.requestAudioFocus(mFocusRequest), false);
-//            }
-//        } else {
+        //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        //            if (mFocusRequest != null && mAudioManager != null) {
+        //                AudioFocusChange(mAudioManager.requestAudioFocus(mFocusRequest), false);
+        //            }
+        //        } else {
         if (myFocusListener != null && mAudioManager != null) {
-            AudioFocusChange(mAudioManager.requestAudioFocus(myFocusListener,
-                    AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN), false);
+            AudioFocusChange(mAudioManager.requestAudioFocus(myFocusListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN), false);
         }
         //       }
     }
@@ -125,15 +125,15 @@ public class MusicManager {
      * 屏蔽8.0方法，升级后打开
      */
     private void abandonFocus() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            if (mFocusRequest != null && mAudioManager != null) {
-//                mAudioManager.abandonAudioFocusRequest(mFocusRequest);
-//            }
-//        } else {
+        //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        //            if (mFocusRequest != null && mAudioManager != null) {
+        //                mAudioManager.abandonAudioFocusRequest(mFocusRequest);
+        //            }
+        //        } else {
         if (myFocusListener != null && mAudioManager != null) {
             mAudioManager.abandonAudioFocus(myFocusListener);
         }
-//        }
+        //        }
     }
 
     /**
@@ -148,17 +148,17 @@ public class MusicManager {
             }
         };
         //请求焦点
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            AudioAttributes mPlaybackAttributes = new AudioAttributes.Builder()
-//                    .setUsage(AudioAttributes.USAGE_GAME)
-//                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-//                    .build();
-//            mFocusRequest = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
-//                    .setAudioAttributes(mPlaybackAttributes)
-//                    .setAcceptsDelayedFocusGain(true)
-//                    .setOnAudioFocusChangeListener(myFocusListener, handler)
-//                    .build();
-//        }
+        //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        //            AudioAttributes mPlaybackAttributes = new AudioAttributes.Builder()
+        //                    .setUsage(AudioAttributes.USAGE_GAME)
+        //                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+        //                    .build();
+        //            mFocusRequest = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+        //                    .setAudioAttributes(mPlaybackAttributes)
+        //                    .setAcceptsDelayedFocusGain(true)
+        //                    .setOnAudioFocusChangeListener(myFocusListener, handler)
+        //                    .build();
+        //        }
         requestFocus();
     }
 
@@ -239,7 +239,7 @@ public class MusicManager {
      * 上一首歌
      */
     public int previous() {
-        if (!loop && musicInfo != null && musicInfo.currentIndex <= 0) {
+        if (!loop && audioListModel != null && audioListModel.currentIndex <= 0) {
             return -1;
         }
         if (mediaPlayer == null) {
@@ -249,9 +249,9 @@ public class MusicManager {
         if (audioState == PLAYING) {
             stop();
         }
-        musicInfo.currentIndex--;
-        if (musicInfo.currentIndex < 0) {
-            musicInfo.currentIndex = musicInfo.getAudioList().size() - 1;
+        audioListModel.currentIndex--;
+        if (audioListModel.currentIndex < 0) {
+            audioListModel.currentIndex = audioListModel.getAudioList().size() - 1;
         }
         audioPrepare();
         return 0;
@@ -261,7 +261,7 @@ public class MusicManager {
      * 暂停
      */
     public boolean pause() {
-        if (musicInfo == null) {
+        if (audioListModel == null) {
             destory();
             return false;
         }
@@ -279,7 +279,7 @@ public class MusicManager {
      * 开始播放，当暂停或准备好后才行
      */
     public void start() {
-        if (musicInfo == null) {
+        if (audioListModel == null) {
             destory();
             return;
         }
@@ -287,7 +287,7 @@ public class MusicManager {
     }
 
     private void startSelf() {
-        if (musicInfo == null) {
+        if (audioListModel == null) {
             destory();
             return;
         }
@@ -307,7 +307,7 @@ public class MusicManager {
      * 下一首歌
      */
     public void next() {
-        if (!loop && musicInfo != null && musicInfo.currentIndex >= musicInfo.getAudioList().size() - 1) {
+        if (!loop && audioListModel != null && audioListModel.currentIndex >= audioListModel.getAudioList().size() - 1) {
             return;
         }
         if (mediaPlayer == null) {
@@ -317,9 +317,9 @@ public class MusicManager {
         if (audioState == PLAYING) {
             stop();
         }
-        musicInfo.currentIndex++;
-        if (musicInfo.currentIndex >= musicInfo.getAudioList().size()) {
-            musicInfo.currentIndex = 0;
+        audioListModel.currentIndex++;
+        if (audioListModel.currentIndex >= audioListModel.getAudioList().size()) {
+            audioListModel.currentIndex = 0;
         }
         audioPrepare();
     }
@@ -343,14 +343,14 @@ public class MusicManager {
      * 每一首歌开始前的准备工作
      */
     private void audioPrepare() {
-        if (musicInfo == null || musicInfo.getAudioList().size() == 0) {
+        if (audioListModel == null || audioListModel.getAudioList().size() == 0) {
             return;
         }
         if (!audioInit()) {
             mediaPlayer.reset();
         }
         try {
-            mediaPlayer.setDataSource(musicInfo.getAudioList().get(musicInfo.currentIndex).getUrl());
+            mediaPlayer.setDataSource(audioListModel.getAudioList().get(audioListModel.currentIndex).getUrl());
         } catch (Exception e) {
             // LogUtils.e(TAG, e.getStackTrace().toString() + "");
             return;
@@ -391,23 +391,30 @@ public class MusicManager {
         }
     };
 
-    public void setInfo(AudioInfo info) {
+    public void setInfo(AudioListModel audioListModel) {
         stop();
-        this.musicInfo = info;
+        this.audioListModel = audioListModel;
     }
 
-    public List<MusicModel> getPlayList() {
-        if (musicInfo == null) {
+    public List<AudioModel> getAudioList() {
+        if (audioListModel == null) {
             return null;
         }
-        return musicInfo.getAudioList();
+        return audioListModel.getAudioList();
+    }
+
+    public int getCurrentIndex() {
+        if (audioListModel == null) {
+            return 0;
+        }
+        return audioListModel.getCurrentIndex();
     }
 
     public int getPosition() {
-        if (musicInfo == null) {
+        if (audioListModel == null) {
             return 0;
         }
-        return musicInfo.currentIndex;
+        return audioListModel.currentIndex;
     }
 
     public void setMusicListener(MusicInterface musicInterface) {
@@ -421,16 +428,16 @@ public class MusicManager {
     }
 
     public String getDurationTime() {
-        // if (mediaPlayer != null) {
-        //     return ProgressTextUtils.getProgressText(mediaPlayer.getDuration());
-        // }
+        if (mediaPlayer != null) {
+            return ProgressTextUtils.getProgressText(mediaPlayer.getDuration());
+        }
         return "";
     }
 
     public String getCurrentTime() {
-        // if (mediaPlayer != null) {
-        //     return ProgressTextUtils.getProgressText(mediaPlayer.getCurrentPosition());
-        // }
+        if (mediaPlayer != null) {
+            return ProgressTextUtils.getProgressText(mediaPlayer.getCurrentPosition());
+        }
         return "";
     }
 
@@ -451,7 +458,7 @@ public class MusicManager {
             mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
-            musicInfo = null;
+            audioListModel = null;
             setAudioState(AudioState.END);
         }
     }
