@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_play_layout_back">退出</string>
+    <string name="music_play_layout_share">分享</string>
+    <string name="music_play_layout_share_success">分享成功</string>
+    <string name="music_play_layout_previous">上一首</string>
+    <string name="music_play_layout_next">下一首</string>
+    <string name="music_play_float_fail">悬浮框权限申请失败</string>
+    <string name="music_play_author">作者：</string>
+    <string name="music_play_notificition_ticker">正在播放</string>
+    <string name="music_play_login_out">是否退出播放</string>
+    <string name="music_play_login_out_confirm">后台播放</string>
+    <string name="music_play_login_out_cancel">停止播放</string>
+    <string name="music_play_no_list">播放列表为空</string>
+    <string name="music_play_activity_text">音频播放页</string>
+</resources>

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.audio.ui;// package com.ace.accessibility.automatic.audio.ui;
+// package com.githubyss.mobile.common.ui.audio.ui;// package com.ace.accessibility.automatic.audio.ui;
 //
 // import android.content.ActivityNotFoundException;
 // import android.content.Intent;
@@ -9,41 +9,11 @@ package com.githubyss.mobile.common.ui.audio.ui;// package com.ace.accessibility
 // import android.os.Bundle;
 // import android.os.Handler;
 // import android.provider.Settings;
-// import android.support.v4.content.LocalBroadcastManager;
 // import android.view.KeyEvent;
 // import android.view.View;
 //
-// import com.suning.mobile.epa.R;
-// import com.suning.mobile.epa.audio.model.AudioInfo;
-// import com.suning.mobile.epa.audio.model.MusicModel;
-// import com.suning.mobile.epa.audio.music.AudioState;
-// import com.suning.mobile.epa.audio.music.MusicManager;
-// import com.suning.mobile.epa.audio.service.MusicService;
-// import com.suning.mobile.epa.audio.util.Constant;
-// import com.suning.mobile.epa.audio.util.CustomStatisticsUtils;
-// import com.suning.mobile.epa.audio.util.MusicInterface;
-// import com.suning.mobile.epa.audio.util.PermissionFloatUtils;
-// import com.suning.mobile.epa.audio.views.MusicNotification;
-// import com.suning.mobile.epa.audio.views.MusicView;
-// import com.suning.mobile.epa.common.ActivityRequestCode;
-// import com.suning.mobile.epa.kits.utils.ToastUtil;
-// import com.suning.mobile.epa.kits.view.CustomAlertDialog;
-// import com.suning.mobile.epa.screeninsurance.share.QQShareCallback;
-// import com.suning.mobile.epa.screeninsurance.share.ShareResult;
-// import com.suning.mobile.epa.statistic.CustomStatisticsProxy;
-// import com.suning.mobile.epa.ui.base.BaseActivity;
-// import com.suning.mobile.epa.ui.commonshare.CommonShareDialog;
-// import com.suning.mobile.epa.ui.commonshare.sharebean.ShareBean;
-// import com.suning.mobile.epa.ui.init.SplashActivity;
-// import com.suning.mobile.epa.utils.EpaActivityLifecycleUtil;
-// import com.suning.mobile.epa.utils.ResUtil;
-// import com.tencent.connect.common.Constants;
-// import com.tencent.tauth.Tencent;
-//
-// import org.apache.http.util.TextUtils;
-// import org.greenrobot.eventbus.EventBus;
-// import org.greenrobot.eventbus.Subscribe;
-// import org.greenrobot.eventbus.ThreadMode;
+// import com.githubyss.mobile.common.ui.R;
+// import com.githubyss.mobile.common.ui.audio.views.MusicView;
 // import org.json.JSONException;
 // import org.json.JSONObject;
 //

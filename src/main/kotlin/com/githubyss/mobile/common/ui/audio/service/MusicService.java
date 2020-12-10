@@ -14,18 +14,6 @@ import com.githubyss.mobile.common.ui.audio.music.MusicManager;
 import com.githubyss.mobile.common.ui.constant.Constant;
 
 
-// import android.support.v4.content.LocalBroadcastManager;
-// import com.ace.accessibility.automatic.audio.views.FloatView;
-// import com.ace.accessibility.automatic.audio.views.MusicNotification;
-// import com.ace.accessibility.automatic.audio.views.MusicViewMini;
-// import com.suning.mobile.epa.audio.music.AudioState;
-// import com.suning.mobile.epa.audio.music.MusicManager;
-// import com.suning.mobile.epa.audio.util.Constant;
-// import com.suning.mobile.epa.audio.util.MusicInterface;
-// import com.suning.mobile.epa.audio.views.FloatView;
-// import com.suning.mobile.epa.audio.views.MusicNotification;
-// import com.suning.mobile.epa.audio.views.MusicViewMini;
-
 /**
  * 88396251
  * 2018/5/23

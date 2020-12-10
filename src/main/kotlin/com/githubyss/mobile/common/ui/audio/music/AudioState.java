@@ -1,19 +1,24 @@
 package com.githubyss.mobile.common.ui.audio.music;
 
+
 /**
- * 88396251
- * 2018/5/22
- * 播放状态类
+ * AudioState
+ * <Description> 播放状态类
+ * <Details>
+ *
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2020/12/10 11:06:31
  */
-
 public enum AudioState {
-
-    STATE_START(0x15), STATE_PREPARE(0x25), STATE_PLAYING(0x35), STATE_STOP(0x45), STATE_PAUSE(0x55), STATE_READY(0x65), STATE_END(0x45);
+    /**
+     * 播放状态类
+     */
+    START(0x15), PREPARE(0x25), PLAYING(0x35), STOP(0x45), PAUSE(0x55), READY(0x65), END(0x45);
 
     private int state;
 
     AudioState(int state) {
         this.state = state;
     }
-
 }

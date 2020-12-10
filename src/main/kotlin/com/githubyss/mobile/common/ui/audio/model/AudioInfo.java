@@ -3,11 +3,16 @@ package com.githubyss.mobile.common.ui.audio.model;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * 88396251
- * 2018/5/21.
- */
 
+/**
+ * AudioInfo
+ * <Description> 音频列表信息
+ * <Details>
+ *
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2020/12/10 11:04:00
+ */
 public class AudioInfo implements Serializable {
     public int currentIndex;
     private List<MusicModel> audioInfoList;

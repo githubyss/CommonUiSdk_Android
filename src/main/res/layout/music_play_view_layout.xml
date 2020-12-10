@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/music_play_layout_gradient"
+                android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="215dp"
+                android:layout_height="199dp"
+                android:layout_marginTop="46dp"
+                android:src="@drawable/music_play_big_image"/>
+
+            <TextView
+                android:id="@+id/music_play_activity_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="51dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:maxWidth="250dp"
+                android:textColor="#666666"
+                android:textSize="18sp"
+                tools:text="2029年金融危机怎么看?"/>
+
+            <TextView
+                android:id="@+id/music_play_activity_author_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:maxWidth="250dp"
+                android:textColor="#999999"
+                android:textSize="16sp"
+                tools:text="作者:小明"/>
+
+            <LinearLayout
+                android:id="@+id/music_play_activity_time_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/music_play_activity_position_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/music_play_activity_title_tv"
+                    android:hint="--:--"
+                    android:textColor="#ff8000"
+                    android:textColorHint="#ff8000"
+                    android:textSize="16sp"
+                    tools:text="3:00"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/music_play_activity_title_tv"
+                    android:text=" / "
+                    android:textColor="#999999"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/music_play_activity_duration_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/music_play_activity_title_tv"
+                    android:hint="--:--"
+                    android:textColor="#999999"
+                    android:textColorHint="#999999"
+                    android:textSize="16sp"
+                    tools:text="10:00"/>
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/music_play_seek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="44.5dp"
+                android:layout_marginRight="44.5dp"
+                android:max="100"
+                android:maxHeight="2dp"
+                android:minHeight="2dp"
+                android:progress="0"
+                android:progressDrawable="@drawable/music_play_seekbar"
+                android:secondaryProgress="0"
+                android:thumb="@drawable/music_play_thumb_image"
+                android:thumbOffset="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="58dp"
+                android:layout_marginRight="58dp"
+                android:layout_marginTop="25dp">
+
+                <ImageView
+                    android:id="@+id/music_play_previous_iv"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="13dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/music_play_previous_click_icon"/>
+
+                <ImageView
+                    android:id="@+id/music_play_start_iv"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/music_play_btn_play"/>
+
+                <ImageView
+                    android:id="@+id/music_play_next_iv"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="13dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/music_play_next_click_icon"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

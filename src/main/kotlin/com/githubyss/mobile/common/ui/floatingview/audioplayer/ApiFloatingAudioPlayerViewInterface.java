@@ -34,13 +34,13 @@ public interface ApiFloatingAudioPlayerViewInterface {
 
     ApiFloatingAudioPlayerView detach(FrameLayout container);
 
-    BaseFloatingAudioPlayerView getAudioPlayerView();
+    BaseFloatingAutoShortedView getAutoShortedView();
 
-    ApiFloatingAudioPlayerView customView(BaseFloatingAudioPlayerView viewGroup);
+    ApiFloatingAudioPlayerView customView(DesignatedFloatingAudioPlayerView viewGroup);
 
     ApiFloatingAudioPlayerView customView(@LayoutRes int resource);
 
     ApiFloatingAudioPlayerView layoutParams(ViewGroup.LayoutParams params);
 
-    ApiFloatingAudioPlayerView listener(BaseFloatingAudioPlayerViewListener baseFloatingAudioPlayerViewListener);
+    ApiFloatingAudioPlayerView listener(DesignatedFloatingAudioPlayerViewListener designatedFloatingAudioPlayerViewListener);
 }

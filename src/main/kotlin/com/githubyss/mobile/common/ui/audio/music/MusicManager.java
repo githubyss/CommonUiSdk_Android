@@ -15,22 +15,6 @@ import java.util.List;
 import static com.githubyss.mobile.common.ui.audio.music.AudioState.*;
 
 
-// import com.suning.mobile.epa.EPApp;
-// import com.suning.mobile.epa.audio.model.AudioInfo;
-// import com.suning.mobile.epa.audio.model.MusicModel;
-// import com.suning.mobile.epa.audio.util.MusicInterface;
-// import com.suning.mobile.epa.audio.util.ProgressTextUtils;
-// import com.suning.mobile.epa.kits.utils.ToastUtil;
-// import com.suning.mobile.epa.utils.log.LogUtils;
-
-// import static com.suning.mobile.epa.audio.music.AudioState.STATE_PAUSE;
-// import static com.suning.mobile.epa.audio.music.AudioState.STATE_PLAYING;
-// import static com.suning.mobile.epa.audio.music.AudioState.STATE_PREPARE;
-// import static com.suning.mobile.epa.audio.music.AudioState.STATE_READY;
-// import static com.suning.mobile.epa.audio.music.AudioState.STATE_START;
-// import static com.suning.mobile.epa.audio.music.AudioState.STATE_STOP;
-
-
 /**
  * 88396251
  * 2018-5-22
@@ -57,7 +41,7 @@ public class MusicManager {
     public static final int AUDIOFOCUS_REQUEST_DELAYED = 2;
 
     private MusicManager() {
-        audioState = STATE_STOP;
+        audioState = STOP;
     }
 
     private static volatile MusicManager instance = null;
@@ -81,7 +65,7 @@ public class MusicManager {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
                     MaxProgress = mediaPlayer.getDuration();
-                    setAudioState(STATE_READY);
+                    setAudioState(READY);
                     startSelf();
                 }
             });
@@ -193,7 +177,7 @@ public class MusicManager {
                 //AudioManager.AUDIOFOCUS_REQUEST_GRANTED://申请成功，处理相同
                 // LogUtils.e(TAG, "AUDIOFOCUS_GAIN");
                 //手动暂停或停止的，不需要重启。
-                if (asynchronous && isHandStop && (audioState == STATE_PAUSE || audioState == STATE_STOP)) {
+                if (asynchronous && isHandStop && (audioState == PAUSE || audioState == STOP)) {
                     return;
                 }
                 startSelf();
@@ -246,7 +230,7 @@ public class MusicManager {
      * 当前歌曲重新开始播放
      */
     private void startFromBegin() {
-        if (audioState != STATE_PREPARE) {
+        if (audioState != PREPARE) {
             audioPrepare();
         }
     }
@@ -262,7 +246,7 @@ public class MusicManager {
             startFromBegin();
             return 1;
         }
-        if (audioState == STATE_PLAYING) {
+        if (audioState == PLAYING) {
             stop();
         }
         musicInfo.currentIndex--;
@@ -281,11 +265,11 @@ public class MusicManager {
             destory();
             return false;
         }
-        if (audioState == STATE_PLAYING && mediaPlayer != null) {
+        if (audioState == PLAYING && mediaPlayer != null) {
             isHandStop = true;
             mediaPlayer.pause();
             handler.removeMessages(WHAT_REFRESH);
-            setAudioState(STATE_PAUSE);
+            setAudioState(PAUSE);
             return true;
         }
         return false;
@@ -312,10 +296,10 @@ public class MusicManager {
             playFromStart = false;
             return;
         }
-        if (audioState == STATE_PAUSE || audioState == STATE_READY) {
+        if (audioState == PAUSE || audioState == READY) {
             mediaPlayer.start();
             handler.sendEmptyMessage(WHAT_REFRESH);
-            setAudioState(STATE_PLAYING);
+            setAudioState(PLAYING);
         }
     }
 
@@ -330,7 +314,7 @@ public class MusicManager {
             startFromBegin();
             return;
         }
-        if (audioState == STATE_PLAYING) {
+        if (audioState == PLAYING) {
             stop();
         }
         musicInfo.currentIndex++;
@@ -345,11 +329,11 @@ public class MusicManager {
      * 注意停止后得重新Prepare，无法直接start
      */
     public boolean stop() {
-        if (audioState != STATE_STOP && mediaPlayer != null) {
+        if (audioState != STOP && mediaPlayer != null) {
             isHandStop = true;
             mediaPlayer.stop();
             handler.removeMessages(WHAT_REFRESH);
-            setAudioState(STATE_STOP);
+            setAudioState(STOP);
             return true;
         }
         return false;
@@ -372,9 +356,9 @@ public class MusicManager {
             return;
         }
 
-        setAudioState(STATE_START);
+        setAudioState(START);
         mediaPlayer.prepareAsync();
-        setAudioState(STATE_PREPARE);
+        setAudioState(PREPARE);
     }
 
     /**
@@ -468,7 +452,7 @@ public class MusicManager {
             mediaPlayer.release();
             mediaPlayer = null;
             musicInfo = null;
-            setAudioState(AudioState.STATE_END);
+            setAudioState(AudioState.END);
         }
     }
 

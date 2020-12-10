@@ -2,30 +2,43 @@ package com.githubyss.mobile.common.ui.audio.model;
 
 import java.io.Serializable;
 
-/**
- * 88396251
- * 2018/5/21
- */
 
+/**
+ * MusicModel
+ * <Description> 音频信息数据结构
+ * <Details>
+ *
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2020/12/10 10:59:10
+ */
 public class MusicModel implements Serializable {
+    private String id;
     private String title;
     private String author;
     private String icon;
     private String url;
     private String maleUrl;
     private String femaleUrl;
+    private String playStatus;
 
 
     public MusicModel() {
     }
 
-    public MusicModel(String author, String title, String icon, String maleUrl, String femaleUrl) {
+    public MusicModel(String id, String title, String author, String icon, String url, String maleUrl, String femaleUrl, String playStatus) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.icon = icon;
         this.url = url;
         this.maleUrl = maleUrl;
         this.femaleUrl = femaleUrl;
+        this.playStatus = playStatus;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -50,6 +63,10 @@ public class MusicModel implements Serializable {
 
     public String getFemaleUrl() {
         return femaleUrl;
+    }
+
+    public String getPlayStatus() {
+        return playStatus;
     }
 
     public MusicModel setIcon(String icon) {

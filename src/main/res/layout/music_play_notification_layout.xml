@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/music_play_custom_song_rl"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/music_play_custom_song_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        tools:src="@drawable/notification_logo"/>
+
+    <LinearLayout
+        android:id="@+id/music_play_custom_button_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/music_play_player_previous"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@null"
+            android:src="@drawable/music_player_btn_pre_press"/>
+
+        <ImageButton
+            android:id="@+id/music_play_player_play"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@null"
+            android:src="@drawable/music_player_btn_play_press"/>
+
+        <ImageButton
+            android:id="@+id/music_play_player_next"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@null"
+            android:src="@drawable/music_player_btn_next_press"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="5dip"
+        android:layout_toLeftOf="@id/music_play_custom_button_ll"
+        android:layout_toRightOf="@id/music_play_custom_song_icon"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/music_play_custom_song_singer_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#666666"
+            android:textSize="15sp"
+            tools:text="title"/>
+
+        <TextView
+            android:id="@+id/music_play_custom_song_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            tools:text="content"/>
+    </LinearLayout>
+
+</RelativeLayout>

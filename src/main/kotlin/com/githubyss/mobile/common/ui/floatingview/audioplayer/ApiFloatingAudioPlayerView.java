@@ -32,7 +32,7 @@ public class ApiFloatingAudioPlayerView implements ApiFloatingAudioPlayerViewInt
     private static volatile ApiFloatingAudioPlayerView mInstance;
     private Context mContext;
     private WeakReference<FrameLayout> mContainer;
-    private BaseFloatingAudioPlayerView mDesignatedFloatingView;
+    private DesignatedFloatingAudioPlayerView mDesignatedFloatingView;
     private ViewGroup.LayoutParams mLayoutParams = getLayoutParams();
     @LayoutRes
     private int mLayoutId = R.layout.floating_window_audio_player;
@@ -124,12 +124,12 @@ public class ApiFloatingAudioPlayerView implements ApiFloatingAudioPlayerViewInt
     }
 
     @Override
-    public BaseFloatingAudioPlayerView getAudioPlayerView() {
+    public BaseFloatingAutoShortedView getAutoShortedView() {
         return mDesignatedFloatingView;
     }
 
     @Override
-    public ApiFloatingAudioPlayerView customView(BaseFloatingAudioPlayerView viewGroup) {
+    public ApiFloatingAudioPlayerView customView(DesignatedFloatingAudioPlayerView viewGroup) {
         mDesignatedFloatingView = viewGroup;
         return this;
     }
@@ -150,9 +150,9 @@ public class ApiFloatingAudioPlayerView implements ApiFloatingAudioPlayerViewInt
     }
 
     @Override
-    public ApiFloatingAudioPlayerView listener(BaseFloatingAudioPlayerViewListener baseFloatingAudioPlayerViewListener) {
+    public ApiFloatingAudioPlayerView listener(DesignatedFloatingAudioPlayerViewListener designatedFloatingAudioPlayerViewListener) {
         if (mDesignatedFloatingView != null) {
-            mDesignatedFloatingView.setAudioPlayerViewListener(baseFloatingAudioPlayerViewListener);
+            mDesignatedFloatingView.setDesignatedFloatingAudioPlayerViewListener(designatedFloatingAudioPlayerViewListener);
         }
         return this;
     }
@@ -168,7 +168,7 @@ public class ApiFloatingAudioPlayerView implements ApiFloatingAudioPlayerViewInt
             addViewToWindow(mDesignatedFloatingView);
             mDesignatedFloatingView.showFloatingWindow();
 
-            listener(new BaseFloatingAudioPlayerViewListener() {
+            listener(new DesignatedFloatingAudioPlayerViewListener() {
                 @Override
                 public void onClose() {
                     removeFloatingView();
