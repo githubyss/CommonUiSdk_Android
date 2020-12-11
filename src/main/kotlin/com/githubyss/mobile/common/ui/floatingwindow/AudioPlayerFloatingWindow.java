@@ -334,10 +334,10 @@ public class AudioPlayerFloatingWindow {
 
         if (!isShown) {
             try {
-                getWindowManager().addView(containerView, layoutParams);
-                FrameLayout.LayoutParams containerViewLayoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                containerViewLayoutParams.topMargin = 0;
-                containerView.addView(rootView, containerViewLayoutParams);
+                getWindowManager().addView(containerView, getLayoutParams());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                layoutParams.topMargin = 0;
+                containerView.addView(rootView, layoutParams);
                 animatorSlideRightShow.start();
                 // rootView.startAnimation(animSlideRightShow);
             } catch (WindowManager.BadTokenException e) {

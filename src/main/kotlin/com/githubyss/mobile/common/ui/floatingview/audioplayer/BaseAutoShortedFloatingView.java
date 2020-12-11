@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.R;
  * @author yanss 16072015
  * @createdTime 2017/04/05 15:25:20
  */
-public class BaseFloatingAutoShortedView extends FrameLayout {
+public class BaseAutoShortedFloatingView extends FrameLayout {
 
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
 
@@ -40,7 +40,7 @@ public class BaseFloatingAutoShortedView extends FrameLayout {
     private Animator animatorSlideRightLengthen;
     private Animator animatorSlideLeftShorten;
 
-    private BaseFloatingAutoShortedViewListener baseFloatingAutoShortedViewListener;
+    private BaseAutoShortedFloatingViewListener baseAutoShortedFloatingViewListener;
 
     /**
      * 使用 Handler 进行延时
@@ -51,15 +51,15 @@ public class BaseFloatingAutoShortedView extends FrameLayout {
 
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
 
-    public BaseFloatingAutoShortedView(Context context) {
+    public BaseAutoShortedFloatingView(Context context) {
         this(context, null);
     }
 
-    public BaseFloatingAutoShortedView(Context context, AttributeSet attrs) {
+    public BaseAutoShortedFloatingView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public BaseFloatingAutoShortedView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BaseAutoShortedFloatingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         containerContext = context;
     }
@@ -153,13 +153,6 @@ public class BaseFloatingAutoShortedView extends FrameLayout {
     }
 
 
-    // ---------- ---------- ---------- Setter ---------- ---------- ----------
-
-    public void setBaseFloatingAutoShortedViewListener(BaseFloatingAutoShortedViewListener baseFloatingAutoShortedViewListener) {
-        this.baseFloatingAutoShortedViewListener = baseFloatingAutoShortedViewListener;
-    }
-
-
     // ---------- ---------- ---------- Implementations ---------- ---------- ----------
 
     /**
@@ -184,19 +177,27 @@ public class BaseFloatingAutoShortedView extends FrameLayout {
             isAnimating = false;
 
             if (animatorSlideLeftClose.equals(animation)) {
-                baseFloatingAutoShortedViewListener.onClose();
+                isShown = false;
+                baseAutoShortedFloatingViewListener.onClose();
                 return;
             }
 
             if (animatorSlideRightLengthen.equals(animation)) {
-                baseFloatingAutoShortedViewListener.onSlide(true);
+                baseAutoShortedFloatingViewListener.onSlide(true);
                 return;
             }
 
             if (animatorSlideLeftShorten.equals(animation)) {
-                baseFloatingAutoShortedViewListener.onSlide(false);
+                baseAutoShortedFloatingViewListener.onSlide(false);
                 return;
             }
         }
     };
+
+
+    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+
+    public void setBaseAutoShortedFloatingViewListener(BaseAutoShortedFloatingViewListener baseAutoShortedFloatingViewListener) {
+        this.baseAutoShortedFloatingViewListener = baseAutoShortedFloatingViewListener;
+    }
 }

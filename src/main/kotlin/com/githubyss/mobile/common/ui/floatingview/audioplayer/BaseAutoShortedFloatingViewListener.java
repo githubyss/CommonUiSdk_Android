@@ -1,7 +1,9 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
 
-public interface DesignatedFloatingAudioPlayerViewListener {
+public interface BaseAutoShortedFloatingViewListener {
+
+    void onSlide(boolean isShow);
 
     void onClose();
 }

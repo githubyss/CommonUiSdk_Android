@@ -29,7 +29,7 @@ import static com.githubyss.mobile.common.ui.audio.music.AudioState.START;
  * @github githubyss
  * @createdTime 2020/12/09 11:30:01
  */
-public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedView {
+public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingView {
 
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
 
@@ -42,21 +42,23 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
     private ImageView imageView_close;
     private ImageView imageView_lengthen;
 
-    private DesignatedFloatingAudioPlayerViewListener designatedFloatingAudioPlayerViewListener;
+    private DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener;
     private MusicInterface musicInterface;
 
 
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
 
-    public DesignatedFloatingAudioPlayerView(@NonNull Context context) {
+    public DesignatedAudioPlayerFloatingView(@NonNull Context context) {
         this(context, R.layout.comui_floating_audio_player_view);
     }
 
-    public DesignatedFloatingAudioPlayerView(@NonNull Context context, @LayoutRes int resource) {
+    public DesignatedAudioPlayerFloatingView(@NonNull Context context, @LayoutRes int resource) {
         super(context, null);
-        rootView = inflate(context, resource, this);
-        initBase();
-        initDesignated();
+        if (rootView == null) {
+            rootView = inflate(context, resource, this);
+            initBase();
+            initDesignated();
+        }
     }
 
 
@@ -181,7 +183,7 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
             }
         });
 
-        this.setBaseFloatingAutoShortedViewListener(new BaseFloatingAutoShortedViewListener() {
+        this.setBaseAutoShortedFloatingViewListener(new BaseAutoShortedFloatingViewListener() {
             @Override
             public void onSlide(boolean isShow) {
                 refreshCloseButton(isShow);
@@ -189,7 +191,7 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
 
             @Override
             public void onClose() {
-                designatedFloatingAudioPlayerViewListener.onClose();
+                designatedAudioPlayerFloatingViewListener.onClose();
             }
         });
 
@@ -267,8 +269,8 @@ public class DesignatedFloatingAudioPlayerView extends BaseFloatingAutoShortedVi
 
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
 
-    public void setDesignatedFloatingAudioPlayerViewListener(DesignatedFloatingAudioPlayerViewListener designatedFloatingAudioPlayerViewListener) {
-        this.designatedFloatingAudioPlayerViewListener = designatedFloatingAudioPlayerViewListener;
+    public void setDesignatedAudioPlayerFloatingViewListener(DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener) {
+        this.designatedAudioPlayerFloatingViewListener = designatedAudioPlayerFloatingViewListener;
     }
 
     public void setMusicInterface(MusicInterface musicInterface) {

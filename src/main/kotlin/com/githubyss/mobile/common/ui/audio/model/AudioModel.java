@@ -46,7 +46,7 @@ public class AudioModel implements Serializable {
         processProperty();
     }
 
-    private void processProperty() {
+    public void processProperty() {
         switch (this.voiceType) {
             case MALE:
                 if (!TextUtils.isEmpty(this.maleUrl)) {
