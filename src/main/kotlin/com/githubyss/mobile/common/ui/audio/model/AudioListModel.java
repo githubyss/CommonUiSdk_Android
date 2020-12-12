@@ -1,12 +1,14 @@
 package com.githubyss.mobile.common.ui.audio.model;
 
+import com.githubyss.mobile.common.ui.audio.enumeration.VoiceType;
+
 import java.io.Serializable;
 import java.util.List;
 
 
 /**
  * AudioInfo
- * <Description> 音频列表信息数据结构
+ * <Description> 音频信息列表数据结构
  * <Details>
  *
  * @author Ace Yan
@@ -14,24 +16,27 @@ import java.util.List;
  * @createdTime 2020/12/10 11:04:00
  */
 public class AudioListModel implements Serializable {
-    public int currentIndex;
+    private int currentIndex;
     private List<AudioModel> audioList;
-
-    public int getCurrentIndex() {
-        return currentIndex;
-    }
-
+    
+    public static VoiceType savedVoiceType = VoiceType.MALE;
+    
+    
     public AudioListModel setCurrentIndex(int currentIndex) {
         this.currentIndex = currentIndex;
         return this;
     }
-
-    public List<AudioModel> getAudioList() {
-        return audioList;
-    }
-
+    
     public AudioListModel setAudioList(List<AudioModel> audioList) {
         this.audioList = audioList;
         return this;
+    }
+    
+    public int getCurrentIndex() {
+        return currentIndex;
+    }
+    
+    public List<AudioModel> getAudioList() {
+        return audioList;
     }
 }

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.audio.music;
+package com.githubyss.mobile.common.ui.audio.enumeration;
 
 
 /**

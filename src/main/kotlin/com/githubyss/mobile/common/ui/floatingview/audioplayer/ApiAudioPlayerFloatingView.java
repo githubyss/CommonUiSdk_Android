@@ -16,9 +16,9 @@ import com.githubyss.mobile.common.kit.resource.ComkitResUtils;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.audio.music.AudioState;
-import com.githubyss.mobile.common.ui.audio.music.MusicManager;
-import com.githubyss.mobile.common.ui.audio.util.MusicInterface;
+import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
+import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
+import com.githubyss.mobile.common.ui.audio.player.AudioPlayInterface;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -40,7 +40,7 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
 
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
 
-    private static volatile ApiAudioPlayerFloatingView INSTANCE;
+    private static volatile ApiAudioPlayerFloatingView instance;
 
     private Context containerContext;
     private WeakReference<FrameLayout> containerView;
@@ -58,15 +58,15 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
     }
 
     public static ApiAudioPlayerFloatingView getInstance(Context context) {
-        if (INSTANCE == null) {
+        if (instance == null) {
             synchronized (ApiAudioPlayerFloatingView.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new ApiAudioPlayerFloatingView(context);
+                if (instance == null) {
+                    instance = new ApiAudioPlayerFloatingView(context);
                 }
             }
         }
 
-        return INSTANCE;
+        return instance;
     }
 
 
@@ -80,7 +80,7 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
 
     @Override
     public ApiAudioPlayerFloatingView close() {
-        MusicManager.getInstance().destory();
+        AudioPlayManager.getInstance().destroy();
         if (designatedFloatingView != null) {
             designatedFloatingView.closeFloatingWindow();
         }
@@ -146,7 +146,7 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
     @Override
     public ApiAudioPlayerFloatingView initData(List<AudioModel> audioList) {
         if (designatedFloatingView != null) {
-            if (MusicManager.getInstance().getAudioList() == null || MusicManager.getInstance().getAudioList().size() == 0) {
+            if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
 
                 // Fake data
                 // List<AudioModel> audioList1 = new ArrayList<>();
@@ -156,8 +156,8 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
                 audioListModel.setCurrentIndex(0);
 
                 if (audioListModel != null) {
-                    MusicManager.getInstance().setInfo(audioListModel);
-                    MusicManager.getInstance().play(containerContext);
+                    AudioPlayManager.getInstance().setInfo(audioListModel);
+                    AudioPlayManager.getInstance().play(containerContext);
                 } else {
                     ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
                 }
@@ -165,7 +165,7 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
                 designatedFloatingView.initData();
             }
 
-            designatedFloatingView.setMusicInterface(new MusicInterface() {
+            designatedFloatingView.setAudioPlayInterface(new AudioPlayInterface() {
                 @Override
                 public void onStateChanged(AudioState audioState) {
                     // if (mMusicNotification != null && !misShow && !mfinished && !isFinishing()) {

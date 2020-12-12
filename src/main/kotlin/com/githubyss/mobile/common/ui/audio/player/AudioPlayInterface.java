@@ -1,29 +1,29 @@
-package com.githubyss.mobile.common.ui.audio.util;
+package com.githubyss.mobile.common.ui.audio.player;
 
 
-import com.githubyss.mobile.common.ui.audio.music.AudioState;
+import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
 
 /**
- * MusicInterface
- * <Description> 播放状态
+ * AudioPlayInterface
+ * <Description> 播放状态接口
  * <Details>
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2020/12/10 17:59:28
  */
-public interface MusicInterface {
-
+public interface AudioPlayInterface {
+    
     /**
      * 当前状态改变
      */
     void onStateChanged(AudioState audioState);
-
+    
     /**
      * 当前播放进度
      */
     void onPlayProgress(int currentPosition);
-
+    
     /**
      * 当前缓存进度
      */

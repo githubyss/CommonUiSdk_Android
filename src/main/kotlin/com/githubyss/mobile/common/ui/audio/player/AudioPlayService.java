@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.audio.service;
+package com.githubyss.mobile.common.ui.audio.player;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -10,7 +10,6 @@ import android.os.IBinder;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.githubyss.mobile.common.ui.audio.music.MusicManager;
 import com.githubyss.mobile.common.ui.constant.Constant;
 
 
@@ -20,7 +19,7 @@ import com.githubyss.mobile.common.ui.constant.Constant;
  * 总控制service，其他界面，通过binder，广播等形式，通知关闭打开悬浮框，和音乐切换等。
  */
 
-public class MusicService extends Service {
+public class AudioPlayService extends Service {
     // private FloatView floatView;
     // 初始化广播接收器，只接受本地广播
     private MyBroadcastReceiver receviver = null;
@@ -30,13 +29,13 @@ public class MusicService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        return new MusicService.MusicBinder();
+        return new AudioPlayService.MusicBinder();
     }
 
     //client 可以通过Binder获取Service实例
     public class MusicBinder extends Binder {
-        public MusicService getService() {
-            return MusicService.this;
+        public AudioPlayService getService() {
+            return AudioPlayService.this;
         }
     }
 
@@ -134,7 +133,7 @@ public class MusicService extends Service {
         // if (mMusicNotification != null)
         //     mMusicNotification.destroy();
         if (closeMusic)
-            MusicManager.getInstance().destory();
+            AudioPlayManager.getInstance().destroy();
         closeMusic = true;
         // mMusicNotification = null;
         receviver = null;
