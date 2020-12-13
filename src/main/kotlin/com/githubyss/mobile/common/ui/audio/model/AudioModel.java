@@ -18,6 +18,9 @@ import java.io.Serializable;
  * @createdTime 2020/12/10 10:59:10
  */
 public class AudioModel implements Serializable {
+    
+    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    
     private String id;
     private String title;
     private String author;
@@ -25,9 +28,12 @@ public class AudioModel implements Serializable {
     private String url;
     private String maleUrl;
     private String femaleUrl;
-    private boolean isHasBothVoiceUrl;
+    private VoiceType voiceType;
     private AudioState audioState;
+    private boolean isHasBothVoiceUrl;
     
+    
+    // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
     public AudioModel() {
     }
@@ -40,30 +46,48 @@ public class AudioModel implements Serializable {
         this.url = url;
         this.maleUrl = maleUrl;
         this.femaleUrl = femaleUrl;
+        this.voiceType = AudioListModel.savedVoiceType;
         this.isHasBothVoiceUrl = !TextUtils.isEmpty(this.maleUrl) && !TextUtils.isEmpty(this.femaleUrl);
-        processProperty();
+        processVoiceAndUrl();
     }
     
-    private void processProperty() {
-        // switch (this.voiceType) {
-        //     case MALE:
-        //         if (!TextUtils.isEmpty(this.maleUrl)) {
-        //             this.url = this.maleUrl;
-        //         } else {
-        //             this.url = this.femaleUrl;
-        //         }
-        //         break;
-        //     case FEMALE:
-        //         if (!TextUtils.isEmpty(this.femaleUrl)) {
-        //             this.url = this.femaleUrl;
-        //         } else {
-        //             this.url = this.maleUrl;
-        //         }
-        //         break;
-        //     default:
-        //         break;
-        // }
+    
+    // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
+    
+    public void processVoiceAndUrl() {
+        if (!TextUtils.isEmpty(this.maleUrl) && TextUtils.isEmpty(this.femaleUrl)) {
+            this.voiceType = VoiceType.MALE;
+            this.url = this.maleUrl;
+            return;
+        }
+        if (!TextUtils.isEmpty(this.femaleUrl) && TextUtils.isEmpty(this.maleUrl)) {
+            this.voiceType = VoiceType.FEMALE;
+            this.url = this.femaleUrl;
+            return;
+        }
+        if (TextUtils.isEmpty(this.maleUrl) && TextUtils.isEmpty(this.femaleUrl)) {
+            this.voiceType = AudioListModel.savedVoiceType;
+            this.url = "";
+            return;
+        }
+        if (!TextUtils.isEmpty(this.maleUrl) && !TextUtils.isEmpty(this.femaleUrl)) {
+            this.voiceType = AudioListModel.savedVoiceType;
+            switch (this.voiceType) {
+                case MALE:
+                    this.url = this.maleUrl;
+                    break;
+                case FEMALE:
+                    this.url = this.femaleUrl;
+                    break;
+                default:
+                    break;
+            }
+            return;
+        }
     }
+    
+    
+    // ---------- ---------- ---------- Getter ---------- ---------- ----------
     
     public String getId() {
         return id;
@@ -85,24 +109,28 @@ public class AudioModel implements Serializable {
         return url;
     }
     
-    public String getMaleUrl() {
-        return maleUrl;
-    }
-    
-    public String getFemaleUrl() {
-        return femaleUrl;
-    }
-    
-    public boolean isHasBothVoiceUrl() {
-        return isHasBothVoiceUrl;
+    public VoiceType getVoiceType() {
+        return voiceType;
     }
     
     public AudioState getAudioState() {
         return audioState;
     }
     
+    public boolean isHasBothVoiceUrl() {
+        return isHasBothVoiceUrl;
+    }
+    
+    
+    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    
     public AudioModel setIcon(String icon) {
         this.icon = icon;
+        return this;
+    }
+    
+    public AudioModel setAudioState(AudioState audioState) {
+        this.audioState = audioState;
         return this;
     }
 }

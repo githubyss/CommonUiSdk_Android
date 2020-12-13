@@ -131,11 +131,12 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
                 if (audioListModel != null) {
                     AudioPlayManager.getInstance().setInfo(audioListModel);
                     AudioPlayManager.getInstance().play(containerContext);
+                    designatedFloatingView.refreshVoiceSwitch();
                 } else {
                     ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
                 }
             } else {
-                designatedFloatingView.initData();
+                designatedFloatingView.refreshData();
             }
             
             designatedFloatingView.setAudioPlayInterface(new AudioPlayInterface() {

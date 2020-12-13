@@ -16,11 +16,36 @@ import java.util.List;
  * @createdTime 2020/12/10 11:04:00
  */
 public class AudioListModel implements Serializable {
+    
+    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    
     private int currentIndex;
     private List<AudioModel> audioList;
     
     public static VoiceType savedVoiceType = VoiceType.MALE;
     
+    
+    // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
+    
+    public void reprocessAudioModel() {
+        for (AudioModel audio : audioList) {
+            audio.processVoiceAndUrl();
+        }
+    }
+    
+    
+    // ---------- ---------- ---------- Getter ---------- ---------- ----------
+    
+    public int getCurrentIndex() {
+        return currentIndex;
+    }
+    
+    public List<AudioModel> getAudioList() {
+        return audioList;
+    }
+    
+    
+    // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
     public AudioListModel setCurrentIndex(int currentIndex) {
         this.currentIndex = currentIndex;
@@ -30,13 +55,5 @@ public class AudioListModel implements Serializable {
     public AudioListModel setAudioList(List<AudioModel> audioList) {
         this.audioList = audioList;
         return this;
-    }
-    
-    public int getCurrentIndex() {
-        return currentIndex;
-    }
-    
-    public List<AudioModel> getAudioList() {
-        return audioList;
     }
 }

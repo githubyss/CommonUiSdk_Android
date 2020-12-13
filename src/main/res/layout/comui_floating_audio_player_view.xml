@@ -112,7 +112,7 @@
                     android:layout_width="29dp"
                     android:layout_height="29dp"
                     android:layout_marginLeft="16dp"
-                    android:src="@drawable/icon_audio_player_voice_man"
+                    android:src="@drawable/icon_audio_player_voice_male"
                     />
 
             <FrameLayout

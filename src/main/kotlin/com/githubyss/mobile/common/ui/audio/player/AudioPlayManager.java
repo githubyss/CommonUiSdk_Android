@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
+import com.githubyss.mobile.common.ui.audio.enumeration.VoiceType;
 import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.util.ProgressTextUtils;
@@ -176,6 +177,8 @@ public class AudioPlayManager {
         if (audioListModel.getCurrentIndex() >= audioListModel.getAudioList().size()) {
             audioListModel.setCurrentIndex(0);
         }
+        setAudioState(SWITCH);
+        
         audioPrepare();
     }
     
@@ -187,17 +190,29 @@ public class AudioPlayManager {
         //     startFromBegin();
         //     return false;
         // }
-        if (audioListModel == null || audioListModel.getAudioList() == null || audioListModel.getAudioList().get(audioListModel.getCurrentIndex()) == null) {
+        if (getCurrentAudio() == null) {
             destroy();
             return false;
         }
-        if (audioListModel.getAudioList().get(audioListModel.getCurrentIndex()).isHasBothVoiceUrl()) {
-        
+        if (!getCurrentAudio().isHasBothVoiceUrl()) {
+            return false;
         }
-        audioListModel.getAudioList().get(audioListModel.getCurrentIndex()).getUrl();
+        
+        switch (AudioListModel.savedVoiceType) {
+            case MALE:
+                AudioListModel.savedVoiceType = VoiceType.FEMALE;
+                break;
+            case FEMALE:
+                AudioListModel.savedVoiceType = VoiceType.MALE;
+                break;
+            default:
+                break;
+        }
+        audioListModel.reprocessAudioModel();
         if (audioState == PLAYING) {
             stop();
         }
+        setAudioState(SWITCH);
         audioPrepare();
         return true;
     }
@@ -507,11 +522,11 @@ public class AudioPlayManager {
         return audioListModel.getAudioList();
     }
     
-    public int getPosition() {
+    public AudioModel getCurrentAudio() {
         if (audioListModel == null) {
-            return 0;
+            return null;
         }
-        return audioListModel.getCurrentIndex();
+        return audioListModel.getAudioList().get(audioListModel.getCurrentIndex());
     }
     
     public int getCurrentPosition() {
