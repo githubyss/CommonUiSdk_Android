@@ -100,7 +100,7 @@
             </LinearLayout>
 
             <ImageView
-                    android:id="@+id/imageView_playStartPauseController"
+                    android:id="@+id/imageView_playPauseController"
                     android:layout_width="29dp"
                     android:layout_height="29dp"
                     android:layout_marginLeft="16dp"

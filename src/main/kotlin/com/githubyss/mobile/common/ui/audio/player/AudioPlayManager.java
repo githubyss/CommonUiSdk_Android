@@ -43,7 +43,7 @@ public class AudioPlayManager {
     private AudioState audioState;
     private AudioListModel audioListModel;
     private MediaPlayer mediaPlayer;
-    private AudioPlayInterface audioPlayInterface;
+    private AudioPlayListener audioPlayListener;
     
     private AudioManager audioManager;
     private AudioManager.OnAudioFocusChangeListener audioFocusChangeListener;
@@ -70,8 +70,8 @@ public class AudioPlayManager {
             switch (msg.what) {
                 case WHAT_REFRESH:
                     handler.sendEmptyMessageDelayed(WHAT_REFRESH, 200);
-                    if (mediaPlayer != null && mediaPlayer.isPlaying() && audioPlayInterface != null) {
-                        audioPlayInterface.onPlayProgress(mediaPlayer.getCurrentPosition());
+                    if (mediaPlayer != null && mediaPlayer.isPlaying() && audioPlayListener != null) {
+                        audioPlayListener.onPlayProgress(mediaPlayer.getCurrentPosition());
                     }
                     break;
                 default:
@@ -341,9 +341,9 @@ public class AudioPlayManager {
             mediaPlayer.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
                 @Override
                 public void onBufferingUpdate(MediaPlayer mp, int percent) {
-                    if (audioPlayInterface != null) {
+                    if (audioPlayListener != null) {
                         updateProgress = MaxProgress * percent / 100;
-                        audioPlayInterface.onBufferingUpdateProgress(updateProgress);
+                        audioPlayListener.onBufferingUpdateProgress(updateProgress);
                     }
                 }
             });
@@ -487,8 +487,8 @@ public class AudioPlayManager {
             return;
         }
         this.audioState = audioState;
-        if (audioPlayInterface != null) {
-            audioPlayInterface.onStateChanged(audioState);
+        if (audioPlayListener != null) {
+            audioPlayListener.onStateChanged(audioState);
         }
     }
     
@@ -497,8 +497,8 @@ public class AudioPlayManager {
         this.audioListModel = audioListModel;
     }
     
-    public void setMusicListener(AudioPlayInterface audioPlayInterface) {
-        this.audioPlayInterface = audioPlayInterface;
+    public void setMusicListener(AudioPlayListener audioPlayListener) {
+        this.audioPlayListener = audioPlayListener;
     }
     
     

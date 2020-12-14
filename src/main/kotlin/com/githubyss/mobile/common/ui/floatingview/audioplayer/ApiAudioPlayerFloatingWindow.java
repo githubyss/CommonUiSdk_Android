@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayInterface;
+import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
 import com.githubyss.mobile.common.ui.constant.Constant;
 import com.githubyss.mobile.common.ui.utils.PermissionFloatUtils;
 
@@ -51,8 +51,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     private WindowManager.LayoutParams windowLayoutParams;
     @LayoutRes
     private int layoutId = R.layout.comui_floating_audio_player_view;
-    
-    private ViewGroup rootView;
+    private ApiAudioPlayerFloatingWindowListener apiAudioPlayerFloatingWindowListener;
     
     //8.0 type样式，不可修改，为适应低版本编译，自己定义
     public static final int TYPE_APPLICATION_OVERLAY = 2038;
@@ -63,16 +62,15 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    public ApiAudioPlayerFloatingWindow(Context context) {
-        containerContext = context;
+    public ApiAudioPlayerFloatingWindow() {
         initLayoutParams();
     }
     
-    public static ApiAudioPlayerFloatingWindow getInstance(Context context) {
+    public static ApiAudioPlayerFloatingWindow getInstance() {
         if (instance == null) {
             synchronized (ApiAudioPlayerFloatingWindow.class) {
                 if (instance == null) {
-                    instance = new ApiAudioPlayerFloatingWindow(context);
+                    instance = new ApiAudioPlayerFloatingWindow();
                 }
             }
         }
@@ -90,6 +88,11 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             @Override
             public void onClose() {
                 removeFloatingView();
+            }
+            
+            @Override
+            public void onUpdateAudioInfo(AudioModel audioModel) {
+                apiAudioPlayerFloatingWindowListener.onUpdateAudioInfo(audioModel);
             }
         });
         return this;
@@ -121,6 +124,43 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     }
     
     @Override
+    public ApiAudioPlayerFloatingWindow start() {
+        AudioPlayManager.getInstance().start();
+        return this;
+    }
+    
+    
+    @Override
+    public ApiAudioPlayerFloatingWindow pause() {
+        AudioPlayManager.getInstance().pause();
+        return this;
+    }
+    
+    @Override
+    public ApiAudioPlayerFloatingWindow previous() {
+        AudioPlayManager.getInstance().previous();
+        return this;
+    }
+    
+    @Override
+    public ApiAudioPlayerFloatingWindow next() {
+        AudioPlayManager.getInstance().next();
+        return this;
+    }
+    
+    @Override
+    public ApiAudioPlayerFloatingWindow switchVoice() {
+        AudioPlayManager.getInstance().switchVoice();
+        return this;
+    }
+    
+    @Override
+    public ApiAudioPlayerFloatingWindow stop() {
+        AudioPlayManager.getInstance().stop();
+        return this;
+    }
+    
+    @Override
     public ApiAudioPlayerFloatingWindow initData(List<AudioModel> audioList) {
         if (designatedFloatingView != null) {
             if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
@@ -139,7 +179,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
                 designatedFloatingView.refreshData();
             }
             
-            designatedFloatingView.setAudioPlayInterface(new AudioPlayInterface() {
+            designatedFloatingView.setAudioPlayListener(new AudioPlayListener() {
                 @Override
                 public void onStateChanged(AudioState audioState) {
                     // if (mMusicNotification != null && !misShow && !mfinished && !isFinishing()) {
@@ -300,5 +340,18 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             windowManager = (WindowManager) containerContext.getSystemService(Context.WINDOW_SERVICE);
         }
         return windowManager;
+    }
+    
+    
+    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    
+    public ApiAudioPlayerFloatingWindow setContainerContext(Context containerContext) {
+        this.containerContext = containerContext;
+        return this;
+    }
+    
+    public ApiAudioPlayerFloatingWindow setApiAudioPlayerFloatingWindowListener(ApiAudioPlayerFloatingWindowListener apiAudioPlayerFloatingWindowListener) {
+        this.apiAudioPlayerFloatingWindowListener = apiAudioPlayerFloatingWindowListener;
+        return this;
     }
 }

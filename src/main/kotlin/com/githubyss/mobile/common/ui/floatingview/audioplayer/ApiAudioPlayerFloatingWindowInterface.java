@@ -12,8 +12,8 @@ import java.util.List;
 
 
 /**
- * IApiFloatingMagnetView
- * <Description> 磁力吸附悬浮窗管理器对外接口
+ * ApiAudioPlayerFloatingWindowInterface
+ * <Description> 接口方法规整
  * <Details>
  *
  * @author Ace Yan
@@ -21,24 +21,36 @@ import java.util.List;
  * @createdTime 2020/12/09 11:34:40
  */
 public interface ApiAudioPlayerFloatingWindowInterface {
-
+    
     ApiAudioPlayerFloatingWindow show();
-
+    
     ApiAudioPlayerFloatingWindow close();
-
+    
     ApiAudioPlayerFloatingWindow lengthen();
-
+    
     ApiAudioPlayerFloatingWindow shorten();
-
+    
+    ApiAudioPlayerFloatingWindow start();
+    
+    ApiAudioPlayerFloatingWindow pause();
+    
+    ApiAudioPlayerFloatingWindow previous();
+    
+    ApiAudioPlayerFloatingWindow next();
+    
+    ApiAudioPlayerFloatingWindow switchVoice();
+    
+    ApiAudioPlayerFloatingWindow stop();
+    
     ApiAudioPlayerFloatingWindow initData(List<AudioModel> audioList);
-
+    
     BaseAutoShortedFloatingView getAutoShortedView();
-
+    
     ApiAudioPlayerFloatingWindow customView(DesignatedAudioPlayerFloatingView viewGroup);
-
+    
     ApiAudioPlayerFloatingWindow customView(@LayoutRes int resource);
-
+    
     ApiAudioPlayerFloatingWindow layoutParams(ViewGroup.LayoutParams params);
-
+    
     ApiAudioPlayerFloatingWindow listener(DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener);
 }

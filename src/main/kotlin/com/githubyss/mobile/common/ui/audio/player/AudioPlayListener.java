@@ -12,7 +12,7 @@ import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
  * @github githubyss
  * @createdTime 2020/12/10 17:59:28
  */
-public interface AudioPlayInterface {
+public interface AudioPlayListener {
     
     /**
      * 当前状态改变

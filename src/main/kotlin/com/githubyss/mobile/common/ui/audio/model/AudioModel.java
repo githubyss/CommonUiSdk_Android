@@ -29,8 +29,8 @@ public class AudioModel implements Serializable {
     private String maleUrl;
     private String femaleUrl;
     private VoiceType voiceType;
-    private AudioState audioState;
     private boolean isHasBothVoiceUrl;
+    private boolean isPlaying;
     
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
@@ -113,12 +113,12 @@ public class AudioModel implements Serializable {
         return voiceType;
     }
     
-    public AudioState getAudioState() {
-        return audioState;
-    }
-    
     public boolean isHasBothVoiceUrl() {
         return isHasBothVoiceUrl;
+    }
+    
+    public boolean isPlaying() {
+        return isPlaying;
     }
     
     
@@ -129,8 +129,7 @@ public class AudioModel implements Serializable {
         return this;
     }
     
-    public AudioModel setAudioState(AudioState audioState) {
-        this.audioState = audioState;
-        return this;
+    public void setPlaying(boolean playing) {
+        isPlaying = playing;
     }
 }

@@ -122,7 +122,7 @@ public class AudioPlayerFloatingWindow {
         @Override
         public void onClick(View v) {
             int id = v.getId();
-            if (id == R.id.imageView_playStartPauseController) {
+            if (id == R.id.imageView_playPauseController) {
             } else if (id == R.id.imageView_voiceSwitch) {
             } else if (id == R.id.imageView_close) {
                 // hideFloatingWindow();
@@ -202,7 +202,7 @@ public class AudioPlayerFloatingWindow {
         textView_timePosition = view.findViewById(R.id.textView_timePosition);
         textView_timeDuration = view.findViewById(R.id.textView_timeDuration);
         seekBar_audioPlayer = view.findViewById(R.id.seekBar_audioPlayer);
-        imageView_playStartPauseController = view.findViewById(R.id.imageView_playStartPauseController);
+        imageView_playStartPauseController = view.findViewById(R.id.imageView_playPauseController);
         imageView_voiceSwitch = view.findViewById(R.id.imageView_voiceSwitch);
         imageView_close = view.findViewById(R.id.imageView_close);
         imageView_lengthen = view.findViewById(R.id.imageView_lengthen);

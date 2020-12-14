@@ -1,7 +1,6 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
 import android.content.Context;
-import android.media.AudioManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -11,7 +10,7 @@ import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayInterface;
+import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
 import com.githubyss.mobile.common.ui.audio.util.ProgressTextUtils;
 
 import androidx.annotation.LayoutRes;
@@ -39,13 +38,13 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
     private TextView textView_timePosition;
     private TextView textView_timeDuration;
     private SeekBar seekBar_audioPlayer;
-    private ImageView imageView_playStartPauseController;
+    private ImageView imageView_playPauseController;
     private ImageView imageView_voiceSwitch;
     private ImageView imageView_close;
     private ImageView imageView_lengthen;
     
     private DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener;
-    private AudioPlayInterface audioPlayInterface;
+    private AudioPlayListener audioPlayListener;
     
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
@@ -139,17 +138,20 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
             case PREPARE:
                 break;
             case PLAYING:
-                imageView_playStartPauseController.setImageResource(R.drawable.icon_audio_player_pause);
+                imageView_playPauseController.setImageResource(R.drawable.icon_audio_player_pause);
+                updateAudioInfo(true);
                 break;
             case STOP:
-                imageView_playStartPauseController.setImageResource(R.drawable.icon_audio_player_start);
+                imageView_playPauseController.setImageResource(R.drawable.icon_audio_player_start);
                 seekBar_audioPlayer.setProgress(0);
                 seekBar_audioPlayer.setSecondaryProgress(0);
                 textView_timePosition.setText("");
                 textView_timeDuration.setText("");
+                updateAudioInfo(false);
                 break;
             case PAUSE:
-                imageView_playStartPauseController.setImageResource(R.drawable.icon_audio_player_start);
+                imageView_playPauseController.setImageResource(R.drawable.icon_audio_player_start);
+                updateAudioInfo(false);
                 break;
             case READY:
                 seekBar_audioPlayer.setMax(AudioPlayManager.getInstance().MaxProgress);
@@ -177,14 +179,14 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
         textView_timePosition = view.findViewById(R.id.textView_timePosition);
         textView_timeDuration = view.findViewById(R.id.textView_timeDuration);
         seekBar_audioPlayer = view.findViewById(R.id.seekBar_audioPlayer);
-        imageView_playStartPauseController = view.findViewById(R.id.imageView_playStartPauseController);
+        imageView_playPauseController = view.findViewById(R.id.imageView_playPauseController);
         imageView_voiceSwitch = view.findViewById(R.id.imageView_voiceSwitch);
         imageView_close = view.findViewById(R.id.imageView_close);
         imageView_lengthen = view.findViewById(R.id.imageView_lengthen);
     }
     
     private void initListener() {
-        imageView_playStartPauseController.setOnClickListener(onClickListener);
+        imageView_playPauseController.setOnClickListener(onClickListener);
         imageView_voiceSwitch.setOnClickListener(onClickListener);
         imageView_close.setOnClickListener(onClickListener);
         imageView_lengthen.setOnClickListener(onClickListener);
@@ -217,28 +219,28 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
             }
         });
         
-        AudioPlayManager.getInstance().setMusicListener(new AudioPlayInterface() {
+        AudioPlayManager.getInstance().setMusicListener(new AudioPlayListener() {
             @Override
             public void onStateChanged(AudioState audioState) {
                 stateChanged(audioState);
-                if (audioPlayInterface != null) {
-                    audioPlayInterface.onStateChanged(audioState);
+                if (audioPlayListener != null) {
+                    audioPlayListener.onStateChanged(audioState);
                 }
             }
             
             @Override
             public void onPlayProgress(int currentPosition) {
                 playProgress(currentPosition);
-                if (audioPlayInterface != null) {
-                    audioPlayInterface.onPlayProgress(currentPosition);
+                if (audioPlayListener != null) {
+                    audioPlayListener.onPlayProgress(currentPosition);
                 }
             }
             
             @Override
             public void onBufferingUpdateProgress(int percent) {
                 bufferingUpdateProgress(percent);
-                if (audioPlayInterface != null) {
-                    audioPlayInterface.onBufferingUpdateProgress(percent);
+                if (audioPlayListener != null) {
+                    audioPlayListener.onBufferingUpdateProgress(percent);
                 }
             }
         });
@@ -252,6 +254,12 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
             imageView_close.setVisibility(View.GONE);
             imageView_lengthen.setVisibility(View.VISIBLE);
         }
+    }
+    
+    private void updateAudioInfo(boolean isPlaying) {
+        AudioModel audioModel = AudioPlayManager.getInstance().getCurrentAudio();
+        audioModel.setPlaying(isPlaying);
+        designatedAudioPlayerFloatingViewListener.onUpdateAudioInfo(audioModel);
     }
     
     
@@ -268,7 +276,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
                 return;
             }
             int id = v.getId();
-            if (id == R.id.imageView_playStartPauseController) {
+            if (id == R.id.imageView_playPauseController) {
                 if (AudioPlayManager.getInstance().getAudioState() == PLAYING) {
                     AudioPlayManager.getInstance().pause();
                 } else {
@@ -295,7 +303,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
         this.designatedAudioPlayerFloatingViewListener = designatedAudioPlayerFloatingViewListener;
     }
     
-    public void setAudioPlayInterface(AudioPlayInterface audioPlayInterface) {
-        this.audioPlayInterface = audioPlayInterface;
+    public void setAudioPlayListener(AudioPlayListener audioPlayListener) {
+        this.audioPlayListener = audioPlayListener;
     }
 }
