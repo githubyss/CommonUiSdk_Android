@@ -149,6 +149,9 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
                 textView_timeDuration.setText("");
                 updateAudioInfo(false);
                 break;
+            case END:
+                updateAudioInfo(false);
+                break;
             case PAUSE:
                 imageView_playPauseController.setImageResource(R.drawable.icon_audio_player_start);
                 updateAudioInfo(false);

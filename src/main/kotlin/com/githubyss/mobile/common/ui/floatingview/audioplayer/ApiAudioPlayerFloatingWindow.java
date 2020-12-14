@@ -216,6 +216,14 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     }
     
     @Override
+    public boolean isFloatingShow() {
+        if (designatedFloatingView != null) {
+            return designatedFloatingView.isShown();
+        }
+        return false;
+    }
+    
+    @Override
     public BaseAutoShortedFloatingView getAutoShortedView() {
         return designatedFloatingView;
     }
@@ -296,13 +304,12 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     private void ensureFloatingView() {
         synchronized (this) {
-            if (designatedFloatingView != null) {
-                return;
+            if (designatedFloatingView == null) {
+                designatedFloatingView = new DesignatedAudioPlayerFloatingView(containerContext, layoutId);
+                designatedFloatingView.setLayoutParams(getDesignatedLayoutParams());
+                addViewToWindow(designatedFloatingView);
+                designatedFloatingView.showFloatingWindow();
             }
-            designatedFloatingView = new DesignatedAudioPlayerFloatingView(containerContext, layoutId);
-            designatedFloatingView.setLayoutParams(getDesignatedLayoutParams());
-            addViewToWindow(designatedFloatingView);
-            designatedFloatingView.showFloatingWindow();
         }
         
         // if (!isShown) {
@@ -315,17 +322,16 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                if (designatedFloatingView == null) {
-                    return;
-                }
-                try {
-                    if (getContainerView().getChildCount() > 0) {
-                        getContainerView().removeView(designatedFloatingView);
+                if (designatedFloatingView != null) {
+                    try {
+                        if (getContainerView().getChildCount() > 0) {
+                            getContainerView().removeView(designatedFloatingView);
+                        }
+                        getWindowManager().removeView(getContainerView());
+                    } catch (Exception e) {
                     }
-                    getWindowManager().removeView(getContainerView());
-                } catch (Exception e) {
+                    designatedFloatingView = null;
                 }
-                designatedFloatingView = null;
             }
         });
     }

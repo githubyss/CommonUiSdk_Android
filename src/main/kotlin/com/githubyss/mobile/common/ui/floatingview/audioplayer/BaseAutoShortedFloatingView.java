@@ -204,6 +204,14 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     };
     
     
+    // ---------- ---------- ---------- Getter ---------- ---------- ----------
+    
+    @Override
+    public boolean isShown() {
+        return isShown;
+    }
+    
+    
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
     public void setBaseAutoShortedFloatingViewListener(BaseAutoShortedFloatingViewListener baseAutoShortedFloatingViewListener) {

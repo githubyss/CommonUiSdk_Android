@@ -46,6 +46,8 @@ public interface ApiAudioPlayerFloatingWindowInterface {
     
     AudioModel getCurrentAudio();
     
+    boolean isFloatingShow();
+    
     BaseAutoShortedFloatingView getAutoShortedView();
     
     ApiAudioPlayerFloatingWindow customView(DesignatedAudioPlayerFloatingView viewGroup);
