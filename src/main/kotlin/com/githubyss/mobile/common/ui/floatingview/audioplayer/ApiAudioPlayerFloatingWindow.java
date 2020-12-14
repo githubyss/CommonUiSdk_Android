@@ -30,12 +30,13 @@ import androidx.annotation.LayoutRes;
 
 
 /**
- * AudioPlayerFloatingWindow
- * <功能> 音频播放器悬浮窗
- * <详细>
+ * ApiAudioPlayerFloatingWindow
+ * <Description> 音频播放器悬浮窗
+ * <Details>
  *
- * @author yanss 16072015
- * @createdTime 2017/04/05 15:25:20
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2020/12/14 17:53:33
  */
 public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindowInterface {
     

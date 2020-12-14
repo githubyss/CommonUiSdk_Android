@@ -20,23 +20,19 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 88396251
- * 2018/5/23
- * 权限申请类
- */
 
 public class PermissionFloatUtils {
     private static int OP_SYSTEM_ALERT_WINDOW = 24;
-    //权限白名单，这个里面的型号，不用进行权限判断
+    
+    /** 权限白名单，这个里面的型号，不用进行权限判断 */
     private static String WHITE = "white";
-    //权限白名单，这个里面的型号，进行权限判断
+    
+    /** 权限白名单，这个里面的型号，进行权限判断 */
     private static String BLACK = "black";
-
+    
     public static boolean hasPermission(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            boolean MiUiO = (Build.VERSION.SDK_INT == Constant.VERSION_CODES_O || Build.VERSION.SDK_INT == Constant.VERSION_CODES_O_MR1)
-                    && PermissionFloatUtils.isMiui();
+            boolean MiUiO = (Build.VERSION.SDK_INT == Constant.VERSION_CODES_O || Build.VERSION.SDK_INT == Constant.VERSION_CODES_O_MR1) && PermissionFloatUtils.isMiui();
             if (MiUiO) {
                 //小米8.0悬浮框有问题，走系统漏洞，不走正常流程
                 return true;
@@ -53,16 +49,17 @@ public class PermissionFloatUtils {
             return true;
         }
     }
-
+    
     private static boolean needPermission() {
         if (isFlyme() || isMiui()) {
             return true;
         }
         return false;
     }
-
+    
     /**
      * 判断是否存在白名单或者黑名单
+     *
      * @param array
      * @return
      * @throws JSONException
@@ -90,7 +87,7 @@ public class PermissionFloatUtils {
         }
         return false;
     }
-
+    
     /**
      * 判断是否是魅族系统
      *
@@ -101,9 +98,7 @@ public class PermissionFloatUtils {
             String display = Build.DISPLAY;
             String fingerprint = Build.FINGERPRINT;
             String incremental = Build.VERSION.INCREMENTAL;
-            if ((!TextUtils.isEmpty(display) && display.contains("Flyme")
-                    || !TextUtils.isEmpty(fingerprint) && fingerprint.contains("Flyme")
-                    || !TextUtils.isEmpty(incremental) && incremental.contains("Flyme"))) {
+            if ((!TextUtils.isEmpty(display) && display.contains("Flyme") || !TextUtils.isEmpty(fingerprint) && fingerprint.contains("Flyme") || !TextUtils.isEmpty(incremental) && incremental.contains("Flyme"))) {
                 return true;
             }
             return false;
@@ -111,7 +106,7 @@ public class PermissionFloatUtils {
             return false;
         }
     }
-
+    
     /**
      * 是否是MIUI系统
      *
@@ -119,7 +114,7 @@ public class PermissionFloatUtils {
      */
     public static boolean isMiui() {
         List<String> versionList = getSystemProperties(new String[]{"ro.miui.ui.version.name"});
-
+        
         if (versionList.isEmpty()) {
             return false;
         }
@@ -128,14 +123,14 @@ public class PermissionFloatUtils {
         }
         return false;
     }
-
+    
     public static List<String> getSystemProperties(String[] commands) {
         Process process = null;
         BufferedReader successReader = null;
         BufferedReader errorReader = null;
         DataOutputStream dos = null;
         List<String> resultList = new ArrayList<>();
-
+        
         if (commands == null || commands.length == 0) {
             return resultList;
         }
@@ -155,10 +150,8 @@ public class PermissionFloatUtils {
             dos.flush();
             int status = process.waitFor();
             String lineStr;
-            successReader = new BufferedReader(
-                    new InputStreamReader(process.getInputStream()));
-            errorReader = new BufferedReader(
-                    new InputStreamReader(process.getErrorStream()));
+            successReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
             while ((lineStr = successReader.readLine()) != null) {
                 resultList.add(lineStr);
             }
@@ -179,14 +172,14 @@ public class PermissionFloatUtils {
                 }
             } catch (IOException e) {
             }
-
+            
             if (process != null) {
                 process.destroy();
             }
         }
         return resultList;
     }
-
+    
     /**
      * 6.0以下判断是否有权限
      * 理论上6.0以上才需处理权限，但有的国内rom在6.0以下就添加了权限
@@ -196,8 +189,7 @@ public class PermissionFloatUtils {
         try {
             AppOpsManager manager = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
             Method dispatchMethod = AppOpsManager.class.getMethod("checkOp", int.class, int.class, String.class);
-            return AppOpsManager.MODE_ALLOWED == (Integer) dispatchMethod.invoke(
-                    manager, OP_SYSTEM_ALERT_WINDOW, Binder.getCallingUid(), context.getApplicationContext().getPackageName());
+            return AppOpsManager.MODE_ALLOWED == (Integer) dispatchMethod.invoke(manager, OP_SYSTEM_ALERT_WINDOW, Binder.getCallingUid(), context.getApplicationContext().getPackageName());
         } catch (Exception e) {
             return false;
         }

@@ -13,12 +13,13 @@ import com.githubyss.mobile.common.ui.R;
 
 
 /**
- * AudioPlayerFloatingWindow
- * <功能> 自动收起悬浮窗
- * <详细> 仅实现悬浮窗整体的显示、关闭、弹出、收起以及自动收起的逻辑。
+ * BaseAutoShortedFloatingView
+ * <Description> 自动收起悬浮窗
+ * <Details> 仅实现悬浮窗整体的显示、关闭、弹出、收起以及自动收起的逻辑。
  *
- * @author yanss 16072015
- * @createdTime 2017/04/05 15:25:20
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2020/12/14 17:53:59
  */
 public class BaseAutoShortedFloatingView extends FrameLayout {
     
