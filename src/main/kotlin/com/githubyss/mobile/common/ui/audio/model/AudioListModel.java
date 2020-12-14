@@ -1,8 +1,11 @@
 package com.githubyss.mobile.common.ui.audio.model;
 
+import android.text.TextUtils;
+
 import com.githubyss.mobile.common.ui.audio.enumeration.VoiceType;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,6 +37,23 @@ public class AudioListModel implements Serializable {
     }
     
     
+    // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
+    
+    private List<AudioModel> filtrateAudioList(List<AudioModel> audioList) {
+        List<AudioModel> filtratedAudioList = new ArrayList();
+        for (AudioModel audioInfo : audioList) {
+            boolean isIdEmpty = TextUtils.isEmpty(audioInfo.getId());
+            boolean isTitleEmpty = TextUtils.isEmpty(audioInfo.getTitle());
+            boolean isBothVoiceUrlEmpty = TextUtils.isEmpty(audioInfo.getMaleUrl()) && TextUtils.isEmpty(audioInfo.getFemaleUrl());
+            if (isIdEmpty || isTitleEmpty || isBothVoiceUrlEmpty) {
+                continue;
+            }
+            filtratedAudioList.add(audioInfo);
+        }
+        return filtratedAudioList;
+    }
+    
+    
     // ---------- ---------- ---------- Getter ---------- ---------- ----------
     
     public int getCurrentIndex() {
@@ -53,7 +73,7 @@ public class AudioListModel implements Serializable {
     }
     
     public AudioListModel setAudioList(List<AudioModel> audioList) {
-        this.audioList = audioList;
+        this.audioList = filtrateAudioList(audioList);
         return this;
     }
 }

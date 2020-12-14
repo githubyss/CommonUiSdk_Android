@@ -21,7 +21,7 @@ import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
-import com.githubyss.mobile.common.ui.constant.Constant;
+import com.githubyss.mobile.common.ui.audio.constant.Constant;
 import com.githubyss.mobile.common.ui.utils.PermissionFloatUtils;
 
 import java.util.List;
@@ -163,21 +163,29 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     @Override
     public ApiAudioPlayerFloatingWindow initData(List<AudioModel> audioList) {
         if (designatedFloatingView != null) {
-            if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
-                AudioListModel audioListModel = new AudioListModel();
-                audioListModel.setAudioList(audioList);
-                audioListModel.setCurrentIndex(0);
-                
-                if (audioListModel != null) {
-                    AudioPlayManager.getInstance().setInfo(audioListModel);
-                    AudioPlayManager.getInstance().play(containerContext);
-                    designatedFloatingView.refreshVoiceSwitch();
-                } else {
-                    ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
-                }
-            } else {
-                designatedFloatingView.refreshData();
-            }
+            // if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
+            //     AudioListModel audioListModel = new AudioListModel();
+            //     audioListModel.setAudioList(audioList);
+            //     audioListModel.setCurrentIndex(0);
+            //
+            //     if (audioListModel != null) {
+            //         AudioPlayManager.getInstance().setInfo(audioListModel);
+            //         AudioPlayManager.getInstance().play(containerContext);
+            //         designatedFloatingView.refreshVoiceSwitch();
+            //     } else {
+            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+            //     }
+            // } else {
+            //     designatedFloatingView.refreshData();
+            // }
+            
+            AudioListModel audioListModel = new AudioListModel();
+            audioListModel.setAudioList(audioList);
+            audioListModel.setCurrentIndex(0);
+            
+            AudioPlayManager.getInstance().setInfo(audioListModel);
+            AudioPlayManager.getInstance().play(containerContext);
+            designatedFloatingView.refreshVoiceSwitch();
             
             designatedFloatingView.setAudioPlayListener(new AudioPlayListener() {
                 @Override
@@ -199,6 +207,11 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             });
         }
         return this;
+    }
+    
+    @Override
+    public AudioModel getCurrentAudio() {
+        return AudioPlayManager.getInstance().getCurrentAudio();
     }
     
     @Override

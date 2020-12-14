@@ -10,7 +10,7 @@ import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
 import com.githubyss.mobile.common.ui.audio.enumeration.VoiceType;
 import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.audio.util.ProgressTextUtils;
+import com.githubyss.mobile.common.ui.utils.ProgressTextUtils;
 
 import java.util.List;
 

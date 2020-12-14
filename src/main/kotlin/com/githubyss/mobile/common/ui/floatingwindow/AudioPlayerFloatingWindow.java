@@ -21,7 +21,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.constant.Constant;
+import com.githubyss.mobile.common.ui.audio.constant.Constant;
 import com.githubyss.mobile.common.ui.utils.PermissionFloatUtils;
 
 

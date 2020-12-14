@@ -1,11 +1,5 @@
-package com.githubyss.mobile.common.ui.audio.util;
+package com.githubyss.mobile.common.ui.audio.constant;
 
-
-/**
- * 88396251
- * 2018/5/23
- * 广播id
- */
 
 public class Constant {
     //程序前后台切换的广播
@@ -18,6 +12,4 @@ public class Constant {
     public final static int VERSION_CODES_O = 26;
     //api 8.1
     public final static int VERSION_CODES_O_MR1 = 27;
-
 }
-

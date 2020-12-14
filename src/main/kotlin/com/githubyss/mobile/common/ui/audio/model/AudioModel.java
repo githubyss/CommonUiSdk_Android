@@ -109,6 +109,14 @@ public class AudioModel implements Serializable {
         return url;
     }
     
+    public String getMaleUrl() {
+        return maleUrl;
+    }
+    
+    public String getFemaleUrl() {
+        return femaleUrl;
+    }
+    
     public VoiceType getVoiceType() {
         return voiceType;
     }

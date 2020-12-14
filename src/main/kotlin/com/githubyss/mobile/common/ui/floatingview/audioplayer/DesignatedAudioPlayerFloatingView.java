@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
-import com.githubyss.mobile.common.ui.audio.util.ProgressTextUtils;
+import com.githubyss.mobile.common.ui.utils.ProgressTextUtils;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;

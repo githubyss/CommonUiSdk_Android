@@ -10,7 +10,7 @@
 // import com.githubyss.mobile.common.ui.R;
 // import com.githubyss.mobile.common.ui.audio.music.AudioState;
 // import com.githubyss.mobile.common.ui.audio.music.MusicManager;
-// import com.githubyss.mobile.common.ui.audio.util.ProgressTextUtils;
+// import com.githubyss.mobile.common.ui.utils.ProgressTextUtils;
 //
 // import static com.githubyss.mobile.common.ui.audio.music.AudioState.*;
 //
