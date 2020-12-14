@@ -261,7 +261,9 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
     
     private void updateAudioInfo(boolean isPlaying) {
         AudioModel audioModel = AudioPlayManager.getInstance().getCurrentAudio();
-        audioModel.setPlaying(isPlaying);
+        if (audioModel != null) {
+            audioModel.setPlaying(isPlaying);
+        }
         designatedAudioPlayerFloatingViewListener.onUpdateAudioInfo(audioModel);
     }
     

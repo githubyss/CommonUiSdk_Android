@@ -471,7 +471,7 @@ public class AudioPlayManager {
             mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
-            audioListModel = null;
+            // audioListModel = null;
             setAudioState(AudioState.END);
         }
     }
