@@ -184,8 +184,15 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             audioListModel.setAudioList(audioList);
             audioListModel.setCurrentIndex(0);
             
+            AudioModel currentAudio = AudioPlayManager.getInstance().getCurrentAudio();
+            AudioModel newListFirstAudio = audioListModel.getAudioList().get(0);
             AudioPlayManager.getInstance().setInfo(audioListModel);
-            AudioPlayManager.getInstance().play(containerContext);
+            if (currentAudio != null && newListFirstAudio != null && currentAudio.getId().equals(newListFirstAudio.getId())) {
+                AudioPlayManager.getInstance().start();
+            } else {
+                AudioPlayManager.getInstance().play(containerContext);
+            }
+            
             designatedFloatingView.refreshVoiceSwitch();
             
             designatedFloatingView.setAudioPlayListener(new AudioPlayListener() {

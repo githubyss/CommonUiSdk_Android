@@ -106,6 +106,7 @@ public class AudioPlayManager {
      */
     public void play(Context context) {
         // CookieHandlerUtil.getInstance().syncCookie();
+        stop();
         isPlayRestart = true;
         audioFocusInit(context);
     }
@@ -243,6 +244,9 @@ public class AudioPlayManager {
     
     public void destroy() {
         end();
+        // 最后清空数据
+        mediaPlayer = null;
+        audioListModel = null;
         MaxProgress = MAX_PROGRESS;
         audioManager = null;
         audioFocusChangeListener = null;
@@ -470,8 +474,6 @@ public class AudioPlayManager {
             abandonFocus();
             mediaPlayer.stop();
             mediaPlayer.release();
-            mediaPlayer = null;
-            // audioListModel = null;
             setAudioState(AudioState.END);
         }
     }
@@ -493,7 +495,6 @@ public class AudioPlayManager {
     }
     
     public void setInfo(AudioListModel audioListModel) {
-        stop();
         this.audioListModel = audioListModel;
     }
     
