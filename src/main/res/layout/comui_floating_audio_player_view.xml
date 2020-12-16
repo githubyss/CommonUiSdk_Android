@@ -8,6 +8,7 @@
         >
 
     <FrameLayout
+            android:id="@+id/container_player"
             android:layout_width="255dp"
             android:layout_height="50dp"
             android:layout_marginLeft="14dp"
@@ -29,7 +30,7 @@
                     />
 
             <LinearLayout
-                    android:layout_width="60dp"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="7dp"
                     android:orientation="vertical"
@@ -43,6 +44,12 @@
                         android:text="我是一个滚动标题呀"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp"
+                        android:singleLine="true"
+                        android:scrollHorizontally="true"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:marqueeRepeatLimit="marquee_forever"
                         />
 
                 <LinearLayout
@@ -62,6 +69,7 @@
                             android:textColorHint="#ff8000"
                             android:textSize="10sp"
                             android:text="02:00"
+                            android:textAlignment="center"
                             />
 
                     <TextView
@@ -70,6 +78,7 @@
                             android:text=" / "
                             android:textColor="#999999"
                             android:textSize="10sp"
+                            android:textAlignment="center"
                             />
 
                     <TextView
@@ -81,6 +90,7 @@
                             android:textColorHint="#999999"
                             android:textSize="10sp"
                             android:text="10:00"
+                            android:textAlignment="center"
                             />
                 </LinearLayout>
 
@@ -96,6 +106,7 @@
                         android:progressDrawable="@drawable/comui_audio_player_seek_bar_progress"
                         android:thumb="@drawable/comui_audio_player_seek_bar_thumb"
                         android:thumbOffset="1dp"
+                        android:visibility="gone"
                         />
             </LinearLayout>
 
@@ -103,7 +114,7 @@
                     android:id="@+id/imageView_playPauseController"
                     android:layout_width="29dp"
                     android:layout_height="29dp"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginLeft="14dp"
                     android:src="@drawable/icon_audio_player_pause"
                     />
 
@@ -111,7 +122,7 @@
                     android:id="@+id/imageView_voiceSwitch"
                     android:layout_width="29dp"
                     android:layout_height="29dp"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginLeft="14dp"
                     android:src="@drawable/icon_audio_player_voice_male"
                     />
 
@@ -127,15 +138,6 @@
                         android:src="@drawable/icon_audio_player_close"
                         android:scaleType="center"
                         android:visibility="visible"
-                        />
-
-                <ImageView
-                        android:id="@+id/imageView_lengthen"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/icon_audio_player_extent"
-                        android:scaleType="center"
-                        android:visibility="gone"
                         />
             </FrameLayout>
         </LinearLayout>
@@ -162,5 +164,24 @@
                     android:src="@drawable/cd_disk_head"
                     />
         </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+            android:id="@+id/container_lengthen"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:alpha="0.8"
+            android:background="@drawable/bg_audio_player_floating_window_shorten"
+            android:visibility="gone"
+            >
+
+        <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_audio_player_extent"
+                android:scaleType="center"
+                />
     </FrameLayout>
 </LinearLayout>

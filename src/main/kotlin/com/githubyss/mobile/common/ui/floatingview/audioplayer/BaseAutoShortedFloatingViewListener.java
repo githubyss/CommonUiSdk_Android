@@ -6,4 +6,6 @@ public interface BaseAutoShortedFloatingViewListener {
     void onSlide(boolean isShow);
 
     void onClose();
+
+    void prepareRightLengthen();
 }

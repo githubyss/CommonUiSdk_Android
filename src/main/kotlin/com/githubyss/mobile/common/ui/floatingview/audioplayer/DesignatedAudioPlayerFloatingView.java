@@ -41,7 +41,8 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
     private ImageView imageView_playPauseController;
     private ImageView imageView_voiceSwitch;
     private ImageView imageView_close;
-    private ImageView imageView_lengthen;
+    private View view_player;
+    private View view_lengthen;
     
     private DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener;
     private AudioPlayListener audioPlayListener;
@@ -119,6 +120,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
                 // mMusicNextIv.setImageResource(R.drawable.music_play_next_click_icon);
                 // mMusicPreviousIv.setEnabled(true);
                 // mMusicNextIv.setEnabled(true);
+                
                 seekBar_audioPlayer.setProgress(0);
                 seekBar_audioPlayer.setSecondaryProgress(0);
                 textView_timePosition.setText("");
@@ -143,10 +145,11 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
                 break;
             case STOP:
                 imageView_playPauseController.setImageResource(R.drawable.icon_audio_player_start);
-                seekBar_audioPlayer.setProgress(0);
-                seekBar_audioPlayer.setSecondaryProgress(0);
-                textView_timePosition.setText("");
-                textView_timeDuration.setText("");
+                // 停止时进度就保留在最后
+                // seekBar_audioPlayer.setProgress(0);
+                // seekBar_audioPlayer.setSecondaryProgress(0);
+                // textView_timePosition.setText("");
+                // textView_timeDuration.setText("");
                 updateAudioInfo(false);
                 break;
             case END:
@@ -185,15 +188,16 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
         imageView_playPauseController = view.findViewById(R.id.imageView_playPauseController);
         imageView_voiceSwitch = view.findViewById(R.id.imageView_voiceSwitch);
         imageView_close = view.findViewById(R.id.imageView_close);
-        imageView_lengthen = view.findViewById(R.id.imageView_lengthen);
+        view_player = view.findViewById(R.id.container_player);
+        view_lengthen = view.findViewById(R.id.container_lengthen);
     }
     
     private void initListener() {
         imageView_playPauseController.setOnClickListener(onClickListener);
         imageView_voiceSwitch.setOnClickListener(onClickListener);
         imageView_close.setOnClickListener(onClickListener);
-        imageView_lengthen.setOnClickListener(onClickListener);
-        
+        view_lengthen.setOnClickListener(onClickListener);
+    
         seekBar_audioPlayer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -219,6 +223,12 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
             @Override
             public void onClose() {
                 designatedAudioPlayerFloatingViewListener.onClose();
+            }
+    
+            @Override
+            public void prepareRightLengthen() {
+                view_player.setVisibility(View.VISIBLE);
+                view_lengthen.setVisibility(View.GONE);
             }
         });
         
@@ -251,11 +261,11 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
     
     private void refreshCloseButton(boolean isShow) {
         if (isShow) {
-            imageView_close.setVisibility(View.VISIBLE);
-            imageView_lengthen.setVisibility(View.GONE);
+            view_player.setVisibility(View.VISIBLE);
+            view_lengthen.setVisibility(View.GONE);
         } else {
-            imageView_close.setVisibility(View.GONE);
-            imageView_lengthen.setVisibility(View.VISIBLE);
+            view_player.setVisibility(View.GONE);
+            view_lengthen.setVisibility(View.VISIBLE);
         }
     }
     
@@ -292,7 +302,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
             } else if (id == R.id.imageView_close) {
                 AudioPlayManager.getInstance().destroy();
                 closeFloatingWindow();
-            } else if (id == R.id.imageView_lengthen) {
+            } else if (id == R.id.container_lengthen) {
                 lengthenFloatingWindow();
             }
             

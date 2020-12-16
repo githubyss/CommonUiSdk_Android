@@ -49,7 +49,8 @@ public class AudioPlayerFloatingWindow {
     private ImageView imageView_playStartPauseController;
     private ImageView imageView_voiceSwitch;
     private ImageView imageView_close;
-    private ImageView imageView_lengthen;
+    private View view_player;
+    private View view_lengthen;
 
     private final long AUTO_HIDE_DELAY_TIME = 1000;
     private final long ANIM_DURATION = 500;
@@ -127,7 +128,7 @@ public class AudioPlayerFloatingWindow {
             } else if (id == R.id.imageView_close) {
                 // hideFloatingWindow();
                 shortenFloatingWindow();
-            } else if (id == R.id.imageView_lengthen) {
+            } else if (id == R.id.container_lengthen) {
                 lengthenFloatingWindow();
             }
         }
@@ -205,14 +206,15 @@ public class AudioPlayerFloatingWindow {
         imageView_playStartPauseController = view.findViewById(R.id.imageView_playPauseController);
         imageView_voiceSwitch = view.findViewById(R.id.imageView_voiceSwitch);
         imageView_close = view.findViewById(R.id.imageView_close);
-        imageView_lengthen = view.findViewById(R.id.imageView_lengthen);
+        view_player = view.findViewById(R.id.container_player);
+        view_lengthen = view.findViewById(R.id.container_lengthen);
     }
 
     private void initListener() {
         imageView_playStartPauseController.setOnClickListener(onClickListener);
         imageView_voiceSwitch.setOnClickListener(onClickListener);
         imageView_close.setOnClickListener(onClickListener);
-        imageView_lengthen.setOnClickListener(onClickListener);
+        view_lengthen.setOnClickListener(onClickListener);
     }
 
     private void initAnimator() {
@@ -289,11 +291,11 @@ public class AudioPlayerFloatingWindow {
 
     private void refreshCloseButton(boolean isShow) {
         if (isShow) {
-            imageView_close.setVisibility(View.VISIBLE);
-            imageView_lengthen.setVisibility(View.GONE);
+            view_player.setVisibility(View.VISIBLE);
+            view_lengthen.setVisibility(View.GONE);
         } else {
-            imageView_close.setVisibility(View.GONE);
-            imageView_lengthen.setVisibility(View.VISIBLE);
+            view_player.setVisibility(View.GONE);
+            view_lengthen.setVisibility(View.VISIBLE);
         }
     }
 

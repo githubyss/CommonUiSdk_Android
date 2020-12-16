@@ -11,10 +11,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.githubyss.mobile.common.kit.hint.ComkitToastUtils;
-import com.githubyss.mobile.common.kit.resource.ComkitResUtils;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
@@ -45,14 +42,17 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     private static ApiAudioPlayerFloatingWindow instance;
     
     private Context containerContext;
+    private WindowManager windowManager;
     private ViewGroup containerView;
+    private WindowManager.LayoutParams containerLayoutParams;
     private DesignatedAudioPlayerFloatingView designatedFloatingView;
     private ViewGroup.LayoutParams designatedLayoutParams;
-    private WindowManager windowManager;
-    private WindowManager.LayoutParams windowLayoutParams;
     @LayoutRes
     private int layoutId = R.layout.comui_floating_audio_player_view;
-    private ApiAudioPlayerFloatingWindowListener apiAudioPlayerFloatingWindowListener;
+    /** 原生 listener */
+    private ApiAudioPlayerFloatingWindowListener nativeAudioListener;
+    /** Web 端 listener */
+    private ApiAudioPlayerFloatingWindowListener webAudioListener;
     
     //8.0 type样式，不可修改，为适应低版本编译，自己定义
     public static final int TYPE_APPLICATION_OVERLAY = 2038;
@@ -93,7 +93,12 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             
             @Override
             public void onUpdateAudioInfo(AudioModel audioModel) {
-                apiAudioPlayerFloatingWindowListener.onUpdateAudioInfo(audioModel);
+                if (nativeAudioListener != null) {
+                    nativeAudioListener.onUpdateAudioInfo(audioModel);
+                }
+                if (webAudioListener != null) {
+                    webAudioListener.onUpdateAudioInfo(audioModel);
+                }
             }
         });
         return this;
@@ -162,6 +167,22 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     }
     
     @Override
+    public ApiAudioPlayerFloatingWindow displayWhenAppForeground() {
+        if (containerView != null && containerView.getVisibility() != View.VISIBLE) {
+            containerView.setVisibility(View.VISIBLE);
+        }
+        return this;
+    }
+    
+    @Override
+    public ApiAudioPlayerFloatingWindow hideWhenAppBackground() {
+        if (containerView != null && containerView.getVisibility() == View.VISIBLE) {
+            containerView.setVisibility(View.GONE);
+        }
+        return this;
+    }
+    
+    @Override
     public ApiAudioPlayerFloatingWindow initData(List<AudioModel> audioList) {
         if (designatedFloatingView != null) {
             // if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
@@ -186,10 +207,13 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             
             AudioModel currentAudio = AudioPlayManager.getInstance().getCurrentAudio();
             AudioModel newListFirstAudio = audioListModel.getAudioList().get(0);
-            AudioPlayManager.getInstance().setInfo(audioListModel);
+            
             if (currentAudio != null && newListFirstAudio != null && currentAudio.getId().equals(newListFirstAudio.getId())) {
+                AudioPlayManager.getInstance().setInfo(audioListModel);
                 AudioPlayManager.getInstance().start();
             } else {
+                AudioPlayManager.getInstance().stop();
+                AudioPlayManager.getInstance().setInfo(audioListModel);
                 AudioPlayManager.getInstance().play(containerContext);
             }
             
@@ -271,12 +295,12 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         if (Build.VERSION.SDK_INT >= Constant.VERSION_CODES_O) {
             boolean MiUiO = (Build.VERSION.SDK_INT == Constant.VERSION_CODES_O || Build.VERSION.SDK_INT == Constant.VERSION_CODES_O_MR1) && PermissionFloatUtils.isMiui();
             if (MiUiO) {
-                getWindowLayoutParams().type = TYPE_PRESENTATION;
+                getContainerLayoutParams().type = TYPE_PRESENTATION;
             } else {
-                getWindowLayoutParams().type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+                getContainerLayoutParams().type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
             }
         } else {
-            getWindowLayoutParams().type = WindowManager.LayoutParams.TYPE_PHONE;
+            getContainerLayoutParams().type = WindowManager.LayoutParams.TYPE_PHONE;
         }
         
         // if (Build.VERSION.SDK_INT >= 26) {
@@ -285,21 +309,22 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         //     layoutParams.type = WindowManager.LayoutParams.TYPE_TOAST;
         // }
         
-        getWindowLayoutParams().flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH;
-        getWindowLayoutParams().gravity = Gravity.LEFT | Gravity.BOTTOM;
-        getWindowLayoutParams().format = PixelFormat.TRANSLUCENT;
-        getWindowLayoutParams().width = WindowManager.LayoutParams.WRAP_CONTENT;
-        getWindowLayoutParams().height = WindowManager.LayoutParams.WRAP_CONTENT;
-        getWindowLayoutParams().x = 0;
-        getWindowLayoutParams().y = 0;
+        getContainerLayoutParams().flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | (WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH) | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
+        // getWindowLayoutParams().flags = WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
+        getContainerLayoutParams().gravity = Gravity.LEFT | Gravity.BOTTOM;
+        getContainerLayoutParams().format = PixelFormat.TRANSLUCENT;
+        getContainerLayoutParams().width = WindowManager.LayoutParams.WRAP_CONTENT;
+        getContainerLayoutParams().height = WindowManager.LayoutParams.WRAP_CONTENT;
+        getContainerLayoutParams().x = 0;
+        getContainerLayoutParams().y = 0;
         // getLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
     }
     
-    private WindowManager.LayoutParams getWindowLayoutParams() {
-        if (windowLayoutParams == null) {
-            windowLayoutParams = new WindowManager.LayoutParams();
+    private WindowManager.LayoutParams getContainerLayoutParams() {
+        if (containerLayoutParams == null) {
+            containerLayoutParams = new WindowManager.LayoutParams();
         }
-        return (WindowManager.LayoutParams) windowLayoutParams;
+        return (WindowManager.LayoutParams) containerLayoutParams;
     }
     
     private FrameLayout.LayoutParams getDesignatedLayoutParams() {
@@ -314,6 +339,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             if (designatedFloatingView == null) {
                 designatedFloatingView = new DesignatedAudioPlayerFloatingView(containerContext, layoutId);
                 designatedFloatingView.setLayoutParams(getDesignatedLayoutParams());
+                designatedFloatingView.setBackgroundColor(0xFF0000FF);
                 addViewToWindow(designatedFloatingView);
                 designatedFloatingView.showFloatingWindow();
             }
@@ -344,12 +370,9 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     }
     
     private void addViewToWindow(final View view) {
-        if (getContainerView() == null) {
-            return;
-        }
         getContainerView().addView(view);
         try {
-            getWindowManager().addView(getContainerView(), getWindowLayoutParams());
+            getWindowManager().addView(getContainerView(), getContainerLayoutParams());
         } catch (WindowManager.BadTokenException e) {
         } catch (Exception e) {
         }
@@ -358,6 +381,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     private FrameLayout getContainerView() {
         if (containerView == null) {
             containerView = new FrameLayout(containerContext);
+            containerView.setBackgroundColor(0xFFFFFF33);
         }
         return (FrameLayout) containerView;
     }
@@ -377,8 +401,13 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         return this;
     }
     
-    public ApiAudioPlayerFloatingWindow setApiAudioPlayerFloatingWindowListener(ApiAudioPlayerFloatingWindowListener apiAudioPlayerFloatingWindowListener) {
-        this.apiAudioPlayerFloatingWindowListener = apiAudioPlayerFloatingWindowListener;
+    public ApiAudioPlayerFloatingWindow setNativeAudioListener(ApiAudioPlayerFloatingWindowListener nativeAudioListener) {
+        this.nativeAudioListener = nativeAudioListener;
+        return this;
+    }
+    
+    public ApiAudioPlayerFloatingWindow setWebAudioListener(ApiAudioPlayerFloatingWindowListener webAudioListener) {
+        this.webAudioListener = webAudioListener;
         return this;
     }
 }

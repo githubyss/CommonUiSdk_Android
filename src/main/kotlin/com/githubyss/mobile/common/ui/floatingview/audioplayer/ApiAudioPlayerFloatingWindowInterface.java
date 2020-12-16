@@ -42,6 +42,10 @@ public interface ApiAudioPlayerFloatingWindowInterface {
     
     ApiAudioPlayerFloatingWindow stop();
     
+    ApiAudioPlayerFloatingWindow displayWhenAppForeground();
+    
+    ApiAudioPlayerFloatingWindow hideWhenAppBackground();
+    
     ApiAudioPlayerFloatingWindow initData(List<AudioModel> audioList);
     
     AudioModel getCurrentAudio();
