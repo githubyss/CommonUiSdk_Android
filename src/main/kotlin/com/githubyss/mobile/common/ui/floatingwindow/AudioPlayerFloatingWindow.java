@@ -49,8 +49,8 @@ public class AudioPlayerFloatingWindow {
     private ImageView imageView_playStartPauseController;
     private ImageView imageView_voiceSwitch;
     private ImageView imageView_close;
-    private View view_player;
-    private View view_lengthen;
+    private View frameLayout_normalPlayerContainer;
+    private View frameLayout_miniPlayerContainer;
 
     private final long AUTO_HIDE_DELAY_TIME = 1000;
     private final long ANIM_DURATION = 500;
@@ -128,7 +128,7 @@ public class AudioPlayerFloatingWindow {
             } else if (id == R.id.imageView_close) {
                 // hideFloatingWindow();
                 shortenFloatingWindow();
-            } else if (id == R.id.container_lengthen) {
+            } else if (id == R.id.frameLayout_miniPlayerContainer) {
                 lengthenFloatingWindow();
             }
         }
@@ -206,15 +206,15 @@ public class AudioPlayerFloatingWindow {
         imageView_playStartPauseController = view.findViewById(R.id.imageView_playPauseController);
         imageView_voiceSwitch = view.findViewById(R.id.imageView_voiceSwitch);
         imageView_close = view.findViewById(R.id.imageView_close);
-        view_player = view.findViewById(R.id.container_player);
-        view_lengthen = view.findViewById(R.id.container_lengthen);
+        frameLayout_normalPlayerContainer = view.findViewById(R.id.frameLayout_normalPlayerContainer);
+        frameLayout_miniPlayerContainer = view.findViewById(R.id.frameLayout_miniPlayerContainer);
     }
 
     private void initListener() {
         imageView_playStartPauseController.setOnClickListener(onClickListener);
         imageView_voiceSwitch.setOnClickListener(onClickListener);
         imageView_close.setOnClickListener(onClickListener);
-        view_lengthen.setOnClickListener(onClickListener);
+        frameLayout_miniPlayerContainer.setOnClickListener(onClickListener);
     }
 
     private void initAnimator() {
@@ -291,11 +291,11 @@ public class AudioPlayerFloatingWindow {
 
     private void refreshCloseButton(boolean isShow) {
         if (isShow) {
-            view_player.setVisibility(View.VISIBLE);
-            view_lengthen.setVisibility(View.GONE);
+            frameLayout_normalPlayerContainer.setVisibility(View.VISIBLE);
+            frameLayout_miniPlayerContainer.setVisibility(View.GONE);
         } else {
-            view_player.setVisibility(View.GONE);
-            view_lengthen.setVisibility(View.VISIBLE);
+            frameLayout_normalPlayerContainer.setVisibility(View.GONE);
+            frameLayout_miniPlayerContainer.setVisibility(View.VISIBLE);
         }
     }
 
