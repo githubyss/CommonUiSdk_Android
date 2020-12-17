@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.constant.Constant;
-import com.githubyss.mobile.common.ui.utils.PermissionFloatUtils;
+import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils;
 
 
 /**
@@ -240,12 +240,11 @@ public class AudioPlayerFloatingWindow {
     }
 
     private void initLayoutParams() {
-        if (Build.VERSION.SDK_INT >= Constant.VERSION_CODES_O) {
-            boolean MiUiO = (Build.VERSION.SDK_INT == Constant.VERSION_CODES_O || Build.VERSION.SDK_INT == Constant.VERSION_CODES_O_MR1) && PermissionFloatUtils.isMiui();
-            if (MiUiO) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (PermissionOverlayUtils.isMiUiO()) {
                 getLayoutParams().type = TYPE_PRESENTATION;
             } else {
-                getLayoutParams().type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+                getLayoutParams().type = TYPE_APPLICATION_OVERLAY;
             }
         } else {
             getLayoutParams().type = WindowManager.LayoutParams.TYPE_PHONE;

@@ -1,6 +1,9 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Handler;
@@ -13,17 +16,18 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.githubyss.mobile.common.ui.R;
+import com.githubyss.mobile.common.ui.audio.constant.Constant;
 import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
-import com.githubyss.mobile.common.ui.audio.constant.Constant;
-import com.githubyss.mobile.common.ui.utils.PermissionFloatUtils;
+import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils;
 
 import java.util.List;
 
 import androidx.annotation.LayoutRes;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 
 /**
@@ -54,6 +58,9 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     /** Web 端 listener */
     private ApiAudioPlayerFloatingWindowListener webAudioListener;
     
+    private boolean hasOverlayPermission = false;
+    private boolean isJumpToOverlayPermission = false;
+    
     //8.0 type样式，不可修改，为适应低版本编译，自己定义
     public static final int TYPE_APPLICATION_OVERLAY = 2038;
     
@@ -63,8 +70,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    public ApiAudioPlayerFloatingWindow() {
-        initLayoutParams();
+    private ApiAudioPlayerFloatingWindow() {
     }
     
     public static ApiAudioPlayerFloatingWindow getInstance() {
@@ -84,6 +90,13 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     @Override
     public ApiAudioPlayerFloatingWindow show() {
+        initLocalBroadcastReceiver();
+        
+        if (!checkPermission()) {
+            return this;
+        }
+        
+        initLayoutParams();
         ensureFloatingView();
         listener(new DesignatedAudioPlayerFloatingViewListener() {
             @Override
@@ -107,6 +120,11 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     @Override
     public ApiAudioPlayerFloatingWindow close() {
         AudioPlayManager.getInstance().destroy();
+        
+        if (containerContext != null && voiceReceiver != null) {
+            LocalBroadcastManager.getInstance(containerContext).unregisterReceiver(voiceReceiver);
+        }
+        
         if (designatedFloatingView != null) {
             designatedFloatingView.closeFloatingWindow();
         }
@@ -168,7 +186,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     @Override
     public ApiAudioPlayerFloatingWindow displayWhenAppForeground() {
-        if (containerView != null && containerView.getVisibility() != View.VISIBLE) {
+        if (containerView != null) {
             containerView.setVisibility(View.VISIBLE);
         }
         return this;
@@ -176,7 +194,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     @Override
     public ApiAudioPlayerFloatingWindow hideWhenAppBackground() {
-        if (containerView != null && containerView.getVisibility() == View.VISIBLE) {
+        if (containerView != null) {
             containerView.setVisibility(View.GONE);
         }
         return this;
@@ -184,6 +202,25 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     @Override
     public ApiAudioPlayerFloatingWindow initData(List<AudioModel> audioList) {
+        AudioListModel audioListModel = new AudioListModel();
+        audioListModel.setAudioList(audioList);
+        audioListModel.setCurrentIndex(0);
+        
+        AudioModel currentAudio = AudioPlayManager.getInstance().getCurrentAudio();
+        AudioModel newListFirstAudio = audioListModel.getAudioList().get(0);
+        AudioPlayManager.getInstance().setInfo(audioListModel);
+        
+        if (!hasOverlayPermission) {
+            return this;
+        }
+        
+        if (currentAudio != null && newListFirstAudio != null && currentAudio.getId().equals(newListFirstAudio.getId())) {
+            AudioPlayManager.getInstance().start();
+        } else {
+            AudioPlayManager.getInstance().stop();
+            AudioPlayManager.getInstance().play(containerContext);
+        }
+        
         if (designatedFloatingView != null) {
             // if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
             //     AudioListModel audioListModel = new AudioListModel();
@@ -200,22 +237,6 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             // } else {
             //     designatedFloatingView.refreshData();
             // }
-            
-            AudioListModel audioListModel = new AudioListModel();
-            audioListModel.setAudioList(audioList);
-            audioListModel.setCurrentIndex(0);
-            
-            AudioModel currentAudio = AudioPlayManager.getInstance().getCurrentAudio();
-            AudioModel newListFirstAudio = audioListModel.getAudioList().get(0);
-            
-            if (currentAudio != null && newListFirstAudio != null && currentAudio.getId().equals(newListFirstAudio.getId())) {
-                AudioPlayManager.getInstance().setInfo(audioListModel);
-                AudioPlayManager.getInstance().start();
-            } else {
-                AudioPlayManager.getInstance().stop();
-                AudioPlayManager.getInstance().setInfo(audioListModel);
-                AudioPlayManager.getInstance().play(containerContext);
-            }
             
             designatedFloatingView.refreshVoiceSwitch();
             
@@ -292,12 +313,11 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
     private void initLayoutParams() {
-        if (Build.VERSION.SDK_INT >= Constant.VERSION_CODES_O) {
-            boolean MiUiO = (Build.VERSION.SDK_INT == Constant.VERSION_CODES_O || Build.VERSION.SDK_INT == Constant.VERSION_CODES_O_MR1) && PermissionFloatUtils.isMiui();
-            if (MiUiO) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (PermissionOverlayUtils.isMiUiO()) {
                 getContainerLayoutParams().type = TYPE_PRESENTATION;
             } else {
-                getContainerLayoutParams().type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+                getContainerLayoutParams().type = TYPE_APPLICATION_OVERLAY;
             }
         } else {
             getContainerLayoutParams().type = WindowManager.LayoutParams.TYPE_PHONE;
@@ -320,18 +340,14 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         // getLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
     }
     
-    private WindowManager.LayoutParams getContainerLayoutParams() {
-        if (containerLayoutParams == null) {
-            containerLayoutParams = new WindowManager.LayoutParams();
+    private void initLocalBroadcastReceiver() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Constant.INTENT_ACTION_IS_FOREGROUND);
+        intentFilter.addAction(Constant.INTENT_ACTION_CLOSE_FLOAT);
+        if (containerContext != null) {
+            // 注册广播接收器
+            LocalBroadcastManager.getInstance(containerContext).registerReceiver(voiceReceiver, intentFilter);
         }
-        return (WindowManager.LayoutParams) containerLayoutParams;
-    }
-    
-    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
-        if (designatedLayoutParams == null) {
-            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        }
-        return (FrameLayout.LayoutParams) designatedLayoutParams;
     }
     
     private void ensureFloatingView() {
@@ -339,7 +355,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             if (designatedFloatingView == null) {
                 designatedFloatingView = new DesignatedAudioPlayerFloatingView(containerContext, layoutId);
                 designatedFloatingView.setLayoutParams(getDesignatedLayoutParams());
-                designatedFloatingView.setBackgroundColor(0xFF0000FF);
+                // designatedFloatingView.setBackgroundColor(0xFF0000FF);
                 addViewToWindow(designatedFloatingView);
                 designatedFloatingView.showFloatingWindow();
             }
@@ -378,20 +394,73 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         }
     }
     
-    private FrameLayout getContainerView() {
-        if (containerView == null) {
-            containerView = new FrameLayout(containerContext);
-            containerView.setBackgroundColor(0xFFFFFF33);
-        }
-        return (FrameLayout) containerView;
-    }
-    
     private WindowManager getWindowManager() {
         if (windowManager == null && containerContext != null) {
             windowManager = (WindowManager) containerContext.getSystemService(Context.WINDOW_SERVICE);
         }
         return windowManager;
     }
+    
+    private FrameLayout getContainerView() {
+        if (containerView == null) {
+            containerView = new FrameLayout(containerContext);
+            // containerView.setBackgroundColor(0xFFFFFF33);
+        }
+        return (FrameLayout) containerView;
+    }
+    
+    private WindowManager.LayoutParams getContainerLayoutParams() {
+        if (containerLayoutParams == null) {
+            containerLayoutParams = new WindowManager.LayoutParams();
+        }
+        return (WindowManager.LayoutParams) containerLayoutParams;
+    }
+    
+    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
+        if (designatedLayoutParams == null) {
+            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        }
+        return (FrameLayout.LayoutParams) designatedLayoutParams;
+    }
+    
+    private boolean checkPermission() {
+        // 跳转状态置为假
+        isJumpToOverlayPermission = false;
+        // 获取悬浮窗权限状态
+        hasOverlayPermission = PermissionOverlayUtils.hasPermission(containerContext);
+        // 没有悬浮窗权限，跳转悬浮窗权限设置页，并拦截后续逻辑
+        if (!hasOverlayPermission) {
+            // 跳转悬浮窗权限设置页
+            PermissionOverlayUtils.jumpToOverlayPermission(containerContext);
+            // 跳转状态置为真
+            isJumpToOverlayPermission = true;
+        }
+        return hasOverlayPermission;
+    }
+    
+    
+    // ---------- ---------- ---------- Implementations ---------- ---------- ----------
+    
+    /** 监听前后台切换 */
+    private BroadcastReceiver voiceReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Constant.INTENT_ACTION_IS_FOREGROUND)) {
+                // 前后台
+                if (intent.getBooleanExtra("isForeground", true)) {
+                    if (isJumpToOverlayPermission) {
+                        show().initData(AudioPlayManager.getInstance().getAudioList());
+                    }
+                    displayWhenAppForeground();
+                } else {
+                    hideWhenAppBackground();
+                }
+            } else if (action.equals(Constant.INTENT_ACTION_CLOSE_FLOAT)) {
+                close();
+            }
+        }
+    };
     
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
