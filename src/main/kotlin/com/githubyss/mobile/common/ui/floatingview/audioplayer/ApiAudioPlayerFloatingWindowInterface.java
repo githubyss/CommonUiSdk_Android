@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -22,6 +23,8 @@ import java.util.List;
  */
 public interface ApiAudioPlayerFloatingWindowInterface {
     
+    ApiAudioPlayerFloatingWindow init(Context context);
+    
     ApiAudioPlayerFloatingWindow show();
     
     ApiAudioPlayerFloatingWindow close();
@@ -29,6 +32,10 @@ public interface ApiAudioPlayerFloatingWindowInterface {
     ApiAudioPlayerFloatingWindow lengthen();
     
     ApiAudioPlayerFloatingWindow shorten();
+    
+    ApiAudioPlayerFloatingWindow play(List<AudioModel> audioList);
+    
+    ApiAudioPlayerFloatingWindow play(List<AudioModel> audioList, boolean isNeedJumpToOverlayPermission);
     
     ApiAudioPlayerFloatingWindow start();
     
@@ -45,8 +52,6 @@ public interface ApiAudioPlayerFloatingWindowInterface {
     ApiAudioPlayerFloatingWindow displayWhenAppForeground();
     
     ApiAudioPlayerFloatingWindow hideWhenAppBackground();
-    
-    ApiAudioPlayerFloatingWindow initData(List<AudioModel> audioList);
     
     AudioModel getCurrentAudio();
     

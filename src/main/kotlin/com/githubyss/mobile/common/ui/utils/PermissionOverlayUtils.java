@@ -79,7 +79,7 @@ public class PermissionOverlayUtils {
     }
     
     public static boolean isMiUiO() {
-        return (Build.VERSION.SDK_INT == Build.VERSION_CODES.O || Build.VERSION.SDK_INT == Build.VERSION_CODES.O_MR1) && isMiui();
+        return (Build.VERSION.SDK_INT == Constant.VERSION_CODES_O || Build.VERSION.SDK_INT == Constant.VERSION_CODES_O_MR1) && isMiui();
     }
     
     public static void jumpToOverlayPermission(Context context) {

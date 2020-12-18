@@ -58,7 +58,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     /** Web 端 listener */
     private ApiAudioPlayerFloatingWindowListener webAudioListener;
     
-    private boolean hasOverlayPermission = false;
+    /** 是否跳转过悬浮窗权限设置页 */
     private boolean isJumpToOverlayPermission = false;
     
     //8.0 type样式，不可修改，为适应低版本编译，自己定义
@@ -89,13 +89,14 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
     
     @Override
-    public ApiAudioPlayerFloatingWindow show() {
+    public ApiAudioPlayerFloatingWindow init(Context context) {
+        this.containerContext = context;
         initLocalBroadcastReceiver();
-        
-        if (!checkPermission()) {
-            return this;
-        }
-        
+        return this;
+    }
+    
+    @Override
+    public ApiAudioPlayerFloatingWindow show() {
         initLayoutParams();
         ensureFloatingView();
         listener(new DesignatedAudioPlayerFloatingViewListener() {
@@ -143,6 +144,87 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     public ApiAudioPlayerFloatingWindow shorten() {
         if (designatedFloatingView != null) {
             designatedFloatingView.shortenFloatingWindow();
+        }
+        return this;
+    }
+    
+    @Override
+    public ApiAudioPlayerFloatingWindow play(List<AudioModel> audioList) {
+        // 默认对外开放的方法，需要去开启悬浮窗权限
+        play(audioList, true);
+        return this;
+    }
+    
+    @Override
+    public ApiAudioPlayerFloatingWindow play(List<AudioModel> audioList, boolean isNeedJumpToOverlayPermission) {
+        if (audioList == null) {
+            return this;
+        }
+        
+        AudioListModel audioListModel = new AudioListModel();
+        audioListModel.setAudioList(audioList);
+        audioListModel.setCurrentIndex(0);
+        
+        AudioModel currentAudio = AudioPlayManager.getInstance().getCurrentAudio();
+        AudioModel newListFirstAudio = audioListModel.getAudioList().get(0);
+        AudioPlayManager.getInstance().setInfo(audioListModel);
+        
+        // 悬浮窗权限是关的，拦截后续逻辑
+        if (!checkPermission(isNeedJumpToOverlayPermission)) {
+            // 需要跳转开启权限
+            if (isNeedJumpToOverlayPermission) {
+                // 跳转状态置为真
+                isJumpToOverlayPermission = true;
+            }
+            return this;
+        }
+        
+        boolean isContinue = currentAudio != null && newListFirstAudio != null && currentAudio.getId().equals(newListFirstAudio.getId());
+        
+        if (isContinue) {
+            AudioPlayManager.getInstance().start();
+        } else {
+            AudioPlayManager.getInstance().stop();
+            AudioPlayManager.getInstance().play(containerContext);
+        }
+        
+        if (designatedFloatingView != null) {
+            // if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
+            //     AudioListModel audioListModel = new AudioListModel();
+            //     audioListModel.setAudioList(audioList);
+            //     audioListModel.setCurrentIndex(0);
+            //
+            //     if (audioListModel != null) {
+            //         AudioPlayManager.getInstance().setInfo(audioListModel);
+            //         AudioPlayManager.getInstance().play(containerContext);
+            //         designatedFloatingView.refreshVoiceSwitch();
+            //     } else {
+            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+            //     }
+            // } else {
+            //     designatedFloatingView.refreshData();
+            // }
+            
+            designatedFloatingView.refreshVoiceSwitch();
+            
+            designatedFloatingView.setAudioPlayListener(new AudioPlayListener() {
+                @Override
+                public void onStateChanged(AudioState audioState) {
+                    // if (mMusicNotification != null && !misShow && !mfinished && !isFinishing()) {
+                    //     mMusicNotification.showNotify();
+                    // }
+                }
+                
+                @Override
+                public void onPlayProgress(int currentPosition) {
+                
+                }
+                
+                @Override
+                public void onBufferingUpdateProgress(int percent) {
+                
+                }
+            });
         }
         return this;
     }
@@ -201,68 +283,6 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow initData(List<AudioModel> audioList) {
-        AudioListModel audioListModel = new AudioListModel();
-        audioListModel.setAudioList(audioList);
-        audioListModel.setCurrentIndex(0);
-        
-        AudioModel currentAudio = AudioPlayManager.getInstance().getCurrentAudio();
-        AudioModel newListFirstAudio = audioListModel.getAudioList().get(0);
-        AudioPlayManager.getInstance().setInfo(audioListModel);
-        
-        if (!hasOverlayPermission) {
-            return this;
-        }
-        
-        if (currentAudio != null && newListFirstAudio != null && currentAudio.getId().equals(newListFirstAudio.getId())) {
-            AudioPlayManager.getInstance().start();
-        } else {
-            AudioPlayManager.getInstance().stop();
-            AudioPlayManager.getInstance().play(containerContext);
-        }
-        
-        if (designatedFloatingView != null) {
-            // if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
-            //     AudioListModel audioListModel = new AudioListModel();
-            //     audioListModel.setAudioList(audioList);
-            //     audioListModel.setCurrentIndex(0);
-            //
-            //     if (audioListModel != null) {
-            //         AudioPlayManager.getInstance().setInfo(audioListModel);
-            //         AudioPlayManager.getInstance().play(containerContext);
-            //         designatedFloatingView.refreshVoiceSwitch();
-            //     } else {
-            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
-            //     }
-            // } else {
-            //     designatedFloatingView.refreshData();
-            // }
-            
-            designatedFloatingView.refreshVoiceSwitch();
-            
-            designatedFloatingView.setAudioPlayListener(new AudioPlayListener() {
-                @Override
-                public void onStateChanged(AudioState audioState) {
-                    // if (mMusicNotification != null && !misShow && !mfinished && !isFinishing()) {
-                    //     mMusicNotification.showNotify();
-                    // }
-                }
-                
-                @Override
-                public void onPlayProgress(int currentPosition) {
-                
-                }
-                
-                @Override
-                public void onBufferingUpdateProgress(int percent) {
-                
-                }
-            });
-        }
-        return this;
-    }
-    
-    @Override
     public AudioModel getCurrentAudio() {
         return AudioPlayManager.getInstance().getCurrentAudio();
     }
@@ -312,6 +332,16 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
+    private void initLocalBroadcastReceiver() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Constant.INTENT_ACTION_IS_FOREGROUND);
+        intentFilter.addAction(Constant.INTENT_ACTION_CLOSE_FLOAT);
+        if (containerContext != null) {
+            // 注册广播接收器
+            LocalBroadcastManager.getInstance(containerContext).registerReceiver(voiceReceiver, intentFilter);
+        }
+    }
+    
     private void initLayoutParams() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (PermissionOverlayUtils.isMiUiO()) {
@@ -338,16 +368,6 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         getContainerLayoutParams().x = 0;
         getContainerLayoutParams().y = 0;
         // getLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
-    }
-    
-    private void initLocalBroadcastReceiver() {
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(Constant.INTENT_ACTION_IS_FOREGROUND);
-        intentFilter.addAction(Constant.INTENT_ACTION_CLOSE_FLOAT);
-        if (containerContext != null) {
-            // 注册广播接收器
-            LocalBroadcastManager.getInstance(containerContext).registerReceiver(voiceReceiver, intentFilter);
-        }
     }
     
     private void ensureFloatingView() {
@@ -423,19 +443,15 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         return (FrameLayout.LayoutParams) designatedLayoutParams;
     }
     
-    private boolean checkPermission() {
-        // 跳转状态置为假
-        isJumpToOverlayPermission = false;
+    private boolean checkPermission(boolean isNeedJumpToOverlayPermission) {
         // 获取悬浮窗权限状态
-        hasOverlayPermission = PermissionOverlayUtils.hasPermission(containerContext);
-        // 没有悬浮窗权限，跳转悬浮窗权限设置页，并拦截后续逻辑
-        if (!hasOverlayPermission) {
+        boolean isHasOverlayPermission = PermissionOverlayUtils.hasPermission(containerContext);
+        // 没有悬浮窗权限，并且需要去开启权限，跳转悬浮窗权限设置页
+        if (!isHasOverlayPermission && isNeedJumpToOverlayPermission) {
             // 跳转悬浮窗权限设置页
             PermissionOverlayUtils.jumpToOverlayPermission(containerContext);
-            // 跳转状态置为真
-            isJumpToOverlayPermission = true;
         }
-        return hasOverlayPermission;
+        return isHasOverlayPermission;
     }
     
     
@@ -446,17 +462,25 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
+            // 前后台事件
             if (action.equals(Constant.INTENT_ACTION_IS_FOREGROUND)) {
-                // 前后台
+                // 回到前台
                 if (intent.getBooleanExtra("isForeground", true)) {
-                    if (isJumpToOverlayPermission) {
-                        show().initData(AudioPlayManager.getInstance().getAudioList());
-                    }
                     displayWhenAppForeground();
-                } else {
+                    
+                    if (isJumpToOverlayPermission) {
+                        // 跳转状态重置为假
+                        isJumpToOverlayPermission = false;
+                        play(AudioPlayManager.getInstance().getAudioList(), false);
+                    }
+                }
+                // 进入后台
+                else {
                     hideWhenAppBackground();
                 }
-            } else if (action.equals(Constant.INTENT_ACTION_CLOSE_FLOAT)) {
+            }
+            // 关闭浮窗事件
+            else if (action.equals(Constant.INTENT_ACTION_CLOSE_FLOAT)) {
                 close();
             }
         }
@@ -464,11 +488,6 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
-    
-    public ApiAudioPlayerFloatingWindow setContainerContext(Context containerContext) {
-        this.containerContext = containerContext;
-        return this;
-    }
     
     public ApiAudioPlayerFloatingWindow setNativeAudioListener(ApiAudioPlayerFloatingWindowListener nativeAudioListener) {
         this.nativeAudioListener = nativeAudioListener;

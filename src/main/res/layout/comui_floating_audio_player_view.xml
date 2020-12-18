@@ -64,6 +64,7 @@
                             android:id="@+id/textView_timePosition"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:hint="--:--"
                             android:textColor="#ff8000"
                             android:textColorHint="#ff8000"
@@ -75,6 +76,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text=" / "
                             android:textColor="#999999"
                             android:textSize="10sp"
@@ -85,6 +87,7 @@
                             android:id="@+id/textView_timeDuration"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:hint="--:--"
                             android:textColor="#999999"
                             android:textColorHint="#999999"
