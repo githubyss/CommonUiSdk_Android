@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.githubyss.mobile.common.kit.processor.ComkitScreenProcessor;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.constant.Constant;
 import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
@@ -97,6 +98,10 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     @Override
     public ApiAudioPlayerFloatingWindow show() {
+        if (!checkPermission(false)) {
+            return this;
+        }
+        
         initLayoutParams();
         ensureFloatingView();
         listener(new DesignatedAudioPlayerFloatingViewListener() {
@@ -366,7 +371,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         getContainerLayoutParams().width = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().height = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().x = 0;
-        getContainerLayoutParams().y = 0;
+        getContainerLayoutParams().y = ComkitScreenProcessor.INSTANCE.dp2Px(containerContext, 70.0f);
         // getLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
     }
     
@@ -471,7 +476,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
                     if (isJumpToOverlayPermission) {
                         // 跳转状态重置为假
                         isJumpToOverlayPermission = false;
-                        play(AudioPlayManager.getInstance().getAudioList(), false);
+                        show().play(AudioPlayManager.getInstance().getAudioList(), false);
                     }
                 }
                 // 进入后台
