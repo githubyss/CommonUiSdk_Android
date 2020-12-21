@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.githubyss.mobile.common.kit.processor.ComkitScreenProcessor;
+import com.githubyss.mobile.common.kit.info.ScreenInfo;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.constant.Constant;
 import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
@@ -371,7 +371,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         getContainerLayoutParams().width = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().height = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().x = 0;
-        getContainerLayoutParams().y = ComkitScreenProcessor.INSTANCE.dp2Px(containerContext, 70.0f);
+        getContainerLayoutParams().y = ScreenInfo.INSTANCE.dp2Px(70.0f);
         // getLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
     }
     

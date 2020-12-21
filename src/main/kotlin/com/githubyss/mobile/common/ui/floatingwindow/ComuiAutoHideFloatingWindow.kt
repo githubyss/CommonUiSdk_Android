@@ -16,7 +16,7 @@ import androidx.annotation.RequiresPermission
 import com.bumptech.glide.Glide
 import com.githubyss.mobile.common.kit.ComkitApplication
 import com.githubyss.mobile.common.kit.logcat.ComkitLogcatUtils
-import com.githubyss.mobile.common.kit.processor.ComkitScreenProcessor
+import com.githubyss.mobile.common.kit.info.ScreenInfo
 import com.githubyss.mobile.common.ui.R
 import java.lang.Exception
 import java.lang.ref.WeakReference
@@ -248,7 +248,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
 
     private fun initLayoutParams() {
         if (windowManager == null) {
-            windowManager = ComkitScreenProcessor.windowManager()
+            windowManager = ScreenInfo.windowManager()
         }
 
         if (windowLayoutParams == null) {

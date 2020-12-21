@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.githubyss.mobile.common.kit.processor.ComkitScreenProcessor;
+import com.githubyss.mobile.common.kit.info.ScreenInfo;
 import com.githubyss.mobile.common.ui.R;
 
 
@@ -174,7 +174,7 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
             }
             if (animatorSlideRightLengthen.equals(animation)) {
                 if (rootView != null) {
-                    rootView.setTranslationX(-ComkitScreenProcessor.INSTANCE.dp2Px(containerContext, 230.0f));
+                    rootView.setTranslationX(-ScreenInfo.INSTANCE.dp2Px(230.0f));
                     baseAutoShortedFloatingViewListener.onRefreshPlayerStyle(false);
                 }
                 return;

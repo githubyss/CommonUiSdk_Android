@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.githubyss.mobile.common.kit.hint.ComkitToastUtils;
+import com.githubyss.mobile.common.kit.indicator.ToastIndicator;
 import com.githubyss.mobile.common.kit.resource.ComkitResUtils;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
@@ -161,7 +161,7 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
                     AudioPlayManager.getInstance().play(containerContext);
                     designatedFloatingView.refreshVoiceSwitch();
                 } else {
-                    ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+                    ToastIndicator.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
                 }
             } else {
                 designatedFloatingView.refreshData();
