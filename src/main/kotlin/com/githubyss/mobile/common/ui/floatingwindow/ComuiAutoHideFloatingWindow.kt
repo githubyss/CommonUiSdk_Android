@@ -15,7 +15,7 @@ import android.widget.LinearLayout
 import androidx.annotation.RequiresPermission
 import com.bumptech.glide.Glide
 import com.githubyss.mobile.common.kit.ComkitApplication
-import com.githubyss.mobile.common.kit.logcat.ComkitLogcatUtils
+import com.githubyss.mobile.common.kit.logcat.LogcatUtils
 import com.githubyss.mobile.common.kit.info.ScreenInfo
 import com.githubyss.mobile.common.ui.R
 import java.lang.Exception
@@ -300,7 +300,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
                 beShown = true
             }
         } catch (e: Exception) {
-            ComkitLogcatUtils.e(msg = e.toString())
+            LogcatUtils.e(msg = e.toString())
         }
 
         logcatViewProperty(rootView, "After addView rootView\t\t\t")
@@ -313,7 +313,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
                 beShown = false
             }
         } catch (e: Exception) {
-            ComkitLogcatUtils.e(msg = e.toString())
+            LogcatUtils.e(msg = e.toString())
         }
 
         logcatViewProperty(rootView, "After removeView rootView\t\t")
@@ -399,7 +399,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     private fun logcatViewProperty(view: View?, location: String = "") {
         val coordinate = IntArray(2)
         view?.getLocationOnScreen(coordinate)
-        ComkitLogcatUtils.d(
+        LogcatUtils.d(
                 msg = "$location: " +
                         "view-> " +
                         "{x:${view?.x?.toInt()}, y:${view?.y?.toInt()}}\t" +

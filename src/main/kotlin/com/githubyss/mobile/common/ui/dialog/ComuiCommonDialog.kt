@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import com.githubyss.mobile.common.kit.logcat.ComkitLogcatUtils
+import com.githubyss.mobile.common.kit.logcat.LogcatUtils
 import com.githubyss.mobile.common.kit.resource.ComkitResUtils
 import com.githubyss.mobile.common.ui.R
 
@@ -77,9 +77,9 @@ class ComuiCommonDialog @SuppressLint("ValidFragment") private constructor() : D
                     manager.beginTransaction().remove(dialog).commitAllowingStateLoss()
                 }
             } catch (exception: IllegalStateException) {
-                ComkitLogcatUtils.e(t = exception)
+                LogcatUtils.e(t = exception)
             } catch (exception: Exception) {
-                ComkitLogcatUtils.e(t = exception)
+                LogcatUtils.e(t = exception)
             }
         }
     }

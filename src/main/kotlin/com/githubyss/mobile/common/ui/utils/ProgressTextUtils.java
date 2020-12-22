@@ -1,5 +1,7 @@
 package com.githubyss.mobile.common.ui.utils;
 
+import com.githubyss.mobile.common.kit.logcat.LogcatUtils;
+
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,13 +13,15 @@ import java.util.Date;
  */
 
 public class ProgressTextUtils {
-
+    
     public static String getProgressText(long time) {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date(time));
+        long roundTime = Double.valueOf(Math.round(time / 1000F) * 1000).longValue();
+        LogcatUtils.INSTANCE.d("getProgressText", "roundTime: " + roundTime);
+        calendar.setTime(new Date(roundTime));
         double minute = calendar.get(Calendar.MINUTE);
         double second = calendar.get(Calendar.SECOND);
-
+        
         DecimalFormat format = new DecimalFormat("00");
         return format.format(minute) + ":" + format.format(second);
     }

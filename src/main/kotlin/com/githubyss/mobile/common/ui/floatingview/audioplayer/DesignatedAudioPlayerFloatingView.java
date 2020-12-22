@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.githubyss.mobile.common.kit.logcat.LogcatUtils;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
@@ -34,18 +35,18 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
-    private TextView textView_title;
-    private TextView textView_timePosition;
-    private TextView textView_timeDuration;
-    private SeekBar seekBar_audioPlayer;
+    private TextView  textView_title;
+    private TextView  textView_timePosition;
+    private TextView  textView_timeDuration;
+    private SeekBar   seekBar_audioPlayer;
     private ImageView imageView_playPauseController;
     private ImageView imageView_voiceSwitch;
     private ImageView imageView_close;
-    private View frameLayout_normalPlayerContainer;
-    private View frameLayout_miniPlayerContainer;
+    private View      frameLayout_normalPlayerContainer;
+    private View      frameLayout_miniPlayerContainer;
     
     private DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener;
-    private AudioPlayListener audioPlayListener;
+    private AudioPlayListener                         audioPlayListener;
     
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
@@ -201,6 +202,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
         seekBar_audioPlayer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                LogcatUtils.INSTANCE.d("seekBar_audioPlayer onProgressChanged", "progress: " + progress);
                 textView_timePosition.setText(ProgressTextUtils.getProgressText(progress));
             }
             
@@ -237,6 +239,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
             
             @Override
             public void onPlayProgress(int currentPosition) {
+                LogcatUtils.INSTANCE.d("setMusicListener onPlayProgress", "currentPosition: " + currentPosition);
                 playProgress(currentPosition);
                 if (audioPlayListener != null) {
                     audioPlayListener.onPlayProgress(currentPosition);
