@@ -202,7 +202,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
         seekBar_audioPlayer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                LogcatUtils.INSTANCE.d("seekBar_audioPlayer onProgressChanged", "progress: " + progress);
+                // LogcatUtils.INSTANCE.d("seekBar_audioPlayer onProgressChanged", "progress: " + progress);
                 textView_timePosition.setText(ProgressTextUtils.getProgressText(progress));
             }
             
@@ -239,7 +239,6 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
             
             @Override
             public void onPlayProgress(int currentPosition) {
-                LogcatUtils.INSTANCE.d("setMusicListener onPlayProgress", "currentPosition: " + currentPosition);
                 playProgress(currentPosition);
                 if (audioPlayListener != null) {
                     audioPlayListener.onPlayProgress(currentPosition);

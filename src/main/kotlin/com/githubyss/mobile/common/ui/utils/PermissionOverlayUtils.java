@@ -85,6 +85,7 @@ public class PermissionOverlayUtils {
     public static void jumpToOverlayPermission(Context context) {
         try {
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setData(Uri.parse("package:" + context.getPackageName()));
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {

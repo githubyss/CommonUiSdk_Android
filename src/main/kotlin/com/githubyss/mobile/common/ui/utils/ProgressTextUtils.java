@@ -16,6 +16,7 @@ public class ProgressTextUtils {
     
     public static String getProgressText(long time) {
         Calendar calendar = Calendar.getInstance();
+        LogcatUtils.INSTANCE.d("getProgressText", "time: " + time);
         long roundTime = Double.valueOf(Math.round(time / 1000F) * 1000).longValue();
         LogcatUtils.INSTANCE.d("getProgressText", "roundTime: " + roundTime);
         calendar.setTime(new Date(roundTime));

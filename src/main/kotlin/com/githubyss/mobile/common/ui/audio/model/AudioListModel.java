@@ -25,7 +25,7 @@ public class AudioListModel implements Serializable {
     private int currentIndex;
     private List<AudioModel> audioList;
     
-    public static VoiceType savedVoiceType = VoiceType.MALE;
+    public static VoiceType savedVoiceType = VoiceType.FEMALE;
     
     
     // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
