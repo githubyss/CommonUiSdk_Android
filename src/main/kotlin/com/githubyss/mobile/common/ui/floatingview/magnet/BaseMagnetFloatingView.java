@@ -21,45 +21,45 @@ import com.githubyss.mobile.common.ui.utils.SystemUtils;
  * @github githubyss
  * @createdTime 2020/12/09 11:13:32
  */
-public class BaseFloatingMagnetView extends FrameLayout {
+public class BaseMagnetFloatingView extends FrameLayout {
 
     public static final int MARGIN_EDGE = 13;
     private static final int TOUCH_TIME_THRESHOLD = 150;
 
-    private float mOriginalRawX;
-    private float mOriginalRawY;
-    private float mOriginalX;
-    private float mOriginalY;
-    protected int mScreenWidth;
-    private int mScreenHeight;
-    private int mStatusBarHeight;
-    private float mPortraitY;
-    private long mLastTouchDownTime;
+    private float   originalRawX;
+    private float   originalRawY;
+    private float   originalX;
+    private float   originalY;
+    protected int   screenWidth;
+    private int     screenHeight;
+    private int     statusBarHeight;
+    private float   portraitY;
+    private long    lastTouchDownTime;
     private boolean isNearestLeft = true;
 
-    private MagnetViewListener mMagnetViewListener;
-    protected MoveAnimator mMoveAnimator;
+    private   DesignatedMagnetFloatingViewListener designatedMagnetFloatingViewListener;
+    protected MoveAnimator                         moveAnimator;
 
-    public void setMagnetViewListener(MagnetViewListener magnetViewListener) {
-        this.mMagnetViewListener = magnetViewListener;
+    public void setMagnetViewListener(DesignatedMagnetFloatingViewListener designatedMagnetFloatingViewListener) {
+        this.designatedMagnetFloatingViewListener = designatedMagnetFloatingViewListener;
     }
 
-    public BaseFloatingMagnetView(Context context) {
+    public BaseMagnetFloatingView(Context context) {
         this(context, null);
     }
 
-    public BaseFloatingMagnetView(Context context, AttributeSet attrs) {
+    public BaseMagnetFloatingView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public BaseFloatingMagnetView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BaseMagnetFloatingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
     private void init() {
-        mMoveAnimator = new MoveAnimator();
-        mStatusBarHeight = SystemUtils.getStatusBarHeight(getContext());
+        moveAnimator = new MoveAnimator();
+        statusBarHeight = SystemUtils.getStatusBarHeight(getContext());
         setClickable(true);
         // updateSize();
     }
@@ -73,7 +73,7 @@ public class BaseFloatingMagnetView extends FrameLayout {
             case MotionEvent.ACTION_DOWN:
                 changeOriginalTouchParams(event);
                 updateSize();
-                mMoveAnimator.stop();
+                moveAnimator.stop();
                 break;
             case MotionEvent.ACTION_MOVE:
                 updateViewPosition(event);
@@ -90,41 +90,41 @@ public class BaseFloatingMagnetView extends FrameLayout {
     }
 
     protected void dealClickEvent() {
-        if (mMagnetViewListener != null) {
-            mMagnetViewListener.onClick(this);
+        if (designatedMagnetFloatingViewListener != null) {
+            designatedMagnetFloatingViewListener.onClick(this);
         }
     }
 
     protected boolean isOnClickEvent() {
-        return System.currentTimeMillis() - mLastTouchDownTime < TOUCH_TIME_THRESHOLD;
+        return System.currentTimeMillis() - lastTouchDownTime < TOUCH_TIME_THRESHOLD;
     }
 
     private void updateViewPosition(MotionEvent event) {
-        setX(mOriginalX + event.getRawX() - mOriginalRawX);
+        setX(originalX + event.getRawX() - originalRawX);
         // 限制不可超出屏幕高度
-        float desY = mOriginalY + event.getRawY() - mOriginalRawY;
-        if (desY < mStatusBarHeight) {
-            desY = mStatusBarHeight;
+        float desY = originalY + event.getRawY() - originalRawY;
+        if (desY < statusBarHeight) {
+            desY = statusBarHeight;
         }
-        if (desY > mScreenHeight - getHeight()) {
-            desY = mScreenHeight - getHeight();
+        if (desY > screenHeight - getHeight()) {
+            desY = screenHeight - getHeight();
         }
         setY(desY);
     }
 
     private void changeOriginalTouchParams(MotionEvent event) {
-        mOriginalX = getX();
-        mOriginalY = getY();
-        mOriginalRawX = event.getRawX();
-        mOriginalRawY = event.getRawY();
-        mLastTouchDownTime = System.currentTimeMillis();
+        originalX = getX();
+        originalY = getY();
+        originalRawX = event.getRawX();
+        originalRawY = event.getRawY();
+        lastTouchDownTime = System.currentTimeMillis();
     }
 
     protected void updateSize() {
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null) {
-            mScreenWidth = viewGroup.getWidth() - getWidth();
-            mScreenHeight = viewGroup.getHeight();
+            screenWidth = viewGroup.getWidth() - getWidth();
+            screenHeight = viewGroup.getHeight();
         }
         // mScreenWidth = (SystemUtils.getScreenWidth(getContext()) - this.getWidth());
         // mScreenHeight = SystemUtils.getScreenHeight(getContext());
@@ -135,28 +135,28 @@ public class BaseFloatingMagnetView extends FrameLayout {
     }
 
     public void moveToEdge(boolean isLeft, boolean isLandscape) {
-        float moveDistance = isLeft ? MARGIN_EDGE : mScreenWidth - MARGIN_EDGE;
+        float moveDistance = isLeft ? MARGIN_EDGE : screenWidth - MARGIN_EDGE;
         float y = getY();
-        if (!isLandscape && mPortraitY != 0) {
-            y = mPortraitY;
+        if (!isLandscape && portraitY != 0) {
+            y = portraitY;
             clearPortraitY();
         }
-        mMoveAnimator.start(moveDistance, Math.min(Math.max(0, y), mScreenHeight - getHeight()));
+        moveAnimator.start(moveDistance, Math.min(Math.max(0, y), screenHeight - getHeight()));
     }
 
     private void clearPortraitY() {
-        mPortraitY = 0;
+        portraitY = 0;
     }
 
     protected boolean isNearestLeft() {
-        int middle = mScreenWidth / 2;
+        int middle = screenWidth / 2;
         isNearestLeft = getX() < middle;
         return isNearestLeft;
     }
 
     public void onRemove() {
-        if (mMagnetViewListener != null) {
-            mMagnetViewListener.onRemove(this);
+        if (designatedMagnetFloatingViewListener != null) {
+            designatedMagnetFloatingViewListener.onRemove(this);
         }
     }
 
@@ -216,7 +216,7 @@ public class BaseFloatingMagnetView extends FrameLayout {
 
     private void markPortraitY(boolean isLandscape) {
         if (isLandscape) {
-            mPortraitY = getY();
+            portraitY = getY();
         }
     }
 }

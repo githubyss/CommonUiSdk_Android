@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
@@ -28,8 +29,8 @@ import androidx.core.view.ViewCompat;
 
 
 /**
- * ApiFloatingAudioPlayerView
- * <Description> 悬浮窗管理器
+ * ApiAudioPlayerFloatingView
+ * <Description> 音频播放器悬浮窗
  * <Details>
  *
  * @author Ace Yan
@@ -47,7 +48,7 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
     private DesignatedAudioPlayerFloatingView designatedFloatingView;
     private ViewGroup.LayoutParams designatedLayoutParams;
     @LayoutRes
-    private int layoutId = R.layout.comui_floating_audio_player_view;
+    private int layoutId = R.layout.comui_floating_audio_player;
     private ApiAudioPlayerFloatingWindowListener apiAudioPlayerFloatingWindowListener;
 
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_floating_view_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+    <FrameLayout
+            android:id="@+id/frameLayout_miniPlayerContainer"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/comui_floating_audio_player_mini_bg"
+            android:visibility="visible"
+            >
+
+        <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/comui_audio_player_extent"
+                android:scaleType="center"
+                />
+    </FrameLayout>
+</LinearLayout>

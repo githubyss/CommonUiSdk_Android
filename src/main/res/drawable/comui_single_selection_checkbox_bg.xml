@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/comui_ic_pentastar_black"
+    <item android:drawable="@drawable/comui_pentastar_black"
           android:state_selected="true" />
 
-    <item android:drawable="@drawable/comui_ic_pentastar_white"
+    <item android:drawable="@drawable/comui_pentastar_white"
           android:state_selected="false" />
 </selector>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/ll_floating_window_root"
+	android:id="@+id/ll_floating_view_root"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:background="#e0000000"
@@ -87,6 +87,6 @@
 			android:layout_width="30dp"
 			android:layout_height="4dp"
 			android:layout_gravity="center_horizontal"
-			android:background="@drawable/bg_screenshot_bottom_line"/>
+			android:background="@drawable/comui_auto_hide_floating_window_bottom_line"/>
 	</LinearLayout>
 </LinearLayout>

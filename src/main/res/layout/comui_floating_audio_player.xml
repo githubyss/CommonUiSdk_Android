@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/ll_floating_window_root"
+        android:id="@+id/ll_floating_view_root"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -20,7 +20,7 @@
                 android:orientation="horizontal"
                 android:layout_gravity="bottom"
                 android:gravity="center_vertical"
-                android:background="@drawable/bg_audio_normal_player_floating_window"
+                android:background="@drawable/comui_floating_audio_player_normal_bg"
                 >
 
             <View
@@ -105,8 +105,8 @@
                         android:minHeight="1dp"
                         android:progress="20"
                         android:secondaryProgress="0"
-                        android:progressDrawable="@drawable/comui_audio_player_seek_bar_progress"
-                        android:thumb="@drawable/comui_audio_player_seek_bar_thumb"
+                        android:progressDrawable="@drawable/comui_floating_audio_player_seek_bar_progress"
+                        android:thumb="@drawable/comui_floating_audio_player_seek_bar_thumb"
                         android:thumbOffset="1dp"
                         android:visibility="gone"
                         />
@@ -117,7 +117,7 @@
                     android:layout_width="29dp"
                     android:layout_height="29dp"
                     android:layout_marginLeft="14dp"
-                    android:src="@drawable/icon_audio_player_pause"
+                    android:src="@drawable/comui_audio_player_pause"
                     />
 
             <ImageView
@@ -125,7 +125,7 @@
                     android:layout_width="29dp"
                     android:layout_height="29dp"
                     android:layout_marginLeft="14dp"
-                    android:src="@drawable/icon_audio_player_voice_male"
+                    android:src="@drawable/comui_audio_player_voice_male"
                     />
 
             <FrameLayout
@@ -137,7 +137,7 @@
                         android:id="@+id/imageView_close"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/icon_audio_player_close"
+                        android:src="@drawable/comui_audio_player_close"
                         android:scaleType="center"
                         android:visibility="visible"
                         />
@@ -155,7 +155,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="bottom"
                     android:layout_marginTop="5dp"
-                    android:src="@drawable/cd_disk"
+                    android:src="@drawable/comui_audio_player_cd_disk"
                     />
 
             <ImageView
@@ -164,7 +164,7 @@
                     android:layout_gravity="top"
                     android:layout_marginLeft="-10dp"
                     android:layout_marginTop="8dp"
-                    android:src="@drawable/cd_disk_head"
+                    android:src="@drawable/comui_audio_player_cd_disk_head"
                     />
         </LinearLayout>
     </FrameLayout>
@@ -174,7 +174,7 @@
             android:layout_width="40dp"
             android:layout_height="45dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/bg_audio_mini_player_floating_window"
+            android:background="@drawable/comui_floating_audio_player_mini_bg"
             android:visibility="gone"
             >
 
@@ -182,7 +182,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/icon_audio_player_extent"
+                android:src="@drawable/comui_audio_player_extent"
                 android:scaleType="center"
                 />
     </FrameLayout>

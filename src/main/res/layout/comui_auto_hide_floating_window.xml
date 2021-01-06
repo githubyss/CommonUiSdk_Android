@@ -13,7 +13,7 @@
             android:layout_marginLeft="@dimen/comresSideMarginDefault"
             android:layout_marginRight="@dimen/comresSideMarginDefault"
             android:layout_marginTop="@dimen/comresSideMarginDefault"
-            android:background="@drawable/comui_auto_hide_floating_window_bg_default"
+            android:background="@drawable/comui_auto_hide_floating_window_bg"
             android:orientation="vertical"
             >
 

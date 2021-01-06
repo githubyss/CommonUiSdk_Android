@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ import java.util.List;
 
 /**
  * ApiAudioPlayerFloatingWindowInterface
- * <Description> 接口方法规整
+ * <Description> 音频播放器悬浮窗接口方法
  * <Details>
  *
  * @author Ace Yan

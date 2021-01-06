@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -53,7 +54,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     private DesignatedAudioPlayerFloatingView designatedFloatingView;
     private ViewGroup.LayoutParams designatedLayoutParams;
     @LayoutRes
-    private int layoutId = R.layout.comui_floating_audio_player_view;
+    private int layoutId = R.layout.comui_floating_audio_player;
     /** 原生 listener */
     private ApiAudioPlayerFloatingWindowListener nativeAudioListener;
     /** Web 端 listener */

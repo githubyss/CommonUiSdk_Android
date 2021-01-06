@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
+
 import android.app.Activity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -12,8 +13,8 @@ import androidx.annotation.LayoutRes;
 
 
 /**
- * IApiFloatingMagnetView
- * <Description> 磁力吸附悬浮窗管理器对外接口
+ * ApiAudioPlayerFloatingViewInterface
+ * <Description> 音频播放器悬浮窗接口方法
  * <Details>
  *
  * @author Ace Yan

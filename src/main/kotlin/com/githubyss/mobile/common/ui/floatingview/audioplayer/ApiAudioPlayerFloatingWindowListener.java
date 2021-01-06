@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
+
 import android.view.ViewGroup;
 
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
@@ -11,7 +12,7 @@ import androidx.annotation.LayoutRes;
 
 /**
  * ApiAudioPlayerFloatingWindowListener
- * <Description> 对外回调
+ * <Description> 音频播放器悬浮窗对外回调
  * <Details>
  *
  * @author Ace Yan

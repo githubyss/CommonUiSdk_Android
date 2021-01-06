@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
+
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorListenerAdapter;
@@ -109,10 +110,10 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
     private void initAnimator() {
-        animatorSlideRightShow = AnimatorInflater.loadAnimator(containerContext, R.animator.slide_right_show);
-        animatorSlideLeftClose = AnimatorInflater.loadAnimator(containerContext, R.animator.slide_left_close);
-        animatorSlideRightLengthen = AnimatorInflater.loadAnimator(containerContext, R.animator.slide_right_lengthen);
-        animatorSlideLeftShorten = AnimatorInflater.loadAnimator(containerContext, R.animator.slide_left_shorten);
+        animatorSlideRightShow = AnimatorInflater.loadAnimator(containerContext, R.animator.comui_floating_audio_player_slide_right_show);
+        animatorSlideLeftClose = AnimatorInflater.loadAnimator(containerContext, R.animator.comui_floating_audio_player_slide_left_close);
+        animatorSlideRightLengthen = AnimatorInflater.loadAnimator(containerContext, R.animator.comui_floating_audio_player_slide_right_lengthen);
+        animatorSlideLeftShorten = AnimatorInflater.loadAnimator(containerContext, R.animator.comui_floating_audio_player_slide_left_shorten);
         
         animatorSlideRightShow.setTarget(rootView);
         animatorSlideLeftClose.setTarget(rootView);

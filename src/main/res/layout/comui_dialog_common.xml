@@ -9,7 +9,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/comresSideMarginDefault"
             android:layout_marginRight="@dimen/comresSideMarginDefault"
-            android:background="@drawable/comui_common_dialog_bg_default"
+            android:background="@drawable/comui_common_dialog_bg"
             android:orientation="vertical"
             >
 

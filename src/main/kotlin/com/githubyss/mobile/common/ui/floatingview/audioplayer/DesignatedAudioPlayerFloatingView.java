@@ -1,12 +1,12 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
+
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.githubyss.mobile.common.kit.logcat.LogcatUtils;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
@@ -23,7 +23,7 @@ import static com.githubyss.mobile.common.ui.audio.enumeration.AudioState.START;
 
 
 /**
- * DesignatedFloatingAudioPlayerView
+ * DesignatedAudioPlayerFloatingView
  * <Description> 特定的音频播放器悬浮窗
  * <Details> 针对特此的布局，实现布局元素的显示和操作响应。
  *
@@ -52,7 +52,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
     public DesignatedAudioPlayerFloatingView(@NonNull Context context) {
-        this(context, R.layout.comui_floating_audio_player_view);
+        this(context, R.layout.comui_floating_audio_player);
     }
     
     public DesignatedAudioPlayerFloatingView(@NonNull Context context, @LayoutRes int resource) {
@@ -89,10 +89,10 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
         
         switch (AudioPlayManager.getInstance().getCurrentAudio().getVoiceType()) {
             case MALE:
-                imageView_voiceSwitch.setImageResource(R.drawable.icon_audio_player_voice_male);
+                imageView_voiceSwitch.setImageResource(R.drawable.comui_audio_player_voice_male);
                 break;
             case FEMALE:
-                imageView_voiceSwitch.setImageResource(R.drawable.icon_audio_player_voice_female);
+                imageView_voiceSwitch.setImageResource(R.drawable.comui_audio_player_voice_female);
                 break;
             default:
                 break;
@@ -141,11 +141,11 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
             case PREPARE:
                 break;
             case PLAYING:
-                imageView_playPauseController.setImageResource(R.drawable.icon_audio_player_pause);
+                imageView_playPauseController.setImageResource(R.drawable.comui_audio_player_pause);
                 updateAudioInfo(true);
                 break;
             case STOP:
-                imageView_playPauseController.setImageResource(R.drawable.icon_audio_player_start);
+                imageView_playPauseController.setImageResource(R.drawable.comui_audio_player_start);
                 // 停止时进度就保留在最后
                 // seekBar_audioPlayer.setProgress(0);
                 // seekBar_audioPlayer.setSecondaryProgress(0);
@@ -157,7 +157,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
                 updateAudioInfo(false);
                 break;
             case PAUSE:
-                imageView_playPauseController.setImageResource(R.drawable.icon_audio_player_start);
+                imageView_playPauseController.setImageResource(R.drawable.comui_audio_player_start);
                 updateAudioInfo(false);
                 break;
             case READY:
