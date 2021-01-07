@@ -37,7 +37,7 @@ public interface ApiMagnetFloatingViewInterface {
 
     ApiMagnetFloatingView icon(@DrawableRes int resId);
 
-    ApiMagnetFloatingView customView(BaseMagnetFloatingView viewGroup);
+    ApiMagnetFloatingView customView(DesignatedMagnetFloatingView viewGroup);
 
     ApiMagnetFloatingView customView(@LayoutRes int resource);
 

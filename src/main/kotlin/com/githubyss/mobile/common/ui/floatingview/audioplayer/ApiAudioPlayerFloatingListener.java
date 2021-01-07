@@ -11,15 +11,15 @@ import androidx.annotation.LayoutRes;
 
 
 /**
- * ApiAudioPlayerFloatingWindowListener
- * <Description> 音频播放器悬浮窗对外回调
+ * ApiAudioPlayerFloatingListener
+ * <Description> 音频播放器悬浮窗回调监听
  * <Details>
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2020/12/09 11:34:40
  */
-public interface ApiAudioPlayerFloatingWindowListener {
+public interface ApiAudioPlayerFloatingListener {
     
     void onUpdateAudioInfo(AudioModel audioModel);
 }

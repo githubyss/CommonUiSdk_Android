@@ -40,7 +40,7 @@ public class BaseMagnetFloatingView extends FrameLayout {
     private   DesignatedMagnetFloatingViewListener designatedMagnetFloatingViewListener;
     protected MoveAnimator                         moveAnimator;
 
-    public void setMagnetViewListener(DesignatedMagnetFloatingViewListener designatedMagnetFloatingViewListener) {
+    public void setDesignatedMagnetViewListener(DesignatedMagnetFloatingViewListener designatedMagnetFloatingViewListener) {
         this.designatedMagnetFloatingViewListener = designatedMagnetFloatingViewListener;
     }
 

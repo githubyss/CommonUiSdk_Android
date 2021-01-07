@@ -9,18 +9,17 @@
 
     <FrameLayout
             android:id="@+id/frameLayout_miniPlayerContainer"
-            android:layout_width="40dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/comui_floating_audio_player_mini_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:visibility="visible"
             >
 
         <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/imageView_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/comui_audio_player_extent"
+                android:src="@drawable/imuxuan"
                 android:scaleType="center"
                 />
     </FrameLayout>

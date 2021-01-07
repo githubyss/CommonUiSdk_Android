@@ -23,9 +23,9 @@ import androidx.annotation.LayoutRes;
  */
 public interface ApiAudioPlayerFloatingViewInterface {
 
-    ApiAudioPlayerFloatingView show();
+    ApiAudioPlayerFloatingView add();
 
-    ApiAudioPlayerFloatingView close();
+    ApiAudioPlayerFloatingView remove();
 
     ApiAudioPlayerFloatingView lengthen();
 

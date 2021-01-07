@@ -21,19 +21,19 @@ import androidx.annotation.NonNull;
  */
 public class DesignatedMagnetFloatingView extends BaseMagnetFloatingView {
 
-    private final ImageView mIcon;
+    private final ImageView imageView_icon;
 
     public DesignatedMagnetFloatingView(@NonNull Context context) {
-        this(context, R.layout.en_floating_view);
+        this(context, R.layout.comui_floating_icon);
     }
 
     public DesignatedMagnetFloatingView(@NonNull Context context, @LayoutRes int resource) {
         super(context, null);
         inflate(context, resource, this);
-        mIcon = findViewById(R.id.icon);
+        imageView_icon = findViewById(R.id.imageView_icon);
     }
 
     public void setIconImage(@DrawableRes int resId) {
-        mIcon.setImageResource(resId);
+        imageView_icon.setImageResource(resId);
     }
 }

@@ -10,9 +10,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="@dimen/comresSideMarginDefault"
-            android:layout_marginRight="@dimen/comresSideMarginDefault"
-            android:layout_marginTop="@dimen/comresSideMarginDefault"
+            android:layout_marginLeft="@dimen/comres_side_margin_default"
+            android:layout_marginRight="@dimen/comres_side_margin_default"
+            android:layout_marginTop="@dimen/comres_side_margin_default"
             android:background="@drawable/comui_auto_hide_floating_window_bg"
             android:orientation="vertical"
             >
@@ -20,7 +20,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginTop="@dimen/comresSideMarginDefault"
+                android:layout_marginTop="@dimen/comres_side_margin_default"
                 android:gravity="center"
                 android:orientation="horizontal"
                 >
@@ -34,7 +34,7 @@
 
             <Button
                     android:id="@+id/btnCenter"
-                    style="@style/comresCommonBtnDefaultStyle"
+                    style="@style/comres_common_btn_default_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -50,7 +50,7 @@
             <ImageView
                     android:layout_width="30dp"
                     android:layout_height="4dp"
-                    android:background="@color/comresColorCCCCCC"
+                    android:background="@color/comres_color_cccccc"
                     />
         </LinearLayout>
     </LinearLayout>

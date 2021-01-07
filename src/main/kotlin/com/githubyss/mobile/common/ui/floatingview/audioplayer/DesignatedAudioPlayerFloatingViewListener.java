@@ -6,7 +6,7 @@ import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 
 /**
  * DesignatedAudioPlayerFloatingViewListener
- * <Description> 特定的音频播放器悬浮窗对外回调
+ * <Description> 特定的音频播放器悬浮窗回调监听
  * <Details>
  *
  * @author Ace Yan

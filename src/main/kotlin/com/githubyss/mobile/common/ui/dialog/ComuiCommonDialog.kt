@@ -156,9 +156,9 @@ class ComuiCommonDialog @SuppressLint("ValidFragment") private constructor() : D
             btnLeft?.text = btnLeftStr
             btnLeft?.visibility = View.VISIBLE
             if (btnLeftHighlightStatus) {
-                btnLeft?.setTextColor(ComkitResUtils.getColor(resId = R.color.comresColor1F86ED))
+                btnLeft?.setTextColor(ComkitResUtils.getColor(resId = R.color.comres_color_1f86ed))
             } else {
-                btnLeft?.setTextColor(ComkitResUtils.getColor(resId = R.color.comresColor353D44))
+                btnLeft?.setTextColor(ComkitResUtils.getColor(resId = R.color.comres_color_353d44))
             }
         }
 
@@ -166,9 +166,9 @@ class ComuiCommonDialog @SuppressLint("ValidFragment") private constructor() : D
             btnRight?.text = btnRightStr
             btnRight?.visibility = View.VISIBLE
             if (btnRightHighlightStatus) {
-                btnRight?.setTextColor(ComkitResUtils.getColor(resId = R.color.comresColor1F86ED))
+                btnRight?.setTextColor(ComkitResUtils.getColor(resId = R.color.comres_color_1f86ed))
             } else {
-                btnRight?.setTextColor(ComkitResUtils.getColor(resId = R.color.comresColor353D44))
+                btnRight?.setTextColor(ComkitResUtils.getColor(resId = R.color.comres_color_353d44))
             }
         }
 
@@ -206,7 +206,7 @@ class ComuiCommonDialog @SuppressLint("ValidFragment") private constructor() : D
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        instance.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.comuiCommonDialogStyle)
+        instance.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.comui_common_dialog_style)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

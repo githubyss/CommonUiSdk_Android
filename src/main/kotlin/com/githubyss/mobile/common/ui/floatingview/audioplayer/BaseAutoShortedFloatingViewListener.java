@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
 /**
  * BaseAutoShortedFloatingViewListener
- * <Description> 自动收起悬浮窗对外回调
+ * <Description> 自动收起悬浮窗回调监听
  * <Details>
  *
  * @author Ace Yan

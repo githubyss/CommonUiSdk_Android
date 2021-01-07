@@ -47,18 +47,18 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     private static ApiAudioPlayerFloatingWindow instance;
     
-    private Context containerContext;
-    private WindowManager windowManager;
-    private ViewGroup containerView;
-    private WindowManager.LayoutParams containerLayoutParams;
+    private Context                           containerContext;
+    private WindowManager                     windowManager;
+    private ViewGroup                         containerView;
+    private WindowManager.LayoutParams        containerLayoutParams;
     private DesignatedAudioPlayerFloatingView designatedFloatingView;
-    private ViewGroup.LayoutParams designatedLayoutParams;
+    private ViewGroup.LayoutParams            designatedLayoutParams;
     @LayoutRes
-    private int layoutId = R.layout.comui_floating_audio_player;
+    private int                               layoutId = R.layout.comui_floating_audio_player;
     /** 原生 listener */
-    private ApiAudioPlayerFloatingWindowListener nativeAudioListener;
+    private ApiAudioPlayerFloatingListener    nativeAudioListener;
     /** Web 端 listener */
-    private ApiAudioPlayerFloatingWindowListener webAudioListener;
+    private ApiAudioPlayerFloatingListener    webAudioListener;
     
     /** 是否跳转过悬浮窗权限设置页 */
     private boolean isJumpToOverlayPermission = false;
@@ -495,12 +495,12 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ApiAudioPlayerFloatingWindow setNativeAudioListener(ApiAudioPlayerFloatingWindowListener nativeAudioListener) {
+    public ApiAudioPlayerFloatingWindow setNativeAudioListener(ApiAudioPlayerFloatingListener nativeAudioListener) {
         this.nativeAudioListener = nativeAudioListener;
         return this;
     }
     
-    public ApiAudioPlayerFloatingWindow setWebAudioListener(ApiAudioPlayerFloatingWindowListener webAudioListener) {
+    public ApiAudioPlayerFloatingWindow setWebAudioListener(ApiAudioPlayerFloatingListener webAudioListener) {
         this.webAudioListener = webAudioListener;
         return this;
     }
