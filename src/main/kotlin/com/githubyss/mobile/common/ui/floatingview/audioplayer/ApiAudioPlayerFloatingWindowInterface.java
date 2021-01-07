@@ -28,31 +28,27 @@ public interface ApiAudioPlayerFloatingWindowInterface {
     
     ApiAudioPlayerFloatingWindow show();
     
-    ApiAudioPlayerFloatingWindow close();
+    void close();
     
-    ApiAudioPlayerFloatingWindow lengthen();
+    void lengthen();
     
-    ApiAudioPlayerFloatingWindow shorten();
+    void shorten();
     
-    ApiAudioPlayerFloatingWindow play(List<AudioModel> audioList);
+    void play(List<AudioModel> audioList);
     
-    ApiAudioPlayerFloatingWindow play(List<AudioModel> audioList, boolean isNeedJumpToOverlayPermission);
+    void play(List<AudioModel> audioList, boolean isNeedJumpToOverlayPermission);
     
-    ApiAudioPlayerFloatingWindow start();
+    void start();
     
-    ApiAudioPlayerFloatingWindow pause();
+    void pause();
     
-    ApiAudioPlayerFloatingWindow previous();
+    void previous();
     
-    ApiAudioPlayerFloatingWindow next();
+    void next();
     
-    ApiAudioPlayerFloatingWindow switchVoice();
+    void switchVoice();
     
-    ApiAudioPlayerFloatingWindow stop();
-    
-    ApiAudioPlayerFloatingWindow displayWhenAppForeground();
-    
-    ApiAudioPlayerFloatingWindow hideWhenAppBackground();
+    void stop();
     
     AudioModel getCurrentAudio();
     
@@ -60,11 +56,15 @@ public interface ApiAudioPlayerFloatingWindowInterface {
     
     BaseAutoShortedFloatingView getAutoShortedView();
     
-    ApiAudioPlayerFloatingWindow customView(DesignatedAudioPlayerFloatingView viewGroup);
+    void customView(DesignatedAudioPlayerFloatingView viewGroup);
     
-    ApiAudioPlayerFloatingWindow customView(@LayoutRes int resource);
+    void customView(@LayoutRes int resource);
     
-    ApiAudioPlayerFloatingWindow layoutParams(ViewGroup.LayoutParams params);
+    void layoutParams(ViewGroup.LayoutParams params);
     
-    ApiAudioPlayerFloatingWindow listener(DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener);
+    void listener(DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener);
+    
+    void displayWhenAppForeground();
+    
+    void hideWhenAppBackground();
 }

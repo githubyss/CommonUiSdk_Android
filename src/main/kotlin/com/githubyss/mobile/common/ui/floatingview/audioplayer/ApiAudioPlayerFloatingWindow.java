@@ -125,7 +125,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow close() {
+    public void close() {
         AudioPlayManager.getInstance().destroy();
         
         if (containerContext != null && voiceReceiver != null) {
@@ -135,43 +135,39 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         if (designatedFloatingView != null) {
             designatedFloatingView.closeFloatingWindow();
         }
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow lengthen() {
+    public void lengthen() {
         if (designatedFloatingView != null) {
             designatedFloatingView.lengthenFloatingWindow();
         }
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow shorten() {
+    public void shorten() {
         if (designatedFloatingView != null) {
             designatedFloatingView.shortenFloatingWindow();
         }
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow play(List<AudioModel> audioList) {
+    public void play(List<AudioModel> audioList) {
         // 默认对外开放的方法，需要去开启悬浮窗权限
         play(audioList, true);
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow play(List<AudioModel> audioList, boolean isNeedJumpToOverlayPermission) {
+    public void play(List<AudioModel> audioList, boolean isNeedJumpToOverlayPermission) {
         if (audioList == null) {
-            return this;
+            return;
         }
         
         AudioListModel audioListModel = new AudioListModel();
         audioListModel.setAudioList(audioList);
         audioListModel.setCurrentIndex(0);
         
-        AudioModel currentAudio = AudioPlayManager.getInstance().getCurrentAudio();
+        AudioModel currentAudio      = AudioPlayManager.getInstance().getCurrentAudio();
         AudioModel newListFirstAudio = audioListModel.getAudioList().get(0);
         AudioPlayManager.getInstance().setInfo(audioListModel);
         
@@ -182,7 +178,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
                 // 跳转状态置为真
                 isJumpToOverlayPermission = true;
             }
-            return this;
+            return;
         }
         
         boolean isContinue = currentAudio != null && newListFirstAudio != null && currentAudio.getId().equals(newListFirstAudio.getId());
@@ -232,60 +228,36 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
                 }
             });
         }
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow start() {
+    public void start() {
         AudioPlayManager.getInstance().start();
-        return this;
     }
     
-    
     @Override
-    public ApiAudioPlayerFloatingWindow pause() {
+    public void pause() {
         AudioPlayManager.getInstance().pause();
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow previous() {
+    public void previous() {
         AudioPlayManager.getInstance().previous();
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow next() {
+    public void next() {
         AudioPlayManager.getInstance().next();
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow switchVoice() {
+    public void switchVoice() {
         AudioPlayManager.getInstance().switchVoice();
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow stop() {
+    public void stop() {
         AudioPlayManager.getInstance().stop();
-        return this;
-    }
-    
-    @Override
-    public ApiAudioPlayerFloatingWindow displayWhenAppForeground() {
-        if (containerView != null) {
-            containerView.setVisibility(View.VISIBLE);
-        }
-        return this;
-    }
-    
-    @Override
-    public ApiAudioPlayerFloatingWindow hideWhenAppBackground() {
-        if (containerView != null) {
-            containerView.setVisibility(View.GONE);
-        }
-        return this;
     }
     
     @Override
@@ -307,32 +279,42 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow customView(DesignatedAudioPlayerFloatingView viewGroup) {
+    public void customView(DesignatedAudioPlayerFloatingView viewGroup) {
         designatedFloatingView = viewGroup;
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow customView(int resource) {
+    public void customView(int resource) {
         layoutId = resource;
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow layoutParams(ViewGroup.LayoutParams params) {
+    public void layoutParams(ViewGroup.LayoutParams params) {
         designatedLayoutParams = params;
         if (designatedFloatingView != null) {
             designatedFloatingView.setLayoutParams(params);
         }
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingWindow listener(DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener) {
+    public void listener(DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener) {
         if (designatedFloatingView != null) {
             designatedFloatingView.setDesignatedAudioPlayerFloatingViewListener(designatedAudioPlayerFloatingViewListener);
         }
-        return this;
+    }
+    
+    @Override
+    public void displayWhenAppForeground() {
+        if (containerView != null) {
+            containerView.setVisibility(View.VISIBLE);
+        }
+    }
+    
+    @Override
+    public void hideWhenAppBackground() {
+        if (containerView != null) {
+            containerView.setVisibility(View.GONE);
+        }
     }
     
     

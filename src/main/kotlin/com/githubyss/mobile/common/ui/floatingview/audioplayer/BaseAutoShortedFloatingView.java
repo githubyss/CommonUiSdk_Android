@@ -30,14 +30,12 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     protected View rootView;
     
     private final long AUTO_HIDE_DELAY_TIME = 5000;
-    private final long ANIM_DURATION = 500;
+    private final long ANIM_DURATION        = 500;
     
     private Context containerContext;
-    private boolean isShown = false;
-    private boolean isShorten = true;
+    private boolean isShown     = false;
+    private boolean isShorten   = true;
     private boolean isAnimating = false;
-    
-    private Runnable autoShortenRunnable;
     
     private Animator animatorSlideRightShow;
     private Animator animatorSlideLeftClose;
@@ -46,10 +44,8 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     
     private BaseAutoShortedFloatingViewListener baseAutoShortedFloatingViewListener;
     
-    /**
-     * 使用 Handler 进行延时
-     * yanss 2017/04/11 11:46:39
-     */
+    private Runnable autoShortenRunnable;
+    
     private Handler delayHandler = new Handler();
     
     
@@ -66,6 +62,7 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     public BaseAutoShortedFloatingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         containerContext = context;
+        initBase();
     }
     
     
@@ -159,11 +156,9 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     
     // ---------- ---------- ---------- Implementations ---------- ---------- ----------
     
-    /**
-     * 动画监听
-     * yanss 2017/04/10 16:54:28
-     */
+    /** 动画监听 */
     private AnimatorListenerAdapter animatorListenerAdapter = new AnimatorListenerAdapter() {
+        
         @Override
         public void onAnimationStart(Animator animation) {
             super.onAnimationStart(animation);

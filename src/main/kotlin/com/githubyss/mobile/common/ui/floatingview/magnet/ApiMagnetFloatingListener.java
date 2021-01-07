@@ -15,5 +15,5 @@ import com.githubyss.mobile.common.ui.audio.model.AudioModel;
  */
 public interface ApiMagnetFloatingListener {
     
-    void onUpdateAudioInfo(AudioModel audioModel);
+    void onClick(BaseMagnetFloatingView magnetView);
 }

@@ -2,12 +2,16 @@ package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -15,6 +19,7 @@ import android.widget.Toast;
 import com.githubyss.mobile.common.kit.indicator.ToastIndicator;
 import com.githubyss.mobile.common.kit.resource.ComkitResUtils;
 import com.githubyss.mobile.common.ui.R;
+import com.githubyss.mobile.common.ui.audio.constant.Constant;
 import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
@@ -26,6 +31,7 @@ import java.util.List;
 
 import androidx.annotation.LayoutRes;
 import androidx.core.view.ViewCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 
 /**
@@ -54,16 +60,14 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    private ApiAudioPlayerFloatingView(Context context) {
-        containerContext = context;
-        initLayoutParams();
+    private ApiAudioPlayerFloatingView() {
     }
     
-    public static ApiAudioPlayerFloatingView getInstance(Context context) {
+    public static ApiAudioPlayerFloatingView getInstance() {
         if (instance == null) {
             synchronized (ApiAudioPlayerFloatingView.class) {
                 if (instance == null) {
-                    instance = new ApiAudioPlayerFloatingView(context);
+                    instance = new ApiAudioPlayerFloatingView();
                 }
             }
         }
@@ -75,98 +79,98 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
     
     @Override
-    public ApiAudioPlayerFloatingView add() {
-        ensureFloatingView();
+    public ApiAudioPlayerFloatingView init(Context context) {
+        this.containerContext = context;
         return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingView remove() {
+    public ApiAudioPlayerFloatingView show() {
+        initLayoutParams();
+        ensureFloatingView();
+        listener(new DesignatedAudioPlayerFloatingViewListener() {
+            @Override
+            public void onClose() {
+                removeFloatingView();
+            }
+            
+            @Override
+            public void onUpdateAudioInfo(AudioModel audioModel) {
+                apiAudioPlayerFloatingListener.onUpdateAudioInfo(audioModel);
+            }
+        });
+        return this;
+    }
+    
+    @Override
+    public void close() {
         AudioPlayManager.getInstance().destroy();
         if (designatedFloatingView != null) {
             designatedFloatingView.closeFloatingWindow();
         }
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingView lengthen() {
+    public void lengthen() {
         if (designatedFloatingView != null) {
             designatedFloatingView.lengthenFloatingWindow();
         }
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingView shorten() {
+    public void shorten() {
         if (designatedFloatingView != null) {
             designatedFloatingView.shortenFloatingWindow();
         }
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingView attach(Activity activity) {
-        attach(getActivityRoot(activity));
-        return this;
+    public void play(List<AudioModel> audioList) {
+        // 默认对外开放的方法，需要去开启悬浮窗权限
+        play(audioList, true);
     }
     
     @Override
-    public ApiAudioPlayerFloatingView attach(FrameLayout container) {
-        if (container == null || designatedFloatingView == null) {
-            containerView = new WeakReference<>(container);
-            return this;
+    public void play(List<AudioModel> audioList, boolean isNeedJumpToOverlayPermission) {
+        if (audioList == null) {
+            return;
         }
-        if (designatedFloatingView.getParent() == container) {
-            return this;
+        
+        AudioListModel audioListModel = new AudioListModel();
+        audioListModel.setAudioList(audioList);
+        audioListModel.setCurrentIndex(0);
+        
+        AudioModel currentAudio      = AudioPlayManager.getInstance().getCurrentAudio();
+        AudioModel newListFirstAudio = audioListModel.getAudioList().get(0);
+        AudioPlayManager.getInstance().setInfo(audioListModel);
+        
+        boolean isContinue = currentAudio != null && newListFirstAudio != null && currentAudio.getId().equals(newListFirstAudio.getId());
+        
+        if (isContinue) {
+            AudioPlayManager.getInstance().start();
+        } else {
+            AudioPlayManager.getInstance().stop();
+            AudioPlayManager.getInstance().play(containerContext);
         }
-        if (designatedFloatingView.getParent() != null) {
-            ((ViewGroup) designatedFloatingView.getParent()).removeView(designatedFloatingView);
-        }
-        containerView = new WeakReference<>(container);
-        container.addView(designatedFloatingView);
-        return this;
-    }
-    
-    @Override
-    public ApiAudioPlayerFloatingView detach(Activity activity) {
-        detach(getActivityRoot(activity));
-        return this;
-    }
-    
-    @Override
-    public ApiAudioPlayerFloatingView detach(FrameLayout container) {
-        if (designatedFloatingView != null && container != null && ViewCompat.isAttachedToWindow(designatedFloatingView)) {
-            container.removeView(designatedFloatingView);
-        }
-        if (getContainerView() == container) {
-            containerView = null;
-        }
-        return this;
-    }
-    
-    @Override
-    public ApiAudioPlayerFloatingView initData(List<AudioModel> audioList) {
+        
         if (designatedFloatingView != null) {
-            if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
-                
-                // Fake data
-                // List<AudioModel> audioList1 = new ArrayList<>();
-                // audioList1.add(new AudioModel("0", "ReviewMyKisses", "Amiena", "", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", "http://ossprexg.cnsuning.com/fipcms/media/ReviewMyKisses-Amiena-1773391755-1.mp3", AudioState.STOP));
-                AudioListModel audioListModel = new AudioListModel();
-                audioListModel.setAudioList(audioList);
-                audioListModel.setCurrentIndex(0);
-                
-                if (audioListModel != null) {
-                    AudioPlayManager.getInstance().setInfo(audioListModel);
-                    AudioPlayManager.getInstance().play(containerContext);
-                    designatedFloatingView.refreshVoiceSwitch();
-                } else {
-                    ToastIndicator.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
-                }
-            } else {
-                designatedFloatingView.refreshData();
-            }
+            // if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
+            //     AudioListModel audioListModel = new AudioListModel();
+            //     audioListModel.setAudioList(audioList);
+            //     audioListModel.setCurrentIndex(0);
+            //
+            //     if (audioListModel != null) {
+            //         AudioPlayManager.getInstance().setInfo(audioListModel);
+            //         AudioPlayManager.getInstance().play(containerContext);
+            //         designatedFloatingView.refreshVoiceSwitch();
+            //     } else {
+            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+            //     }
+            // } else {
+            //     designatedFloatingView.refreshData();
+            // }
+            
+            designatedFloatingView.refreshVoiceSwitch();
             
             designatedFloatingView.setAudioPlayListener(new AudioPlayListener() {
                 @Override
@@ -187,7 +191,49 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
                 }
             });
         }
-        return this;
+    }
+    
+    @Override
+    public void start() {
+        AudioPlayManager.getInstance().start();
+    }
+    
+    @Override
+    public void pause() {
+        AudioPlayManager.getInstance().pause();
+    }
+    
+    @Override
+    public void previous() {
+        AudioPlayManager.getInstance().previous();
+    }
+    
+    @Override
+    public void next() {
+        AudioPlayManager.getInstance().next();
+    }
+    
+    @Override
+    public void switchVoice() {
+        AudioPlayManager.getInstance().switchVoice();
+    }
+    
+    @Override
+    public void stop() {
+        AudioPlayManager.getInstance().stop();
+    }
+    
+    @Override
+    public AudioModel getCurrentAudio() {
+        return AudioPlayManager.getInstance().getCurrentAudio();
+    }
+    
+    @Override
+    public boolean isFloatingShow() {
+        if (designatedFloatingView != null) {
+            return designatedFloatingView.isShown();
+        }
+        return false;
     }
     
     @Override
@@ -196,32 +242,64 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
     }
     
     @Override
-    public ApiAudioPlayerFloatingView customView(DesignatedAudioPlayerFloatingView viewGroup) {
+    public void customView(DesignatedAudioPlayerFloatingView viewGroup) {
         designatedFloatingView = viewGroup;
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingView customView(@LayoutRes int resource) {
+    public void customView(@LayoutRes int resource) {
         layoutId = resource;
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingView layoutParams(ViewGroup.LayoutParams params) {
+    public void layoutParams(ViewGroup.LayoutParams params) {
         designatedLayoutParams = params;
         if (designatedFloatingView != null) {
             designatedFloatingView.setLayoutParams(params);
         }
-        return this;
     }
     
     @Override
-    public ApiAudioPlayerFloatingView listener(DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener) {
+    public void listener(DesignatedAudioPlayerFloatingViewListener designatedAudioPlayerFloatingViewListener) {
         if (designatedFloatingView != null) {
             designatedFloatingView.setDesignatedAudioPlayerFloatingViewListener(designatedAudioPlayerFloatingViewListener);
         }
-        return this;
+    }
+    
+    @Override
+    public void attach(Activity activity) {
+        attach(getActivityRoot(activity));
+    }
+    
+    @Override
+    public void attach(FrameLayout container) {
+        if (container == null || designatedFloatingView == null) {
+            containerView = new WeakReference<>(container);
+            return;
+        }
+        if (designatedFloatingView.getParent() == container) {
+            return;
+        }
+        if (designatedFloatingView.getParent() != null) {
+            ((ViewGroup) designatedFloatingView.getParent()).removeView(designatedFloatingView);
+        }
+        containerView = new WeakReference<>(container);
+        container.addView(designatedFloatingView);
+    }
+    
+    @Override
+    public void detach(Activity activity) {
+        detach(getActivityRoot(activity));
+    }
+    
+    @Override
+    public void detach(FrameLayout container) {
+        if (designatedFloatingView != null && container != null && ViewCompat.isAttachedToWindow(designatedFloatingView)) {
+            container.removeView(designatedFloatingView);
+        }
+        if (getContainerView() == container) {
+            containerView = null;
+        }
     }
     
     
@@ -230,13 +308,6 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
     private void initLayoutParams() {
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;
         getDesignatedLayoutParams().setMargins(0, getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, 0);
-    }
-    
-    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
-        if (designatedLayoutParams == null) {
-            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        }
-        return (FrameLayout.LayoutParams) designatedLayoutParams;
     }
     
     private void ensureFloatingView() {
@@ -248,18 +319,6 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
             designatedFloatingView.setLayoutParams(getDesignatedLayoutParams());
             addViewToWindow(designatedFloatingView);
             designatedFloatingView.showFloatingWindow();
-            
-            listener(new DesignatedAudioPlayerFloatingViewListener() {
-                @Override
-                public void onClose() {
-                    removeFloatingView();
-                }
-                
-                @Override
-                public void onUpdateAudioInfo(AudioModel audioModel) {
-                    apiAudioPlayerFloatingListener.onUpdateAudioInfo(audioModel);
-                }
-            });
         }
     }
     
@@ -267,13 +326,15 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                if (designatedFloatingView == null) {
-                    return;
+                if (designatedFloatingView != null) {
+                    try {
+                        if (ViewCompat.isAttachedToWindow(designatedFloatingView) && getContainerView() != null) {
+                            getContainerView().removeView(designatedFloatingView);
+                        }
+                    } catch (Exception e) {
+                    }
+                    designatedFloatingView = null;
                 }
-                if (ViewCompat.isAttachedToWindow(designatedFloatingView) && getContainerView() != null) {
-                    getContainerView().removeView(designatedFloatingView);
-                }
-                designatedFloatingView = null;
             }
         });
     }
@@ -282,7 +343,10 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
         if (getContainerView() == null) {
             return;
         }
-        getContainerView().addView(view);
+        try {
+            getContainerView().addView(view);
+        } catch (Exception e) {
+        }
     }
     
     private FrameLayout getContainerView() {
@@ -290,6 +354,13 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
             return null;
         }
         return containerView.get();
+    }
+    
+    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
+        if (designatedLayoutParams == null) {
+            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        }
+        return (FrameLayout.LayoutParams) designatedLayoutParams;
     }
     
     private FrameLayout getActivityRoot(Activity activity) {
@@ -307,12 +378,8 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ApiAudioPlayerFloatingView setContainerContext(Context containerContext) {
-        this.containerContext = containerContext;
-        return this;
-    }
-    
-    public void setApiAudioPlayerFloatingListener(ApiAudioPlayerFloatingListener apiAudioPlayerFloatingListener) {
+    public ApiAudioPlayerFloatingView setApiAudioPlayerFloatingListener(ApiAudioPlayerFloatingListener apiAudioPlayerFloatingListener) {
         this.apiAudioPlayerFloatingListener = apiAudioPlayerFloatingListener;
+        return this;
     }
 }

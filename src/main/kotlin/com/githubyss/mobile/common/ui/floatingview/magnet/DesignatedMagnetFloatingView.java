@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.floatingview.magnet;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.githubyss.mobile.common.ui.R;
@@ -20,20 +21,77 @@ import androidx.annotation.NonNull;
  * @createdTime 2020/12/09 11:30:01
  */
 public class DesignatedMagnetFloatingView extends BaseMagnetFloatingView {
-
-    private final ImageView imageView_icon;
-
+    
+    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    
+    private ImageView imageView_icon;
+    
+    private DesignatedMagnetFloatingViewListener designatedMagnetFloatingViewListener;
+    
+    
+    // ---------- ---------- ---------- Constructors ---------- ---------- ----------
+    
     public DesignatedMagnetFloatingView(@NonNull Context context) {
         this(context, R.layout.comui_floating_icon);
     }
-
+    
     public DesignatedMagnetFloatingView(@NonNull Context context, @LayoutRes int resource) {
         super(context, null);
-        inflate(context, resource, this);
-        imageView_icon = findViewById(R.id.imageView_icon);
+        if (rootView == null) {
+            rootView = inflate(context, resource, this);
+            initDesignated();
+        }
     }
-
+    
+    
+    // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
+    
     public void setIconImage(@DrawableRes int resId) {
         imageView_icon.setImageResource(resId);
+    }
+    
+    
+    // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
+    
+    private void initDesignated() {
+        initViewFindById(rootView);
+        initListener();
+    }
+    
+    private void initViewFindById(View view) {
+        imageView_icon = view.findViewById(R.id.imageView_icon);
+    }
+    
+    private void initListener() {
+        // imageView_icon.setOnClickListener(onClickListener);
+        
+        this.setBaseMagnetFloatingViewListener(new BaseMagnetFloatingViewListener() {
+            @Override
+            public void onRemove(BaseMagnetFloatingView magnetView) {
+                designatedMagnetFloatingViewListener.onRemove(magnetView);
+            }
+            
+            @Override
+            public void onClick(BaseMagnetFloatingView magnetView) {
+                designatedMagnetFloatingViewListener.onClick(magnetView);
+            }
+        });
+    }
+    
+    
+    // ---------- ---------- ---------- Implementations ---------- ---------- ----------
+    
+    private OnClickListener onClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+        
+        }
+    };
+    
+    
+    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    
+    public void setDesignatedMagnetFloatingViewListener(DesignatedMagnetFloatingViewListener designatedMagnetFloatingViewListener) {
+        this.designatedMagnetFloatingViewListener = designatedMagnetFloatingViewListener;
     }
 }

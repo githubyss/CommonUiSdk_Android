@@ -12,5 +12,7 @@ package com.githubyss.mobile.common.ui.floatingview.magnet;
  */
 public interface BaseMagnetFloatingViewListener {
     
-    void onClose();
+    void onRemove(BaseMagnetFloatingView magnetView);
+    
+    void onClick(BaseMagnetFloatingView magnetView);
 }

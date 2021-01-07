@@ -19,8 +19,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/imuxuan"
-                android:scaleType="center"
+                android:src="@drawable/comui_lucky_money"
+                android:scaleType="fitCenter"
                 />
     </FrameLayout>
 </LinearLayout>

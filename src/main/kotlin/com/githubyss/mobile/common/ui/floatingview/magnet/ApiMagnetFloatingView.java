@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.githubyss.mobile.common.ui.R;
+import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.utils.EnContext;
 
 import java.lang.ref.WeakReference;
@@ -44,22 +45,20 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     @LayoutRes
     private int                          layoutId = R.layout.comui_floating_icon;
     @DrawableRes
-    private int                          iconRes  = R.drawable.imuxuan;
+    private int                          iconRes  = R.drawable.comui_lucky_money;
     private ApiMagnetFloatingListener    apiMagnetFloatingListener;
     
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    private ApiMagnetFloatingView(Context context) {
-        containerContext = context;
-        initLayoutParams();
+    private ApiMagnetFloatingView() {
     }
     
-    public static ApiMagnetFloatingView getInstance(Context context) {
+    public static ApiMagnetFloatingView getInstance() {
         if (instance == null) {
             synchronized (ApiMagnetFloatingView.class) {
                 if (instance == null) {
-                    instance = new ApiMagnetFloatingView(context);
+                    instance = new ApiMagnetFloatingView();
                 }
             }
         }
@@ -71,66 +70,32 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
     
     @Override
-    public ApiMagnetFloatingView add() {
-        ensureFloatingView();
+    public ApiMagnetFloatingView init(Context context) {
+        this.containerContext = context;
         return this;
     }
     
     @Override
-    public ApiMagnetFloatingView remove() {
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
+    public ApiMagnetFloatingView show() {
+        initLayoutParams();
+        ensureFloatingView();
+        listener(new DesignatedMagnetFloatingViewListener() {
             @Override
-            public void run() {
-                if (designatedFloatingView == null) {
-                    return;
-                }
-                if (ViewCompat.isAttachedToWindow(designatedFloatingView) && getContainerView() != null) {
-                    getContainerView().removeView(designatedFloatingView);
-                }
-                designatedFloatingView = null;
+            public void onRemove(BaseMagnetFloatingView magnetView) {
+                removeFloatingView();
+            }
+            
+            @Override
+            public void onClick(BaseMagnetFloatingView magnetView) {
+                apiMagnetFloatingListener.onClick(magnetView);
             }
         });
         return this;
     }
     
     @Override
-    public ApiMagnetFloatingView attach(Activity activity) {
-        attach(getActivityRoot(activity));
-        return this;
-    }
-    
-    @Override
-    public ApiMagnetFloatingView attach(FrameLayout container) {
-        if (container == null || designatedFloatingView == null) {
-            containerView = new WeakReference<>(container);
-            return this;
-        }
-        if (designatedFloatingView.getParent() == container) {
-            return this;
-        }
-        if (designatedFloatingView.getParent() != null) {
-            ((ViewGroup) designatedFloatingView.getParent()).removeView(designatedFloatingView);
-        }
-        containerView = new WeakReference<>(container);
-        container.addView(designatedFloatingView);
-        return this;
-    }
-    
-    @Override
-    public ApiMagnetFloatingView detach(Activity activity) {
-        detach(getActivityRoot(activity));
-        return this;
-    }
-    
-    @Override
-    public ApiMagnetFloatingView detach(FrameLayout container) {
-        if (designatedFloatingView != null && container != null && ViewCompat.isAttachedToWindow(designatedFloatingView)) {
-            container.removeView(designatedFloatingView);
-        }
-        if (getContainerView() == container) {
-            containerView = null;
-        }
-        return this;
+    public void close() {
+        removeFloatingView();
     }
     
     @Override
@@ -139,38 +104,69 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     }
     
     @Override
-    public ApiMagnetFloatingView icon(@DrawableRes int resId) {
+    public void icon(@DrawableRes int resId) {
         iconRes = resId;
-        return this;
     }
     
     @Override
-    public ApiMagnetFloatingView customView(DesignatedMagnetFloatingView viewGroup) {
+    public void customView(DesignatedMagnetFloatingView viewGroup) {
         designatedFloatingView = viewGroup;
-        return this;
     }
     
     @Override
-    public ApiMagnetFloatingView customView(@LayoutRes int resource) {
+    public void customView(@LayoutRes int resource) {
         layoutId = resource;
-        return this;
     }
     
     @Override
-    public ApiMagnetFloatingView layoutParams(ViewGroup.LayoutParams params) {
+    public void layoutParams(ViewGroup.LayoutParams params) {
         designatedLayoutParams = params;
         if (designatedFloatingView != null) {
             designatedFloatingView.setLayoutParams(params);
         }
-        return this;
     }
     
     @Override
-    public ApiMagnetFloatingView listener(DesignatedMagnetFloatingViewListener designatedMagnetFloatingViewListener) {
+    public void listener(DesignatedMagnetFloatingViewListener designatedMagnetFloatingViewListener) {
         if (designatedFloatingView != null) {
-            designatedFloatingView.setDesignatedMagnetViewListener(designatedMagnetFloatingViewListener);
+            designatedFloatingView.setDesignatedMagnetFloatingViewListener(designatedMagnetFloatingViewListener);
         }
-        return this;
+    }
+    
+    @Override
+    public void attach(Activity activity) {
+        attach(getActivityRoot(activity));
+    }
+    
+    @Override
+    public void attach(FrameLayout container) {
+        if (container == null || designatedFloatingView == null) {
+            containerView = new WeakReference<>(container);
+            return;
+        }
+        if (designatedFloatingView.getParent() == container) {
+            return;
+        }
+        if (designatedFloatingView.getParent() != null) {
+            ((ViewGroup) designatedFloatingView.getParent()).removeView(designatedFloatingView);
+        }
+        containerView = new WeakReference<>(container);
+        container.addView(designatedFloatingView);
+    }
+    
+    @Override
+    public void detach(Activity activity) {
+        detach(getActivityRoot(activity));
+    }
+    
+    @Override
+    public void detach(FrameLayout container) {
+        if (designatedFloatingView != null && container != null && ViewCompat.isAttachedToWindow(designatedFloatingView)) {
+            container.removeView(designatedFloatingView);
+        }
+        if (getContainerView() == container) {
+            containerView = null;
+        }
     }
     
     
@@ -178,14 +174,7 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     
     private void initLayoutParams() {
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;
-        getDesignatedLayoutParams().setMargins(13, getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, 500);
-    }
-    
-    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
-        if (designatedLayoutParams == null) {
-            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        }
-        return (FrameLayout.LayoutParams) designatedLayoutParams;
+        getDesignatedLayoutParams().setMargins(0, getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, 0);
     }
     
     private void ensureFloatingView() {
@@ -200,11 +189,31 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
         }
     }
     
+    private void removeFloatingView() {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                if (designatedFloatingView != null) {
+                    try {
+                        if (ViewCompat.isAttachedToWindow(designatedFloatingView) && getContainerView() != null) {
+                            getContainerView().removeView(designatedFloatingView);
+                        }
+                    } catch (Exception e) {
+                    }
+                    designatedFloatingView = null;
+                }
+            }
+        });
+    }
+    
     private void addViewToWindow(final View view) {
         if (getContainerView() == null) {
             return;
         }
-        getContainerView().addView(view);
+        try {
+            getContainerView().addView(view);
+        } catch (Exception e) {
+        }
     }
     
     private FrameLayout getContainerView() {
@@ -212,6 +221,13 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
             return null;
         }
         return containerView.get();
+    }
+    
+    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
+        if (designatedLayoutParams == null) {
+            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        }
+        return (FrameLayout.LayoutParams) designatedLayoutParams;
     }
     
     private FrameLayout getActivityRoot(Activity activity) {
@@ -229,12 +245,8 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ApiMagnetFloatingView setContainerContext(Context containerContext) {
-        this.containerContext = containerContext;
-        return this;
-    }
-    
-    public void setApiAudioPlayerFloatingWindowListener(ApiMagnetFloatingListener apiMagnetFloatingListener) {
+    public ApiMagnetFloatingView setApiMagnetFloatingListener(ApiMagnetFloatingListener apiMagnetFloatingListener) {
         this.apiMagnetFloatingListener = apiMagnetFloatingListener;
+        return this;
     }
 }

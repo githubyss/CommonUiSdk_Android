@@ -59,7 +59,6 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
         super(context, null);
         if (rootView == null) {
             rootView = inflate(context, resource, this);
-            initBase();
             initDesignated();
         }
     }
