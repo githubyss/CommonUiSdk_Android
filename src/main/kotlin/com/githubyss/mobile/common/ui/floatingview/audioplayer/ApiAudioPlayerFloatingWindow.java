@@ -47,18 +47,22 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     private static ApiAudioPlayerFloatingWindow instance;
     
-    private Context                           containerContext;
-    private WindowManager                     windowManager;
-    private ViewGroup                         containerView;
-    private WindowManager.LayoutParams        containerLayoutParams;
+    private Context containerContext;
+    
+    private WindowManager              windowManager;
+    private ViewGroup                  containerView;
+    private WindowManager.LayoutParams containerLayoutParams;
+    
     private DesignatedAudioPlayerFloatingView designatedFloatingView;
     private ViewGroup.LayoutParams            designatedLayoutParams;
+    
     @LayoutRes
-    private int                               layoutId = R.layout.comui_floating_audio_player;
+    private int layoutId = R.layout.comui_floating_audio_player;
+    
     /** 原生 listener */
-    private ApiAudioPlayerFloatingListener    nativeAudioListener;
+    private ApiAudioPlayerFloatingListener nativeAudioListener;
     /** Web 端 listener */
-    private ApiAudioPlayerFloatingListener    webAudioListener;
+    private ApiAudioPlayerFloatingListener webAudioListener;
     
     /** 是否跳转过悬浮窗权限设置页 */
     private boolean isJumpToOverlayPermission = false;
@@ -348,14 +352,31 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         // }
         
         getContainerLayoutParams().flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | (WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH) | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
-        // getWindowLayoutParams().flags = WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
+        // getContainerLayoutParams().flags = WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
         getContainerLayoutParams().gravity = Gravity.LEFT | Gravity.BOTTOM;
         getContainerLayoutParams().format = PixelFormat.TRANSLUCENT;
         getContainerLayoutParams().width = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().height = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().x = 0;
         getContainerLayoutParams().y = ScreenInfo.INSTANCE.dp2Px(70.0f);
-        // getLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
+        // getContainerLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
+        
+        getDesignatedLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;
+        getDesignatedLayoutParams().setMargins(0, getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, 0);
+    }
+    
+    private WindowManager.LayoutParams getContainerLayoutParams() {
+        if (containerLayoutParams == null) {
+            containerLayoutParams = new WindowManager.LayoutParams();
+        }
+        return (WindowManager.LayoutParams) containerLayoutParams;
+    }
+    
+    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
+        if (designatedLayoutParams == null) {
+            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        }
+        return (FrameLayout.LayoutParams) designatedLayoutParams;
     }
     
     private void ensureFloatingView() {
@@ -381,7 +402,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             public void run() {
                 if (designatedFloatingView != null) {
                     try {
-                        if (getContainerView().getChildCount() > 0) {
+                        if (getContainerView() != null && getContainerView().getChildCount() > 0) {
                             getContainerView().removeView(designatedFloatingView);
                         }
                         getWindowManager().removeView(getContainerView());
@@ -393,20 +414,15 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         });
     }
     
-    private void addViewToWindow(final View view) {
-        getContainerView().addView(view);
+    private void addViewToWindow(final View designatedView) {
+        if (getContainerView() == null) {
+            return;
+        }
         try {
+            getContainerView().addView(designatedView);
             getWindowManager().addView(getContainerView(), getContainerLayoutParams());
-        } catch (WindowManager.BadTokenException e) {
         } catch (Exception e) {
         }
-    }
-    
-    private WindowManager getWindowManager() {
-        if (windowManager == null && containerContext != null) {
-            windowManager = (WindowManager) containerContext.getSystemService(Context.WINDOW_SERVICE);
-        }
-        return windowManager;
     }
     
     private FrameLayout getContainerView() {
@@ -417,18 +433,11 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         return (FrameLayout) containerView;
     }
     
-    private WindowManager.LayoutParams getContainerLayoutParams() {
-        if (containerLayoutParams == null) {
-            containerLayoutParams = new WindowManager.LayoutParams();
+    private WindowManager getWindowManager() {
+        if (windowManager == null && containerContext != null) {
+            windowManager = (WindowManager) containerContext.getSystemService(Context.WINDOW_SERVICE);
         }
-        return (WindowManager.LayoutParams) containerLayoutParams;
-    }
-    
-    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
-        if (designatedLayoutParams == null) {
-            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        }
-        return (FrameLayout.LayoutParams) designatedLayoutParams;
+        return windowManager;
     }
     
     private boolean checkPermission(boolean isNeedJumpToOverlayPermission) {

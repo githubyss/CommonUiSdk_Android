@@ -59,6 +59,7 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
         super(context, null);
         if (rootView == null) {
             rootView = inflate(context, resource, this);
+            initBase();
             initDesignated();
         }
     }
@@ -217,13 +218,22 @@ public class DesignatedAudioPlayerFloatingView extends BaseAutoShortedFloatingVi
         
         this.setBaseAutoShortedFloatingViewListener(new BaseAutoShortedFloatingViewListener() {
             @Override
+            public void onShow() {
+            }
+            
+            @Override
             public void onClose() {
                 designatedAudioPlayerFloatingViewListener.onClose();
             }
             
             @Override
-            public void onRefreshPlayerStyle(boolean isMini) {
-                refreshContainerVisibility(isMini);
+            public void onLengthen() {
+                refreshContainerVisibility(false);
+            }
+            
+            @Override
+            public void onShorten() {
+                refreshContainerVisibility(true);
             }
         });
         

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview.audioplayer;
+package com.githubyss.mobile.common.ui.floatingview;
 
 
 /**
@@ -8,9 +8,9 @@ package com.githubyss.mobile.common.ui.floatingview.audioplayer;
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/01/06 11:07:43
+ * @createdTime 2021/01/07 19:51:25
  */
-public interface BaseAutoShortedFloatingViewListener {
+public interface BaseAutoShortedViewListener {
     
     void onShow();
     

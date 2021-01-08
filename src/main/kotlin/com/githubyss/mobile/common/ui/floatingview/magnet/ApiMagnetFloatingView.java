@@ -174,7 +174,14 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     
     private void initLayoutParams() {
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;
-        getDesignatedLayoutParams().setMargins(0, getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, 0);
+        getDesignatedLayoutParams().setMargins(0, getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, 100);
+    }
+    
+    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
+        if (designatedLayoutParams == null) {
+            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        }
+        return (FrameLayout.LayoutParams) designatedLayoutParams;
     }
     
     private void ensureFloatingView() {
@@ -187,23 +194,6 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
             designatedFloatingView.setIconImage(iconRes);
             addViewToWindow(designatedFloatingView);
         }
-    }
-    
-    private void removeFloatingView() {
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                if (designatedFloatingView != null) {
-                    try {
-                        if (ViewCompat.isAttachedToWindow(designatedFloatingView) && getContainerView() != null) {
-                            getContainerView().removeView(designatedFloatingView);
-                        }
-                    } catch (Exception e) {
-                    }
-                    designatedFloatingView = null;
-                }
-            }
-        });
     }
     
     private void addViewToWindow(final View view) {
@@ -223,11 +213,21 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
         return containerView.get();
     }
     
-    private FrameLayout.LayoutParams getDesignatedLayoutParams() {
-        if (designatedLayoutParams == null) {
-            designatedLayoutParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        }
-        return (FrameLayout.LayoutParams) designatedLayoutParams;
+    private void removeFloatingView() {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                if (designatedFloatingView != null) {
+                    try {
+                        if (ViewCompat.isAttachedToWindow(designatedFloatingView) && getContainerView() != null) {
+                            getContainerView().removeView(designatedFloatingView);
+                        }
+                    } catch (Exception e) {
+                    }
+                    designatedFloatingView = null;
+                }
+            }
+        });
     }
     
     private FrameLayout getActivityRoot(Activity activity) {

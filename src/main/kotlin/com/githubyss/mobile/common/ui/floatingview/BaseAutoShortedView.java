@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview.audioplayer;
+package com.githubyss.mobile.common.ui.floatingview;
 
 
 import android.animation.Animator;
@@ -15,24 +15,24 @@ import com.githubyss.mobile.common.ui.R;
 
 
 /**
- * BaseAutoShortedFloatingView
+ * BaseAutoShortedView
  * <Description> 自动收起悬浮窗
  * <Details> 仅实现悬浮窗整体的显示、关闭、弹出、收起以及自动收起的逻辑。
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2020/12/14 17:53:59
+ * @createdTime 2021/01/07 19:51:02
  */
-public class BaseAutoShortedFloatingView extends FrameLayout {
+public class BaseAutoShortedView extends FrameLayout {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
-    protected View rootView;
+    protected View    rootView;
+    protected Context containerContext;
     
-    private final long AUTO_HIDE_DELAY_TIME = 5000;
+    private final long AUTO_HIDE_DELAY_TIME = 500;
     private final long ANIM_DURATION        = 500;
     
-    private Context containerContext;
     private boolean isShown     = false;
     private boolean isShorten   = true;
     private boolean isAnimating = false;
@@ -42,7 +42,7 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     private Animator animatorSlideRightLengthen;
     private Animator animatorSlideLeftShorten;
     
-    private BaseAutoShortedFloatingViewListener baseAutoShortedFloatingViewListener;
+    private BaseAutoShortedViewListener baseAutoShortedViewListener;
     
     private Runnable autoShortenRunnable;
     
@@ -51,15 +51,15 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    public BaseAutoShortedFloatingView(Context context) {
+    public BaseAutoShortedView(Context context) {
         this(context, null);
     }
     
-    public BaseAutoShortedFloatingView(Context context, AttributeSet attrs) {
+    public BaseAutoShortedView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
     
-    public BaseAutoShortedFloatingView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BaseAutoShortedView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         containerContext = context;
         // initBase();
@@ -68,7 +68,7 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     
     // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
     
-    protected void initBase() {
+    protected void initInBase() {
         setClickable(true);
         initAnimator();
     }
@@ -165,13 +165,14 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
             
             if (animatorSlideRightShow.equals(animation)) {
                 isShown = true;
-                baseAutoShortedFloatingViewListener.onShow();
+                baseAutoShortedViewListener.onShow();
                 return;
             }
+            
             if (animatorSlideRightLengthen.equals(animation)) {
                 if (rootView != null) {
                     rootView.setTranslationX(-ScreenInfo.INSTANCE.dp2Px(230.0f));
-                    baseAutoShortedFloatingViewListener.onLengthen();
+                    baseAutoShortedViewListener.onLengthen();
                 }
                 return;
             }
@@ -190,7 +191,7 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
             if (animatorSlideLeftClose.equals(animation)) {
                 isShown = false;
                 isShorten = true;
-                baseAutoShortedFloatingViewListener.onClose();
+                baseAutoShortedViewListener.onClose();
                 return;
             }
             
@@ -202,7 +203,7 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
             if (animatorSlideLeftShorten.equals(animation)) {
                 isShorten = true;
                 if (rootView != null) {
-                    baseAutoShortedFloatingViewListener.onShorten();
+                    baseAutoShortedViewListener.onShorten();
                     rootView.setTranslationX(0.0f);
                 }
                 return;
@@ -221,7 +222,7 @@ public class BaseAutoShortedFloatingView extends FrameLayout {
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public void setBaseAutoShortedFloatingViewListener(BaseAutoShortedFloatingViewListener baseAutoShortedFloatingViewListener) {
-        this.baseAutoShortedFloatingViewListener = baseAutoShortedFloatingViewListener;
+    public void setBaseAutoShortedViewListener(BaseAutoShortedViewListener baseAutoShortedViewListener) {
+        this.baseAutoShortedViewListener = baseAutoShortedViewListener;
     }
 }
