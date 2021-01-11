@@ -56,9 +56,9 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     private DesignatedAudioPlayerView designatedView;
     
     /** 原生 Listener */
-    protected DesignatedAudioPlayerViewListener forNativeDesignatedViewListener;
+    protected DesignatedAudioPlayerViewListener forNativeDesignatedAudioPlayerViewListener;
     /** Web 端 Listener */
-    protected DesignatedAudioPlayerViewListener forWebDesignatedViewListener;
+    protected DesignatedAudioPlayerViewListener forWebDesignatedAudioPlayerViewListener;
     
     private AudioPlayListener audioPlayListener;
     
@@ -195,14 +195,6 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     }
     
     @Override
-    public boolean isFloatingShow() {
-        if (designatedView != null) {
-            return designatedView.isShown();
-        }
-        return false;
-    }
-    
-    @Override
     public void customView(DesignatedAudioPlayerView viewGroup) {
         designatedView = viewGroup;
     }
@@ -213,17 +205,22 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     }
     
     @Override
+    public boolean isFloatingShow() {
+        if (designatedView != null) {
+            return designatedView.isShown();
+        }
+        return false;
+    }
+    
+    @Override
     public DesignatedAudioPlayerView getDesignatedView() {
         return designatedView;
     }
     
-    // @Override
-    // public void listener(DesignatedAudioPlayerViewListener designatedViewListener) {
-    //     if (designatedView != null) {
-    //         designatedView.setDesignatedViewListener(designatedViewListener);
-    //     }
-    // }
-    
+    @Override
+    public FeatureAutoShortenView getAutoShortenView() {
+        return designatedView;
+    }
     
     // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
     
@@ -431,12 +428,12 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
             audioModel.setPlaying(isPlaying);
         }
         
-        if (forNativeDesignatedViewListener != null) {
-            forNativeDesignatedViewListener.onUpdateAudioInfo(audioModel);
+        if (forNativeDesignatedAudioPlayerViewListener != null) {
+            forNativeDesignatedAudioPlayerViewListener.onUpdateAudioInfo(audioModel);
         }
         
-        if (forWebDesignatedViewListener != null) {
-            forWebDesignatedViewListener.onUpdateAudioInfo(audioModel);
+        if (forWebDesignatedAudioPlayerViewListener != null) {
+            forWebDesignatedAudioPlayerViewListener.onUpdateAudioInfo(audioModel);
         }
     }
     
@@ -474,12 +471,12 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public void setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
-        this.forNativeDesignatedViewListener = forNativeDesignatedViewListener;
+    public void setForNativeDesignatedAudioPlayerViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedAudioPlayerViewListener) {
+        this.forNativeDesignatedAudioPlayerViewListener = forNativeDesignatedAudioPlayerViewListener;
     }
     
-    public void setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
-        this.forWebDesignatedViewListener = forWebDesignatedViewListener;
+    public void setForWebDesignatedAudioPlayerViewListener(DesignatedAudioPlayerViewListener forWebDesignatedAudioPlayerViewListener) {
+        this.forWebDesignatedAudioPlayerViewListener = forWebDesignatedAudioPlayerViewListener;
     }
     
     public void setAudioPlayListener(AudioPlayListener audioPlayListener) {

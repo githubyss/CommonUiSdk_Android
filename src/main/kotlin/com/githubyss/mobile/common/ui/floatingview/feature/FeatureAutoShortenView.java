@@ -153,14 +153,35 @@ public class FeatureAutoShortenView extends FrameLayout {
         }
     }
     
+    private void onShow() {
+        if (featureCommonViewListener != null) {
+            featureCommonViewListener.onShow();
+        }
+    }
+    
+    private void onClose() {
+        if (featureCommonViewListener != null) {
+            featureCommonViewListener.onClose();
+        }
+    }
+    
+    private void onLengthen() {
+        if (featureAutoShortenViewListener != null) {
+            featureAutoShortenViewListener.onLengthen();
+        }
+    }
+    
+    private void onShorten() {
+        if (featureAutoShortenViewListener != null) {
+            featureAutoShortenViewListener.onShorten();
+        }
+    }
+    
     
     // ---------- ---------- ---------- Implementations ---------- ---------- ----------
     
-    /**
-     * 动画监听
-     */
+    /** 动画监听 */
     private AnimatorListenerAdapter animatorListenerAdapter = new AnimatorListenerAdapter() {
-        
         @Override
         public void onAnimationStart(Animator animation) {
             super.onAnimationStart(animation);
@@ -168,14 +189,14 @@ public class FeatureAutoShortenView extends FrameLayout {
             
             if (animatorSlideRightShow.equals(animation)) {
                 isShown = true;
-                featureCommonViewListener.onShow();
+                onShow();
                 return;
             }
             
             if (animatorSlideRightLengthen.equals(animation)) {
                 if (rootView != null) {
                     rootView.setTranslationX(-ScreenInfo.INSTANCE.dp2Px(230.0f));
-                    featureAutoShortenViewListener.onLengthen();
+                    onLengthen();
                 }
                 return;
             }
@@ -194,7 +215,7 @@ public class FeatureAutoShortenView extends FrameLayout {
             if (animatorSlideLeftClose.equals(animation)) {
                 isShown = false;
                 isShorten = true;
-                featureCommonViewListener.onClose();
+                onClose();
                 return;
             }
             
@@ -206,10 +227,9 @@ public class FeatureAutoShortenView extends FrameLayout {
             if (animatorSlideLeftShorten.equals(animation)) {
                 isShorten = true;
                 if (rootView != null) {
-                    featureAutoShortenViewListener.onShorten();
+                    onShorten();
                     rootView.setTranslationX(0.0f);
                 }
-                return;
             }
         }
     };

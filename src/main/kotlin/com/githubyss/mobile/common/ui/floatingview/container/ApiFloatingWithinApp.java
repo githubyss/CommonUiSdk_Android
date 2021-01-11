@@ -233,12 +233,12 @@ public class ApiFloatingWithinApp implements ApiFloatingWithinAppInterface {
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
     public ApiFloatingWithinApp setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
-        designatedView.setForNativeDesignatedViewListener(forNativeDesignatedViewListener);
+        designatedView.setForNativeDesignatedAudioPlayerViewListener(forNativeDesignatedViewListener);
         return this;
     }
     
     public ApiFloatingWithinApp setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
-        designatedView.setForWebDesignatedViewListener(forWebDesignatedViewListener);
+        designatedView.setForWebDesignatedAudioPlayerViewListener(forWebDesignatedViewListener);
         return this;
     }
 }

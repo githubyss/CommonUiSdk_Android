@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetFloatingView;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetFloatingViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetView;
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetViewListener;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
@@ -22,7 +22,7 @@ import androidx.annotation.NonNull;
  * @github githubyss
  * @createdTime 2020/12/09 11:30:01
  */
-public class DesignatedMagnetFloatingView extends FeatureMagnetFloatingView {
+public class DesignatedMagnetView extends FeatureMagnetView {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
@@ -33,11 +33,11 @@ public class DesignatedMagnetFloatingView extends FeatureMagnetFloatingView {
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    public DesignatedMagnetFloatingView(@NonNull Context context) {
+    public DesignatedMagnetView(@NonNull Context context) {
         this(context, R.layout.comui_floating_icon);
     }
     
-    public DesignatedMagnetFloatingView(@NonNull Context context, @LayoutRes int resource) {
+    public DesignatedMagnetView(@NonNull Context context, @LayoutRes int resource) {
         super(context, null);
         if (rootView == null) {
             rootView = inflate(context, resource, this);
@@ -67,14 +67,14 @@ public class DesignatedMagnetFloatingView extends FeatureMagnetFloatingView {
     private void initListener() {
         // imageView_icon.setOnClickListener(onClickListener);
         
-        this.setFeatureMagnetFloatingViewListener(new FeatureMagnetFloatingViewListener() {
+        this.setFeatureMagnetViewListener(new FeatureMagnetViewListener() {
             @Override
-            public void onRemove(FeatureMagnetFloatingView magnetView) {
+            public void onRemove(FeatureMagnetView magnetView) {
                 designatedMagnetFloatingViewListener.onRemove(magnetView);
             }
             
             @Override
-            public void onClick(FeatureMagnetFloatingView magnetView) {
+            public void onClick(FeatureMagnetView magnetView) {
                 designatedMagnetFloatingViewListener.onClick(magnetView);
             }
         });

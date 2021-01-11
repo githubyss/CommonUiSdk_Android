@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview.magnet;
+package com.githubyss.mobile.common.ui.floatingview.designate.icon;
 
 
 import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetView;
@@ -12,7 +12,7 @@ import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetView;
  * @github githubyss
  * @createdTime 2020/12/09 18:38:54
  */
-public interface DesignatedMagnetFloatingViewListener {
+public interface DesignatedIconViewListener {
 
     void onRemove(FeatureMagnetView magnetView);
 

@@ -14,7 +14,7 @@ import com.githubyss.mobile.common.ui.utils.SystemUtils;
 
 
 /**
- * BaseFloatingMagnetView
+ * FeatureMagnetView
  * <Description> 磁力吸附悬浮窗
  * <Details>
  *
@@ -22,16 +22,16 @@ import com.githubyss.mobile.common.ui.utils.SystemUtils;
  * @github githubyss
  * @createdTime 2020/12/09 11:13:32
  */
-public class FeatureMagnetFloatingView extends FrameLayout {
+public class FeatureMagnetView extends FrameLayout {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
-    protected View rootView;
-    
-    public static final  int MARGIN_EDGE          = 25;
-    private static final int TOUCH_TIME_THRESHOLD = 150;
-    
+    protected View    rootView;
     private   Context containerContext;
+    
+    private final int MARGIN_EDGE          = 25;
+    private final int TOUCH_TIME_THRESHOLD = 150;
+    
     private   float   originalRawX;
     private   float   originalRawY;
     private   float   originalX;
@@ -43,25 +43,26 @@ public class FeatureMagnetFloatingView extends FrameLayout {
     private   long    lastTouchDownTime;
     private   boolean isNearestLeft = true;
     
-    private FeatureMagnetFloatingViewListener featureMagnetFloatingViewListener;
+    private FeatureCommonViewListener featureCommonViewListener;
+    private FeatureMagnetViewListener featureMagnetViewListener;
     
     protected MoveAnimatorRunnable moveAnimatorRunnable;
     
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    public FeatureMagnetFloatingView(Context context) {
+    public FeatureMagnetView(Context context) {
         this(context, null);
     }
     
-    public FeatureMagnetFloatingView(Context context, AttributeSet attrs) {
+    public FeatureMagnetView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
     
-    public FeatureMagnetFloatingView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FeatureMagnetView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         containerContext = context;
-        initBase();
+        // initInBase();
     }
     
     
@@ -113,7 +114,7 @@ public class FeatureMagnetFloatingView extends FrameLayout {
     
     // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
     
-    protected void initBase() {
+    protected void initInBase() {
         moveAnimatorRunnable = new MoveAnimatorRunnable();
         statusBarHeight = SystemUtils.getStatusBarHeight(getContext());
         setClickable(true);
@@ -142,18 +143,6 @@ public class FeatureMagnetFloatingView extends FrameLayout {
     
     
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
-    
-    private void onClick() {
-        if (featureMagnetFloatingViewListener != null) {
-            featureMagnetFloatingViewListener.onClick(this);
-        }
-    }
-    
-    private void onRemove() {
-        if (featureMagnetFloatingViewListener != null) {
-            featureMagnetFloatingViewListener.onRemove(this);
-        }
-    }
     
     private boolean isOnClickEvent() {
         return System.currentTimeMillis() - lastTouchDownTime < TOUCH_TIME_THRESHOLD;
@@ -186,8 +175,8 @@ public class FeatureMagnetFloatingView extends FrameLayout {
             screenWidth = viewGroup.getWidth() - getWidth();
             screenHeight = viewGroup.getHeight();
         }
-        // mScreenWidth = (SystemUtils.getScreenWidth(getContext()) - this.getWidth());
-        // mScreenHeight = SystemUtils.getScreenHeight(getContext());
+        // screenWidth = (SystemUtils.getScreenWidth(getContext()) - this.getWidth());
+        // screenHeight = SystemUtils.getScreenHeight(getContext());
     }
     
     private void clearPortraitY() {
@@ -205,12 +194,23 @@ public class FeatureMagnetFloatingView extends FrameLayout {
         }
     }
     
+    private void onClick() {
+        if (featureMagnetViewListener != null) {
+            featureMagnetViewListener.onClick(this);
+        }
+    }
+    
+    private void onRemove() {
+        if (featureMagnetViewListener != null) {
+            featureMagnetViewListener.onRemove(this);
+        }
+    }
+    
     
     // ---------- ---------- ---------- Implementations ---------- ---------- ----------
     
     /** 动画 */
     protected class MoveAnimatorRunnable implements Runnable {
-        
         private Handler handler = new Handler(Looper.getMainLooper());
         private float   destinationX;
         private float   destinationY;
@@ -243,9 +243,12 @@ public class FeatureMagnetFloatingView extends FrameLayout {
     }
     
     
+    // ---------- ---------- ---------- Getter ---------- ---------- ----------
+    
+    
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public void setFeatureMagnetFloatingViewListener(FeatureMagnetFloatingViewListener featureMagnetFloatingViewListener) {
-        this.featureMagnetFloatingViewListener = featureMagnetFloatingViewListener;
+    public void setFeatureMagnetViewListener(FeatureMagnetViewListener featureMagnetViewListener) {
+        this.featureMagnetViewListener = featureMagnetViewListener;
     }
 }

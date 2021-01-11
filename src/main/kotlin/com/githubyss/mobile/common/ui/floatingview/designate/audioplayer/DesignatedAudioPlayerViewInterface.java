@@ -40,13 +40,13 @@ public interface DesignatedAudioPlayerViewInterface {
     
     AudioModel getCurrentAudio();
     
-    boolean isFloatingShow();
-    
     void customView(DesignatedAudioPlayerView viewGroup);
     
     void customView(@LayoutRes int resource);
     
+    boolean isFloatingShow();
+    
     DesignatedAudioPlayerView getDesignatedView();
     
-    // void listener(DesignatedAudioPlayerViewListener designatedViewListener);
+    FeatureAutoShortenView getAutoShortenView();
 }

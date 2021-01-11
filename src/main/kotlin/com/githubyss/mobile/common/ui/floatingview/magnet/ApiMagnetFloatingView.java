@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetFloatingView;
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetView;
 
 import java.lang.ref.WeakReference;
 
@@ -36,15 +36,15 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     
     private static volatile ApiMagnetFloatingView instance;
     
-    private Context                      containerContext;
-    private WeakReference<FrameLayout>   containerView;
-    private DesignatedMagnetFloatingView designatedFloatingView;
-    private ViewGroup.LayoutParams       designatedLayoutParams;
+    private Context                    containerContext;
+    private WeakReference<FrameLayout> containerView;
+    private DesignatedMagnetView       designatedFloatingView;
+    private ViewGroup.LayoutParams     designatedLayoutParams;
     @LayoutRes
-    private int                          layoutId = R.layout.comui_floating_icon;
+    private int                        layoutId = R.layout.comui_floating_icon;
     @DrawableRes
-    private int                          iconRes  = R.drawable.comui_lucky_money;
-    private ApiMagnetFloatingListener    apiMagnetFloatingListener;
+    private int                        iconRes  = R.drawable.comui_lucky_money;
+    private ApiMagnetFloatingListener  apiMagnetFloatingListener;
     
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
@@ -79,12 +79,12 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
         ensureFloatingView();
         listener(new DesignatedMagnetFloatingViewListener() {
             @Override
-            public void onRemove(FeatureMagnetFloatingView magnetView) {
+            public void onRemove(FeatureMagnetView magnetView) {
                 removeFloatingView();
             }
             
             @Override
-            public void onClick(FeatureMagnetFloatingView magnetView) {
+            public void onClick(FeatureMagnetView magnetView) {
                 apiMagnetFloatingListener.onClick(magnetView);
             }
         });
@@ -97,7 +97,7 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     }
     
     @Override
-    public FeatureMagnetFloatingView getMagnetView() {
+    public FeatureMagnetView getMagnetView() {
         return designatedFloatingView;
     }
     
@@ -107,7 +107,7 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     }
     
     @Override
-    public void customView(DesignatedMagnetFloatingView viewGroup) {
+    public void customView(DesignatedMagnetView viewGroup) {
         designatedFloatingView = viewGroup;
     }
     
@@ -187,7 +187,7 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
             if (designatedFloatingView != null) {
                 return;
             }
-            designatedFloatingView = new DesignatedMagnetFloatingView(containerContext, layoutId);
+            designatedFloatingView = new DesignatedMagnetView(containerContext, layoutId);
             designatedFloatingView.setLayoutParams(getDesignatedLayoutParams());
             designatedFloatingView.setIconImage(iconRes);
             addViewToWindow(designatedFloatingView);
