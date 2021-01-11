@@ -1,8 +1,8 @@
-package com.githubyss.mobile.common.ui.floatingview;
+package com.githubyss.mobile.common.ui.floatingview.container;
 
 
 /**
- * BaseAutoShortedViewListener
+ * FeatureAutoShortenViewListener
  * <Description> 自动收起悬浮窗回调监听
  * <Details>
  *

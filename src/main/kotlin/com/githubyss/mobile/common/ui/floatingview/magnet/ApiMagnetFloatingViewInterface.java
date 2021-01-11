@@ -8,6 +8,8 @@ import android.widget.FrameLayout;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetFloatingView;
+
 
 /**
  * ApiMagnetFloatingViewInterface
@@ -26,7 +28,7 @@ public interface ApiMagnetFloatingViewInterface {
     
     void close();
     
-    BaseMagnetFloatingView getMagnetView();
+    FeatureMagnetFloatingView getMagnetView();
     
     void icon(@DrawableRes int resId);
     

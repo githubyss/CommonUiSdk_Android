@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview.magnet;
+package com.githubyss.mobile.common.ui.floatingview.feature;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -22,7 +22,7 @@ import com.githubyss.mobile.common.ui.utils.SystemUtils;
  * @github githubyss
  * @createdTime 2020/12/09 11:13:32
  */
-public class BaseMagnetFloatingView extends FrameLayout {
+public class FeatureMagnetFloatingView extends FrameLayout {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
@@ -43,22 +43,22 @@ public class BaseMagnetFloatingView extends FrameLayout {
     private   long    lastTouchDownTime;
     private   boolean isNearestLeft = true;
     
-    private BaseMagnetFloatingViewListener baseMagnetFloatingViewListener;
+    private FeatureMagnetFloatingViewListener featureMagnetFloatingViewListener;
     
     protected MoveAnimatorRunnable moveAnimatorRunnable;
     
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    public BaseMagnetFloatingView(Context context) {
+    public FeatureMagnetFloatingView(Context context) {
         this(context, null);
     }
     
-    public BaseMagnetFloatingView(Context context, AttributeSet attrs) {
+    public FeatureMagnetFloatingView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
     
-    public BaseMagnetFloatingView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FeatureMagnetFloatingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         containerContext = context;
         initBase();
@@ -144,14 +144,14 @@ public class BaseMagnetFloatingView extends FrameLayout {
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
     private void onClick() {
-        if (baseMagnetFloatingViewListener != null) {
-            baseMagnetFloatingViewListener.onClick(this);
+        if (featureMagnetFloatingViewListener != null) {
+            featureMagnetFloatingViewListener.onClick(this);
         }
     }
     
     private void onRemove() {
-        if (baseMagnetFloatingViewListener != null) {
-            baseMagnetFloatingViewListener.onRemove(this);
+        if (featureMagnetFloatingViewListener != null) {
+            featureMagnetFloatingViewListener.onRemove(this);
         }
     }
     
@@ -245,7 +245,7 @@ public class BaseMagnetFloatingView extends FrameLayout {
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public void setBaseMagnetFloatingViewListener(BaseMagnetFloatingViewListener baseMagnetFloatingViewListener) {
-        this.baseMagnetFloatingViewListener = baseMagnetFloatingViewListener;
+    public void setFeatureMagnetFloatingViewListener(FeatureMagnetFloatingViewListener featureMagnetFloatingViewListener) {
+        this.featureMagnetFloatingViewListener = featureMagnetFloatingViewListener;
     }
 }

@@ -1,12 +1,9 @@
-package com.githubyss.mobile.common.ui.floatingview;
+package com.githubyss.mobile.common.ui.floatingview.designate.audioplayer;
 
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -16,6 +13,8 @@ import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureAutoShortenView;
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureAutoShortenViewListener;
 import com.githubyss.mobile.common.ui.utils.ProgressTextUtils;
 
 import java.util.List;
@@ -37,7 +36,7 @@ import static com.githubyss.mobile.common.ui.audio.enumeration.AudioState.START;
  * @github githubyss
  * @createdTime 2021/01/07 19:10:13
  */
-public class DesignatedAudioPlayerView extends BaseAutoShortedView implements DesignatedAudioPlayerViewInterface {
+public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements DesignatedAudioPlayerViewInterface {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
@@ -205,7 +204,7 @@ public class DesignatedAudioPlayerView extends BaseAutoShortedView implements De
     }
     
     @Override
-    public BaseAutoShortedView getAutoShortedView() {
+    public FeatureAutoShortenView getAutoShortedView() {
         return designatedView;
     }
     
@@ -272,7 +271,7 @@ public class DesignatedAudioPlayerView extends BaseAutoShortedView implements De
             }
         });
         
-        designatedView.setBaseAutoShortedViewListener(new BaseAutoShortedViewListener() {
+        designatedView.setFeatureAutoShortenViewListener(new FeatureAutoShortenViewListener() {
             @Override
             public void onShow() {
             }

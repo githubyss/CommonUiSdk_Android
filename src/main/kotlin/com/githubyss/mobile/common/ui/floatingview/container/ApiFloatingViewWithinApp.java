@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview;
+package com.githubyss.mobile.common.ui.floatingview.container;
 
 
 import android.app.Activity;
@@ -11,17 +11,13 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.ApiAudioPlayerFloatingListener;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.BaseAutoShortedFloatingView;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.DesignatedAudioPlayerFloatingView;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.DesignatedAudioPlayerFloatingViewListener;
+import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
+import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureAutoShortenViewListener;
 
 import java.lang.ref.WeakReference;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 
@@ -165,7 +161,7 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
                 designatedView.setLayoutParams(getDesignatedLayoutParams());
                 addViewToWindow(designatedView);
                 designatedView.showFloatingWindow();
-                designatedView.setBaseAutoShortedViewListener(new BaseAutoShortedViewListener() {
+                designatedView.setFeatureAutoShortenViewListener(new FeatureAutoShortenViewListener() {
                     @Override
                     public void onShow() {
                     }
@@ -237,7 +233,7 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
     public ApiFloatingViewWithinApp setDesignatedViewListener(DesignatedAudioPlayerViewListener designatedViewListener) {
-        designatedView.designatedViewListener = designatedViewListener;
+        designatedView.setDesignatedViewListener(designatedViewListener);
         return this;
     }
 }

@@ -10,11 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.utils.EnContext;
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetFloatingView;
 
 import java.lang.ref.WeakReference;
 
@@ -81,12 +79,12 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
         ensureFloatingView();
         listener(new DesignatedMagnetFloatingViewListener() {
             @Override
-            public void onRemove(BaseMagnetFloatingView magnetView) {
+            public void onRemove(FeatureMagnetFloatingView magnetView) {
                 removeFloatingView();
             }
             
             @Override
-            public void onClick(BaseMagnetFloatingView magnetView) {
+            public void onClick(FeatureMagnetFloatingView magnetView) {
                 apiMagnetFloatingListener.onClick(magnetView);
             }
         });
@@ -99,7 +97,7 @@ public class ApiMagnetFloatingView implements ApiMagnetFloatingViewInterface {
     }
     
     @Override
-    public BaseMagnetFloatingView getMagnetView() {
+    public FeatureMagnetFloatingView getMagnetView() {
         return designatedFloatingView;
     }
     

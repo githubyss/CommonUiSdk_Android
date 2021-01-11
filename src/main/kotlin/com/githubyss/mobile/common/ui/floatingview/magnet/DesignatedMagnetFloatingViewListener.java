@@ -1,6 +1,8 @@
 package com.githubyss.mobile.common.ui.floatingview.magnet;
 
 
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetFloatingView;
+
 /**
  * DesignatedMagnetFloatingViewListener
  * <Description>
@@ -12,7 +14,7 @@ package com.githubyss.mobile.common.ui.floatingview.magnet;
  */
 public interface DesignatedMagnetFloatingViewListener {
 
-    void onRemove(BaseMagnetFloatingView magnetView);
+    void onRemove(FeatureMagnetFloatingView magnetView);
 
-    void onClick(BaseMagnetFloatingView magnetView);
+    void onClick(FeatureMagnetFloatingView magnetView);
 }

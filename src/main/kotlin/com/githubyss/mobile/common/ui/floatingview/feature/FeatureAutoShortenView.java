@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview;
+package com.githubyss.mobile.common.ui.floatingview.feature;
 
 
 import android.animation.Animator;
@@ -15,7 +15,7 @@ import com.githubyss.mobile.common.ui.R;
 
 
 /**
- * BaseAutoShortedView
+ * FeatureAutoShortenView
  * <Description> 自动收起悬浮窗
  * <Details> 仅实现悬浮窗整体的显示、关闭、弹出、收起以及自动收起的逻辑。
  *
@@ -23,7 +23,7 @@ import com.githubyss.mobile.common.ui.R;
  * @github githubyss
  * @createdTime 2021/01/07 19:51:02
  */
-public class BaseAutoShortedView extends FrameLayout {
+public class FeatureAutoShortenView extends FrameLayout {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
@@ -42,7 +42,7 @@ public class BaseAutoShortedView extends FrameLayout {
     private Animator animatorSlideRightLengthen;
     private Animator animatorSlideLeftShorten;
     
-    private BaseAutoShortedViewListener baseAutoShortedViewListener;
+    private FeatureAutoShortenViewListener featureAutoShortenViewListener;
     
     private Runnable autoShortenRunnable;
     
@@ -51,15 +51,15 @@ public class BaseAutoShortedView extends FrameLayout {
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    public BaseAutoShortedView(Context context) {
+    public FeatureAutoShortenView(Context context) {
         this(context, null);
     }
     
-    public BaseAutoShortedView(Context context, AttributeSet attrs) {
+    public FeatureAutoShortenView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
     
-    public BaseAutoShortedView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FeatureAutoShortenView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         containerContext = context;
         // initBase();
@@ -73,15 +73,15 @@ public class BaseAutoShortedView extends FrameLayout {
         initAnimator();
     }
     
-    protected void showFloatingWindow() {
+    public void showFloatingWindow() {
         removeAutoShortenHandleCallbacks();
         if (!isShown && !isAnimating) {
             animatorSlideRightShow.start();
         }
         startAutoShortenRunnable();
     }
-    
-    protected void closeFloatingWindow() {
+
+    public void closeFloatingWindow() {
         if (isShown && !isAnimating) {
             animatorSlideLeftClose.start();
         }
@@ -165,14 +165,14 @@ public class BaseAutoShortedView extends FrameLayout {
             
             if (animatorSlideRightShow.equals(animation)) {
                 isShown = true;
-                baseAutoShortedViewListener.onShow();
+                featureAutoShortenViewListener.onShow();
                 return;
             }
             
             if (animatorSlideRightLengthen.equals(animation)) {
                 if (rootView != null) {
                     rootView.setTranslationX(-ScreenInfo.INSTANCE.dp2Px(230.0f));
-                    baseAutoShortedViewListener.onLengthen();
+                    featureAutoShortenViewListener.onLengthen();
                 }
                 return;
             }
@@ -191,7 +191,7 @@ public class BaseAutoShortedView extends FrameLayout {
             if (animatorSlideLeftClose.equals(animation)) {
                 isShown = false;
                 isShorten = true;
-                baseAutoShortedViewListener.onClose();
+                featureAutoShortenViewListener.onClose();
                 return;
             }
             
@@ -203,7 +203,7 @@ public class BaseAutoShortedView extends FrameLayout {
             if (animatorSlideLeftShorten.equals(animation)) {
                 isShorten = true;
                 if (rootView != null) {
-                    baseAutoShortedViewListener.onShorten();
+                    featureAutoShortenViewListener.onShorten();
                     rootView.setTranslationX(0.0f);
                 }
                 return;
@@ -222,7 +222,7 @@ public class BaseAutoShortedView extends FrameLayout {
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public void setBaseAutoShortedViewListener(BaseAutoShortedViewListener baseAutoShortedViewListener) {
-        this.baseAutoShortedViewListener = baseAutoShortedViewListener;
+    public void setFeatureAutoShortenViewListener(FeatureAutoShortenViewListener featureAutoShortenViewListener) {
+        this.featureAutoShortenViewListener = featureAutoShortenViewListener;
     }
 }

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_floating_window_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+    <FrameLayout
+            android:id="@+id/frameLayout_normalPlayerContainer"
+            android:layout_width="255dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="14dp"
+            >
+
+        <LinearLayout
+                android:layout_width="255dp"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom"
+                android:gravity="center_vertical"
+                android:background="@drawable/comui_floating_audio_player_normal_bg"
+                >
+
+            <View
+                    android:layout_width="57dp"
+                    android:layout_height="0dp"
+                    />
+
+            <LinearLayout
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+
+                <TextView
+                        android:id="@+id/textView_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:text="我是一个滚动标题呀"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp"
+                        android:singleLine="true"
+                        android:scrollHorizontally="true"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                    <TextView
+                            android:id="@+id/textView_timePosition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="--:--"
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFFFFF"
+                            android:textSize="10sp"
+                            android:text="02:00"
+                            android:textAlignment="center"
+                            />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text=" / "
+                            android:textColor="#999999"
+                            android:textSize="10sp"
+                            android:textAlignment="center"
+                            />
+
+                    <TextView
+                            android:id="@+id/textView_timeDuration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="--:--"
+                            android:textColor="#999999"
+                            android:textColorHint="#999999"
+                            android:textSize="10sp"
+                            android:text="10:00"
+                            android:textAlignment="center"
+                            />
+                </LinearLayout>
+
+                <SeekBar
+                        android:id="@+id/seekBar_audioPlayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:maxHeight="1dp"
+                        android:minHeight="1dp"
+                        android:progress="20"
+                        android:secondaryProgress="0"
+                        android:progressDrawable="@drawable/comui_floating_audio_player_seek_bar_progress"
+                        android:thumb="@drawable/comui_floating_audio_player_seek_bar_thumb"
+                        android:thumbOffset="1dp"
+                        android:visibility="gone"
+                        />
+            </LinearLayout>
+
+            <ImageView
+                    android:id="@+id/imageView_playPauseController"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_marginLeft="14dp"
+                    android:src="@drawable/comui_audio_player_pause"
+                    />
+
+            <ImageView
+                    android:id="@+id/imageView_voiceSwitch"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_marginLeft="14dp"
+                    android:src="@drawable/comui_audio_player_voice_male"
+                    />
+
+            <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    >
+
+                <ImageView
+                        android:id="@+id/imageView_close"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/comui_audio_player_close"
+                        android:scaleType="center"
+                        android:visibility="visible"
+                        />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/comui_audio_player_cd_disk"
+                    />
+
+            <ImageView
+                    android:layout_width="17dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="-10dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/comui_audio_player_cd_disk_head"
+                    />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+            android:id="@+id/frameLayout_miniPlayerContainer"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/comui_floating_audio_player_mini_bg"
+            android:visibility="gone"
+            >
+
+        <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/comui_audio_player_extent"
+                android:scaleType="center"
+                />
+    </FrameLayout>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview;
+package com.githubyss.mobile.common.ui.floatingview.designate.audioplayer;
 
 
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;

@@ -1,20 +1,9 @@
-package com.githubyss.mobile.common.ui.floatingview;
+package com.githubyss.mobile.common.ui.floatingview.container;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.ApiAudioPlayerFloatingView;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.BaseAutoShortedFloatingView;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.DesignatedAudioPlayerFloatingView;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.DesignatedAudioPlayerFloatingViewListener;
-
-import java.util.List;
-
-import androidx.annotation.LayoutRes;
 
 
 /**
