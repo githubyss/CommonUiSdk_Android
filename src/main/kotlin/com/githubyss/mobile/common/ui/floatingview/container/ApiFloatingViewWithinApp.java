@@ -136,11 +136,6 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
         }
     }
     
-    @Override
-    public DesignatedAudioPlayerView getDesignatedView() {
-        return designatedView;
-    }
-    
     
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     

@@ -48,5 +48,7 @@ public interface DesignatedAudioPlayerViewInterface {
     
     void customView(@LayoutRes int resource);
     
+    DesignatedAudioPlayerView getDesignatedView();
+    
     // void listener(DesignatedAudioPlayerViewListener designatedViewListener);
 }

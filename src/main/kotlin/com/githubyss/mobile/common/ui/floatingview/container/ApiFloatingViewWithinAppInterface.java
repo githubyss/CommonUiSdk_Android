@@ -32,6 +32,4 @@ public interface ApiFloatingViewWithinAppInterface {
     void detach(FrameLayout container);
     
     void layoutParams(ViewGroup.LayoutParams params);
-    
-    DesignatedAudioPlayerView getDesignatedView();
 }

@@ -213,6 +213,11 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
         layoutId = resource;
     }
 
+    @Override
+    public DesignatedAudioPlayerView getDesignatedView() {
+        return designatedView;
+    }
+
     // @Override
     // public void listener(DesignatedAudioPlayerViewListener designatedViewListener) {
     //     if (designatedView != null) {
