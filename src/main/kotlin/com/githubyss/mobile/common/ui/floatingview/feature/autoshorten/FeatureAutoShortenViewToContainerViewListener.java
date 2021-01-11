@@ -1,8 +1,8 @@
-package com.githubyss.mobile.common.ui.floatingview.feature;
+package com.githubyss.mobile.common.ui.floatingview.feature.autoshorten;
 
 
 /**
- * FeatureCommonViewListener
+ * FeatureAutoShortenViewToContainerViewListener
  * <Description> 特性悬浮窗回调监听
  * <Details>
  *
@@ -10,7 +10,7 @@ package com.githubyss.mobile.common.ui.floatingview.feature;
  * @github githubyss
  * @createdTime 2021/01/11 11:44:08
  */
-public interface FeatureCommonViewListener {
+public interface FeatureAutoShortenViewToContainerViewListener {
     
     void onShow();
     

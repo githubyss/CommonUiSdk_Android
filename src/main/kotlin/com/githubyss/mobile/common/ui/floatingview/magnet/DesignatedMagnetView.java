@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetView;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
+import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetViewToDesignateViewListener;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
@@ -67,7 +67,7 @@ public class DesignatedMagnetView extends FeatureMagnetView {
     private void initListener() {
         // imageView_icon.setOnClickListener(onClickListener);
         
-        this.setFeatureMagnetViewListener(new FeatureMagnetViewListener() {
+        this.setFeatureMagnetViewToDesignateViewListener(new FeatureMagnetViewToDesignateViewListener() {
             @Override
             public void onRemove(FeatureMagnetView magnetView) {
                 designatedMagnetFloatingViewListener.onRemove(magnetView);

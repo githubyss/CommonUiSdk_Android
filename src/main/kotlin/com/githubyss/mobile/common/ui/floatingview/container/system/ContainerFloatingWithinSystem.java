@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview.container;
+package com.githubyss.mobile.common.ui.floatingview.container.system;
 
 
 import android.content.BroadcastReceiver;
@@ -24,7 +24,7 @@ import com.githubyss.mobile.common.ui.audio.constant.Constant;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureCommonViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToContainerViewListener;
 import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils;
 
 import androidx.annotation.NonNull;
@@ -32,7 +32,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 
 /**
- * ApiFloatingWithinSystem
+ * ContainerFloatingWithinSystem
  * <Description> 系统级别悬浮窗
  * <Details>
  *
@@ -40,11 +40,11 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
  * @github githubyss
  * @createdTime 2021/01/11 14:52:42
  */
-public class ApiFloatingWithinSystem implements ApiFloatingWithinSystemInterface {
+public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSystemInterface {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
-    private static ApiFloatingWithinSystem instance;
+    private static ContainerFloatingWithinSystem instance;
     
     private Context containerContext;
     
@@ -61,15 +61,15 @@ public class ApiFloatingWithinSystem implements ApiFloatingWithinSystemInterface
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    private ApiFloatingWithinSystem(@NonNull Context context) {
+    private ContainerFloatingWithinSystem(@NonNull Context context) {
         init(context);
     }
     
-    public static ApiFloatingWithinSystem getInstance(Context context) {
+    public static ContainerFloatingWithinSystem getInstance(Context context) {
         if (instance == null) {
-            synchronized (ApiFloatingWithinSystem.class) {
+            synchronized (ContainerFloatingWithinSystem.class) {
                 if (instance == null) {
-                    instance = new ApiFloatingWithinSystem(context);
+                    instance = new ContainerFloatingWithinSystem(context);
                 }
             }
         }
@@ -81,7 +81,7 @@ public class ApiFloatingWithinSystem implements ApiFloatingWithinSystemInterface
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
     
     @Override
-    public ApiFloatingWithinSystem show() {
+    public ContainerFloatingWithinSystem show() {
         if (!checkPermission(true)) {
             return null;
         }
@@ -195,7 +195,7 @@ public class ApiFloatingWithinSystem implements ApiFloatingWithinSystemInterface
                 designatedView = new DesignatedAudioPlayerView(containerContext);
                 designatedView.setLayoutParams(getDesignatedLayoutParams());
                 designatedView.setBackgroundColor(0x000000FF);
-                designatedView.setFeatureCommonViewListener(new FeatureCommonViewListener() {
+                designatedView.setFeatureAutoShortenViewToContainerViewListener(new FeatureAutoShortenViewToContainerViewListener() {
                     @Override
                     public void onShow() {
                     }
@@ -321,12 +321,12 @@ public class ApiFloatingWithinSystem implements ApiFloatingWithinSystemInterface
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ApiFloatingWithinSystem setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
+    public ContainerFloatingWithinSystem setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
         designatedView.setForNativeDesignatedAudioPlayerViewListener(forNativeDesignatedViewListener);
         return this;
     }
     
-    public ApiFloatingWithinSystem setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
+    public ContainerFloatingWithinSystem setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
         designatedView.setForNativeDesignatedAudioPlayerViewListener(forWebDesignatedViewListener);
         return this;
     }

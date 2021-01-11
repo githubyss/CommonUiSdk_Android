@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview.feature;
+package com.githubyss.mobile.common.ui.floatingview.feature.autoshorten;
 
 
 import android.animation.Animator;
@@ -42,8 +42,8 @@ public class FeatureAutoShortenView extends FrameLayout {
     private Animator animatorSlideRightLengthen;
     private Animator animatorSlideLeftShorten;
     
-    private FeatureCommonViewListener      featureCommonViewListener;
-    private FeatureAutoShortenViewListener featureAutoShortenViewListener;
+    private FeatureAutoShortenViewToContainerViewListener featureAutoShortenViewToContainerViewListener;
+    private FeatureAutoShortenViewToDesignateViewListener featureAutoShortenViewToDesignateViewListener;
     
     private Runnable autoShortenRunnable;
     
@@ -154,26 +154,26 @@ public class FeatureAutoShortenView extends FrameLayout {
     }
     
     private void onShow() {
-        if (featureCommonViewListener != null) {
-            featureCommonViewListener.onShow();
+        if (featureAutoShortenViewToContainerViewListener != null) {
+            featureAutoShortenViewToContainerViewListener.onShow();
         }
     }
     
     private void onClose() {
-        if (featureCommonViewListener != null) {
-            featureCommonViewListener.onClose();
+        if (featureAutoShortenViewToContainerViewListener != null) {
+            featureAutoShortenViewToContainerViewListener.onClose();
         }
     }
     
     private void onLengthen() {
-        if (featureAutoShortenViewListener != null) {
-            featureAutoShortenViewListener.onLengthen();
+        if (featureAutoShortenViewToDesignateViewListener != null) {
+            featureAutoShortenViewToDesignateViewListener.onLengthen();
         }
     }
     
     private void onShorten() {
-        if (featureAutoShortenViewListener != null) {
-            featureAutoShortenViewListener.onShorten();
+        if (featureAutoShortenViewToDesignateViewListener != null) {
+            featureAutoShortenViewToDesignateViewListener.onShorten();
         }
     }
     
@@ -245,11 +245,11 @@ public class FeatureAutoShortenView extends FrameLayout {
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public void setFeatureCommonViewListener(FeatureCommonViewListener featureCommonViewListener) {
-        this.featureCommonViewListener = featureCommonViewListener;
+    public void setFeatureAutoShortenViewToContainerViewListener(FeatureAutoShortenViewToContainerViewListener featureAutoShortenViewToContainerViewListener) {
+        this.featureAutoShortenViewToContainerViewListener = featureAutoShortenViewToContainerViewListener;
     }
     
-    public void setFeatureAutoShortenViewListener(FeatureAutoShortenViewListener featureAutoShortenViewListener) {
-        this.featureAutoShortenViewListener = featureAutoShortenViewListener;
+    public void setFeatureAutoShortenViewToDesignateViewListener(FeatureAutoShortenViewToDesignateViewListener featureAutoShortenViewToDesignateViewListener) {
+        this.featureAutoShortenViewToDesignateViewListener = featureAutoShortenViewToDesignateViewListener;
     }
 }

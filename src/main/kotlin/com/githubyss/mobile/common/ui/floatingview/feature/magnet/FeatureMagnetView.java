@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview.feature;
+package com.githubyss.mobile.common.ui.floatingview.feature.magnet;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToContainerViewListener;
 import com.githubyss.mobile.common.ui.utils.SystemUtils;
 
 
@@ -43,8 +44,8 @@ public class FeatureMagnetView extends FrameLayout {
     private   long    lastTouchDownTime;
     private   boolean isNearestLeft = true;
     
-    private FeatureCommonViewListener featureCommonViewListener;
-    private FeatureMagnetViewListener featureMagnetViewListener;
+    private FeatureAutoShortenViewToContainerViewListener featureAutoShortenViewToContainerViewListener;
+    private FeatureMagnetViewToDesignateViewListener      featureMagnetViewToDesignateViewListener;
     
     protected MoveAnimatorRunnable moveAnimatorRunnable;
     
@@ -195,14 +196,14 @@ public class FeatureMagnetView extends FrameLayout {
     }
     
     private void onClick() {
-        if (featureMagnetViewListener != null) {
-            featureMagnetViewListener.onClick(this);
+        if (featureMagnetViewToDesignateViewListener != null) {
+            featureMagnetViewToDesignateViewListener.onClick(this);
         }
     }
     
     private void onRemove() {
-        if (featureMagnetViewListener != null) {
-            featureMagnetViewListener.onRemove(this);
+        if (featureMagnetViewToDesignateViewListener != null) {
+            featureMagnetViewToDesignateViewListener.onRemove(this);
         }
     }
     
@@ -248,7 +249,7 @@ public class FeatureMagnetView extends FrameLayout {
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public void setFeatureMagnetViewListener(FeatureMagnetViewListener featureMagnetViewListener) {
-        this.featureMagnetViewListener = featureMagnetViewListener;
+    public void setFeatureMagnetViewToDesignateViewListener(FeatureMagnetViewToDesignateViewListener featureMagnetViewToDesignateViewListener) {
+        this.featureMagnetViewToDesignateViewListener = featureMagnetViewToDesignateViewListener;
     }
 }

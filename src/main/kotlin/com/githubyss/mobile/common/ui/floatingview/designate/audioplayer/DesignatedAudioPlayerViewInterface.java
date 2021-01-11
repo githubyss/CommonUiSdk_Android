@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.floatingview.designate.audioplayer;
 
 
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureAutoShortenView;
+import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenView;
 
 import java.util.List;
 

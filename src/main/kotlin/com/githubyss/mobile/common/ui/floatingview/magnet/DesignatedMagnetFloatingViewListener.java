@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.floatingview.magnet;
 
 
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetView;
+import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
 
 /**
  * DesignatedMagnetFloatingViewListener

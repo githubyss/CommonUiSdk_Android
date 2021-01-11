@@ -1,8 +1,8 @@
-package com.githubyss.mobile.common.ui.floatingview.feature;
+package com.githubyss.mobile.common.ui.floatingview.feature.magnet;
 
 
 /**
- * FeatureMagnetViewListener
+ * FeatureMagnetViewToDesignateViewListener
  * <Description> 磁力吸附悬浮窗对外回调
  * <Details>
  *
@@ -10,7 +10,7 @@ package com.githubyss.mobile.common.ui.floatingview.feature;
  * @github githubyss
  * @createdTime 2021/01/06 16:17:19
  */
-public interface FeatureMagnetViewListener {
+public interface FeatureMagnetViewToDesignateViewListener {
     
     void onRemove(FeatureMagnetView magnetView);
     

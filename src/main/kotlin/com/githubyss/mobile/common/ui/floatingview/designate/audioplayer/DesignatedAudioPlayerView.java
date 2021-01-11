@@ -13,8 +13,8 @@ import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureAutoShortenView;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureAutoShortenViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenView;
+import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToDesignateViewListener;
 import com.githubyss.mobile.common.ui.utils.ProgressTextUtils;
 
 import java.util.List;
@@ -267,7 +267,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
             }
         });
         
-        designatedView.setFeatureAutoShortenViewListener(new FeatureAutoShortenViewListener() {
+        designatedView.setFeatureAutoShortenViewToDesignateViewListener(new FeatureAutoShortenViewToDesignateViewListener() {
             @Override
             public void onLengthen() {
                 refreshContainerVisibility(false);

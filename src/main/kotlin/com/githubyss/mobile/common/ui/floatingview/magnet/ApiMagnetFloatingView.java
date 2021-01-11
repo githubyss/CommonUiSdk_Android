@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureMagnetView;
+import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
 
 import java.lang.ref.WeakReference;
 

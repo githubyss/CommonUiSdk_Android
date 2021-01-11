@@ -1,11 +1,11 @@
-package com.githubyss.mobile.common.ui.floatingview.container;
+package com.githubyss.mobile.common.ui.floatingview.container.system;
 
 
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 
 
 /**
- * ApiFloatingWithinSystemListener
+ * ContainerFloatingWithinSystemListener
  * <Description> 系统级别悬浮窗回调监听
  * <Details>
  *
@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.audio.model.AudioModel;
  * @github githubyss
  * @createdTime 2021/01/11 14:55:21
  */
-public interface ApiFloatingWithinSystemListener {
+public interface ContainerFloatingWithinSystemListener {
     
     void onShow();
     

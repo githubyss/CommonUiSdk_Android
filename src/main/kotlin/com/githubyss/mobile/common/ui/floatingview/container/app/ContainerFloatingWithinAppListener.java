@@ -1,8 +1,8 @@
-package com.githubyss.mobile.common.ui.floatingview.container;
+package com.githubyss.mobile.common.ui.floatingview.container.app;
 
 
 /**
- * FeatureAutoShortenViewListener
+ * FeatureAutoShortenViewToDesignateViewListener
  * <Description> 应用级别悬浮窗回调监听
  * <Details>
  *
@@ -10,7 +10,7 @@ package com.githubyss.mobile.common.ui.floatingview.container;
  * @github githubyss
  * @createdTime 2021/01/07 19:51:25
  */
-public interface ApiFloatingWithinAppListener {
+public interface ContainerFloatingWithinAppListener {
     
     void onShow();
     

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.floatingview.container;
+package com.githubyss.mobile.common.ui.floatingview.container.app;
 
 
 import android.app.Activity;
@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 
 
 /**
- * ApiFloatingWithinAppInterface
+ * ContainerFloatingWithinAppInterface
  * <Description> 应用级别悬浮窗接口方法
  * <Details>
  *
@@ -15,9 +15,9 @@ import android.widget.FrameLayout;
  * @github githubyss
  * @createdTime 2021/01/07 19:04:04
  */
-public interface ApiFloatingWithinAppInterface {
+public interface ContainerFloatingWithinAppInterface {
     
-    ApiFloatingWithinApp show();
+    ContainerFloatingWithinApp show();
     
     void close();
     

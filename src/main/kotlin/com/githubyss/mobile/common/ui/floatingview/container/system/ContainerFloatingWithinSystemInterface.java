@@ -1,11 +1,11 @@
-package com.githubyss.mobile.common.ui.floatingview.container;
+package com.githubyss.mobile.common.ui.floatingview.container.system;
 
 
 import android.view.ViewGroup;
 
 
 /**
- * ApiFloatingWithinSystemInterface
+ * ContainerFloatingWithinSystemInterface
  * <Description> 系统级别悬浮窗接口方法
  * <Details>
  *
@@ -13,9 +13,9 @@ import android.view.ViewGroup;
  * @github githubyss
  * @createdTime 2021/01/11 14:54:59
  */
-public interface ApiFloatingWithinSystemInterface {
+public interface ContainerFloatingWithinSystemInterface {
     
-    ApiFloatingWithinSystem show();
+    ContainerFloatingWithinSystem show();
     
     void close();
     
