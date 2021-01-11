@@ -12,10 +12,6 @@ package com.githubyss.mobile.common.ui.floatingview.feature;
  */
 public interface FeatureAutoShortenViewListener {
     
-    void onShow();
-    
-    void onClose();
-    
     void onLengthen();
     
     void onShorten();

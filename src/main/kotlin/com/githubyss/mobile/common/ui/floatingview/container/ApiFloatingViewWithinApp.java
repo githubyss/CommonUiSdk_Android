@@ -15,6 +15,7 @@ import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
 import com.githubyss.mobile.common.ui.floatingview.feature.FeatureAutoShortenViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.FeatureCommonViewListener;
 
 import java.lang.ref.WeakReference;
 
@@ -135,6 +136,11 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
         }
     }
     
+    @Override
+    public DesignatedAudioPlayerView getDesignatedView() {
+        return designatedView;
+    }
+    
     
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
@@ -159,9 +165,7 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
             if (designatedView == null) {
                 designatedView = new DesignatedAudioPlayerView(containerContext);
                 designatedView.setLayoutParams(getDesignatedLayoutParams());
-                addViewToWindow(designatedView);
-                designatedView.showFloatingWindow();
-                designatedView.setFeatureAutoShortenViewListener(new FeatureAutoShortenViewListener() {
+                designatedView.setFeatureCommonViewListener(new FeatureCommonViewListener() {
                     @Override
                     public void onShow() {
                     }
@@ -170,15 +174,9 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
                     public void onClose() {
                         removeFloatingView();
                     }
-                    
-                    @Override
-                    public void onLengthen() {
-                    }
-                    
-                    @Override
-                    public void onShorten() {
-                    }
                 });
+                addViewToWindow(designatedView);
+                designatedView.showFloatingWindow();
             }
         }
     }

@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
+
 
 /**
  * ApiFloatingViewWithinAppInterface
@@ -30,4 +32,6 @@ public interface ApiFloatingViewWithinAppInterface {
     void detach(FrameLayout container);
     
     void layoutParams(ViewGroup.LayoutParams params);
+    
+    DesignatedAudioPlayerView getDesignatedView();
 }

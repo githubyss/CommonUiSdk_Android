@@ -44,8 +44,6 @@ public interface DesignatedAudioPlayerViewInterface {
     
     boolean isFloatingShow();
     
-    FeatureAutoShortenView getAutoShortedView();
-    
     void customView(DesignatedAudioPlayerView viewGroup);
     
     void customView(@LayoutRes int resource);

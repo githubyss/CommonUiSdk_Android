@@ -42,6 +42,7 @@ public class FeatureAutoShortenView extends FrameLayout {
     private Animator animatorSlideRightLengthen;
     private Animator animatorSlideLeftShorten;
     
+    private FeatureCommonViewListener      featureCommonViewListener;
     private FeatureAutoShortenViewListener featureAutoShortenViewListener;
     
     private Runnable autoShortenRunnable;
@@ -80,7 +81,7 @@ public class FeatureAutoShortenView extends FrameLayout {
         }
         startAutoShortenRunnable();
     }
-
+    
     public void closeFloatingWindow() {
         if (isShown && !isAnimating) {
             animatorSlideLeftClose.start();
@@ -155,7 +156,9 @@ public class FeatureAutoShortenView extends FrameLayout {
     
     // ---------- ---------- ---------- Implementations ---------- ---------- ----------
     
-    /** 动画监听 */
+    /**
+     * 动画监听
+     */
     private AnimatorListenerAdapter animatorListenerAdapter = new AnimatorListenerAdapter() {
         
         @Override
@@ -165,7 +168,7 @@ public class FeatureAutoShortenView extends FrameLayout {
             
             if (animatorSlideRightShow.equals(animation)) {
                 isShown = true;
-                featureAutoShortenViewListener.onShow();
+                featureCommonViewListener.onShow();
                 return;
             }
             
@@ -191,7 +194,7 @@ public class FeatureAutoShortenView extends FrameLayout {
             if (animatorSlideLeftClose.equals(animation)) {
                 isShown = false;
                 isShorten = true;
-                featureAutoShortenViewListener.onClose();
+                featureCommonViewListener.onClose();
                 return;
             }
             
@@ -221,6 +224,10 @@ public class FeatureAutoShortenView extends FrameLayout {
     
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    
+    public void setFeatureCommonViewListener(FeatureCommonViewListener featureCommonViewListener) {
+        this.featureCommonViewListener = featureCommonViewListener;
+    }
     
     public void setFeatureAutoShortenViewListener(FeatureAutoShortenViewListener featureAutoShortenViewListener) {
         this.featureAutoShortenViewListener = featureAutoShortenViewListener;
