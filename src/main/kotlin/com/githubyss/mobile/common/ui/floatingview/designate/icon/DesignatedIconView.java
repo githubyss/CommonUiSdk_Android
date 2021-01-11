@@ -28,7 +28,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     private ImageView imageView_icon;
     
     @LayoutRes
-    private static int layoutId = R.layout.comui_floating_audio_player;
+    private static int layoutId = R.layout.comui_floating_icon;
     
     private DesignatedIconView designatedView;
     

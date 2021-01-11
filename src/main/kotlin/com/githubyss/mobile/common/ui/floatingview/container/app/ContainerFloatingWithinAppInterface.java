@@ -15,9 +15,9 @@ import android.widget.FrameLayout;
  * @github githubyss
  * @createdTime 2021/01/07 19:04:04
  */
-public interface ContainerFloatingWithinAppInterface {
+public interface ContainerFloatingWithinAppInterface<T> {
     
-    ContainerFloatingWithinApp show();
+    T show();
     
     void close();
     

@@ -13,15 +13,15 @@ import android.view.ViewGroup;
  * @github githubyss
  * @createdTime 2021/01/11 14:54:59
  */
-public interface ContainerFloatingWithinSystemInterface {
+public interface ContainerFloatingWithinSystemInterface<T> {
     
-    ContainerFloatingWithinSystem show();
+    T show();
     
     void close();
     
     void layoutParams(ViewGroup.LayoutParams params);
     
-    void displayWhenAppForeground();
+    void refreshViewWhenAppForeground();
     
-    void hideWhenAppBackground();
+    void refreshViewWhenAppBackground();
 }

@@ -21,10 +21,10 @@ import com.githubyss.mobile.common.kit.enumeration.VersionCode;
 import com.githubyss.mobile.common.kit.enumeration.WindowManagerLayoutParamsType;
 import com.githubyss.mobile.common.kit.info.ScreenInfo;
 import com.githubyss.mobile.common.ui.audio.constant.Constant;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
-import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
-import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToContainerViewListener;
+import com.githubyss.mobile.common.ui.floatingview.designate.icon.DesignatedIconView;
+import com.githubyss.mobile.common.ui.floatingview.designate.icon.DesignatedIconViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
+import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetViewToDesignateViewListener;
 import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils;
 
 import androidx.annotation.NonNull;
@@ -32,19 +32,19 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 
 /**
- * ContainerFloatingWithinSystem
+ * ContainerFloatingWithinSystemIcon
  * <Description> 系统级别悬浮窗
  * <Details>
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/01/11 14:52:42
+ * @createdTime 2021/01/11 19:48:13
  */
-public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSystemInterface {
+public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithinSystemInterface<ContainerFloatingWithinSystemIcon> {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
-    private static ContainerFloatingWithinSystem instance;
+    private static ContainerFloatingWithinSystemIcon instance;
     
     private Context containerContext;
     
@@ -52,8 +52,8 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
     private ViewGroup                  containerView;
     private WindowManager.LayoutParams containerLayoutParams;
     
-    private DesignatedAudioPlayerView designatedView;
-    private ViewGroup.LayoutParams    designatedLayoutParams;
+    private DesignatedIconView     designatedView;
+    private ViewGroup.LayoutParams designatedLayoutParams;
     
     /** 是否跳转过悬浮窗权限设置页 */
     private boolean isJumpToOverlayPermission = true;
@@ -61,15 +61,15 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    private ContainerFloatingWithinSystem(@NonNull Context context) {
+    private ContainerFloatingWithinSystemIcon(@NonNull Context context) {
         init(context);
     }
     
-    public static ContainerFloatingWithinSystem getInstance(Context context) {
+    public static ContainerFloatingWithinSystemIcon getInstance(Context context) {
         if (instance == null) {
-            synchronized (ContainerFloatingWithinSystem.class) {
+            synchronized (ContainerFloatingWithinSystemIcon.class) {
                 if (instance == null) {
-                    instance = new ContainerFloatingWithinSystem(context);
+                    instance = new ContainerFloatingWithinSystemIcon(context);
                 }
             }
         }
@@ -81,7 +81,7 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
     
     @Override
-    public ContainerFloatingWithinSystem show() {
+    public ContainerFloatingWithinSystemIcon show() {
         if (!checkPermission(true)) {
             return null;
         }
@@ -93,15 +93,11 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
     
     @Override
     public void close() {
-        AudioPlayManager.getInstance().destroy();
-        
         if (containerContext != null && voiceReceiver != null) {
             LocalBroadcastManager.getInstance(containerContext).unregisterReceiver(voiceReceiver);
         }
         
-        if (designatedView != null) {
-            designatedView.closeFloatingWindow();
-        }
+        removeFloatingView();
     }
     
     @Override
@@ -113,14 +109,14 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
     }
     
     @Override
-    public void displayWhenAppForeground() {
+    public void refreshViewWhenAppForeground() {
         if (containerView != null) {
             containerView.setVisibility(View.VISIBLE);
         }
     }
     
     @Override
-    public void hideWhenAppBackground() {
+    public void refreshViewWhenAppBackground() {
         if (containerView != null) {
             containerView.setVisibility(View.GONE);
         }
@@ -163,12 +159,12 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
         
         getContainerLayoutParams().flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | (WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH) | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
         // getContainerLayoutParams().flags = WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
-        getContainerLayoutParams().gravity = Gravity.LEFT | Gravity.BOTTOM;
+        getContainerLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;
         getContainerLayoutParams().format = PixelFormat.TRANSLUCENT;
         getContainerLayoutParams().width = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().height = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().x = 0;
-        getContainerLayoutParams().y = ScreenInfo.INSTANCE.dp2Px(70.0f);
+        getContainerLayoutParams().y = ScreenInfo.INSTANCE.dp2Px(0.0f);
         // getContainerLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
         
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;
@@ -192,21 +188,20 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
     private void ensureFloatingView() {
         synchronized (this) {
             if (designatedView == null) {
-                designatedView = new DesignatedAudioPlayerView(containerContext);
+                designatedView = new DesignatedIconView(containerContext);
                 designatedView.setLayoutParams(getDesignatedLayoutParams());
                 designatedView.setBackgroundColor(0x000000FF);
-                designatedView.setFeatureAutoShortenViewToContainerViewListener(new FeatureAutoShortenViewToContainerViewListener() {
+                designatedView.setFeatureMagnetViewToDesignateViewListener(new FeatureMagnetViewToDesignateViewListener() {
                     @Override
-                    public void onShow() {
+                    public void onRemove(FeatureMagnetView magnetView) {
+                        removeFloatingView();
                     }
                     
                     @Override
-                    public void onClose() {
-                        removeFloatingView();
+                    public void onClick(FeatureMagnetView magnetView) {
                     }
                 });
                 addViewToWindow(designatedView);
-                designatedView.showFloatingWindow();
             }
         }
         
@@ -283,7 +278,7 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
             if (action.equals(Constant.INTENT_ACTION_IS_FOREGROUND)) {
                 // 回到前台
                 if (intent.getBooleanExtra("isForeground", true)) {
-                    displayWhenAppForeground();
+                    refreshViewWhenAppForeground();
                     
                     if (isJumpToOverlayPermission) {
                         // 跳转状态重置为假
@@ -294,14 +289,12 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
                             return;
                         }
                         
-                        if (show() != null) {
-                            designatedView.play(AudioPlayManager.getInstance().getAudioList());
-                        }
+                        show();
                     }
                 }
                 // 进入后台
                 else {
-                    hideWhenAppBackground();
+                    refreshViewWhenAppBackground();
                 }
             }
             // 关闭浮窗事件
@@ -314,20 +307,15 @@ public class ContainerFloatingWithinSystem implements ContainerFloatingWithinSys
     
     // ---------- ---------- ---------- Getter ---------- ---------- ----------
     
-    public DesignatedAudioPlayerView getDesignatedView() {
+    public DesignatedIconView getDesignatedView() {
         return designatedView;
     }
     
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ContainerFloatingWithinSystem setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
-        designatedView.setForNativeDesignatedAudioPlayerViewListener(forNativeDesignatedViewListener);
-        return this;
-    }
-    
-    public ContainerFloatingWithinSystem setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
-        designatedView.setForNativeDesignatedAudioPlayerViewListener(forWebDesignatedViewListener);
+    public ContainerFloatingWithinSystemIcon setDesignatedIconViewListener(DesignatedIconViewListener designatedIconViewListener) {
+        designatedView.setDesignatedIconViewListener(designatedIconViewListener);
         return this;
     }
 }

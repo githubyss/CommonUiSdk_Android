@@ -14,7 +14,11 @@ import android.widget.LinearLayout;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
+import com.githubyss.mobile.common.ui.floatingview.designate.icon.DesignatedIconView;
+import com.githubyss.mobile.common.ui.floatingview.designate.icon.DesignatedIconViewListener;
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToContainerViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
+import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetViewToDesignateViewListener;
 
 import java.lang.ref.WeakReference;
 
@@ -23,40 +27,40 @@ import androidx.core.view.ViewCompat;
 
 
 /**
- * ContainerFloatingWithinApp
+ * ContainerFloatingWithinAppIcon
  * <Description> 应用级别悬浮窗
  * <Details>
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/01/07 19:02:14
+ * @createdTime 2021/01/11 19:38:50
  */
-public class ContainerFloatingWithinApp implements ContainerFloatingWithinAppInterface {
+public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAppInterface<ContainerFloatingWithinAppIcon> {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
-    private static volatile ContainerFloatingWithinApp instance;
+    private static volatile ContainerFloatingWithinAppIcon instance;
     
     private Context containerContext;
     
     private WeakReference<FrameLayout> containerView;
     
-    private DesignatedAudioPlayerView designatedView;
-    private ViewGroup.LayoutParams    designatedLayoutParams;
+    private DesignatedIconView     designatedView;
+    private ViewGroup.LayoutParams designatedLayoutParams;
     
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    private ContainerFloatingWithinApp(@NonNull Context context) {
+    private ContainerFloatingWithinAppIcon(@NonNull Context context) {
         // super(context);
         init(context);
     }
     
-    public static ContainerFloatingWithinApp getInstance(Context context) {
+    public static ContainerFloatingWithinAppIcon getInstance(Context context) {
         if (instance == null) {
-            synchronized (ContainerFloatingWithinApp.class) {
+            synchronized (ContainerFloatingWithinAppIcon.class) {
                 if (instance == null) {
-                    instance = new ContainerFloatingWithinApp(context);
+                    instance = new ContainerFloatingWithinAppIcon(context);
                 }
             }
         }
@@ -77,7 +81,7 @@ public class ContainerFloatingWithinApp implements ContainerFloatingWithinAppInt
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
     
     @Override
-    public ContainerFloatingWithinApp show() {
+    public ContainerFloatingWithinAppIcon show() {
         initLayoutParams();
         ensureFloatingView();
         return this;
@@ -85,10 +89,7 @@ public class ContainerFloatingWithinApp implements ContainerFloatingWithinAppInt
     
     @Override
     public void close() {
-        AudioPlayManager.getInstance().destroy();
-        if (designatedView != null) {
-            designatedView.closeFloatingWindow();
-        }
+        removeFloatingView();
     }
     
     @Override
@@ -157,21 +158,21 @@ public class ContainerFloatingWithinApp implements ContainerFloatingWithinAppInt
     private void ensureFloatingView() {
         synchronized (this) {
             if (designatedView == null) {
-                designatedView = new DesignatedAudioPlayerView(containerContext);
+                designatedView = new DesignatedIconView(containerContext);
                 designatedView.setLayoutParams(getDesignatedLayoutParams());
                 designatedView.setBackgroundColor(0x000000FF);
-                designatedView.setFeatureAutoShortenViewToContainerViewListener(new FeatureAutoShortenViewToContainerViewListener() {
+                designatedView.setFeatureMagnetViewToDesignateViewListener(new FeatureMagnetViewToDesignateViewListener() {
                     @Override
-                    public void onShow() {
+                    public void onRemove(FeatureMagnetView magnetView) {
+                        removeFloatingView();
                     }
                     
                     @Override
-                    public void onClose() {
-                        removeFloatingView();
+                    public void onClick(FeatureMagnetView magnetView) {
+                    
                     }
                 });
                 addViewToWindow(designatedView);
-                designatedView.showFloatingWindow();
             }
         }
     }
@@ -225,20 +226,15 @@ public class ContainerFloatingWithinApp implements ContainerFloatingWithinAppInt
     
     // ---------- ---------- ---------- Getter ---------- ---------- ----------
     
-    public DesignatedAudioPlayerView getDesignatedView() {
+    public DesignatedIconView getDesignatedView() {
         return designatedView;
     }
     
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ContainerFloatingWithinApp setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
-        designatedView.setForNativeDesignatedAudioPlayerViewListener(forNativeDesignatedViewListener);
-        return this;
-    }
-    
-    public ContainerFloatingWithinApp setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
-        designatedView.setForWebDesignatedAudioPlayerViewListener(forWebDesignatedViewListener);
+    public ContainerFloatingWithinAppIcon setDesignatedIconViewListener(DesignatedIconViewListener designatedIconViewListener) {
+        designatedView.setDesignatedIconViewListener(designatedIconViewListener);
         return this;
     }
 }
