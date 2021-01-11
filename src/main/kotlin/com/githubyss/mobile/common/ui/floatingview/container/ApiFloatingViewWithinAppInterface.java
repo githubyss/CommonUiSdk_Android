@@ -10,7 +10,7 @@ import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.Designa
 
 /**
  * ApiFloatingViewWithinAppInterface
- * <Description> 应用内悬浮窗接口方法
+ * <Description> 应用级别悬浮窗接口方法
  * <Details>
  *
  * @author Ace Yan
@@ -23,6 +23,8 @@ public interface ApiFloatingViewWithinAppInterface {
     
     void close();
     
+    void layoutParams(ViewGroup.LayoutParams params);
+    
     void attach(Activity activity);
     
     void attach(FrameLayout container);
@@ -30,6 +32,4 @@ public interface ApiFloatingViewWithinAppInterface {
     void detach(Activity activity);
     
     void detach(FrameLayout container);
-    
-    void layoutParams(ViewGroup.LayoutParams params);
 }

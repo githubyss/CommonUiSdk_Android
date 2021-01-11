@@ -12,6 +12,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.WindowManager;
 
+import com.githubyss.mobile.common.kit.enumeration.VersionCode;
 import com.githubyss.mobile.common.ui.audio.constant.Constant;
 
 import org.json.JSONArray;
@@ -57,7 +58,7 @@ public class PermissionOverlayUtils {
      */
     public static boolean hasPermission(Context context) {
         // M(23/6.0) 及以上，通过 Settings 判断悬浮窗权限
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= VersionCode.M) {
             // MIUI Android 8.0/8.1 (O(26)/O_MR1(27))) 悬浮框有问题，走系统漏洞，不走正常流程
             if (isMiUiO()) {
                 return true;
@@ -65,7 +66,7 @@ public class PermissionOverlayUtils {
             return Settings.canDrawOverlays(context);
         }
         // KITKAT(19/4.4) 到 LOLLIPOP_MR1(22/5.1)，加悬浮框权限判断
-        else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        else if (Build.VERSION.SDK_INT >= VersionCode.KITKAT) {
             if (needPermission()) {
                 return hasPermissionBelowMarshmallow(context);
             } else {
@@ -79,7 +80,7 @@ public class PermissionOverlayUtils {
     }
     
     public static boolean isMiUiO() {
-        return (Build.VERSION.SDK_INT == Constant.VERSION_CODES_O || Build.VERSION.SDK_INT == Constant.VERSION_CODES_O_MR1) && isMiui();
+        return (Build.VERSION.SDK_INT == VersionCode.O || Build.VERSION.SDK_INT == VersionCode.O_MR1) && isMiui();
     }
     
     public static void jumpToOverlayPermission(Context context) {
@@ -129,10 +130,10 @@ public class PermissionOverlayUtils {
      */
     public static boolean isFlyme() {
         try {
-            String display = Build.DISPLAY;
-            String fingerprint = Build.FINGERPRINT;
-            String incremental = Build.VERSION.INCREMENTAL;
-            boolean isDisplayContainFlyme = !TextUtils.isEmpty(display) && display.contains("Flyme");
+            String  display                   = Build.DISPLAY;
+            String  fingerprint               = Build.FINGERPRINT;
+            String  incremental               = Build.VERSION.INCREMENTAL;
+            boolean isDisplayContainFlyme     = !TextUtils.isEmpty(display) && display.contains("Flyme");
             boolean isFingerprintContainFlyme = !TextUtils.isEmpty(fingerprint) && fingerprint.contains("Flyme");
             boolean isIncrementalContainFlyme = !TextUtils.isEmpty(incremental) && incremental.contains("Flyme");
             return isDisplayContainFlyme || isFingerprintContainFlyme || isIncrementalContainFlyme;
@@ -165,11 +166,11 @@ public class PermissionOverlayUtils {
     }
     
     private static List<String> getSystemProperties(String[] commands) {
-        Process process = null;
-        BufferedReader successReader = null;
-        BufferedReader errorReader = null;
-        DataOutputStream dos = null;
-        List<String> resultList = new ArrayList<>();
+        Process          process       = null;
+        BufferedReader   successReader = null;
+        BufferedReader   errorReader   = null;
+        DataOutputStream dos           = null;
+        List<String>     resultList    = new ArrayList<>();
         
         if (commands == null || commands.length == 0) {
             return resultList;
@@ -188,7 +189,7 @@ public class PermissionOverlayUtils {
             }
             dos.writeBytes("exit\n");
             dos.flush();
-            int status = process.waitFor();
+            int    status = process.waitFor();
             String lineStr;
             successReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
@@ -234,8 +235,8 @@ public class PermissionOverlayUtils {
      */
     private static boolean hasPermissionBelowMarshmallow(Context context) {
         try {
-            AppOpsManager manager = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
-            Method dispatchMethod = AppOpsManager.class.getMethod("checkOp", int.class, int.class, String.class);
+            AppOpsManager manager        = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+            Method        dispatchMethod = AppOpsManager.class.getMethod("checkOp", int.class, int.class, String.class);
             return AppOpsManager.MODE_ALLOWED == (Integer) dispatchMethod.invoke(manager, OP_SYSTEM_ALERT_WINDOW, Binder.getCallingUid(), context.getApplicationContext().getPackageName());
         } catch (Exception e) {
             return false;

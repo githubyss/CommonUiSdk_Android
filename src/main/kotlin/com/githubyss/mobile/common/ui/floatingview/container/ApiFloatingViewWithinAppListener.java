@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.ui.floatingview.container;
 
 /**
  * FeatureAutoShortenViewListener
- * <Description> 自动收起悬浮窗回调监听
+ * <Description> 应用级别悬浮窗回调监听
  * <Details>
  *
  * @author Ace Yan

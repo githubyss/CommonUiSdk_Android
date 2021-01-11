@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.githubyss.mobile.common.kit.enumeration.VersionCode;
 import com.githubyss.mobile.common.kit.info.ScreenInfo;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.constant.Constant;
@@ -65,7 +66,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     private ApiAudioPlayerFloatingListener webAudioListener;
     
     /** 是否跳转过悬浮窗权限设置页 */
-    private boolean isJumpToOverlayPermission = false;
+    private boolean isJumpToOverlayPermission = true;
     
     //8.0 type样式，不可修改，为适应低版本编译，自己定义
     public static final int TYPE_APPLICATION_OVERLAY = 2038;
@@ -103,7 +104,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     
     @Override
     public ApiAudioPlayerFloatingWindow show() {
-        if (!checkPermission(false)) {
+        if (!checkPermission(isJumpToOverlayPermission)) {
             return this;
         }
         
@@ -335,7 +336,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
     }
     
     private void initLayoutParams() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= VersionCode.O) {
             if (PermissionOverlayUtils.isMiUiO()) {
                 getContainerLayoutParams().type = TYPE_PRESENTATION;
             } else {
@@ -467,8 +468,8 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
                     
                     if (isJumpToOverlayPermission) {
                         // 跳转状态重置为假
-                        isJumpToOverlayPermission = false;
                         show().play(AudioPlayManager.getInstance().getAudioList(), false);
+                        isJumpToOverlayPermission = false;
                     }
                 }
                 // 进入后台

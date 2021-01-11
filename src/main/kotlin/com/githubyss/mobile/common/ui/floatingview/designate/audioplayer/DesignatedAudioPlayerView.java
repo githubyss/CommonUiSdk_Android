@@ -37,33 +37,38 @@ import static com.githubyss.mobile.common.ui.audio.enumeration.AudioState.START;
  * @createdTime 2021/01/07 19:10:13
  */
 public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements DesignatedAudioPlayerViewInterface {
-
+    
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
-
-    private TextView textView_title;
-    private TextView textView_timePosition;
-    private TextView textView_timeDuration;
-    private SeekBar seekBar_audioPlayer;
+    
+    private TextView  textView_title;
+    private TextView  textView_timePosition;
+    private TextView  textView_timeDuration;
+    private SeekBar   seekBar_audioPlayer;
     private ImageView imageView_playPauseController;
     private ImageView imageView_voiceSwitch;
     private ImageView imageView_close;
-    private View frameLayout_normalPlayerContainer;
-    private View frameLayout_miniPlayerContainer;
-
+    private View      frameLayout_normalPlayerContainer;
+    private View      frameLayout_miniPlayerContainer;
+    
     @LayoutRes
     private static int layoutId = R.layout.comui_floating_audio_player;
-
+    
     private DesignatedAudioPlayerView designatedView;
-    protected DesignatedAudioPlayerViewListener designatedViewListener;
+    
+    /** 原生 Listener */
+    protected DesignatedAudioPlayerViewListener forNativeDesignatedViewListener;
+    /** Web 端 Listener */
+    protected DesignatedAudioPlayerViewListener forWebDesignatedViewListener;
+    
     private AudioPlayListener audioPlayListener;
-
-
+    
+    
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
-
+    
     public DesignatedAudioPlayerView(@NonNull Context context) {
         this(context, layoutId);
     }
-
+    
     public DesignatedAudioPlayerView(@NonNull Context context, @LayoutRes int resource) {
         super(context);
         if (rootView == null) {
@@ -73,53 +78,47 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
             initInDesignated();
         }
     }
-
-
+    
+    
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
-
+    
     @Override
     public void lengthen() {
         if (designatedView != null) {
             designatedView.lengthenFloatingWindow();
         }
     }
-
+    
     @Override
     public void shorten() {
         if (designatedView != null) {
             designatedView.shortenFloatingWindow();
         }
     }
-
+    
     @Override
     public void play(List<AudioModel> audioList) {
-        // 默认对外开放的方法，需要去开启悬浮窗权限
-        play(audioList, true);
-    }
-
-    @Override
-    public void play(List<AudioModel> audioList, boolean isNeedJumpToOverlayPermission) {
         if (audioList == null) {
             return;
         }
-
+        
         AudioListModel audioListModel = new AudioListModel();
         audioListModel.setAudioList(audioList);
         audioListModel.setCurrentIndex(0);
-
-        AudioModel currentAudio = AudioPlayManager.getInstance().getCurrentAudio();
+        
+        AudioModel currentAudio      = AudioPlayManager.getInstance().getCurrentAudio();
         AudioModel newListFirstAudio = audioListModel.getAudioList().get(0);
         AudioPlayManager.getInstance().setInfo(audioListModel);
-
+        
         boolean isContinue = currentAudio != null && newListFirstAudio != null && currentAudio.getId().equals(newListFirstAudio.getId());
-
+        
         if (isContinue) {
             AudioPlayManager.getInstance().start();
         } else {
             AudioPlayManager.getInstance().stop();
             AudioPlayManager.getInstance().play(containerContext);
         }
-
+        
         if (designatedView != null) {
             // if (AudioPlayManager.getInstance().getAudioList() == null || AudioPlayManager.getInstance().getAudioList().size() == 0) {
             //     AudioListModel audioListModel = new AudioListModel();
@@ -136,9 +135,9 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
             // } else {
             //     designatedFloatingView.refreshData();
             // }
-
+            
             designatedView.refreshVoiceSwitch();
-
+            
             designatedView.setAudioPlayListener(new AudioPlayListener() {
                 @Override
                 public void onStateChanged(AudioState audioState) {
@@ -146,55 +145,55 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
                     //     mMusicNotification.showNotify();
                     // }
                 }
-
+                
                 @Override
                 public void onPlayProgress(int currentPosition) {
-
+                
                 }
-
+                
                 @Override
                 public void onBufferingUpdateProgress(int percent) {
-
+                
                 }
             });
         }
     }
-
+    
     @Override
     public void start() {
         AudioPlayManager.getInstance().start();
     }
-
+    
     @Override
     public void pause() {
         AudioPlayManager.getInstance().pause();
     }
-
+    
     @Override
     public void previous() {
         AudioPlayManager.getInstance().previous();
     }
-
+    
     @Override
     public void next() {
         AudioPlayManager.getInstance().next();
     }
-
+    
     @Override
     public void switchVoice() {
         AudioPlayManager.getInstance().switchVoice();
     }
-
+    
     @Override
     public void stop() {
         AudioPlayManager.getInstance().stop();
     }
-
+    
     @Override
     public AudioModel getCurrentAudio() {
         return AudioPlayManager.getInstance().getCurrentAudio();
     }
-
+    
     @Override
     public boolean isFloatingShow() {
         if (designatedView != null) {
@@ -202,40 +201,40 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
         }
         return false;
     }
-
+    
     @Override
     public void customView(DesignatedAudioPlayerView viewGroup) {
         designatedView = viewGroup;
     }
-
+    
     @Override
     public void customView(@LayoutRes int resource) {
         layoutId = resource;
     }
-
+    
     @Override
     public DesignatedAudioPlayerView getDesignatedView() {
         return designatedView;
     }
-
+    
     // @Override
     // public void listener(DesignatedAudioPlayerViewListener designatedViewListener) {
     //     if (designatedView != null) {
     //         designatedView.setDesignatedViewListener(designatedViewListener);
     //     }
     // }
-
-
+    
+    
     // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
-
-
+    
+    
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
-
+    
     private void initInDesignated() {
         initViewFindById(rootView);
         initListener();
     }
-
+    
     private void initViewFindById(View view) {
         textView_title = view.findViewById(R.id.textView_title);
         textView_timePosition = view.findViewById(R.id.textView_timePosition);
@@ -247,42 +246,42 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
         frameLayout_normalPlayerContainer = view.findViewById(R.id.frameLayout_normalPlayerContainer);
         frameLayout_miniPlayerContainer = view.findViewById(R.id.frameLayout_miniPlayerContainer);
     }
-
+    
     private void initListener() {
         imageView_playPauseController.setOnClickListener(onClickListener);
         imageView_voiceSwitch.setOnClickListener(onClickListener);
         imageView_close.setOnClickListener(onClickListener);
         frameLayout_miniPlayerContainer.setOnClickListener(onClickListener);
-
+        
         seekBar_audioPlayer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // LogcatUtils.INSTANCE.d("seekBar_audioPlayer onProgressChanged", "progress: " + progress);
                 textView_timePosition.setText(ProgressTextUtils.getProgressText(progress));
             }
-
+            
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
-
+            
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 AudioPlayManager.getInstance().seekTo(seekBar.getProgress());
             }
         });
-
+        
         designatedView.setFeatureAutoShortenViewListener(new FeatureAutoShortenViewListener() {
             @Override
             public void onLengthen() {
                 refreshContainerVisibility(false);
             }
-
+            
             @Override
             public void onShorten() {
                 refreshContainerVisibility(true);
             }
         });
-
+        
         AudioPlayManager.getInstance().setMusicListener(new AudioPlayListener() {
             @Override
             public void onStateChanged(AudioState audioState) {
@@ -291,7 +290,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
                     audioPlayListener.onStateChanged(audioState);
                 }
             }
-
+            
             @Override
             public void onPlayProgress(int currentPosition) {
                 playProgress(currentPosition);
@@ -299,7 +298,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
                     audioPlayListener.onPlayProgress(currentPosition);
                 }
             }
-
+            
             @Override
             public void onBufferingUpdateProgress(int percent) {
                 bufferingUpdateProgress(percent);
@@ -309,7 +308,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
             }
         });
     }
-
+    
     private void refreshContainerVisibility(boolean isMini) {
         if (isMini) {
             frameLayout_normalPlayerContainer.setVisibility(View.GONE);
@@ -319,7 +318,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
             frameLayout_miniPlayerContainer.setVisibility(View.GONE);
         }
     }
-
+    
     /**
      * 当前已经在播放
      * 重新进入初始化当前数据
@@ -334,12 +333,12 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
             seekBar_audioPlayer.setSecondaryProgress(AudioPlayManager.getInstance().getUpdateProgress());
         }
     }
-
+    
     private void refreshVoiceSwitch() {
         if (AudioPlayManager.getInstance().getCurrentAudio() == null) {
             return;
         }
-
+        
         switch (AudioPlayManager.getInstance().getCurrentAudio().getVoiceType()) {
             case MALE:
                 imageView_voiceSwitch.setImageResource(R.drawable.comui_audio_player_voice_male);
@@ -351,17 +350,17 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
                 break;
         }
     }
-
+    
     private void playProgress(int CurrentPosition) {
         if (!seekBar_audioPlayer.isPressed()) {
             seekBar_audioPlayer.setProgress(CurrentPosition);
         }
     }
-
+    
     private void bufferingUpdateProgress(int percent) {
         seekBar_audioPlayer.setSecondaryProgress(percent);
     }
-
+    
     private void stateChanged(AudioState audioState) {
         switch (audioState) {
             case START:
@@ -374,7 +373,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
                 // mMusicNextIv.setImageResource(R.drawable.music_play_next_click_icon);
                 // mMusicPreviousIv.setEnabled(true);
                 // mMusicNextIv.setEnabled(true);
-
+                
                 seekBar_audioPlayer.setProgress(0);
                 seekBar_audioPlayer.setSecondaryProgress(0);
                 textView_timePosition.setText("");
@@ -425,18 +424,25 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
                 break;
         }
     }
-
+    
     private void updateAudioInfo(boolean isPlaying) {
         AudioModel audioModel = AudioPlayManager.getInstance().getCurrentAudio();
         if (audioModel != null) {
             audioModel.setPlaying(isPlaying);
         }
-        designatedViewListener.onUpdateAudioInfo(audioModel);
+        
+        if (forNativeDesignatedViewListener != null) {
+            forNativeDesignatedViewListener.onUpdateAudioInfo(audioModel);
+        }
+        
+        if (forWebDesignatedViewListener != null) {
+            forWebDesignatedViewListener.onUpdateAudioInfo(audioModel);
+        }
     }
-
-
+    
+    
     // ---------- ---------- ---------- Implementations ---------- ---------- ----------
-
+    
     /**
      * 点击监听
      * yanss 2017/04/07 14:19:25
@@ -459,19 +465,23 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
             } else if (id == R.id.frameLayout_miniPlayerContainer) {
                 lengthenFloatingWindow();
             }
-
+            
             // MusicManager.getInstance().previous();
             // MusicManager.getInstance().next();
         }
     };
-
-
+    
+    
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
-
-    public void setDesignatedViewListener(DesignatedAudioPlayerViewListener designatedViewListener) {
-        this.designatedViewListener = designatedViewListener;
+    
+    public void setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
+        this.forNativeDesignatedViewListener = forNativeDesignatedViewListener;
     }
-
+    
+    public void setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
+        this.forWebDesignatedViewListener = forWebDesignatedViewListener;
+    }
+    
     public void setAudioPlayListener(AudioPlayListener audioPlayListener) {
         this.audioPlayListener = audioPlayListener;
     }

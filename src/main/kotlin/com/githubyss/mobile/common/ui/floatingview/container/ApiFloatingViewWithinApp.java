@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
-import com.githubyss.mobile.common.ui.floatingview.feature.FeatureAutoShortenViewListener;
 import com.githubyss.mobile.common.ui.floatingview.feature.FeatureCommonViewListener;
 
 import java.lang.ref.WeakReference;
@@ -25,7 +24,7 @@ import androidx.core.view.ViewCompat;
 
 /**
  * ApiFloatingViewWithinApp
- * <Description> 应用内悬浮窗
+ * <Description> 应用级别悬浮窗
  * <Details>
  *
  * @author Ace Yan
@@ -93,6 +92,14 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
     }
     
     @Override
+    public void layoutParams(ViewGroup.LayoutParams params) {
+        designatedLayoutParams = params;
+        if (designatedView != null) {
+            designatedView.setLayoutParams(params);
+        }
+    }
+    
+    @Override
     public void attach(Activity activity) {
         attach(getActivityRoot(activity));
     }
@@ -128,14 +135,6 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
         }
     }
     
-    @Override
-    public void layoutParams(ViewGroup.LayoutParams params) {
-        designatedLayoutParams = params;
-        if (designatedView != null) {
-            designatedView.setLayoutParams(params);
-        }
-    }
-    
     
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
@@ -160,6 +159,7 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
             if (designatedView == null) {
                 designatedView = new DesignatedAudioPlayerView(containerContext);
                 designatedView.setLayoutParams(getDesignatedLayoutParams());
+                designatedView.setBackgroundColor(0x000000FF);
                 designatedView.setFeatureCommonViewListener(new FeatureCommonViewListener() {
                     @Override
                     public void onShow() {
@@ -223,10 +223,22 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
     }
     
     
+    // ---------- ---------- ---------- Getter ---------- ---------- ----------
+    
+    public DesignatedAudioPlayerView getDesignatedView() {
+        return designatedView;
+    }
+    
+    
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ApiFloatingViewWithinApp setDesignatedViewListener(DesignatedAudioPlayerViewListener designatedViewListener) {
-        designatedView.setDesignatedViewListener(designatedViewListener);
+    public ApiFloatingViewWithinApp setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
+        designatedView.setForNativeDesignatedViewListener(forNativeDesignatedViewListener);
+        return this;
+    }
+    
+    public ApiFloatingViewWithinApp setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
+        designatedView.setForWebDesignatedViewListener(forWebDesignatedViewListener);
         return this;
     }
 }

@@ -26,8 +26,6 @@ public interface DesignatedAudioPlayerViewInterface {
     
     void play(List<AudioModel> audioList);
     
-    void play(List<AudioModel> audioList, boolean isNeedJumpToOverlayPermission);
-    
     void start();
     
     void pause();
