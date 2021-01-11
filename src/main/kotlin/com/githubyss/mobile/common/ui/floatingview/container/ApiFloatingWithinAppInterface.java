@@ -5,11 +5,9 @@ import android.app.Activity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
-
 
 /**
- * ApiFloatingViewWithinAppInterface
+ * ApiFloatingWithinAppInterface
  * <Description> 应用级别悬浮窗接口方法
  * <Details>
  *
@@ -17,9 +15,9 @@ import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.Designa
  * @github githubyss
  * @createdTime 2021/01/07 19:04:04
  */
-public interface ApiFloatingViewWithinAppInterface {
+public interface ApiFloatingWithinAppInterface {
     
-    ApiFloatingViewWithinApp show();
+    ApiFloatingWithinApp show();
     
     void close();
     

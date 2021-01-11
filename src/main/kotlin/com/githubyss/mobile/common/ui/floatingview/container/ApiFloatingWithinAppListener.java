@@ -10,7 +10,7 @@ package com.githubyss.mobile.common.ui.floatingview.container;
  * @github githubyss
  * @createdTime 2021/01/07 19:51:25
  */
-public interface ApiFloatingViewWithinAppListener {
+public interface ApiFloatingWithinAppListener {
     
     void onShow();
     

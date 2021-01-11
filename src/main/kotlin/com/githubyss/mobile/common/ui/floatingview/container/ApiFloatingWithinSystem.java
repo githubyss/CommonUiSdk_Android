@@ -20,31 +20,19 @@ import com.githubyss.mobile.common.kit.constant.Constants;
 import com.githubyss.mobile.common.kit.enumeration.VersionCode;
 import com.githubyss.mobile.common.kit.enumeration.WindowManagerLayoutParamsType;
 import com.githubyss.mobile.common.kit.info.ScreenInfo;
-import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.audio.constant.Constant;
-import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
-import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.ApiAudioPlayerFloatingListener;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.BaseAutoShortedFloatingView;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.DesignatedAudioPlayerFloatingView;
-import com.githubyss.mobile.common.ui.floatingview.audioplayer.DesignatedAudioPlayerFloatingViewListener;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
 import com.githubyss.mobile.common.ui.floatingview.feature.FeatureCommonViewListener;
 import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils;
 
-import java.util.List;
-
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 
 /**
- * ApiFloatingWindowWithinSystem
+ * ApiFloatingWithinSystem
  * <Description> 系统级别悬浮窗
  * <Details>
  *
@@ -52,11 +40,11 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
  * @github githubyss
  * @createdTime 2021/01/11 14:52:42
  */
-public class ApiFloatingWindowWithinSystem implements ApiFloatingWindowWithinSystemInterface {
+public class ApiFloatingWithinSystem implements ApiFloatingWithinSystemInterface {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
-    private static ApiFloatingWindowWithinSystem instance;
+    private static ApiFloatingWithinSystem instance;
     
     private Context containerContext;
     
@@ -73,15 +61,15 @@ public class ApiFloatingWindowWithinSystem implements ApiFloatingWindowWithinSys
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    private ApiFloatingWindowWithinSystem(@NonNull Context context) {
+    private ApiFloatingWithinSystem(@NonNull Context context) {
         init(context);
     }
     
-    public static ApiFloatingWindowWithinSystem getInstance(Context context) {
+    public static ApiFloatingWithinSystem getInstance(Context context) {
         if (instance == null) {
-            synchronized (ApiFloatingWindowWithinSystem.class) {
+            synchronized (ApiFloatingWithinSystem.class) {
                 if (instance == null) {
-                    instance = new ApiFloatingWindowWithinSystem(context);
+                    instance = new ApiFloatingWithinSystem(context);
                 }
             }
         }
@@ -93,7 +81,7 @@ public class ApiFloatingWindowWithinSystem implements ApiFloatingWindowWithinSys
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
     
     @Override
-    public ApiFloatingWindowWithinSystem show() {
+    public ApiFloatingWithinSystem show() {
         if (!checkPermission(true)) {
             return null;
         }
@@ -333,12 +321,12 @@ public class ApiFloatingWindowWithinSystem implements ApiFloatingWindowWithinSys
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ApiFloatingWindowWithinSystem setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
+    public ApiFloatingWithinSystem setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
         designatedView.setForNativeDesignatedViewListener(forNativeDesignatedViewListener);
         return this;
     }
     
-    public ApiFloatingWindowWithinSystem setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
+    public ApiFloatingWithinSystem setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
         designatedView.setForNativeDesignatedViewListener(forWebDesignatedViewListener);
         return this;
     }

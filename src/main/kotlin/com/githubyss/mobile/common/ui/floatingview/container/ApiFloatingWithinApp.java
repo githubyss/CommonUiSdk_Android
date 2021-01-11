@@ -23,7 +23,7 @@ import androidx.core.view.ViewCompat;
 
 
 /**
- * ApiFloatingViewWithinApp
+ * ApiFloatingWithinApp
  * <Description> 应用级别悬浮窗
  * <Details>
  *
@@ -31,11 +31,11 @@ import androidx.core.view.ViewCompat;
  * @github githubyss
  * @createdTime 2021/01/07 19:02:14
  */
-public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterface {
+public class ApiFloatingWithinApp implements ApiFloatingWithinAppInterface {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
-    private static volatile ApiFloatingViewWithinApp instance;
+    private static volatile ApiFloatingWithinApp instance;
     
     private Context containerContext;
     
@@ -47,16 +47,16 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
-    private ApiFloatingViewWithinApp(@NonNull Context context) {
+    private ApiFloatingWithinApp(@NonNull Context context) {
         // super(context);
         init(context);
     }
     
-    public static ApiFloatingViewWithinApp getInstance(Context context) {
+    public static ApiFloatingWithinApp getInstance(Context context) {
         if (instance == null) {
-            synchronized (ApiFloatingViewWithinApp.class) {
+            synchronized (ApiFloatingWithinApp.class) {
                 if (instance == null) {
-                    instance = new ApiFloatingViewWithinApp(context);
+                    instance = new ApiFloatingWithinApp(context);
                 }
             }
         }
@@ -77,7 +77,7 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
     
     @Override
-    public ApiFloatingViewWithinApp show() {
+    public ApiFloatingWithinApp show() {
         initLayoutParams();
         ensureFloatingView();
         return this;
@@ -232,12 +232,12 @@ public class ApiFloatingViewWithinApp implements ApiFloatingViewWithinAppInterfa
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ApiFloatingViewWithinApp setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
+    public ApiFloatingWithinApp setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
         designatedView.setForNativeDesignatedViewListener(forNativeDesignatedViewListener);
         return this;
     }
     
-    public ApiFloatingViewWithinApp setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
+    public ApiFloatingWithinApp setForWebDesignatedViewListener(DesignatedAudioPlayerViewListener forWebDesignatedViewListener) {
         designatedView.setForWebDesignatedViewListener(forWebDesignatedViewListener);
         return this;
     }
