@@ -14,12 +14,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.githubyss.mobile.common.kit.info.ScreenInfo;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
-import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
 import com.githubyss.mobile.common.ui.floatingview.designate.icon.DesignatedIconView;
 import com.githubyss.mobile.common.ui.floatingview.designate.icon.DesignatedIconViewListener;
-import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToContainerViewListener;
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetViewToDesignateViewListener;
 
@@ -51,12 +47,14 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     private DesignatedIconView     designatedView;
     private ViewGroup.LayoutParams designatedLayoutParams;
     
+    private ContainerFloatingWithinAppListener containerFloatingWithinAppListener;
+    
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
     private ContainerFloatingWithinAppIcon(@NonNull Context context) {
         // super(context);
-        init(context);
+        initInContainer(context);
     }
     
     public static ContainerFloatingWithinAppIcon getInstance(Context context) {
@@ -202,7 +200,7 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
-    private void init(Context context) {
+    private void initInContainer(Context context) {
         this.containerContext = context;
     }
     
@@ -224,19 +222,36 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
                 designatedView = new DesignatedIconView(containerContext);
                 designatedView.setLayoutParams(getDesignatedLayoutParams());
                 designatedView.setBackgroundColor(0x000000FF);
-                designatedView.setFeatureMagnetViewToDesignateViewListener(new FeatureMagnetViewToDesignateViewListener() {
-                    @Override
-                    public void onRemove(FeatureMagnetView magnetView) {
-                        removeFloatingView();
-                    }
-                    
-                    @Override
-                    public void onClick(FeatureMagnetView magnetView) {
-                    
-                    }
-                });
+                initListener();
                 addViewToWindow(designatedView);
             }
+        }
+    }
+    
+    private void initListener() {
+        if (designatedView != null) {
+            designatedView.setDesignatedIconViewListener(new DesignatedIconViewListener() {
+                @Override
+                public void onClose() {
+                    removeFloatingView();
+                }
+                
+                @Override
+                public void onClick() {
+                }
+            });
+            
+            designatedView.setFeatureMagnetViewToDesignateViewListener(new FeatureMagnetViewToDesignateViewListener() {
+                @Override
+                public void onRemove(FeatureMagnetView magnetView) {
+                    removeFloatingView();
+                }
+                
+                @Override
+                public void onClick(FeatureMagnetView magnetView) {
+                
+                }
+            });
         }
     }
     
@@ -292,8 +307,8 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ContainerFloatingWithinAppIcon setDesignatedIconViewListener(DesignatedIconViewListener designatedIconViewListener) {
-        designatedView.setDesignatedIconViewListener(designatedIconViewListener);
+    public ContainerFloatingWithinAppIcon setContainerFloatingWithinAppListener(ContainerFloatingWithinAppListener containerFloatingWithinAppListener) {
+        this.containerFloatingWithinAppListener = containerFloatingWithinAppListener;
         return this;
     }
 }

@@ -29,6 +29,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
     private ImageView imageView_icon;
+    private ImageView imageView_close;
     
     @LayoutRes
     private static int designatedLayoutId = R.layout.comui_floating_icon;
@@ -119,23 +120,22 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     
     private void initViewFindById(View view) {
         imageView_icon = view.findViewById(R.id.imageView_icon);
+        imageView_close = view.findViewById(R.id.imageView_close);
         imageView_icon.setImageResource(iconId);
     }
     
     private void initListener() {
-        // imageView_icon.setOnClickListener(onClickListener);
+        imageView_close.setOnClickListener(onClickListener);
         
         designatedView.setFeatureMagnetViewToDesignateViewListener(new FeatureMagnetViewToDesignateViewListener() {
             @Override
             public void onRemove(FeatureMagnetView magnetView) {
-                // TODO: 2021/1/11 onRemove
-                designatedIconViewListener.onRemove(magnetView);
             }
             
             @Override
             public void onClick(FeatureMagnetView magnetView) {
                 // TODO: 2021/1/11 onClick
-                designatedIconViewListener.onClick(magnetView);
+                designatedIconViewListener.onClick();
             }
         });
     }
@@ -146,6 +146,10 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     private OnClickListener onClickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
+            int id = v.getId();
+            if (id == R.id.imageView_close) {
+                designatedIconViewListener.onClose();
+            }
         }
     };
     

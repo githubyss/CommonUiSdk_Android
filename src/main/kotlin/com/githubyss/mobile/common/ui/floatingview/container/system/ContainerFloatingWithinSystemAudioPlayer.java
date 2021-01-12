@@ -64,7 +64,7 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
     private ContainerFloatingWithinSystemAudioPlayer(@NonNull Context context) {
-        init(context);
+        initInContainer(context);
     }
     
     public static ContainerFloatingWithinSystemAudioPlayer getInstance(Context context) {
@@ -182,7 +182,7 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
     
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
-    private void init(Context context) {
+    private void initInContainer(Context context) {
         this.containerContext = context;
         initLocalBroadcastReceiver();
     }

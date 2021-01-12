@@ -59,11 +59,13 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     /** 是否跳转过悬浮窗权限设置页 */
     private boolean isJumpToOverlayPermission = true;
     
+    private ContainerFloatingWithinSystemListener containerFloatingWithinSystemListener;
+    
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
     private ContainerFloatingWithinSystemIcon(@NonNull Context context) {
-        init(context);
+        initInContainer(context);
     }
     
     public static ContainerFloatingWithinSystemIcon getInstance(Context context) {
@@ -177,7 +179,7 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
-    private void init(Context context) {
+    private void initInContainer(Context context) {
         this.containerContext = context;
         initLocalBroadcastReceiver();
     }
@@ -243,16 +245,7 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
                 designatedView = new DesignatedIconView(containerContext);
                 designatedView.setLayoutParams(getDesignatedLayoutParams());
                 designatedView.setBackgroundColor(0x000000FF);
-                designatedView.setFeatureMagnetViewToDesignateViewListener(new FeatureMagnetViewToDesignateViewListener() {
-                    @Override
-                    public void onRemove(FeatureMagnetView magnetView) {
-                        removeFloatingView();
-                    }
-                    
-                    @Override
-                    public void onClick(FeatureMagnetView magnetView) {
-                    }
-                });
+                initListener();
                 addViewToWindow(designatedView);
             }
         }
@@ -261,6 +254,32 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
         // } else {
         //     getWindowManager().updateViewLayout(containerView, layoutParams);
         // }
+    }
+    
+    private void initListener() {
+        if (designatedView != null) {
+            designatedView.setDesignatedIconViewListener(new DesignatedIconViewListener() {
+                @Override
+                public void onClose() {
+                    removeFloatingView();
+                }
+                
+                @Override
+                public void onClick() {
+                }
+            });
+            
+            designatedView.setFeatureMagnetViewToDesignateViewListener(new FeatureMagnetViewToDesignateViewListener() {
+                @Override
+                public void onRemove(FeatureMagnetView magnetView) {
+                    removeFloatingView();
+                }
+                
+                @Override
+                public void onClick(FeatureMagnetView magnetView) {
+                }
+            });
+        }
     }
     
     private void removeFloatingView() {
@@ -362,8 +381,8 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------
     
-    public ContainerFloatingWithinSystemIcon setDesignatedIconViewListener(DesignatedIconViewListener designatedIconViewListener) {
-        designatedView.setDesignatedIconViewListener(designatedIconViewListener);
+    public ContainerFloatingWithinSystemIcon setContainerFloatingWithinSystemListener(ContainerFloatingWithinSystemListener containerFloatingWithinSystemListener) {
+        this.containerFloatingWithinSystemListener = containerFloatingWithinSystemListener;
         return this;
     }
 }

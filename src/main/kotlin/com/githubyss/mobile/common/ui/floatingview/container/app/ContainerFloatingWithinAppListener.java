@@ -15,4 +15,6 @@ public interface ContainerFloatingWithinAppListener {
     void onShow();
     
     void onClose();
+    
+    void onClick();
 }

@@ -52,7 +52,7 @@ public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingW
     
     private ContainerFloatingWithinAppAudioPlayer(@NonNull Context context) {
         // super(context);
-        init(context);
+        initInContainer(context);
     }
     
     public static ContainerFloatingWithinAppAudioPlayer getInstance(Context context) {
@@ -202,7 +202,7 @@ public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingW
     
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
     
-    private void init(Context context) {
+    private void initInContainer(Context context) {
         this.containerContext = context;
     }
     

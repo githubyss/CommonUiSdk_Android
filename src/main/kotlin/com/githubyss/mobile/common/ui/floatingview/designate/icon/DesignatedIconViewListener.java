@@ -13,8 +13,8 @@ import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetV
  * @createdTime 2020/12/09 18:38:54
  */
 public interface DesignatedIconViewListener {
-
-    void onRemove(FeatureMagnetView magnetView);
-
-    void onClick(FeatureMagnetView magnetView);
+    
+    void onClose();
+    
+    void onClick();
 }

@@ -18,4 +18,6 @@ public interface ContainerFloatingWithinSystemListener {
     void onShow();
     
     void onClose();
+    
+    void onClick();
 }

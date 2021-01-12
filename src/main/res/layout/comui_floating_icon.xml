@@ -7,20 +7,29 @@
         android:orientation="vertical"
         >
 
-    <FrameLayout
+    <LinearLayout
             android:id="@+id/frameLayout_miniPlayerContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:visibility="visible"
             >
 
         <ImageView
                 android:id="@+id/imageView_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/imuxuan"
                 android:scaleType="fitCenter"
                 />
-    </FrameLayout>
+
+        <ImageView
+                android:id="@+id/imageView_close"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/comui_audio_player_close"
+                android:scaleType="fitCenter"
+                />
+    </LinearLayout>
 </LinearLayout>
