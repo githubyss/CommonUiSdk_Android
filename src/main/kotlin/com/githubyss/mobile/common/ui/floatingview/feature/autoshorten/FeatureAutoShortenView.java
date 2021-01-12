@@ -33,6 +33,8 @@ public class FeatureAutoShortenView extends FrameLayout {
     private final long AUTO_HIDE_DELAY_TIME = 500;
     private final long ANIM_DURATION        = 500;
     
+    protected boolean isMovable = true;
+    
     private boolean isShown     = false;
     private boolean isShorten   = true;
     private boolean isAnimating = false;

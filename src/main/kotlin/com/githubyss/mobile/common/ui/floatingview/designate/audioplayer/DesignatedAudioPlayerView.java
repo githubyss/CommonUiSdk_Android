@@ -210,6 +210,11 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     }
     
     @Override
+    public void setMovable(boolean isMovable) {
+        super.isMovable = isMovable;
+    }
+    
+    @Override
     public void customIcon(Drawable drawable) {
         iconDrawable = drawable;
         if (drawable != null) {

@@ -70,6 +70,11 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     }
     
     @Override
+    public void setMovable(boolean isMovable) {
+        super.isMovable = isMovable;
+    }
+    
+    @Override
     public void customIcon(Drawable drawable) {
         iconDrawable = drawable;
         if (drawable != null) {

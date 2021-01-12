@@ -23,6 +23,8 @@ public interface DesignatedIconViewInterface {
     
     boolean isFloatingShow();
     
+    void setMovable(boolean isMovable);
+    
     void customIcon(Drawable drawable);
     
     void customIcon(Bitmap bitmap);

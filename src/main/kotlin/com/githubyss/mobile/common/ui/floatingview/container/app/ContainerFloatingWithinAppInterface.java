@@ -28,6 +28,8 @@ public interface ContainerFloatingWithinAppInterface<C, D, F> {
     
     C layoutParams(ViewGroup.LayoutParams params);
     
+    C setMovable(boolean isMovable);
+    
     C customIcon(Drawable drawable);
     
     C customIcon(Bitmap bitmap);

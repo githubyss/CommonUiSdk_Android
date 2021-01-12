@@ -115,6 +115,14 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
     }
     
     @Override
+    public ContainerFloatingWithinSystemAudioPlayer setMovable(boolean isMovable) {
+        if (designatedView != null) {
+            designatedView.setMovable(isMovable);
+        }
+        return this;
+    }
+    
+    @Override
     public ContainerFloatingWithinSystemAudioPlayer customIcon(Drawable drawable) {
         if (designatedView != null) {
             designatedView.customIcon(drawable);

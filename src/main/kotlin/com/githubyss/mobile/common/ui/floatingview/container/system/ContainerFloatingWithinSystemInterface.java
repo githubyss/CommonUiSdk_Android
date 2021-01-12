@@ -17,13 +17,15 @@ import androidx.annotation.LayoutRes;
  * @github githubyss
  * @createdTime 2021/01/11 14:54:59
  */
-public interface ContainerFloatingWithinSystemInterface<C,D,F> {
+public interface ContainerFloatingWithinSystemInterface<C, D, F> {
     
     C show();
     
     void close();
     
     void layoutParams(ViewGroup.LayoutParams params);
+    
+    C setMovable(boolean isMovable);
     
     C customIcon(Drawable drawable);
     

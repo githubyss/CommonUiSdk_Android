@@ -110,6 +110,14 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     }
     
     @Override
+    public ContainerFloatingWithinSystemIcon setMovable(boolean isMovable) {
+        if (designatedView != null) {
+            designatedView.setMovable(isMovable);
+        }
+        return this;
+    }
+    
+    @Override
     public ContainerFloatingWithinSystemIcon customIcon(Drawable drawable) {
         if (designatedView != null) {
             designatedView.customIcon(drawable);

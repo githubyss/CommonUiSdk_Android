@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.githubyss.mobile.common.kit.info.ScreenInfo;
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToContainerViewListener;
 import com.githubyss.mobile.common.ui.utils.SystemUtils;
 
@@ -30,23 +31,24 @@ public class FeatureMagnetView extends FrameLayout {
     protected View    rootView;
     private   Context containerContext;
     
-    private final int MARGIN_EDGE          = 25;
+    private final int MARGIN_EDGE          = ScreenInfo.INSTANCE.dp2Px(14.0f);
     private final int TOUCH_TIME_THRESHOLD = 150;
     
     private   float   originalRawX;
     private   float   originalRawY;
     private   float   originalX;
     private   float   originalY;
-    protected int     screenWidth;
-    protected int     screenHeight;
+    private   int     screenWidth;
+    private   int     screenHeight;
     private   int     statusBarHeight;
     private   float   portraitY;
     private   long    lastTouchDownTime;
     private   boolean isNearestLeft = true;
+    protected boolean isMovable     = true;
     
-    private FeatureMagnetViewToDesignateViewListener      featureMagnetViewToDesignateViewListener;
+    private FeatureMagnetViewToDesignateViewListener featureMagnetViewToDesignateViewListener;
     
-    protected MoveAnimatorRunnable moveAnimatorRunnable;
+    private MoveAnimatorRunnable moveAnimatorRunnable;
     
     
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
@@ -80,7 +82,9 @@ public class FeatureMagnetView extends FrameLayout {
                 moveAnimatorRunnable.stop();
                 break;
             case MotionEvent.ACTION_MOVE:
-                updateViewPosition(event);
+                if (isMovable) {
+                    updateViewPosition(event);
+                }
                 break;
             case MotionEvent.ACTION_UP:
                 clearPortraitY();

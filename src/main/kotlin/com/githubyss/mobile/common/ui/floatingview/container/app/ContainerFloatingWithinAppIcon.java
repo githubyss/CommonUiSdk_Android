@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.githubyss.mobile.common.kit.info.ScreenInfo;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
@@ -99,6 +100,14 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
         designatedLayoutParams = params;
         if (designatedView != null) {
             designatedView.setLayoutParams(params);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppIcon setMovable(boolean isMovable) {
+        if (designatedView != null) {
+            designatedView.setMovable(isMovable);
         }
         return this;
     }
@@ -199,7 +208,7 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     
     private void initLayoutParams() {
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;
-        getDesignatedLayoutParams().setMargins(0, getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, 50);
+        getDesignatedLayoutParams().setMargins(ScreenInfo.INSTANCE.dp2Px(14.0f), getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, ScreenInfo.INSTANCE.dp2Px(14.0f));
     }
     
     private FrameLayout.LayoutParams getDesignatedLayoutParams() {
