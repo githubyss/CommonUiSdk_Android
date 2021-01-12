@@ -3,6 +3,7 @@ package com.githubyss.mobile.common.ui.floatingview.container.app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
@@ -106,6 +107,14 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     public ContainerFloatingWithinAppIcon customIcon(Drawable drawable) {
         if (designatedView != null) {
             designatedView.customIcon(drawable);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppIcon customIcon(Bitmap bitmap) {
+        if (designatedView != null) {
+            designatedView.customIcon(bitmap);
         }
         return this;
     }

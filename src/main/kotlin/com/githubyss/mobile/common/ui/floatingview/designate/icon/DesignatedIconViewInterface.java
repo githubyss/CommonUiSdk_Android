@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.floatingview.designate.icon;
 
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
@@ -23,6 +24,8 @@ public interface DesignatedIconViewInterface {
     boolean isFloatingShow();
     
     void customIcon(Drawable drawable);
+    
+    void customIcon(Bitmap bitmap);
     
     void customIcon(@DrawableRes int drawableId);
     

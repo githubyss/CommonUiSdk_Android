@@ -2,6 +2,7 @@ package com.githubyss.mobile.common.ui.floatingview.container.app;
 
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -28,6 +29,8 @@ public interface ContainerFloatingWithinAppInterface<C, D, F> {
     C layoutParams(ViewGroup.LayoutParams params);
     
     C customIcon(Drawable drawable);
+    
+    C customIcon(Bitmap bitmap);
     
     C customIcon(@DrawableRes int drawableId);
     

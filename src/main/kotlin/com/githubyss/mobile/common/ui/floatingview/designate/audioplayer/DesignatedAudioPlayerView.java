@@ -2,6 +2,7 @@ package com.githubyss.mobile.common.ui.floatingview.designate.audioplayer;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
@@ -59,6 +60,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     
     private DesignatedAudioPlayerView designatedView;
     private Drawable                  iconDrawable;
+    private Bitmap                    iconBitmap;
     
     /** 原生 Listener */
     protected DesignatedAudioPlayerViewListener forNativeDesignatedAudioPlayerViewListener;
@@ -211,6 +213,13 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     public void customIcon(Drawable drawable) {
         iconDrawable = drawable;
         if (drawable != null) {
+        }
+    }
+    
+    @Override
+    public void customIcon(Bitmap bitmap) {
+        iconBitmap = bitmap;
+        if (bitmap != null) {
         }
     }
     

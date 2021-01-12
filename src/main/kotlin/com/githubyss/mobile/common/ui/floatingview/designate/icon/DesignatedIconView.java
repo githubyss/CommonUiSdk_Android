@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.floatingview.designate.icon;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
@@ -36,6 +37,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     
     private DesignatedIconView designatedView;
     private Drawable           iconDrawable;
+    private Bitmap             iconBitmap;
     
     private DesignatedIconViewListener designatedIconViewListener;
     
@@ -72,6 +74,14 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
         iconDrawable = drawable;
         if (drawable != null) {
             imageView_icon.setImageDrawable(iconDrawable);
+        }
+    }
+    
+    @Override
+    public void customIcon(Bitmap bitmap) {
+        iconBitmap = bitmap;
+        if (bitmap != null) {
+            imageView_icon.setImageBitmap(iconBitmap);
         }
     }
     
