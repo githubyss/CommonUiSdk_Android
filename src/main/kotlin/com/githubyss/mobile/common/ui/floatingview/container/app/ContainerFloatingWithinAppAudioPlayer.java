@@ -3,6 +3,7 @@ package com.githubyss.mobile.common.ui.floatingview.container.app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Gravity;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenView;
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToContainerViewListener;
 
 import java.lang.ref.WeakReference;
@@ -31,7 +33,7 @@ import androidx.core.view.ViewCompat;
  * @github githubyss
  * @createdTime 2021/01/07 19:02:14
  */
-public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingWithinAppInterface<ContainerFloatingWithinAppAudioPlayer> {
+public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingWithinAppInterface<ContainerFloatingWithinAppAudioPlayer, DesignatedAudioPlayerView, FeatureAutoShortenView> {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
@@ -92,12 +94,57 @@ public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingW
     }
     
     @Override
-    public void layoutParams(ViewGroup.LayoutParams params) {
+    public ContainerFloatingWithinAppAudioPlayer layoutParams(ViewGroup.LayoutParams params) {
         designatedLayoutParams = params;
         if (designatedView != null) {
             designatedView.setLayoutParams(params);
         }
+        return this;
     }
+    
+    @Override
+    public ContainerFloatingWithinAppAudioPlayer customIcon(Drawable drawable) {
+        if (designatedView != null) {
+            designatedView.customIcon(drawable);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppAudioPlayer customIcon(int drawableId) {
+        if (designatedView != null) {
+            designatedView.customIcon(drawableId);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppAudioPlayer customView(DesignatedAudioPlayerView viewGroup) {
+        this.designatedView = viewGroup;
+        if (designatedView != null) {
+            designatedView.customView(viewGroup);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppAudioPlayer customView(int layoutId) {
+        if (designatedView != null) {
+            designatedView.customView(layoutId);
+        }
+        return this;
+    }
+    
+    @Override
+    public DesignatedAudioPlayerView getDesignatedView() {
+        return designatedView;
+    }
+    
+    @Override
+    public FeatureAutoShortenView getFeatureView() {
+        return designatedView;
+    }
+    
     
     @Override
     public void attach(Activity activity) {
@@ -224,10 +271,6 @@ public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingW
     
     
     // ---------- ---------- ---------- Getter ---------- ---------- ----------
-    
-    public DesignatedAudioPlayerView getDesignatedView() {
-        return designatedView;
-    }
     
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------

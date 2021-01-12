@@ -1,11 +1,14 @@
 package com.githubyss.mobile.common.ui.floatingview.designate.audioplayer;
 
 
+import android.graphics.drawable.Drawable;
+
 import com.githubyss.mobile.common.ui.audio.model.AudioModel;
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenView;
 
 import java.util.List;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 
 
@@ -40,13 +43,13 @@ public interface DesignatedAudioPlayerViewInterface {
     
     AudioModel getCurrentAudio();
     
-    void customView(DesignatedAudioPlayerView viewGroup);
-    
-    void customView(@LayoutRes int resource);
-    
     boolean isFloatingShow();
     
-    DesignatedAudioPlayerView getDesignatedView();
+    void customIcon(Drawable drawable);
     
-    FeatureAutoShortenView getAutoShortenView();
+    void customIcon(@DrawableRes int drawableId);
+    
+    void customView(DesignatedAudioPlayerView viewGroup);
+    
+    void customView(@LayoutRes int layoutId);
 }

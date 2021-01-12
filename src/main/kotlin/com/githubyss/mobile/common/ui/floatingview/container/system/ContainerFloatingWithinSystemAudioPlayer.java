@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,6 +25,7 @@ import com.githubyss.mobile.common.ui.audio.constant.Constant;
 import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
+import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenView;
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToContainerViewListener;
 import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils;
 
@@ -40,7 +42,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
  * @github githubyss
  * @createdTime 2021/01/11 14:52:42
  */
-public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloatingWithinSystemInterface<ContainerFloatingWithinSystemAudioPlayer> {
+public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloatingWithinSystemInterface<ContainerFloatingWithinSystemAudioPlayer, DesignatedAudioPlayerView, FeatureAutoShortenView> {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
@@ -110,6 +112,49 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
         if (designatedView != null) {
             designatedView.setLayoutParams(params);
         }
+    }
+    
+    @Override
+    public ContainerFloatingWithinSystemAudioPlayer customIcon(Drawable drawable) {
+        if (designatedView != null) {
+            designatedView.customIcon(drawable);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinSystemAudioPlayer customIcon(int drawableId) {
+        if (designatedView != null) {
+            designatedView.customIcon(drawableId);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinSystemAudioPlayer customView(DesignatedAudioPlayerView viewGroup) {
+        this.designatedView = viewGroup;
+        if (designatedView != null) {
+            designatedView.customView(viewGroup);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinSystemAudioPlayer customView(int layoutId) {
+        if (designatedView != null) {
+            designatedView.customView(layoutId);
+        }
+        return this;
+    }
+    
+    @Override
+    public DesignatedAudioPlayerView getDesignatedView() {
+        return designatedView;
+    }
+    
+    @Override
+    public FeatureAutoShortenView getFeatureView() {
+        return designatedView;
     }
     
     @Override
@@ -313,10 +358,6 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
     
     
     // ---------- ---------- ---------- Getter ---------- ---------- ----------
-    
-    public DesignatedAudioPlayerView getDesignatedView() {
-        return designatedView;
-    }
     
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------

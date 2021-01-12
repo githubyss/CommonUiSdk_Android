@@ -1,6 +1,8 @@
 package com.githubyss.mobile.common.ui.floatingview.designate.icon;
 
 
+import android.graphics.drawable.Drawable;
+
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
 
 import androidx.annotation.DrawableRes;
@@ -18,15 +20,13 @@ import androidx.annotation.LayoutRes;
  */
 public interface DesignatedIconViewInterface {
     
-    void icon(@DrawableRes int resId);
+    boolean isFloatingShow();
+    
+    void customIcon(Drawable drawable);
+    
+    void customIcon(@DrawableRes int drawableId);
     
     void customView(DesignatedIconView viewGroup);
     
-    void customView(@LayoutRes int resource);
-    
-    boolean isFloatingShow();
-    
-    DesignatedIconView getDesignatedView();
-    
-    FeatureMagnetView getMagnetView();
+    void customView(@LayoutRes int layoutId);
 }

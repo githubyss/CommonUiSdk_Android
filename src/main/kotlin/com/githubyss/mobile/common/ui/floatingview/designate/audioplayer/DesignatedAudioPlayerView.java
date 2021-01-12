@@ -2,6 +2,7 @@ package com.githubyss.mobile.common.ui.floatingview.designate.audioplayer;
 
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -19,6 +20,7 @@ import com.githubyss.mobile.common.ui.utils.ProgressTextUtils;
 
 import java.util.List;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
@@ -51,9 +53,12 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     private View      frameLayout_miniPlayerContainer;
     
     @LayoutRes
-    private static int layoutId = R.layout.comui_floating_audio_player;
+    private static int designatedLayoutId = R.layout.comui_floating_audio_player;
+    @DrawableRes
+    private        int iconId             = R.drawable.comui_lucky_money;
     
     private DesignatedAudioPlayerView designatedView;
+    private Drawable                  iconDrawable;
     
     /** 原生 Listener */
     protected DesignatedAudioPlayerViewListener forNativeDesignatedAudioPlayerViewListener;
@@ -66,7 +71,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
     public DesignatedAudioPlayerView(@NonNull Context context) {
-        this(context, layoutId);
+        this(context, designatedLayoutId);
     }
     
     public DesignatedAudioPlayerView(@NonNull Context context, @LayoutRes int resource) {
@@ -195,16 +200,6 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     }
     
     @Override
-    public void customView(DesignatedAudioPlayerView viewGroup) {
-        designatedView = viewGroup;
-    }
-    
-    @Override
-    public void customView(@LayoutRes int resource) {
-        layoutId = resource;
-    }
-    
-    @Override
     public boolean isFloatingShow() {
         if (designatedView != null) {
             return designatedView.isShown();
@@ -213,14 +208,28 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     }
     
     @Override
-    public DesignatedAudioPlayerView getDesignatedView() {
-        return designatedView;
+    public void customIcon(Drawable drawable) {
+        iconDrawable = drawable;
+        if (drawable != null) {
+        }
     }
     
     @Override
-    public FeatureAutoShortenView getAutoShortenView() {
-        return designatedView;
+    public void customIcon(int drawableId) {
+        iconId = drawableId;
     }
+    
+    @Override
+    public void customView(DesignatedAudioPlayerView viewGroup) {
+        designatedView = viewGroup;
+    }
+    
+    @Override
+    public void customView(int layoutId) {
+        designatedLayoutId = layoutId;
+        
+    }
+    
     
     // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
     

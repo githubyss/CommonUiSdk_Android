@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.floatingview.designate.icon;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -8,6 +9,7 @@ import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetViewToDesignateViewListener;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
@@ -28,9 +30,12 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     private ImageView imageView_icon;
     
     @LayoutRes
-    private static int layoutId = R.layout.comui_floating_icon;
+    private static int designatedLayoutId = R.layout.comui_floating_icon;
+    @DrawableRes
+    private        int iconId             = R.drawable.imuxuan;
     
     private DesignatedIconView designatedView;
+    private Drawable           iconDrawable;
     
     private DesignatedIconViewListener designatedIconViewListener;
     
@@ -38,7 +43,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     // ---------- ---------- ---------- Constructors ---------- ---------- ----------
     
     public DesignatedIconView(@NonNull Context context) {
-        this(context, layoutId);
+        this(context, designatedLayoutId);
     }
     
     public DesignatedIconView(@NonNull Context context, @LayoutRes int resource) {
@@ -55,21 +60,6 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
     
     @Override
-    public void icon(int resId) {
-        imageView_icon.setImageResource(resId);
-    }
-    
-    @Override
-    public void customView(DesignatedIconView viewGroup) {
-        designatedView = viewGroup;
-    }
-    
-    @Override
-    public void customView(int resource) {
-        layoutId = resource;
-    }
-    
-    @Override
     public boolean isFloatingShow() {
         if (designatedView != null) {
             return designatedView.isShown();
@@ -78,13 +68,27 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     }
     
     @Override
-    public DesignatedIconView getDesignatedView() {
-        return designatedView;
+    public void customIcon(Drawable drawable) {
+        iconDrawable = drawable;
+        if (drawable != null) {
+            imageView_icon.setImageDrawable(iconDrawable);
+        }
     }
     
     @Override
-    public FeatureMagnetView getMagnetView() {
-        return designatedView;
+    public void customIcon(int drawableId) {
+        iconId = drawableId;
+        imageView_icon.setImageResource(iconId);
+    }
+    
+    @Override
+    public void customView(DesignatedIconView viewGroup) {
+        designatedView = viewGroup;
+    }
+    
+    @Override
+    public void customView(int layoutId) {
+        designatedLayoutId = layoutId;
     }
     
     
@@ -100,6 +104,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     
     private void initViewFindById(View view) {
         imageView_icon = view.findViewById(R.id.imageView_icon);
+        imageView_icon.setImageResource(iconId);
     }
     
     private void initListener() {

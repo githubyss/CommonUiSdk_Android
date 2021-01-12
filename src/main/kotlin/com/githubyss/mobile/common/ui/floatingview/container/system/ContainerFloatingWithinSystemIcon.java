@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -40,7 +41,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
  * @github githubyss
  * @createdTime 2021/01/11 19:48:13
  */
-public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithinSystemInterface<ContainerFloatingWithinSystemIcon> {
+public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithinSystemInterface<ContainerFloatingWithinSystemIcon, DesignatedIconView, FeatureMagnetView> {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
@@ -106,6 +107,49 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
         if (designatedView != null) {
             designatedView.setLayoutParams(params);
         }
+    }
+    
+    @Override
+    public ContainerFloatingWithinSystemIcon customIcon(Drawable drawable) {
+        if (designatedView != null) {
+            designatedView.customIcon(drawable);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinSystemIcon customIcon(int drawableId) {
+        if (designatedView != null) {
+            designatedView.customIcon(drawableId);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinSystemIcon customView(DesignatedIconView viewGroup) {
+        this.designatedView = viewGroup;
+        if (designatedView != null) {
+            designatedView.customView(viewGroup);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinSystemIcon customView(int layoutId) {
+        if (designatedView != null) {
+            designatedView.customView(layoutId);
+        }
+        return this;
+    }
+    
+    @Override
+    public DesignatedIconView getDesignatedView() {
+        return designatedView;
+    }
+    
+    @Override
+    public FeatureMagnetView getFeatureView() {
+        return designatedView;
     }
     
     @Override
@@ -306,10 +350,6 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     
     
     // ---------- ---------- ---------- Getter ---------- ---------- ----------
-    
-    public DesignatedIconView getDesignatedView() {
-        return designatedView;
-    }
     
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------

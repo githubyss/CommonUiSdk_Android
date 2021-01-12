@@ -1,7 +1,11 @@
 package com.githubyss.mobile.common.ui.floatingview.container.system;
 
 
+import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.LayoutRes;
 
 
 /**
@@ -13,13 +17,25 @@ import android.view.ViewGroup;
  * @github githubyss
  * @createdTime 2021/01/11 14:54:59
  */
-public interface ContainerFloatingWithinSystemInterface<T> {
+public interface ContainerFloatingWithinSystemInterface<C,D,F> {
     
-    T show();
+    C show();
     
     void close();
     
     void layoutParams(ViewGroup.LayoutParams params);
+    
+    C customIcon(Drawable drawable);
+    
+    C customIcon(@DrawableRes int drawableId);
+    
+    C customView(D viewGroup);
+    
+    C customView(@LayoutRes int layoutId);
+    
+    D getDesignatedView();
+    
+    F getFeatureView();
     
     void refreshViewWhenAppForeground();
     

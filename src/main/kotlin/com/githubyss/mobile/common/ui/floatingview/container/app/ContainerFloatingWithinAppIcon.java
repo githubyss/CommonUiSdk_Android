@@ -3,6 +3,7 @@ package com.githubyss.mobile.common.ui.floatingview.container.app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Gravity;
@@ -35,7 +36,7 @@ import androidx.core.view.ViewCompat;
  * @github githubyss
  * @createdTime 2021/01/11 19:38:50
  */
-public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAppInterface<ContainerFloatingWithinAppIcon> {
+public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAppInterface<ContainerFloatingWithinAppIcon, DesignatedIconView, FeatureMagnetView> {
     
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
     
@@ -93,11 +94,55 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     }
     
     @Override
-    public void layoutParams(ViewGroup.LayoutParams params) {
+    public ContainerFloatingWithinAppIcon layoutParams(ViewGroup.LayoutParams params) {
         designatedLayoutParams = params;
         if (designatedView != null) {
             designatedView.setLayoutParams(params);
         }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppIcon customIcon(Drawable drawable) {
+        if (designatedView != null) {
+            designatedView.customIcon(drawable);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppIcon customIcon(int drawableId) {
+        if (designatedView != null) {
+            designatedView.customIcon(drawableId);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppIcon customView(DesignatedIconView viewGroup) {
+        this.designatedView = viewGroup;
+        if (designatedView != null) {
+            designatedView.customView(viewGroup);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppIcon customView(int layoutId) {
+        if (designatedView != null) {
+            designatedView.customView(layoutId);
+        }
+        return this;
+    }
+    
+    @Override
+    public DesignatedIconView getDesignatedView() {
+        return designatedView;
+    }
+    
+    @Override
+    public FeatureMagnetView getFeatureView() {
+        return designatedView;
     }
     
     @Override
@@ -225,10 +270,6 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     
     
     // ---------- ---------- ---------- Getter ---------- ---------- ----------
-    
-    public DesignatedIconView getDesignatedView() {
-        return designatedView;
-    }
     
     
     // ---------- ---------- ---------- Setter ---------- ---------- ----------

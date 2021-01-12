@@ -44,7 +44,6 @@ public class FeatureMagnetView extends FrameLayout {
     private   long    lastTouchDownTime;
     private   boolean isNearestLeft = true;
     
-    private FeatureAutoShortenViewToContainerViewListener featureAutoShortenViewToContainerViewListener;
     private FeatureMagnetViewToDesignateViewListener      featureMagnetViewToDesignateViewListener;
     
     protected MoveAnimatorRunnable moveAnimatorRunnable;
