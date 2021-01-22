@@ -15,7 +15,7 @@ import androidx.appcompat.widget.AppCompatTextView
  */
 class ComuiMonospaceTextView : AppCompatTextView {
     @JvmOverloads
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context ?: return, attrs, defStyleAttr) {
         typeface = Typeface.createFromAsset(context.assets, "font/source_code_pro_regular.ttf")
     }
 }

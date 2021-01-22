@@ -18,8 +18,8 @@ import androidx.appcompat.widget.AppCompatTextView
  * @github githubyss
  */
 class ComuiAutofitTextView : AppCompatTextView {
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context?) : super(context ?: return)
+    constructor(context: Context?, attrs: AttributeSet) : super(context ?: return, attrs)
     
     
     private var textPaint: Paint? = null
