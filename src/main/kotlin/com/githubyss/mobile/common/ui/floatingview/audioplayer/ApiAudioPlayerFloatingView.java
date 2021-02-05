@@ -2,36 +2,27 @@ package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.githubyss.mobile.common.kit.indicator.ToastIndicator;
-import com.githubyss.mobile.common.kit.resource.ComkitResUtils;
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.audio.constant.Constant;
-import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioListModel;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel;
+import com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayManager;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayListener;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
 
 import androidx.annotation.LayoutRes;
 import androidx.core.view.ViewCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 
 /**
@@ -164,7 +155,7 @@ public class ApiAudioPlayerFloatingView implements ApiAudioPlayerFloatingViewInt
             //         AudioPlayManager.getInstance().play(containerContext);
             //         designatedFloatingView.refreshVoiceSwitch();
             //     } else {
-            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
             //     }
             // } else {
             //     designatedFloatingView.refreshData();

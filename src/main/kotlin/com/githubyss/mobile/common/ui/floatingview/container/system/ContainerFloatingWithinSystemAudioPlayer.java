@@ -20,9 +20,9 @@ import android.widget.LinearLayout;
 import com.githubyss.mobile.common.kit.constant.Constants;
 import com.githubyss.mobile.common.kit.enumeration.VersionCode;
 import com.githubyss.mobile.common.kit.enumeration.WindowManagerLayoutParamsType;
-import com.githubyss.mobile.common.kit.info.ScreenInfo;
-import com.githubyss.mobile.common.ui.audio.constant.Constant;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
+import com.githubyss.mobile.common.kit.util.ScreenUtils;
+import com.githubyss.mobile.common.kit.manager.audio.constant.Constant;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenView;
@@ -221,7 +221,7 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
         getContainerLayoutParams().width = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().height = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().x = 0;
-        getContainerLayoutParams().y = ScreenInfo.INSTANCE.dp2Px(70.0f);
+        getContainerLayoutParams().y = ScreenUtils.INSTANCE.dp2Px(70.0f);
         // getContainerLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
         
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;

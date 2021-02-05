@@ -1,18 +1,29 @@
-package com.githubyss.mobile.common.ui.utils;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+// package com.githubyss.mobile.common.ui.utils;
 //
-
-/**
- * @Title:
- * @Description:
- * @Author:13071483 jiangry
- * @Since:2013-8-8
- * @Version:
- */
-public class BitmapUtil {
-    private static final String TAG = "BitmapUtil";
+// import android.content.ContentUris;
+// import android.content.res.Resources;
+// import android.graphics.Bitmap;
+// import android.graphics.BitmapFactory;
+// import android.graphics.Canvas;
+// import android.graphics.Matrix;
+// import android.graphics.Paint;
+// import android.graphics.PorterDuff;
+// import android.graphics.PorterDuffXfermode;
+// import android.graphics.Rect;
+// import android.graphics.RectF;
+// import android.net.Uri;
+// import android.provider.DocumentsContract;
+// //
+//
+// /**
+//  * @Title:
+//  * @Description:
+//  * @Author:13071483 jiangry
+//  * @Since:2013-8-8
+//  * @Version:
+//  */
+// public class BitmapUtil {
+//     private static final String TAG = "BitmapUtil";
 //
 //     /**
 //      * 图片圆角处理
@@ -26,18 +37,18 @@ public class BitmapUtil {
 //         // Rounded
 //         // Corner Bitmap
 //         Bitmap dstbmp = Bitmap.createBitmap(bitmap.getWidth(),
-//                 bitmap.getHeight(), Config.ARGB_8888);
+//                 bitmap.getHeight(), Bitmap.Config.ARGB_8888);
 //         Canvas canvas = new Canvas(dstbmp);
 //
-//         final int color = 0xff424242;
+//         final int   color = 0xff424242;
 //         final Paint paint = new Paint();
-//         final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+//         final Rect  rect  = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
 //         final RectF rectF = new RectF(rect);
 //         paint.setAntiAlias(true);
 //         canvas.drawARGB(0, 0, 0, 0);
 //         paint.setColor(color);
 //         canvas.drawRoundRect(rectF, roundPX, roundPX, paint);
-//         paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
+//         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
 //         canvas.drawBitmap(bitmap, rect, rect, paint);
 //         return dstbmp;
 //     }
@@ -52,7 +63,7 @@ public class BitmapUtil {
 //         // Rounded
 //         // Corner Bitmap
 //         Bitmap dstbmp = Bitmap.createBitmap(bitmap.getWidth(),
-//                 bitmap.getHeight(), Config.ARGB_8888);
+//                 bitmap.getHeight(), Bitmap.Config.ARGB_8888);
 //         Canvas canvas = new Canvas(dstbmp);
 //
 //         final int color = 0xff424242;
@@ -63,152 +74,12 @@ public class BitmapUtil {
 //         canvas.drawARGB(0, 0, 0, 0);
 //         paint.setColor(color);
 //         canvas.drawRect(rectF,paint);
-//         paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
+//         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
 //         canvas.drawBitmap(bitmap, rect, rect, paint);
 //         return dstbmp;
 //     }
-//     /**
-//      * 缩放图片
-//      *
-//      * @param bitmap
-//      * @param f
-//      * @return
-//      */
-//     public static Bitmap zoom(Bitmap bitmap, float zf) {
-//         if (bitmap == null || bitmap.getWidth() <= 0 || bitmap.getHeight() <= 0) {
-//             return bitmap;
-//         }
 //
-//         Matrix matrix = new Matrix();
-//         matrix.postScale(zf, zf);
-//         Bitmap bm = null;
-//         try {
-//             bm = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
-//                     bitmap.getHeight(), matrix, true);
-//         } catch (IllegalArgumentException e) {
-//             LogUtils.logException(e);
-//             return bitmap;
-//         }
-//         return bm;
-//     }
 //
-//     /**
-//      * 缩放图片
-//      *
-//      * @param bitmap
-//      * @param f
-//      * @return
-//      */
-//     public static Bitmap zoom(Bitmap bitmap, float wf, float hf) {
-//         Matrix matrix = new Matrix();
-//         matrix.postScale(wf, hf);
-//         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
-//                 bitmap.getHeight(), matrix, true);
-//     }
-//
-//     /**
-//      * 功能描述: <br>
-//      * 〈功能详细描述〉 bitmap缩放
-//      *
-//      * @param res
-//      * @param resId
-//      * @param reqWidth
-//      * @param reqHeight
-//      * @return Author: 14052012 zyn Date: 2014年12月9日 上午11:45:14
-//      * @see [相关类/方法](可选)
-//      * @since [产品/模块版本](可选)
-//      */
-//     public static Bitmap decodeSampledBitmapFromResource(Resources res,
-//                                                          int resId, int reqWidth, int reqHeight) {
-//
-//         // First decode with inJustDecodeBounds=true to check dimensions
-//
-//         BitmapFactory.Options options = new BitmapFactory.Options();
-//         options.inJustDecodeBounds = true;
-//         // 重新设置采样率
-//         options.inPreferredConfig = Bitmap.Config.RGB_565;
-//         options.inInputShareable = true;
-//         options.inPurgeable = true;
-//         BitmapFactory.decodeResource(res, resId, options);
-//
-//         // Calculate inSampleSize
-//         options.inSampleSize = calculateInSampleSize(options, reqWidth,
-//                 reqHeight);
-//
-//         // Decode bitmap with inSampleSize set
-//         options.inJustDecodeBounds = false;
-//         return BitmapFactory.decodeResource(res, resId, options);
-//     }
-//
-    /**
-     * BitmapUtil.decodeSampledBitmapFromFileDirectory([filePath, reqWidth, reqHeight])
-     * <功能> 根据地址解码图片
-     * <详细>
-     * filePath：文件路径
-     * reqWidth：预期要生成的 Bitmap 的宽度
-     * reqHeight：预期要生成的 Bitmap 的高度
-     *
-     * @param [filePath, reqWidth, reqHeight]
-     * @return android.graphics.Bitmap
-     * @author yanss 16072015
-     * @createdTime 2017/03/31 21:58:43
-     */
-    public static Bitmap decodeSampledBitmapFromFileDirectory(String filePath, int reqWidth, int reqHeight) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(filePath, options);
-        /**
-         * 通过 calculateInSampleSize(,,) 得到缩放比例，通过缩放比例生成 Bitmap
-         * yanss 2017/04/01 20:20:57
-         */
-        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-        options.inJustDecodeBounds = false;
-        return BitmapFactory.decodeFile(filePath, options);
-    }
-
-    /**
-     * 功能描述: <br>
-     * 〈功能详细描述〉 根据当前屏幕大小计算缩放比
-     *
-     * @param options
-     * @param reqWidth
-     * @param reqHeight
-     * @return Author: 14052012 zyn Date: 2014年12月9日 上午11:45:46
-     * @see [相关类/方法](可选)
-     * @since [产品/模块版本](可选)
-     */
-    public static int calculateInSampleSize(BitmapFactory.Options options,
-                                            int reqWidth, int reqHeight) {
-        // Raw height and width of image
-        final int height = options.outHeight;
-        final int width = options.outWidth;
-        int inSampleSize = 1;
-
-        if (height > reqHeight || width > reqWidth) {
-
-//            final int halfHeight = height / 2;
-//            final int halfWidth = width / 2;
-//
-//            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
-//            // height and width larger than the requested height and width.
-//            while ((halfHeight / inSampleSize) > reqHeight
-//                    && (halfWidth / inSampleSize) > reqWidth) {
-//                inSampleSize *= 2;
-//            }
-            if (width > reqHeight && width > reqWidth) {
-                inSampleSize = (int) Math.round(options.outWidth * 1.0 / reqWidth);
-            } else if (width < height && height > reqHeight) {
-                inSampleSize = (int) Math.round(options.outHeight * 1.0 / reqWidth);
-            }
-            if (inSampleSize <= 0)
-                inSampleSize = 1;
-
-        }
-
-        // LogUtils.i(TAG, "inSampleSize = " + inSampleSize);
-        return inSampleSize;
-    }
-
 //
 //     /**
 //      * by Apricot
@@ -224,31 +95,6 @@ public class BitmapUtil {
 //             mPath = "";
 //         }
 //         return mPath;
-//     }
-//     public static void saveBitmapToSdcard(String name, Bitmap mBitmap) {
-//
-//         boolean isSDexisting = Environment.getExternalStorageState().equals(
-//                 Environment.MEDIA_MOUNTED);
-//         if (!isSDexisting) {
-//             ToastUtil.showMessage("请确认SD卡已插入!");
-//         } else {
-//             File imageFile = new File(Environment.getExternalStorageDirectory()
-//                     + "//SNEPA", name + ".jpg");
-//             try {
-//                 imageFile.createNewFile();
-//                 FileOutputStream out = new FileOutputStream(imageFile);
-//                 mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-//                 out.flush();
-//                 out.close();
-//             } catch (FileNotFoundException e) {
-//                 e.printStackTrace();
-//             } catch (IOException e) {
-//                 e.printStackTrace();
-//             }
-//             MediaScannerConnection.scanFile(EPApp.mContext,
-//                     new String[]{imageFile.getAbsolutePath()}, null, null);
-//         }
-//
 //     }
 //
 //     public static File convertBitmap2File(String name, Bitmap mBitmap, Bitmap.CompressFormat fileType) {
@@ -501,22 +347,6 @@ public class BitmapUtil {
 //         return value;
 //     }
 //
-//     private static String bytesToHexString(byte[] src) {
-//         StringBuilder builder = new StringBuilder();
-//         if (src == null || src.length <= 0) {
-//             return null;
-//         }
-//         String hv;
-//         for (int i = 0; i < src.length; i++) {
-//             hv = Integer.toHexString(src[i] & 0xFF).toUpperCase();
-//             if (hv.length() < 2) {
-//                 builder.append(0);
-//             }
-//             builder.append(hv);
-//         }
-//         return builder.toString();
-//     }
-//
 //     public static final HashMap<String, String> mFileTypes = new HashMap<String, String>();
 //
 //     static {
@@ -566,17 +396,6 @@ public class BitmapUtil {
 //             e.printStackTrace();
 //         }
 //         return degree;
-//     }
-//
-//     public static Bitmap rotaingImageView(int angle, Bitmap bitmap) {
-//         //旋转图片 动作
-//         Matrix matrix = new Matrix();
-//         matrix.postRotate(angle);
-//         com.suning.mobile.epa.kits.utils.LogUtils.e("angle2=" + angle);
-//         // 创建新的图片
-//         Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0,
-//                 bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-//         return resizedBitmap;
 //     }
 //
 //     /**
@@ -915,4 +734,4 @@ public class BitmapUtil {
 //         Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);// 把ByteArrayInputStream数据生成图片
 //         return bitmap;
 //     }
-}
+// }

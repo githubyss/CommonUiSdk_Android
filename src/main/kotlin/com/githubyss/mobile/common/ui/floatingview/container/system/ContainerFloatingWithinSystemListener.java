@@ -1,9 +1,6 @@
 package com.githubyss.mobile.common.ui.floatingview.container.system;
 
 
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-
-
 /**
  * ContainerFloatingWithinSystemListener
  * <Description> 系统级别悬浮窗回调监听

@@ -1,14 +1,12 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import androidx.annotation.LayoutRes;
 
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel;
 
 import java.util.List;
 

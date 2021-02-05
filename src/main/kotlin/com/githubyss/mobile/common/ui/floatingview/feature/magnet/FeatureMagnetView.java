@@ -10,9 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.githubyss.mobile.common.kit.info.ScreenInfo;
-import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToContainerViewListener;
-import com.githubyss.mobile.common.ui.utils.SystemUtils;
+import com.githubyss.mobile.common.kit.util.ScreenUtils;
 
 
 /**
@@ -31,7 +29,7 @@ public class FeatureMagnetView extends FrameLayout {
     protected View    rootView;
     private   Context containerContext;
     
-    private final int MARGIN_EDGE          = ScreenInfo.INSTANCE.dp2Px(14.0f);
+    private final int MARGIN_EDGE          = ScreenUtils.INSTANCE.dp2Px(14.0f);
     private final int TOUCH_TIME_THRESHOLD = 150;
     
     private   float   originalRawX;
@@ -120,7 +118,7 @@ public class FeatureMagnetView extends FrameLayout {
     
     protected void initInBase() {
         moveAnimatorRunnable = new MoveAnimatorRunnable();
-        statusBarHeight = SystemUtils.getStatusBarHeight(getContext());
+        statusBarHeight = ScreenUtils.INSTANCE.getStatusBarHeight(getContext());
         setClickable(true);
         // updateSize();
     }
@@ -179,8 +177,8 @@ public class FeatureMagnetView extends FrameLayout {
             screenWidth = viewGroup.getWidth() - getWidth();
             screenHeight = viewGroup.getHeight();
         }
-        // screenWidth = (SystemUtils.getScreenWidth(getContext()) - this.getWidth());
-        // screenHeight = SystemUtils.getScreenHeight(getContext());
+        // screenWidth = (ScreenUtils.INSTANCE.widthPx() - this.getWidth());
+        // screenHeight = ScreenUtils.INSTANCE.heightPx();
     }
     
     private void clearPortraitY() {

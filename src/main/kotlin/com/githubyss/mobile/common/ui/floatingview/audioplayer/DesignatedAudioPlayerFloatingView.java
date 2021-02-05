@@ -8,18 +8,18 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
-import com.githubyss.mobile.common.ui.utils.ProgressTextUtils;
+import com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayManager;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayListener;
+import com.githubyss.mobile.common.kit.manager.audio.util.ProgressTextUtils;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
-import static com.githubyss.mobile.common.ui.audio.enumeration.AudioState.PLAYING;
-import static com.githubyss.mobile.common.ui.audio.enumeration.AudioState.READY;
-import static com.githubyss.mobile.common.ui.audio.enumeration.AudioState.START;
+import static com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState.PLAYING;
+import static com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState.READY;
+import static com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState.START;
 
 
 /**

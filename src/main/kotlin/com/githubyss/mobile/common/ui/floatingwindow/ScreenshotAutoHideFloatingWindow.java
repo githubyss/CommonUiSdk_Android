@@ -23,8 +23,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.githubyss.mobile.common.kit.util.ImageUtils;
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.utils.BitmapUtil;
 
 
 /**
@@ -336,7 +336,7 @@ public class ScreenshotAutoHideFloatingWindow {
 
     private Bitmap refreshViewContent() {
         // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.refreshViewContent() >>> filePath = ", filePath == null ? "null" : filePath);
-        Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFileDirectory(filePath, 300, 300);
+        Bitmap bitmap = ImageUtils.INSTANCE.getBitmap(filePath, 300, 300);
         if (null == bitmap) {
             if (null == waitBitmapRunnable) {
                 waitBitmapRunnable = new Runnable() {

@@ -6,7 +6,7 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel;
 
 import java.util.List;
 

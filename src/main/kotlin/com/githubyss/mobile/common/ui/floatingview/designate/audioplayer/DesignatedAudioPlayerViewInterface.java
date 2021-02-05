@@ -4,8 +4,7 @@ package com.githubyss.mobile.common.ui.floatingview.designate.audioplayer;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenView;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel;
 
 import java.util.List;
 

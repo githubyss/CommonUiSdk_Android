@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.githubyss.mobile.common.kit.info.ScreenInfo;
+import com.githubyss.mobile.common.kit.util.ScreenUtils;
 import com.githubyss.mobile.common.ui.floatingview.designate.icon.DesignatedIconView;
 import com.githubyss.mobile.common.ui.floatingview.designate.icon.DesignatedIconViewListener;
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
@@ -206,7 +206,7 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     
     private void initLayoutParams() {
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;
-        getDesignatedLayoutParams().setMargins(ScreenInfo.INSTANCE.dp2Px(14.0f), getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, ScreenInfo.INSTANCE.dp2Px(14.0f));
+        getDesignatedLayoutParams().setMargins(ScreenUtils.INSTANCE.dp2Px(14.0f), getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, ScreenUtils.INSTANCE.dp2Px(14.0f));
     }
     
     private FrameLayout.LayoutParams getDesignatedLayoutParams() {

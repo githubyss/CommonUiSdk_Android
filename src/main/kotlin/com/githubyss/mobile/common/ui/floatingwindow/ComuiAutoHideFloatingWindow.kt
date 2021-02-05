@@ -14,9 +14,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.RequiresPermission
 import com.bumptech.glide.Glide
-import com.githubyss.mobile.common.kit.ComkitApplication
-import com.githubyss.mobile.common.kit.logcat.LogcatUtils
-import com.githubyss.mobile.common.kit.info.ScreenInfo
+import com.githubyss.mobile.common.kit.ComkitUtils
+import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
 import java.lang.Exception
 import java.lang.ref.WeakReference
@@ -24,8 +24,6 @@ import java.lang.ref.WeakReference
 
 /**
  * ComuiAutoHideFloatingWindow
- * <Description>
- * <Details>
  *
  * @author Ace Yan
  * @github githubyss
@@ -241,7 +239,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     
     fun setImage(path: String): ComuiAutoHideFloatingWindow {
         viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow
-        Glide.with(ComkitApplication.instance.application ?: return this@ComuiAutoHideFloatingWindow)
+        Glide.with(ComkitUtils.getApp())
                 .load(path)
                 .into(viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow)
         return this@ComuiAutoHideFloatingWindow
@@ -249,7 +247,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     
     private fun initLayoutParams() {
         if (windowManager == null) {
-            windowManager = ScreenInfo.windowManager()
+            windowManager = ScreenUtils.windowManager()
         }
         
         if (windowLayoutParams == null) {

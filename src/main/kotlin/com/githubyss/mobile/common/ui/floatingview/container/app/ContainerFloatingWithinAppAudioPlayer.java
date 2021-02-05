@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerView;
 import com.githubyss.mobile.common.ui.floatingview.designate.audioplayer.DesignatedAudioPlayerViewListener;
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenView;

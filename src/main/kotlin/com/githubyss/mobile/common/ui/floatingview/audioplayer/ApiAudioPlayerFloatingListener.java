@@ -1,13 +1,7 @@
 package com.githubyss.mobile.common.ui.floatingview.audioplayer;
 
 
-import android.view.ViewGroup;
-
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-
-import java.util.List;
-
-import androidx.annotation.LayoutRes;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel;
 
 
 /**

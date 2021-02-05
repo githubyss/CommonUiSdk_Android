@@ -49,7 +49,7 @@ abstract class ComuiBaseActivity : AppCompatActivity() {
 
     /** Setup Toolbar title by ResId. by Ace Yan */
     protected fun setToolbarTitle(titleResId: Int) {
-//        toolbarBase.title = ComkitResUtils.getString(this@ComuiBaseActivity, titleResId)
+//        toolbarBase.title = ResUtils.getString(this@ComuiBaseActivity, titleResId)
         toolbarBase.setTitle(titleResId)
     }
 
@@ -60,7 +60,7 @@ abstract class ComuiBaseActivity : AppCompatActivity() {
 
     /** Setup Toolbar navigation icon by ResId. by Ace Yan */
     protected fun setToolbarNavigationIcon(iconResId: Int) {
-//        toolbarBase.navigationIcon = ComkitResUtils.getDrawable(this@ComuiBaseActivity, iconResId)
+//        toolbarBase.navigationIcon = ResUtils.getDrawable(this@ComuiBaseActivity, iconResId)
         toolbarBase.setNavigationIcon(iconResId)
     }
 

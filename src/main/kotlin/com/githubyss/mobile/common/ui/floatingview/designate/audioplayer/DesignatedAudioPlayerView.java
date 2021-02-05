@@ -10,14 +10,14 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
-import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
+import com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioListModel;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayListener;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayManager;
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenView;
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.FeatureAutoShortenViewToDesignateViewListener;
-import com.githubyss.mobile.common.ui.utils.ProgressTextUtils;
+import com.githubyss.mobile.common.kit.manager.audio.util.ProgressTextUtils;
 
 import java.util.List;
 
@@ -25,9 +25,9 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
-import static com.githubyss.mobile.common.ui.audio.enumeration.AudioState.PLAYING;
-import static com.githubyss.mobile.common.ui.audio.enumeration.AudioState.READY;
-import static com.githubyss.mobile.common.ui.audio.enumeration.AudioState.START;
+import static com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState.PLAYING;
+import static com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState.READY;
+import static com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState.START;
 
 
 /**
@@ -137,7 +137,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
             //         AudioPlayManager.getInstance().play(containerContext);
             //         designatedFloatingView.refreshVoiceSwitch();
             //     } else {
-            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
             //     }
             // } else {
             //     designatedFloatingView.refreshData();

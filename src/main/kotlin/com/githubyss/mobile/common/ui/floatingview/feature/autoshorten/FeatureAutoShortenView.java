@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.githubyss.mobile.common.kit.info.ScreenInfo;
+import com.githubyss.mobile.common.kit.util.ScreenUtils;
 import com.githubyss.mobile.common.ui.R;
 
 
@@ -197,7 +197,7 @@ public class FeatureAutoShortenView extends FrameLayout {
             
             if (animatorSlideRightLengthen.equals(animation)) {
                 if (rootView != null) {
-                    rootView.setTranslationX(-ScreenInfo.INSTANCE.dp2Px(230.0f));
+                    rootView.setTranslationX(-ScreenUtils.INSTANCE.dp2Px(230.0f));
                     onLengthen();
                 }
                 return;

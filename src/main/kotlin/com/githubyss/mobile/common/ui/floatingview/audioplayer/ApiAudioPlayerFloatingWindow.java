@@ -17,14 +17,14 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.githubyss.mobile.common.kit.enumeration.VersionCode;
-import com.githubyss.mobile.common.kit.info.ScreenInfo;
+import com.githubyss.mobile.common.kit.util.ScreenUtils;
 import com.githubyss.mobile.common.ui.R;
-import com.githubyss.mobile.common.ui.audio.constant.Constant;
-import com.githubyss.mobile.common.ui.audio.model.AudioListModel;
-import com.githubyss.mobile.common.ui.audio.model.AudioModel;
-import com.githubyss.mobile.common.ui.audio.enumeration.AudioState;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayManager;
-import com.githubyss.mobile.common.ui.audio.player.AudioPlayListener;
+import com.githubyss.mobile.common.kit.manager.audio.constant.Constant;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioListModel;
+import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel;
+import com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayManager;
+import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayListener;
 import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils;
 
 import java.util.List;
@@ -206,7 +206,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
             //         AudioPlayManager.getInstance().play(containerContext);
             //         designatedFloatingView.refreshVoiceSwitch();
             //     } else {
-            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ComkitResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ResUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
             //     }
             // } else {
             //     designatedFloatingView.refreshData();
@@ -359,7 +359,7 @@ public class ApiAudioPlayerFloatingWindow implements ApiAudioPlayerFloatingWindo
         getContainerLayoutParams().width = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().height = WindowManager.LayoutParams.WRAP_CONTENT;
         getContainerLayoutParams().x = 0;
-        getContainerLayoutParams().y = ScreenInfo.INSTANCE.dp2Px(70.0f);
+        getContainerLayoutParams().y = ScreenUtils.INSTANCE.dp2Px(70.0f);
         // getContainerLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
         
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM | Gravity.START;

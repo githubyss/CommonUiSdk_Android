@@ -7,16 +7,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Build;
-import android.os.Handler;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.view.WindowManager;
 
 import com.githubyss.mobile.common.kit.enumeration.VersionCode;
-import com.githubyss.mobile.common.ui.audio.constant.Constant;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
