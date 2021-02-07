@@ -43,7 +43,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
  */
 public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithinSystemInterface<ContainerFloatingWithinSystemIcon, DesignatedIconView, FeatureMagnetView> {
     
-    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private static ContainerFloatingWithinSystemIcon instance;
     
@@ -62,7 +62,7 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     private ContainerFloatingWithinSystemListener containerFloatingWithinSystemListener;
     
     
-    // ---------- ---------- ---------- Constructors ---------- ---------- ----------
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     private ContainerFloatingWithinSystemIcon(@NonNull Context context) {
         initInContainer(context);
@@ -81,7 +81,7 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     }
     
     
-    // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     @Override
     public ContainerFloatingWithinSystemIcon show() {
@@ -177,7 +177,7 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     }
     
     
-    // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
+    /** ********** ********** ********** Private Methods ********** ********** ********** */
     
     private void initInContainer(Context context) {
         this.containerContext = context;
@@ -338,7 +338,7 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     }
     
     
-    // ---------- ---------- ---------- Implementations ---------- ---------- ----------
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     /** 监听前后台切换 */
     private BroadcastReceiver voiceReceiver = new BroadcastReceiver() {
@@ -376,10 +376,10 @@ public class ContainerFloatingWithinSystemIcon implements ContainerFloatingWithi
     };
     
     
-    // ---------- ---------- ---------- Getter ---------- ---------- ----------
+    /** ********** ********** ********** Getter ********** ********** ********** */
     
     
-    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    /** ********** ********** ********** Setter ********** ********** ********** */
     
     public ContainerFloatingWithinSystemIcon setContainerFloatingWithinSystemListener(ContainerFloatingWithinSystemListener containerFloatingWithinSystemListener) {
         this.containerFloatingWithinSystemListener = containerFloatingWithinSystemListener;

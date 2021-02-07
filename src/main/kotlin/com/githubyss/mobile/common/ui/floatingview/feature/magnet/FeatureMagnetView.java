@@ -24,10 +24,10 @@ import com.githubyss.mobile.common.kit.util.ScreenUtils;
  */
 public class FeatureMagnetView extends FrameLayout {
     
-    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     protected View    rootView;
-    private   Context containerContext;
+    protected Context context;
     
     private final int MARGIN_EDGE          = ScreenUtils.INSTANCE.dp2Px(14.0f);
     private final int TOUCH_TIME_THRESHOLD = 150;
@@ -49,7 +49,7 @@ public class FeatureMagnetView extends FrameLayout {
     private MoveAnimatorRunnable moveAnimatorRunnable;
     
     
-    // ---------- ---------- ---------- Constructors ---------- ---------- ----------
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     public FeatureMagnetView(Context context) {
         this(context, null);
@@ -61,12 +61,12 @@ public class FeatureMagnetView extends FrameLayout {
     
     public FeatureMagnetView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        containerContext = context;
+        this.context = context;
         // initInBase();
     }
     
     
-    // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
+    /** ********** ********** ********** Override Methods ********** ********** ********** */
     
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -114,7 +114,7 @@ public class FeatureMagnetView extends FrameLayout {
     }
     
     
-    // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
+    /** ********** ********** ********** Public Methods ********** ********** ********** */
     
     protected void initInBase() {
         moveAnimatorRunnable = new MoveAnimatorRunnable();
@@ -144,7 +144,7 @@ public class FeatureMagnetView extends FrameLayout {
     }
     
     
-    // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
+    /** ********** ********** ********** Private Methods ********** ********** ********** */
     
     private boolean isOnClickEvent() {
         return System.currentTimeMillis() - lastTouchDownTime < TOUCH_TIME_THRESHOLD;
@@ -209,7 +209,7 @@ public class FeatureMagnetView extends FrameLayout {
     }
     
     
-    // ---------- ---------- ---------- Implementations ---------- ---------- ----------
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     /** 动画 */
     protected class MoveAnimatorRunnable implements Runnable {
@@ -245,10 +245,10 @@ public class FeatureMagnetView extends FrameLayout {
     }
     
     
-    // ---------- ---------- ---------- Getter ---------- ---------- ----------
+    /** ********** ********** ********** Getter ********** ********** ********** */
     
     
-    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    /** ********** ********** ********** Setter ********** ********** ********** */
     
     public void setFeatureMagnetViewToDesignateViewListener(FeatureMagnetViewToDesignateViewListener featureMagnetViewToDesignateViewListener) {
         this.featureMagnetViewToDesignateViewListener = featureMagnetViewToDesignateViewListener;

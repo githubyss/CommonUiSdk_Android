@@ -36,11 +36,11 @@ import androidx.core.view.ViewCompat;
  */
 public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAppInterface<ContainerFloatingWithinAppIcon, DesignatedIconView, FeatureMagnetView> {
     
-    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private static volatile ContainerFloatingWithinAppIcon instance;
     
-    private Context containerContext;
+    private Context context;
     
     private WeakReference<FrameLayout> containerView;
     
@@ -50,7 +50,7 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     private ContainerFloatingWithinAppListener containerFloatingWithinAppListener;
     
     
-    // ---------- ---------- ---------- Constructors ---------- ---------- ----------
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     private ContainerFloatingWithinAppIcon(@NonNull Context context) {
         // super(context);
@@ -79,7 +79,7 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     // }
     
     
-    // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     @Override
     public ContainerFloatingWithinAppIcon show() {
@@ -130,6 +130,14 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     public ContainerFloatingWithinAppIcon customIcon(int drawableId) {
         if (designatedView != null) {
             designatedView.customIcon(drawableId);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppIcon customIcon(String url) {
+        if (designatedView != null) {
+            designatedView.customIcon(url);
         }
         return this;
     }
@@ -198,10 +206,10 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     }
     
     
-    // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
+    /** ********** ********** ********** Private ********** ********** ********** */
     
     private void initInContainer(Context context) {
-        this.containerContext = context;
+        this.context = context;
     }
     
     private void initLayoutParams() {
@@ -219,7 +227,7 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     private void ensureFloatingView() {
         synchronized (this) {
             if (designatedView == null) {
-                designatedView = new DesignatedIconView(containerContext);
+                designatedView = new DesignatedIconView(context);
                 designatedView.setLayoutParams(getDesignatedLayoutParams());
                 designatedView.setBackgroundColor(0x000000FF);
                 initListener();
@@ -249,7 +257,6 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
                 
                 @Override
                 public void onClick(FeatureMagnetView magnetView) {
-                
                 }
             });
         }
@@ -302,10 +309,10 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     }
     
     
-    // ---------- ---------- ---------- Getter ---------- ---------- ----------
+    /** ********** ********** ********** Getter ********** ********** ********** */
     
     
-    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    /** ********** ********** ********** Setter ********** ********** ********** */
     
     public ContainerFloatingWithinAppIcon setContainerFloatingWithinAppListener(ContainerFloatingWithinAppListener containerFloatingWithinAppListener) {
         this.containerFloatingWithinAppListener = containerFloatingWithinAppListener;

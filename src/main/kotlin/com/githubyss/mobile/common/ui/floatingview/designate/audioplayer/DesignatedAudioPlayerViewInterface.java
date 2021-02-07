@@ -47,12 +47,6 @@ public interface DesignatedAudioPlayerViewInterface {
     
     void setMovable(boolean isMovable);
     
-    void customIcon(Drawable drawable);
-    
-    void customIcon(Bitmap bitmap);
-    
-    void customIcon(@DrawableRes int drawableId);
-    
     void customView(DesignatedAudioPlayerView viewGroup);
     
     void customView(@LayoutRes int layoutId);

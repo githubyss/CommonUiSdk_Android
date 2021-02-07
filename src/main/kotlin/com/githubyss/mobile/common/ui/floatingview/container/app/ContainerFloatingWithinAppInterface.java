@@ -36,6 +36,8 @@ public interface ContainerFloatingWithinAppInterface<C, D, F> {
     
     C customIcon(@DrawableRes int drawableId);
     
+    C customIcon(String url);
+    
     C customView(D viewGroup);
     
     C customView(@LayoutRes int layoutId);

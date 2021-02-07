@@ -31,6 +31,8 @@ public interface DesignatedIconViewInterface {
     
     void customIcon(@DrawableRes int drawableId);
     
+    void customIcon(String url);
+    
     void customView(DesignatedIconView viewGroup);
     
     void customView(@LayoutRes int layoutId);

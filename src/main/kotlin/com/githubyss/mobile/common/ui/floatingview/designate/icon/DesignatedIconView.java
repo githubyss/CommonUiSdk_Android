@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.githubyss.mobile.common.kit.glide.GlideUtils;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetView;
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.FeatureMagnetViewToDesignateViewListener;
@@ -26,24 +27,26 @@ import androidx.annotation.NonNull;
  */
 public class DesignatedIconView extends FeatureMagnetView implements DesignatedIconViewInterface {
     
-    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private ImageView imageView_icon;
     private ImageView imageView_close;
     
     @LayoutRes
     private static int designatedLayoutId = R.layout.comui_floating_icon;
+    
     @DrawableRes
-    private        int iconId             = R.drawable.imuxuan;
+    private int      iconId  = R.drawable.imuxuan;
+    private String   iconUrl = "";
+    private Drawable iconDrawable;
+    private Bitmap   iconBitmap;
     
     private DesignatedIconView designatedView;
-    private Drawable           iconDrawable;
-    private Bitmap             iconBitmap;
     
     private DesignatedIconViewListener designatedIconViewListener;
     
     
-    // ---------- ---------- ---------- Constructors ---------- ---------- ----------
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     public DesignatedIconView(@NonNull Context context) {
         this(context, designatedLayoutId);
@@ -60,7 +63,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     }
     
     
-    // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
+    /** ********** ********** ********** Override Methods ********** ********** ********** */
     
     @Override
     public boolean isFloatingShow() {
@@ -94,7 +97,13 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     @Override
     public void customIcon(int drawableId) {
         iconId = drawableId;
-        imageView_icon.setImageResource(iconId);
+        GlideUtils.INSTANCE.loadImage(context, iconId, imageView_icon);
+    }
+    
+    @Override
+    public void customIcon(String url) {
+        iconUrl = url;
+        GlideUtils.INSTANCE.loadImageAsGif(context, iconUrl, imageView_icon);
     }
     
     @Override
@@ -108,10 +117,10 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     }
     
     
-    // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
+    /** ********** ********** ********** Public Methods ********** ********** ********** */
     
     
-    // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
+    /** ********** ********** ********** Private Methods ********** ********** ********** */
     
     private void initInDesignated() {
         initViewFindById(rootView);
@@ -141,7 +150,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     }
     
     
-    // ---------- ---------- ---------- Implementations ---------- ---------- ----------
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private OnClickListener onClickListener = new OnClickListener() {
         @Override
@@ -154,7 +163,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     };
     
     
-    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    /** ********** ********** ********** Setter ********** ********** ********** */
     
     public void setDesignatedIconViewListener(DesignatedIconViewListener designatedIconViewListener) {
         this.designatedIconViewListener = designatedIconViewListener;

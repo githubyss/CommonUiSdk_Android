@@ -44,7 +44,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
  */
 public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloatingWithinSystemInterface<ContainerFloatingWithinSystemAudioPlayer, DesignatedAudioPlayerView, FeatureAutoShortenView> {
     
-    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private static ContainerFloatingWithinSystemAudioPlayer instance;
     
@@ -61,7 +61,7 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
     private boolean isJumpToOverlayPermission = true;
     
     
-    // ---------- ---------- ---------- Constructors ---------- ---------- ----------
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     private ContainerFloatingWithinSystemAudioPlayer(@NonNull Context context) {
         initInContainer(context);
@@ -80,7 +80,7 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
     }
     
     
-    // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     @Override
     public ContainerFloatingWithinSystemAudioPlayer show() {
@@ -121,23 +121,17 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
         }
         return this;
     }
-    
+
     @Override
     public ContainerFloatingWithinSystemAudioPlayer customIcon(Drawable drawable) {
-        if (designatedView != null) {
-            designatedView.customIcon(drawable);
-        }
         return this;
     }
-    
+
     @Override
     public ContainerFloatingWithinSystemAudioPlayer customIcon(int drawableId) {
-        if (designatedView != null) {
-            designatedView.customIcon(drawableId);
-        }
         return this;
     }
-    
+
     @Override
     public ContainerFloatingWithinSystemAudioPlayer customView(DesignatedAudioPlayerView viewGroup) {
         this.designatedView = viewGroup;
@@ -180,7 +174,7 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
     }
     
     
-    // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
+    /** ********** ********** ********** Private ********** ********** ********** */
     
     private void initInContainer(Context context) {
         this.containerContext = context;
@@ -325,7 +319,7 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
     }
     
     
-    // ---------- ---------- ---------- Implementations ---------- ---------- ----------
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     /** 监听前后台切换 */
     private BroadcastReceiver voiceReceiver = new BroadcastReceiver() {
@@ -365,10 +359,10 @@ public class ContainerFloatingWithinSystemAudioPlayer implements ContainerFloati
     };
     
     
-    // ---------- ---------- ---------- Getter ---------- ---------- ----------
+    /** ********** ********** ********** Getter ********** ********** ********** */
     
     
-    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    /** ********** ********** ********** Setter ********** ********** ********** */
     
     public ContainerFloatingWithinSystemAudioPlayer setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
         designatedView.setForNativeDesignatedAudioPlayerViewListener(forNativeDesignatedViewListener);

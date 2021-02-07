@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.githubyss.mobile.common.kit.glide.GlideUtils;
 import com.githubyss.mobile.common.ui.R;
 import com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioState;
 import com.githubyss.mobile.common.kit.manager.audio.model.AudioListModel;
@@ -41,7 +42,7 @@ import static com.githubyss.mobile.common.kit.manager.audio.enumeration.AudioSta
  */
 public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements DesignatedAudioPlayerViewInterface {
     
-    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private TextView  textView_title;
     private TextView  textView_timePosition;
@@ -55,12 +56,8 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     
     @LayoutRes
     private static int designatedLayoutId = R.layout.comui_floating_audio_player;
-    @DrawableRes
-    private        int iconId             = R.drawable.comui_lucky_money;
     
     private DesignatedAudioPlayerView designatedView;
-    private Drawable                  iconDrawable;
-    private Bitmap                    iconBitmap;
     
     /** 原生 Listener */
     protected DesignatedAudioPlayerViewListener forNativeDesignatedAudioPlayerViewListener;
@@ -70,7 +67,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     private AudioPlayListener audioPlayListener;
     
     
-    // ---------- ---------- ---------- Constructors ---------- ---------- ----------
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     public DesignatedAudioPlayerView(@NonNull Context context) {
         this(context, designatedLayoutId);
@@ -87,7 +84,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     }
     
     
-    // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
+    /** ********** ********** ********** Override Methods ********** ********** ********** */
     
     @Override
     public void lengthen() {
@@ -215,25 +212,6 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     }
     
     @Override
-    public void customIcon(Drawable drawable) {
-        iconDrawable = drawable;
-        if (drawable != null) {
-        }
-    }
-    
-    @Override
-    public void customIcon(Bitmap bitmap) {
-        iconBitmap = bitmap;
-        if (bitmap != null) {
-        }
-    }
-    
-    @Override
-    public void customIcon(int drawableId) {
-        iconId = drawableId;
-    }
-    
-    @Override
     public void customView(DesignatedAudioPlayerView viewGroup) {
         designatedView = viewGroup;
     }
@@ -245,10 +223,10 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     }
     
     
-    // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
+    /** ********** ********** ********** Public Methods ********** ********** ********** */
     
     
-    // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
+    /** ********** ********** ********** Private Methods ********** ********** ********** */
     
     private void initInDesignated() {
         initViewFindById(rootView);
@@ -461,7 +439,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     }
     
     
-    // ---------- ---------- ---------- Implementations ---------- ---------- ----------
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     /**
      * 点击监听
@@ -492,7 +470,7 @@ public class DesignatedAudioPlayerView extends FeatureAutoShortenView implements
     };
     
     
-    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    /** ********** ********** ********** Setter ********** ********** ********** */
     
     public void setForNativeDesignatedAudioPlayerViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedAudioPlayerViewListener) {
         this.forNativeDesignatedAudioPlayerViewListener = forNativeDesignatedAudioPlayerViewListener;

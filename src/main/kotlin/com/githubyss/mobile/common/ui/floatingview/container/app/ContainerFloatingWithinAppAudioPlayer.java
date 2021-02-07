@@ -36,7 +36,7 @@ import androidx.core.view.ViewCompat;
  */
 public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingWithinAppInterface<ContainerFloatingWithinAppAudioPlayer, DesignatedAudioPlayerView, FeatureAutoShortenView> {
     
-    // ---------- ---------- ---------- Properties ---------- ---------- ----------
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private static volatile ContainerFloatingWithinAppAudioPlayer instance;
     
@@ -48,7 +48,7 @@ public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingW
     private ViewGroup.LayoutParams    designatedLayoutParams;
     
     
-    // ---------- ---------- ---------- Constructors ---------- ---------- ----------
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     private ContainerFloatingWithinAppAudioPlayer(@NonNull Context context) {
         // super(context);
@@ -77,7 +77,7 @@ public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingW
     // }
     
     
-    // ---------- ---------- ---------- Override Methods ---------- ---------- ----------
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     @Override
     public ContainerFloatingWithinAppAudioPlayer show() {
@@ -113,25 +113,21 @@ public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingW
     
     @Override
     public ContainerFloatingWithinAppAudioPlayer customIcon(Drawable drawable) {
-        if (designatedView != null) {
-            designatedView.customIcon(drawable);
-        }
         return this;
     }
     
     @Override
     public ContainerFloatingWithinAppAudioPlayer customIcon(Bitmap bitmap) {
-        if (designatedView != null) {
-            designatedView.customIcon(bitmap);
-        }
         return this;
     }
     
     @Override
     public ContainerFloatingWithinAppAudioPlayer customIcon(int drawableId) {
-        if (designatedView != null) {
-            designatedView.customIcon(drawableId);
-        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppAudioPlayer customIcon(String url) {
         return this;
     }
     
@@ -200,7 +196,7 @@ public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingW
     }
     
     
-    // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
+    /** ********** ********** ********** Private ********** ********** ********** */
     
     private void initInContainer(Context context) {
         this.containerContext = context;
@@ -287,10 +283,10 @@ public class ContainerFloatingWithinAppAudioPlayer implements ContainerFloatingW
     }
     
     
-    // ---------- ---------- ---------- Getter ---------- ---------- ----------
+    /** ********** ********** ********** Getter ********** ********** ********** */
     
     
-    // ---------- ---------- ---------- Setter ---------- ---------- ----------
+    /** ********** ********** ********** Setter ********** ********** ********** */
     
     public ContainerFloatingWithinAppAudioPlayer setForNativeDesignatedViewListener(DesignatedAudioPlayerViewListener forNativeDesignatedViewListener) {
         designatedView.setForNativeDesignatedAudioPlayerViewListener(forNativeDesignatedViewListener);
