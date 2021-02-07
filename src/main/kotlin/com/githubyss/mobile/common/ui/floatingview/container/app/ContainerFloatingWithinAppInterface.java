@@ -30,13 +30,13 @@ public interface ContainerFloatingWithinAppInterface<C, D, F> {
     
     C setMovable(boolean isMovable);
     
-    C customIcon(Drawable drawable);
-    
-    C customIcon(Bitmap bitmap);
-    
     C customIcon(@DrawableRes int drawableId);
     
     C customIcon(String url);
+    
+    C customIcon(Drawable drawable);
+    
+    C customIcon(Bitmap bitmap);
     
     C customView(D viewGroup);
     

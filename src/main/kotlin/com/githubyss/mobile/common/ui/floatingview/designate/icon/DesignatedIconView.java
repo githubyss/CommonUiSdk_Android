@@ -27,7 +27,7 @@ import androidx.annotation.NonNull;
  */
 public class DesignatedIconView extends FeatureMagnetView implements DesignatedIconViewInterface {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ********* ********** ********** Properties ********** ********** ********** */
     
     private ImageView imageView_icon;
     private ImageView imageView_close;
@@ -46,7 +46,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     private DesignatedIconViewListener designatedIconViewListener;
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ********* ********** ********** Constructors ********** ********** ********** */
     
     public DesignatedIconView(@NonNull Context context) {
         this(context, designatedLayoutId);
@@ -63,7 +63,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     }
     
     
-    /** ********** ********** ********** Override Methods ********** ********** ********** */
+    /** ********* ********** ********** Override Methods ********** ********** ********** */
     
     @Override
     public boolean isFloatingShow() {
@@ -76,6 +76,18 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     @Override
     public void setMovable(boolean isMovable) {
         super.isMovable = isMovable;
+    }
+    
+    @Override
+    public void customIcon(int drawableId) {
+        iconId = drawableId;
+        GlideUtils.INSTANCE.loadImage(context, iconId, imageView_icon);
+    }
+    
+    @Override
+    public void customIcon(String url) {
+        iconUrl = url;
+        GlideUtils.INSTANCE.loadImage(context, iconUrl, imageView_icon);
     }
     
     @Override
@@ -95,18 +107,6 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     }
     
     @Override
-    public void customIcon(int drawableId) {
-        iconId = drawableId;
-        GlideUtils.INSTANCE.loadImage(context, iconId, imageView_icon);
-    }
-    
-    @Override
-    public void customIcon(String url) {
-        iconUrl = url;
-        GlideUtils.INSTANCE.loadImageAsGif(context, iconUrl, imageView_icon);
-    }
-    
-    @Override
     public void customView(DesignatedIconView viewGroup) {
         designatedView = viewGroup;
     }
@@ -120,7 +120,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     /** ********** ********** ********** Public Methods ********** ********** ********** */
     
     
-    /** ********** ********** ********** Private Methods ********** ********** ********** */
+    /** ********* ********** ********** Private Methods ********** ********** ********** */
     
     private void initInDesignated() {
         initViewFindById(rootView);
@@ -150,7 +150,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ********* ********** ********** Implementations ********** ********** ********** */
     
     private OnClickListener onClickListener = new OnClickListener() {
         @Override
@@ -163,7 +163,7 @@ public class DesignatedIconView extends FeatureMagnetView implements DesignatedI
     };
     
     
-    /** ********** ********** ********** Setter ********** ********** ********** */
+    /** ********* ********** ********** Setter ********** ********** ********** */
     
     public void setDesignatedIconViewListener(DesignatedIconViewListener designatedIconViewListener) {
         this.designatedIconViewListener = designatedIconViewListener;

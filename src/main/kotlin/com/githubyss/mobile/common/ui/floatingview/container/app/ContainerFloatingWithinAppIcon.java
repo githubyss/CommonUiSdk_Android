@@ -111,22 +111,6 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     }
     
     @Override
-    public ContainerFloatingWithinAppIcon customIcon(Drawable drawable) {
-        if (designatedView != null) {
-            designatedView.customIcon(drawable);
-        }
-        return this;
-    }
-    
-    @Override
-    public ContainerFloatingWithinAppIcon customIcon(Bitmap bitmap) {
-        if (designatedView != null) {
-            designatedView.customIcon(bitmap);
-        }
-        return this;
-    }
-    
-    @Override
     public ContainerFloatingWithinAppIcon customIcon(int drawableId) {
         if (designatedView != null) {
             designatedView.customIcon(drawableId);
@@ -138,6 +122,22 @@ public class ContainerFloatingWithinAppIcon implements ContainerFloatingWithinAp
     public ContainerFloatingWithinAppIcon customIcon(String url) {
         if (designatedView != null) {
             designatedView.customIcon(url);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppIcon customIcon(Drawable drawable) {
+        if (designatedView != null) {
+            designatedView.customIcon(drawable);
+        }
+        return this;
+    }
+    
+    @Override
+    public ContainerFloatingWithinAppIcon customIcon(Bitmap bitmap) {
+        if (designatedView != null) {
+            designatedView.customIcon(bitmap);
         }
         return this;
     }

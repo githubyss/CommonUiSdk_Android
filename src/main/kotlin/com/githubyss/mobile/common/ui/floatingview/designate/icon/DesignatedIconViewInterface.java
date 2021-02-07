@@ -25,13 +25,13 @@ public interface DesignatedIconViewInterface {
     
     void setMovable(boolean isMovable);
     
-    void customIcon(Drawable drawable);
-    
-    void customIcon(Bitmap bitmap);
-    
     void customIcon(@DrawableRes int drawableId);
     
     void customIcon(String url);
+    
+    void customIcon(Drawable drawable);
+    
+    void customIcon(Bitmap bitmap);
     
     void customView(DesignatedIconView viewGroup);
     
