@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.RequiresPermission
 import com.bumptech.glide.Glide
+import com.githubyss.mobile.common.kit.ComkitApplicationConfig
 import com.githubyss.mobile.common.kit.ComkitUtils
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
@@ -239,7 +240,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     
     fun setImage(path: String): ComuiAutoHideFloatingWindow {
         viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow
-        Glide.with(ComkitUtils.getApp())
+        Glide.with(ComkitApplicationConfig.getApp())
                 .load(path)
                 .into(viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow)
         return this@ComuiAutoHideFloatingWindow

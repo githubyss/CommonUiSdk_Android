@@ -52,7 +52,7 @@ dependencies {
     implementation project(':CommonLibSdk_Android')
     implementation project(':CommonKitSdk_Android')
     implementation project(':CommonResSdk_Android')
-    // implementation project(':CommonNetworkSdk_Android')
+    implementation project(':CommonNetworkSdk_Android')
 }
 
 kapt {
