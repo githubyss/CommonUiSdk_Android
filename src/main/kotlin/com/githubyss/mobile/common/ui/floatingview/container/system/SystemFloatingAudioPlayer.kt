@@ -126,7 +126,7 @@ class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPla
     }
     
     
-    /** ********** ********** ********** Public ********** ********** ********** */
+    /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun setAppFloatingForNativeListener(listener: FloatingAudioPlayerListener): SystemFloatingAudioPlayer {
         floatingForNativeListener = listener

@@ -101,7 +101,7 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     }
     
     
-    /** ********** ********** ********** Public ********** ********** ********** */
+    /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun isFloatingShow(): Boolean {
         return designateView?.isShown ?: false

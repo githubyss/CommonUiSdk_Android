@@ -136,7 +136,7 @@ class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
     }
     
     
-    /** ********** ********** ********** Public ********** ********** ********** */
+    /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun customIcon(drawableId: Int): AppFloatingIcon {
         designateView?.customIcon(drawableId)

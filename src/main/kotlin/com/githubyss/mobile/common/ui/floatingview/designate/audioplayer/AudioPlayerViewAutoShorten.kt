@@ -160,7 +160,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     }
     
     
-    /** ********** ********** ********** Public ********** ********** ********** */
+    /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun isFloatingShow(): Boolean {
         return designateView?.isShown ?: false

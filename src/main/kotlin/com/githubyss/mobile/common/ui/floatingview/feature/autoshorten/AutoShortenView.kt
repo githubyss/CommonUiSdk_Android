@@ -61,7 +61,7 @@ open class AutoShortenView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Public ********** ********** ********** */
+    /** ********** ********** ********** Functions ********** ********** ********** */
     
     protected fun initInBase() {
         isClickable = true

@@ -120,7 +120,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
     }
     
     
-    /** ********** ********** ********** Public ********** ********** ********** */
+    /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun customIcon(drawableId: Int): SystemFloatingIcon {
         designateView?.customIcon(drawableId)

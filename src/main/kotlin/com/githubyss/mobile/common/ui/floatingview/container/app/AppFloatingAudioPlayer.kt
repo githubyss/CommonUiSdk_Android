@@ -133,7 +133,7 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
     }
     
     
-    /** ********** ********** ********** Public ********** ********** ********** */
+    /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun setAppFloatingForNativeListener(listener: FloatingAudioPlayerListener): AppFloatingAudioPlayer {
         floatingForNativeListener = listener

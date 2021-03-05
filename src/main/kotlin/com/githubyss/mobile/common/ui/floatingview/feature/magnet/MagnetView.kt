@@ -102,7 +102,7 @@ open class MagnetView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Public ********** ********** ********** */
+    /** ********** ********** ********** Functions ********** ********** ********** */
     
     protected fun initInBase() {
         moveAnimatorRunnable = MoveAnimatorRunnable(this)
