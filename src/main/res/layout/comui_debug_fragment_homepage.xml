@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/comres_both_match_parent_style"
+        android:background="@color/comres_layout_bg_color_light_gray"
+        android:orientation="vertical"
+        tools:context="com.githubyss.mobile.common.debug.homepage.ComuiHomepageActivity"
+        >
+
+    <ScrollView
+            style="@style/comres_both_match_parent_style"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            >
+
+        <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/flexboxLayout_pageContent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="@dimen/comres_side_margin_default"
+                android:paddingRight="@dimen/comres_side_margin_default"
+                android:paddingBottom="@dimen/comres_side_margin_default"
+                android:paddingTop="@dimen/comres_side_margin_default"
+                app:flexDirection="column"
+                app:justifyContent="flex_start"
+                >
+
+            <Button
+                    android:id="@+id/button_propertyAnimation"
+                    style="@style/comres_common_btn_default_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="属性动画"
+                    />
+
+            <Button
+                    android:id="@+id/button_tweenAnimation"
+                    style="@style/comres_common_btn_default_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="补间动画"
+                    />
+
+            <Button
+                    android:id="@+id/button_recyclerView"
+                    style="@style/comres_common_btn_default_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Recycler View"
+                    />
+
+            <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/flexboxLayout_iconFloatingView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:alignItems="center"
+                    app:flexDirection="row"
+                    app:justifyContent="space_between"
+                    >
+
+                <Button
+                        android:id="@+id/button_showFloatingWithinApp"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="显示应用级悬浮窗"
+                        />
+
+                <Button
+                        android:id="@+id/button_closeFloatingWithinApp"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="隐藏应用级悬浮窗"
+                        />
+
+                <Button
+                        android:id="@+id/button_showFloatingWithinSystem"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="显示系统级悬浮窗"
+                        />
+
+                <Button
+                        android:id="@+id/button_closeFloatingWithinSystem"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="隐藏系统级悬浮窗"
+                        />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/flexboxLayout_autoShortedFloatingView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:alignItems="center"
+                    app:flexDirection="row"
+                    app:justifyContent="space_between"
+                    >
+
+                <Button
+                        android:id="@+id/button_showAutoShortedFloatingView"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="显示播放器悬浮窗"
+                        />
+
+                <Button
+                        android:id="@+id/button_closeAutoShortedFloatingView"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="隐藏播放器悬浮窗"
+                        />
+
+                <Button
+                        android:id="@+id/button_lengthenAutoShortedFloatingView"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="展开播放器悬浮窗"
+                        />
+
+                <Button
+                        android:id="@+id/button_shortenAutoShortedFloatingView"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="收起播放器悬浮窗"
+                        />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/flexboxLayout_audioPlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:alignItems="center"
+                    app:flexDirection="row"
+                    app:justifyContent="space_between"
+                    >
+
+                <Button
+                        android:id="@+id/button_playPauseController"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="播放"
+                        />
+
+                <Button
+                        android:id="@+id/button_previous"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="上一首"
+                        />
+
+                <Button
+                        android:id="@+id/button_next"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="下一首"
+                        />
+
+                <Button
+                        android:id="@+id/button_switchVoice"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="切换音源"
+                        />
+
+                <Button
+                        android:id="@+id/button_stop"
+                        style="@style/comres_common_btn_default_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="停止"
+                        />
+            </com.google.android.flexbox.FlexboxLayout>
+        </com.google.android.flexbox.FlexboxLayout>
+    </ScrollView>
+</LinearLayout>

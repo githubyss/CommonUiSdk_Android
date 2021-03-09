@@ -5,14 +5,18 @@ import androidx.fragment.app.Fragment
 import com.githubyss.mobile.common.ui.R
 import kotlinx.android.synthetic.main.comui_toolbar_base.*
 
+
 /**
- * BaseFragment.ktDescription>
- * <Details>
+ * BaseFragment
  *
  * @author Ace Yan
  * @github githubyss
+ * @createdTime 2021/03/09 14:35:12
  */
 abstract class BaseFragment : Fragment() {
+
+    /** ********* ********** ********** Open ********** ********** ********** */
+
     /** Bind Presenter. by Ace Yan*/
     open fun bindPresenter() {}
 
@@ -25,6 +29,8 @@ abstract class BaseFragment : Fragment() {
     /** Refresh Views. by Ace Yan */
     open fun refreshView() {}
 
+
+    /** ********** ********** ********** Functions ********** ********** ********** */
 
     /** Change button status. by Ace Yan */
     protected fun changeBtnStatus(button: Button?, status: Boolean) {

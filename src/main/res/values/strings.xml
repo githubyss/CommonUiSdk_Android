@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="comui_app_name">CommonUiSdk Android</string>
+    <string name="comui_app_name">UI调试</string>
+
+    <string name="comui_homepage_title">UI调试</string>
 </resources>

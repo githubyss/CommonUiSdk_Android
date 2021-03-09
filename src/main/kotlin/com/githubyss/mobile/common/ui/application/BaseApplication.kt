@@ -10,18 +10,26 @@ import kotlin.properties.Delegates
 
 
 open class BaseApplication : Application() {
+
+    /** ********** ********** ********** Companion ********** ********** ********** */
+
     companion object {
         var instance: BaseApplication by Delegates.notNull()
             private set
 
-        private val TAG = BaseApplication::class.simpleName
+        private val TAG = BaseApplication::class.simpleName ?: "simpleName is null"
     }
 
+
+    /** ********* ********** ********** Override ********** ********** ********** */
 
     override fun onCreate() {
         super.onCreate()
         instance = this
     }
+    
+
+    /** ********* ********** ********** Open ********** ********** ********** */
 
     open fun initARouter(application: Application) {
         if (BuildConfig.DEBUG) {

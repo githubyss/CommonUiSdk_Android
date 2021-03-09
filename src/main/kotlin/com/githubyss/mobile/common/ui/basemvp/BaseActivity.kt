@@ -10,28 +10,29 @@ import androidx.fragment.app.Fragment
 import com.githubyss.mobile.common.ui.R
 import kotlinx.android.synthetic.main.comui_toolbar_base.*
 
+
 /**
- * BaseActivity* <Description>
- * <Details>
+ * BaseActivity
  *
  * @author Ace Yan
  * @github githubyss
+ * @createdTime 2021/03/09 14:35:21
  */
 abstract class BaseActivity : AppCompatActivity() {
-    /** Toolbar navigation click listener in BaseActivity. by Ace Yan */
-    interface OnComuiBaseToolbarNavigationClickListener {
-        fun onClick(v: View)
+
+    /** ********* ********** ********** Override ********** ********** ********** */
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.comui_activity_base)
+
+        /** Make sure that you can use Toolbar as simple as ActionBar. by Ace Yan */
+        setSupportActionBar(toolbarBase)
     }
 
-    /** Toolbar menu item click listener in BaseActivity. by Ace Yan */
-    interface OnComuiBaseToolbarMenuItemClickListener {
-        fun onClick(item: MenuItem): Boolean
-    }
 
-    interface OnComuiBaseToolbarLongClickListener {
-        fun onLongClick(v: View): Boolean
-    }
-
+    /** ********* ********** ********** Open ********** ********** ********** */
 
     /** Bind Presenter. by Ace Yan */
     open fun bindPresenter() {}
@@ -45,6 +46,8 @@ abstract class BaseActivity : AppCompatActivity() {
     /** Refresh Views. by Ace Yan */
     open fun refreshView() {}
 
+
+    /** ********** ********** ********** Functions ********** ********** ********** */
 
     /** Setup Toolbar title by ResId. by Ace Yan */
     protected fun setToolbarTitle(titleResId: Int) {
@@ -108,7 +111,11 @@ abstract class BaseActivity : AppCompatActivity() {
         fragmentTransaction.commitAllowingStateLoss()
     }
 
-    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean) {
+    protected fun replaceFragment(
+        fragment: Fragment,
+        tag: String? = null,
+        addToBackStack: Boolean
+    ) {
         if (supportFragmentManager.findFragmentByTag(tag) != null) {
             return
         }
@@ -123,12 +130,19 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    /** ********** ********** ********** Interface ********** ********** ********** */
 
-        setContentView(R.layout.comui_activity_base)
+    /** Toolbar navigation click listener in BaseActivity. by Ace Yan */
+    interface OnComuiBaseToolbarNavigationClickListener {
+        fun onClick(v: View)
+    }
 
-        /** Make sure that you can use Toolbar as simple as ActionBar. by Ace Yan */
-        setSupportActionBar(toolbarBase)
+    /** Toolbar menu item click listener in BaseActivity. by Ace Yan */
+    interface OnComuiBaseToolbarMenuItemClickListener {
+        fun onClick(item: MenuItem): Boolean
+    }
+
+    interface OnComuiBaseToolbarLongClickListener {
+        fun onLongClick(v: View): Boolean
     }
 }
