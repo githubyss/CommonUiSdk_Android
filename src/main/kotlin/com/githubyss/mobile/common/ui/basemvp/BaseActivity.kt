@@ -48,7 +48,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     /** Setup Toolbar title by ResId. by Ace Yan */
     protected fun setToolbarTitle(titleResId: Int) {
-//        toolbarBase.title = ResUtils.getString(this@BaseActivity, titleResId)
+//        toolbarBase.title = ResourceUtils.getString(this@BaseActivity, titleResId)
         toolbarBase.setTitle(titleResId)
     }
 
@@ -59,7 +59,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     /** Setup Toolbar navigation icon by ResId. by Ace Yan */
     protected fun setToolbarNavigationIcon(iconResId: Int) {
-//        toolbarBase.navigationIcon = ResUtils.getDrawable(this@BaseActivity, iconResId)
+//        toolbarBase.navigationIcon = ResourceUtils.getDrawable(this@BaseActivity, iconResId)
         toolbarBase.setNavigationIcon(iconResId)
     }
 

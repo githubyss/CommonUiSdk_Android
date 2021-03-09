@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.githubyss.mobile.common.kit.util.LogcatUtils
-import com.githubyss.mobile.common.kit.util.ResUtils
+import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.R
 
 
@@ -159,9 +159,9 @@ class CommonDialog @SuppressLint("ValidFragment") private constructor() : Dialog
             btnLeft?.text = btnLeftStr
             btnLeft?.visibility = View.VISIBLE
             if (btnLeftHighlightStatus) {
-                btnLeft?.setTextColor(ResUtils.getColor(resId = R.color.comres_color_1f86ed))
+                btnLeft?.setTextColor(ResourceUtils.getColor(R.color.comres_color_1f86ed))
             } else {
-                btnLeft?.setTextColor(ResUtils.getColor(resId = R.color.comres_color_353d44))
+                btnLeft?.setTextColor(ResourceUtils.getColor(R.color.comres_color_353d44))
             }
         }
         
@@ -169,9 +169,9 @@ class CommonDialog @SuppressLint("ValidFragment") private constructor() : Dialog
             btnRight?.text = btnRightStr
             btnRight?.visibility = View.VISIBLE
             if (btnRightHighlightStatus) {
-                btnRight?.setTextColor(ResUtils.getColor(resId = R.color.comres_color_1f86ed))
+                btnRight?.setTextColor(ResourceUtils.getColor(R.color.comres_color_1f86ed))
             } else {
-                btnRight?.setTextColor(ResUtils.getColor(resId = R.color.comres_color_353d44))
+                btnRight?.setTextColor(ResourceUtils.getColor(R.color.comres_color_353d44))
             }
         }
         
