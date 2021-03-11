@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_multiFooterItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/comres_side_margin_default"
+        android:paddingRight="@dimen/comres_side_margin_default"
+        app:alignItems="flex_start"
+        app:flexDirection="column"
+        app:justifyContent="center"
+        >
+
+    <TextView
+            android:id="@+id/textView_multiFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Footer"
+            android:textColor="@color/comres_color_red"
+            android:textSize="@dimen/comres_text_size_20_sp"
+            />
+</com.google.android.flexbox.FlexboxLayout>

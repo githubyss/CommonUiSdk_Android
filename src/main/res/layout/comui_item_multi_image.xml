@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_multiImageItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/comres_layout_bg_color_light_gray"
+        android:paddingLeft="@dimen/comres_side_margin_default"
+        android:paddingRight="@dimen/comres_side_margin_default"
+        app:alignItems="flex_start"
+        app:flexDirection="column"
+        app:justifyContent="space_between"
+        >
+
+    <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:alignItems="center"
+            app:flexDirection="row"
+            app:justifyContent="flex_start"
+            >
+
+        <ImageView
+                android:id="@+id/imageView_multiImageDisplay"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/comui_lucky_money"
+                />
+
+        <TextView
+                android:id="@+id/textView_multiImageTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Title"
+                android:textColor="@color/comres_color_black"
+                android:textSize="@dimen/comres_text_size_16_sp"
+                />
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <include layout="@layout/comres_view_separator_horizontal_common_default" />
+</com.google.android.flexbox.FlexboxLayout>
