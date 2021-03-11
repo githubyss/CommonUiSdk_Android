@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/comres_both_match_parent_style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/comres_layout_bg_color_light_gray"
         android:orientation="vertical"
         >
@@ -26,7 +27,7 @@
 
             <Button
                     android:id="@+id/btnMove"
-                    style="@style/comres_common_btn_default_style"
+                    style="@style/comres_default_click_button_style"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:text="Move"
@@ -34,7 +35,7 @@
 
             <Button
                     android:id="@+id/btnScale"
-                    style="@style/comres_common_btn_default_style"
+                    style="@style/comres_default_click_button_style"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
@@ -54,7 +55,7 @@
 
             <Button
                     android:id="@+id/btnShow"
-                    style="@style/comres_common_btn_default_style"
+                    style="@style/comres_default_click_button_style"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:text="Show"
@@ -62,7 +63,7 @@
 
             <Button
                     android:id="@+id/btnHide"
-                    style="@style/comres_common_btn_default_style"
+                    style="@style/comres_default_click_button_style"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
@@ -80,7 +81,7 @@
 
         <Button
                 android:id="@+id/btnAnimator"
-                style="@style/comres_common_btn_default_style"
+                style="@style/comres_default_click_button_style"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 />

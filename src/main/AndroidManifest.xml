@@ -12,14 +12,14 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/comui_app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
-            android:theme="@style/comres_app_theme"
+            android:theme="@style/comres_default_app_theme"
             android:allowBackup="true"
             android:supportsRtl="true"
             >
 
         <activity
                 android:name="com.githubyss.mobile.common.debug.homepage.ComuiHomepageActivity"
-                android:theme="@style/comres_activity_theme"
+                android:theme="@style/comres_activity_no_action_bar_theme"
                 android:label="@string/comui_homepage_title"
                 android:launchMode="singleTask"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"

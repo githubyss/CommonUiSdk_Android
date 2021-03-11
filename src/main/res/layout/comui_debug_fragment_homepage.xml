@@ -3,14 +3,16 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        style="@style/comres_both_match_parent_style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/comres_layout_bg_color_light_gray"
         android:orientation="vertical"
         tools:context="com.githubyss.mobile.common.debug.homepage.ComuiHomepageActivity"
         >
 
     <ScrollView
-            style="@style/comres_both_match_parent_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:fillViewport="true"
             android:scrollbars="none"
             >
@@ -29,7 +31,7 @@
 
             <Button
                     android:id="@+id/button_propertyAnimation"
-                    style="@style/comres_common_btn_default_style"
+                    style="@style/comres_default_click_button_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -38,7 +40,7 @@
 
             <Button
                     android:id="@+id/button_tweenAnimation"
-                    style="@style/comres_common_btn_default_style"
+                    style="@style/comres_default_click_button_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -47,7 +49,7 @@
 
             <Button
                     android:id="@+id/button_recyclerView"
-                    style="@style/comres_common_btn_default_style"
+                    style="@style/comres_default_click_button_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -66,7 +68,7 @@
 
                 <Button
                         android:id="@+id/button_showFloatingWithinApp"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="显示应用级悬浮窗"
@@ -74,7 +76,7 @@
 
                 <Button
                         android:id="@+id/button_closeFloatingWithinApp"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="隐藏应用级悬浮窗"
@@ -82,7 +84,7 @@
 
                 <Button
                         android:id="@+id/button_showFloatingWithinSystem"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="显示系统级悬浮窗"
@@ -90,7 +92,7 @@
 
                 <Button
                         android:id="@+id/button_closeFloatingWithinSystem"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="隐藏系统级悬浮窗"
@@ -109,7 +111,7 @@
 
                 <Button
                         android:id="@+id/button_showAutoShortedFloatingView"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="显示播放器悬浮窗"
@@ -117,7 +119,7 @@
 
                 <Button
                         android:id="@+id/button_closeAutoShortedFloatingView"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="隐藏播放器悬浮窗"
@@ -125,7 +127,7 @@
 
                 <Button
                         android:id="@+id/button_lengthenAutoShortedFloatingView"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="展开播放器悬浮窗"
@@ -133,7 +135,7 @@
 
                 <Button
                         android:id="@+id/button_shortenAutoShortedFloatingView"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="收起播放器悬浮窗"
@@ -152,7 +154,7 @@
 
                 <Button
                         android:id="@+id/button_playPauseController"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="播放"
@@ -160,7 +162,7 @@
 
                 <Button
                         android:id="@+id/button_previous"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="上一首"
@@ -168,7 +170,7 @@
 
                 <Button
                         android:id="@+id/button_next"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="下一首"
@@ -176,7 +178,7 @@
 
                 <Button
                         android:id="@+id/button_switchVoice"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="切换音源"
@@ -184,7 +186,7 @@
 
                 <Button
                         android:id="@+id/button_stop"
-                        style="@style/comres_common_btn_default_style"
+                        style="@style/comres_default_click_button_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="停止"

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/comres_both_match_parent_style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/comres_layout_bg_color_transparent"
         android:orientation="vertical"
         >
@@ -10,7 +11,8 @@
 
     <FrameLayout
             android:id="@+id/flFragmentContainer"
-            style="@style/comres_both_match_parent_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@color/comres_layout_bg_color_transparent"
             />
 </LinearLayout>
