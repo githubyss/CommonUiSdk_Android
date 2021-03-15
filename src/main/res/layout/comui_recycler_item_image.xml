@@ -2,7 +2,7 @@
 <com.google.android.flexbox.FlexboxLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layout_multiImageItem"
+        android:id="@+id/layout_recyclerItemImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/comres_layout_bg_color_light_gray"
@@ -22,14 +22,14 @@
             >
 
         <ImageView
-                android:id="@+id/imageView_multiImageDisplay"
+                android:id="@+id/imageView_recyclerImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/comui_lucky_money"
                 />
 
         <TextView
-                android:id="@+id/textView_multiImageTitle"
+                android:id="@+id/textView_recyclerImageDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"

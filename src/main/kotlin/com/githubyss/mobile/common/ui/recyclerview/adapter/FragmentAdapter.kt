@@ -1,27 +1,33 @@
-package com.githubyss.mobile.common.ui.recyclerview.multitype
+package com.githubyss.mobile.common.ui.recyclerview.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.model.FragmentModel
+import com.githubyss.mobile.common.ui.recyclerview.model.ImageModel
+import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiType
 import com.githubyss.mobile.common.ui.recyclerview.viewholder.*
 
 
 /**
- * SingleSelectionAdapter
+ * FragmentAdapter
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/09 16:24:27
+ * @createdTime 2021/03/11 19:44:10
  */
-class MultiTypeAdapter constructor(private val dataList: List<MultiTypeModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FragmentAdapter constructor(private val dataList: List<FragmentModel>, private val activity: FragmentActivity?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var selectedPosition = 0
-    private var onItemClickListener: OnItemClickListener? = null
+    var onItemClickListener: OnItemClickListener? = null
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
@@ -59,14 +65,8 @@ class MultiTypeAdapter constructor(private val dataList: List<MultiTypeModel>) :
             MultiType.FOOTER -> {
                 FooterHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_footer, parent, false))
             }
-            MultiType.TEXT -> {
-                TextHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_text, parent, false))
-            }
-            MultiType.IMAGE -> {
-                ImageHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_image, parent, false))
-            }
             else -> {
-                EmptyHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty, parent, false))
+                FragmentHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fragment, parent, false))
             }
         }
     }
@@ -77,31 +77,16 @@ class MultiTypeAdapter constructor(private val dataList: List<MultiTypeModel>) :
             is EmptyHolder -> {
             }
             is HeaderHolder -> {
-                holder.tvTitle.text = "~~~ HEADER ~~~"
+                holder.tvTitle.text = "FRAGMENT HEADER"
             }
             is FooterHolder -> {
-                holder.tvTitle.text = "~~~ FOOTER ~~~"
+                holder.tvTitle.text = "FRAGMENT FOOTER"
             }
-            is TextHolder -> {
-                holder.tvText.text = dataModel.title
-                holder.ivSelect.isSelected = dataModel.selectStatus
-                holder.ivSelect.visibility = if (dataModel.selectStatus) View.VISIBLE else View.GONE
-                holder.layoutItem.setOnClickListener {
-                    if (selectedPosition != position) {
-                        dataList[selectedPosition].selectStatus = false
-                        notifyItemChanged(selectedPosition)
-                        
-                        dataList[position].selectStatus = true
-                        notifyItemChanged(position)
-                        
-                        onItemClickListener?.onItemClick(holder, position)
-                        selectedPosition = position
-                    }
-                }
-            }
-            is ImageHolder -> {
-                holder.tvImageDescription.text = dataModel.title
-                GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
+            is FragmentHolder -> {
+                val fragmentId = View.generateViewId()
+                holder.layoutFragment.id = fragmentId
+                val fragmentManager = activity?.supportFragmentManager
+                fragmentManager?.beginTransaction()?.add(fragmentId, dataModel.fragment ?: return)?.commit()
             }
             else -> {
             }
@@ -111,12 +96,7 @@ class MultiTypeAdapter constructor(private val dataList: List<MultiTypeModel>) :
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.onItemClickListener = onItemClickListener
-    }
-    
     private fun initData() {
-        dataList.indices.asSequence().filter { dataList[it].selectStatus }.forEach { selectedPosition = it }
     }
     
     

@@ -38,12 +38,12 @@ abstract class BaseFragment : Fragment() {
         button?.isClickable = status
     }
 
-    /** Setup Toolbar title by ResId. by Ace Yan */
+    /** Setup Toolbar text by ResId. by Ace Yan */
     protected fun setToolbarTitle(titleResId: Int) {
         activity?.let { it.toolbarBase.setTitle(titleResId) }
     }
 
-    /** Setup Toolbar title by String. by Ace Yan */
+    /** Setup Toolbar text by String. by Ace Yan */
     protected fun setToolbarTitle(titleString: String) {
         activity?.let { it.toolbarBase.title = titleString }
     }

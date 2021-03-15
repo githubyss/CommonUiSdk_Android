@@ -4,47 +4,46 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.TextHolder
+import com.githubyss.mobile.common.ui.recyclerview.adapter.FragmentAdapter
+import com.githubyss.mobile.common.ui.recyclerview.fragment.ImageFragment
+import com.githubyss.mobile.common.ui.recyclerview.fragment.TextFragment
+import com.githubyss.mobile.common.ui.recyclerview.model.FragmentModel
 import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiType
+import com.githubyss.mobile.common.ui.recyclerview.viewholder.TextHolder
 import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiTypeAdapter
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiTypeModel
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 
 /**
- * ComuiRecyclerViewFragment
+ * ComuiMultiFragmentRecyclerViewFragment
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/09 11:02:35
+ * @createdTime 2021/03/11 17:22:07
  */
-class ComuiRecyclerViewFragment : BaseFragment() {
+class ComuiMultiFragmentRecyclerViewFragment : BaseFragment() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
-        val TAG = ComuiRecyclerViewFragment::class.simpleName ?: "simpleName is null"
+        val TAG = ComuiMultiFragmentRecyclerViewFragment::class.simpleName ?: "simpleName is null"
     }
     
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var rootView: View? = null
-    private var dataList = ArrayList<MultiTypeModel>()
-    private var rvAdapter: MultiTypeAdapter? = null
+    private var dataList = ArrayList<FragmentModel>()
+    private var rvAdapter: FragmentAdapter? = null
     
-    private val onItemClickListener = object : MultiTypeAdapter.OnItemClickListener {
+    private val onItemClickListener = object : FragmentAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
-            when (holder) {
-                is TextHolder -> {
-                    ToastUtils.showMessage(msgStr = "${holder.tvText.text} was selected")
-                }
-            }
         }
     }
     
@@ -63,24 +62,15 @@ class ComuiRecyclerViewFragment : BaseFragment() {
     }
     
     override fun initData() {
-        dataList.add(MultiTypeModel("Header", "", false, MultiType.HEADER))
-        
-        (0 until 10).forEach {
-            val dataModel = MultiTypeModel("Row $it", "", false, MultiType.TEXT)
-            dataList.add(dataModel)
-        }
-        
-        dataList.add(MultiTypeModel("狗狗", "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", false, MultiType.IMAGE))
-        dataList.add(MultiTypeModel("狗狗", "小傻狗", false, MultiType.TEXT))
-        dataList.add(MultiTypeModel("变色龙", "https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", false, MultiType.IMAGE))
-        dataList.add(MultiTypeModel("猫猫", "https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", false, MultiType.IMAGE))
-        
-        dataList.add(MultiTypeModel("Footer", "", false, MultiType.FOOTER))
+        // dataList.add(FragmentModel(null, MultiType.HEADER))
+        dataList.add(FragmentModel(TextFragment(), MultiType.FRAGMENT))
+        dataList.add(FragmentModel(ImageFragment(), MultiType.FRAGMENT))
+        // dataList.add(FragmentModel(null, MultiType.FOOTER))
     }
     
     override fun initView() {
-        rvAdapter = MultiTypeAdapter(dataList)
-        rvAdapter?.setOnItemClickListener(onItemClickListener)
+        rvAdapter = FragmentAdapter(dataList, activity)
+        rvAdapter?.onItemClickListener = onItemClickListener
         
         recyclerView_container.setHasFixedSize(true)
         recyclerView_container.layoutManager = LinearLayoutManager(activity)

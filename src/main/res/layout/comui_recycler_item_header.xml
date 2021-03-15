@@ -2,7 +2,7 @@
 <com.google.android.flexbox.FlexboxLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layout_multiHeaderItem"
+        android:id="@+id/layout_recyclerItemHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/comres_side_margin_default"
@@ -13,7 +13,7 @@
         >
 
     <TextView
-            android:id="@+id/textView_multiHeader"
+            android:id="@+id/textView_recyclerHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Header"

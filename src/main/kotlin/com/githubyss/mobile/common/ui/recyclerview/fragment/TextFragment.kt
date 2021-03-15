@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.recyclerview
+package com.githubyss.mobile.common.ui.recyclerview.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,36 +9,36 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
+import com.githubyss.mobile.common.ui.recyclerview.model.TextModel
 import com.githubyss.mobile.common.ui.recyclerview.viewholder.TextHolder
 import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiTypeAdapter
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiTypeModel
+import com.githubyss.mobile.common.ui.recyclerview.adapter.TextAdapter
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 
 /**
- * ComuiRecyclerViewFragment
+ * TextFragment
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/09 11:02:35
+ * @createdTime 2021/03/11 17:35:13
  */
-class ComuiRecyclerViewFragment : BaseFragment() {
+class TextFragment : BaseFragment() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
-        val TAG = ComuiRecyclerViewFragment::class.simpleName ?: "simpleName is null"
+        val TAG = TextFragment::class.simpleName ?: "simpleName is null"
     }
     
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var rootView: View? = null
-    private var dataList = ArrayList<MultiTypeModel>()
-    private var rvAdapter: MultiTypeAdapter? = null
+    private var dataList = ArrayList<TextModel>()
+    private var rvAdapter: TextAdapter? = null
     
-    private val onItemClickListener = object : MultiTypeAdapter.OnItemClickListener {
+    private val onItemClickListener = object : TextAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
             when (holder) {
                 is TextHolder -> {
@@ -63,24 +63,17 @@ class ComuiRecyclerViewFragment : BaseFragment() {
     }
     
     override fun initData() {
-        dataList.add(MultiTypeModel("Header", "", false, MultiType.HEADER))
-        
+        dataList.add(TextModel("", false, MultiType.HEADER))
         (0 until 10).forEach {
-            val dataModel = MultiTypeModel("Row $it", "", false, MultiType.TEXT)
+            val dataModel = TextModel("喵$it", false, MultiType.TEXT)
             dataList.add(dataModel)
         }
-        
-        dataList.add(MultiTypeModel("狗狗", "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", false, MultiType.IMAGE))
-        dataList.add(MultiTypeModel("狗狗", "小傻狗", false, MultiType.TEXT))
-        dataList.add(MultiTypeModel("变色龙", "https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", false, MultiType.IMAGE))
-        dataList.add(MultiTypeModel("猫猫", "https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", false, MultiType.IMAGE))
-        
-        dataList.add(MultiTypeModel("Footer", "", false, MultiType.FOOTER))
+        dataList.add(TextModel("", false, MultiType.FOOTER))
     }
     
     override fun initView() {
-        rvAdapter = MultiTypeAdapter(dataList)
-        rvAdapter?.setOnItemClickListener(onItemClickListener)
+        rvAdapter = TextAdapter(dataList)
+        rvAdapter?.onItemClickListener = onItemClickListener
         
         recyclerView_container.setHasFixedSize(true)
         recyclerView_container.layoutManager = LinearLayoutManager(activity)

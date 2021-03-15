@@ -1,0 +1,22 @@
+package com.githubyss.mobile.common.ui.recyclerview.viewholder
+
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.ui.R
+import com.google.android.flexbox.FlexboxLayout
+
+
+/**
+ * ImageHolder
+ *
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2021/03/11 09:17:32
+ */
+class ImageHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+    var layoutItem = view.findViewById<View>(R.id.layout_recyclerItemImage) as FlexboxLayout
+    var ivImage = view.findViewById<View>(R.id.imageView_recyclerImage) as ImageView
+    var tvImageDescription = view.findViewById<View>(R.id.textView_recyclerImageDescription) as TextView
+}

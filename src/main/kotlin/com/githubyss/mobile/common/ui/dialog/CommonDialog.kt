@@ -30,7 +30,7 @@ class CommonDialog @SuppressLint("ValidFragment") private constructor() : Dialog
         
         val TAG = CommonDialog::class.java.simpleName
         
-        private val KEY_TITLE = "title"
+        private val KEY_TITLE = "text"
         private val KEY_FIRST_LINE = "firstLine"
         private val KEY_SECOND_LINE = "secondLine"
         private val KEY_BTN_LEFT = "btnLeft"

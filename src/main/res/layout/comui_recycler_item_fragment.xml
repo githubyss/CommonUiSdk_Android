@@ -2,22 +2,18 @@
 <com.google.android.flexbox.FlexboxLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layout_multiFooterItem"
+        android:id="@+id/layout_recyclerItemFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/comres_side_margin_default"
-        android:paddingRight="@dimen/comres_side_margin_default"
-        app:alignItems="flex_start"
+        app:alignItems="center"
         app:flexDirection="column"
         app:justifyContent="center"
         >
 
-    <TextView
-            android:id="@+id/textView_multiFooter"
+    <FrameLayout
+            android:id="@+id/layout_recyclerFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Footer"
-            android:textColor="@color/comres_color_red"
-            android:textSize="@dimen/comres_text_size_20_sp"
+            android:background="@color/comres_layout_bg_color_transparent"
             />
 </com.google.android.flexbox.FlexboxLayout>

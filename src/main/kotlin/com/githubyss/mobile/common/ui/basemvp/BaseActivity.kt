@@ -19,89 +19,89 @@ import kotlinx.android.synthetic.main.comui_toolbar_base.*
  * @createdTime 2021/03/09 14:35:21
  */
 abstract class BaseActivity : AppCompatActivity() {
-
+    
     /** ********* ********** ********** Override ********** ********** ********** */
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        
         setContentView(R.layout.comui_activity_base)
-
+        
         /** Make sure that you can use Toolbar as simple as ActionBar. by Ace Yan */
         setSupportActionBar(toolbarBase)
     }
-
-
+    
+    
     /** ********* ********** ********** Open ********** ********** ********** */
-
+    
     /** Bind Presenter. by Ace Yan */
     open fun bindPresenter() {}
-
+    
     /** Init Views, Listeners, Adapters, and so on. by Ace Yan */
     open fun initView() {}
-
+    
     /** Init default value of Top-level variables, and so on. by Ace Yan */
     open fun initData() {}
-
+    
     /** Refresh Views. by Ace Yan */
     open fun refreshView() {}
-
-
+    
+    
     /** ********** ********** ********** Functions ********** ********** ********** */
-
-    /** Setup Toolbar title by ResId. by Ace Yan */
+    
+    /** Setup Toolbar text by ResId. by Ace Yan */
     protected fun setToolbarTitle(titleResId: Int) {
-//        toolbarBase.title = ResourceUtils.getString(this@BaseActivity, titleResId)
+        //        toolbarBase.text = ResourceUtils.getString(this@BaseActivity, titleResId)
         toolbarBase.setTitle(titleResId)
     }
-
-    /** Setup Toolbar title by String. by Ace Yan */
+    
+    /** Setup Toolbar text by String. by Ace Yan */
     protected fun setToolbarTitle(titleString: String) {
         toolbarBase.title = titleString
     }
-
+    
     /** Setup Toolbar navigation icon by ResId. by Ace Yan */
     protected fun setToolbarNavigationIcon(iconResId: Int) {
-//        toolbarBase.navigationIcon = ResourceUtils.getDrawable(this@BaseActivity, iconResId)
+        //        toolbarBase.navigationIcon = ResourceUtils.getDrawable(this@BaseActivity, iconResId)
         toolbarBase.setNavigationIcon(iconResId)
     }
-
+    
     /** Setup Toolbar navigation icon by Drawable. by Ace Yan */
     protected fun setToolbarNavigationIcon(iconDrawable: Drawable) {
         toolbarBase.navigationIcon = iconDrawable
     }
-
+    
     /** Setup Toolbar navigation click listener. by Ace Yan */
     protected fun setToolbarNavigationOnClickListener(onComuiBaseToolbarNavigationClickListener: OnComuiBaseToolbarNavigationClickListener) {
         toolbarBase.setNavigationOnClickListener { v ->
             onComuiBaseToolbarNavigationClickListener.onClick(v)
         }
     }
-
+    
     /** Setup Toolbar menu item click listener. by Ace Yan */
     protected fun setToolbarMenuItemOnClickListener(onComuiBaseToolbarMenuItemClickListener: OnComuiBaseToolbarMenuItemClickListener) {
         toolbarBase.setOnMenuItemClickListener { item ->
             onComuiBaseToolbarMenuItemClickListener.onClick(item)
         }
     }
-
+    
     /** Get the menu in Toolbar. by Ace Yan */
     protected fun getMenu(): Menu {
         return toolbarBase.menu
     }
-
+    
     protected fun setToolbarOnLongClickListener(onComuiBaseToolbarLongClickListener: OnComuiBaseToolbarLongClickListener) {
         toolbarBase.setOnLongClickListener { v ->
             onComuiBaseToolbarLongClickListener.onLongClick(v)
         }
     }
-
+    
     /** Add fragment to activity. by Ace Yan */
     protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean) {
         if (supportFragmentManager.findFragmentByTag(tag) != null) {
             return
         }
-
+        
         fragment.arguments = intent.extras
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.flFragmentContainer, fragment, tag)
@@ -110,16 +110,12 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         fragmentTransaction.commitAllowingStateLoss()
     }
-
-    protected fun replaceFragment(
-        fragment: Fragment,
-        tag: String? = null,
-        addToBackStack: Boolean
-    ) {
+    
+    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean) {
         if (supportFragmentManager.findFragmentByTag(tag) != null) {
             return
         }
-
+        
         fragment.arguments = intent.extras
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.flFragmentContainer, fragment, tag)
@@ -128,20 +124,20 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         fragmentTransaction.commitAllowingStateLoss()
     }
-
-
+    
+    
     /** ********** ********** ********** Interface ********** ********** ********** */
-
+    
     /** Toolbar navigation click listener in BaseActivity. by Ace Yan */
     interface OnComuiBaseToolbarNavigationClickListener {
         fun onClick(v: View)
     }
-
+    
     /** Toolbar menu item click listener in BaseActivity. by Ace Yan */
     interface OnComuiBaseToolbarMenuItemClickListener {
         fun onClick(item: MenuItem): Boolean
     }
-
+    
     interface OnComuiBaseToolbarLongClickListener {
         fun onLongClick(v: View): Boolean
     }
