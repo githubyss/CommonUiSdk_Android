@@ -65,11 +65,11 @@ class ComuiMultiFragmentRecyclerViewFragment : BaseFragment() {
         // dataList.add(FragmentModel(null, MultiType.HEADER))
         dataList.add(FragmentModel(TextFragment(), MultiType.FRAGMENT))
         dataList.add(FragmentModel(ImageFragment(), MultiType.FRAGMENT))
-        // dataList.add(FragmentModel(null, MultiType.FOOTER))
+        dataList.add(FragmentModel(null, MultiType.FOOTER))
     }
     
     override fun initView() {
-        rvAdapter = FragmentAdapter(dataList, activity)
+        rvAdapter = FragmentAdapter(dataList, this)
         rvAdapter?.onItemClickListener = onItemClickListener
         
         recyclerView_container.setHasFixedSize(true)

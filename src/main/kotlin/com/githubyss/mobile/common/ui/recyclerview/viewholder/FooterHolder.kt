@@ -15,6 +15,6 @@ import com.google.android.flexbox.FlexboxLayout
  * @createdTime 2021/03/11 10:30:07
  */
 class FooterHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-    var layoutItem = view.findViewById<View>(R.id.layout_recyclerFooterItem) as FlexboxLayout
-    var tvTitle = view.findViewById<View>(R.id.textView_recyclerFooter) as TextView
+    var layoutItem = view.findViewById(R.id.layout_recyclerFooterItem) as FlexboxLayout
+    var tvTitle = view.findViewById(R.id.textView_recyclerFooter) as TextView
 }

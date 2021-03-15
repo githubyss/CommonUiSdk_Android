@@ -230,7 +230,7 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
     private fun getActivityRoot(activity: Activity?): FrameLayout? {
         if (activity == null) return null
         try {
-            return activity.window.decorView.findViewById<View>(R.id.content) as FrameLayout
+            return activity.window.decorView.findViewById(R.id.content) as FrameLayout
         } catch (e: Exception) {
             e.printStackTrace()
         }

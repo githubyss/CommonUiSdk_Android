@@ -11,7 +11,7 @@
         >
 
     <FrameLayout
-            android:id="@+id/layout_recyclerFragment"
+            android:id="@+id/layout_recyclerFrameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/comres_layout_bg_color_transparent"

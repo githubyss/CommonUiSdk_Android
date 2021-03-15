@@ -3,6 +3,8 @@ package com.githubyss.mobile.common.debug.homepage
 import android.os.Bundle
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseActivity
+import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingAudioPlayer
+import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingIcon
 
 
 /**
@@ -31,5 +33,21 @@ class ComuiHomepageActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         setToolbarTitle(R.string.comui_homepage_title)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        AppFloatingIcon.getInstance(this)
+            .attach(this)
+        AppFloatingAudioPlayer.getInstance(this)
+            .attach(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        AppFloatingIcon.getInstance(this)
+            .detach(this)
+        AppFloatingAudioPlayer.getInstance(this)
+            .detach(this)
     }
 }

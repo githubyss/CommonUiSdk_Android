@@ -1,18 +1,21 @@
 package com.githubyss.mobile.common.ui.recyclerview.adapter
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.kit.glide.GlideUtils
+import com.githubyss.mobile.common.kit.enumeration.VersionCode
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.fragment.TextFragment
 import com.githubyss.mobile.common.ui.recyclerview.model.FragmentModel
-import com.githubyss.mobile.common.ui.recyclerview.model.ImageModel
 import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.*
+import com.githubyss.mobile.common.ui.recyclerview.viewholder.EmptyHolder
+import com.githubyss.mobile.common.ui.recyclerview.viewholder.FooterHolder
+import com.githubyss.mobile.common.ui.recyclerview.viewholder.FragmentHolder
+import com.githubyss.mobile.common.ui.recyclerview.viewholder.HeaderHolder
 
 
 /**
@@ -22,7 +25,7 @@ import com.githubyss.mobile.common.ui.recyclerview.viewholder.*
  * @github githubyss
  * @createdTime 2021/03/11 19:44:10
  */
-class FragmentAdapter constructor(private val dataList: List<FragmentModel>, private val activity: FragmentActivity?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FragmentAdapter constructor(private val dataList: List<FragmentModel>, private var fragment: Fragment?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -83,10 +86,10 @@ class FragmentAdapter constructor(private val dataList: List<FragmentModel>, pri
                 holder.tvTitle.text = "FRAGMENT FOOTER"
             }
             is FragmentHolder -> {
-                val fragmentId = View.generateViewId()
-                holder.layoutFragment.id = fragmentId
-                val fragmentManager = activity?.supportFragmentManager
-                fragmentManager?.beginTransaction()?.add(fragmentId, dataModel.fragment ?: return)?.commit()
+                val fragmentManager = fragment?.childFragmentManager
+                val newContainerId = View.generateViewId()
+                holder.layoutFrameLayout.id = newContainerId
+                fragmentManager?.beginTransaction()?.replace(holder.layoutFrameLayout.id, dataModel.fragment ?: return)?.commit()
             }
             else -> {
             }

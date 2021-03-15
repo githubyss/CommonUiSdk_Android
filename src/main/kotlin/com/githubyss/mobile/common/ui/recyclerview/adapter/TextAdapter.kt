@@ -75,10 +75,10 @@ class TextAdapter constructor(private val dataList: List<TextModel>) : RecyclerV
             is EmptyHolder -> {
             }
             is HeaderHolder -> {
-                holder.tvTitle.text = "TEXT HEADER"
+                holder.tvTitle.text = "~~~TEXT HEADER ~~~"
             }
             is FooterHolder -> {
-                holder.tvTitle.text = "TEXT FOOTER"
+                holder.tvTitle.text = "~~~ TEXT FOOTER ~~~"
             }
             is TextHolder -> {
                 holder.tvText.text = dataModel.text

@@ -63,12 +63,12 @@ class TextFragment : BaseFragment() {
     }
     
     override fun initData() {
-        dataList.add(TextModel("", false, MultiType.HEADER))
+        // dataList.add(TextModel("", false, MultiType.HEADER))
         (0 until 10).forEach {
             val dataModel = TextModel("喵$it", false, MultiType.TEXT)
             dataList.add(dataModel)
         }
-        dataList.add(TextModel("", false, MultiType.FOOTER))
+        // dataList.add(TextModel("", false, MultiType.FOOTER))
     }
     
     override fun initView() {

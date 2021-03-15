@@ -63,11 +63,11 @@ class ImageFragment : BaseFragment() {
     }
     
     override fun initData() {
-        dataList.add(ImageModel("", "", MultiType.HEADER))
+        // dataList.add(ImageModel("", "", MultiType.HEADER))
         dataList.add(ImageModel("狗狗", "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", MultiType.IMAGE))
         dataList.add(ImageModel("变色龙", "https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", MultiType.IMAGE))
         dataList.add(ImageModel("猫猫", "https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", MultiType.IMAGE))
-        dataList.add(ImageModel("", "", MultiType.FOOTER))
+        // dataList.add(ImageModel("", "", MultiType.FOOTER))
     }
     
     override fun initView() {
