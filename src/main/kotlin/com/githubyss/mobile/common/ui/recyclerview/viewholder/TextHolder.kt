@@ -16,7 +16,7 @@ import com.google.android.flexbox.FlexboxLayout
  * @createdTime 2021/03/11 10:01:27
  */
 class TextHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-    var layoutItem = view.findViewById<View>(R.id.layout_recyclerItemText) as FlexboxLayout
+    var layoutItem = view.findViewById<View>(R.id.layout_recyclerTextItem) as FlexboxLayout
     var tvText = view.findViewById<View>(R.id.textView_recyclerText) as TextView
     var ivSelect = view.findViewById<View>(R.id.imageView_recyclerTextSelect) as ImageView
 }
