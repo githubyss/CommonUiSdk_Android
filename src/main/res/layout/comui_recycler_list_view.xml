@@ -2,7 +2,7 @@
 <androidx.recyclerview.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/recyclerView_container"
-        android:background="@color/comres_layout_bg_color_light_gray"
+        android:background="@color/comres_layout_bg_color_transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

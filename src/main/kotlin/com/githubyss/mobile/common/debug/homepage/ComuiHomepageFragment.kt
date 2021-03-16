@@ -9,9 +9,8 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.githubyss.mobile.common.debug.animation.property.ComuiPropertyAnimationFragment
-import com.githubyss.mobile.common.debug.recyclerview.ComuiMultiFragmentRecyclerViewFragment
-import com.githubyss.mobile.common.debug.recyclerview.ComuiMultiViewRecyclerViewFragment
-import com.githubyss.mobile.common.debug.recyclerview.ComuiRecyclerViewFragment
+import com.githubyss.mobile.common.debug.recyclerview.ComuiRecyclerViewByMultiLayoutFragment
+import com.githubyss.mobile.common.debug.recyclerview.ComuiRecyclerViewByMultiTypeFragment
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
@@ -50,8 +49,8 @@ class ComuiHomepageFragment : BaseFragment() {
         when (v.id) {
             R.id.button_propertyAnimation -> replaceFragment(ComuiPropertyAnimationFragment(), ComuiPropertyAnimationFragment.TAG, true)
             R.id.button_tweenAnimation -> return@OnClickListener
-            R.id.button_recyclerViewMultiType -> replaceFragment(ComuiRecyclerViewFragment(), ComuiRecyclerViewFragment.TAG, true)
-            R.id.button_recyclerViewMultiView -> replaceFragment(ComuiMultiViewRecyclerViewFragment(), ComuiMultiViewRecyclerViewFragment.TAG, true)
+            R.id.button_recyclerViewMultiType -> replaceFragment(ComuiRecyclerViewByMultiTypeFragment(), ComuiRecyclerViewByMultiTypeFragment.TAG, true)
+            R.id.button_recyclerViewMultiView -> replaceFragment(ComuiRecyclerViewByMultiLayoutFragment(), ComuiRecyclerViewByMultiLayoutFragment.TAG, true)
             
             R.id.button_showFloatingWithinApp -> {
                 val layoutParams = FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)

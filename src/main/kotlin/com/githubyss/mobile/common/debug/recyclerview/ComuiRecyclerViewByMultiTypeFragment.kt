@@ -17,18 +17,18 @@ import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 
 /**
- * ComuiRecyclerViewFragment
+ * ComuiRecyclerViewByMultiTypeFragment
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/03/09 11:02:35
  */
-class ComuiRecyclerViewFragment : BaseFragment() {
+class ComuiRecyclerViewByMultiTypeFragment : BaseFragment() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
-        val TAG = ComuiRecyclerViewFragment::class.simpleName ?: "simpleName is null"
+        val TAG = ComuiRecyclerViewByMultiTypeFragment::class.simpleName ?: "simpleName is null"
     }
     
     

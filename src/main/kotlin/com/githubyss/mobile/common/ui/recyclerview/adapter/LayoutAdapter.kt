@@ -1,27 +1,22 @@
 package com.githubyss.mobile.common.ui.recyclerview.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.model.FragmentModel
+import com.githubyss.mobile.common.ui.recyclerview.model.LayoutModel
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.EmptyHolder
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.FooterHolder
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.FragmentHolder
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.HeaderHolder
+import com.githubyss.mobile.common.ui.recyclerview.viewholder.*
 
 
 /**
- * FragmentAdapter
+ * LayoutAdapter
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/11 19:44:10
+ * @createdTime 2021/03/15 17:05:43
  */
-class FragmentAdapter constructor(private val dataList: List<FragmentModel>, private var fragment: Fragment?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class LayoutAdapter constructor(private val dataList: List<LayoutModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -65,7 +60,7 @@ class FragmentAdapter constructor(private val dataList: List<FragmentModel>, pri
                 FooterHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_footer, parent, false))
             }
             else -> {
-                FragmentHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_frame_layout, parent, false))
+                LayoutHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_frame_layout, parent, false))
             }
         }
     }
@@ -73,19 +68,14 @@ class FragmentAdapter constructor(private val dataList: List<FragmentModel>, pri
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
         when (holder) {
-            is EmptyHolder -> {
-            }
             is HeaderHolder -> {
                 holder.tvTitle.text = "FRAGMENT HEADER"
             }
             is FooterHolder -> {
                 holder.tvTitle.text = "FRAGMENT FOOTER"
             }
-            is FragmentHolder -> {
-                val fragmentManager = fragment?.childFragmentManager
-                val newContainerId = View.generateViewId()
-                holder.layoutItem.id = newContainerId
-                fragmentManager?.beginTransaction()?.replace(holder.layoutItem.id, dataModel.fragment ?: return)?.commit()
+            is LayoutHolder -> {
+                holder.layoutItem.addView(dataModel.view)
             }
             else -> {
             }

@@ -5,10 +5,10 @@ import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 
 
 /**
- * FragmentModel
+ * LayoutModel
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/11 19:57:11
+ * @createdTime 2021/03/16 15:15:17
  */
-data class ViewModel constructor(var view: View?, @MultiType var type: Int)
+data class LayoutModel constructor(var view: View?, @MultiType var type: Int)
