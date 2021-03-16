@@ -4,19 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
 import com.githubyss.mobile.common.ui.recyclerview.adapter.FragmentAdapter
 import com.githubyss.mobile.common.ui.recyclerview.fragment.ImageFragment
 import com.githubyss.mobile.common.ui.recyclerview.fragment.TextFragment
 import com.githubyss.mobile.common.ui.recyclerview.model.FragmentModel
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.TextHolder
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiTypeAdapter
+import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 

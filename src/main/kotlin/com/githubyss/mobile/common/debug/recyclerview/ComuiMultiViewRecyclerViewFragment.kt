@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.fragment
+package com.githubyss.mobile.common.debug.recyclerview
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,45 +6,41 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.kit.util.ToastUtils
+import com.githubyss.mobile.common.debug.application.ComuiApplication
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
-import com.githubyss.mobile.common.ui.recyclerview.model.TextModel
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.TextHolder
+import com.githubyss.mobile.common.ui.recyclerview.adapter.ViewAdapter
+import com.githubyss.mobile.common.ui.recyclerview.model.ViewModel
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.adapter.TextAdapter
+import com.githubyss.mobile.common.ui.recyclerview.view.ImageListView
+import com.githubyss.mobile.common.ui.recyclerview.view.TextListView
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 
 /**
- * TextFragment
+ * ComuiMultiViewRecyclerViewFragment
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/11 17:35:13
+ * @createdTime 2021/03/15 16:51:37
  */
-class TextFragment : BaseFragment() {
+class ComuiMultiViewRecyclerViewFragment : BaseFragment() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
-        val TAG = TextFragment::class.simpleName ?: "simpleName is null"
+        val TAG = ComuiMultiViewRecyclerViewFragment::class.simpleName ?: "simpleName is null"
     }
     
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var rootView: View? = null
-    private var dataList = ArrayList<TextModel>()
-    private var rvAdapter: TextAdapter? = null
+    private var dataList = ArrayList<ViewModel>()
+    private var rvAdapter: ViewAdapter? = null
     
-    private val onItemClickListener = object : TextAdapter.OnItemClickListener {
+    private val onItemClickListener = object : ViewAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
-            when (holder) {
-                is TextHolder -> {
-                    ToastUtils.showMessage(msgStr = "${holder.tvText.text} was selected")
-                }
-            }
         }
     }
     
@@ -63,16 +59,12 @@ class TextFragment : BaseFragment() {
     }
     
     override fun initData() {
-        // dataList.add(TextModel("", false, MultiType.HEADER))
-        (0 until 10).forEach {
-            val dataModel = TextModel("喵$it", false, MultiType.TEXT)
-            dataList.add(dataModel)
-        }
-        // dataList.add(TextModel("", false, MultiType.FOOTER))
+        dataList.add(ViewModel(ImageListView(activity?.baseContext ?: ComuiApplication.instance), MultiType.VIEW))
+        dataList.add(ViewModel(TextListView(activity?.baseContext ?: ComuiApplication.instance), MultiType.VIEW))
     }
     
     override fun initView() {
-        rvAdapter = TextAdapter(dataList)
+        rvAdapter = ViewAdapter(dataList)
         rvAdapter?.onItemClickListener = onItemClickListener
         
         recyclerView_container.setHasFixedSize(true)

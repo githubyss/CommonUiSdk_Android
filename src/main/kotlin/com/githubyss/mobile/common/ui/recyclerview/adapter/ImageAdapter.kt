@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.model.ImageModel
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiType
+import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 import com.githubyss.mobile.common.ui.recyclerview.viewholder.*
 
 

@@ -1,4 +1,6 @@
-package com.githubyss.mobile.common.ui.recyclerview.multitype
+package com.githubyss.mobile.common.ui.recyclerview.model
+
+import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 
 
 /**

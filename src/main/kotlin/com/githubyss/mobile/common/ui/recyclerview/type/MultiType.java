@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.multitype;
+package com.githubyss.mobile.common.ui.recyclerview.type;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -17,7 +17,7 @@ import androidx.annotation.IntDef;
  * @createdTime 2021/03/10 16:42:51
  */
 @Documented
-@IntDef({MultiType.EMPTY, MultiType.HEADER, MultiType.FOOTER, MultiType.TEXT, MultiType.IMAGE, MultiType.FRAGMENT})
+@IntDef({MultiType.EMPTY, MultiType.HEADER, MultiType.FOOTER, MultiType.TEXT, MultiType.IMAGE, MultiType.FRAGMENT, MultiType.VIEW})
 @Target({ElementType.PARAMETER, ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.SOURCE)
 public @interface MultiType {
@@ -27,4 +27,5 @@ public @interface MultiType {
     final int TEXT     = 0x03;
     final int IMAGE    = 0x04;
     final int FRAGMENT = 0x05;
+    final int VIEW     = 0x06;
 }

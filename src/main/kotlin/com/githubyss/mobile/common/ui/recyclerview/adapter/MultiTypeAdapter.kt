@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.multitype
+package com.githubyss.mobile.common.ui.recyclerview.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.model.MultiTypeModel
+import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 import com.githubyss.mobile.common.ui.recyclerview.viewholder.*
 
 

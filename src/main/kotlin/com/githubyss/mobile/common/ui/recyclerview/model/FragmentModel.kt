@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.recyclerview.model
 
 import androidx.fragment.app.Fragment
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiType
+import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 
 
 /**

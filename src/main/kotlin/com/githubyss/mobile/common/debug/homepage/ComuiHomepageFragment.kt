@@ -10,6 +10,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.githubyss.mobile.common.debug.animation.property.ComuiPropertyAnimationFragment
 import com.githubyss.mobile.common.debug.recyclerview.ComuiMultiFragmentRecyclerViewFragment
+import com.githubyss.mobile.common.debug.recyclerview.ComuiMultiViewRecyclerViewFragment
 import com.githubyss.mobile.common.debug.recyclerview.ComuiRecyclerViewFragment
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.kit.util.LogcatUtils
@@ -49,7 +50,8 @@ class ComuiHomepageFragment : BaseFragment() {
         when (v.id) {
             R.id.button_propertyAnimation -> replaceFragment(ComuiPropertyAnimationFragment(), ComuiPropertyAnimationFragment.TAG, true)
             R.id.button_tweenAnimation -> return@OnClickListener
-            R.id.button_recyclerView -> replaceFragment(ComuiMultiFragmentRecyclerViewFragment(), ComuiMultiFragmentRecyclerViewFragment.TAG, true)
+            R.id.button_recyclerViewMultiType -> replaceFragment(ComuiRecyclerViewFragment(), ComuiRecyclerViewFragment.TAG, true)
+            R.id.button_recyclerViewMultiView -> replaceFragment(ComuiMultiViewRecyclerViewFragment(), ComuiMultiViewRecyclerViewFragment.TAG, true)
             
             R.id.button_showFloatingWithinApp -> {
                 val layoutParams = FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -170,7 +172,8 @@ class ComuiHomepageFragment : BaseFragment() {
     override fun initView() {
         button_propertyAnimation.setOnClickListener(onClickListener)
         button_tweenAnimation.setOnClickListener(onClickListener)
-        button_recyclerView.setOnClickListener(onClickListener)
+        button_recyclerViewMultiType.setOnClickListener(onClickListener)
+        button_recyclerViewMultiView.setOnClickListener(onClickListener)
         
         button_showFloatingWithinApp.setOnClickListener(onClickListener)
         button_closeFloatingWithinApp.setOnClickListener(onClickListener)

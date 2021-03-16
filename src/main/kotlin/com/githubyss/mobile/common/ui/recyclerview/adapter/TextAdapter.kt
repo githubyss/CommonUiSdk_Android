@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.model.TextModel
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiType
+import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 import com.githubyss.mobile.common.ui.recyclerview.viewholder.EmptyHolder
 import com.githubyss.mobile.common.ui.recyclerview.viewholder.FooterHolder
 import com.githubyss.mobile.common.ui.recyclerview.viewholder.HeaderHolder

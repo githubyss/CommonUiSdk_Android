@@ -14,6 +14,6 @@ import com.google.android.flexbox.FlexboxLayout
  * @github githubyss
  * @createdTime 2021/03/11 19:58:36
  */
-class FragmentHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+class ViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
     var layoutItem = view.findViewById(R.id.frameLayout_container) as FrameLayout
 }

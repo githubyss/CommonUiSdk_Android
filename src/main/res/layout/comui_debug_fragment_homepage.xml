@@ -22,9 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:paddingLeft="@dimen/comres_side_margin_default"
+                android:paddingTop="@dimen/comres_side_margin_default"
                 android:paddingRight="@dimen/comres_side_margin_default"
                 android:paddingBottom="@dimen/comres_side_margin_default"
-                android:paddingTop="@dimen/comres_side_margin_default"
                 app:flexDirection="column"
                 app:justifyContent="flex_start"
                 >
@@ -48,12 +48,21 @@
                     />
 
             <Button
-                    android:id="@+id/button_recyclerView"
+                    android:id="@+id/button_recyclerViewMultiType"
                     style="@style/comres_default_click_button_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Recycler View"
+                    android:text="Recycler View Multi Type"
+                    />
+
+            <Button
+                    android:id="@+id/button_recyclerViewMultiView"
+                    style="@style/comres_default_click_button_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Recycler View Multi View"
                     />
 
             <com.google.android.flexbox.FlexboxLayout
