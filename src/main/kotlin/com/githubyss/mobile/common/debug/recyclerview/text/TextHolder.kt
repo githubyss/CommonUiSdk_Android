@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.viewholder
+package com.githubyss.mobile.common.debug.recyclerview.text
 
 import android.view.View
 import android.widget.ImageView

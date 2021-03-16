@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.view
+package com.githubyss.mobile.common.debug.recyclerview.text
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,9 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.model.TextModel
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.TextHolder
-import com.githubyss.mobile.common.ui.recyclerview.adapter.TextAdapter
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.view.*
 
 

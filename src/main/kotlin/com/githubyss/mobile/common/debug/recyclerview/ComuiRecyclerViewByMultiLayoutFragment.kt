@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.application.ComuiApplication
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
-import com.githubyss.mobile.common.ui.recyclerview.adapter.LayoutAdapter
-import com.githubyss.mobile.common.ui.recyclerview.model.ImageModel
-import com.githubyss.mobile.common.ui.recyclerview.model.TextModel
-import com.githubyss.mobile.common.ui.recyclerview.model.LayoutModel
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.view.ImageListLayout
-import com.githubyss.mobile.common.ui.recyclerview.view.TextListLayout
+import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutAdapter
+import com.githubyss.mobile.common.debug.recyclerview.image.ImageModel
+import com.githubyss.mobile.common.debug.recyclerview.text.TextModel
+import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutModel
+import com.githubyss.mobile.common.debug.recyclerview.type.MultiType
+import com.githubyss.mobile.common.debug.recyclerview.image.ImageListLayout
+import com.githubyss.mobile.common.debug.recyclerview.text.TextListLayout
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 

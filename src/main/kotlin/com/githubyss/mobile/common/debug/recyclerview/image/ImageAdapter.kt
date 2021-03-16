@@ -1,29 +1,27 @@
-package com.githubyss.mobile.common.ui.recyclerview.adapter
+package com.githubyss.mobile.common.debug.recyclerview.image
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.model.MultiTypeModel
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.*
+import com.githubyss.mobile.common.debug.recyclerview.type.MultiType
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.*
 
 
 /**
- * SingleSelectionAdapter
+ * ImageAdapter
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/09 16:24:27
+ * @createdTime 2021/03/11 19:16:04
  */
-class MultiTypeAdapter constructor(private val dataList: List<MultiTypeModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ImageAdapter constructor(private val dataList: List<ImageModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var selectedPosition = 0
-    private var onItemClickListener: OnItemClickListener? = null
+    var onItemClickListener: OnItemClickListener? = null
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
@@ -61,14 +59,8 @@ class MultiTypeAdapter constructor(private val dataList: List<MultiTypeModel>) :
             MultiType.FOOTER -> {
                 FooterHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_footer, parent, false))
             }
-            MultiType.TEXT -> {
-                TextHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_text, parent, false))
-            }
-            MultiType.IMAGE -> {
-                ImageHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_image, parent, false))
-            }
             else -> {
-                EmptyHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty, parent, false))
+                ImageHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_image, parent, false))
             }
         }
     }
@@ -79,31 +71,17 @@ class MultiTypeAdapter constructor(private val dataList: List<MultiTypeModel>) :
             is EmptyHolder -> {
             }
             is HeaderHolder -> {
-                holder.tvTitle.text = "~~~ HEADER ~~~"
+                holder.tvTitle.text = "~~~ IMAGE HEADER ~~~"
             }
             is FooterHolder -> {
-                holder.tvTitle.text = "~~~ FOOTER ~~~"
-            }
-            is TextHolder -> {
-                holder.tvText.text = dataModel.title
-                holder.ivSelect.isSelected = dataModel.selectStatus
-                holder.ivSelect.visibility = if (dataModel.selectStatus) View.VISIBLE else View.GONE
-                holder.layoutItem.setOnClickListener {
-                    if (selectedPosition != position) {
-                        dataList[selectedPosition].selectStatus = false
-                        notifyItemChanged(selectedPosition)
-                        
-                        dataList[position].selectStatus = true
-                        notifyItemChanged(position)
-                        
-                        onItemClickListener?.onItemClick(holder, position)
-                        selectedPosition = position
-                    }
-                }
+                holder.tvTitle.text = "~~~ IMAGE FOOTER ~~~"
             }
             is ImageHolder -> {
-                holder.tvImageDescription.text = dataModel.title
+                holder.tvImageDescription.text = dataModel.description
                 GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
+                holder.layoutItem.setOnClickListener {
+                    onItemClickListener?.onItemClick(holder, position)
+                }
             }
             else -> {
             }
@@ -113,12 +91,7 @@ class MultiTypeAdapter constructor(private val dataList: List<MultiTypeModel>) :
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.onItemClickListener = onItemClickListener
-    }
-    
     private fun initData() {
-        dataList.indices.asSequence().filter { dataList[it].selectStatus }.forEach { selectedPosition = it }
     }
     
     

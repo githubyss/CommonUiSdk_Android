@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.viewholder
+package com.githubyss.mobile.common.ui.recyclerview.layout
 
 import android.view.View
 import android.widget.FrameLayout

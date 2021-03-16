@@ -1,23 +1,24 @@
-package com.githubyss.mobile.common.ui.recyclerview.adapter
+package com.githubyss.mobile.common.debug.recyclerview.text
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.model.ImageModel
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.*
+import com.githubyss.mobile.common.debug.recyclerview.type.MultiType
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyHolder
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.FooterHolder
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderHolder
 
 
 /**
- * ImageAdapter
+ * TextAdapter
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/11 19:16:04
+ * @createdTime 2021/03/11 17:41:07
  */
-class ImageAdapter constructor(private val dataList: List<ImageModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TextAdapter constructor(private val dataList: List<TextModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -61,7 +62,7 @@ class ImageAdapter constructor(private val dataList: List<ImageModel>) : Recycle
                 FooterHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_footer, parent, false))
             }
             else -> {
-                ImageHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_image, parent, false))
+                TextHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_text, parent, false))
             }
         }
     }
@@ -72,16 +73,26 @@ class ImageAdapter constructor(private val dataList: List<ImageModel>) : Recycle
             is EmptyHolder -> {
             }
             is HeaderHolder -> {
-                holder.tvTitle.text = "~~~ IMAGE HEADER ~~~"
+                holder.tvTitle.text = "~~~TEXT HEADER ~~~"
             }
             is FooterHolder -> {
-                holder.tvTitle.text = "~~~ IMAGE FOOTER ~~~"
+                holder.tvTitle.text = "~~~ TEXT FOOTER ~~~"
             }
-            is ImageHolder -> {
-                holder.tvImageDescription.text = dataModel.description
-                GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
+            is TextHolder -> {
+                holder.tvText.text = dataModel.text
+                holder.ivSelect.isSelected = dataModel.selectStatus
+                holder.ivSelect.visibility = if (dataModel.selectStatus) View.VISIBLE else View.GONE
                 holder.layoutItem.setOnClickListener {
-                    onItemClickListener?.onItemClick(holder, position)
+                    if (selectedPosition != position) {
+                        dataList[selectedPosition].selectStatus = false
+                        notifyItemChanged(selectedPosition)
+                        
+                        dataList[position].selectStatus = true
+                        notifyItemChanged(position)
+                        
+                        onItemClickListener?.onItemClick(holder, position)
+                        selectedPosition = position
+                    }
                 }
             }
             else -> {
@@ -93,6 +104,7 @@ class ImageAdapter constructor(private val dataList: List<ImageModel>) : Recycle
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initData() {
+        dataList.indices.asSequence().filter { dataList[it].selectStatus }.forEach { selectedPosition = it }
     }
     
     

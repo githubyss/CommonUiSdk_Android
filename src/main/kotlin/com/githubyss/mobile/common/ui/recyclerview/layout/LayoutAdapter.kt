@@ -1,12 +1,11 @@
-package com.githubyss.mobile.common.ui.recyclerview.adapter
+package com.githubyss.mobile.common.ui.recyclerview.layout
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.model.LayoutModel
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.viewholder.*
+import com.githubyss.mobile.common.debug.recyclerview.type.MultiType
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.*
 
 
 /**
@@ -60,7 +59,7 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>) : Recyc
                 FooterHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_footer, parent, false))
             }
             else -> {
-                LayoutHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_frame_layout, parent, false))
+                LayoutHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_layout, parent, false))
             }
         }
     }

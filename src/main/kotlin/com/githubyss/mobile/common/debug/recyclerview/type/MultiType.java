@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.type;
+package com.githubyss.mobile.common.debug.recyclerview.type;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
