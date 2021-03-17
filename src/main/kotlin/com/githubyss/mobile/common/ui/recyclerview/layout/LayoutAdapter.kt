@@ -3,9 +3,11 @@ package com.githubyss.mobile.common.ui.recyclerview.layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.debug.recyclerview.type.MultiType
-import com.githubyss.mobile.common.debug.recyclerview.viewholder.*
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyHolder
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.FooterHolder
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderHolder
+import com.githubyss.mobile.common.ui.R
 
 
 /**
@@ -47,7 +49,7 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>) : Recyc
         }
     }
     
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, @MultiType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             MultiType.EMPTY -> {
                 EmptyHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty, parent, false))

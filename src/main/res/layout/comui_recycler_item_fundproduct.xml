@@ -7,15 +7,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/comres_side_margin_default"
+        android:paddingRight="@dimen/comres_side_margin_default"
         app:alignItems="flex_start"
-        app:flexDirection="column"
+        app:flexDirection="row"
         app:justifyContent="space_between"
         >
 
     <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:paddingRight="@dimen/comres_side_margin_default"
             app:alignItems="center"
             app:flexDirection="row"
             app:justifyContent="flex_start"

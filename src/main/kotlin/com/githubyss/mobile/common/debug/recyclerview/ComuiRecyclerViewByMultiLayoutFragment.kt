@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.application.ComuiApplication
+import com.githubyss.mobile.common.debug.recyclerview.image.ImageListLayout
+import com.githubyss.mobile.common.debug.recyclerview.image.ImageModel
+import com.githubyss.mobile.common.debug.recyclerview.text.TextListLayout
+import com.githubyss.mobile.common.debug.recyclerview.text.TextModel
+import com.githubyss.mobile.common.debug.recyclerview.type.MultiType
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
 import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutAdapter
-import com.githubyss.mobile.common.debug.recyclerview.image.ImageModel
-import com.githubyss.mobile.common.debug.recyclerview.text.TextModel
 import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutModel
-import com.githubyss.mobile.common.debug.recyclerview.type.MultiType
-import com.githubyss.mobile.common.debug.recyclerview.image.ImageListLayout
-import com.githubyss.mobile.common.debug.recyclerview.text.TextListLayout
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 
@@ -78,6 +78,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         
         dataList.add(LayoutModel(ImageListLayout(imageList, activity?.baseContext ?: ComuiApplication.instance), MultiType.VIEW))
         dataList.add(LayoutModel(TextListLayout(textList, activity?.baseContext ?: ComuiApplication.instance), MultiType.VIEW))
+        dataList.add(LayoutModel(ImageListLayout(imageList, activity?.baseContext ?: ComuiApplication.instance), MultiType.VIEW))
     }
     
     override fun initView() {
