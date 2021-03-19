@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/layout_recyclerEmptyItem"
-        android:background="@color/comres_layout_bg_color_light_gray"
+        android:background="@color/comres_layoutBg_lightGray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:alignItems="center"
@@ -17,6 +17,6 @@
             android:layout_height="wrap_content"
             android:text="Empty"
             android:textColor="@color/comres_color_blue"
-            android:textSize="@dimen/comres_text_size_20_sp"
+            android:textSize="@dimen/comres_textSize_20sp"
             />
 </com.google.android.flexbox.FlexboxLayout>

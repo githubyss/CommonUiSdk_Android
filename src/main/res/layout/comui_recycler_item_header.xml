@@ -15,10 +15,10 @@
             android:id="@+id/textView_recyclerHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/comres_side_margin_default"
+            android:layout_margin="@dimen/comres_sideMargin_default"
             android:text="Header"
             android:textColor="@color/comres_color_red"
-            android:textSize="@dimen/comres_text_size_20_sp"
+            android:textSize="@dimen/comres_textSize_20sp"
             />
 
     <include layout="@layout/comres_view_separator_horizontal_common_default" />

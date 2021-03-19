@@ -7,8 +7,8 @@
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/comres_side_margin_default"
-            android:layout_marginRight="@dimen/comres_side_margin_default"
+            android:layout_marginLeft="@dimen/comres_sideMargin_default"
+            android:layout_marginRight="@dimen/comres_sideMargin_default"
             android:background="@drawable/comui_common_dialog_bg"
             android:orientation="vertical"
             >
@@ -28,7 +28,7 @@
                     android:gravity="center"
                     android:text="Title"
                     android:textColor="@color/comres_color_353d44"
-                    android:textSize="@dimen/comres_text_size_18_sp"
+                    android:textSize="@dimen/comres_textSize_18sp"
                     />
 
             <TextView
@@ -39,7 +39,7 @@
                     android:gravity="center"
                     android:text="First"
                     android:textColor="@color/comres_color_353d44"
-                    android:textSize="@dimen/comres_text_size_14_sp"
+                    android:textSize="@dimen/comres_textSize_14sp"
                     />
 
             <TextView
@@ -50,7 +50,7 @@
                     android:gravity="center"
                     android:text="Second"
                     android:textColor="@color/comres_color_353d44"
-                    android:textSize="@dimen/comres_text_size_14_sp"
+                    android:textSize="@dimen/comres_textSize_14sp"
                     />
         </LinearLayout>
 
@@ -71,7 +71,7 @@
                     android:gravity="center"
                     android:text="Button"
                     android:textColor="@color/comres_color_353d44"
-                    android:textSize="@dimen/comres_text_size_17_sp"
+                    android:textSize="@dimen/comres_textSize_17sp"
                     android:visibility="visible"
                     />
 
@@ -79,7 +79,7 @@
                     android:id="@+id/vSeparator"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/comres_common_separator_color_default"
+                    android:background="@color/comres_separator_gray"
                     />
 
             <Button
@@ -91,7 +91,7 @@
                     android:gravity="center"
                     android:text="Button"
                     android:textColor="@color/comres_color_1f86ed"
-                    android:textSize="@dimen/comres_text_size_17_sp"
+                    android:textSize="@dimen/comres_textSize_17sp"
                     android:visibility="visible"
                     />
         </LinearLayout>

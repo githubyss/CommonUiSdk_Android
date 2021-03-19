@@ -6,7 +6,7 @@
         android:background="@color/comres_color_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/comres_side_margin_default"
+        android:paddingLeft="@dimen/comres_sideMargin_default"
         app:alignItems="flex_start"
         app:flexDirection="column"
         app:justifyContent="space_between"
@@ -15,7 +15,7 @@
     <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:paddingRight="@dimen/comres_side_margin_default"
+            android:paddingRight="@dimen/comres_sideMargin_default"
             app:alignItems="center"
             app:flexDirection="row"
             app:justifyContent="flex_start"
@@ -35,7 +35,7 @@
                 android:layout_marginLeft="20dp"
                 android:text="Title"
                 android:textColor="@color/comres_color_black"
-                android:textSize="@dimen/comres_text_size_16_sp"
+                android:textSize="@dimen/comres_textSize_16sp"
                 />
     </com.google.android.flexbox.FlexboxLayout>
 

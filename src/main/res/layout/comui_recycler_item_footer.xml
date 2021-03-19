@@ -15,9 +15,9 @@
             android:id="@+id/textView_recyclerFooter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/comres_side_margin_default"
+            android:layout_margin="@dimen/comres_sideMargin_default"
             android:text="Footer"
             android:textColor="@color/comres_color_red"
-            android:textSize="@dimen/comres_text_size_20_sp"
+            android:textSize="@dimen/comres_textSize_20sp"
             />
 </com.google.android.flexbox.FlexboxLayout>

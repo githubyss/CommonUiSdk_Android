@@ -6,7 +6,7 @@
         android:background="@color/comres_color_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/comres_side_margin_default"
+        android:paddingLeft="@dimen/comres_sideMargin_default"
         app:alignItems="flex_start"
         app:flexDirection="column"
         app:justifyContent="space_between"
@@ -15,7 +15,7 @@
     <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:paddingRight="@dimen/comres_side_margin_default"
+            android:paddingRight="@dimen/comres_sideMargin_default"
             app:alignItems="center"
             app:flexDirection="row"
             app:justifyContent="space_between"
@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:text="XXXXXXXXXXXXX"
                     android:textColor="@color/comres_color_black"
-                    android:textSize="@dimen/comres_text_size_15_sp"
+                    android:textSize="@dimen/comres_textSize_15sp"
                     />
 
             <TextView
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:text="XXXXXX | XXXX | XXX"
                     android:textColor="@color/comres_color_black"
-                    android:textSize="@dimen/comres_text_size_13_sp"
+                    android:textSize="@dimen/comres_textSize_13sp"
                     />
         </com.google.android.flexbox.FlexboxLayout>
 
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:text="XX.XX%"
                     android:textColor="@color/comres_color_black"
-                    android:textSize="@dimen/comres_text_size_15_sp"
+                    android:textSize="@dimen/comres_textSize_15sp"
                     />
 
             <TextView
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:text="XXXXXXX"
                     android:textColor="@color/comres_color_black"
-                    android:textSize="@dimen/comres_text_size_13_sp"
+                    android:textSize="@dimen/comres_textSize_13sp"
                     />
         </com.google.android.flexbox.FlexboxLayout>
 
@@ -85,12 +85,12 @@
 
             <CheckBox
                     android:id="@+id/button_recyclerFundProductIsFollowed"
-                    style="@style/comres_default_checkbox_button_style"
+                    style="@style/comres_checkboxButton_rectangle_blue_style"
                     android:layout_width="80dp"
                     android:layout_height="35dp"
                     android:text="XXX"
                     android:textColor="@color/comres_color_black"
-                    android:textSize="@dimen/comres_text_size_15_sp"
+                    android:textSize="@dimen/comres_textSize_15sp"
                     />
 
             <TextView
@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:text="XXXXXXX"
                     android:textColor="@color/comres_color_black"
-                    android:textSize="@dimen/comres_text_size_13_sp"
+                    android:textSize="@dimen/comres_textSize_13sp"
                     />
         </com.google.android.flexbox.FlexboxLayout>
     </com.google.android.flexbox.FlexboxLayout>

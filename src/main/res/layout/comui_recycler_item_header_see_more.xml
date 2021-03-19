@@ -23,20 +23,20 @@
                 android:id="@+id/textView_recyclerHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/comres_side_margin_default"
+                android:layout_margin="@dimen/comres_sideMargin_default"
                 android:text="Header"
                 android:textColor="@color/comres_color_353d44"
-                android:textSize="@dimen/comres_text_size_20_sp"
+                android:textSize="@dimen/comres_textSize_20sp"
                 />
 
         <TextView
                 android:id="@+id/textView_recyclerSeeMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/comres_side_margin_default"
+                android:layout_margin="@dimen/comres_sideMargin_default"
                 android:text="更多 >"
                 android:textColor="@color/comres_color_1f86ed"
-                android:textSize="@dimen/comres_text_size_18_sp"
+                android:textSize="@dimen/comres_textSize_18sp"
                 />
     </com.google.android.flexbox.FlexboxLayout>
 

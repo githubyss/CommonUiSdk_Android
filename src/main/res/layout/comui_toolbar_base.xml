@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:minHeight="?android:attr/actionBarSize"
-        android:background="@color/comres_toolbar_bg_color_light_gray"
+        android:background="@color/comres_toolbarBg_lightGray"
         app:popupTheme="@style/AlertDialog.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:titleTextColor="@color/comres_color_black"

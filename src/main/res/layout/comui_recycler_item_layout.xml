@@ -2,8 +2,8 @@
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/frameLayout_container"
-        android:background="@color/comres_layout_bg_color_transparent"
+        android:background="@color/comres_layoutBg_transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/comres_side_margin_default"
+        android:layout_marginBottom="@dimen/comres_sideMargin_default"
         />
