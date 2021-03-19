@@ -14,8 +14,10 @@
 
     <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:paddingRight="@dimen/comres_sideMargin_default"
+            android:paddingTop="@dimen/comres_sideMargin_default"
+            android:paddingBottom="@dimen/comres_sideMargin_default"
             app:alignItems="center"
             app:flexDirection="row"
             app:justifyContent="space_between"
@@ -34,18 +36,45 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="XXXXXXXXXXXXX"
-                    android:textColor="@color/comres_color_black"
+                    android:textColor="@color/comres_color_333333"
                     android:textSize="@dimen/comres_textSize_15sp"
                     />
 
-            <TextView
-                    android:id="@+id/textView_recyclerFundProductDetail"
+            <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="XXXXXX | XXXX | XXX"
-                    android:textColor="@color/comres_color_black"
-                    android:textSize="@dimen/comres_textSize_13sp"
-                    />
+                    app:alignItems="center"
+                    app:flexDirection="row"
+                    app:justifyContent="space_between"
+                    >
+
+                <TextView
+                        android:id="@+id/textView_recyclerFundProductCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XXXXXX"
+                        android:textColor="@color/comres_color_black"
+                        android:textSize="@dimen/comres_textSize_13sp"
+                        />
+
+                <TextView
+                        android:id="@+id/textView_recyclerFundProductRisk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XXXX"
+                        android:textColor="@color/comres_color_black"
+                        android:textSize="@dimen/comres_textSize_13sp"
+                        />
+
+                <TextView
+                        android:id="@+id/textView_recyclerFundProductType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XXX"
+                        android:textColor="@color/comres_color_black"
+                        android:textSize="@dimen/comres_textSize_13sp"
+                        />
+            </com.google.android.flexbox.FlexboxLayout>
         </com.google.android.flexbox.FlexboxLayout>
 
         <com.google.android.flexbox.FlexboxLayout
@@ -104,5 +133,5 @@
         </com.google.android.flexbox.FlexboxLayout>
     </com.google.android.flexbox.FlexboxLayout>
 
-    <include layout="@layout/comres_view_separator_horizontal_common_default" />
+    <include layout="@layout/comres_view_separator_horizontal_lightGray" />
 </com.google.android.flexbox.FlexboxLayout>

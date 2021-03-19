@@ -14,6 +14,10 @@
     <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/comres_sideMargin_default"
+            android:paddingRight="@dimen/comres_sideMargin_default"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
             app:alignItems="flex_start"
             app:flexDirection="row"
             app:justifyContent="space_between"
@@ -23,22 +27,22 @@
                 android:id="@+id/textView_recyclerHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/comres_sideMargin_default"
                 android:text="Header"
-                android:textColor="@color/comres_color_353d44"
-                android:textSize="@dimen/comres_textSize_20sp"
+                android:textColor="@color/comres_color_999999"
+                android:textSize="@dimen/comres_textSize_14sp"
                 />
 
         <TextView
                 android:id="@+id/textView_recyclerSeeMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/comres_sideMargin_default"
-                android:text="更多 >"
-                android:textColor="@color/comres_color_1f86ed"
-                android:textSize="@dimen/comres_textSize_18sp"
+                android:text="更多"
+                android:drawableRight="@drawable/comui_icon_see_more"
+                android:drawablePadding="4dp"
+                android:textColor="@color/comres_color_666666"
+                android:textSize="@dimen/comres_textSize_12sp"
                 />
     </com.google.android.flexbox.FlexboxLayout>
 
-    <include layout="@layout/comres_view_separator_horizontal_common_default" />
+    <include layout="@layout/comres_view_separator_horizontal_lightGray" />
 </com.google.android.flexbox.FlexboxLayout>

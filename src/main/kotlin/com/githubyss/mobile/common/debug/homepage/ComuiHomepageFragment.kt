@@ -64,7 +64,7 @@ class ComuiHomepageFragment : BaseFragment() {
                 // SystemFloatingIcon.getInstance(activity as Context)
                 //         .show()
                 //         ?.setMovable(true)
-                //         ?.customIcon(R.drawable.comui_lucky_money)
+                //         ?.customIcon(R.drawable.comui_icon_lucky_money)
                 //         ?.setFloatingListener(object : FloatingIconListener {
                 //             override fun onShow() {}
                 //             override fun onRemove() {}
@@ -77,7 +77,7 @@ class ComuiHomepageFragment : BaseFragment() {
                 //         .close()
             }
             R.id.button_showFloatingWithinSystem -> {
-                SystemFloatingIcon.getInstance(activity as Context).show()?.setMovable(true)?.customIcon(R.drawable.comui_lucky_money)?.setFloatingListener(object : FloatingIconListener {
+                SystemFloatingIcon.getInstance(activity as Context).show()?.setMovable(true)?.customIcon(R.drawable.comui_icon_lucky_money)?.setFloatingListener(object : FloatingIconListener {
                     override fun onShow() {}
                     override fun onRemove() {}
                     override fun onIconClick() {}
