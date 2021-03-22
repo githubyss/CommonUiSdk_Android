@@ -80,5 +80,5 @@
         </com.google.android.flexbox.FlexboxLayout>
     </com.google.android.flexbox.FlexboxLayout>
 
-    <include layout="@layout/comres_view_separator_horizontal_lightGray" />
+    <include layout="@layout/comres_view_separator_horizontal_light_gray" />
 </com.google.android.flexbox.FlexboxLayout>

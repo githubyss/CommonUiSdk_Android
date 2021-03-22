@@ -61,11 +61,11 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     
     override fun initData() {
         val fundProductList = ArrayList<FundProductModel>()
-        fundProductList.add(FundProductModel("基金产品", "", "", "", false, "", "", FundProductType.HEADER))
-        fundProductList.add(FundProductModel("基金一", "000001 | 中低风险 | 混合型", "15.79%", "最近一年增长率", false, "超过20万关注", "", FundProductType.ITEM))
-        fundProductList.add(FundProductModel("基金二", "000002 | 中低风险 | 混合型", "12.88%", "最近一年增长率", true, "超过20万关注", "", FundProductType.ITEM))
-        fundProductList.add(FundProductModel("基金三", "000003 | 中低风险 | 混合型", "10.65%", "最近一年增长率", true, "超过20万关注", "", FundProductType.ITEM))
-        fundProductList.add(FundProductModel("基金四", "000004 | 中低风险 | 混合型", "4.56%", "最近一年增长率", true, "超过20万关注", "", FundProductType.ITEM))
+        fundProductList.add(FundProductModel("基金产品", "", "", "", "", "", "", false, "", FundProductType.HEADER))
+        fundProductList.add(FundProductModel("基金一", "15.79%", "000001", "高风险", "混合型", "最近一年增长率", "超过100万关注", false, "", FundProductType.ITEM))
+        fundProductList.add(FundProductModel("基金二", "12.88%", "000002", "中低风险", "混合型", "最近一年增长率", "超过20万关注", true, "", FundProductType.ITEM))
+        fundProductList.add(FundProductModel("基金三", "10.65%", "000003", "中低风险", "混合型", "最近一年增长率", "超过20万关注", true, "", FundProductType.ITEM))
+        fundProductList.add(FundProductModel("基金四", "4.56%", "000004", "中低风险", "混合型", "最近一年增长率", "超过20万关注", false, "", FundProductType.ITEM))
         
         layoutList.add(LayoutModel(FundProductListLayout(fundProductList, activity?.baseContext ?: ComuiApplication.instance), LayoutType.VIEW))
         

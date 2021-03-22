@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Header"
-            android:textColor="@color/comres_color_999999"
+            android:textColor="@color/comres_color_333333"
             android:textSize="@dimen/comres_textSize_16sp" />
 
         <TextView
@@ -36,5 +36,5 @@
             android:textSize="@dimen/comres_textSize_12sp" />
     </com.google.android.flexbox.FlexboxLayout>
 
-    <include layout="@layout/comres_view_separator_horizontal_lightGray" />
+    <include layout="@layout/comres_view_separator_horizontal_light_gray" />
 </com.google.android.flexbox.FlexboxLayout>

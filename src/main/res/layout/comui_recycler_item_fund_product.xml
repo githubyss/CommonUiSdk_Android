@@ -83,7 +83,7 @@
                         />
 
                 <TextView
-                        android:id="@+id/textView_recyclerFundProductType"
+                        android:id="@+id/textView_recyclerFundProductClassify"
                         style="@style/comres_tag_gray_style"
                         android:layout_marginRight="8dp"
                         android:text="混合型"
@@ -130,5 +130,5 @@
         </com.google.android.flexbox.FlexboxLayout>
     </com.google.android.flexbox.FlexboxLayout>
 
-    <include layout="@layout/comres_view_separator_horizontal_lightGray" />
+    <include layout="@layout/comres_view_separator_horizontal_light_gray" />
 </com.google.android.flexbox.FlexboxLayout>
