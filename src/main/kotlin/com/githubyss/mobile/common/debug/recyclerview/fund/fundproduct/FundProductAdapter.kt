@@ -3,6 +3,7 @@ package com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.ui.R
@@ -39,7 +40,7 @@ class FundProductAdapter constructor(private val dataList: List<FundProductModel
     override fun getItemViewType(position: Int): Int {
         return when {
             dataList.isEmpty() -> {
-                FundProductType.EMPTY
+                ItemType.EMPTY
             }
             else -> {
                 dataList[position].type
@@ -47,12 +48,12 @@ class FundProductAdapter constructor(private val dataList: List<FundProductModel
         }
     }
     
-    override fun onCreateViewHolder(parent: ViewGroup, @FundProductType viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            FundProductType.EMPTY -> {
+            ItemType.EMPTY -> {
                 EmptyNoneHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty_none, parent, false))
             }
-            FundProductType.HEADER -> {
+            ItemType.HEADER -> {
                 HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
             }
             else -> {

@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.application.ComuiApplication
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductListLayout
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductModel
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductType
+import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
 import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutModel
-import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutType
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 
@@ -61,13 +60,13 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     
     override fun initData() {
         val fundProductList = ArrayList<FundProductModel>()
-        fundProductList.add(FundProductModel("基金产品", "", "", "", "", "", "", false, "", FundProductType.HEADER))
-        fundProductList.add(FundProductModel("基金一", "15.79%", "000001", "高风险", "混合型", "最近一年增长率", "超过100万关注", false, "", FundProductType.ITEM))
-        fundProductList.add(FundProductModel("基金二", "12.88%", "000002", "中低风险", "混合型", "最近一年增长率", "超过20万关注", true, "", FundProductType.ITEM))
-        fundProductList.add(FundProductModel("基金三", "10.65%", "000003", "中低风险", "混合型", "最近一年增长率", "超过20万关注", true, "", FundProductType.ITEM))
-        fundProductList.add(FundProductModel("基金四", "4.56%", "000004", "中低风险", "混合型", "最近一年增长率", "超过20万关注", false, "", FundProductType.ITEM))
+        fundProductList.add(FundProductModel("基金产品", "", "", "", "", "", "", false, "", ItemType.HEADER))
+        fundProductList.add(FundProductModel("基金一", "15.79%", "000001", "高风险", "混合型", "最近一年增长率", "超过100万关注", false, "", ItemType.ITEM))
+        fundProductList.add(FundProductModel("基金二", "12.88%", "000002", "中低风险", "混合型", "最近一年增长率", "超过20万关注", true, "", ItemType.ITEM))
+        fundProductList.add(FundProductModel("基金三", "10.65%", "000003", "中低风险", "混合型", "最近一年增长率", "超过20万关注", true, "", ItemType.ITEM))
+        fundProductList.add(FundProductModel("基金四", "4.56%", "000004", "中低风险", "混合型", "最近一年增长率", "超过20万关注", false, "", ItemType.ITEM))
         
-        layoutList.add(LayoutModel(FundProductListLayout(fundProductList, activity?.baseContext ?: ComuiApplication.instance), LayoutType.VIEW))
+        layoutList.add(LayoutModel(FundProductListLayout(fundProductList, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
         
         // val imageList = ArrayList<ImageModel>()
         // imageList.add(ImageModel("", "", MultiType.HEADER))

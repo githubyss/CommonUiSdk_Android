@@ -7,6 +7,7 @@ import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyHolder
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.FooterHolder
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderHolder
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
@@ -40,7 +41,7 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>) : Recyc
     override fun getItemViewType(position: Int): Int {
         return when {
             dataList.isEmpty() -> {
-                LayoutType.EMPTY
+                ItemType.EMPTY
             }
             else -> {
                 dataList[position].type
@@ -48,15 +49,15 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>) : Recyc
         }
     }
     
-    override fun onCreateViewHolder(parent: ViewGroup, @LayoutType viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            LayoutType.EMPTY -> {
+            ItemType.EMPTY -> {
                 EmptyHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty, parent, false))
             }
-            LayoutType.HEADER -> {
-                HeaderHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
+            ItemType.HEADER -> {
+                HeaderHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header, parent, false))
             }
-            LayoutType.FOOTER -> {
+            ItemType.FOOTER -> {
                 FooterHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_footer, parent, false))
             }
             else -> {
@@ -69,10 +70,10 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>) : Recyc
         val dataModel = dataList[position]
         when (holder) {
             is HeaderHolder -> {
-                holder.tvTitle.text = "FRAGMENT HEADER"
+                holder.tvTitle.text = "LAYOUT HEADER"
             }
             is FooterHolder -> {
-                holder.tvTitle.text = "FRAGMENT FOOTER"
+                holder.tvTitle.text = "LAYOUT FOOTER"
             }
             is LayoutHolder -> {
                 holder.layoutItem.addView(dataModel.view)

@@ -10,7 +10,7 @@ import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
 import com.githubyss.mobile.common.debug.recyclerview.text.TextHolder
-import com.githubyss.mobile.common.debug.recyclerview.type.MultiType
+import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiTypeAdapter
 import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiTypeModel
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
