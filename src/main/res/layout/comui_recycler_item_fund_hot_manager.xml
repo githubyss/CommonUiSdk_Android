@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_recyclerItemFundHotManager"
+        android:background="@color/comres_color_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/comres_sideMargin_mini"
+        android:paddingRight="@dimen/comres_sideMargin_mini"
+        app:alignItems="center"
+        app:flexDirection="column"
+        app:justifyContent="flex_start"
+        >
+
+    <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/comres_sideMargin_mini"
+            android:paddingBottom="@dimen/comres_sideMargin_mini"
+            app:alignItems="center"
+            app:flexDirection="row"
+            app:justifyContent="space_between"
+            >
+
+        <ImageView
+                android:id="@+id/textView_recyclerFundHotManagerHeaderImage"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginRight="20dp"
+                app:layout_flexShrink="0"
+                />
+
+        <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:alignItems="flex_start"
+                app:flexDirection="column"
+                app:justifyContent="space_between"
+                >
+
+            <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:alignItems="center"
+                    app:flexDirection="row"
+                    app:justifyContent="space_between"
+                    >
+
+                <TextView
+                        android:id="@+id/textView_recyclerFundHotManagerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="张静"
+                        android:textColor="@color/comres_color_333333"
+                        android:textSize="@dimen/comres_textSize_15sp"
+                        />
+
+                <ImageView
+                        android:id="@+id/textView_recyclerFundHotManagerIcon"
+                        android:layout_width="45dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/comui_icon_fund_hot_manager"
+                        />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:alignItems="center"
+                    app:flexDirection="row"
+                    app:justifyContent="flex_start"
+                    >
+
+                <TextView
+                        android:id="@+id/textView_recyclerFundHotManagerBestReturn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="任期最佳回报"
+                        android:textColor="@color/comres_color_999999"
+                        android:textSize="@dimen/comres_textSize_12sp"
+                        />
+
+                <TextView
+                        android:id="@+id/textView_recyclerFundHotManagerRiseFallRatio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:text="+15.26%"
+                        android:textColor="@color/comres_color_ff5500"
+                        android:textSize="@dimen/comres_textSize_14sp"
+                        />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <TextView
+                    android:id="@+id/textView_recyclerFundHotManagerDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…"
+                    android:textColor="@color/comres_color_4a4a4a"
+                    android:textSize="@dimen/comres_textSize_11sp"
+                    />
+        </com.google.android.flexbox.FlexboxLayout>
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <include layout="@layout/comres_view_separator_horizontal_lightGray" />
+</com.google.android.flexbox.FlexboxLayout>

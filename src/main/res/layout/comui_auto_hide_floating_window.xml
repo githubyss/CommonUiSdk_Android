@@ -34,7 +34,7 @@
 
             <Button
                     android:id="@+id/btnCenter"
-                    style="@style/comres_clickButton_rectangle_blue_style"
+                    style="@style/comres_buttonClick_rectangle_blue_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"

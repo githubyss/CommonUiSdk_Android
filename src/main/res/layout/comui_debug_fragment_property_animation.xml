@@ -27,7 +27,7 @@
 
             <Button
                     android:id="@+id/btnMove"
-                    style="@style/comres_clickButton_rectangle_blue_style"
+                    style="@style/comres_buttonClick_rectangle_blue_style"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:text="Move"
@@ -35,7 +35,7 @@
 
             <Button
                     android:id="@+id/btnScale"
-                    style="@style/comres_clickButton_rectangle_blue_style"
+                    style="@style/comres_buttonClick_rectangle_blue_style"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
@@ -55,7 +55,7 @@
 
             <Button
                     android:id="@+id/btnShow"
-                    style="@style/comres_clickButton_rectangle_blue_style"
+                    style="@style/comres_buttonClick_rectangle_blue_style"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:text="Show"
@@ -63,7 +63,7 @@
 
             <Button
                     android:id="@+id/btnHide"
-                    style="@style/comres_clickButton_rectangle_blue_style"
+                    style="@style/comres_buttonClick_rectangle_blue_style"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
@@ -81,7 +81,7 @@
 
         <Button
                 android:id="@+id/btnAnimator"
-                style="@style/comres_clickButton_rectangle_blue_style"
+                style="@style/comres_buttonClick_rectangle_blue_style"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 />

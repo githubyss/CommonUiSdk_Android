@@ -1,47 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.flexbox.FlexboxLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layout_recyclerItemHeaderSeeMore"
-        android:background="@color/comres_color_white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:alignItems="flex_start"
-        app:flexDirection="column"
-        app:justifyContent="center"
-        >
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_recyclerItemHeaderSeeMore"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/comres_color_white"
+    app:alignItems="flex_start"
+    app:flexDirection="column"
+    app:justifyContent="center">
 
     <com.google.android.flexbox.FlexboxLayout
-            android:layout_width="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/comres_sideMargin_mini"
+        app:alignItems="flex_start"
+        app:flexDirection="row"
+        app:justifyContent="space_between">
+
+        <TextView
+            android:id="@+id/textView_recyclerHeader"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/comres_sideMargin_default"
-            android:paddingRight="@dimen/comres_sideMargin_default"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            app:alignItems="flex_start"
-            app:flexDirection="row"
-            app:justifyContent="space_between"
-            >
+            android:text="Header"
+            android:textColor="@color/comres_color_999999"
+            android:textSize="@dimen/comres_textSize_16sp" />
 
         <TextView
-                android:id="@+id/textView_recyclerHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Header"
-                android:textColor="@color/comres_color_999999"
-                android:textSize="@dimen/comres_textSize_14sp"
-                />
-
-        <TextView
-                android:id="@+id/textView_recyclerSeeMore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="更多"
-                android:drawableRight="@drawable/comui_icon_see_more_gray"
-                android:drawablePadding="4dp"
-                android:textColor="@color/comres_color_666666"
-                android:textSize="@dimen/comres_textSize_12sp"
-                />
+            android:id="@+id/textView_recyclerSeeMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/comui_icon_see_more_gray"
+            android:drawablePadding="4dp"
+            android:text="更多"
+            android:textColor="@color/comres_color_666666"
+            android:textSize="@dimen/comres_textSize_12sp" />
     </com.google.android.flexbox.FlexboxLayout>
 
     <include layout="@layout/comres_view_separator_horizontal_lightGray" />
