@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.multitype
+package com.githubyss.mobile.common.ui.recyclerview.multi
 
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +21,7 @@ import com.githubyss.mobile.common.ui.R
  * @github githubyss
  * @createdTime 2021/03/09 16:24:27
  */
-class MultiTypeAdapter constructor(private val dataList: List<MultiTypeModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MultiAdapter constructor(private val dataList: List<MultiModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     

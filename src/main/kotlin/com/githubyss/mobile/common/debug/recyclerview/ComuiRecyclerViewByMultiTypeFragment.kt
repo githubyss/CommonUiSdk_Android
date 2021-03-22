@@ -11,8 +11,8 @@ import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
 import com.githubyss.mobile.common.debug.recyclerview.text.TextHolder
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiTypeAdapter
-import com.githubyss.mobile.common.ui.recyclerview.multitype.MultiTypeModel
+import com.githubyss.mobile.common.ui.recyclerview.multi.MultiAdapter
+import com.githubyss.mobile.common.ui.recyclerview.multi.MultiModel
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 
@@ -35,10 +35,10 @@ class ComuiRecyclerViewByMultiTypeFragment : BaseFragment() {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var rootView: View? = null
-    private var dataList = ArrayList<MultiTypeModel>()
-    private var rvAdapter: MultiTypeAdapter? = null
+    private var dataList = ArrayList<MultiModel>()
+    private var rvAdapter: MultiAdapter? = null
     
-    private val onItemClickListener = object : MultiTypeAdapter.OnItemClickListener {
+    private val onItemClickListener = object : MultiAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
             when (holder) {
                 is TextHolder -> {
@@ -63,29 +63,29 @@ class ComuiRecyclerViewByMultiTypeFragment : BaseFragment() {
     }
     
     override fun initData() {
-        dataList.add(MultiTypeModel("Header", "", false, MultiType.HEADER)
+        dataList.add(MultiModel("Header", "", false, MultiType.HEADER)
         )
         
         (0 until 10).forEach {
-            val dataModel = MultiTypeModel("Row $it", "", false, MultiType.TEXT)
+            val dataModel = MultiModel("Row $it", "", false, MultiType.TEXT)
             dataList.add(dataModel)
         }
         
-        dataList.add(MultiTypeModel("狗狗", "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", false, MultiType.IMAGE)
+        dataList.add(MultiModel("狗狗", "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", false, MultiType.IMAGE)
         )
-        dataList.add(MultiTypeModel("狗狗", "小傻狗", false, MultiType.TEXT)
+        dataList.add(MultiModel("狗狗", "小傻狗", false, MultiType.TEXT)
         )
-        dataList.add(MultiTypeModel("变色龙", "https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", false, MultiType.IMAGE)
+        dataList.add(MultiModel("变色龙", "https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", false, MultiType.IMAGE)
         )
-        dataList.add(MultiTypeModel("猫猫", "https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", false, MultiType.IMAGE)
+        dataList.add(MultiModel("猫猫", "https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", false, MultiType.IMAGE)
         )
         
-        dataList.add(MultiTypeModel("Footer", "", false, MultiType.FOOTER)
+        dataList.add(MultiModel("Footer", "", false, MultiType.FOOTER)
         )
     }
     
     override fun initView() {
-        rvAdapter = MultiTypeAdapter(dataList)
+        rvAdapter = MultiAdapter(dataList)
         rvAdapter?.setOnItemClickListener(onItemClickListener)
         
         recyclerView_container.setHasFixedSize(true)
