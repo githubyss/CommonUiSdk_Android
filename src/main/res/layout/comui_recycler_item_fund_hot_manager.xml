@@ -2,7 +2,7 @@
 <com.google.android.flexbox.FlexboxLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layout_recyclerItemFundHotManager"
+        android:id="@+id/layout_recyclerFundHotManagerItem"
         android:background="@color/comres_color_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

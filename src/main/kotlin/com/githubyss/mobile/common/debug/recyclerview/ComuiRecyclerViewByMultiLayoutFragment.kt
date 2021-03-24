@@ -62,7 +62,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
                 }
                 is HeaderSeeMoreHolder -> {
                     when (id) {
-                        R.id.layout_recyclerItemHeaderSeeMore -> {
+                        R.id.layout_recyclerHeaderSeeMoreItem -> {
                             ToastUtils.showMessage("${holder.tvTitle.text}")
                         }
                         R.id.textView_recyclerHeaderSeeMoreSeeMore -> {
@@ -72,7 +72,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
                 }
                 is FundProductHolder -> {
                     when (id) {
-                        R.id.layout_recyclerItemFundProduct -> {
+                        R.id.layout_recyclerFundProductItem -> {
                             ToastUtils.showMessage("${holder.tvTitle.text}")
                         }
                         R.id.button_recyclerFundProductIsFollowed -> {
@@ -82,21 +82,21 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
                 }
                 is FundHotHolder -> {
                     when (id) {
-                        R.id.layout_recyclerItemFundHot -> {
+                        R.id.layout_recyclerFundHotItem -> {
                             ToastUtils.showMessage("${holder.tvTitle.text}")
                         }
                     }
                 }
                 is FundHotManagerHolder -> {
                     when (id) {
-                        R.id.layout_recyclerItemFundHotManager -> {
+                        R.id.layout_recyclerFundHotManagerItem -> {
                             ToastUtils.showMessage("${holder.tvTitle.text}")
                         }
                     }
                 }
                 is GoldProductHolder -> {
                     when (id) {
-                        R.id.layout_recyclerItemGoldProduct -> {
+                        R.id.layout_recyclerGoldProductItem -> {
                             ToastUtils.showMessage("${holder.tvTitle.text}")
                         }
                     }

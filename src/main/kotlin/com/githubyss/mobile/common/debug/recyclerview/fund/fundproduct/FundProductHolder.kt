@@ -16,7 +16,7 @@ import com.google.android.flexbox.FlexboxLayout
  * @createdTime 2021/03/17 16:17:36
  */
 class FundProductHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-    var layoutItem = view.findViewById(R.id.layout_recyclerItemFundProduct) as FlexboxLayout
+    var layoutItem = view.findViewById(R.id.layout_recyclerFundProductItem) as FlexboxLayout
     var tvTitle = view.findViewById(R.id.textView_recyclerFundProductTitle) as TextView
     var tvRiseFallRatio = view.findViewById(R.id.textView_recyclerFundProductRiseFallRatio) as TextView
     var tvCode = view.findViewById(R.id.textView_recyclerFundProductCode) as TextView
