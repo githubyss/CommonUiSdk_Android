@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct
+package com.githubyss.mobile.common.ui.recyclerview.itemlist
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,40 +6,35 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.text.TextHolder
-import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.view.*
 
 
 /**
- * FundProductListLayout
+ * ItemListLayout
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/17 16:17:45
+ * @createdTime 2021/03/23 15:50:50
  */
-class FundProductListLayout : FrameLayout {
+class ItemListLayout : FrameLayout {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
-        val TAG = FundProductListLayout::class.simpleName ?: "simpleName is null"
+        val TAG = ItemListLayout::class.simpleName ?: "simpleName is null"
     }
     
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var viewContext: Context? = null
-    private var dataList = ArrayList<FundProductModel>()
-    private var rvAdapter: FundProductAdapter? = null
+    private var dataList = ArrayList<BaseItemModel>()
+    private var adapter: BaseItemAdapter? = null
     
-    private val onItemClickListener = object : FundProductAdapter.OnItemClickListener {
+    private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
             when (holder) {
-                is TextHolder -> {
-                    ToastUtils.showMessage(msgStr = "${holder.tvText.text} was selected")
-                }
             }
         }
     }
@@ -47,9 +42,10 @@ class FundProductListLayout : FrameLayout {
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(dataList: ArrayList<FundProductModel>, context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
-        viewContext = context
+    constructor(dataList: ArrayList<BaseItemModel>, adapter: BaseItemAdapter, context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+        this.viewContext = context
         this.dataList = dataList
+        this.adapter = adapter
         initView()
     }
     
@@ -59,11 +55,10 @@ class FundProductListLayout : FrameLayout {
     fun initView() {
         LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this, true)
         
-        rvAdapter = FundProductAdapter(dataList)
-        rvAdapter?.onItemClickListener = onItemClickListener
+        adapter?.onItemClickListener = onItemClickListener
         
         recyclerView_container.setHasFixedSize(true)
         recyclerView_container.layoutManager = LinearLayoutManager(viewContext)
-        recyclerView_container.adapter = rvAdapter
+        recyclerView_container.adapter = adapter
     }
 }

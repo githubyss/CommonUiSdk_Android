@@ -1,10 +1,11 @@
-package com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct
+package com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderSeeMoreHolder
+import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemModel
@@ -12,13 +13,13 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * FundProductAdapter
+ * FundHotManagerAdapter
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/17 16:17:41
+ * @createdTime 2021/03/23 11:32:43
  */
-class FundProductAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
+class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -37,7 +38,7 @@ class FundProductAdapter constructor(private val dataList: List<BaseItemModel>) 
                 HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
             }
             else -> {
-                FundProductHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_product, parent, false))
+                FundHotManagerHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_hot_manager, parent, false))
             }
         }
     }
@@ -50,17 +51,13 @@ class FundProductAdapter constructor(private val dataList: List<BaseItemModel>) 
             is HeaderSeeMoreHolder -> {
                 holder.tvTitle.text = dataModel.header
             }
-            is FundProductHolder -> {
-                if (dataModel is FundProductModel) {
+            is FundHotManagerHolder -> {
+                if (dataModel is FundHotManagerModel) {
+                    GlideUtils.loadImage(dataModel.headerImageUrl, holder.tvHeaderImage)
                     holder.tvTitle.text = dataModel.title
+                    holder.tvBestReturn.text = dataModel.bestReturn
                     holder.tvRiseFallRatio.text = dataModel.riseFallRatio
-                    holder.tvCode.text = dataModel.code
-                    holder.tvRisk.text = dataModel.risk
-                    holder.tvClassify.text = dataModel.classify
-                    holder.tvRiseFallTimeSpan.text = dataModel.riseFallTimeSpan
-                    holder.tvFollowCount.text = dataModel.followCount
-                    holder.tglBtnIsFollowed.text = if (dataModel.isFollowed) "已添加" else "＋自选"
-                    holder.tglBtnIsFollowed.isChecked = dataModel.isFollowed
+                    holder.tvDescription.text = dataModel.description
                 }
                 holder.layoutItem.setOnClickListener {
                     onItemClickListener?.onItemClick(holder, position)

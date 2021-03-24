@@ -38,6 +38,7 @@
                     android:text="易方达消费行业基金"
                     android:textColor="@color/comres_color_333333"
                     android:textSize="@dimen/comres_textSize_15sp"
+                    android:textStyle="bold"
                     />
 
             <TextView

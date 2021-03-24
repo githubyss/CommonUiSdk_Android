@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
@@ -16,37 +18,15 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/22 17:11:07
  */
-class FundHotAdapter constructor(private val dataList: List<FundHotModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FundHotAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
-    
-    private var selectedPosition = 0
-    var onItemClickListener: OnItemClickListener? = null
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    init {
-        initData()
-    }
-    
     
     /** ********* ********** ********** Override ********** ********** ********** */
-    
-    override fun getItemCount(): Int {
-        return dataList.size
-    }
-    
-    override fun getItemViewType(position: Int): Int {
-        return when {
-            dataList.isEmpty() -> {
-                ItemType.EMPTY
-            }
-            else -> {
-                dataList[position].type
-            }
-        }
-    }
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -68,13 +48,15 @@ class FundHotAdapter constructor(private val dataList: List<FundHotModel>) : Rec
             is EmptyNoneHolder -> {
             }
             is HeaderSeeMoreHolder -> {
-                holder.tvTitle.text = dataModel.title
+                holder.tvTitle.text = dataModel.header
             }
             is FundHotHolder -> {
-                holder.tvTitle.text = dataModel.title
-                holder.tvRiseFallRatio.text = dataModel.riseFallRatio
-                holder.tvHint.text = dataModel.hint
-                holder.tvRiseFallTimeSpan.text = dataModel.riseFallTimeSpan
+                if (dataModel is FundHotModel) {
+                    holder.tvTitle.text = dataModel.title
+                    holder.tvRiseFallRatio.text = dataModel.riseFallRatio
+                    holder.tvHint.text = dataModel.hint
+                    holder.tvRiseFallTimeSpan.text = dataModel.riseFallTimeSpan
+                }
                 holder.layoutItem.setOnClickListener {
                     onItemClickListener?.onItemClick(holder, position)
                 }
@@ -87,13 +69,6 @@ class FundHotAdapter constructor(private val dataList: List<FundHotModel>) : Rec
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    private fun initData() {
-    }
-    
     
     /** ********** ********** ********** Interface ********** ********** ********** */
-    
-    interface OnItemClickListener {
-        fun onItemClick(holder: RecyclerView.ViewHolder, position: Int)
-    }
 }

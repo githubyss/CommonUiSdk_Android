@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.application.ComuiApplication
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotListLayout
+import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotModel
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductListLayout
+import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHotManagerAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHotManagerModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductModel
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
+import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.itemlist.ItemListLayout
 import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
@@ -61,19 +65,28 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     }
     
     override fun initData() {
-        val fundProductList = ArrayList<FundProductModel>()
-        fundProductList.add(FundProductModel("基金产品", "", "", "", "", "", "", false, "", ItemType.HEADER))
-        fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "", ItemType.ITEM))
-        fundProductList.add(FundProductModel("易方达原油人民币易方达原...", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "", ItemType.ITEM))
-        fundProductList.add(FundProductModel("易方达原油人民币", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "", ItemType.ITEM))
-        layoutList.add(LayoutModel(FundProductListLayout(fundProductList, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        val fundProductList = ArrayList<BaseItemModel>()
+        val fundHotList = ArrayList<BaseItemModel>()
+        val fundHotManagerList = ArrayList<BaseItemModel>()
         
-        val fundHotList = ArrayList<FundHotModel>()
-        fundHotList.add(FundHotModel("热门基金产品", "", "", "", "", ItemType.HEADER))
-        fundHotList.add(FundHotModel("易方达消费行业主题", "+15.26%", "1000万用户的投资选择", "最近一年增长率", "", ItemType.ITEM))
-        fundHotList.add(FundHotModel("易方达人民币主题", "+12.26%", "找10年赚10倍的方法", "最近一年增长率", "", ItemType.ITEM))
-        fundHotList.add(FundHotModel("易方达股票主题", "+10.65%", "123个相关产品", "最近一年增长率", "", ItemType.ITEM))
-        layoutList.add(LayoutModel(FundHotListLayout(fundHotList, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        
+        fundProductList.add(BaseItemModel("基金产品", "", ItemType.HEADER))
+        fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "", "", "", ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达原油人民币易方达原...", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "", "", "", ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达原油人民币", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "", "", "", ItemType.ITEM))
+        
+        fundHotList.add(BaseItemModel("热门基金产品", "", ItemType.HEADER))
+        fundHotList.add(FundHotModel("易方达消费行业主题", "+15.26%", "1000万用户的投资选择", "最近一年增长率", "", "", "", ItemType.ITEM))
+        fundHotList.add(FundHotModel("易方达人民币主题", "+12.26%", "找10年赚10倍的方法", "最近一年增长率", "", "", "", ItemType.ITEM))
+        fundHotList.add(FundHotModel("易方达股票主题", "+10.65%", "123个相关产品", "最近一年增长率", "", "", "", ItemType.ITEM))
+        
+        fundHotManagerList.add(BaseItemModel("热门经理人", "", ItemType.HEADER))
+        fundHotManagerList.add(FundHotManagerModel("张静", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "", "", "", ItemType.ITEM))
+        fundHotManagerList.add(FundHotManagerModel("张坤", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "", "", "", ItemType.ITEM))
+        fundHotManagerList.add(FundHotManagerModel("王远", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "", "", "", ItemType.ITEM))
         
         // val imageList = ArrayList<ImageModel>()
         // imageList.add(ImageModel("", "", MultiType.HEADER))
