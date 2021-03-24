@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.recyclerview.itemlist
 
+import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
@@ -39,6 +40,6 @@ abstract class BaseItemAdapter constructor(private val dataList: List<BaseItemMo
     /** ********** ********** ********** Interface ********** ********** ********** */
     
     interface OnItemClickListener {
-        fun onItemClick(holder: RecyclerView.ViewHolder, position: Int)
+        fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View)
     }
 }

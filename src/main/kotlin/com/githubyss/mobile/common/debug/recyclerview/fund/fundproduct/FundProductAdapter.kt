@@ -49,6 +49,12 @@ class FundProductAdapter constructor(private val dataList: List<BaseItemModel>) 
             }
             is HeaderSeeMoreHolder -> {
                 holder.tvTitle.text = dataModel.header
+                holder.layoutItem.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
+                }
+                holder.tvSeeMore.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
+                }
             }
             is FundProductHolder -> {
                 if (dataModel is FundProductModel) {
@@ -61,9 +67,12 @@ class FundProductAdapter constructor(private val dataList: List<BaseItemModel>) 
                     holder.tvFollowCount.text = dataModel.followCount
                     holder.tglBtnIsFollowed.text = if (dataModel.isFollowed) "已添加" else "＋自选"
                     holder.tglBtnIsFollowed.isChecked = dataModel.isFollowed
+                    holder.tglBtnIsFollowed.setOnCheckedChangeListener { buttonView, isChecked ->
+                        onItemClickListener?.onItemClick(holder, position, buttonView)
+                    }
                 }
-                holder.layoutItem.setOnClickListener {
-                    onItemClickListener?.onItemClick(holder, position)
+                holder.layoutItem.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
                 }
             }
             else -> {

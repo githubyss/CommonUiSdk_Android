@@ -49,6 +49,12 @@ class GoldProductAdapter constructor(private val dataList: List<BaseItemModel>) 
             }
             is HeaderSeeMoreHolder -> {
                 holder.tvTitle.text = dataModel.header
+                holder.layoutItem.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
+                }
+                holder.tvSeeMore.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
+                }
             }
             is GoldProductHolder -> {
                 if (dataModel is GoldProductModel) {
@@ -60,8 +66,8 @@ class GoldProductAdapter constructor(private val dataList: List<BaseItemModel>) 
                     holder.tvClassify.text = dataModel.classify
                     holder.tvPriceTime.text = dataModel.priceTime
                 }
-                holder.layoutItem.setOnClickListener {
-                    onItemClickListener?.onItemClick(holder, position)
+                holder.layoutItem.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
                 }
             }
             else -> {

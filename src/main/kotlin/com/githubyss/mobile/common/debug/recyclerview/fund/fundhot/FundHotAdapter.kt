@@ -49,6 +49,12 @@ class FundHotAdapter constructor(private val dataList: List<BaseItemModel>) : Ba
             }
             is HeaderSeeMoreHolder -> {
                 holder.tvTitle.text = dataModel.header
+                holder.layoutItem.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
+                }
+                holder.tvSeeMore.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
+                }
             }
             is FundHotHolder -> {
                 if (dataModel is FundHotModel) {
@@ -57,8 +63,8 @@ class FundHotAdapter constructor(private val dataList: List<BaseItemModel>) : Ba
                     holder.tvHint.text = dataModel.hint
                     holder.tvRiseFallTimeSpan.text = dataModel.riseFallTimeSpan
                 }
-                holder.layoutItem.setOnClickListener {
-                    onItemClickListener?.onItemClick(holder, position)
+                holder.layoutItem.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
                 }
             }
             else -> {

@@ -50,6 +50,12 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
             }
             is HeaderSeeMoreHolder -> {
                 holder.tvTitle.text = dataModel.header
+                holder.layoutItem.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
+                }
+                holder.tvSeeMore.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
+                }
             }
             is FundHotManagerHolder -> {
                 if (dataModel is FundHotManagerModel) {
@@ -59,8 +65,8 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
                     holder.tvRiseFallRatio.text = dataModel.riseFallRatio
                     holder.tvDescription.text = dataModel.description
                 }
-                holder.layoutItem.setOnClickListener {
-                    onItemClickListener?.onItemClick(holder, position)
+                holder.layoutItem.setOnClickListener { v ->
+                    onItemClickListener?.onItemClick(holder, position, v)
                 }
             }
             else -> {

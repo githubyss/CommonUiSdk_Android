@@ -8,13 +8,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.application.ComuiApplication
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHotManagerAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHotManagerHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHotManagerModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductModel
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
+import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderSeeMoreHolder
+import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
@@ -47,9 +54,54 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     private var rootView: View? = null
     private var layoutList = ArrayList<LayoutModel>()
     private var rvAdapter: LayoutAdapter? = null
-    
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
-        override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
+        override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View) {
+            val id = view.id
+            when (holder) {
+                is EmptyNoneHolder -> {
+                }
+                is HeaderSeeMoreHolder -> {
+                    when (id) {
+                        R.id.layout_recyclerItemHeaderSeeMore -> {
+                            ToastUtils.showMessage("${holder.tvTitle.text}")
+                        }
+                        R.id.textView_recyclerHeaderSeeMoreSeeMore -> {
+                            ToastUtils.showMessage("${holder.tvTitle.text}-更多")
+                        }
+                    }
+                }
+                is FundProductHolder -> {
+                    when (id) {
+                        R.id.layout_recyclerItemFundProduct -> {
+                            ToastUtils.showMessage("${holder.tvTitle.text}")
+                        }
+                        R.id.button_recyclerFundProductIsFollowed -> {
+                            ToastUtils.showMessage("${holder.tvTitle.text}-自选状态-${holder.tglBtnIsFollowed.isChecked}")
+                        }
+                    }
+                }
+                is FundHotHolder -> {
+                    when (id) {
+                        R.id.layout_recyclerItemFundHot -> {
+                            ToastUtils.showMessage("${holder.tvTitle.text}")
+                        }
+                    }
+                }
+                is FundHotManagerHolder -> {
+                    when (id) {
+                        R.id.layout_recyclerItemFundHotManager -> {
+                            ToastUtils.showMessage("${holder.tvTitle.text}")
+                        }
+                    }
+                }
+                is GoldProductHolder -> {
+                    when (id) {
+                        R.id.layout_recyclerItemGoldProduct -> {
+                            ToastUtils.showMessage("${holder.tvTitle.text}")
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -73,10 +125,10 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         val fundHotManagerList = ArrayList<BaseItemModel>()
         val goldProductList = ArrayList<BaseItemModel>()
         
-        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
         
         fundProductList.add(BaseItemModel("基金产品", "", ItemType.HEADER))
         fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "", "", "", ItemType.ITEM))
@@ -119,7 +171,6 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     
     override fun initView() {
         rvAdapter = LayoutAdapter(layoutList)
-        rvAdapter?.onItemClickListener = onItemClickListener
         
         recyclerView_container.setHasFixedSize(true)
         recyclerView_container.layoutManager = LinearLayoutManager(activity)

@@ -5,9 +5,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
-import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.view.*
+import kotlinx.android.synthetic.main.comui_recycler_list_view.view.*
 
 
 /**
@@ -31,21 +30,16 @@ class ItemListLayout : FrameLayout {
     private var viewContext: Context? = null
     private var dataList = ArrayList<BaseItemModel>()
     private var adapter: BaseItemAdapter? = null
-    
-    private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
-        override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
-            when (holder) {
-            }
-        }
-    }
+    var onItemClickListener: BaseItemAdapter.OnItemClickListener? = null
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(dataList: ArrayList<BaseItemModel>, adapter: BaseItemAdapter, context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+    constructor(dataList: ArrayList<BaseItemModel>, adapter: BaseItemAdapter, listener: BaseItemAdapter.OnItemClickListener? = null, context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         this.viewContext = context
         this.dataList = dataList
         this.adapter = adapter
+        this.onItemClickListener = listener
         initView()
     }
     
@@ -55,10 +49,13 @@ class ItemListLayout : FrameLayout {
     fun initView() {
         LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this, true)
         
-        adapter?.onItemClickListener = onItemClickListener
+        adapter?.onItemClickListener = this.onItemClickListener
         
         recyclerView_container.setHasFixedSize(true)
         recyclerView_container.layoutManager = LinearLayoutManager(viewContext)
         recyclerView_container.adapter = adapter
     }
+    
+    
+    /** ********** ********** ********** Interface ********** ********** ********** */
 }
