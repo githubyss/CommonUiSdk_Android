@@ -7,6 +7,8 @@ import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyHolder
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.FooterHolder
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderHolder
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
@@ -17,37 +19,15 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/15 17:05:43
  */
-class LayoutAdapter constructor(private val dataList: List<LayoutModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class LayoutAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
-    
-    private var selectedPosition = 0
-    var onItemClickListener: OnItemClickListener? = null
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    init {
-        initData()
-    }
-    
     
     /** ********* ********** ********** Override ********** ********** ********** */
-    
-    override fun getItemCount(): Int {
-        return dataList.size
-    }
-    
-    override fun getItemViewType(position: Int): Int {
-        return when {
-            dataList.isEmpty() -> {
-                ItemType.EMPTY
-            }
-            else -> {
-                dataList[position].type
-            }
-        }
-    }
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -70,13 +50,15 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>) : Recyc
         val dataModel = dataList[position]
         when (holder) {
             is HeaderHolder -> {
-                holder.tvTitle.text = "LAYOUT HEADER"
+                holder.tvTitle.text = dataModel.header
             }
             is FooterHolder -> {
-                holder.tvTitle.text = "LAYOUT FOOTER"
+                holder.tvTitle.text = dataModel.footer
             }
             is LayoutHolder -> {
-                holder.layoutItem.addView(dataModel.view)
+                if (dataModel is LayoutModel) {
+                    holder.layoutItem.addView(dataModel.view)
+                }
             }
             else -> {
             }
@@ -86,13 +68,6 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>) : Recyc
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    private fun initData() {
-    }
-    
     
     /** ********** ********** ********** Interface ********** ********** ********** */
-    
-    interface OnItemClickListener {
-        fun onItemClick(holder: RecyclerView.ViewHolder, position: Int)
-    }
 }

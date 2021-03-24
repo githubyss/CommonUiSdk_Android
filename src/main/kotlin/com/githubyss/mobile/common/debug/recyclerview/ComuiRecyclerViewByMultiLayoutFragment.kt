@@ -13,8 +13,11 @@ import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHo
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHotManagerModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductModel
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
+import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.ItemListLayout
 import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutAdapter
@@ -45,7 +48,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     private var layoutList = ArrayList<LayoutModel>()
     private var rvAdapter: LayoutAdapter? = null
     
-    private val onItemClickListener = object : LayoutAdapter.OnItemClickListener {
+    private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
         }
     }
@@ -68,10 +71,12 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         val fundProductList = ArrayList<BaseItemModel>()
         val fundHotList = ArrayList<BaseItemModel>()
         val fundHotManagerList = ArrayList<BaseItemModel>()
+        val goldProductList = ArrayList<BaseItemModel>()
         
-        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
         
         fundProductList.add(BaseItemModel("基金产品", "", ItemType.HEADER))
         fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "", "", "", ItemType.ITEM))
@@ -87,6 +92,11 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         fundHotManagerList.add(FundHotManagerModel("张静", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "", "", "", ItemType.ITEM))
         fundHotManagerList.add(FundHotManagerModel("张坤", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "", "", "", ItemType.ITEM))
         fundHotManagerList.add(FundHotManagerModel("王远", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "", "", "", ItemType.ITEM))
+        
+        goldProductList.add(BaseItemModel("黄金产品", "", ItemType.HEADER))
+        goldProductList.add(GoldProductModel("博时黄金ETF联接C", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "", "", "", ItemType.ITEM))
+        goldProductList.add(GoldProductModel("易方达原油人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "", "", "", ItemType.ITEM))
+        goldProductList.add(GoldProductModel("易方达沥青人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "", "", "", ItemType.ITEM))
         
         // val imageList = ArrayList<ImageModel>()
         // imageList.add(ImageModel("", "", MultiType.HEADER))
