@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.application.ComuiApplication
+import com.githubyss.mobile.common.debug.recyclerview.fund.enumeration.SectionId
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotModel
@@ -19,8 +20,9 @@ import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProdu
 import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreModel
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
-import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
@@ -55,49 +57,59 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     private var layoutList = ArrayList<LayoutModel>()
     private var rvAdapter: LayoutAdapter? = null
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
-        override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View) {
+        override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View, data: BaseItemModel) {
             val id = view.id
             when (holder) {
                 is EmptyNoneHolder -> {
                 }
                 is HeaderSeeMoreHolder -> {
-                    when (id) {
-                        R.id.layout_recyclerHeaderSeeMoreItem -> {
-                            ToastUtils.showMessage("${holder.tvTitle.text}")
-                        }
-                        R.id.textView_recyclerHeaderSeeMoreSeeMore -> {
-                            ToastUtils.showMessage("${holder.tvTitle.text}-更多")
+                    if (data is HeaderSeeMoreModel) {
+                        when (id) {
+                            R.id.layout_recyclerHeaderSeeMoreItem -> {
+                                ToastUtils.showMessage("${data.header}")
+                            }
+                            R.id.textView_recyclerHeaderSeeMoreSeeMore -> {
+                                ToastUtils.showMessage("${data.header}-更多-${data.id}")
+                            }
                         }
                     }
                 }
                 is FundProductHolder -> {
-                    when (id) {
-                        R.id.layout_recyclerFundProductItem -> {
-                            ToastUtils.showMessage("${holder.tvTitle.text}")
-                        }
-                        R.id.button_recyclerFundProductIsFollowed -> {
-                            ToastUtils.showMessage("${holder.tvTitle.text}-自选状态-${holder.tglBtnIsFollowed.isChecked}")
+                    if (data is FundProductModel) {
+                        when (id) {
+                            R.id.layout_recyclerFundProductItem -> {
+                                ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
+                            }
+                            R.id.button_recyclerFundProductIsFollowed -> {
+                                ToastUtils.showMessage("${data.title}-自选状态-${holder.tglBtnIsFollowed.isChecked}")
+                            }
                         }
                     }
                 }
                 is FundHotHolder -> {
-                    when (id) {
-                        R.id.layout_recyclerFundHotItem -> {
-                            ToastUtils.showMessage("${holder.tvTitle.text}")
+                    if (data is FundHotModel) {
+                        when (id) {
+                            R.id.layout_recyclerFundHotItem -> {
+                                ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
+                            }
                         }
                     }
                 }
                 is FundHotManagerHolder -> {
-                    when (id) {
-                        R.id.layout_recyclerFundHotManagerItem -> {
-                            ToastUtils.showMessage("${holder.tvTitle.text}")
+                    if (data is FundHotManagerModel) {
+                        when (id) {
+                            R.id.layout_recyclerFundHotManagerItem -> {
+                                ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
+                            }
                         }
                     }
                 }
                 is GoldProductHolder -> {
-                    when (id) {
-                        R.id.layout_recyclerGoldProductItem -> {
-                            ToastUtils.showMessage("${holder.tvTitle.text}")
+                    if (data is GoldProductModel) {
+                        when (id) {
+                            R.id.layout_recyclerGoldProductItem -> {
+                                ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
+                            }
                         }
                     }
                 }
@@ -125,30 +137,30 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         val fundHotManagerList = ArrayList<BaseItemModel>()
         val goldProductList = ArrayList<BaseItemModel>()
         
-        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), "", "", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
         
-        fundProductList.add(BaseItemModel("基金产品", "", ItemType.HEADER))
-        fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "", "", "", ItemType.ITEM))
-        fundProductList.add(FundProductModel("易方达原油人民币易方达原...", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "", "", "", ItemType.ITEM))
-        fundProductList.add(FundProductModel("易方达原油人民币", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "", "", "", ItemType.ITEM))
+        fundProductList.add(HeaderSeeMoreModel(SectionId.FUND_PRODUCT, "基金产品", ItemType.HEADER))
+        fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "https://FundProduct1", ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达原油人民币易方达原...", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "https://FundProduct2", ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达原油人民币", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "https://FundProduct3", ItemType.ITEM))
         
-        fundHotList.add(BaseItemModel("热门基金产品", "", ItemType.HEADER))
-        fundHotList.add(FundHotModel("易方达消费行业主题", "+15.26%", "1000万用户的投资选择", "最近一年增长率", "", "", "", ItemType.ITEM))
-        fundHotList.add(FundHotModel("易方达人民币主题", "+12.26%", "找10年赚10倍的方法", "最近一年增长率", "", "", "", ItemType.ITEM))
-        fundHotList.add(FundHotModel("易方达股票主题", "+10.65%", "123个相关产品", "最近一年增长率", "", "", "", ItemType.ITEM))
+        fundHotList.add(HeaderSeeMoreModel(SectionId.FUND_HOT, "热门基金产品", ItemType.HEADER))
+        fundHotList.add(FundHotModel("易方达消费行业主题", "+15.26%", "1000万用户的投资选择", "最近一年增长率", "https://FundHot1", ItemType.ITEM))
+        fundHotList.add(FundHotModel("易方达人民币主题", "+12.26%", "找10年赚10倍的方法", "最近一年增长率", "https://FundHot2", ItemType.ITEM))
+        fundHotList.add(FundHotModel("易方达股票主题", "+10.65%", "123个相关产品", "最近一年增长率", "https://FundHot3", ItemType.ITEM))
         
-        fundHotManagerList.add(BaseItemModel("热门经理人", "", ItemType.HEADER))
-        fundHotManagerList.add(FundHotManagerModel("张静", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "", "", "", ItemType.ITEM))
-        fundHotManagerList.add(FundHotManagerModel("张坤", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "", "", "", ItemType.ITEM))
-        fundHotManagerList.add(FundHotManagerModel("王远", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "", "", "", ItemType.ITEM))
+        fundHotManagerList.add(HeaderSeeMoreModel(SectionId.FUND_HOT_MANAGER, "热门经理人", ItemType.HEADER))
+        fundHotManagerList.add(FundHotManagerModel("张静", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager1", ItemType.ITEM))
+        fundHotManagerList.add(FundHotManagerModel("张坤", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager2", ItemType.ITEM))
+        fundHotManagerList.add(FundHotManagerModel("王远", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager3", ItemType.ITEM))
         
-        goldProductList.add(BaseItemModel("黄金产品", "", ItemType.HEADER))
-        goldProductList.add(GoldProductModel("博时黄金ETF联接C", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "", "", "", ItemType.ITEM))
-        goldProductList.add(GoldProductModel("易方达原油人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "", "", "", ItemType.ITEM))
-        goldProductList.add(GoldProductModel("易方达沥青人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "", "", "", ItemType.ITEM))
+        goldProductList.add(HeaderSeeMoreModel(SectionId.GOLD_PRODUCT, "黄金产品", ItemType.HEADER))
+        goldProductList.add(GoldProductModel("博时黄金ETF联接C", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct1", ItemType.ITEM))
+        goldProductList.add(GoldProductModel("易方达原油人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct2", ItemType.ITEM))
+        goldProductList.add(GoldProductModel("易方达沥青人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct3", ItemType.ITEM))
         
         // val imageList = ArrayList<ImageModel>()
         // imageList.add(ImageModel("", "", MultiType.HEADER))

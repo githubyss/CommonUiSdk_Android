@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.recyclerview.viewholder
+package com.githubyss.mobile.common.debug.recyclerview.fund.header
 
 import android.view.View
 import android.widget.TextView

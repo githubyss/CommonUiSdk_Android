@@ -11,6 +11,7 @@ import androidx.annotation.IntDef;
 
 /**
  * ItemType
+ * 列表样式类型
  *
  * @author Ace Yan
  * @github githubyss

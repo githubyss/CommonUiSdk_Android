@@ -3,8 +3,9 @@ package com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreModel
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
-import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemModel
@@ -13,6 +14,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 /**
  * GoldProductAdapter
+ * 黄金产品适配器
  *
  * @author Ace Yan
  * @github githubyss
@@ -48,12 +50,14 @@ class GoldProductAdapter constructor(private val dataList: List<BaseItemModel>) 
             is EmptyNoneHolder -> {
             }
             is HeaderSeeMoreHolder -> {
-                holder.tvTitle.text = dataModel.header
-                holder.layoutItem.setOnClickListener { v ->
-                    onItemClickListener?.onItemClick(holder, position, v)
-                }
-                holder.tvSeeMore.setOnClickListener { v ->
-                    onItemClickListener?.onItemClick(holder, position, v)
+                if (dataModel is HeaderSeeMoreModel) {
+                    holder.tvTitle.text = dataModel.header
+                    holder.layoutItem.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
+                    holder.tvSeeMore.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
                 }
             }
             is GoldProductHolder -> {
@@ -65,9 +69,9 @@ class GoldProductAdapter constructor(private val dataList: List<BaseItemModel>) 
                     holder.tvRisk.text = dataModel.risk
                     holder.tvClassify.text = dataModel.classify
                     holder.tvPriceTime.text = dataModel.priceTime
-                }
-                holder.layoutItem.setOnClickListener { v ->
-                    onItemClickListener?.onItemClick(holder, position, v)
+                    holder.layoutItem.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
                 }
             }
             else -> {

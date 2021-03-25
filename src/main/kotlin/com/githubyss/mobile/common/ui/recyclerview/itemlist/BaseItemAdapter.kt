@@ -7,6 +7,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 /**
  * BaseItemAdapter
+ * 基础适配器
  *
  * @author Ace Yan
  * @github githubyss
@@ -40,6 +41,6 @@ abstract class BaseItemAdapter constructor(private val dataList: List<BaseItemMo
     /** ********** ********** ********** Interface ********** ********** ********** */
     
     interface OnItemClickListener {
-        fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View)
+        fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View, data: BaseItemModel)
     }
 }

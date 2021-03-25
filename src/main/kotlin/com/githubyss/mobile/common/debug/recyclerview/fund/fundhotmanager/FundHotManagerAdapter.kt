@@ -3,8 +3,9 @@ package com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreModel
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
-import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
@@ -14,6 +15,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 /**
  * FundHotManagerAdapter
+ * 热门经理人适配器
  *
  * @author Ace Yan
  * @github githubyss
@@ -49,12 +51,14 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
             is EmptyNoneHolder -> {
             }
             is HeaderSeeMoreHolder -> {
-                holder.tvTitle.text = dataModel.header
-                holder.layoutItem.setOnClickListener { v ->
-                    onItemClickListener?.onItemClick(holder, position, v)
-                }
-                holder.tvSeeMore.setOnClickListener { v ->
-                    onItemClickListener?.onItemClick(holder, position, v)
+                if (dataModel is HeaderSeeMoreModel) {
+                    holder.tvTitle.text = dataModel.header
+                    holder.layoutItem.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
+                    holder.tvSeeMore.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
                 }
             }
             is FundHotManagerHolder -> {
@@ -64,9 +68,9 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
                     holder.tvBestReturn.text = dataModel.bestReturn
                     holder.tvRiseFallRatio.text = dataModel.riseFallRatio
                     holder.tvDescription.text = dataModel.description
-                }
-                holder.layoutItem.setOnClickListener { v ->
-                    onItemClickListener?.onItemClick(holder, position, v)
+                    holder.layoutItem.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
                 }
             }
             else -> {
