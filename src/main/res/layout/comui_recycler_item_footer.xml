@@ -15,7 +15,7 @@
             android:id="@+id/textView_recyclerFooter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/comres_sideMargin_default"
+            android:layout_margin="@dimen/comres_sideMargin_normal"
             android:text="Footer"
             android:textColor="@color/comres_color_red"
             android:textSize="@dimen/comres_textSize_20sp"

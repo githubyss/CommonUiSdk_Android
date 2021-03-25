@@ -7,7 +7,7 @@
 
     <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comres_separatorThickness_slightly"
+            android:layout_height="@dimen/comres_separatorThickness_thin"
             android:background="@color/comres_separator_gray"
             />
 </LinearLayout>

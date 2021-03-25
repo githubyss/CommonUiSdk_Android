@@ -5,7 +5,7 @@
         android:id="@+id/layout_recyclerHeaderSeeMoreItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/comres_color_white"
+        android:background="@color/comres_color_transparent"
         app:alignItems="flex_start"
         app:flexDirection="column"
         app:justifyContent="center"
@@ -14,7 +14,7 @@
     <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/comres_sideMargin_mini"
+            android:padding="@dimen/comres_sideMargin_tiny"
             app:alignItems="flex_start"
             app:flexDirection="row"
             app:justifyContent="space_between"

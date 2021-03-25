@@ -10,8 +10,8 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/comres_sideMargin_default"
-            android:layout_marginRight="@dimen/comres_sideMargin_default"
+            android:layout_marginLeft="@dimen/comres_sideMargin_normal"
+            android:layout_marginRight="@dimen/comres_sideMargin_normal"
             android:gravity="center"
             android:orientation="vertical"
             >
@@ -19,8 +19,8 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/comres_sideMargin_default"
-                android:layout_marginRight="@dimen/comres_sideMargin_default"
+                android:layout_marginLeft="@dimen/comres_sideMargin_normal"
+                android:layout_marginRight="@dimen/comres_sideMargin_normal"
                 android:gravity="center"
                 android:orientation="horizontal"
                 >
@@ -46,8 +46,8 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/comres_sideMargin_default"
-                android:layout_marginRight="@dimen/comres_sideMargin_default"
+                android:layout_marginLeft="@dimen/comres_sideMargin_normal"
+                android:layout_marginRight="@dimen/comres_sideMargin_normal"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:orientation="horizontal"
