@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.recyclerview.itemlist
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
+import android.view.View
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,7 +28,9 @@ class ItemListLayout : FrameLayout {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    private var viewContext: Context? = null
+    private var layoutContext: Context? = null
+    
+    // private var layoutView: View? = null
     private var dataList = ArrayList<BaseItemModel>()
     private var adapter: BaseItemAdapter? = null
     
@@ -39,8 +41,8 @@ class ItemListLayout : FrameLayout {
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(dataList: ArrayList<BaseItemModel>, adapter: BaseItemAdapter, @RecyclerView.Orientation orientation: Int, listener: BaseItemAdapter.OnItemClickListener? = null, context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
-        this.viewContext = context
+    constructor(dataList: ArrayList<BaseItemModel>, adapter: BaseItemAdapter, @RecyclerView.Orientation orientation: Int, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+        this.layoutContext = context
         this.dataList = dataList
         this.adapter = adapter
         this.orientation = orientation
@@ -52,13 +54,16 @@ class ItemListLayout : FrameLayout {
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun initView() {
-        LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this, false)
+        // layoutView = View.inflate(layoutContext, R.layout.comui_recycler_list_view, this)
+        // layoutView = LayoutInflater.from(layoutContext).inflate(R.layout.comui_recycler_list_view, this, true)
+        View.inflate(layoutContext, R.layout.comui_recycler_list_view, this)
+        // LayoutInflater.from(layoutContext).inflate(R.layout.comui_recycler_list_view, this, true)
         
         adapter?.onItemClickListener = onItemClickListener
         
         recyclerView_container.setHasFixedSize(true)
-        val layoutManager = LinearLayoutManager(viewContext)
-//        layoutManager.orientation = orientation
+        val layoutManager = LinearLayoutManager(layoutContext)
+        layoutManager.orientation = orientation
         recyclerView_container.layoutManager = layoutManager
         recyclerView_container.adapter = adapter
     }

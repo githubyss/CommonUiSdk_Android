@@ -271,9 +271,8 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     }
     
     private fun inflateView(context: Context?) {
-        val inflater = LayoutInflater.from(context)
         if (rootView == null) {
-            rootView = inflater.inflate(R.layout.comui_auto_hide_floating_window, null, false) as FrameLayout
+            rootView = LayoutInflater.from(context).inflate(R.layout.comui_auto_hide_floating_window, null, false) as FrameLayout
             initView(rootView)
         }
         

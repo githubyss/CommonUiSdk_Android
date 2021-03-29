@@ -2,12 +2,10 @@ package com.githubyss.mobile.common.ui.floatingwindow;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PixelFormat;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -477,9 +475,8 @@ public class ScreenshotAutoHideFloatingWindow {
     public ScreenshotAutoHideFloatingWindow(Activity activity) {
         mActivity = activity;
 
-        LayoutInflater inflater = LayoutInflater.from(mActivity.getApplicationContext());
         if (null == rootView) {
-            rootView = (LinearLayout) inflater.inflate(R.layout.floating_window_screenshot_auto_hide, null, false);
+            rootView = (LinearLayout) LayoutInflater.from(mActivity.getApplicationContext()).inflate(R.layout.floating_window_screenshot_auto_hide, null, false);
         }
 
         if (null == containerView) {

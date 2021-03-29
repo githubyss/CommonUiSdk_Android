@@ -175,8 +175,7 @@ open class AutoShortenView : FrameLayout {
             
             if (animatorSlideRightLengthen == animation) {
                 if (featureView != null) {
-                    featureView?.translationX = -(ScreenUtils.dp2Px(230.0f)
-                            ?.toFloat() ?: return)
+                    featureView?.translationX = -(ScreenUtils.dp2Px(230.0f).toFloat())
                     onLengthen()
                 }
                 return

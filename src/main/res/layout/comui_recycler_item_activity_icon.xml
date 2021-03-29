@@ -19,7 +19,7 @@
             android:id="@+id/imageView_recyclerActivityIconImage"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/comui_icon_lucky_money"
+            android:background="@color/comres_color_333333"
             />
 
     <TextView

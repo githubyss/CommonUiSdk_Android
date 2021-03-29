@@ -60,7 +60,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var rootView: View? = null
-    private var layoutList = ArrayList<LayoutModel>()
+    private var layoutList = ArrayList<BaseItemModel>()
     private var rvAdapter: LayoutAdapter? = null
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View, data: BaseItemModel) {
@@ -163,48 +163,49 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         val fundHotManagerList = ArrayList<BaseItemModel>()
         val goldProductList = ArrayList<BaseItemModel>()
         
-        layoutList.add(LayoutModel(ItemListLayout(activityIconList, ActivityIconAdapter(activityIconList), RecyclerView.HORIZONTAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(appIconList, AppIconAdapter(appIconList), RecyclerView.HORIZONTAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        
-        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        
-        activityIconList.add(HeaderSeeMoreModel(SectionId.ACTIVITY_ICON, "活动", ItemType.HEADER))
         activityIconList.add(ActivityIconModel("", "分享券包", "https://ActivityIcon1", ItemType.ITEM))
         activityIconList.add(ActivityIconModel("", "挖宝", "https://ActivityIcon2", ItemType.ITEM))
         activityIconList.add(ActivityIconModel("", "养猫", "https://ActivityIcon3", ItemType.ITEM))
         activityIconList.add(ActivityIconModel("", "签到打卡", "https://ActivityIcon4", ItemType.ITEM))
         
-        appIconList.add(HeaderSeeMoreModel(SectionId.APP_ICON, "应用", ItemType.HEADER))
         appIconList.add(AppIconModel("", "定投管理", "https://AppIcon1", ItemType.ITEM))
         appIconList.add(AppIconModel("", "组合投资", "https://AppIcon2", ItemType.ITEM))
         appIconList.add(AppIconModel("", "苏宁智投", "https://AppIcon3", ItemType.ITEM))
         appIconList.add(AppIconModel("", "慧智盈", "https://AppIcon4", ItemType.ITEM))
         
-        fundProductList.add(HeaderSeeMoreModel(SectionId.FUND_PRODUCT, "基金产品", ItemType.HEADER))
         fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "https://FundProduct1", ItemType.ITEM))
-        fundProductList.add(FundProductModel("易方达原油人民币易方达原...", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "https://FundProduct2", ItemType.ITEM))
-        fundProductList.add(FundProductModel("易方达原油人民币", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "https://FundProduct3", ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达地产行业基金", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "https://FundProduct2", ItemType.ITEM))
+        fundProductList.add(FundProductModel("博时家电行业基金", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "https://FundProduct3", ItemType.ITEM))
         
-        fundHotList.add(HeaderSeeMoreModel(SectionId.FUND_HOT, "热门基金产品", ItemType.HEADER))
         fundHotList.add(FundHotModel("易方达消费行业主题", "+15.26%", "1000万用户的投资选择", "最近一年增长率", "https://FundHot1", ItemType.ITEM))
         fundHotList.add(FundHotModel("易方达人民币主题", "+12.26%", "找10年赚10倍的方法", "最近一年增长率", "https://FundHot2", ItemType.ITEM))
         fundHotList.add(FundHotModel("易方达股票主题", "+10.65%", "123个相关产品", "最近一年增长率", "https://FundHot3", ItemType.ITEM))
         
-        fundHotManagerList.add(HeaderSeeMoreModel(SectionId.FUND_HOT_MANAGER, "热门经理人", ItemType.HEADER))
         fundHotManagerList.add(FundHotManagerModel("张静", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager1", ItemType.ITEM))
         fundHotManagerList.add(FundHotManagerModel("张坤", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager2", ItemType.ITEM))
         fundHotManagerList.add(FundHotManagerModel("王远", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager3", ItemType.ITEM))
         
-        goldProductList.add(HeaderSeeMoreModel(SectionId.GOLD_PRODUCT, "黄金产品", ItemType.HEADER))
         goldProductList.add(GoldProductModel("博时黄金ETF联接C", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct1", ItemType.ITEM))
-        goldProductList.add(GoldProductModel("易方达原油人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct2", ItemType.ITEM))
-        goldProductList.add(GoldProductModel("易方达沥青人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct3", ItemType.ITEM))
+        goldProductList.add(GoldProductModel("易方达原油人民币B", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct2", ItemType.ITEM))
+        goldProductList.add(GoldProductModel("易方达沥青人民币A", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct3", ItemType.ITEM))
+        
+        layoutList.add(HeaderSeeMoreModel(SectionId.ACTIVITY_ICON, "活动", ItemType.HEADER))
+        layoutList.add(LayoutModel(ItemListLayout(activityIconList, ActivityIconAdapter(activityIconList), RecyclerView.HORIZONTAL, activity?.baseContext ?: ComuiApplication.instance, onItemClickListener), ItemType.ITEM))
+        
+        layoutList.add(HeaderSeeMoreModel(SectionId.APP_ICON, "应用", ItemType.HEADER))
+        layoutList.add(LayoutModel(ItemListLayout(appIconList, AppIconAdapter(appIconList), RecyclerView.HORIZONTAL, activity?.baseContext ?: ComuiApplication.instance, onItemClickListener), ItemType.ITEM))
+        
+        layoutList.add(HeaderSeeMoreModel(SectionId.FUND_PRODUCT, "基金产品", ItemType.HEADER))
+        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), RecyclerView.VERTICAL, activity?.baseContext ?: ComuiApplication.instance, onItemClickListener), ItemType.ITEM))
+        
+        layoutList.add(HeaderSeeMoreModel(SectionId.FUND_HOT, "热门基金产品", ItemType.HEADER))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), RecyclerView.VERTICAL, activity?.baseContext ?: ComuiApplication.instance, onItemClickListener), ItemType.ITEM))
+        
+        layoutList.add(HeaderSeeMoreModel(SectionId.FUND_HOT_MANAGER, "热门经理人", ItemType.HEADER))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), RecyclerView.VERTICAL, activity?.baseContext ?: ComuiApplication.instance, onItemClickListener), ItemType.ITEM))
+        
+        layoutList.add(HeaderSeeMoreModel(SectionId.GOLD_PRODUCT, "黄金产品", ItemType.HEADER))
+        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, activity?.baseContext ?: ComuiApplication.instance, onItemClickListener), ItemType.ITEM))
     }
     
     override fun initView() {

@@ -8,6 +8,7 @@ import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreH
 import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreModel
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
 import com.githubyss.mobile.common.kit.glide.GlideUtils
+import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemModel
@@ -41,7 +42,9 @@ class ActivityIconAdapter constructor(private val dataList: List<BaseItemModel>)
                 HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
             }
             else -> {
-                ActivityIconHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_activity_icon, parent, false))
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_activity_icon, parent, false)
+                view.layoutParams.width = (ScreenUtils.getScreenWidthPx(parent.context) - ScreenUtils.dp2Px(28.0f)) / dataList.size
+                ActivityIconHolder(view)
             }
         }
     }
