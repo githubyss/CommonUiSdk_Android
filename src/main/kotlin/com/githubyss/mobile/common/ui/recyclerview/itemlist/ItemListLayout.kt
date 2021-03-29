@@ -30,7 +30,6 @@ class ItemListLayout : FrameLayout {
     
     private var layoutContext: Context? = null
     
-    private var dataList = ArrayList<BaseItemModel>()
     private var adapter: BaseItemAdapter? = null
     
     @RecyclerView.Orientation
@@ -40,9 +39,8 @@ class ItemListLayout : FrameLayout {
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(dataList: ArrayList<BaseItemModel>, adapter: BaseItemAdapter, @RecyclerView.Orientation orientation: Int, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+    constructor(adapter: BaseItemAdapter, @RecyclerView.Orientation orientation: Int, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         this.layoutContext = context
-        this.dataList = dataList
         this.adapter = adapter
         this.orientation = orientation
         this.onItemClickListener = listener
