@@ -7,6 +7,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.application.ComuiApplication
+import com.githubyss.mobile.common.debug.recyclerview.fund.activityicon.ActivityIconAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.activityicon.ActivityIconHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.activityicon.ActivityIconModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.appicon.AppIconAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.appicon.AppIconHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.appicon.AppIconModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.enumeration.SectionId
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotHolder
@@ -74,6 +80,24 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
                         }
                     }
                 }
+                is ActivityIconHolder -> {
+                    if (data is ActivityIconModel) {
+                        when (id) {
+                            R.id.layout_recyclerActivityIconItem -> {
+                                ToastUtils.showMessage("${data.label}-${data.jumpUrl}")
+                            }
+                        }
+                    }
+                }
+                is AppIconHolder -> {
+                    if (data is AppIconModel) {
+                        when (id) {
+                            R.id.layout_recyclerAppIconItem -> {
+                                ToastUtils.showMessage("${data.label}-${data.jumpUrl}")
+                            }
+                        }
+                    }
+                }
                 is FundProductHolder -> {
                     if (data is FundProductModel) {
                         when (id) {
@@ -132,15 +156,35 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     }
     
     override fun initData() {
+        val activityIconList = ArrayList<BaseItemModel>()
+        val appIconList = ArrayList<BaseItemModel>()
         val fundProductList = ArrayList<BaseItemModel>()
         val fundHotList = ArrayList<BaseItemModel>()
         val fundHotManagerList = ArrayList<BaseItemModel>()
         val goldProductList = ArrayList<BaseItemModel>()
         
-        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(activityIconList, ActivityIconAdapter(activityIconList), RecyclerView.HORIZONTAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(appIconList, AppIconAdapter(appIconList), RecyclerView.HORIZONTAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundProductList, FundProductAdapter(fundProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotList, FundHotAdapter(fundHotList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(fundHotManagerList, FundHotManagerAdapter(fundHotManagerList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        
+        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(goldProductList, GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, onItemClickListener, activity?.baseContext ?: ComuiApplication.instance), ItemType.ITEM))
+        
+        activityIconList.add(HeaderSeeMoreModel(SectionId.ACTIVITY_ICON, "活动", ItemType.HEADER))
+        activityIconList.add(ActivityIconModel("", "分享券包", "https://ActivityIcon1", ItemType.ITEM))
+        activityIconList.add(ActivityIconModel("", "挖宝", "https://ActivityIcon2", ItemType.ITEM))
+        activityIconList.add(ActivityIconModel("", "养猫", "https://ActivityIcon3", ItemType.ITEM))
+        activityIconList.add(ActivityIconModel("", "签到打卡", "https://ActivityIcon4", ItemType.ITEM))
+        
+        appIconList.add(HeaderSeeMoreModel(SectionId.APP_ICON, "应用", ItemType.HEADER))
+        appIconList.add(AppIconModel("", "定投管理", "https://AppIcon1", ItemType.ITEM))
+        appIconList.add(AppIconModel("", "组合投资", "https://AppIcon2", ItemType.ITEM))
+        appIconList.add(AppIconModel("", "苏宁智投", "https://AppIcon3", ItemType.ITEM))
+        appIconList.add(AppIconModel("", "慧智盈", "https://AppIcon4", ItemType.ITEM))
         
         fundProductList.add(HeaderSeeMoreModel(SectionId.FUND_PRODUCT, "基金产品", ItemType.HEADER))
         fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "https://FundProduct1", ItemType.ITEM))
@@ -161,24 +205,6 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         goldProductList.add(GoldProductModel("博时黄金ETF联接C", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct1", ItemType.ITEM))
         goldProductList.add(GoldProductModel("易方达原油人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct2", ItemType.ITEM))
         goldProductList.add(GoldProductModel("易方达沥青人民币", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct3", ItemType.ITEM))
-        
-        // val imageList = ArrayList<ImageModel>()
-        // imageList.add(ImageModel("", "", MultiType.HEADER))
-        // imageList.add(ImageModel("狗狗", "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", MultiType.IMAGE))
-        // imageList.add(ImageModel("变色龙", "https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", MultiType.IMAGE))
-        // imageList.add(ImageModel("猫猫", "https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", MultiType.IMAGE))
-        // imageList.add(ImageModel("", "", MultiType.FOOTER))
-        
-        // val textList = ArrayList<TextModel>()
-        // textList.add(TextModel("", false, MultiType.HEADER))
-        // (0 until 5).forEach {
-        //     val textModel = TextModel("喵$it", false, MultiType.TEXT)
-        //     textList.add(textModel)
-        // }
-        // textList.add(TextModel("", false, MultiType.FOOTER))
-        
-        // layoutList.add(LayoutModel(ImageListLayout(imageList, activity?.baseContext ?: ComuiApplication.instance), MultiType.VIEW))
-        // layoutList.add(LayoutModel(TextListLayout(textList, activity?.baseContext ?: ComuiApplication.instance), MultiType.VIEW))
     }
     
     override fun initView() {

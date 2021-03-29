@@ -6,13 +6,9 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.view.View
-import androidx.annotation.IntDef
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 import com.githubyss.mobile.common.kit.util.ResourceUtils
-import java.lang.annotation.Documented
-import java.lang.annotation.Retention
-import java.lang.annotation.RetentionPolicy
+import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 
 
 /**
@@ -32,14 +28,14 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
     private var dividerWeight: Int = 1
     private var paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     
-    @OrientationType
-    private var orientation = OrientationType.VERTICAL
+    @RecyclerView.Orientation
+    private var orientation = RecyclerView.VERTICAL
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(context: Context?, @OrientationType orientation: Int, drawableId: Int? = null, dividerWeight: Int? = null, dividerColor: Int? = null) : super() {
-        if (orientation != OrientationType.VERTICAL && orientation != OrientationType.HORIZONTAL) {
+    constructor(context: Context?, @RecyclerView.Orientation orientation: Int, drawableId: Int? = null, dividerWeight: Int? = null, dividerColor: Int? = null) : super() {
+        if (orientation != RecyclerView.VERTICAL && orientation != RecyclerView.HORIZONTAL) {
             throw IllegalArgumentException("请输入正确的参数！")
         }
         this.orientation = orientation
@@ -51,8 +47,8 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
             ResourceUtils.getDrawable(drawableId)
         }
         this.dividerWeight = dividerWeight ?: (when (orientation) {
-            OrientationType.HORIZONTAL -> divider?.intrinsicWidth ?: 0
-            OrientationType.VERTICAL -> divider?.intrinsicHeight ?: 0
+            RecyclerView.HORIZONTAL -> divider?.intrinsicWidth ?: 0
+            RecyclerView.VERTICAL -> divider?.intrinsicHeight ?: 0
             else -> this.dividerWeight
         })
         
@@ -84,10 +80,10 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
             }
             else -> {
                 when (orientation) {
-                    OrientationType.HORIZONTAL -> {
+                    RecyclerView.HORIZONTAL -> {
                         outRect.set(0, 0, dividerWeight, 0)
                     }
-                    OrientationType.VERTICAL -> {
+                    RecyclerView.VERTICAL -> {
                         outRect.set(0, 0, 0, dividerWeight)
                     }
                 }
@@ -104,10 +100,10 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(c, parent, state)
         when (orientation) {
-            OrientationType.VERTICAL -> {
+            RecyclerView.VERTICAL -> {
                 drawHorizontalDecoration(c, parent)
             }
-            OrientationType.HORIZONTAL -> {
+            RecyclerView.HORIZONTAL -> {
                 drawVerticalDecoration(c, parent)
             }
         }
@@ -163,15 +159,4 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
     
     
     /** ********** ********** ********** Class ********** ********** **********  */
-    
-    @Documented
-    @IntDef(OrientationType.HORIZONTAL, OrientationType.VERTICAL)
-    @Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.FIELD, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER)
-    @Retention(RetentionPolicy.SOURCE)
-    annotation class OrientationType {
-        companion object {
-            const val HORIZONTAL = 0x00
-            const val VERTICAL = 0x01
-        }
-    }
 }

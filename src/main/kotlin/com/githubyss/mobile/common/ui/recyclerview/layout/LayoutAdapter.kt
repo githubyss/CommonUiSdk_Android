@@ -20,6 +20,13 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  */
 class LayoutAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
+    /** ********** ********** ********** Companion ********** ********** ********** */
+    
+    companion object {
+        val TAG = LayoutAdapter::class.simpleName ?: "simpleName is null"
+    }
+    
+    
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     
@@ -44,7 +51,11 @@ class LayoutAdapter constructor(private val dataList: List<BaseItemModel>) : Bas
         when (holder) {
             is LayoutHolder -> {
                 if (dataModel is LayoutModel) {
-                    holder.layoutItem.addView(dataModel.view)
+                    val view = dataModel.view ?: return
+                    // if (view.parent != null) {
+                    //     (view.parent as ViewGroup).removeView(view)
+                    // }
+                    holder.layoutItem.addView(view)
                 }
             }
             else -> {

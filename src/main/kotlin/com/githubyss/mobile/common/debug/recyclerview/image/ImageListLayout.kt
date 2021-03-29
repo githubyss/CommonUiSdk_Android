@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.text.TextHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.debug.recyclerview.text.TextHolder
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.view.*
 
 
@@ -57,7 +57,7 @@ class ImageListLayout : FrameLayout {
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun initView() {
-        LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this, true)
+        LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this, false)
         
         rvAdapter = ImageAdapter(dataList)
         rvAdapter?.onItemClickListener = onItemClickListener

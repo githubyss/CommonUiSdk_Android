@@ -1,6 +1,7 @@
-package com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager
+package com.githubyss.mobile.common.debug.recyclerview.fund.activityicon
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreHolder
@@ -14,14 +15,14 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * FundHotManagerAdapter
- * 热门经理人适配器
+ * ActivityIconAdapter
+ * 活动图标适配器
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/23 11:32:43
+ * @createdTime 2021/03/26 10:29:29
  */
-class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
+class ActivityIconAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -40,7 +41,7 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
                 HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
             }
             else -> {
-                FundHotManagerHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_hot_manager, parent, false))
+                ActivityIconHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_activity_icon, parent, false))
             }
         }
     }
@@ -53,21 +54,16 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
             is HeaderSeeMoreHolder -> {
                 if (dataModel is HeaderSeeMoreModel) {
                     holder.tvTitle.text = dataModel.header
+                    holder.tvSeeMore.visibility = View.GONE
                     holder.layoutItem.setOnClickListener { v ->
-                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
-                    }
-                    holder.tvSeeMore.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }
                 }
             }
-            is FundHotManagerHolder -> {
-                if (dataModel is FundHotManagerModel) {
-                    GlideUtils.loadImage(dataModel.headerImageUrl, holder.ivHeaderImage)
-                    holder.tvTitle.text = dataModel.title
-                    holder.tvBestReturn.text = dataModel.bestReturn
-                    holder.tvRiseFallRatio.text = dataModel.riseFallRatio
-                    holder.tvDescription.text = dataModel.description
+            is ActivityIconHolder -> {
+                if (dataModel is ActivityIconModel) {
+                    GlideUtils.loadImage(dataModel.iconUrl, holder.ivIconImage)
+                    holder.tvLabel.text = dataModel.label
                     holder.layoutItem.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }
