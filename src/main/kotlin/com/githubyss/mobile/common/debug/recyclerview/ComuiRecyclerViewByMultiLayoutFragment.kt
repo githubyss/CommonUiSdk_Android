@@ -7,37 +7,37 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.application.ComuiApplication
-import com.githubyss.mobile.common.debug.recyclerview.fund.activityicon.ActivityIconAdapter
-import com.githubyss.mobile.common.debug.recyclerview.fund.activityicon.ActivityIconHolder
-import com.githubyss.mobile.common.debug.recyclerview.fund.activityicon.ActivityIconModel
-import com.githubyss.mobile.common.debug.recyclerview.fund.appicon.AppIconAdapter
-import com.githubyss.mobile.common.debug.recyclerview.fund.appicon.AppIconHolder
-import com.githubyss.mobile.common.debug.recyclerview.fund.appicon.AppIconModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.enumeration.SectionId
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotAdapter
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotHolder
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundhot.FundHotModel
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHotManagerAdapter
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHotManagerHolder
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundhotmanager.FundHotManagerModel
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductAdapter
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductHolder
-import com.githubyss.mobile.common.debug.recyclerview.fund.fundproduct.FundProductModel
-import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductAdapter
-import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductHolder
-import com.githubyss.mobile.common.debug.recyclerview.fund.goldproduct.GoldProductModel
-import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreHolder
-import com.githubyss.mobile.common.debug.recyclerview.fund.header.HeaderSeeMoreModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.activityicon.ActivityIconAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.activityicon.ActivityIconHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.activityicon.ActivityIconModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.appicon.AppIconAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.appicon.AppIconHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.appicon.AppIconModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot.FundHotAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot.FundHotHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot.FundHotModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhotmanager.FundHotManagerAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhotmanager.FundHotManagerHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhotmanager.FundHotManagerModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundproduct.FundProductAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundproduct.FundProductHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundproduct.FundProductModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.goldproduct.GoldProductAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.goldproduct.GoldProductHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.goldproduct.GoldProductModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.header.HeaderSeeMoreHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.header.HeaderSeeMoreModel
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
-import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.itemlist.ItemListLayout
-import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutAdapter
-import com.githubyss.mobile.common.ui.recyclerview.layout.LayoutModel
-import com.githubyss.mobile.common.ui.recyclerview.template.list.ListAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.ItemListLayout
+import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
+import com.githubyss.mobile.common.ui.recyclerview.template.list.ListFirstLevelAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
@@ -168,7 +168,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         val activityList = ArrayList<BaseItemModel>()
         activityList.add(HeaderSeeMoreModel(SectionId.ACTIVITY_ICON, "活动", ItemType.HEADER))
         activityList.add(ListModel(ActivityIconAdapter(activityIconList), RecyclerView.HORIZONTAL, context, ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(ListAdapter(activityList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(activityList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         
         val appIconList = ArrayList<BaseItemModel>()
         appIconList.add(AppIconModel("", "定投管理", "https://AppIcon1", ItemType.ITEM))
@@ -178,7 +178,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         val appList = ArrayList<BaseItemModel>()
         appList.add(HeaderSeeMoreModel(SectionId.ACTIVITY_ICON, "应用", ItemType.HEADER))
         appList.add(ListModel(AppIconAdapter(appIconList), RecyclerView.HORIZONTAL, context, ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(ListAdapter(appList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(appList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         
         val fundProductList = ArrayList<BaseItemModel>()
         fundProductList.add(HeaderSeeMoreModel(SectionId.FUND_PRODUCT, "基金产品", ItemType.HEADER))

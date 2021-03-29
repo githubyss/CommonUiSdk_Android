@@ -2,14 +2,14 @@ package com.githubyss.mobile.common.ui.recyclerview.template.list
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.itemlist.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
  * ListModel
- * 列表的数据类型
+ * 一级列表的数据类型
  *
  * @author Ace Yan
  * @github githubyss
