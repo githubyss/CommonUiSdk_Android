@@ -56,7 +56,7 @@ class TextListLayout : FrameLayout {
     /** ********* ********** ********** Override ********** ********** ********** */
     
     fun initView() {
-        LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this, true)
+        LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this)
         
         rvAdapter = TextAdapter(dataList)
         rvAdapter?.onItemClickListener = onItemClickListener

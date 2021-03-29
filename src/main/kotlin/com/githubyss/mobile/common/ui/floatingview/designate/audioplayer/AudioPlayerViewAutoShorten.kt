@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.floatingview.designate.audioplayer
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.SeekBar
@@ -58,7 +59,8 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     constructor(context: Context, @LayoutRes layoutId: Int = designateLayoutId) : super(context, null) {
         designateContext = context
         if (super.featureView == null) {
-            super.featureView = View.inflate(context, layoutId, this)
+            // super.featureView = View.inflate(context, layoutId, this)
+            super.featureView = LayoutInflater.from(context).inflate(layoutId, this)
             designateView = this
             initInBase()
             initInDesignated()
@@ -269,8 +271,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
                 if (AudioPlayManager.INSTANCE.getAudioList() == null || AudioPlayManager.INSTANCE.getAudioList()?.size == 0) {
                     return
                 }
-                textView_title.text = AudioPlayManager.INSTANCE.getAudioList()
-                        ?.get(AudioPlayManager.INSTANCE.getCurrentIndex())?.title
+                textView_title.text = AudioPlayManager.INSTANCE.getAudioList()?.get(AudioPlayManager.INSTANCE.getCurrentIndex())?.title
                 
                 // mMusicPlayAuthorTv.setText(mContext.getString(R.string.music_play_author) + MusicManager.getInstance().getPlayList().get(MusicManager.getInstance().getPosition()).getAuthor());
                 // mMusicPreviousIv.setImageResource(R.drawable.music_play_previous_click_icon);

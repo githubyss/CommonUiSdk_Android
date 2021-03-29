@@ -57,7 +57,7 @@ class ImageListLayout : FrameLayout {
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun initView() {
-        LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this, false)
+        LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this)
         
         rvAdapter = ImageAdapter(dataList)
         rvAdapter?.onItemClickListener = onItemClickListener

@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.ui.floatingview.designate.icon
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
-import android.view.View
+import android.view.LayoutInflater
 import android.view.View.OnClickListener
 import androidx.annotation.DrawableRes
 import androidx.annotation.LayoutRes
@@ -58,7 +58,8 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     constructor(context: Context, @LayoutRes layoutId: Int = designateLayoutId) : super(context, null) {
         designateContext = context
         if (super.featureView == null) {
-            super.featureView = View.inflate(context, layoutId, this)
+            // super.featureView = View.inflate(context, layoutId, this)
+            super.featureView = LayoutInflater.from(context).inflate(layoutId, this)
             designateView = this
             initInBase()
             initInDesignated()

@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.recyclerview.itemlist
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +30,6 @@ class ItemListLayout : FrameLayout {
     
     private var layoutContext: Context? = null
     
-    // private var layoutView: View? = null
     private var dataList = ArrayList<BaseItemModel>()
     private var adapter: BaseItemAdapter? = null
     
@@ -54,12 +53,12 @@ class ItemListLayout : FrameLayout {
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun initView() {
+        adapter?.onItemClickListener = onItemClickListener
+        
         // layoutView = View.inflate(layoutContext, R.layout.comui_recycler_list_view, this)
         // layoutView = LayoutInflater.from(layoutContext).inflate(R.layout.comui_recycler_list_view, this, true)
-        View.inflate(layoutContext, R.layout.comui_recycler_list_view, this)
-        // LayoutInflater.from(layoutContext).inflate(R.layout.comui_recycler_list_view, this, true)
-        
-        adapter?.onItemClickListener = onItemClickListener
+        // View.inflate(layoutContext, R.layout.comui_recycler_list_view, this)
+        LayoutInflater.from(layoutContext).inflate(R.layout.comui_recycler_list_view, this)
         
         recyclerView_container.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(layoutContext)
