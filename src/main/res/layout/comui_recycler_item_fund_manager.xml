@@ -2,7 +2,7 @@
 <com.google.android.flexbox.FlexboxLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layout_recyclerFundHotManagerItem"
+        android:id="@+id/layout_recyclerFundManagerItem"
         android:background="@color/comres_color_transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             >
 
         <ImageView
-                android:id="@+id/imageView_recyclerFundHotManagerImage"
+                android:id="@+id/imageView_recyclerFundManagerImage"
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginRight="20dp"
@@ -49,7 +49,7 @@
                     >
 
                 <TextView
-                        android:id="@+id/textView_recyclerFundHotManagerTitle"
+                        android:id="@+id/textView_recyclerFundManagerTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="张静"
@@ -59,11 +59,11 @@
                         />
 
                 <ImageView
-                        android:id="@+id/textView_recyclerFundHotManagerIcon"
+                        android:id="@+id/textView_recyclerFundManagerIcon"
                         android:layout_width="45dp"
                         android:layout_height="15dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/comui_icon_fund_hot_manager"
+                        android:src="@drawable/comui_icon_fund_manager"
                         />
             </com.google.android.flexbox.FlexboxLayout>
 
@@ -77,7 +77,7 @@
                     >
 
                 <TextView
-                        android:id="@+id/textView_recyclerFundHotManagerBestReturn"
+                        android:id="@+id/textView_recyclerFundManagerBestReturn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="任期最佳回报"
@@ -86,7 +86,7 @@
                         />
 
                 <TextView
-                        android:id="@+id/textView_recyclerFundHotManagerRiseFallRatio"
+                        android:id="@+id/textView_recyclerFundManagerRiseFallRatio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
@@ -97,7 +97,7 @@
             </com.google.android.flexbox.FlexboxLayout>
 
             <TextView
-                    android:id="@+id/textView_recyclerFundHotManagerDescription"
+                    android:id="@+id/textView_recyclerFundManagerDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"

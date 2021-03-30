@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.debug.recyclerview
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,15 +21,15 @@ import com.githubyss.mobile.common.debug.recyclerview.fund.template.faq.FaqModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.financeaq.FinanceAqAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.financeaq.FinanceAqHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.financeaq.FinanceAqModel
-import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot.FundHotAdapter
-import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot.FundHotHolder
-import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot.FundHotModel
-import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhotmanager.FundHotManagerAdapter
-import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhotmanager.FundHotManagerHolder
-import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhotmanager.FundHotManagerModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundmanager.FundManagerAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundmanager.FundManagerHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundmanager.FundManagerModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundproduct.FundProductAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundproduct.FundProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundproduct.FundProductModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundtopic.FundTopicAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundtopic.FundTopicHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundtopic.FundTopicModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.goldproduct.GoldProductAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.goldproduct.GoldProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.goldproduct.GoldProductModel
@@ -76,6 +77,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
+    private var rootContext: Context? = null
     private var rootView: View? = null
     private var layoutList = ArrayList<BaseItemModel>()
     private var rvAdapter: LayoutAdapter? = null
@@ -93,6 +95,41 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
                             }
                             R.id.textView_recyclerHeaderSeeMoreSeeMore -> {
                                 ToastUtils.showMessage("${data.header}-更多-${data.id}")
+                                
+                                layoutList.clear()
+                                when (data.id) {
+                                    SectionId.ACTIVITY_ICON -> {
+                                    }
+                                    SectionId.APP_ICON -> {
+                                    }
+                                    SectionId.FUND_PRODUCT -> {
+                                        moreFundProduct()
+                                    }
+                                    SectionId.FUND_TOPIC -> {
+                                        moreFundTopic()
+                                    }
+                                    SectionId.FUND_MANAGER -> {
+                                        moreFundManager()
+                                    }
+                                    SectionId.GOLD_PRODUCT -> {
+                                        moreGoldProduct()
+                                    }
+                                    SectionId.INSURANCE_PRODUCT -> {
+                                        moreInsuranceProduct()
+                                    }
+                                    SectionId.FINANCE_AQ -> {
+                                        moreFinanceAq()
+                                    }
+                                    SectionId.FAQ -> {
+                                        moreFaq()
+                                    }
+                                    SectionId.INFORMATION -> {
+                                        moreInformation()
+                                    }
+                                    SectionId.WEALTH_ACCOUNT -> {
+                                        moreWealthAccount()
+                                    }
+                                }
                             }
                         }
                     }
@@ -127,19 +164,19 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
                         }
                     }
                 }
-                is FundHotHolder -> {
-                    if (data is FundHotModel) {
+                is FundTopicHolder -> {
+                    if (data is FundTopicModel) {
                         when (id) {
-                            R.id.layout_recyclerFundHotItem -> {
+                            R.id.layout_recyclerFundTopicItem -> {
                                 ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
                             }
                         }
                     }
                 }
-                is FundHotManagerHolder -> {
-                    if (data is FundHotManagerModel) {
+                is FundManagerHolder -> {
+                    if (data is FundManagerModel) {
                         when (id) {
-                            R.id.layout_recyclerFundHotManagerItem -> {
+                            R.id.layout_recyclerFundManagerItem -> {
                                 ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
                             }
                         }
@@ -216,13 +253,13 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        rootContext = activity?.baseContext ?: ComuiApplication.instance
         initData()
         initView()
     }
     
     override fun initData() {
-        val context = activity?.baseContext ?: ComuiApplication.instance
-        
+        val context = rootContext ?: return
         val activityIconList = ArrayList<BaseItemModel>()
         activityIconList.add(ActivityIconModel("", "分享券包", "https://ActivityIcon1", ItemType.ITEM))
         activityIconList.add(ActivityIconModel("", "挖宝", "https://ActivityIcon2", ItemType.ITEM))
@@ -250,19 +287,19 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         fundProductList.add(FundProductModel("博时家电行业基金", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "https://FundProduct3", ItemType.ITEM))
         layoutList.add(LayoutModel(ItemListLayout(FundProductAdapter(fundProductList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         
-        val fundHotList = ArrayList<BaseItemModel>()
-        fundHotList.add(HeaderSeeMoreModel(SectionId.FUND_HOT, "热门基金产品", ItemType.HEADER))
-        fundHotList.add(FundHotModel("易方达消费行业主题", "+15.26%", "1000万用户的投资选择", "最近一年增长率", "https://FundHot1", ItemType.ITEM))
-        fundHotList.add(FundHotModel("易方达人民币主题", "+12.26%", "找10年赚10倍的方法", "最近一年增长率", "https://FundHot2", ItemType.ITEM))
-        fundHotList.add(FundHotModel("易方达股票主题", "+10.65%", "123个相关产品", "最近一年增长率", "https://FundHot3", ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(FundHotAdapter(fundHotList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        val fundTopicList = ArrayList<BaseItemModel>()
+        fundTopicList.add(HeaderSeeMoreModel(SectionId.FUND_TOPIC, "热门基金主题", ItemType.HEADER))
+        fundTopicList.add(FundTopicModel("易方达消费行业主题", "+15.26%", "1000万用户的投资选择", "最近一年增长率", "https://FundTopic1", ItemType.ITEM))
+        fundTopicList.add(FundTopicModel("易方达人民币主题", "+12.26%", "找10年赚10倍的方法", "最近一年增长率", "https://FundTopic2", ItemType.ITEM))
+        fundTopicList.add(FundTopicModel("易方达股票主题", "+10.65%", "123个相关产品", "最近一年增长率", "https://FundTopic3", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(FundTopicAdapter(fundTopicList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         
-        val fundHotManagerList = ArrayList<BaseItemModel>()
-        fundHotManagerList.add(HeaderSeeMoreModel(SectionId.FUND_HOT_MANAGER, "热门经理人", ItemType.HEADER))
-        fundHotManagerList.add(FundHotManagerModel("", "张静", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager1", ItemType.ITEM))
-        fundHotManagerList.add(FundHotManagerModel("", "张坤", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager2", ItemType.ITEM))
-        fundHotManagerList.add(FundHotManagerModel("", "王远", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager3", ItemType.ITEM))
-        layoutList.add(LayoutModel(ItemListLayout(FundHotManagerAdapter(fundHotManagerList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        val fundManagerList = ArrayList<BaseItemModel>()
+        fundManagerList.add(HeaderSeeMoreModel(SectionId.FUND_MANAGER, "热门经理人", ItemType.HEADER))
+        fundManagerList.add(FundManagerModel("", "张静", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundManager1", ItemType.ITEM))
+        fundManagerList.add(FundManagerModel("", "张坤", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundManager2", ItemType.ITEM))
+        fundManagerList.add(FundManagerModel("", "王远", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundManager3", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(FundManagerAdapter(fundManagerList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         
         val goldProductList = ArrayList<BaseItemModel>()
         goldProductList.add(HeaderSeeMoreModel(SectionId.GOLD_PRODUCT, "黄金产品", ItemType.HEADER))
@@ -313,5 +350,60 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         recyclerView_container.setHasFixedSize(true)
         recyclerView_container.layoutManager = LinearLayoutManager(activity)
         recyclerView_container.adapter = rvAdapter
+    }
+    
+    override fun refreshView() {
+        rvAdapter = LayoutAdapter(layoutList)
+        recyclerView_container.adapter = rvAdapter
+    }
+    
+    fun moreFundProduct() {
+        val context = rootContext ?: return
+        val fundProductList = ArrayList<BaseItemModel>()
+        fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "https://FundProduct1", ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达地产行业基金", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "https://FundProduct2", ItemType.ITEM))
+        fundProductList.add(FundProductModel("博时家电行业基金", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "https://FundProduct3", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(FundProductAdapter(fundProductList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "https://FundProduct1", ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达地产行业基金", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "https://FundProduct2", ItemType.ITEM))
+        fundProductList.add(FundProductModel("博时家电行业基金", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "https://FundProduct3", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(FundProductAdapter(fundProductList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "https://FundProduct1", ItemType.ITEM))
+        fundProductList.add(FundProductModel("易方达地产行业基金", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "https://FundProduct2", ItemType.ITEM))
+        fundProductList.add(FundProductModel("博时家电行业基金", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "https://FundProduct3", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(FundProductAdapter(fundProductList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        refreshView()
+    }
+    
+    fun moreFundTopic() {
+    
+    }
+    
+    fun moreFundManager() {
+    
+    }
+    
+    fun moreGoldProduct() {
+    
+    }
+    
+    fun moreInsuranceProduct() {
+    
+    }
+    
+    fun moreFinanceAq() {
+    
+    }
+    
+    fun moreFaq() {
+    
+    }
+    
+    fun moreInformation() {
+    
+    }
+    
+    fun moreWealthAccount() {
+    
     }
 }

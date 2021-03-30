@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot
+package com.githubyss.mobile.common.debug.recyclerview.fund.template.fundtopic
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,14 +13,14 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * FundHotAdapter
+ * FundTopicAdapter
  * 热门基金适配器
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/03/22 17:11:07
  */
-class FundHotAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
+class FundTopicAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -36,7 +36,7 @@ class FundHotAdapter constructor(private val dataList: List<BaseItemModel>) : Ba
                 HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
             }
             ItemType.ITEM -> {
-                FundHotHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_hot, parent, false))
+                FundTopicHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_topic, parent, false))
             }
             else -> {
                 EmptyNoneHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty_none, parent, false))
@@ -58,8 +58,8 @@ class FundHotAdapter constructor(private val dataList: List<BaseItemModel>) : Ba
                     }
                 }
             }
-            is FundHotHolder -> {
-                if (dataModel is FundHotModel) {
+            is FundTopicHolder -> {
+                if (dataModel is FundTopicModel) {
                     holder.tvTitle.text = dataModel.title
                     holder.tvRiseFallRatio.text = dataModel.riseFallRatio
                     holder.tvHint.text = dataModel.hint
