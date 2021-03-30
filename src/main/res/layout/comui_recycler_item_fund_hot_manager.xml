@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     app:alignItems="center"
                     app:flexDirection="row"
-                    app:justifyContent="space_between"
+                    app:justifyContent="flex_start"
                     >
 
                 <TextView
@@ -61,6 +61,7 @@
                         android:id="@+id/textView_recyclerFundHotManagerIcon"
                         android:layout_width="45dp"
                         android:layout_height="15dp"
+                        android:layout_marginLeft="10dp"
                         android:src="@drawable/comui_icon_fund_hot_manager"
                         />
             </com.google.android.flexbox.FlexboxLayout>

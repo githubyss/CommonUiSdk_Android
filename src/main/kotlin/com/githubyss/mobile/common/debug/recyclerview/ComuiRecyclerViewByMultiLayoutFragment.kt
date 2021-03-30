@@ -167,7 +167,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         activityIconList.add(ActivityIconModel("", "签到打卡", "https://ActivityIcon4", ItemType.ITEM))
         val activityList = ArrayList<BaseItemModel>()
         activityList.add(HeaderSeeMoreModel(SectionId.ACTIVITY_ICON, "活动", ItemType.HEADER))
-        activityList.add(ListModel(ActivityIconAdapter(activityIconList), RecyclerView.HORIZONTAL, context, ItemType.ITEM))
+        activityList.add(ListModel(ActivityIconAdapter(activityIconList), RecyclerView.HORIZONTAL, context, onItemClickListener, ItemType.ITEM))
         layoutList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(activityList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         
         val appIconList = ArrayList<BaseItemModel>()
@@ -177,7 +177,7 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         appIconList.add(AppIconModel("", "慧智盈", "https://AppIcon4", ItemType.ITEM))
         val appList = ArrayList<BaseItemModel>()
         appList.add(HeaderSeeMoreModel(SectionId.ACTIVITY_ICON, "应用", ItemType.HEADER))
-        appList.add(ListModel(AppIconAdapter(appIconList), RecyclerView.HORIZONTAL, context, ItemType.ITEM))
+        appList.add(ListModel(AppIconAdapter(appIconList), RecyclerView.HORIZONTAL, context, onItemClickListener, ItemType.ITEM))
         layoutList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(appList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         
         val fundProductList = ArrayList<BaseItemModel>()

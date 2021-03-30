@@ -72,6 +72,7 @@ class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel
                     holder.listItem.setHasFixedSize(true)
                     holder.listItem.layoutManager = layoutManager
                     holder.listItem.adapter = dataModel.adapter
+                    dataModel.adapter.onItemClickListener = dataModel.listener
                 }
             }
             else -> {
