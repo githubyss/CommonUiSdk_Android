@@ -1,9 +1,7 @@
-package com.githubyss.mobile.common.ui.recyclerview.template.list
+package com.githubyss.mobile.common.debug.recyclerview.search.template.fundproduct
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.recyclerview.template.header.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.ui.recyclerview.template.header.HeaderSeeMoreModel
@@ -15,21 +13,14 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * ListFirstLevelAdapter
- * 一级列表的适配器
+ * FundProductAdapter
+ * 基金产品适配器
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/29 18:29:50
+ * @createdTime 2021/03/17 16:17:41
  */
-class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
-    
-    /** ********** ********** ********** Companion ********** ********** ********** */
-    
-    companion object {
-        val TAG = ListFirstLevelAdapter::class.simpleName ?: "simpleName is null"
-    }
-    
+class FundProductAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -45,7 +36,7 @@ class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel
                 HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
             }
             ItemType.ITEM -> {
-                ListFirstLevelHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_list, parent, false))
+                FundProductHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_product, parent, false))
             }
             else -> {
                 EmptyItemHolder(
@@ -62,20 +53,31 @@ class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel
             is HeaderSeeMoreHolder -> {
                 if (dataModel is HeaderSeeMoreModel) {
                     holder.tvTitle.text = dataModel.header
-                    holder.tvSeeMore.visibility = View.GONE
                     holder.layoutItem.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
+                    holder.tvSeeMore.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }
                 }
             }
-            is ListFirstLevelHolder -> {
-                if (dataModel is ListModel) {
-                    val layoutManager = LinearLayoutManager(dataModel.context)
-                    layoutManager.orientation = dataModel.orientation
-                    holder.listItem.setHasFixedSize(true)
-                    holder.listItem.layoutManager = layoutManager
-                    holder.listItem.adapter = dataModel.adapter
-                    dataModel.adapter.onItemClickListener = dataModel.listener
+            is FundProductHolder -> {
+                if (dataModel is FundProductModel) {
+                    holder.tvTitle.text = dataModel.title
+                    holder.tvRiseFallRatio.text = dataModel.riseFallRatio
+                    holder.tvCode.text = dataModel.code
+                    holder.tvRisk.text = dataModel.risk
+                    holder.tvClassify.text = dataModel.classify
+                    holder.tvRiseFallTimeSpan.text = dataModel.riseFallTimeSpan
+                    holder.tvFollowCount.text = dataModel.followCount
+                    holder.tglBtnIsFollowed.text = if (dataModel.isFollowed) "已添加" else "＋自选"
+                    holder.tglBtnIsFollowed.isChecked = dataModel.isFollowed
+                    holder.tglBtnIsFollowed.setOnCheckedChangeListener { buttonView, isChecked ->
+                        onItemClickListener?.onItemClick(holder, position, buttonView, dataModel)
+                    }
+                    holder.layoutItem.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
                 }
             }
             else -> {

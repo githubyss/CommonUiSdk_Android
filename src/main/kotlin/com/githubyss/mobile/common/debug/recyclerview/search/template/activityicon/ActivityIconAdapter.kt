@@ -1,9 +1,11 @@
-package com.githubyss.mobile.common.ui.recyclerview.template.layout
+package com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recyclerview.template.emptypage.EmptyPageHolder
+import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
+import com.githubyss.mobile.common.kit.glide.GlideUtils
+import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
@@ -11,21 +13,14 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * LayoutAdapter
- * 区块的适配器
+ * ActivityIconAdapter
+ * 活动图标适配器
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/15 17:05:43
+ * @createdTime 2021/03/26 10:29:29
  */
-class LayoutAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
-    
-    /** ********** ********** ********** Companion ********** ********** ********** */
-    
-    companion object {
-        val TAG = LayoutAdapter::class.simpleName ?: "simpleName is null"
-    }
-    
+class ActivityIconAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -38,12 +33,14 @@ class LayoutAdapter constructor(private val dataList: List<BaseItemModel>) : Bas
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             ItemType.ITEM -> {
-                LayoutHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_layout, parent, false))
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_activity_icon, parent, false)
+                view.layoutParams.width = (ScreenUtils.getScreenWidthPx(parent.context) - ScreenUtils.dp2Px(28.0f)) / dataList.size
+                ActivityIconHolder(view)
             }
             else -> {
-                EmptyPageHolder(
+                EmptyItemHolder(
                     LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_recycler_item_empty, parent, false)
+                        .inflate(R.layout.comui_recycler_item_empty_none, parent, false)
                 )
             }
         }
@@ -52,14 +49,13 @@ class LayoutAdapter constructor(private val dataList: List<BaseItemModel>) : Bas
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
         when (holder) {
-            is LayoutHolder -> {
-                if (dataModel is LayoutModel) {
-                    val view = dataModel.view ?: return
-                    if (view.parent != null) {
-                        (view.parent as ViewGroup).removeAllViews()
+            is ActivityIconHolder -> {
+                if (dataModel is ActivityIconModel) {
+                    GlideUtils.loadImage(dataModel.iconUrl, holder.ivIconImage)
+                    holder.tvLabel.text = dataModel.label
+                    holder.layoutItem.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }
-                    holder.layoutItem.removeAllViews()
-                    holder.layoutItem.addView(view)
                 }
             }
             else -> {

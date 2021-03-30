@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyHolder
+import com.githubyss.mobile.common.ui.recyclerview.template.emptypage.EmptyPageHolder
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.FooterHolder
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderHolder
 import com.githubyss.mobile.common.kit.glide.GlideUtils
@@ -53,7 +53,10 @@ class ImageAdapter constructor(private val dataList: List<ImageModel>) : Recycle
     override fun onCreateViewHolder(parent: ViewGroup, @MultiType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             MultiType.EMPTY -> {
-                EmptyHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty, parent, false))
+                EmptyPageHolder(
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.comui_recycler_item_empty, parent, false)
+                )
             }
             MultiType.HEADER -> {
                 HeaderHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header, parent, false))
@@ -70,7 +73,7 @@ class ImageAdapter constructor(private val dataList: List<ImageModel>) : Recycle
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
         when (holder) {
-            is EmptyHolder -> {
+            is EmptyPageHolder -> {
             }
             is HeaderHolder -> {
                 holder.tvTitle.text = "~~~ IMAGE HEADER ~~~"

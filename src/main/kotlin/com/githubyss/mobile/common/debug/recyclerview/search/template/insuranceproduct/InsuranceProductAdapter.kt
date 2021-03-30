@@ -1,13 +1,12 @@
-package com.githubyss.mobile.common.ui.recyclerview.template.list
+package com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.recyclerview.template.header.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.ui.recyclerview.template.header.HeaderSeeMoreModel
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
+import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
@@ -15,21 +14,14 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * ListFirstLevelAdapter
- * 一级列表的适配器
+ * InsuranceProductAdapter
+ * 保险产品适配器
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/29 18:29:50
+ * @createdTime 2021/03/30 16:54:34
  */
-class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
-    
-    /** ********** ********** ********** Companion ********** ********** ********** */
-    
-    companion object {
-        val TAG = ListFirstLevelAdapter::class.simpleName ?: "simpleName is null"
-    }
-    
+class InsuranceProductAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -45,7 +37,7 @@ class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel
                 HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
             }
             ItemType.ITEM -> {
-                ListFirstLevelHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_list, parent, false))
+                InsuranceProductHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_insurance_product, parent, false))
             }
             else -> {
                 EmptyItemHolder(
@@ -62,20 +54,23 @@ class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel
             is HeaderSeeMoreHolder -> {
                 if (dataModel is HeaderSeeMoreModel) {
                     holder.tvTitle.text = dataModel.header
-                    holder.tvSeeMore.visibility = View.GONE
                     holder.layoutItem.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
+                    holder.tvSeeMore.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }
                 }
             }
-            is ListFirstLevelHolder -> {
-                if (dataModel is ListModel) {
-                    val layoutManager = LinearLayoutManager(dataModel.context)
-                    layoutManager.orientation = dataModel.orientation
-                    holder.listItem.setHasFixedSize(true)
-                    holder.listItem.layoutManager = layoutManager
-                    holder.listItem.adapter = dataModel.adapter
-                    dataModel.adapter.onItemClickListener = dataModel.listener
+            is InsuranceProductHolder -> {
+                if (dataModel is InsuranceProductModel) {
+                    GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
+                    holder.tvTitle.text = dataModel.title
+                    holder.tvHint.text = dataModel.hint
+                    holder.tvPrice.text = dataModel.price
+                    holder.layoutItem.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    }
                 }
             }
             else -> {
