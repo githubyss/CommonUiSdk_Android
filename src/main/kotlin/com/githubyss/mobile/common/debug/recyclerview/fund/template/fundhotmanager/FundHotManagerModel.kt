@@ -12,4 +12,4 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/23 11:32:39
  */
-data class FundHotManagerModel constructor(var title: String, var headerImageUrl: String, var bestReturn: String, var riseFallRatio: String, var description: String, var jumpUrl: String, @ItemType override var type: Int) : BaseItemModel(type)
+data class FundHotManagerModel constructor(var imageUrl: String, var title: String, var bestReturn: String, var riseFallRatio: String, var description: String, var jumpUrl: String, @ItemType override var type: Int) : BaseItemModel(type)

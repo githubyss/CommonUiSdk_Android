@@ -14,6 +14,12 @@ import com.githubyss.mobile.common.debug.recyclerview.fund.template.activityicon
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.appicon.AppIconAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.appicon.AppIconHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.appicon.AppIconModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.faq.FaqAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.faq.FaqHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.faq.FaqModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.financeaq.FinanceAqAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.financeaq.FinanceAqHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.financeaq.FinanceAqModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot.FundHotAdapter
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot.FundHotHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhot.FundHotModel
@@ -28,6 +34,15 @@ import com.githubyss.mobile.common.debug.recyclerview.fund.template.goldproduct.
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.goldproduct.GoldProductModel
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.header.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.debug.recyclerview.fund.template.header.HeaderSeeMoreModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.information.InformationAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.information.InformationHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.information.InformationModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.insuranceproduct.InsuranceProductAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.insuranceproduct.InsuranceProductHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.insuranceproduct.InsuranceProductModel
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.wealthaccount.WealthAccountAdapter
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.wealthaccount.WealthAccountHolder
+import com.githubyss.mobile.common.debug.recyclerview.fund.template.wealthaccount.WealthAccountModel
 import com.githubyss.mobile.common.debug.recyclerview.viewholder.EmptyNoneHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
@@ -139,6 +154,54 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
                         }
                     }
                 }
+                is InsuranceProductHolder -> {
+                    if (data is InsuranceProductModel) {
+                        when (id) {
+                            R.id.layout_recyclerInsuranceProductItem -> {
+                                ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
+                            }
+                        }
+                    }
+                }
+                is FinanceAqHolder -> {
+                    if (data is FinanceAqModel) {
+                        when (id) {
+                            R.id.layout_recyclerFinanceAqItem -> {
+                                ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
+                            }
+                        }
+                    }
+                }
+                is FaqHolder -> {
+                    if (data is FaqModel) {
+                        when (id) {
+                            R.id.layout_recyclerFaqItem -> {
+                                ToastUtils.showMessage("${data.content}-${data.jumpUrl}")
+                            }
+                        }
+                    }
+                }
+                is InformationHolder -> {
+                    if (data is InformationModel) {
+                        when (id) {
+                            R.id.layout_recyclerInformationItem -> {
+                                ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
+                            }
+                        }
+                    }
+                }
+                is WealthAccountHolder -> {
+                    if (data is WealthAccountModel) {
+                        when (id) {
+                            R.id.layout_recyclerWealthAccountItem -> {
+                                ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
+                            }
+                            R.id.button_recyclerWealthAccountIsFollowed -> {
+                                ToastUtils.showMessage("${data.title}-关注状态-${holder.tglBtnIsFollowed.isChecked}")
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -196,9 +259,9 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         
         val fundHotManagerList = ArrayList<BaseItemModel>()
         fundHotManagerList.add(HeaderSeeMoreModel(SectionId.FUND_HOT_MANAGER, "热门经理人", ItemType.HEADER))
-        fundHotManagerList.add(FundHotManagerModel("张静", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager1", ItemType.ITEM))
-        fundHotManagerList.add(FundHotManagerModel("张坤", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager2", ItemType.ITEM))
-        fundHotManagerList.add(FundHotManagerModel("王远", "", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager3", ItemType.ITEM))
+        fundHotManagerList.add(FundHotManagerModel("", "张静", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager1", ItemType.ITEM))
+        fundHotManagerList.add(FundHotManagerModel("", "张坤", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager2", ItemType.ITEM))
+        fundHotManagerList.add(FundHotManagerModel("", "王远", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundHotManager3", ItemType.ITEM))
         layoutList.add(LayoutModel(ItemListLayout(FundHotManagerAdapter(fundHotManagerList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         
         val goldProductList = ArrayList<BaseItemModel>()
@@ -207,6 +270,41 @@ class ComuiRecyclerViewByMultiLayoutFragment : BaseFragment() {
         goldProductList.add(GoldProductModel("易方达原油人民币B", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct2", ItemType.ITEM))
         goldProductList.add(GoldProductModel("易方达沥青人民币A", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct3", ItemType.ITEM))
         layoutList.add(LayoutModel(ItemListLayout(GoldProductAdapter(goldProductList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        
+        val insuranceProductList = ArrayList<BaseItemModel>()
+        insuranceProductList.add(HeaderSeeMoreModel(SectionId.INSURANCE_PRODUCT, "保险产品", ItemType.HEADER))
+        insuranceProductList.add(InsuranceProductModel("", "华保健康百万医疗险", "最高24.3万｜无免赔｜成长无忧", "1元首付", "https://InsuranceProduct1", ItemType.ITEM))
+        insuranceProductList.add(InsuranceProductModel("", "交通工具意外险", "最高24.3万｜无免赔｜成长无忧", "0.99元起", "https://InsuranceProduct1", ItemType.ITEM))
+        insuranceProductList.add(InsuranceProductModel("", "苏小宝少儿意外险", "最高24.3万｜无免赔｜成长无忧", "6元/月起", "https://InsuranceProduct1", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(InsuranceProductAdapter(insuranceProductList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        
+        val financeAqList = ArrayList<BaseItemModel>()
+        financeAqList.add(HeaderSeeMoreModel(SectionId.FINANCE_AQ, "财顾问答", ItemType.HEADER))
+        financeAqList.add(FinanceAqModel("一只基金从各方面看你都满意，但是基金的一…", "这是财顾的问答，可能不包含搜索字段这是财顾的问答，可能不包含搜索字段这是财顾的问答，可能不包含搜索字段可能可能不包…", "https://FinanceFaq1", ItemType.ITEM))
+        financeAqList.add(FinanceAqModel("基金的风险大吗？", "这是财顾的问答，可能不包含搜索字段这是财顾的问答，可能不包含搜索字段这是财顾的问答，可能不包含搜索字段可能…", "https://FinanceFaq2", ItemType.ITEM))
+        financeAqList.add(FinanceAqModel("一只基金从各方面看你都满意，但是基金的…", "这是财顾的问答，可能不包含搜索字段这是财顾的问答，可能不包含搜索字段这是财顾的问答，可能不包含搜索字段可能…", "https://FinanceFaq3", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(FinanceAqAdapter(financeAqList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        
+        val faqList = ArrayList<BaseItemModel>()
+        faqList.add(HeaderSeeMoreModel(SectionId.FAQ, "常见问题", ItemType.HEADER))
+        faqList.add(FaqModel("红包使用规则", "https://Faq1", ItemType.ITEM))
+        faqList.add(FaqModel("如何买卖交易？", "https://Faq2", ItemType.ITEM))
+        faqList.add(FaqModel("常见问题常见问题常见问题？", "https://Faq3", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(FaqAdapter(faqList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        
+        val informationList = ArrayList<BaseItemModel>()
+        informationList.add(HeaderSeeMoreModel(SectionId.INFORMATION, "资讯", ItemType.HEADER))
+        informationList.add(InformationModel("", "2019年中国厨房料理小家电销售过万2019年...", "在经销商体系最完善和成熟的北美，过去数年中，最大的汽车零售商是谁？答案或", "03-16 12:56", "相关机构", "https://Information1", ItemType.ITEM))
+        informationList.add(InformationModel("", "2019年中国厨房料理小家电销售过万2019年...", "在经销商体系最完善和成熟的北美，过去数年中，最大的汽车零售商是谁？答案或", "03-16 12:56", "相关机构", "https://Information2", ItemType.ITEM))
+        informationList.add(InformationModel("", "2019年中国厨房料理小家电销售过万2019年...", "在经销商体系最完善和成熟的北美，过去数年中，最大的汽车零售商是谁？答案或", "03-16 12:56", "相关机构", "https://Information3", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(InformationAdapter(informationList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        
+        val wealthAccountList = ArrayList<BaseItemModel>()
+        wealthAccountList.add(HeaderSeeMoreModel(SectionId.WEALTH_ACCOUNT, "财富号", ItemType.HEADER))
+        wealthAccountList.add(WealthAccountModel("", "广发基金", "说明文案说明文案说明文案说明…", false, "https://WealthAccount1", ItemType.ITEM))
+        wealthAccountList.add(WealthAccountModel("", "苏宁银行金融市场", "说明文案说明文案说明文案说明…", true, "https://WealthAccount2", ItemType.ITEM))
+        wealthAccountList.add(WealthAccountModel("", "投资策略研究中心", "说明文案说明文案说明文案说明…", true, "https://WealthAccount3", ItemType.ITEM))
+        layoutList.add(LayoutModel(ItemListLayout(WealthAccountAdapter(wealthAccountList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
     }
     
     override fun initView() {

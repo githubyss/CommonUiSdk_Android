@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhotmanager
+package com.githubyss.mobile.common.debug.recyclerview.fund.template.wealthaccount
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,14 +14,14 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * FundHotManagerAdapter
- * 热门经理人适配器
+ * WealthAccountAdapter
+ * 财富号适配器
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/23 11:32:43
+ * @createdTime 2021/03/30 18:05:23
  */
-class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
+class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -37,7 +37,7 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
                 HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
             }
             ItemType.ITEM -> {
-                FundHotManagerHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_hot_manager, parent, false))
+                WealthAccountHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_wealth_account, parent, false))
             }
             else -> {
                 EmptyNoneHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty_none, parent, false))
@@ -59,13 +59,16 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
                     }
                 }
             }
-            is FundHotManagerHolder -> {
-                if (dataModel is FundHotManagerModel) {
+            is WealthAccountHolder -> {
+                if (dataModel is WealthAccountModel) {
                     GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
                     holder.tvTitle.text = dataModel.title
-                    holder.tvBestReturn.text = dataModel.bestReturn
-                    holder.tvRiseFallRatio.text = dataModel.riseFallRatio
-                    holder.tvDescription.text = dataModel.description
+                    holder.tvContent.text = dataModel.content
+                    holder.tglBtnIsFollowed.text = if (dataModel.isFollowed) "已关注" else "＋ 关注"
+                    holder.tglBtnIsFollowed.isChecked = dataModel.isFollowed
+                    holder.tglBtnIsFollowed.setOnCheckedChangeListener { buttonView, isChecked ->
+                        onItemClickListener?.onItemClick(holder, position, buttonView, dataModel)
+                    }
                     holder.layoutItem.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }

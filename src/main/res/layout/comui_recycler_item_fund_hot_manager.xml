@@ -20,14 +20,15 @@
             android:paddingBottom="@dimen/comres_sideMargin_tiny"
             app:alignItems="center"
             app:flexDirection="row"
-            app:justifyContent="space_between"
+            app:justifyContent="flex_start"
             >
 
         <ImageView
-                android:id="@+id/imageView_recyclerFundHotManagerHeaderImage"
+                android:id="@+id/imageView_recyclerFundHotManagerImage"
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginRight="20dp"
+                android:background="@drawable/comres_tag_bg_rectangle_micro_gray"
                 app:layout_flexShrink="0"
                 />
 
@@ -100,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…"
+                    android:text="基金经理简介基金经理简介基金经理简介"
                     android:textColor="@color/comres_color_4a4a4a"
                     android:textSize="@dimen/comres_textSize_11sp"
                     />

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.recyclerview.fund.template.fundhotmanager
+package com.githubyss.mobile.common.debug.recyclerview.fund.template.insuranceproduct
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,14 +14,14 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * FundHotManagerAdapter
- * 热门经理人适配器
+ * InsuranceProductAdapter
+ * 保险产品适配器
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/23 11:32:43
+ * @createdTime 2021/03/30 16:54:34
  */
-class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
+class InsuranceProductAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -37,7 +37,7 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
                 HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
             }
             ItemType.ITEM -> {
-                FundHotManagerHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_hot_manager, parent, false))
+                InsuranceProductHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_insurance_product, parent, false))
             }
             else -> {
                 EmptyNoneHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty_none, parent, false))
@@ -59,13 +59,12 @@ class FundHotManagerAdapter constructor(private val dataList: List<BaseItemModel
                     }
                 }
             }
-            is FundHotManagerHolder -> {
-                if (dataModel is FundHotManagerModel) {
+            is InsuranceProductHolder -> {
+                if (dataModel is InsuranceProductModel) {
                     GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
                     holder.tvTitle.text = dataModel.title
-                    holder.tvBestReturn.text = dataModel.bestReturn
-                    holder.tvRiseFallRatio.text = dataModel.riseFallRatio
-                    holder.tvDescription.text = dataModel.description
+                    holder.tvHint.text = dataModel.hint
+                    holder.tvPrice.text = dataModel.price
                     holder.layoutItem.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }

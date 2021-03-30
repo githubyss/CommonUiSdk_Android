@@ -17,8 +17,8 @@ import com.google.android.flexbox.FlexboxLayout
  */
 class FundHotManagerHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
     var layoutItem = view.findViewById(R.id.layout_recyclerFundHotManagerItem) as FlexboxLayout
+    var ivImage = view.findViewById(R.id.imageView_recyclerFundHotManagerImage) as ImageView
     var tvTitle = view.findViewById(R.id.textView_recyclerFundHotManagerTitle) as TextView
-    var ivHeaderImage = view.findViewById(R.id.imageView_recyclerFundHotManagerHeaderImage) as ImageView
     var tvBestReturn = view.findViewById(R.id.textView_recyclerFundHotManagerBestReturn) as TextView
     var tvRiseFallRatio = view.findViewById(R.id.textView_recyclerFundHotManagerRiseFallRatio) as TextView
     var tvDescription = view.findViewById(R.id.textView_recyclerFundHotManagerDescription) as TextView
