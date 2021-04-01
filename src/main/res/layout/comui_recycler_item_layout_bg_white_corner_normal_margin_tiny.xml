@@ -2,7 +2,7 @@
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/layout_frameLayoutItem"
-        android:background="@color/comres_layoutBg_transparent"
+        android:background="@drawable/comres_card_bg_rectangle_normal_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/comres_sideMargin_tiny"

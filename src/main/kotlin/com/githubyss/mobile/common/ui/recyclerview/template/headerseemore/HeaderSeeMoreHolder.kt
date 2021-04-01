@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.template.header
+package com.githubyss.mobile.common.ui.recyclerview.template.headerseemore
 
 import android.view.View
 import android.widget.TextView

@@ -3,11 +3,11 @@ package com.githubyss.mobile.common.debug.recyclerview.search.template.fundmanag
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recyclerview.template.header.HeaderSeeMoreHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.header.HeaderSeeMoreModel
-import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
+import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreHolder
+import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
@@ -57,9 +57,9 @@ class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>) 
                     holder.layoutItem.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }
-                    holder.tvSeeMore.setOnClickListener { v ->
-                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
-                    }
+                    // holder.tvSeeMore.setOnClickListener { v ->
+                    //     onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                    // }
                 }
             }
             is FundManagerHolder -> {

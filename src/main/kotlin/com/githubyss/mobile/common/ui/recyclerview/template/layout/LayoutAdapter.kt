@@ -2,9 +2,10 @@ package com.githubyss.mobile.common.ui.recyclerview.template.layout
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recyclerview.template.emptypage.EmptyPageHolder
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.template.emptypage.EmptyPageHolder
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
@@ -18,7 +19,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/15 17:05:43
  */
-class LayoutAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
+class LayoutAdapter constructor(private val dataList: List<BaseItemModel>, @LayoutRes private var layoutId: Int = R.layout.comui_recycler_item_layout_bg_white_corner_normal_margin_tiny) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
@@ -38,13 +39,10 @@ class LayoutAdapter constructor(private val dataList: List<BaseItemModel>) : Bas
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             ItemType.ITEM -> {
-                LayoutHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_layout, parent, false))
+                LayoutHolder(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
             }
             else -> {
-                EmptyPageHolder(
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_recycler_item_empty, parent, false)
-                )
+                EmptyPageHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty, parent, false))
             }
         }
     }

@@ -35,8 +35,6 @@ import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.ItemListLayout
@@ -46,21 +44,23 @@ import com.githubyss.mobile.common.ui.recyclerview.template.list.ListFirstLevelA
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 
 /**
- * ComuiSearchResultFragment
+ * ComuiSearchResultMoreFragment
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/15 16:51:37
+ * @createdTime 2021/03/30 20:05:25
  */
-class ComuiSearchResultFragment : BaseFragment() {
+class ComuiSearchResultMoreFragment : BaseFragment() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
-        val TAG = ComuiSearchResultFragment::class.simpleName ?: "simpleName is null"
+        val TAG = ComuiSearchResultMoreFragment::class.simpleName ?: "simpleName is null"
     }
     
     
@@ -68,6 +68,9 @@ class ComuiSearchResultFragment : BaseFragment() {
     
     private var rootContext: Context? = null
     private var rootView: View? = null
+    
+    @SectionId
+    private var id: String? = null
     private var dataList = ArrayList<BaseItemModel>()
     private var rvAdapter: BaseItemAdapter? = null
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
@@ -75,22 +78,6 @@ class ComuiSearchResultFragment : BaseFragment() {
             val id = view.id
             when (holder) {
                 is EmptyItemHolder -> {
-                }
-                is HeaderSeeMoreHolder -> {
-                    if (data is HeaderSeeMoreModel) {
-                        when (id) {
-                            R.id.layout_recyclerHeaderSeeMoreItem -> {
-                                ToastUtils.showMessage("标题：${data.header}")
-                                when (data.id) {
-                                    SectionId.ACTIVITY_ICON, SectionId.APP_ICON -> {
-                                    }
-                                    SectionId.FUND_PRODUCT, SectionId.FUND_TOPIC, SectionId.FUND_MANAGER, SectionId.GOLD_PRODUCT, SectionId.INSURANCE_PRODUCT, SectionId.FINANCE_AQ, SectionId.FAQ, SectionId.INFORMATION, SectionId.WEALTH_ACCOUNT -> {
-                                        gotoResultMore(data.id)
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
                 is ActivityIconHolder -> {
                     if (data is ActivityIconModel) {
@@ -212,45 +199,74 @@ class ComuiSearchResultFragment : BaseFragment() {
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this)
+        }
         initView()
     }
     
     override fun onDestroyView() {
         super.onDestroyView()
-        dataList.clear()
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this)
+        }
     }
     
     override fun initView() {
-        initAdapter()
+        initAdapter(id)
         recyclerView_container.setHasFixedSize(true)
         recyclerView_container.layoutManager = LinearLayoutManager(activity)
         recyclerView_container.adapter = rvAdapter
+        rvAdapter?.onItemClickListener = onItemClickListener
     }
     
     
     /** ********** ********** ********** Function ********** ********** ********** */
     
-    private fun initAdapter() {
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    fun onGetId(@SectionId id: String) {
+        ToastUtils.showMessage("模板 id 为：${id}")
+        this.id = id
+    }
+    
+    private fun initAdapter(@SectionId id: String?) {
         requestData(rootContext ?: return)
-        rvAdapter = LayoutAdapter(dataList)
+        rvAdapter = LayoutAdapter(dataList, R.layout.comui_recycler_item_layout_bg_white_corner_none_padding_tiny)
     }
     
     private fun requestData(context: Context) {
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestActivityIcon(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestAppIcon(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundTopic(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundManager(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestGoldProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestInsuranceProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFinanceAq(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFaq(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestInformation(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestWealthAccount(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-    }
-    
-    private fun gotoResultMore(@SectionId id: String) {
-        EventBus.getDefault().postSticky(id)
-        replaceFragment(ComuiSearchResultMoreFragment(), ComuiSearchResultMoreFragment.TAG, true)
+        when (id) {
+            SectionId.ACTIVITY_ICON -> {
+            }
+            SectionId.APP_ICON -> {
+            }
+            SectionId.FUND_PRODUCT -> {
+                dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundProduct(context, false, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+            }
+            SectionId.FUND_TOPIC -> {
+                dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundTopic(context, false, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+            }
+            SectionId.FUND_MANAGER -> {
+                dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundManager(context, false, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+            }
+            SectionId.GOLD_PRODUCT -> {
+                dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestGoldProduct(context, false, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+            }
+            SectionId.INSURANCE_PRODUCT -> {
+                dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestInsuranceProduct(context, false, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+            }
+            SectionId.FINANCE_AQ -> {
+                dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFinanceAq(context, false, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+            }
+            SectionId.FAQ -> {
+                dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFaq(context, false, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+            }
+            SectionId.INFORMATION -> {
+                dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestInformation(context, false, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+            }
+            SectionId.WEALTH_ACCOUNT -> {
+                dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestWealthAccount(context, false, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+            }
+        }
     }
 }

@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recyclerview.template.header.HeaderSeeMoreHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.header.HeaderSeeMoreModel
-import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
+import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreHolder
+import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
@@ -48,10 +48,7 @@ class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel
                 ListFirstLevelHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_list, parent, false))
             }
             else -> {
-                EmptyItemHolder(
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_recycler_item_empty_none, parent, false)
-                )
+                EmptyItemHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty_none, parent, false))
             }
         }
     }
@@ -62,7 +59,7 @@ class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel
             is HeaderSeeMoreHolder -> {
                 if (dataModel is HeaderSeeMoreModel) {
                     holder.tvTitle.text = dataModel.header
-                    holder.tvSeeMore.visibility = View.GONE
+                    holder.tvSeeMore.visibility = if (dataModel.isSeeMore) View.VISIBLE else View.GONE
                     holder.layoutItem.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }

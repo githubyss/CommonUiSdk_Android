@@ -98,10 +98,10 @@ class ComuiRecyclerViewByMultiTypeFragment : BaseFragment() {
     
     override fun initView() {
         rvAdapter = MultiAdapter(dataList)
-        rvAdapter?.setOnItemClickListener(onItemClickListener)
         
         recyclerView_container.setHasFixedSize(true)
         recyclerView_container.layoutManager = LinearLayoutManager(activity)
         recyclerView_container.adapter = rvAdapter
+        rvAdapter?.setOnItemClickListener(onItemClickListener)
     }
 }
