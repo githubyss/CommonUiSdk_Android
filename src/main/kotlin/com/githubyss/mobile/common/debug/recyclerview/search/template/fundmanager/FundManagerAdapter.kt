@@ -1,8 +1,10 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.template.fundmanager
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.search.template.fundproduct.FundProductModel
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
@@ -40,10 +42,7 @@ class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>) 
                 FundManagerHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_manager, parent, false))
             }
             else -> {
-                EmptyItemHolder(
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_recycler_item_empty_none, parent, false)
-                )
+                EmptyItemHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty_none, parent, false))
             }
         }
     }
@@ -63,14 +62,37 @@ class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>) 
                 }
             }
             is FundManagerHolder -> {
-                if (dataModel is FundManagerModel) {
-                    GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
-                    holder.tvTitle.text = dataModel.title
-                    holder.tvBestReturn.text = dataModel.bestReturn
-                    holder.tvRiseFallRatio.text = dataModel.riseFallRatio
-                    holder.tvDescription.text = dataModel.description
-                    holder.layoutItem.setOnClickListener { v ->
-                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                when (dataModel) {
+                    is FundManagerModel -> {
+                        holder.layoutFundManager.visibility = View.VISIBLE
+                        holder.layoutFundProduct.visibility = View.GONE
+                        GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
+                        holder.tvTitle.text = dataModel.title
+                        holder.tvBestReturn.text = dataModel.bestReturn
+                        holder.tvRiseFallRatio.text = dataModel.riseFallRatio
+                        holder.tvDescription.text = dataModel.description
+                        holder.layoutItem.setOnClickListener { v ->
+                            onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                        }
+                    }
+                    is FundProductModel -> {
+                        holder.layoutFundManager.visibility = View.GONE
+                        holder.layoutFundProduct.visibility = View.VISIBLE
+                        holder.tvProductTitle.text = dataModel.title
+                        holder.tvProductRiseFallRatio.text = dataModel.riseFallRatio
+                        holder.tvProductCode.text = dataModel.code
+                        holder.tvProductRisk.text = dataModel.risk
+                        holder.tvProductClassify.text = dataModel.classify
+                        holder.tvProductRiseFallTimeSpan.text = dataModel.riseFallTimeSpan
+                        holder.tvProductFollowCount.text = dataModel.followCount
+                        holder.tglBtnProductIsFollowed.text = if (dataModel.isFollowed) "已添加" else "＋自选"
+                        holder.tglBtnProductIsFollowed.isChecked = dataModel.isFollowed
+                        holder.tglBtnProductIsFollowed.setOnCheckedChangeListener { buttonView, isChecked ->
+                            onItemClickListener?.onItemClick(holder, position, buttonView, dataModel)
+                        }
+                        holder.layoutItem.setOnClickListener { v ->
+                            onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                        }
                     }
                 }
             }

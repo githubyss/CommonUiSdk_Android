@@ -241,6 +241,7 @@ class ComuiSearchResultFragment : BaseFragment() {
         dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundTopic(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundManager(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundManagerWithProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestGoldProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestInsuranceProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFinanceAq(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))

@@ -99,6 +99,20 @@ object MockRequest {
         return fundManagerList
     }
     
+    fun requestFundManagerWithProduct(context: Context, hasHeader: Boolean = false, onItemClickListener: BaseItemAdapter.OnItemClickListener? = null): ArrayList<BaseItemModel> {
+        val fundManagerItemList = ArrayList<BaseItemModel>()
+        fundManagerItemList.add(FundManagerModel("", "张静", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundManager1", ItemType.ITEM))
+        fundManagerItemList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "https://FundProduct1", ItemType.ITEM))
+        fundManagerItemList.add(FundProductModel("易方达地产行业基金", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "https://FundProduct2", ItemType.ITEM))
+        fundManagerItemList.add(FundProductModel("博时家电行业基金", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "https://FundProduct3", ItemType.ITEM))
+    
+        val fundManagerList = ArrayList<BaseItemModel>()
+        if (hasHeader) fundManagerList.add(HeaderSeeMoreModel(SectionId.FUND_MANAGER, "热门经理人", true, ItemType.HEADER))
+        fundManagerList.add(ListModel(FundManagerAdapter(fundManagerItemList), RecyclerView.VERTICAL, context, onItemClickListener, ItemType.ITEM))
+        
+        return fundManagerList
+    }
+    
     fun requestGoldProduct(context: Context, hasHeader: Boolean = false, onItemClickListener: BaseItemAdapter.OnItemClickListener? = null): ArrayList<BaseItemModel> {
         val goldProductItemList = ArrayList<BaseItemModel>()
         goldProductItemList.add(GoldProductModel("博时黄金ETF联接C", "256.18", "元/克", "002013", "中低风险", "混合型", "05-26 最新金价", "https://GoldProduct1", ItemType.ITEM))

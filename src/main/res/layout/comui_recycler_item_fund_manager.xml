@@ -14,10 +14,12 @@
         >
 
     <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/layout_fundManager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/comres_sideMargin_tiny"
             android:paddingBottom="@dimen/comres_sideMargin_tiny"
+            android:visibility="visible"
             app:alignItems="center"
             app:flexDirection="row"
             app:justifyContent="flex_start"
@@ -104,6 +106,126 @@
                     android:text="基金经理简介基金经理简介基金经理简介"
                     android:textColor="@color/comres_color_4a4a4a"
                     android:textSize="@dimen/comres_textSize_11sp"
+                    />
+        </com.google.android.flexbox.FlexboxLayout>
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/layout_fundProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/comres_sideMargin_large"
+            android:paddingBottom="@dimen/comres_sideMargin_tiny"
+            android:visibility="gone"
+            app:alignItems="center"
+            app:flexDirection="column"
+            app:justifyContent="flex_start"
+            >
+
+        <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:alignItems="center"
+                app:flexDirection="row"
+                app:justifyContent="space_between"
+                >
+
+            <TextView
+                    android:id="@+id/textView_recyclerFundProductTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="易方达消费行业基金"
+                    android:textColor="@color/comres_color_333333"
+                    android:textSize="@dimen/comres_textSize_15sp"
+                    android:textStyle="bold"
+                    />
+
+            <TextView
+                    android:id="@+id/textView_recyclerFundProductRiseFallRatio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+15.26%"
+                    android:textColor="@color/comres_color_ff5500"
+                    android:textSize="@dimen/comres_textSize_18sp"
+                    android:textStyle="bold"
+                    />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:alignItems="center"
+                app:flexDirection="row"
+                app:justifyContent="space_between"
+                >
+
+            <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:alignItems="center"
+                    app:flexDirection="row"
+                    app:justifyContent="space_between"
+                    >
+
+                <TextView
+                        android:id="@+id/textView_recyclerFundProductCode"
+                        style="@style/comres_tag_gray_style"
+                        android:layout_marginRight="8dp"
+                        android:text="112041"
+                        />
+
+                <TextView
+                        android:id="@+id/textView_recyclerFundProductRisk"
+                        style="@style/comres_tag_orange_style"
+                        android:layout_marginRight="8dp"
+                        android:text="中高风险"
+                        />
+
+                <TextView
+                        android:id="@+id/textView_recyclerFundProductClassify"
+                        style="@style/comres_tag_gray_style"
+                        android:layout_marginRight="8dp"
+                        android:text="混合型"
+                        />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <TextView
+                    android:id="@+id/textView_recyclerFundProductRiseFallTimeSpan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最近一年增长率"
+                    android:textColor="@color/comres_color_999999"
+                    android:textSize="@dimen/comres_textSize_11sp"
+                    />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:alignItems="center"
+                app:flexDirection="row"
+                app:justifyContent="space_between"
+                >
+
+            <TextView
+                    android:id="@+id/textView_recyclerFundProductFollowCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="超过800万关注"
+                    android:textColor="@color/comres_color_999999"
+                    android:textSize="@dimen/comres_textSize_11sp"
+                    />
+
+            <ToggleButton
+                    android:id="@+id/button_recyclerFundProductIsFollowed"
+                    style="@style/comres_buttonToggle_rectangle_blue_transparent_style"
+                    android:layout_width="60dp"
+                    android:layout_height="24dp"
+                    android:textOff="＋自选"
+                    android:textOn="已添加"
+                    android:textSize="@dimen/comres_textSize_13sp"
                     />
         </com.google.android.flexbox.FlexboxLayout>
     </com.google.android.flexbox.FlexboxLayout>
