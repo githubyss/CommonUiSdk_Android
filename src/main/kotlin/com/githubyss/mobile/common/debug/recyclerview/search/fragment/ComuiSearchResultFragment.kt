@@ -29,16 +29,17 @@ import com.githubyss.mobile.common.debug.recyclerview.search.template.informatio
 import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.specialtopic.ItemSpecialTopicLayout
 import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountModel
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.ItemListLayout
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
@@ -212,6 +213,7 @@ class ComuiSearchResultFragment : BaseFragment() {
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initData()
         initView()
     }
     
@@ -220,8 +222,12 @@ class ComuiSearchResultFragment : BaseFragment() {
         dataList.clear()
     }
     
+    override fun initData() {
+        requestData(rootContext ?: return)
+    }
+    
     override fun initView() {
-        initAdapter()
+        rvAdapter = LayoutAdapter(dataList)
         recyclerView_container.setHasFixedSize(true)
         recyclerView_container.layoutManager = LinearLayoutManager(activity)
         recyclerView_container.adapter = rvAdapter
@@ -230,12 +236,8 @@ class ComuiSearchResultFragment : BaseFragment() {
     
     /** ********** ********** ********** Function ********** ********** ********** */
     
-    private fun initAdapter() {
-        requestData(rootContext ?: return)
-        rvAdapter = LayoutAdapter(dataList)
-    }
-    
     private fun requestData(context: Context) {
+        dataList.add(LayoutModel(ItemSpecialTopicLayout(MockRequest.requestSpecialTopic(), context, onItemClickListener), ItemType.ITEM))
         dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestActivityIcon(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestAppIcon(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
         dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))

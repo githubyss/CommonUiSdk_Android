@@ -23,21 +23,38 @@ import com.githubyss.mobile.common.debug.recyclerview.search.template.informatio
 import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductAdapter
 import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.specialtopic.SpecialTopicModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountAdapter
 import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountModel
-import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
+import com.githubyss.mobile.common.ui.banner.BannerModel
 import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 object MockRequest {
+    fun requestSpecialTopic(): SpecialTopicModel {
+        val advertList = ArrayList<BannerModel>()
+        advertList.add(BannerModel("https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", "", "", ItemType.ITEM))
+        advertList.add(BannerModel("https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", "", "", ItemType.ITEM))
+        advertList.add(BannerModel("https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", "", "", ItemType.ITEM))
+        
+        val iconList = ArrayList<AppIconModel>()
+        iconList.add(AppIconModel("https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", "严选好基", "https://AppIcon1", "", ItemType.ITEM))
+        iconList.add(AppIconModel("https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", "基金榜单", "https://AppIcon2", "", ItemType.ITEM))
+        iconList.add(AppIconModel("https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", "购买基金", "https://AppIcon3", "", ItemType.ITEM))
+        iconList.add(AppIconModel("", "基金定投", "https://AppIcon4", "", ItemType.ITEM))
+        
+        return SpecialTopicModel("", "新年开门红理财基金好物推荐榜单", "广告卖点", "", "基金", "买基金1折起，支持极速卖出，买基金1折起", advertList, iconList)
+    }
+    
     fun requestActivityIcon(context: Context, hasHeader: Boolean = false, onItemClickListener: BaseItemAdapter.OnItemClickListener? = null): ArrayList<BaseItemModel> {
         val activityIconList = ArrayList<BaseItemModel>()
-        activityIconList.add(ActivityIconModel("", "分享券包", "https://ActivityIcon1", ItemType.ITEM))
-        activityIconList.add(ActivityIconModel("", "挖宝", "https://ActivityIcon2", ItemType.ITEM))
-        activityIconList.add(ActivityIconModel("", "养猫", "https://ActivityIcon3", ItemType.ITEM))
-        activityIconList.add(ActivityIconModel("", "签到打卡", "https://ActivityIcon4", ItemType.ITEM))
+        activityIconList.add(ActivityIconModel("", "分享券包", "https://ActivityIcon1", "", ItemType.ITEM))
+        activityIconList.add(ActivityIconModel("", "挖宝", "https://ActivityIcon2", "", ItemType.ITEM))
+        activityIconList.add(ActivityIconModel("", "养猫", "https://ActivityIcon3", "", ItemType.ITEM))
+        activityIconList.add(ActivityIconModel("", "签到打卡", "https://ActivityIcon4", "", ItemType.ITEM))
         
         val activityList = ArrayList<BaseItemModel>()
         if (hasHeader) activityList.add(HeaderSeeMoreModel(SectionId.ACTIVITY_ICON, "活动", false, ItemType.HEADER))
@@ -48,10 +65,10 @@ object MockRequest {
     
     fun requestAppIcon(context: Context, hasHeader: Boolean = false, onItemClickListener: BaseItemAdapter.OnItemClickListener? = null): ArrayList<BaseItemModel> {
         val appIconList = ArrayList<BaseItemModel>()
-        appIconList.add(AppIconModel("", "定投管理", "https://AppIcon1", ItemType.ITEM))
-        appIconList.add(AppIconModel("", "组合投资", "https://AppIcon2", ItemType.ITEM))
-        appIconList.add(AppIconModel("", "苏宁智投", "https://AppIcon3", ItemType.ITEM))
-        appIconList.add(AppIconModel("", "慧智盈", "https://AppIcon4", ItemType.ITEM))
+        appIconList.add(AppIconModel("", "定投管理", "https://AppIcon1", "", ItemType.ITEM))
+        appIconList.add(AppIconModel("", "组合投资", "https://AppIcon2", "", ItemType.ITEM))
+        appIconList.add(AppIconModel("", "苏宁智投", "https://AppIcon3", "", ItemType.ITEM))
+        appIconList.add(AppIconModel("", "慧智盈", "https://AppIcon4", "", ItemType.ITEM))
         
         val appList = ArrayList<BaseItemModel>()
         if (hasHeader) appList.add(HeaderSeeMoreModel(SectionId.ACTIVITY_ICON, "应用", false, ItemType.HEADER))
@@ -105,7 +122,7 @@ object MockRequest {
         fundManagerItemList.add(FundProductModel("易方达消费行业基金", "+15.79%", "112041", "高风险", "混合型", "最近一年增长率", "超过800万关注", false, "https://FundProduct1", ItemType.ITEM))
         fundManagerItemList.add(FundProductModel("易方达地产行业基金", "+12.88%", "112042", "中高风险", "混合型", "最近一年增长率", "超过800万关注", true, "https://FundProduct2", ItemType.ITEM))
         fundManagerItemList.add(FundProductModel("博时家电行业基金", "+10.65%", "112043", "中低风险", "混合型", "最近一年增长率", "超过100万关注", true, "https://FundProduct3", ItemType.ITEM))
-    
+        
         val fundManagerList = ArrayList<BaseItemModel>()
         if (hasHeader) fundManagerList.add(HeaderSeeMoreModel(SectionId.FUND_MANAGER, "热门经理人", true, ItemType.HEADER))
         fundManagerList.add(ListModel(FundManagerAdapter(fundManagerItemList), RecyclerView.VERTICAL, context, onItemClickListener, ItemType.ITEM))

@@ -9,22 +9,31 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
 
+
 /**
  * ComuiAutofitTextView
- * <Description>
- * <Details>
  *
  * @author Ace Yan
  * @github githubyss
+ * @createdTime 2021/04/06 17:37:19
  */
 class ComuiAutofitTextView : AppCompatTextView {
-    constructor(context: Context?) : super(context ?: return)
-    constructor(context: Context?, attrs: AttributeSet) : super(context ?: return, attrs)
     
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var textPaint: Paint? = null
     private var textSizeF = 0F
     
+    
+    /** ********** ********** ********** Constructors ********** ********** ********** */
+    
+    constructor(context: Context) : this(context, null, 0)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    }
+    
+    
+    /** ********* ********** ********** Override ********** ********** ********** */
     
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)

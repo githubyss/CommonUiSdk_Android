@@ -2,10 +2,8 @@
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/layout_frameLayoutItem"
-        android:background="@color/comres_layoutBg_white"
+        android:background="@color/comres_layoutBg_transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/comres_sideMargin_tiny"
-        android:paddingRight="@dimen/comres_sideMargin_tiny"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="@dimen/comres_sideMargin_micro"
         />

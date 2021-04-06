@@ -12,4 +12,4 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/26 10:17:52
  */
-data class AppIconModel constructor(var iconUrl: String, var label: String, var jumpUrl: String, @ItemType override var type: Int) : BaseItemModel(type)
+data class AppIconModel constructor(var iconUrl: String, var label: String, var jumpUrl: String, var jumpType: String, @ItemType override var type: Int) : BaseItemModel(type)

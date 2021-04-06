@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.template.emptypage.EmptyPageHolder
 import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.template.emptypage.EmptyPageHolder
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
@@ -19,7 +19,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/15 17:05:43
  */
-class LayoutAdapter constructor(private val dataList: List<BaseItemModel>, @LayoutRes private var layoutId: Int = R.layout.comui_recycler_item_layout_bg_white_corner_normal_margin_tiny) : BaseItemAdapter(dataList) {
+class LayoutAdapter constructor(private val dataList: List<BaseItemModel>, @LayoutRes private var layoutId: Int = R.layout.comui_recycler_item_layout_bg_transparent_corner_none_margin_none) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
