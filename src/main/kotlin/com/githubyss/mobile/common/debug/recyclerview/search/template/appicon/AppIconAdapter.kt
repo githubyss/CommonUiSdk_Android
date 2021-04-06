@@ -7,8 +7,8 @@ import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemH
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 

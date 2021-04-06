@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
 import kotlinx.android.synthetic.main.comui_recycler_list_view.view.*
 
 

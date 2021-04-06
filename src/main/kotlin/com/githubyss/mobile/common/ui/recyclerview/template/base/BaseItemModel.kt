@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.template.itemlist
+package com.githubyss.mobile.common.ui.recyclerview.template.base
 
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 

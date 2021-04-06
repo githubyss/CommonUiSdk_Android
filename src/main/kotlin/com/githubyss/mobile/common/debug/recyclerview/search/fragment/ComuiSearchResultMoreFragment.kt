@@ -35,8 +35,8 @@ import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.basemvp.BaseFragment
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.ItemListLayout
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel

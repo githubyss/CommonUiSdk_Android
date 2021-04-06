@@ -9,8 +9,8 @@ import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreHolder
 import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 

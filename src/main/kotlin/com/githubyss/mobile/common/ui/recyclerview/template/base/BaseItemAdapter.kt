@@ -1,7 +1,8 @@
-package com.githubyss.mobile.common.ui.recyclerview.template.itemlist
+package com.githubyss.mobile.common.ui.recyclerview.template.base
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 

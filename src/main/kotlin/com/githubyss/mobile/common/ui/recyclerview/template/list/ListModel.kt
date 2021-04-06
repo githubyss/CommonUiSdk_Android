@@ -2,8 +2,8 @@ package com.githubyss.mobile.common.ui.recyclerview.template.list
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
