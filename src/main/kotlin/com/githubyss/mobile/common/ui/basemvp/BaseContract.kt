@@ -9,11 +9,11 @@ package com.githubyss.mobile.common.ui.basemvp
  * @createdTime 2021/03/09 14:35:34
  */
 interface BaseContract {
-    interface ComuiBaseIView<in P> {
+    interface BaseIView<in P> {
         fun setPresenter(iPresenter: P)
     }
 
-    interface ComuiBaseIPresenter {
+    interface BaseIPresenter {
         fun onStandby()
     }
 }
