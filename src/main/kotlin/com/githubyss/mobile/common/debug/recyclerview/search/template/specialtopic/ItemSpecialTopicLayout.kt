@@ -41,8 +41,6 @@ class ItemSpecialTopicLayout : FrameLayout {
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    // constructor(context: Context) : this(context, null, 0)
-    // constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(dataModel: SpecialTopicModel, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         LayoutInflater.from(context).inflate(R.layout.comui_recycler_special_topic_view, this)
         
@@ -58,12 +56,11 @@ class ItemSpecialTopicLayout : FrameLayout {
         layout_specialTopicHeader.setOnClickListener { v -> }
         
         /** Banner 广告 */
-        // banner_specialTopicAd.initView()
         val bannerPageWidth: Int = (ScreenUtils.getAppScreenWidthPx() - (24 * ScreenUtils.getScreenDensity())).toInt()
         banner_specialTopicAd.layoutParams.height = (bannerPageWidth * 80.0f / 351.0f + 0.5f).toInt()
-        bannerPagerAdapter = BannerPagerAdapter(context, MockRequest.requestSpecialTopic().advertList)
-        bannerPagerAdapter?.onBannerClickListener = onBannerClickListener
+        bannerPagerAdapter = BannerPagerAdapter()
         banner_specialTopicAd.setAdapter(bannerPagerAdapter)
+        bannerPagerAdapter?.onBannerClickListener = onBannerClickListener
         updateBannerView(MockRequest.requestSpecialTopic().advertList)
         
         /** 图标 */

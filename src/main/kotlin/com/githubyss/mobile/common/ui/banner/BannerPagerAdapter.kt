@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 /**
@@ -21,32 +23,24 @@ import java.util.*
  * @github githubyss
  * @createdTime 2021/04/06 15:00:43
  */
-class BannerPagerAdapter constructor(private val viewContext: Context, private val dataList: MutableList<BannerModel>) : StatisticsPagerAdapter() {
+class BannerPagerAdapter : PagerAdapter() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
         val TAG = BannerPagerAdapter::class.simpleName ?: "simpleName is null"
-        // private val MODID: String? = "div20200924102428002"
     }
     
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    private var inflater: LayoutInflater? = null
-    private var viewCache: HashMap<String, LinearLayout> = HashMap()
+    private var dataList: MutableList<BannerModel> = ArrayList()
+    private var viewCache: HashMap<Int, LinearLayout> = HashMap()
     private var viewPosition = 0
     var onBannerClickListener: OnBannerClickListener? = null
     
-    // 已曝光埋点列表，防止重复曝光
-    // private var viewStatisticList: ArrayList<String> = ArrayList()
-    
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
-    
-    init {
-        inflater = LayoutInflater.from(viewContext)
-    }
     
     
     /** ********* ********** ********** Override ********** ********** ********** */
@@ -60,22 +54,19 @@ class BannerPagerAdapter constructor(private val viewContext: Context, private v
         var imageView: ImageView
         
         synchronized(viewCache) {
-            val layout = viewCache[position.toString()]
-            if (layout != null) {
-                convertView = layout
-                imageView = convertView.findViewById<View>(R.id.imageView_bannerItem) as ImageView
-            } else {
-                convertView = inflater?.inflate(R.layout.comui_banner_item, null) as LinearLayout
-                imageView = convertView.findViewById<View>(R.id.imageView_bannerItem) as ImageView
-                viewCache[position.toString()] = convertView
-                
+            val layout = viewCache[position]
+            convertView = layout ?: LayoutInflater.from(container.context)?.inflate(R.layout.comui_banner_item, container, false) as LinearLayout
+            imageView = convertView.findViewById(R.id.imageView_bannerItem) as ImageView
+            
+            if (layout == null) {
+                viewCache[position] = convertView
                 if (position in 0 until count) {
-                    val info = dataList[position]
-                    if (!StringUtils.isEmpty(info.imageUrl)) {
-                        if (info.imageUrl.startsWith("file:///")) {
-                            loadBitmapDefault(viewContext, info.imageUrl.substring(8), imageView)
+                    val banner = dataList[position]
+                    if (!StringUtils.isEmpty(banner.imageUrl)) {
+                        if (banner.imageUrl.startsWith("file:///")) {
+                            loadBitmapDefault(container.context, banner.imageUrl.substring(8), imageView)
                         } else {
-                            GlideUtils.loadImage(info.imageUrl, imageView, viewContext)
+                            GlideUtils.loadImage(banner.imageUrl, imageView, container.context)
                         }
                     }
                 }
@@ -124,94 +115,42 @@ class BannerPagerAdapter constructor(private val viewContext: Context, private v
         }
     }
     
-    // override fun resetScrollState() {
-    //     viewStatisticList.clear()
-    // }
-    
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    fun setBannerList(list: List<BannerModel>) {
+    fun setBannerList(bannerList: List<BannerModel>) {
         synchronized(dataList) {
-            if (list.isNotEmpty()) {
+            if (bannerList.isNotEmpty()) {
                 dataList.clear()
-                dataList.addAll(list)
+                dataList.addAll(bannerList)
                 when {
                     dataList.size > 1 -> {
-                        val info1 = dataList[0]
-                        val info2 = dataList[dataList.size - 1]
-                        dataList.add(0, info2)
-                        dataList.add(info1)
-                    }
-                    dataList.size == 1 -> {
-                        val info1 = dataList[0]
+                        val bannerFirst = dataList[0]
+                        val bannerLast = dataList[dataList.size - 1]
+                        dataList.add(0, bannerLast)
+                        dataList.add(bannerFirst)
                     }
                     else -> {
                     }
                 }
             } else {
-                val info = BannerModel("", "", "", ItemType.ITEM)
+                val banner = BannerModel("", "", "", ItemType.ITEM)
                 dataList.clear()
-                dataList.add(info)
+                dataList.add(banner)
             }
         }
         synchronized(viewCache) { viewCache.clear() }
     }
-    //    fun setBannerList(list: List<BannerModel>) {
-    //        synchronized(dataList) {
-    //            if (list != null && list.isNotEmpty()) {
-    //                dataList.clear()
-    //                dataList.addAll(list)
-    //            } else {
-    //                val info = BannerModel("","","", ItemType.ITEM)
-    //                dataList.clear()
-    //                dataList.add(info)
-    //            }
-    //        }
-    //        synchronized(viewCache) { viewCache.clear() }
-    //    }
     
-    // override fun viewStatistic(index: Int) {
-    //     if (index >= 0 && index < mImgList.size) {
-    //         var info: BannerModel? = null
-    //         if (mImgList.size == 1) {
-    //             info = mImgList[0]
-    //         } else if (index + 1 < mImgList.size) {
-    //             info = mImgList[index + 1]
-    //         }
-    //         val eleid = getEleidByIndex(index + 1)
-    //         if (!viewStatisticList.contains(eleid) && !StringUtils.isEmpty(info?.imageUrl)) {
-    //             viewStatisticList.add(eleid)
-    //             // DataStatisticsUtil.CommonView(HomeConstant.STAT_PAGE_HOME,
-    //             //         MODID, eleid, null, info.contentTitle,  info.adid, null, null);
-    //         }
-    //     }
-    // }
-    
-    //从本地加载默认的图片
-    // private fun loadBitmapDefault(context: Context, iconName: String, imageview: View?) {
-    //     val iconId = context.resources.getIdentifier(iconName, "drawable", context.packageName)
-    //     imageview?.setBackgroundResource(iconId)
-    // }
-    
-    //从本地加载默认的图片
+    /**
+     * 从本地加载默认的图片
+     *
+     * @param
+     * @return
+     */
     private fun loadBitmapDefault(context: Context, iconName: String, imageView: ImageView?) {
         GlideUtils.loadImage(iconName, imageView, context)
-        // val iconId = context.resources.getIdentifier(iconName, "drawable", context.packageName)
-        // imageView.setBackgroundResource(iconId)
     }
-    
-    // private fun getEleidByIndex(index: Int): String {
-    //     var eleid = "" //默认给空
-    //     when (index) {
-    //         1 -> eleid = "pit20200924102504357"
-    //         2 -> eleid = "pit20200924102522803"
-    //         3 -> eleid = "pit20200924102529868"
-    //         4 -> eleid = "pit20200924102536920"
-    //         5 -> eleid = "pit20200924102545419"
-    //     }
-    //     return eleid
-    // }
     
     
     /** ********** ********** ********** Implementations ********** ********** ********** */

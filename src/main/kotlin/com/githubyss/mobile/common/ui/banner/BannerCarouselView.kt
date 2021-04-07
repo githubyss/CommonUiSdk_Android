@@ -10,6 +10,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.githubyss.mobile.common.kit.util.ScreenUtils
@@ -36,13 +37,11 @@ class BannerCarouselView : FrameLayout {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    private var viewContext: Context? = null
-    
-    private var indicatorWidth = 0f
-    private var indicatorHeight = 0f
+    private var indicatorWidth = 0.0f
+    private var indicatorHeight = 0.0f
     private var indicatorMargin = 0
     private var handler: MyHandler? = null
-    private var pageAdapter: StatisticsPagerAdapter? = null
+    private var pageAdapter: PagerAdapter? = null
     private var isInit = false
     private var actualCount = 0
     private var viewPager: BannerViewPager? = null
@@ -54,7 +53,7 @@ class BannerCarouselView : FrameLayout {
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
-        init(context, attrs)
+        init()
         initView(context)
     }
     
@@ -64,7 +63,7 @@ class BannerCarouselView : FrameLayout {
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    fun setAdapter(adapter: StatisticsPagerAdapter?) {
+    fun setAdapter(adapter: PagerAdapter?) {
         if (isInit) {
             return
         }
@@ -82,7 +81,7 @@ class BannerCarouselView : FrameLayout {
             viewPager.setCurrentItem(1, false)
             dotIndicator.visibility = View.VISIBLE
             val params = dotIndicator.layoutParams
-            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + ScreenUtils.dp2Px(3.0f, viewContext) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
+            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + ScreenUtils.dp2Px(3.0f) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
             dotIndicator.layoutParams = params
         }
         dotIndicator.bindSlideWithViewPager(viewPager)
@@ -108,18 +107,11 @@ class BannerCarouselView : FrameLayout {
         handler?.removeMessages(SWITCH_VIEW_PAGER)
     }
     
-    // fun viewStatistic() {
-    //     if (viewPager != null && pageAdapter != null) {
-    //         viewStatistic(viewPager?.currentItem ?: return)
-    //     }
-    // }
-    
-    private fun init(context: Context, attrs: AttributeSet?) {
-        viewContext = context
+    private fun init() {
         handler = MyHandler(this)
-        indicatorWidth = ScreenUtils.dp2Px(9.0f, context).toFloat()
-        indicatorHeight = ScreenUtils.dp2Px(1.5f, context).toFloat()
-        indicatorMargin = ScreenUtils.dp2Px(5.0f, context)
+        indicatorWidth = ScreenUtils.dp2Px(9.0f).toFloat()
+        indicatorHeight = ScreenUtils.dp2Px(1.5f).toFloat()
+        indicatorMargin = ScreenUtils.dp2Px(5.0f)
     }
     
     private fun initView(context: Context) {
@@ -138,8 +130,8 @@ class BannerCarouselView : FrameLayout {
         indicator = BannerLineIndicator(context)
         val indicatorParams = LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         indicatorParams.bottomMargin = indicatorMargin
-        indicatorParams.gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
         indicatorParams.height = indicatorHeight.toInt()
+        indicatorParams.gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
         indicator?.layoutParams = indicatorParams
         addView(indicator)
         
@@ -156,7 +148,7 @@ class BannerCarouselView : FrameLayout {
             viewPager.setCurrentItem(1, false)
             dotIndicator.visibility = View.VISIBLE
             val params = dotIndicator.layoutParams
-            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + ScreenUtils.dp2Px(3.0f, viewContext) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
+            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + ScreenUtils.dp2Px(3.0f) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
             dotIndicator.layoutParams = params
         }
         dotIndicator.removePageChangeListener()
@@ -167,29 +159,6 @@ class BannerCarouselView : FrameLayout {
             1
         }
     }
-    
-    // private fun viewStatistic(index: Int) {
-    //     var actIndex = 0
-    //     val total = pageAdapter?.count ?: return
-    //     actIndex = if (total == 0) {
-    //         return
-    //     } else if (total == 1) {
-    //         0
-    //     } else {
-    //         when (index) {
-    //             0 -> {
-    //                 total - 3
-    //             }
-    //             total - 1 -> {
-    //                 0
-    //             }
-    //             else -> {
-    //                 index - 1
-    //             }
-    //         }
-    //     }
-    //     pageAdapter?.viewStatistic(actIndex)
-    // }
     
     
     /** ********** ********** ********** Classes ********** ********** **********  */
@@ -215,7 +184,6 @@ class BannerCarouselView : FrameLayout {
                 }
             }
         }
-        
     }
     
     
@@ -226,7 +194,6 @@ class BannerCarouselView : FrameLayout {
         override fun onPageSelected(position: Int) {}
         override fun onPageScrollStateChanged(state: Int) {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
-                // viewStatistic()
             }
         }
     }

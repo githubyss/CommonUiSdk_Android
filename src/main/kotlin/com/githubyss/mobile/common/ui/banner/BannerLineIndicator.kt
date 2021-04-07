@@ -31,7 +31,6 @@ class BannerLineIndicator : View {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    private var viewContext: Context? = null
     private var count: Int = 0
     private var actualCount: Int = 0
     private var bannerViewPager: ViewPager? = null
@@ -49,11 +48,11 @@ class BannerLineIndicator : View {
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
-
+    
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
-        init(context, attrs)
+        init()
     }
     
     
@@ -142,11 +141,10 @@ class BannerLineIndicator : View {
     }
     
     
-    private fun init(context: Context?, attrs: AttributeSet?) {
-        viewContext = context
+    private fun init() {
         paint = Paint()
-        lineWidth = ScreenUtils.dp2Px(9.0f, context).toFloat()
-        lineHeight = ScreenUtils.dp2Px(1.5f, context).toFloat()
+        lineWidth = ScreenUtils.dp2Px(9.0f).toFloat()
+        lineHeight = ScreenUtils.dp2Px(1.5f).toFloat()
     }
     
     /**
