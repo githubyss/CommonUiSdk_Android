@@ -36,9 +36,12 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 object MockRequest {
     fun requestSpecialTopic(): SpecialTopicModel {
         val advertList = ArrayList<BannerModel>()
-        advertList.add(BannerModel("https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", "", "", ItemType.ITEM))
-        advertList.add(BannerModel("https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", "", "", ItemType.ITEM))
-        advertList.add(BannerModel("https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", "", "", ItemType.ITEM))
+        // advertList.add(BannerModel("https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", "", "", ItemType.ITEM))
+        // advertList.add(BannerModel("https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif", "", "", ItemType.ITEM))
+        // advertList.add(BannerModel("https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif", "", "", ItemType.ITEM))
+        advertList.add(BannerModel("https://goss1.cfp.cn/creative/vcg/800/version23/VCG2156289abef.jpg", "", "", ItemType.ITEM))
+        advertList.add(BannerModel("https://goss4.cfp.cn/creative/vcg/800/version23/VCG211be3c9c31.jpg", "", "", ItemType.ITEM))
+        advertList.add(BannerModel("https://goss.cfp.cn/creative/vcg/800/version23/VCG41501259465.jpg", "", "", ItemType.ITEM))
         
         val iconList = ArrayList<AppIconModel>()
         iconList.add(AppIconModel("https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif", "严选好基", "https://AppIcon1", "", ItemType.ITEM))

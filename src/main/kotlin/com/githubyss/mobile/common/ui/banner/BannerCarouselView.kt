@@ -55,7 +55,7 @@ class BannerCarouselView : FrameLayout {
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         init(context, attrs)
-        initView()
+        initView(context)
     }
     
     
@@ -64,29 +64,7 @@ class BannerCarouselView : FrameLayout {
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    fun updateDataSource() {
-        val viewPager = getChildAt(0) as ViewPager
-        val dotIndicator = getChildAt(1) as BannerLineIndicator
-        if (pageAdapter?.count == 1) {
-            viewPager.setCurrentItem(0, false)
-            dotIndicator.visibility = View.GONE
-        } else {
-            viewPager.setCurrentItem(1, false)
-            dotIndicator.visibility = View.VISIBLE
-            val params = dotIndicator.layoutParams
-            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + ScreenUtils.dp2Px(3.0f, viewContext) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
-            dotIndicator.layoutParams = params
-        }
-        dotIndicator.removePageChangeListener()
-        dotIndicator.updateViewPagerCount(viewPager)
-        actualCount = if ((pageAdapter?.count ?: return) > 2) {
-            pageAdapter?.count ?: return
-        } else {
-            1
-        }
-    }
-    
-    fun setAdapter(adapter: StatisticsPagerAdapter) {
+    fun setAdapter(adapter: StatisticsPagerAdapter?) {
         if (isInit) {
             return
         }
@@ -130,68 +108,88 @@ class BannerCarouselView : FrameLayout {
         handler?.removeMessages(SWITCH_VIEW_PAGER)
     }
     
-    fun viewStatistic() {
-        if (viewPager != null && pageAdapter != null) {
-            viewStatistic(viewPager?.currentItem ?: return)
-        }
-    }
+    // fun viewStatistic() {
+    //     if (viewPager != null && pageAdapter != null) {
+    //         viewStatistic(viewPager?.currentItem ?: return)
+    //     }
+    // }
     
     private fun init(context: Context, attrs: AttributeSet?) {
         viewContext = context
         handler = MyHandler(this)
-        indicatorWidth = ScreenUtils.dp2Px(9.0f, viewContext).toFloat()
-        indicatorHeight = ScreenUtils.dp2Px(1.5f, viewContext).toFloat()
-        indicatorMargin = ScreenUtils.dp2Px(5.0f, viewContext)
+        indicatorWidth = ScreenUtils.dp2Px(9.0f, context).toFloat()
+        indicatorHeight = ScreenUtils.dp2Px(1.5f, context).toFloat()
+        indicatorMargin = ScreenUtils.dp2Px(5.0f, context)
     }
     
-    private fun initView() {
+    private fun initView(context: Context) {
         if (isInit) {
             return
         }
         
         viewPager = BannerViewPager(context)
         addView(viewPager)
-        val params1 = viewPager?.layoutParams as LayoutParams
-        params1.width = ViewGroup.LayoutParams.MATCH_PARENT
-        params1.height = ViewGroup.LayoutParams.MATCH_PARENT
-        viewPager?.layoutParams = params1
-        viewPager?.setVpTouchListener(onViewPagerTouchListener)
+        val viewPagerParams = viewPager?.layoutParams as LayoutParams
+        viewPagerParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+        viewPagerParams.height = ViewGroup.LayoutParams.MATCH_PARENT
+        viewPager?.layoutParams = viewPagerParams
+        viewPager?.onViewPagerTouchListener = onViewPagerTouchListener
         
-        indicator = BannerLineIndicator(viewContext)
-        val params2 = LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        params2.bottomMargin = indicatorMargin
-        params2.gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
-        params2.height = indicatorHeight.toInt()
-        indicator?.layoutParams = params2
+        indicator = BannerLineIndicator(context)
+        val indicatorParams = LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        indicatorParams.bottomMargin = indicatorMargin
+        indicatorParams.gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
+        indicatorParams.height = indicatorHeight.toInt()
+        indicator?.layoutParams = indicatorParams
         addView(indicator)
         
         viewPager?.addOnPageChangeListener(onPageChangeListener)
     }
     
-    private fun viewStatistic(index: Int) {
-        var actIndex = 0
-        val total = pageAdapter?.count ?: return
-        actIndex = if (total == 0) {
-            return
-        } else if (total == 1) {
-            0
+    private fun updateDataSource() {
+        val viewPager = getChildAt(0) as ViewPager
+        val dotIndicator = getChildAt(1) as BannerLineIndicator
+        if (pageAdapter?.count == 1) {
+            viewPager.setCurrentItem(0, false)
+            dotIndicator.visibility = View.GONE
         } else {
-            when (index) {
-                0 -> {
-                    total - 3
-                }
-                total - 1 -> {
-                    0
-                }
-                else -> {
-                    index - 1
-                }
-            }
+            viewPager.setCurrentItem(1, false)
+            dotIndicator.visibility = View.VISIBLE
+            val params = dotIndicator.layoutParams
+            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + ScreenUtils.dp2Px(3.0f, viewContext) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
+            dotIndicator.layoutParams = params
         }
-        if (pageAdapter != null) {
-            pageAdapter?.viewStatistic(actIndex)
+        dotIndicator.removePageChangeListener()
+        dotIndicator.updateViewPagerCount(viewPager)
+        actualCount = if ((pageAdapter?.count ?: return) > 2) {
+            pageAdapter?.count ?: return
+        } else {
+            1
         }
     }
+    
+    // private fun viewStatistic(index: Int) {
+    //     var actIndex = 0
+    //     val total = pageAdapter?.count ?: return
+    //     actIndex = if (total == 0) {
+    //         return
+    //     } else if (total == 1) {
+    //         0
+    //     } else {
+    //         when (index) {
+    //             0 -> {
+    //                 total - 3
+    //             }
+    //             total - 1 -> {
+    //                 0
+    //             }
+    //             else -> {
+    //                 index - 1
+    //             }
+    //         }
+    //     }
+    //     pageAdapter?.viewStatistic(actIndex)
+    // }
     
     
     /** ********** ********** ********** Classes ********** ********** **********  */
@@ -228,7 +226,7 @@ class BannerCarouselView : FrameLayout {
         override fun onPageSelected(position: Int) {}
         override fun onPageScrollStateChanged(state: Int) {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
-                viewStatistic()
+                // viewStatistic()
             }
         }
     }

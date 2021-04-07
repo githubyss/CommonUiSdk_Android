@@ -25,7 +25,7 @@ class BannerViewPager : ViewPager {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    private var onViewPagerTouchListener: OnViewPagerTouchListener? = null
+    var onViewPagerTouchListener: OnViewPagerTouchListener? = null
     
     private var xDistance = 0f
     private var yDistance = 0f
@@ -45,12 +45,12 @@ class BannerViewPager : ViewPager {
     
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         when (ev?.action) {
-            MotionEvent.ACTION_DOWN -> if (onViewPagerTouchListener != null) {
+            MotionEvent.ACTION_DOWN -> {
                 onViewPagerTouchListener?.onTouchStart()
             }
             MotionEvent.ACTION_MOVE -> {
             }
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> if (onViewPagerTouchListener != null) {
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 onViewPagerTouchListener?.onTouchEnd()
             }
         }
@@ -59,10 +59,6 @@ class BannerViewPager : ViewPager {
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */
-    
-    fun setVpTouchListener(listener: OnViewPagerTouchListener) {
-        onViewPagerTouchListener = listener
-    }
     
     private fun init(context: Context) {
         touchSlop = ViewConfiguration.get(context).scaledTouchSlop

@@ -4,7 +4,7 @@
         android:id="@+id/layout_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/comres_layoutBg_transparent"
+        android:background="@color/comres_layoutBg_lightGray"
         >
 
     <androidx.recyclerview.widget.RecyclerView
