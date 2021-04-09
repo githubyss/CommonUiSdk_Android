@@ -33,6 +33,7 @@ import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.Header
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
+
 object MockRequest {
     fun requestSpecialTopic(): SpecialTopicModel {
         val advertList = ArrayList<BannerModel>()

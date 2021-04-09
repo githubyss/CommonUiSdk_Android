@@ -7,8 +7,7 @@ import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.util.ToastUtils
-import com.githubyss.mobile.common.ui.R
-import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.view.*
+import com.githubyss.mobile.common.ui.databinding.ComuiRecyclerViewBinding
 
 
 /**
@@ -28,6 +27,8 @@ class TextListLayout : FrameLayout {
     
     
     /** ********** ********** ********** Properties ********** ********** ********** */
+    
+    private var binding: ComuiRecyclerViewBinding
     
     private var viewContext: Context? = null
     private var dataList = ArrayList<TextModel>()
@@ -49,20 +50,21 @@ class TextListLayout : FrameLayout {
     constructor(dataList: ArrayList<TextModel>, context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         viewContext = context
         this.dataList = dataList
-        initView()
+        
+        // LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_view, this)
+        binding = ComuiRecyclerViewBinding.inflate(LayoutInflater.from(context), this, true)
+    
+        rvAdapter = TextAdapter(dataList)
+        rvAdapter?.onItemClickListener = onItemClickListener
+        
+        binding.recyclerViewContainer.setHasFixedSize(true)
+        binding.recyclerViewContainer.layoutManager = LinearLayoutManager(viewContext)
+        binding.recyclerViewContainer.adapter = rvAdapter
     }
     
     
     /** ********* ********** ********** Override ********** ********** ********** */
     
     fun initView() {
-        LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this)
-        
-        rvAdapter = TextAdapter(dataList)
-        rvAdapter?.onItemClickListener = onItemClickListener
-        
-        recyclerView_container.setHasFixedSize(true)
-        recyclerView_container.layoutManager = LinearLayoutManager(viewContext)
-        recyclerView_container.adapter = rvAdapter
     }
 }

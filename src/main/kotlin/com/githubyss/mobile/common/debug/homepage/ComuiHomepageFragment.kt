@@ -1,11 +1,8 @@
 package com.githubyss.mobile.common.debug.homepage
 
 import android.content.Context
-import android.os.Bundle
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.githubyss.mobile.common.debug.animation.property.ComuiPropertyAnimationFragment
@@ -15,13 +12,13 @@ import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.basemvp.BaseFragment
+import com.githubyss.mobile.common.ui.basemvp.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentHomepageBinding
 import com.githubyss.mobile.common.ui.floatingview.container.FloatingAudioPlayerListener
 import com.githubyss.mobile.common.ui.floatingview.container.FloatingIconListener
 import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingAudioPlayer
 import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingIcon
 import com.githubyss.mobile.common.ui.floatingview.container.system.SystemFloatingIcon
-import kotlinx.android.synthetic.main.comui_debug_fragment_homepage.*
 import java.util.*
 
 
@@ -32,7 +29,7 @@ import java.util.*
  * @github githubyss
  * @createdTime 2021/03/09 10:54:22
  */
-class ComuiHomepageFragment : BaseFragment() {
+class ComuiHomepageFragment : BaseToolbarFragment<ComuiDebugFragmentHomepageBinding>() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
@@ -55,7 +52,7 @@ class ComuiHomepageFragment : BaseFragment() {
             R.id.button_showFloatingWithinApp -> {
                 val layoutParams = FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                 layoutParams.gravity = Gravity.BOTTOM or Gravity.END
-                layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, (ScreenUtils.dp2Px(14.0f) ?: return@OnClickListener), (ScreenUtils.dp2Px(14.0f) ?: return@OnClickListener))
+                layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, (ScreenUtils.dp2Px(14.0f)), (ScreenUtils.dp2Px(14.0f)))
                 AppFloatingIcon.getInstance(activity as Context).show()?.layoutParams(layoutParams)?.setMovable(true)?.customIcon("https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif")?.setFloatingListener(object : FloatingIconListener {
                     override fun onShow() {}
                     override fun onRemove() {}
@@ -112,9 +109,9 @@ class ComuiHomepageFragment : BaseFragment() {
                         run {
                             LogcatUtils.d(TAG, "FloatingAudioPlayerListener >>> onUpdateAudioInfo >> audioModel: $audioModel")
                             if (audioModel?.isPlaying ?: return) {
-                                button_playPauseController.text = "暂停"
+                                binding.buttonPlayPauseController.text = "暂停"
                             } else {
-                                button_playPauseController.text = "播放"
+                                binding.buttonPlayPauseController.text = "播放"
                             }
                         }
                     }
@@ -131,7 +128,7 @@ class ComuiHomepageFragment : BaseFragment() {
             }
             
             R.id.button_playPauseController -> {
-                when (button_playPauseController.text) {
+                when (binding.buttonPlayPauseController.text) {
                     "播放" -> {
                         AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.start()
                     }
@@ -158,36 +155,42 @@ class ComuiHomepageFragment : BaseFragment() {
     
     /** ********* ********** ********** Override ********** ********** ********** */
     
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater.inflate(R.layout.comui_debug_fragment_homepage, container, false)
-        return rootView
-    }
+    // override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    //     rootView = inflater.inflate(R.layout.comui_debug_fragment_homepage, container, false)
+    //     return rootView
+    // }
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    // override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    //     super.onViewCreated(view, savedInstanceState)
+    // }
+    
+    override fun init() {
         initView()
     }
     
-    override fun initView() {
-        button_propertyAnimation.setOnClickListener(onClickListener)
-        button_tweenAnimation.setOnClickListener(onClickListener)
-        button_recyclerViewMultiType.setOnClickListener(onClickListener)
-        button_recyclerViewMultiView.setOnClickListener(onClickListener)
+    
+    /** ********** ********** ********** Functions ********** ********** ********** */
+    
+    private fun initView() {
+        binding.buttonPropertyAnimation.setOnClickListener(onClickListener)
+        binding.buttonTweenAnimation.setOnClickListener(onClickListener)
+        binding.buttonRecyclerViewMultiType.setOnClickListener(onClickListener)
+        binding.buttonRecyclerViewMultiView.setOnClickListener(onClickListener)
         
-        button_showFloatingWithinApp.setOnClickListener(onClickListener)
-        button_closeFloatingWithinApp.setOnClickListener(onClickListener)
-        button_showFloatingWithinSystem.setOnClickListener(onClickListener)
-        button_closeFloatingWithinSystem.setOnClickListener(onClickListener)
+        binding.buttonShowFloatingWithinApp.setOnClickListener(onClickListener)
+        binding.buttonCloseFloatingWithinApp.setOnClickListener(onClickListener)
+        binding.buttonShowFloatingWithinSystem.setOnClickListener(onClickListener)
+        binding.buttonCloseFloatingWithinSystem.setOnClickListener(onClickListener)
         
-        button_showAutoShortedFloatingView.setOnClickListener(onClickListener)
-        button_closeAutoShortedFloatingView.setOnClickListener(onClickListener)
-        button_lengthenAutoShortedFloatingView.setOnClickListener(onClickListener)
-        button_shortenAutoShortedFloatingView.setOnClickListener(onClickListener)
+        binding.buttonShowAutoShortedFloatingView.setOnClickListener(onClickListener)
+        binding.buttonCloseAutoShortedFloatingView.setOnClickListener(onClickListener)
+        binding.buttonLengthenAutoShortedFloatingView.setOnClickListener(onClickListener)
+        binding.buttonShortenAutoShortedFloatingView.setOnClickListener(onClickListener)
         
-        button_playPauseController.setOnClickListener(onClickListener)
-        button_previous.setOnClickListener(onClickListener)
-        button_next.setOnClickListener(onClickListener)
-        button_switchVoice.setOnClickListener(onClickListener)
-        button_stop.setOnClickListener(onClickListener)
+        binding.buttonPlayPauseController.setOnClickListener(onClickListener)
+        binding.buttonPrevious.setOnClickListener(onClickListener)
+        binding.buttonNext.setOnClickListener(onClickListener)
+        binding.buttonSwitchVoice.setOnClickListener(onClickListener)
+        binding.buttonStop.setOnClickListener(onClickListener)
     }
 }

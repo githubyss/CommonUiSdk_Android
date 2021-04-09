@@ -15,8 +15,8 @@ import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayListener
 import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayManager
 import com.githubyss.mobile.common.kit.manager.audio.util.ProgressTextUtils
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.databinding.ComuiFloatingAudioPlayerBinding
 import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.AutoShortenView
-import kotlinx.android.synthetic.main.comui_floating_audio_player.view.*
 
 
 /**
@@ -41,6 +41,9 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     
     /** ********* ********** ********** Properties ********** ********** ********** */
     
+    private var _binding: ComuiFloatingAudioPlayerBinding? = null
+    private val binding: ComuiFloatingAudioPlayerBinding get() = _binding!!
+    
     private var designateContext: Context? = null
     private var designateView: AudioPlayerViewAutoShorten? = null
     
@@ -60,7 +63,9 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
         designateContext = context
         if (super.featureView == null) {
             // super.featureView = View.inflate(context, layoutId, this)
-            super.featureView = LayoutInflater.from(context).inflate(layoutId, this)
+            // super.featureView = LayoutInflater.from(context).inflate(layoutId, this)
+            _binding = ComuiFloatingAudioPlayerBinding.inflate(LayoutInflater.from(context), this, true)
+            super.featureView = binding.root
             designateView = this
             initInBase()
             initInDesignated()
@@ -174,11 +179,11 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     
     fun refreshPlayerVisibility(isMini: Boolean) {
         if (isMini) {
-            frameLayout_normalPlayerContainer.visibility = View.GONE
-            frameLayout_miniPlayerContainer.visibility = View.VISIBLE
+            binding.frameLayoutNormalPlayerContainer.visibility = View.GONE
+            binding.frameLayoutMiniPlayerContainer.visibility = View.VISIBLE
         } else {
-            frameLayout_normalPlayerContainer.visibility = View.VISIBLE
-            frameLayout_miniPlayerContainer.visibility = View.GONE
+            binding.frameLayoutNormalPlayerContainer.visibility = View.VISIBLE
+            binding.frameLayoutMiniPlayerContainer.visibility = View.GONE
         }
     }
     
@@ -194,15 +199,15 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     }
     
     private fun initListener() {
-        imageView_playPauseController.setOnClickListener(onClickListener)
-        imageView_voiceSwitch.setOnClickListener(onClickListener)
-        imageView_close.setOnClickListener(onClickListener)
-        frameLayout_miniPlayerContainer.setOnClickListener(onClickListener)
+        binding.imageViewPlayPauseController.setOnClickListener(onClickListener)
+        binding.imageViewVoiceSwitch.setOnClickListener(onClickListener)
+        binding.imageViewClose.setOnClickListener(onClickListener)
+        binding.frameLayoutMiniPlayerContainer.setOnClickListener(onClickListener)
         
-        seekBar_audioPlayer.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+        binding.seekBarAudioPlayer.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 // LogcatUtils.d("seekBar_audioPlayer onProgressChanged", "progress: " + progress);
-                textView_timePosition.text = ProgressTextUtils.getProgressText(progress.toLong())
+                binding.textViewTimePosition.text = ProgressTextUtils.getProgressText(progress.toLong())
             }
             
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -236,13 +241,13 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
      * 重新进入初始化当前数据
      */
     private fun refreshData() {
-        if (seekBar_audioPlayer != null) {
+        if (binding.seekBarAudioPlayer != null) {
             stateChanged(AudioState.START)
             // 先把一些漏掉的东西初始化下
             stateChanged(AudioState.READY)
             stateChanged(AudioPlayManager.INSTANCE.audioState)
-            seekBar_audioPlayer.progress = AudioPlayManager.INSTANCE.getCurrentPosition()
-            seekBar_audioPlayer.secondaryProgress = AudioPlayManager.INSTANCE.updateProgress
+            binding.seekBarAudioPlayer.progress = AudioPlayManager.INSTANCE.getCurrentPosition()
+            binding.seekBarAudioPlayer.secondaryProgress = AudioPlayManager.INSTANCE.updateProgress
         }
     }
     
@@ -250,19 +255,19 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
         if (AudioPlayManager.INSTANCE.getCurrentAudio() == null) return
         
         when (AudioPlayManager.INSTANCE.getCurrentAudio()?.voiceType ?: return) {
-            VoiceType.MALE -> imageView_voiceSwitch.setImageResource(R.drawable.comui_audio_player_voice_male)
-            VoiceType.FEMALE -> imageView_voiceSwitch.setImageResource(R.drawable.comui_audio_player_voice_female)
+            VoiceType.MALE -> binding.imageViewVoiceSwitch.setImageResource(R.drawable.comui_audio_player_voice_male)
+            VoiceType.FEMALE -> binding.imageViewVoiceSwitch.setImageResource(R.drawable.comui_audio_player_voice_female)
         }
     }
     
     private fun playProgress(currentPosition: Int) {
-        if (!seekBar_audioPlayer.isPressed) {
-            seekBar_audioPlayer.progress = currentPosition
+        if (!binding.seekBarAudioPlayer.isPressed) {
+            binding.seekBarAudioPlayer.progress = currentPosition
         }
     }
     
     private fun bufferingUpdateProgress(percent: Int) {
-        seekBar_audioPlayer.secondaryProgress = percent
+        binding.seekBarAudioPlayer.secondaryProgress = percent
     }
     
     private fun stateChanged(@AudioState audioState: Int) {
@@ -271,7 +276,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
                 if (AudioPlayManager.INSTANCE.getAudioList() == null || AudioPlayManager.INSTANCE.getAudioList()?.size == 0) {
                     return
                 }
-                textView_title.text = AudioPlayManager.INSTANCE.getAudioList()?.get(AudioPlayManager.INSTANCE.getCurrentIndex())?.title
+                binding.textViewTitle.text = AudioPlayManager.INSTANCE.getAudioList()?.get(AudioPlayManager.INSTANCE.getCurrentIndex())?.title
                 
                 // mMusicPlayAuthorTv.setText(mContext.getString(R.string.music_play_author) + MusicManager.getInstance().getPlayList().get(MusicManager.getInstance().getPosition()).getAuthor());
                 // mMusicPreviousIv.setImageResource(R.drawable.music_play_previous_click_icon);
@@ -279,10 +284,10 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
                 // mMusicPreviousIv.setEnabled(true);
                 // mMusicNextIv.setEnabled(true);
                 
-                seekBar_audioPlayer.progress = 0
-                seekBar_audioPlayer.secondaryProgress = 0
-                textView_timePosition.text = ""
-                textView_timeDuration.text = ""
+                binding.seekBarAudioPlayer.progress = 0
+                binding.seekBarAudioPlayer.secondaryProgress = 0
+                binding.textViewTimePosition.text = ""
+                binding.textViewTimeDuration.text = ""
                 if (AudioPlayManager.INSTANCE.isLoop) {
                     return
                 }
@@ -290,11 +295,11 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
             AudioState.PREPARE -> {
             }
             AudioState.PLAYING -> {
-                imageView_playPauseController.setImageResource(R.drawable.comui_audio_player_pause)
+                binding.imageViewPlayPauseController.setImageResource(R.drawable.comui_audio_player_pause)
                 updateAudioInfo(true)
             }
             AudioState.STOP -> {
-                imageView_playPauseController.setImageResource(R.drawable.comui_audio_player_start)
+                binding.imageViewPlayPauseController.setImageResource(R.drawable.comui_audio_player_start)
                 // 停止时进度就保留在最后
                 // seekBar_audioPlayer.setProgress(0);
                 // seekBar_audioPlayer.setSecondaryProgress(0);
@@ -306,13 +311,13 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
                 updateAudioInfo(false)
             }
             AudioState.PAUSE -> {
-                imageView_playPauseController.setImageResource(R.drawable.comui_audio_player_start)
+                binding.imageViewPlayPauseController.setImageResource(R.drawable.comui_audio_player_start)
                 updateAudioInfo(false)
             }
             AudioState.READY -> {
-                seekBar_audioPlayer.max = AudioPlayManager.INSTANCE.MaxProgress
-                textView_timePosition.text = AudioPlayManager.INSTANCE.getCurrentTime()
-                textView_timeDuration.text = AudioPlayManager.INSTANCE.getDurationTime()
+                binding.seekBarAudioPlayer.max = AudioPlayManager.INSTANCE.MaxProgress
+                binding.textViewTimePosition.text = AudioPlayManager.INSTANCE.getCurrentTime()
+                binding.textViewTimeDuration.text = AudioPlayManager.INSTANCE.getDurationTime()
             }
             AudioState.SWITCH -> {
                 refreshVoiceSwitch()

@@ -1,13 +1,9 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.fragment
 
 import android.content.Context
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.application.ComuiApplication
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SectionId
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconModel
@@ -34,7 +30,8 @@ import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthacco
 import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountModel
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.basemvp.BaseFragment
+import com.githubyss.mobile.common.ui.basemvp.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
@@ -45,7 +42,6 @@ import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListFirstLevelAdapter
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
-import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 import org.greenrobot.eventbus.EventBus
 
 
@@ -56,7 +52,7 @@ import org.greenrobot.eventbus.EventBus
  * @github githubyss
  * @createdTime 2021/03/15 16:51:37
  */
-class ComuiSearchResultFragment : BaseFragment() {
+class ComuiSearchResultFragment : BaseToolbarFragment<ComuiDebugFragmentRecyclerViewBinding>() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
@@ -67,8 +63,6 @@ class ComuiSearchResultFragment : BaseFragment() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    private var rootContext: Context? = null
-    private var rootView: View? = null
     private var dataList = ArrayList<BaseItemModel>()
     private var rvAdapter: BaseItemAdapter? = null
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
@@ -205,36 +199,34 @@ class ComuiSearchResultFragment : BaseFragment() {
     
     /** ********* ********** ********** Override ********** ********** ********** */
     
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootContext = activity?.baseContext ?: ComuiApplication.instance
-        rootView = inflater.inflate(R.layout.comui_debug_fragment_recycler_view, container, false)
-        return rootView
-    }
+    // override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    //     rootView = inflater.inflate(R.layout.comui_debug_fragment_recycler_view, container, false)
+    //     return rootView
+    // }
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initData()
-        initView()
-    }
+    // override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    //     super.onViewCreated(view, savedInstanceState)
+    // }
     
     override fun onDestroyView() {
-        super.onDestroyView()
         dataList.clear()
+        super.onDestroyView()
     }
     
-    override fun initData() {
-        requestData(rootContext ?: return)
-    }
-    
-    override fun initView() {
-        rvAdapter = LayoutAdapter(dataList)
-        recyclerView_container.setHasFixedSize(true)
-        recyclerView_container.layoutManager = LinearLayoutManager(activity)
-        recyclerView_container.adapter = rvAdapter
+    override fun init() {
+        initView()
+        requestData(fragmentContext ?: return)
     }
     
     
     /** ********** ********** ********** Function ********** ********** ********** */
+    
+    private fun initView() {
+        rvAdapter = LayoutAdapter(dataList)
+        binding.recyclerViewContainer.setHasFixedSize(true)
+        binding.recyclerViewContainer.layoutManager = LinearLayoutManager(activity)
+        binding.recyclerViewContainer.adapter = rvAdapter
+    }
     
     private fun requestData(context: Context) {
         dataList.add(LayoutModel(ItemSpecialTopicLayout(MockRequest.requestSpecialTopic(), context, onItemClickListener), ItemType.ITEM))

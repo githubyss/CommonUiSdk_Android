@@ -1,7 +1,7 @@
-// apply plugin: "com.android.application"
-apply plugin: "com.android.library"
+apply plugin: "com.android.application"
+// apply plugin: "com.android.library"
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -9,7 +9,7 @@ android {
     buildToolsVersion build_tools_version
 
     defaultConfig {
-        // applicationId "com.githubyss.mobile.common.ui.debug"
+        applicationId "com.githubyss.mobile.common.ui.debug"
 
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
@@ -56,8 +56,8 @@ android {
         }
     }
 
-    androidExtensions {
-        experimental = true
+    viewBinding {
+        enabled = true
     }
 }
 

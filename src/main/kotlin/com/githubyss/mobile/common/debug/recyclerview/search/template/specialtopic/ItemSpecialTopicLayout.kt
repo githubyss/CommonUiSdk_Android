@@ -14,8 +14,8 @@ import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.banner.BannerModel
 import com.githubyss.mobile.common.ui.banner.BannerPagerAdapter
+import com.githubyss.mobile.common.ui.databinding.ComuiRecyclerSpecialTopicViewBinding
 import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
-import kotlinx.android.synthetic.main.comui_recycler_special_topic_view.view.*
 
 
 /**
@@ -36,40 +36,42 @@ class ItemSpecialTopicLayout : FrameLayout {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
+    private var binding: ComuiRecyclerSpecialTopicViewBinding
     private var bannerPagerAdapter: BannerPagerAdapter? = null
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     constructor(dataModel: SpecialTopicModel, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
-        LayoutInflater.from(context).inflate(R.layout.comui_recycler_special_topic_view, this)
+        // LayoutInflater.from(context).inflate(R.layout.comui_recycler_special_topic_view, this)
+        binding = ComuiRecyclerSpecialTopicViewBinding.inflate(LayoutInflater.from(context), this, true)
         
         /** 背景 */
-        GlideUtils.loadImage(dataModel.bgImageUrl, imageView_specialTopicBg, R.drawable.comui_bg_special_topic, context)
-        textView_specialTopicBgTitle.text = dataModel.bgTitle
-        textView_specialTopicBgDescription.text = dataModel.bgDescription
+        GlideUtils.loadImage(dataModel.bgImageUrl, binding.imageViewSpecialTopicBg, R.drawable.comui_bg_special_topic, context)
+        binding.textViewSpecialTopicBgTitle.text = dataModel.bgTitle
+        binding.textViewSpecialTopicBgDescription.text = dataModel.bgDescription
         
         /** 标题头 */
-        GlideUtils.loadImage(dataModel.topicIconUrl, imageView_specialTopicIcon, context)
-        textView_specialTopicTitle.text = dataModel.topicTitle
-        textView_specialTopicDescription.text = dataModel.topicDescription
-        layout_specialTopicHeader.setOnClickListener { v -> }
+        GlideUtils.loadImage(dataModel.topicIconUrl, binding.imageViewSpecialTopicIcon, context)
+        binding.textViewSpecialTopicTitle.text = dataModel.topicTitle
+        binding.textViewSpecialTopicDescription.text = dataModel.topicDescription
+        binding.layoutSpecialTopicHeader.setOnClickListener { v -> }
         
         /** Banner 广告 */
         val bannerPageWidth: Int = (ScreenUtils.getAppScreenWidthPx() - (24 * ScreenUtils.getScreenDensity())).toInt()
-        banner_specialTopicAd.layoutParams.height = (bannerPageWidth * 80.0f / 351.0f + 0.5f).toInt()
+        binding.bannerSpecialTopicAd.layoutParams.height = (bannerPageWidth * 80.0f / 351.0f + 0.5f).toInt()
         bannerPagerAdapter = BannerPagerAdapter()
-        banner_specialTopicAd.setAdapter(bannerPagerAdapter)
+        binding.bannerSpecialTopicAd.setAdapter(bannerPagerAdapter)
         bannerPagerAdapter?.onBannerClickListener = onBannerClickListener
         updateBannerView(MockRequest.requestSpecialTopic().advertList)
         
         /** 图标 */
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = RecyclerView.HORIZONTAL
-        list_specialTopicIcon.setHasFixedSize(true)
-        list_specialTopicIcon.layoutManager = layoutManager
+        binding.listSpecialTopicIcon.setHasFixedSize(true)
+        binding.listSpecialTopicIcon.layoutManager = layoutManager
         val iconListAdapter = AppIconAdapter(dataModel.iconList)
-        list_specialTopicIcon.adapter = iconListAdapter
+        binding.listSpecialTopicIcon.adapter = iconListAdapter
         iconListAdapter.onItemClickListener = listener
     }
     
@@ -78,13 +80,13 @@ class ItemSpecialTopicLayout : FrameLayout {
     
     private fun updateBannerView(bannerList: List<BannerModel>) {
         if (bannerList.isNotEmpty()) {
-            banner_specialTopicAd.visibility = View.VISIBLE
+            binding.bannerSpecialTopicAd.visibility = View.VISIBLE
             bannerPagerAdapter?.setBannerList(bannerList)
             bannerPagerAdapter?.notifyDataSetChanged()
-            banner_specialTopicAd.startCarouse()
+            binding.bannerSpecialTopicAd.startCarouse()
         } else {
-            banner_specialTopicAd.stopCarouse()
-            banner_specialTopicAd.visibility = View.GONE
+            binding.bannerSpecialTopicAd.stopCarouse()
+            binding.bannerSpecialTopicAd.visibility = View.GONE
         }
     }
     

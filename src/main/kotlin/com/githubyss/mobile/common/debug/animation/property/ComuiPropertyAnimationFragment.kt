@@ -3,17 +3,14 @@ package com.githubyss.mobile.common.debug.animation.property
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.graphics.Point
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.ComuiPointEvaluator
-import com.githubyss.mobile.common.ui.basemvp.BaseFragment
+import com.githubyss.mobile.common.ui.basemvp.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentPropertyAnimationBinding
 import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
-import kotlinx.android.synthetic.main.comui_debug_fragment_property_animation.*
 
 
 /**
@@ -23,7 +20,7 @@ import kotlinx.android.synthetic.main.comui_debug_fragment_property_animation.*
  * @github githubyss
  * @createdTime 2021/03/09 11:10:20
  */
-class ComuiPropertyAnimationFragment : BaseFragment() {
+class ComuiPropertyAnimationFragment : BaseToolbarFragment<ComuiDebugFragmentPropertyAnimationBinding>() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
@@ -43,11 +40,11 @@ class ComuiPropertyAnimationFragment : BaseFragment() {
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {
             R.id.btnMove -> {
-                startMoveObjectAnimator(btnAnimator)
+                startMoveObjectAnimator(binding.btnAnimator)
             }
             
             R.id.btnScale -> {
-                startScaleObjectAnimator(btnAnimator)
+                startScaleObjectAnimator(binding.btnAnimator)
             }
             
             R.id.btnShow -> {
@@ -63,27 +60,26 @@ class ComuiPropertyAnimationFragment : BaseFragment() {
     
     /** ********* ********** ********** Override ********** ********** ********** */
     
-    override fun initView() {
-        btnMove.setOnClickListener(onClickListener)
-        btnScale.setOnClickListener(onClickListener)
-        btnShow.setOnClickListener(onClickListener)
-        btnHide.setOnClickListener(onClickListener)
-    }
+    // override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    //     rootView = inflater.inflate(R.layout.comui_debug_fragment_property_animation, container, false)
+    //     return rootView
+    // }
     
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater.inflate(R.layout.comui_debug_fragment_property_animation, container, false)
-        return rootView
-    }
-    
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initView()
-    }
+    // override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    //     super.onViewCreated(view, savedInstanceState)
+    // }
     
     override fun onDestroy() {
         super.onDestroy()
         stopAnimator()
         ComuiAutoHideFloatingWindow.instance.hide()
+    }
+    
+    override fun init() {
+        binding.btnMove.setOnClickListener(onClickListener)
+        binding.btnScale.setOnClickListener(onClickListener)
+        binding.btnShow.setOnClickListener(onClickListener)
+        binding.btnHide.setOnClickListener(onClickListener)
     }
     
     

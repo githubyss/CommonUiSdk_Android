@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.text.TextHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
-import com.githubyss.mobile.common.ui.R
-import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.view.*
+import com.githubyss.mobile.common.ui.databinding.ComuiRecyclerViewBinding
 
 
 /**
@@ -29,6 +28,8 @@ class ImageListLayout : FrameLayout {
     
     
     /** ********** ********** ********** Properties ********** ********** ********** */
+    
+    private var binding: ComuiRecyclerViewBinding
     
     private var viewContext: Context? = null
     private var dataList = ArrayList<ImageModel>()
@@ -50,20 +51,21 @@ class ImageListLayout : FrameLayout {
     constructor(dataList: ArrayList<ImageModel>, context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         viewContext = context
         this.dataList = dataList
-        initView()
+        
+        // LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_view, this)
+        binding = ComuiRecyclerViewBinding.inflate(LayoutInflater.from(context), this, true)
+        
+        rvAdapter = ImageAdapter(dataList)
+        rvAdapter?.onItemClickListener = onItemClickListener
+        
+        binding.recyclerViewContainer.setHasFixedSize(true)
+        binding.recyclerViewContainer.layoutManager = LinearLayoutManager(viewContext)
+        binding.recyclerViewContainer.adapter = rvAdapter
     }
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     fun initView() {
-        LayoutInflater.from(viewContext).inflate(R.layout.comui_recycler_list_view, this)
-        
-        rvAdapter = ImageAdapter(dataList)
-        rvAdapter?.onItemClickListener = onItemClickListener
-        
-        recyclerView_container.setHasFixedSize(true)
-        recyclerView_container.layoutManager = LinearLayoutManager(viewContext)
-        recyclerView_container.adapter = rvAdapter
     }
 }

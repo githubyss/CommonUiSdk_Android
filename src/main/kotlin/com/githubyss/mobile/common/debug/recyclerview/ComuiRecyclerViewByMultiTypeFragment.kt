@@ -1,19 +1,15 @@
 package com.githubyss.mobile.common.debug.recyclerview
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.text.TextHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
-import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.basemvp.BaseFragment
+import com.githubyss.mobile.common.ui.basemvp.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recyclerview.template.multi.MultiAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.multi.MultiModel
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
 
 
 /**
@@ -23,7 +19,7 @@ import kotlinx.android.synthetic.main.comui_debug_fragment_recycler_view.*
  * @github githubyss
  * @createdTime 2021/03/09 11:02:35
  */
-class ComuiRecyclerViewByMultiTypeFragment : BaseFragment() {
+class ComuiRecyclerViewByMultiTypeFragment : BaseToolbarFragment<ComuiDebugFragmentRecyclerViewBinding>() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
@@ -51,18 +47,24 @@ class ComuiRecyclerViewByMultiTypeFragment : BaseFragment() {
     
     /** ********* ********** ********** Override ********** ********** ********** */
     
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater.inflate(R.layout.comui_debug_fragment_recycler_view, container, false)
-        return rootView
-    }
+    // override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    //     rootView = inflater.inflate(R.layout.comui_debug_fragment_recycler_view, container, false)
+    //     return rootView
+    // }
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    // override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    //     super.onViewCreated(view, savedInstanceState)
+    // }
+    
+    override fun init() {
         initData()
         initView()
     }
     
-    override fun initData() {
+    
+    /** ********** ********** ********** Functions ********** ********** ********** */
+    
+    private fun initData() {
         dataList.add(MultiModel("Header", "", false, MultiType.HEADER))
         
         (0 until 10).forEach {
@@ -96,12 +98,12 @@ class ComuiRecyclerViewByMultiTypeFragment : BaseFragment() {
         dataList.add(MultiModel("Footer", "", false, MultiType.FOOTER))
     }
     
-    override fun initView() {
+    private fun initView() {
         rvAdapter = MultiAdapter(dataList)
         
-        recyclerView_container.setHasFixedSize(true)
-        recyclerView_container.layoutManager = LinearLayoutManager(activity)
-        recyclerView_container.adapter = rvAdapter
+        binding.recyclerViewContainer.setHasFixedSize(true)
+        binding.recyclerViewContainer.layoutManager = LinearLayoutManager(activity)
+        binding.recyclerViewContainer.adapter = rvAdapter
         rvAdapter?.setOnItemClickListener(onItemClickListener)
     }
 }

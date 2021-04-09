@@ -9,8 +9,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.LayoutRes
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.databinding.ComuiFloatingIconBinding
 import com.githubyss.mobile.common.ui.floatingview.feature.magnet.MagnetView
-import kotlinx.android.synthetic.main.comui_floating_icon.view.*
 
 
 /**
@@ -34,6 +34,9 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     
     
     /** ********* ********** ********** Properties ********** ********** ********** */
+    
+    private var _binding: ComuiFloatingIconBinding? = null
+    private val binding: ComuiFloatingIconBinding get() = _binding!!
     
     @DrawableRes
     private var iconDrawableId: Int = R.drawable.imuxuan
@@ -59,7 +62,9 @@ class IconViewMagnet : MagnetView, IconViewInterface {
         designateContext = context
         if (super.featureView == null) {
             // super.featureView = View.inflate(context, layoutId, this)
-            super.featureView = LayoutInflater.from(context).inflate(layoutId, this)
+            // super.featureView = LayoutInflater.from(context).inflate(layoutId, this)
+            _binding = ComuiFloatingIconBinding.inflate(LayoutInflater.from(context), this, true)
+            super.featureView = binding.root
             designateView = this
             initInBase()
             initInDesignated()
@@ -71,25 +76,25 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     
     override fun customIcon(drawableId: Int) {
         iconDrawableId = drawableId
-        GlideUtils.loadImage(iconDrawableId, imageView_icon, designateContext ?: return)
+        GlideUtils.loadImage(iconDrawableId, binding.imageViewIcon, designateContext ?: return)
     }
     
     override fun customIcon(url: String?) {
         iconUrl = url
-        GlideUtils.loadImage(iconUrl, imageView_icon, designateContext ?: return)
+        GlideUtils.loadImage(iconUrl, binding.imageViewIcon, designateContext ?: return)
     }
     
     override fun customIcon(drawable: Drawable?) {
         iconDrawable = drawable
         if (drawable != null) {
-            imageView_icon.setImageDrawable(iconDrawable)
+            binding.imageViewIcon.setImageDrawable(iconDrawable)
         }
     }
     
     override fun customIcon(bitmap: Bitmap?) {
         iconBitmap = bitmap
         if (bitmap != null) {
-            imageView_icon.setImageBitmap(iconBitmap)
+            binding.imageViewIcon.setImageBitmap(iconBitmap)
         }
     }
     
@@ -117,11 +122,11 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     }
     
     private fun initView() {
-        imageView_icon.setImageResource(iconDrawableId)
+        binding.imageViewIcon.setImageResource(iconDrawableId)
     }
     
     private fun initListener() {
-        imageView_close.setOnClickListener(onClickListener)
+        binding.imageViewClose.setOnClickListener(onClickListener)
     }
     
     
