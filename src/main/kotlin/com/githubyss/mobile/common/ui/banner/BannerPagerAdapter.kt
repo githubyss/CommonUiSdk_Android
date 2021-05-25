@@ -55,7 +55,8 @@ class BannerPagerAdapter : PagerAdapter() {
         
         synchronized(viewCache) {
             val layout = viewCache[position]
-            convertView = layout ?: LayoutInflater.from(container.context)?.inflate(R.layout.comui_banner_item, container, false) as LinearLayout
+            convertView = layout ?: LayoutInflater.from(container.context)
+                ?.inflate(R.layout.comui_banner_item, container, false) as LinearLayout
             imageView = convertView.findViewById(R.id.imageView_bannerItem) as ImageView
             
             if (layout == null) {
@@ -66,7 +67,7 @@ class BannerPagerAdapter : PagerAdapter() {
                         if (banner.imageUrl.startsWith("file:///")) {
                             loadBitmapDefault(container.context, banner.imageUrl.substring(8), imageView)
                         } else {
-                            GlideUtils.loadImage(banner.imageUrl, imageView, container.context)
+                            GlideUtils.loadImage(banner.imageUrl, imageView, context = container.context)
                         }
                     }
                 }
@@ -149,7 +150,7 @@ class BannerPagerAdapter : PagerAdapter() {
      * @return
      */
     private fun loadBitmapDefault(context: Context, iconName: String, imageView: ImageView?) {
-        GlideUtils.loadImage(iconName, imageView, context)
+        GlideUtils.loadImage(iconName, imageView, context = context)
     }
     
     

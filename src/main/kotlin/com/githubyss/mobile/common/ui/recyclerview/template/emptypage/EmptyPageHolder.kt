@@ -15,6 +15,6 @@ import com.google.android.flexbox.FlexboxLayout
  * @createdTime 2021/03/11 10:00:34
  */
 class EmptyPageHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-    var layoutItem = view.findViewById(R.id.layout_recyclerEmptyItem) as FlexboxLayout
-    var tvEmpty = view.findViewById(R.id.textView_recyclerEmpty) as TextView
+    var layoutItem = view.findViewById(R.id.layoutRecyclerEmptyItem) as FlexboxLayout
+    var tvEmpty = view.findViewById(R.id.textEmptyHint) as TextView
 }

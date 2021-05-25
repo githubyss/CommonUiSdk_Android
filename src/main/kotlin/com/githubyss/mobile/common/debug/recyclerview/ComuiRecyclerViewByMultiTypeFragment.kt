@@ -3,12 +3,12 @@ package com.githubyss.mobile.common.debug.recyclerview
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.text.TextHolder
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.basemvp.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentRecyclerViewBinding
-import com.githubyss.mobile.common.ui.recyclerview.template.multi.MultiAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.multi.MultiModel
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.multi.MultiAdapter
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.multi.MultiModel
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 
 

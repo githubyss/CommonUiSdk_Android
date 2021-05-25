@@ -3,13 +3,12 @@ package com.githubyss.mobile.common.debug.recyclerview.search.template.wealthacc
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.IsFollow
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
@@ -21,7 +20,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/30 18:05:23
  */
-class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
+class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>, private val keyList: ArrayList<String>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -33,16 +32,13 @@ class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            ItemType.HEADER -> {
-                HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
-            }
             ItemType.ITEM -> {
-                WealthAccountHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_wealth_account, parent, false))
+                WealthAccountHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_fund_wealth_account, parent, false))
             }
             else -> {
                 EmptyItemHolder(
                     LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_recycler_item_empty_none, parent, false)
+                        .inflate(R.layout.comui_list_item_none, parent, false)
                 )
             }
         }
@@ -51,26 +47,23 @@ class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
         when (holder) {
-            is HeaderSeeMoreHolder -> {
-                if (dataModel is HeaderSeeMoreModel) {
-                    holder.tvTitle.text = dataModel.header
-                    holder.layoutItem.setOnClickListener { v ->
-                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
-                    }
-                    // holder.tvSeeMore.setOnClickListener { v ->
-                    //     onItemClickListener?.onItemClick(holder, position, v, dataModel)
-                    // }
-                }
-            }
             is WealthAccountHolder -> {
                 if (dataModel is WealthAccountModel) {
                     GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
-                    holder.tvTitle.text = dataModel.title
-                    holder.tvContent.text = dataModel.content
-                    holder.tglBtnIsFollowed.text = if (dataModel.isFollowed) "已关注" else "＋ 关注"
-                    holder.tglBtnIsFollowed.isChecked = dataModel.isFollowed
-                    holder.tglBtnIsFollowed.setOnCheckedChangeListener { buttonView, isChecked ->
-                        onItemClickListener?.onItemClick(holder, position, buttonView, dataModel)
+                    holder.tvTitle.setText(dataModel.title, keyList)
+                    holder.tvContent.setText(dataModel.content, keyList)
+                    when (dataModel.isFollowed) {
+                        IsFollow.TRUE -> {
+                            holder.tglBtnIsFollowed.text = "已关注"
+                            holder.tglBtnIsFollowed.isEnabled = false
+                        }
+                        IsFollow.FALSE -> {
+                            holder.tglBtnIsFollowed.text = "＋ 关注"
+                            holder.tglBtnIsFollowed.isEnabled = true
+                        }
+                    }
+                    holder.tglBtnIsFollowed.setOnClickListener { v ->
+                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }
                     holder.layoutItem.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)

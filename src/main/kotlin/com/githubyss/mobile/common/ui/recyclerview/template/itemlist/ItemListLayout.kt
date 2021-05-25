@@ -5,9 +5,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.databinding.ComuiRecyclerViewBinding
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.databinding.ComuiRecyclerViewBgWhiteCornerNormalMarginTinyBinding
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 
 
 /**
@@ -28,7 +27,7 @@ class ItemListLayout : FrameLayout {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    private var binding: ComuiRecyclerViewBinding
+    private var binding: ComuiRecyclerViewBgWhiteCornerNormalMarginTinyBinding
     
     // private var layoutContext: Context? = null
     //
@@ -41,19 +40,19 @@ class ItemListLayout : FrameLayout {
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(adapter: BaseItemAdapter, @RecyclerView.Orientation orientation: Int, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+    constructor(adapter: BaseItemAdapter, orientation: Int, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         // this.layoutContext = context
         // this.adapter = adapter
         // this.orientation = orientation
         // this.onItemClickListener = listener
         
-        // layoutView = View.inflate(layoutContext, R.layout.comui_recycler_view, this)
-        // layoutView = LayoutInflater.from(layoutContext).inflate(R.layout.comui_recycler_view, this, true)
-        // View.inflate(layoutContext, R.layout.comui_recycler_view, this)
+        // layoutView = View.inflate(layoutContext, R.layout.comui_recycler_view_bg_white_corner_normal_margin_tiny, this)
+        // layoutView = LayoutInflater.from(layoutContext).inflate(R.layout.comui_recycler_view_bg_white_corner_normal_margin_tiny, this, true)
+        // View.inflate(layoutContext, R.layout.comui_recycler_view_bg_white_corner_normal_margin_tiny, this)
     
-        // val view = LayoutInflater.from(context).inflate(R.layout.comui_recycler_view, this)
+        // val view = LayoutInflater.from(context).inflate(R.layout.comui_recycler_view_bg_white_corner_normal_margin_tiny, this)
         // binding = ComuiRecyclerViewBinding.bind(view)
-        binding = ComuiRecyclerViewBinding.inflate(LayoutInflater.from(context), this, true)
+        binding = ComuiRecyclerViewBgWhiteCornerNormalMarginTinyBinding.inflate(LayoutInflater.from(context), this, true)
         
         adapter.onItemClickListener = listener
         

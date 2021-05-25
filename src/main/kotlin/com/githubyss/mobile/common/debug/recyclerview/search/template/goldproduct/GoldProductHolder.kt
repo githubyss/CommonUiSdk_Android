@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.textview.KeyWordHighlightTextView
 import com.google.android.flexbox.FlexboxLayout
 
 
@@ -16,7 +17,7 @@ import com.google.android.flexbox.FlexboxLayout
  */
 class GoldProductHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
     var layoutItem = view.findViewById(R.id.layout_recyclerGoldProductItem) as FlexboxLayout
-    var tvTitle = view.findViewById(R.id.textView_recyclerGoldProductTitle) as TextView
+    var tvTitle = view.findViewById(R.id.textView_recyclerGoldProductTitle) as KeyWordHighlightTextView
     var tvPrice = view.findViewById(R.id.textView_recyclerGoldProductPrice) as TextView
     var tvUnit = view.findViewById(R.id.textView_recyclerGoldProductUnit) as TextView
     var tvCode = view.findViewById(R.id.textView_recyclerGoldProductCode) as TextView

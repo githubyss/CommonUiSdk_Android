@@ -5,9 +5,7 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.template.emptypage.EmptyPageHolder
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
@@ -19,7 +17,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/15 17:05:43
  */
-class LayoutAdapter constructor(private val dataList: List<BaseItemModel>, @LayoutRes private var layoutId: Int = R.layout.comui_recycler_item_layout_bg_transparent_corner_none_margin_none) : BaseItemAdapter(dataList) {
+class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @LayoutRes private var layoutId: Int = R.layout.comui_layout_bg_transparent_corner_none_margin_none) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
@@ -30,6 +28,9 @@ class LayoutAdapter constructor(private val dataList: List<BaseItemModel>, @Layo
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
+    var keyWord: String = ""
+    var onLoadMoreListener: OnLoadMoreListener? = null
+    
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
@@ -37,14 +38,16 @@ class LayoutAdapter constructor(private val dataList: List<BaseItemModel>, @Layo
     /** ********* ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
-            ItemType.ITEM -> {
-                LayoutHolder(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
-            }
-            else -> {
-                EmptyPageHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty, parent, false))
-            }
-        }
+        // return when (viewType) {
+        //     ItemType.ITEM -> {
+        //         LayoutHolder(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
+        //     }
+        //     else -> {
+        //         EmptyPageHolder(LayoutInflater.from(parent.context).inflate(R.layout.new_search_result_recycler_item_empty, parent, false))
+        //     }
+        // }
+        
+        return LayoutHolder(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
     }
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -60,8 +63,12 @@ class LayoutAdapter constructor(private val dataList: List<BaseItemModel>, @Layo
                     holder.layoutItem.addView(view)
                 }
             }
-            else -> {
-            }
+            // is EmptyPageHolder -> {
+            //     holder.tvEmpty.text = "找不到“${keyWord}”相关内容，尝试更换关键词"
+            // }
+        }
+        if (position == itemCount - 1) {
+            onLoadMoreListener?.onLoadMore()
         }
     }
     
@@ -70,4 +77,8 @@ class LayoutAdapter constructor(private val dataList: List<BaseItemModel>, @Layo
     
     
     /** ********** ********** ********** Interface ********** ********** ********** */
+    
+    interface OnLoadMoreListener {
+        fun onLoadMore()
+    }
 }

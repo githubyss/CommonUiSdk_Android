@@ -13,12 +13,10 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.RequiresPermission
-import com.bumptech.glide.Glide
-import com.githubyss.mobile.common.kit.ComkitApplicationConfig
+import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.kit.util.LogcatUtils
-import com.githubyss.mobile.common.kit.util.ScreenUtils
+import com.githubyss.mobile.common.kit.util.SystemUtils
 import com.githubyss.mobile.common.ui.R
-import java.lang.Exception
 import java.lang.ref.WeakReference
 
 
@@ -98,7 +96,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
             when (msg?.what) {
                 autoHideFloatingWindowWeakRef.get()?.MSG_HIDE_FLOATING_WINDOW -> {
                     autoHideFloatingWindowWeakRef.get()
-                            ?.hide()
+                        ?.hide()
                 }
             }
         }
@@ -239,15 +237,13 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     
     fun setImage(path: String): ComuiAutoHideFloatingWindow {
         viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow
-        Glide.with(ComkitApplicationConfig.getApp())
-                .load(path)
-                .into(viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow)
+        GlideUtils.loadImage(path, viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow)
         return this@ComuiAutoHideFloatingWindow
     }
     
     private fun initLayoutParams() {
         if (windowManager == null) {
-            windowManager = ScreenUtils.getWindowManager()
+            windowManager = SystemUtils.getWindowManager()
         }
         
         if (windowLayoutParams == null) {
@@ -272,7 +268,8 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     
     private fun inflateView(context: Context?) {
         if (rootView == null) {
-            rootView = LayoutInflater.from(context).inflate(R.layout.comui_auto_hide_floating_window, null, false) as FrameLayout
+            rootView = LayoutInflater.from(context)
+                .inflate(R.layout.comui_auto_hide_floating_window, null, false) as FrameLayout
             initView(rootView)
         }
         

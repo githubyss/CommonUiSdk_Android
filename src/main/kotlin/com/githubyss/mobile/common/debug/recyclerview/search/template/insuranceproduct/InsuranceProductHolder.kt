@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.textview.KeyWordHighlightTextView
 import com.google.android.flexbox.FlexboxLayout
 
 
@@ -18,7 +19,7 @@ import com.google.android.flexbox.FlexboxLayout
 class InsuranceProductHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
     var layoutItem = view.findViewById(R.id.layout_recyclerInsuranceProductItem) as FlexboxLayout
     var ivImage = view.findViewById(R.id.imageView_recyclerInsuranceProductImage) as ImageView
-    var tvTitle = view.findViewById(R.id.textView_recyclerInsuranceProductTitle) as TextView
+    var tvTitle = view.findViewById(R.id.textView_recyclerInsuranceProductTitle) as KeyWordHighlightTextView
     var tvHint = view.findViewById(R.id.textView_recyclerInsuranceProductHint) as TextView
     var tvPrice = view.findViewById(R.id.textView_recyclerInsuranceProductPrice) as TextView
 }

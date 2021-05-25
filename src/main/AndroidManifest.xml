@@ -8,21 +8,14 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
+            android:name="com.githubyss.mobile.common.debug.application.ComuiApplication"
+            android:label="@string/comui_appName"
             android:theme="@style/comres_app_gray_theme"
             android:icon="@mipmap/comres_ic_launcher"
             android:roundIcon="@mipmap/comres_ic_launcher_round"
             android:allowBackup="false"
             android:supportsRtl="true"
             >
-        <!--<application-->
-        <!--        android:name="com.githubyss.mobile.common.debug.application.ComuiApplication"-->
-        <!--        android:label="@string/comui_app_name"-->
-        <!--        android:theme="@style/comres_default_app_theme"-->
-        <!--        android:icon="@mipmap/comres_ic_launcher"-->
-        <!--        android:roundIcon="@mipmap/comres_ic_launcher_round"-->
-        <!--        android:allowBackup="false"-->
-        <!--        android:supportsRtl="true"-->
-        <!--        >-->
 
         <activity
                 android:name="com.githubyss.mobile.common.debug.homepage.ComuiHomepageActivity"

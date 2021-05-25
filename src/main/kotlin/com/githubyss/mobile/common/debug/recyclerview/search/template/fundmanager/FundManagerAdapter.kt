@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.search.template.fundproduct.FundProductModel
 import com.githubyss.mobile.common.kit.glide.GlideUtils
+import com.githubyss.mobile.common.kit.manager.font.FontConfig
+import com.githubyss.mobile.common.kit.manager.font.FontManager
+import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
@@ -23,7 +23,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/23 11:32:43
  */
-class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
+class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>, private val keyList: ArrayList<String>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -35,14 +35,11 @@ class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>) 
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            ItemType.HEADER -> {
-                HeaderSeeMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_header_see_more, parent, false))
-            }
             ItemType.ITEM -> {
-                FundManagerHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_fund_manager, parent, false))
+                FundManagerHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_fund_manager, parent, false))
             }
             else -> {
-                EmptyItemHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_item_empty_none, parent, false))
+                EmptyItemHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_none, parent, false))
             }
         }
     }
@@ -50,46 +47,34 @@ class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>) 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
         when (holder) {
-            is HeaderSeeMoreHolder -> {
-                if (dataModel is HeaderSeeMoreModel) {
-                    holder.tvTitle.text = dataModel.header
-                    holder.layoutItem.setOnClickListener { v ->
-                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
-                    }
-                    // holder.tvSeeMore.setOnClickListener { v ->
-                    //     onItemClickListener?.onItemClick(holder, position, v, dataModel)
-                    // }
-                }
-            }
             is FundManagerHolder -> {
                 when (dataModel) {
                     is FundManagerModel -> {
                         holder.layoutFundManager.visibility = View.VISIBLE
-                        holder.layoutFundProduct.visibility = View.GONE
-                        GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
-                        holder.tvTitle.text = dataModel.title
+                        GlideUtils.loadCircleImage(dataModel.imageUrl, holder.ivImage)
+                        holder.tvTitle.setText(dataModel.title, keyList)
                         holder.tvBestReturn.text = dataModel.bestReturn
-                        holder.tvRiseFallRatio.text = dataModel.riseFallRatio
-                        holder.tvDescription.text = dataModel.description
-                        holder.layoutItem.setOnClickListener { v ->
-                            onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                        FontManager.replaceFontFromAsset(holder.tvRiseFallRatio, FontConfig.FontPath.DIN_NEXT_LT_PRO_MEDIUM)
+                        try {
+                            when {
+                                dataModel.riseFallRatio.toFloat() == 0.0f -> {
+                                    holder.tvRiseFallRatio.text = "${dataModel.riseFallRatio}%"
+                                    holder.tvRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_999999))
+                                }
+                                dataModel.riseFallRatio.toFloat() > 0.0f -> {
+                                    holder.tvRiseFallRatio.text = "+${dataModel.riseFallRatio}%"
+                                    holder.tvRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_ff5500))
+                                }
+                                dataModel.riseFallRatio.toFloat() < 0.0f -> {
+                                    holder.tvRiseFallRatio.text = "${dataModel.riseFallRatio}%"
+                                    holder.tvRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_00c29e))
+                                }
+                            }
+                        } catch (e: NumberFormatException) {
+                            holder.tvRiseFallRatio.text = "-.--%"
+                            holder.tvRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_999999))
                         }
-                    }
-                    is FundProductModel -> {
-                        holder.layoutFundManager.visibility = View.GONE
-                        holder.layoutFundProduct.visibility = View.VISIBLE
-                        holder.tvProductTitle.text = dataModel.title
-                        holder.tvProductRiseFallRatio.text = dataModel.riseFallRatio
-                        holder.tvProductCode.text = dataModel.code
-                        holder.tvProductRisk.text = dataModel.risk
-                        holder.tvProductClassify.text = dataModel.classify
-                        holder.tvProductRiseFallTimeSpan.text = dataModel.riseFallTimeSpan
-                        holder.tvProductFollowCount.text = dataModel.followCount
-                        holder.tglBtnProductIsFollowed.text = if (dataModel.isFollowed) "已添加" else "＋自选"
-                        holder.tglBtnProductIsFollowed.isChecked = dataModel.isFollowed
-                        holder.tglBtnProductIsFollowed.setOnCheckedChangeListener { buttonView, isChecked ->
-                            onItemClickListener?.onItemClick(holder, position, buttonView, dataModel)
-                        }
+                        holder.tvDescription.setText(dataModel.description, keyList)
                         holder.layoutItem.setOnClickListener { v ->
                             onItemClickListener?.onItemClick(holder, position, v, dataModel)
                         }

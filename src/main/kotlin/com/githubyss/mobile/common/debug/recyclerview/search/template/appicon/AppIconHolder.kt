@@ -2,9 +2,9 @@ package com.githubyss.mobile.common.debug.recyclerview.search.template.appicon
 
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.textview.KeyWordHighlightTextView
 import com.google.android.flexbox.FlexboxLayout
 
 
@@ -18,5 +18,5 @@ import com.google.android.flexbox.FlexboxLayout
 class AppIconHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
     var layoutItem = view.findViewById(R.id.layout_recyclerAppIconItem) as FlexboxLayout
     var ivIconImage = view.findViewById(R.id.imageView_recyclerAppIconImage) as ImageView
-    var tvLabel = view.findViewById(R.id.textView_recyclerAppIconLabel) as TextView
+    var tvLabel = view.findViewById(R.id.textView_recyclerAppIconLabel) as KeyWordHighlightTextView
 }

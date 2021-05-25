@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.textview.KeyWordHighlightTextView
 import com.google.android.flexbox.FlexboxLayout
 
 
@@ -16,5 +17,5 @@ import com.google.android.flexbox.FlexboxLayout
  */
 class FaqHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
     var layoutItem = view.findViewById(R.id.layout_recyclerFaqItem) as FlexboxLayout
-    var tvContent = view.findViewById(R.id.textView_recyclerFaqContent) as TextView
+    var tvContent = view.findViewById(R.id.textView_recyclerFaqContent) as KeyWordHighlightTextView
 }

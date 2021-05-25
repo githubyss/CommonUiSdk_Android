@@ -43,8 +43,8 @@ class BannerLineIndicator : View {
     private var viewHeight: Int = 0
     private var isFirstMeasure: Boolean = true
     
-    private var lineColorOn: Int = ResourceUtils.getColor(R.color.comres_color_247cf0)
-    private var lineColorOff: Int = ResourceUtils.getColor(R.color.comres_color_ebeced)
+    private var lineColorOn: Int = ResourceUtils.getColor(R.color.comres_color_ffffff)
+    private var lineColorOff: Int = ResourceUtils.getColor(R.color.comres_color_white60pct)
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */

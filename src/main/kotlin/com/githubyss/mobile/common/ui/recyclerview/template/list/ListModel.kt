@@ -1,10 +1,10 @@
 package com.githubyss.mobile.common.ui.recyclerview.template.list
 
 import android.content.Context
-import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import org.json.JSONObject
 
 
 /**
@@ -15,4 +15,8 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/29 18:34:44
  */
-data class ListModel constructor(var adapter: BaseItemAdapter, @RecyclerView.Orientation var orientation: Int, var context: Context, var listener: BaseItemAdapter.OnItemClickListener? = null, @ItemType override var type: Int) : BaseItemModel(type)
+data class ListModel constructor(var adapter: BaseItemAdapter, var orientation: Int, var context: Context, var listener: BaseItemAdapter.OnItemClickListener? = null, @ItemType override var type: Int) : BaseItemModel(type) {
+    override fun setProperties(json: JSONObject?) {
+        TODO("Not yet implemented")
+    }
+}

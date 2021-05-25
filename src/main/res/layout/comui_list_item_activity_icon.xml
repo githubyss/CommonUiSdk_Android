@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_recyclerActivityIconItem"
+        android:background="@color/comres_color_transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/comres_sideMargin_tiny"
+        android:paddingRight="@dimen/comres_sideMargin_tiny"
+        android:paddingTop="@dimen/comres_sideMargin_micro"
+        android:paddingBottom="@dimen/comres_sideMargin_micro"
+        app:alignItems="center"
+        app:flexDirection="column"
+        app:justifyContent="center"
+        >
+
+    <ImageView
+            android:id="@+id/imageView_recyclerActivityIconImage"
+            android:layout_width="64dp"
+            android:layout_height="76dp"
+            />
+
+    <com.githubyss.mobile.common.ui.textview.KeyWordHighlightTextView
+            android:id="@+id/textView_recyclerActivityIconLabel"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="定投管理定投管理定投管理定投管理"
+            android:textColor="@color/comres_color_333333"
+            android:textSize="@dimen/comres_textSize_12sp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:ellipsize="end"
+            />
+</com.google.android.flexbox.FlexboxLayout>

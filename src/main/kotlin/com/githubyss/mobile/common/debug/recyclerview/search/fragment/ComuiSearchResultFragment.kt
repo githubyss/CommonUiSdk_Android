@@ -1,10 +1,15 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.fragment
 
 import android.content.Context
+import android.net.Uri
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SectionId
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpModel
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.HotWordMapModel
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultModel
+import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.HasMore
+import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.appicon.AppIconHolder
@@ -21,28 +26,32 @@ import com.githubyss.mobile.common.debug.recyclerview.search.template.fundtopic.
 import com.githubyss.mobile.common.debug.recyclerview.search.template.fundtopic.FundTopicModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct.GoldProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct.GoldProductModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore.HeaderHasMoreHolder
+import com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore.HeaderHasMoreModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.specialtopic.ItemSpecialTopicLayout
+import com.githubyss.mobile.common.debug.recyclerview.search.template.seemore.SeeMoreModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.specialtopic.SpecialTopicModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountModel
+import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuildUtil
+import com.githubyss.mobile.common.kit.util.ActivityUtils
+import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.banner.BannerModel
 import com.githubyss.mobile.common.ui.basemvp.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentRecyclerViewBinding
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemLayout
+import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreHolder
-import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.ItemListLayout
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
-import com.githubyss.mobile.common.ui.recyclerview.template.list.ListFirstLevelAdapter
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import org.greenrobot.eventbus.EventBus
+import org.json.JSONObject
 
 
 /**
@@ -63,25 +72,148 @@ class ComuiSearchResultFragment : BaseToolbarFragment<ComuiDebugFragmentRecycler
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    private var dataList = ArrayList<BaseItemModel>()
-    private var rvAdapter: BaseItemAdapter? = null
+    private var searchWord: String = ""
+    private var moduleTab: String = ""
+    private var pageChannel: String = ""
+    private var moduleKey: String = ""
+    
+    private var isRequesting: Boolean = false
+    private var isFirstInit: Boolean = false
+    
+    private var layoutList = ArrayList<LayoutModel>()
+    private var rvAdapter: LayoutAdapter? = null
+    private var isDirectJump = false
+    
+    var onMoreClickListener: OnMoreClickListener? = null
+    
+    
+    /** ********* ********** ********** Override ********** ********** ********** */
+    
+    // override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    //     rootView = inflater.inflate(R.layout.comui_debug_fragment_recycler_view, container, false)
+    //     return rootView
+    // }
+    
+    // override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    //     super.onViewCreated(view, savedInstanceState)
+    // }
+    
+    override fun onResume() {
+        super.onResume()
+        resetData()
+        requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
+    }
+    
+    override fun onDestroyView() {
+        resetData()
+        super.onDestroyView()
+    }
+    
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        resetData()
+        if (!hidden) {
+            if (!isDirectJump) requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
+        }
+    }
+    
+    override fun init() {
+        initView()
+        requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
+    }
+    
+    
+    /** ********** ********** ********** Function ********** ********** ********** */
+    
+    private fun resetData() {
+        layoutList.clear()
+        rvAdapter?.notifyDataSetChanged()
+        isDirectJump = false
+    }
+    
+    private fun initView() {
+        rvAdapter = LayoutAdapter(layoutList)
+        binding.recyclerViewContainer.setHasFixedSize(true)
+        binding.recyclerViewContainer.layoutManager = LinearLayoutManager(activity)
+        binding.recyclerViewContainer.adapter = rvAdapter
+    }
+    
+    private fun requestData(searchWord: String, moduleTab: String, pageChannel: String, moduleKey: String) {
+        this.searchWord = searchWord
+        this.moduleTab = moduleTab
+        this.pageChannel = pageChannel
+        this.moduleKey = moduleKey
+        
+        if (!isRequesting && !isFirstInit) {
+            requestDataByMock(fragmentContext ?: return, searchWord)
+        }
+        isFirstInit = false
+        
+        rvAdapter?.keyWord = searchWord
+        
+    }
+    
+    private fun requestDataByMock(context: Context, searchWord: String) {
+        isRequesting = true
+        layoutList.clear()
+        
+        isRequesting = false
+        val jsonString = "{}"
+        val searchResultModel = SearchResultModel(JSONObject(jsonString))
+        if (searchResultModel.keyWord != this@ComuiSearchResultFragment.searchWord) return
+        layoutList.clear()
+        if (searchResultModel.moduleTab == this@ComuiSearchResultFragment.moduleTab) {
+            layoutList.addAll(LayoutListBuildUtil.buildLayoutList(context, searchResultModel, searchWord, true, onItemClickListener, onLayoutClickListener, onDirectJumpListener))
+        }
+        rvAdapter?.notifyDataSetChanged()
+    }
+    
+    private fun gotoResultMore(@SearchResultModuleKey key: String) {
+        EventBus.getDefault()
+            .postSticky(key)
+        replaceFragment(ComuiSearchResultMoreFragment(), ComuiSearchResultMoreFragment.TAG, true)
+    }
+    
+    
+    /** ********** ********** ********** Implementations ********** ********** **********  */
+    
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
-        override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View, data: BaseItemModel) {
-            val id = view.id
+        override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View?, data: BaseItemModel) {
+            val id = view?.id
             when (holder) {
                 is EmptyItemHolder -> {
                 }
-                is HeaderSeeMoreHolder -> {
-                    if (data is HeaderSeeMoreModel) {
+                is HeaderHasMoreHolder -> {
+                    if (data is HeaderHasMoreModel) {
                         when (id) {
-                            R.id.layout_recyclerHeaderSeeMoreItem -> {
-                                ToastUtils.showMessage("标题：${data.header}")
-                                when (data.id) {
-                                    SectionId.ACTIVITY_ICON, SectionId.APP_ICON -> {
+                            R.id.layout_recyclerHeaderHasMoreItem -> {
+                                ToastUtils.showMessage("标题：${data.title}")
+                                if (data.hasMore == HasMore.TRUE) {
+                                    when (data.moduleKey) {
+                                        SearchResultModuleKey.FUND_PRODUCT -> {
+                                        }
+                                        SearchResultModuleKey.FUND_TOPIC -> {
+                                        }
+                                        SearchResultModuleKey.FUND_MANAGER -> {
+                                        }
+                                        SearchResultModuleKey.GOLD_PRODUCT -> {
+                                        }
+                                        SearchResultModuleKey.INSURANCE_PRODUCT -> {
+                                        }
+                                        SearchResultModuleKey.FINANCE_AQ -> {
+                                        }
+                                        SearchResultModuleKey.FAQ -> {
+                                        }
+                                        SearchResultModuleKey.INFORMATION -> {
+                                        }
+                                        SearchResultModuleKey.WEALTH_ACCOUNT -> {
+                                        }
+                                        else -> {
+                                        }
                                     }
-                                    SectionId.FUND_PRODUCT, SectionId.FUND_TOPIC, SectionId.FUND_MANAGER, SectionId.GOLD_PRODUCT, SectionId.INSURANCE_PRODUCT, SectionId.FINANCE_AQ, SectionId.FAQ, SectionId.INFORMATION, SectionId.WEALTH_ACCOUNT -> {
-                                        gotoResultMore(data.id)
-                                    }
+                                    
+                                    // gotoResultMore(this@SearchResultFragment.searchWord, this@SearchResultFragment.moduleTab, this@SearchResultFragment.pageChannel, data.moduleKey)
+                                    onMoreClickListener?.onHeaderMoreClick(data.moduleKey)
                                 }
                             }
                         }
@@ -112,7 +244,7 @@ class ComuiSearchResultFragment : BaseToolbarFragment<ComuiDebugFragmentRecycler
                                 ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
                             }
                             R.id.button_recyclerFundProductIsFollowed -> {
-                                ToastUtils.showMessage("${data.title}-自选状态-${holder.tglBtnIsFollowed.isChecked}")
+                                ToastUtils.showMessage("${data.title}-自选状态-${holder.tglBtnIsFollowed.text}")
                             }
                         }
                     }
@@ -187,7 +319,7 @@ class ComuiSearchResultFragment : BaseToolbarFragment<ComuiDebugFragmentRecycler
                                 ToastUtils.showMessage("${data.title}-${data.jumpUrl}")
                             }
                             R.id.button_recyclerWealthAccountIsFollowed -> {
-                                ToastUtils.showMessage("${data.title}-关注状态-${holder.tglBtnIsFollowed.isChecked}")
+                                ToastUtils.showMessage("${data.title}-关注状态-${holder.tglBtnIsFollowed.text}")
                             }
                         }
                     }
@@ -196,56 +328,51 @@ class ComuiSearchResultFragment : BaseToolbarFragment<ComuiDebugFragmentRecycler
         }
     }
     
-    
-    /** ********* ********** ********** Override ********** ********** ********** */
-    
-    // override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-    //     rootView = inflater.inflate(R.layout.comui_debug_fragment_recycler_view, container, false)
-    //     return rootView
-    // }
-    
-    // override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    //     super.onViewCreated(view, savedInstanceState)
-    // }
-    
-    override fun onDestroyView() {
-        dataList.clear()
-        super.onDestroyView()
+    private val onLayoutClickListener: BaseItemLayout.OnLayoutClickListener = object : BaseItemLayout.OnLayoutClickListener {
+        override fun onClick(position: Int, view: View?, data: BaseItemModel) {
+            val id = view?.id
+            when (data) {
+                is SpecialTopicModel -> {
+                    when (id) {
+                        R.id.layout_specialTopicBg -> {
+                        }
+                        R.id.layout_specialTopicHeader -> {
+                        }
+                    }
+                }
+                is BannerModel -> {
+                }
+                is AppIconModel -> {
+                }
+                is SeeMoreModel -> {
+                    onMoreClickListener?.onItemMoreClick("")
+                }
+                is HotWordMapModel -> {
+                }
+            }
+        }
     }
     
-    override fun init() {
-        initView()
-        requestData(fragmentContext ?: return)
+    private val onDirectJumpListener = object : DirectJumpModel.OnDirectJumpListener {
+        override fun onDirectJump(directJump: DirectJumpModel) {
+            isDirectJump = true
+            val jumpUrl = directJump.jumpUrl
+            val uri = Uri.parse(jumpUrl)
+            val scheme = uri.scheme
+            if (StringUtils.isEmpty(scheme)) {
+            } else {
+            }
+            if (!ActivityUtils.isActivityDestroy(activity) && !StringUtils.isEmpty(directJump.jumpUrl)) {
+                activity?.finish()
+            }
+        }
     }
     
     
-    /** ********** ********** ********** Function ********** ********** ********** */
+    /** ********** ********** ********** Interface ********** ********** ********** */
     
-    private fun initView() {
-        rvAdapter = LayoutAdapter(dataList)
-        binding.recyclerViewContainer.setHasFixedSize(true)
-        binding.recyclerViewContainer.layoutManager = LinearLayoutManager(activity)
-        binding.recyclerViewContainer.adapter = rvAdapter
-    }
-    
-    private fun requestData(context: Context) {
-        dataList.add(LayoutModel(ItemSpecialTopicLayout(MockRequest.requestSpecialTopic(), context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestActivityIcon(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestAppIcon(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundTopic(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundManager(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFundManagerWithProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestGoldProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestInsuranceProduct(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFinanceAq(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestFaq(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestInformation(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-        dataList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(MockRequest.requestWealthAccount(context, true, onItemClickListener)), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
-    }
-    
-    private fun gotoResultMore(@SectionId id: String) {
-        EventBus.getDefault().postSticky(id)
-        replaceFragment(ComuiSearchResultMoreFragment(), ComuiSearchResultMoreFragment.TAG, true)
+    interface OnMoreClickListener {
+        fun onHeaderMoreClick(moduleKey: String)
+        fun onItemMoreClick(key: String)
     }
 }

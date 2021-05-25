@@ -9,6 +9,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import com.githubyss.mobile.common.kit.util.BarUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import kotlin.math.max
 import kotlin.math.min
@@ -106,7 +107,7 @@ open class MagnetView : FrameLayout {
     
     protected fun initInBase() {
         moveAnimatorRunnable = MoveAnimatorRunnable(this)
-        statusBarHeight = ScreenUtils.getStatusBarHeight(context) ?: return
+        statusBarHeight = BarUtils.getStatusBarHeight(context)
         isClickable = true
         // updateSize();
     }

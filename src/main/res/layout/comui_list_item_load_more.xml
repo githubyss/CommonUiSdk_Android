@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_loadMoreItem"
+        android:background="@color/comres_layoutBg_transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/comres_sideMargin_micro"
+        android:paddingBottom="@dimen/comres_sideMargin_micro"
+        android:paddingLeft="@dimen/comres_sideMargin_tiny"
+        android:paddingRight="@dimen/comres_sideMargin_tiny"
+        android:layout_marginLeft="@dimen/comres_sideMargin_tiny"
+        android:layout_marginRight="@dimen/comres_sideMargin_tiny"
+        app:alignItems="center"
+        app:flexDirection="row"
+        app:justifyContent="center"
+        android:visibility="gone"
+        >
+
+    <TextView
+            android:id="@+id/tvLoadMoreHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="到底了"
+            android:textColor="@color/comres_color_999999"
+            android:textSize="@dimen/comres_textSize_12sp"
+            android:maxLines="1"
+            />
+</com.google.android.flexbox.FlexboxLayout>
