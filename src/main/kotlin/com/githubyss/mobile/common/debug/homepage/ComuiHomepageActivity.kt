@@ -1,6 +1,5 @@
 package com.githubyss.mobile.common.debug.homepage
 
-import android.os.Bundle
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.baseviewbindingpage.BaseToolbarViewBindingActivity
 import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseBinding
@@ -25,12 +24,8 @@ class ComuiHomepageActivity : BaseToolbarViewBindingActivity<ComuiActivityBaseBi
     
     
     /** ********* ********** ********** Override ********** ********** ********** */
-
-    override fun init() {
-    }
     
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun init() {
         addFragment(ComuiHomepageFragment(), TAG, false, binding.layoutFragmentContainer.id)
     }
     
@@ -41,13 +36,17 @@ class ComuiHomepageActivity : BaseToolbarViewBindingActivity<ComuiActivityBaseBi
     
     override fun onStart() {
         super.onStart()
-        AppFloatingIcon.getInstance(this).attach(this)
-        AppFloatingAudioPlayer.getInstance(this).attach(this)
+        AppFloatingIcon.getInstance(this)
+            .attach(this)
+        AppFloatingAudioPlayer.getInstance(this)
+            .attach(this)
     }
     
     override fun onStop() {
         super.onStop()
-        AppFloatingIcon.getInstance(this).detach(this)
-        AppFloatingAudioPlayer.getInstance(this).detach(this)
+        AppFloatingIcon.getInstance(this)
+            .detach(this)
+        AppFloatingAudioPlayer.getInstance(this)
+            .detach(this)
     }
 }
