@@ -7,28 +7,28 @@
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <application
-            android:name="com.githubyss.mobile.common.debug.application.ComuiApplication"
-            android:label="@string/comui_appName"
-            android:theme="@style/comres_app_gray_theme"
-            android:icon="@mipmap/comres_ic_launcher"
-            android:roundIcon="@mipmap/comres_ic_launcher_round"
-            android:allowBackup="false"
-            android:supportsRtl="true"
-            >
+    <!--<application-->
+    <!--        android:name="com.githubyss.mobile.common.debug.application.ComuiApplication"-->
+    <!--        android:label="@string/comui_appName"-->
+    <!--        android:theme="@style/comres_app_gray_theme"-->
+    <!--        android:icon="@mipmap/comres_ic_launcher"-->
+    <!--        android:roundIcon="@mipmap/comres_ic_launcher_round"-->
+    <!--        android:allowBackup="false"-->
+    <!--        android:supportsRtl="true"-->
+    <!--        >-->
 
-        <activity
-                android:name="com.githubyss.mobile.common.debug.homepage.ComuiHomepageActivity"
-                android:label="@string/comui_activityLabel_homepage"
-                android:theme="@style/comres_activity_noActionBar_theme"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+    <!--    <activity-->
+    <!--            android:name="com.githubyss.mobile.common.debug.homepage.ComuiHomepageActivity"-->
+    <!--            android:label="@string/comui_activityLabel_homepage"-->
+    <!--            android:theme="@style/comres_activity_noActionBar_theme"-->
+    <!--            android:launchMode="singleTask"-->
+    <!--            android:screenOrientation="portrait"-->
+    <!--            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"-->
+    <!--            >-->
+    <!--        <intent-filter>-->
+    <!--            <action android:name="android.intent.action.MAIN" />-->
+    <!--            <category android:name="android.intent.category.LAUNCHER" />-->
+    <!--        </intent-filter>-->
+    <!--    </activity>-->
+    <!--</application>-->
 </manifest>
