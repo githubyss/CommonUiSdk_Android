@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.template.emptypage.EmptyPageHolder
-import com.githubyss.mobile.common.debug.recyclerview.viewholder.FooterHolder
-import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderHolder
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.emptypage.EmptyPageHolder
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.footer.FooterHolder
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.header.HeaderHolder
 import com.githubyss.mobile.common.ui.R
 
 

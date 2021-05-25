@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.basemvp
+package com.githubyss.mobile.common.ui.baseviewbindingpage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,13 +13,13 @@ import java.lang.reflect.ParameterizedType
 
 
 /**
- * BaseActivity
+ * BaseViewBindingActivity
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/04/08 10:48:25
  */
-abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
+abstract class BaseViewBindingActivity<VB : ViewBinding> : AppCompatActivity() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     

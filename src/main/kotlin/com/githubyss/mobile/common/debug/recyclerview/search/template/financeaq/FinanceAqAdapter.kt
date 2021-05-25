@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
+import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 

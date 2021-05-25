@@ -1,14 +1,14 @@
-package com.githubyss.mobile.common.debug.recyclerview
+package com.githubyss.mobile.common.debug.recyclerview.multi.page
 
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
-import com.githubyss.mobile.common.kit.util.ToastUtils
-import com.githubyss.mobile.common.ui.basemvp.BaseToolbarFragment
-import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.multi.MultiAdapter
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.multi.MultiModel
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
+import com.githubyss.mobile.common.kit.util.ToastUtils
+import com.githubyss.mobile.common.ui.baseviewbindingpage.BaseToolbarViewBindingFragment
+import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 
 
@@ -19,7 +19,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
  * @github githubyss
  * @createdTime 2021/03/09 11:02:35
  */
-class ComuiRecyclerViewByMultiTypeFragment : BaseToolbarFragment<ComuiDebugFragmentRecyclerViewBinding>() {
+class ComuiRecyclerViewByMultiTypeFragment : BaseToolbarViewBindingFragment<ComuiDebugFragmentRecyclerViewBinding>() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     

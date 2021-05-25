@@ -6,13 +6,13 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.githubyss.mobile.common.debug.animation.property.ComuiPropertyAnimationFragment
-import com.githubyss.mobile.common.debug.recyclerview.ComuiRecyclerViewByMultiTypeFragment
-import com.githubyss.mobile.common.debug.recyclerview.search.fragment.ComuiSearchResultFragment
+import com.githubyss.mobile.common.debug.recyclerview.multi.page.ComuiRecyclerViewByMultiTypeFragment
+import com.githubyss.mobile.common.debug.recyclerview.search.page.ComuiSearchResultFragment
 import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.basemvp.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.baseviewbindingpage.BaseToolbarViewBindingFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentHomepageBinding
 import com.githubyss.mobile.common.ui.floatingview.container.FloatingAudioPlayerListener
 import com.githubyss.mobile.common.ui.floatingview.container.FloatingIconListener
@@ -29,7 +29,7 @@ import java.util.*
  * @github githubyss
  * @createdTime 2021/03/09 10:54:22
  */
-class ComuiHomepageFragment : BaseToolbarFragment<ComuiDebugFragmentHomepageBinding>() {
+class ComuiHomepageFragment : BaseToolbarViewBindingFragment<ComuiDebugFragmentHomepageBinding>() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     

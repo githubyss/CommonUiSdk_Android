@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.basemvp
+package com.githubyss.mobile.common.ui.baseviewbindingpage
 
 import android.content.Context
 import android.os.Bundle
@@ -17,13 +17,13 @@ import java.lang.reflect.ParameterizedType
 
 
 /**
- * BaseFragment
+ * BaseViewBindingFragment
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/04/08 11:27:32
  */
-abstract class BaseFragment<VB : ViewBinding> : Fragment() {
+abstract class BaseViewBindingFragment<VB : ViewBinding> : Fragment() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     

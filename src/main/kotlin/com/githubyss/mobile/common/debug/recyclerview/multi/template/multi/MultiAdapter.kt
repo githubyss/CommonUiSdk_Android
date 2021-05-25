@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.image.ImageHolder
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
-import com.githubyss.mobile.common.ui.recyclerview.template.emptypage.EmptyPageHolder
-import com.githubyss.mobile.common.debug.recyclerview.viewholder.FooterHolder
-import com.githubyss.mobile.common.debug.recyclerview.viewholder.HeaderHolder
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.emptypage.EmptyPageHolder
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.footer.FooterHolder
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.header.HeaderHolder
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
 
@@ -62,10 +62,12 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
                 )
             }
             MultiType.HEADER -> {
-                HeaderHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_header, parent, false))
+                HeaderHolder(LayoutInflater.from(parent.context)
+                    .inflate(R.layout.comui_list_item_header, parent, false))
             }
             MultiType.FOOTER -> {
-                FooterHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_footer, parent, false))
+                FooterHolder(LayoutInflater.from(parent.context)
+                    .inflate(R.layout.comui_list_item_footer, parent, false))
             }
             MultiType.TEXT -> {
                 TextHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_text, parent, false))

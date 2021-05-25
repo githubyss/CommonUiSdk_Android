@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.debug.homepage
 
 import android.os.Bundle
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.basemvp.BaseToolbarActivity
+import com.githubyss.mobile.common.ui.baseviewbindingpage.BaseToolbarViewBindingActivity
 import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseBinding
 import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingAudioPlayer
 import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingIcon
@@ -15,7 +15,7 @@ import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingIcon
  * @github githubyss
  * @createdTime 2021/03/09 10:54:13
  */
-class ComuiHomepageActivity : BaseToolbarActivity<ComuiActivityBaseBinding>() {
+class ComuiHomepageActivity : BaseToolbarViewBindingActivity<ComuiActivityBaseBinding>() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     

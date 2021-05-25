@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpModel
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultModel
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
+import com.githubyss.mobile.common.ui.recyclerview.template.list.ListLayout
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconAdapter
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.appicon.AppIconAdapter
@@ -26,9 +27,8 @@ import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthacco
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemLayout
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.template.itemlist.ItemListLayout
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
-import com.githubyss.mobile.common.ui.recyclerview.template.list.ListFirstLevelAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.list.ListAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
@@ -148,7 +148,7 @@ object LayoutListBuildUtil {
                                         integralList.add(ListModel(WealthAccountAdapter(itemList, keyList), RecyclerView.VERTICAL, context, onItemClickListener, ItemType.ITEM))
                                     }
                                 }
-                                layoutList.add(LayoutModel(ItemListLayout(ListFirstLevelAdapter(integralList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
+                                layoutList.add(LayoutModel(ListLayout(ListAdapter(integralList), RecyclerView.VERTICAL, context, onItemClickListener), ItemType.ITEM))
                             }
                         }
                     }

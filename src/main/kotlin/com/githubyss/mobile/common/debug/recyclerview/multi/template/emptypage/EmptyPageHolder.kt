@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.template.emptypage
+package com.githubyss.mobile.common.debug.recyclerview.multi.template.emptypage
 
 import android.view.View
 import android.widget.TextView

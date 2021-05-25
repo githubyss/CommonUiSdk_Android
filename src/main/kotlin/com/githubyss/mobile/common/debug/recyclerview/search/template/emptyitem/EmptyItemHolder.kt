@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.template.emptyitem
+package com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem
 
 import android.view.View
 import android.widget.FrameLayout

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.recyclerview.template.itemlist
+package com.githubyss.mobile.common.ui.recyclerview.template.list
 
 import android.content.Context
 import android.util.AttributeSet
@@ -10,18 +10,18 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 
 
 /**
- * ItemListLayout
+ * ListLayout
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/03/23 15:50:50
  */
-class ItemListLayout : FrameLayout {
+class ListLayout : FrameLayout {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
-        val TAG = ItemListLayout::class.simpleName ?: "simpleName is null"
+        val TAG = ListLayout::class.simpleName ?: "simpleName is null"
     }
     
     

@@ -6,29 +6,29 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.HasMore
+import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore.HeaderHasMoreHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore.HeaderHasMoreModel
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * ListFirstLevelAdapter
+ * ListAdapter
  * 一级列表的适配器
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/03/29 18:29:50
  */
-class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
+class ListAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
-        val TAG = ListFirstLevelAdapter::class.simpleName ?: "simpleName is null"
+        val TAG = ListAdapter::class.simpleName ?: "simpleName is null"
     }
     
     
@@ -46,7 +46,7 @@ class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel
                 HeaderHasMoreHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_header_see_more, parent, false))
             }
             ItemType.ITEM -> {
-                ListFirstLevelHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_view_bg_transparent_corner_none_margin_none, parent, false))
+                ListHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_recycler_view_bg_transparent_corner_none_margin_none, parent, false))
             }
             else -> {
                 EmptyItemHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_none, parent, false))
@@ -66,7 +66,7 @@ class ListFirstLevelAdapter constructor(private val dataList: List<BaseItemModel
                     }
                 }
             }
-            is ListFirstLevelHolder -> {
+            is ListHolder -> {
                 if (dataModel is ListModel) {
                     val layoutManager = LinearLayoutManager(dataModel.context)
                     layoutManager.orientation = dataModel.orientation

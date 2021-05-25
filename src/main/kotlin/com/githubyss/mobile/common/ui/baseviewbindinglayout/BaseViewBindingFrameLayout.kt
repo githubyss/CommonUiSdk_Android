@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.baseview
+package com.githubyss.mobile.common.ui.baseviewbindinglayout
 
 import android.content.Context
 import android.util.AttributeSet
@@ -12,17 +12,17 @@ import java.lang.reflect.ParameterizedType
 
 
 /**
- * BaseFrameLayout
+ * BaseViewBindingFrameLayout
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/04/08 11:39:37
  */
-abstract class BaseFrameLayout<T : ViewBinding> : FrameLayout {
+abstract class BaseViewBindingFrameLayout<VB : ViewBinding> : FrameLayout {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    open lateinit var binding: T
+    open lateinit var binding: VB
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
@@ -31,8 +31,8 @@ abstract class BaseFrameLayout<T : ViewBinding> : FrameLayout {
         val cls: Class<*>? = type?.actualTypeArguments?.get(0) as Class<*>?
         try {
             val inflateMethod: Method? = cls?.getDeclaredMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
-            // binding = inflateMethod?.invoke(null, inflater, container, false) as T
-            // binding = inflateMethod?.invoke(null, LayoutInflater.from(context), this, true) as T
+            // binding = inflateMethod?.invoke(null, inflater, container, false) as VB
+            // binding = inflateMethod?.invoke(null, LayoutInflater.from(context), this, true) as VB
         } catch (e: NoSuchMethodException) {
             e.printStackTrace()
         } catch (e: IllegalAccessException) {

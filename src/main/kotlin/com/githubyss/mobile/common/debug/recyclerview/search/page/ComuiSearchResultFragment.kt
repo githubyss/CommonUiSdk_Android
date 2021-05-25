@@ -1,18 +1,20 @@
-package com.githubyss.mobile.common.debug.recyclerview.search.fragment
+package com.githubyss.mobile.common.debug.recyclerview.search.page
 
 import android.content.Context
-import android.os.Bundle
+import android.net.Uri
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpModel
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.HotWordMapModel
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultModel
+import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.HasMore
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.appicon.AppIconHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.appicon.AppIconModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.faq.FaqHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.faq.FaqModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.financeaq.FinanceAqHolder
@@ -25,62 +27,64 @@ import com.githubyss.mobile.common.debug.recyclerview.search.template.fundtopic.
 import com.githubyss.mobile.common.debug.recyclerview.search.template.fundtopic.FundTopicModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct.GoldProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct.GoldProductModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore.HeaderHasMoreHolder
+import com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore.HeaderHasMoreModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.seemore.SeeMoreModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.specialtopic.SpecialTopicModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountHolder
 import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountModel
 import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuildUtil
+import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.banner.BannerModel
-import com.githubyss.mobile.common.ui.basemvp.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.baseviewbindingpage.BaseToolbarViewBindingFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiDebugFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemLayout
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
 import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 import org.json.JSONObject
 
 
 /**
- * ComuiSearchResultMoreFragment
+ * ComuiSearchResultFragment
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/03/30 20:05:25
+ * @createdTime 2021/03/15 16:51:37
  */
-class ComuiSearchResultMoreFragment : BaseToolbarFragment<ComuiDebugFragmentRecyclerViewBinding>() {
+class ComuiSearchResultFragment : BaseToolbarViewBindingFragment<ComuiDebugFragmentRecyclerViewBinding>() {
     
     /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
-        val TAG = ComuiSearchResultMoreFragment::class.simpleName ?: "simpleName is null"
+        val TAG = ComuiSearchResultFragment::class.simpleName ?: "simpleName is null"
     }
     
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var searchWord: String = ""
+    private var moduleTab: String = ""
     private var pageChannel: String = ""
+    private var moduleKey: String = ""
     
-    @SearchResultModuleKey
-    private var moduleKey: String = SearchResultModuleKey.NONE
-    
-    private var pageNumber: Int = 0
-    private var hasMoreData: Boolean = true
     private var isRequesting: Boolean = false
+    private var isFirstInit: Boolean = false
     
     private var layoutList = ArrayList<LayoutModel>()
     private var rvAdapter: LayoutAdapter? = null
+    private var isDirectJump = false
+    
+    var onMoreClickListener: OnMoreClickListener? = null
     
     
     /** ********* ********** ********** Override ********** ********** ********** */
@@ -90,27 +94,17 @@ class ComuiSearchResultMoreFragment : BaseToolbarFragment<ComuiDebugFragmentRecy
     //     return rootView
     // }
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        if (!EventBus.getDefault()
-                    .isRegistered(this)) {
-            EventBus.getDefault()
-                .register(this)
-        }
-    }
+    // override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    //     super.onViewCreated(view, savedInstanceState)
+    // }
     
     override fun onResume() {
         super.onResume()
         resetData()
-        requestData(this.searchWord, this.pageChannel, this.moduleKey)
+        requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
     }
     
     override fun onDestroyView() {
-        if (EventBus.getDefault()
-                    .isRegistered(this)) {
-            EventBus.getDefault()
-                .unregister(this)
-        }
         resetData()
         super.onDestroyView()
     }
@@ -119,76 +113,65 @@ class ComuiSearchResultMoreFragment : BaseToolbarFragment<ComuiDebugFragmentRecy
         super.onHiddenChanged(hidden)
         resetData()
         if (!hidden) {
-            requestData(this.searchWord, this.pageChannel, this.moduleKey)
+            if (!isDirectJump) requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
         }
     }
     
     override fun init() {
         initView()
+        requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
     }
     
     
     /** ********** ********** ********** Function ********** ********** ********** */
     
-    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    fun onGetId(@SearchResultModuleKey key: String) {
-        ToastUtils.showMessage("模板 key 为：${key}")
-        this.moduleKey = key
-        requestData("", this.pageChannel, this.moduleKey)
-    }
-    
     private fun resetData() {
         layoutList.clear()
         rvAdapter?.notifyDataSetChanged()
-        pageNumber = 0
-        hasMoreData = true
+        isDirectJump = false
     }
     
     private fun initView() {
-        rvAdapter = LayoutAdapter(layoutList, R.layout.comui_layout_bg_white_corner_none_margin_none)
+        rvAdapter = LayoutAdapter(layoutList)
         binding.recyclerViewContainer.setHasFixedSize(true)
         binding.recyclerViewContainer.layoutManager = LinearLayoutManager(activity)
         binding.recyclerViewContainer.adapter = rvAdapter
-        rvAdapter?.onItemClickListener = onItemClickListener
-        rvAdapter?.onLoadMoreListener = onLoadMoreListener
     }
     
-    private fun requestData(searchWord: String, pageChannel: String, @SearchResultModuleKey moduleKey: String) {
+    private fun requestData(searchWord: String, moduleTab: String, pageChannel: String, moduleKey: String) {
         this.searchWord = searchWord
+        this.moduleTab = moduleTab
         this.pageChannel = pageChannel
         this.moduleKey = moduleKey
         
-        if (!isRequesting) {
-            requestDataByMock(fragmentContext ?: return, searchWord, pageChannel, moduleKey)
+        if (!isRequesting && !isFirstInit) {
+            requestDataByMock(fragmentContext ?: return, searchWord)
         }
+        isFirstInit = false
         
         rvAdapter?.keyWord = searchWord
+        
     }
     
-    private fun requestDataByMock(context: Context, searchWord: String, pageChannel: String, @SearchResultModuleKey key: String) {
+    private fun requestDataByMock(context: Context, searchWord: String) {
         isRequesting = true
+        layoutList.clear()
         
         isRequesting = false
-        var jsonString = "{}"
+        val jsonString = "{}"
         val searchResultModel = SearchResultModel(JSONObject(jsonString))
-        
-        if (StringUtils.isEmpty(searchResultModel.keyWord) || searchResultModel.keyWord == this@ComuiSearchResultMoreFragment.searchWord) {
-            if (searchResultModel.searchResultModuleList.isEmpty()) {
-                hasMoreData = false
-            }
-            when (pageNumber) {
-                0 -> {
-                    layoutList.clear()
-                    layoutList.addAll(LayoutListBuildUtil.buildLayoutList(context, searchResultModel, searchWord, false, onItemClickListener, onLayoutClickListener, onDirectJumpListener))
-                }
-                else -> {
-                    if (hasMoreData) {
-                        layoutList.addAll(LayoutListBuildUtil.buildLayoutList(context, searchResultModel, searchWord, false, onItemClickListener, onLayoutClickListener, onDirectJumpListener))
-                    }
-                }
-            }
-            rvAdapter?.notifyDataSetChanged()
+        if (searchResultModel.keyWord != this@ComuiSearchResultFragment.searchWord) return
+        layoutList.clear()
+        if (searchResultModel.moduleTab == this@ComuiSearchResultFragment.moduleTab) {
+            layoutList.addAll(LayoutListBuildUtil.buildLayoutList(context, searchResultModel, searchWord, true, onItemClickListener, onLayoutClickListener, onDirectJumpListener))
         }
+        rvAdapter?.notifyDataSetChanged()
+    }
+    
+    private fun gotoResultMore(@SearchResultModuleKey key: String) {
+        EventBus.getDefault()
+            .postSticky(key)
+        replaceFragment(ComuiSearchResultMoreFragment(), ComuiSearchResultMoreFragment.TAG, true)
     }
     
     
@@ -199,6 +182,42 @@ class ComuiSearchResultMoreFragment : BaseToolbarFragment<ComuiDebugFragmentRecy
             val id = view?.id
             when (holder) {
                 is EmptyItemHolder -> {
+                }
+                is HeaderHasMoreHolder -> {
+                    if (data is HeaderHasMoreModel) {
+                        when (id) {
+                            R.id.layout_recyclerHeaderHasMoreItem -> {
+                                ToastUtils.showMessage("标题：${data.title}")
+                                if (data.hasMore == HasMore.TRUE) {
+                                    when (data.moduleKey) {
+                                        SearchResultModuleKey.FUND_PRODUCT -> {
+                                        }
+                                        SearchResultModuleKey.FUND_TOPIC -> {
+                                        }
+                                        SearchResultModuleKey.FUND_MANAGER -> {
+                                        }
+                                        SearchResultModuleKey.GOLD_PRODUCT -> {
+                                        }
+                                        SearchResultModuleKey.INSURANCE_PRODUCT -> {
+                                        }
+                                        SearchResultModuleKey.FINANCE_AQ -> {
+                                        }
+                                        SearchResultModuleKey.FAQ -> {
+                                        }
+                                        SearchResultModuleKey.INFORMATION -> {
+                                        }
+                                        SearchResultModuleKey.WEALTH_ACCOUNT -> {
+                                        }
+                                        else -> {
+                                        }
+                                    }
+                                    
+                                    // gotoResultMore(this@SearchResultFragment.searchWord, this@SearchResultFragment.moduleTab, this@SearchResultFragment.pageChannel, data.moduleKey)
+                                    onMoreClickListener?.onHeaderMoreClick(data.moduleKey)
+                                }
+                            }
+                        }
+                    }
                 }
                 is ActivityIconHolder -> {
                     if (data is ActivityIconModel) {
@@ -325,6 +344,9 @@ class ComuiSearchResultMoreFragment : BaseToolbarFragment<ComuiDebugFragmentRecy
                 }
                 is AppIconModel -> {
                 }
+                is SeeMoreModel -> {
+                    onMoreClickListener?.onItemMoreClick("")
+                }
                 is HotWordMapModel -> {
                 }
             }
@@ -333,16 +355,24 @@ class ComuiSearchResultMoreFragment : BaseToolbarFragment<ComuiDebugFragmentRecy
     
     private val onDirectJumpListener = object : DirectJumpModel.OnDirectJumpListener {
         override fun onDirectJump(directJump: DirectJumpModel) {
-        }
-    }
-    
-    private val onLoadMoreListener = object : LayoutAdapter.OnLoadMoreListener {
-        override fun onLoadMore() {
-            if (hasMoreData) {
-                pageNumber++
-                requestDataByMock(fragmentContext ?: return, searchWord, pageChannel, moduleKey)
+            isDirectJump = true
+            val jumpUrl = directJump.jumpUrl
+            val uri = Uri.parse(jumpUrl)
+            val scheme = uri.scheme
+            if (StringUtils.isEmpty(scheme)) {
+            } else {
+            }
+            if (!ActivityUtils.isActivityDestroy(activity) && !StringUtils.isEmpty(directJump.jumpUrl)) {
+                activity?.finish()
             }
         }
     }
     
+    
+    /** ********** ********** ********** Interface ********** ********** ********** */
+    
+    interface OnMoreClickListener {
+        fun onHeaderMoreClick(moduleKey: String)
+        fun onItemMoreClick(key: String)
+    }
 }
