@@ -25,6 +25,9 @@ class ComuiHomepageActivity : BaseToolbarViewBindingActivity<ComuiActivityBaseBi
     
     
     /** ********* ********** ********** Override ********** ********** ********** */
+
+    override fun init() {
+    }
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,8 +49,5 @@ class ComuiHomepageActivity : BaseToolbarViewBindingActivity<ComuiActivityBaseBi
         super.onStop()
         AppFloatingIcon.getInstance(this).detach(this)
         AppFloatingAudioPlayer.getInstance(this).detach(this)
-    }
-    
-    override fun init() {
     }
 }
