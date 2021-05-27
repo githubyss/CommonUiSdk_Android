@@ -39,14 +39,11 @@ import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils
  */
 class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewMagnet> {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object : SingletonHolder<SystemFloatingIcon, Context>(::SystemFloatingIcon) {
         private val TAG = SystemFloatingIcon::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var containerLayoutParams: WindowManager.LayoutParams? = null
     private var designateLayoutParams: ViewGroup.LayoutParams? = null

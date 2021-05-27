@@ -66,7 +66,6 @@ data class HeaderHasMoreModel constructor(@ItemType override var type: Int) : Ba
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

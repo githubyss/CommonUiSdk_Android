@@ -25,14 +25,11 @@ import kotlin.collections.ArrayList
  */
 class BannerPagerAdapter : PagerAdapter() {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = BannerPagerAdapter::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var dataList: MutableList<BannerModel> = ArrayList()
     private var viewCache: HashMap<Int, LinearLayout> = HashMap()
@@ -43,7 +40,7 @@ class BannerPagerAdapter : PagerAdapter() {
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val itemWidth = ViewGroup.LayoutParams.MATCH_PARENT
@@ -63,7 +60,7 @@ class BannerPagerAdapter : PagerAdapter() {
                 viewCache[position] = convertView
                 if (position in 0 until count) {
                     val banner = dataList[position]
-                    if (!StringUtils.isEmpty(banner.imageUrl)) {
+                    if (StringUtils.isNotEmpty(banner.imageUrl)) {
                         if (banner.imageUrl.startsWith("file:///")) {
                             loadBitmapDefault(container.context, banner.imageUrl.substring(8), imageView)
                         } else {

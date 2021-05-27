@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="comui_appName">Common UI Android</string>
-    <string name="comui_activityLabel_homepage">UI Debug</string>
-
-    <string name="comui_homepage_title">UI Debug</string>
-</resources>

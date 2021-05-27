@@ -20,7 +20,7 @@ abstract class BaseItemAdapter constructor(private val dataList: List<BaseItemMo
     var onItemClickListener: OnItemClickListener? = null
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun getItemCount(): Int {
         return dataList.size

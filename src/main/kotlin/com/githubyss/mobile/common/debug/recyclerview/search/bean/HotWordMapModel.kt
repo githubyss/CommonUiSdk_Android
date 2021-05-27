@@ -5,7 +5,6 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
-import kotlin.jvm.Throws
 
 
 /**
@@ -44,7 +43,6 @@ data class HotWordMapModel constructor(@ItemType override var type: Int) : BaseI
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

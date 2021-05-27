@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="comui_appName">Common UI Android</string>
+    <string name="comui_activityLabel_homepage">UI Debug</string>
+
+    <string name="comui_homepage_title">UI Debug Homepage</string>
+    <string name="comui_property_animation_title">Property Animation</string>
+    <string name="comui_multi_type_title">Multi Type List</string>
+    <string name="comui_search_result_title">Search Result List</string>
+    <string name="comui_search_result_more_title">Search Result More List</string>
+    <string name="comui_view_binding_reflect_title">ViewBinding by Reflect</string>
+    <string name="comui_view_binding_inline_title">ViewBinding by Inline</string>
+</resources>

@@ -1,0 +1,226 @@
+{
+  "moduleTab": "all",
+  "success": true,
+  "searchWord": "基金",
+  "searchResults": [
+    {
+      "modelName": "subject",
+      "hasMore": "0",
+      "title": "专题",
+      "items": [
+        {
+          "subject": {
+            "bgDesc": "",
+            "bgSubTitle": "0.1折精选好基",
+            "bgLinkUrl": "https:\/\/jinrong.suning.com\/scms\/JJ99percent.html",
+            "subjectImgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/a3wfOyWSUk_SihWJeesi9QQOl7Z5bM3sU0dLMjSJwF63soT9O0qZLxphaf6dx0S3.png",
+            "subTitle": "股债搭配 震荡市优选",
+            "bgImgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/fvBjlt4bKO5bx7DHOqnAlq-pxcls-20QYE9jKMumNxO7a8WUj2RdFNG01MQKLUlT.png",
+            "iconList": [
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/T_H4eZK7uGyvVtKL_ZO5mLhLzB94EVLvCwO75qs1qu5I1NXPk8MXy_p07p2A5zVL.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/m.snjijin.com\/resource\/alone-FIP.htm",
+                "title": "优选好基"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/pjUknG7HHmUlcVpQw7MRFwdG2MFp7WnMdZwjKU-NXxy_ovDchiwwBrySVBFMnVEr.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/jinrong.suning.com\/scms\/yizhouhot.html",
+                "title": "基金榜单"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/p9Bvqmii1YKPM8gJo0PxeVJc-A2JjyLp_d94pKIBhvA2TK-F3ip0ZwURjM-y_cWG.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/m.snjijin.com\/resource\/alone-fund.htm",
+                "title": "基金首页"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/If7LnIcHRIy8nJ09bzHfFA1J56Milwkky0dvYjlyxsMLY23KjwvPVni9LJz07oJ1.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/m.snjijin.com\/resource\/alone-ZUHE.htm",
+                "title": "基金组合"
+              }
+            ],
+            "bgtitle": "基金限时折扣",
+            "subjectTitleLinkUrl": "https:\/\/jinrong.suning.com\/scms\/waplc_jjhzy_appss.html",
+            "advertList": [
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/h61xRfte6icPhucQpL203jehyYsSiGTdueUOoSCrSDILkSY4dw7Z1XAYSikB8QE1.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/lcsales.suning.com\/lcmkts\/app\/goldActive\/goldIndex\/TCACTCODE202105190000001.htm?idsFirstLogin=true"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/Hu_Qk_8k_SS3cvX5BzNCzvpc5DyIH6_15_MMOGwud0ib1_sGAWNX9bEvOWmqqK4a.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/jinrong.suning.com\/scms\/goldcouponcopy1.html"
+              }
+            ],
+            "subjectName": "慧智盈 目标年化6.5%"
+          }
+        }
+      ]
+    },
+    {
+      "modelName": "application",
+      "hasMore": "0",
+      "title": "应用",
+      "items": [
+        {
+          "application": {
+            "imgUrl": "https:\/\/respay.suning.com\/eppClientApp\/image\/icon\/1529052940966.png",
+            "urlType": "1",
+            "linkUrl": "https:\/\/m.snjijin.com\/index.htm?navigationType=LinkClicked&loginTheme=wap",
+            "title": "基金"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "fund",
+      "hasMore": "1",
+      "title": "基金产品",
+      "items": [
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "59.55",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "001695",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001695-1-121115-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过43关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "泓德泓业混合基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "58.47",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "217010",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-217010-1-110595-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过422关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "招商大盘蓝筹基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "54.33",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "001500",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001500-1-121097-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过201关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "泓德远见回报混合基金"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "fundTopic",
+      "hasMore": "0",
+      "title": "热门基金主题",
+      "items": [
+        {
+          "fundTopic": {
+            "fundTopicDesc": "“一带一路”是指“丝绸之路经济带”和“21世纪海上丝绸之路”的简称。依托沿线基础设施的胡同互联，对沿线贸易和生产要素进行优化配置，促进区域一体化发展。对沿线国家开放，将刺激区域内基础设施投入与建设，铁路、公路、通信等基金领域的投资。",
+            "interestRate": "48.63",
+            "linkUrl": "https:\/\/m.snjijin.com\/\/topic\/detail-1010005-4.htm",
+            "fundTopicName": "一带一路",
+            "interestRateDesc": "基金年涨跌幅"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "fundManager",
+      "hasMore": "1",
+      "title": "热门经理人",
+      "items": [
+        {
+          "fundManager": {
+            "performance": "2180.74",
+            "background": "    朱少醒先生,生于1973年，管理学博士，自1998年开始从事证券行业工作。曾先后担任华夏证券研究所分析师、富国基金管理公司研究策划部分析师、富国基金管理公司产品开发主管，2004年6月至2005年8月任富国天益价值证券投资基金基金经理助理，2005年11月起任富国天惠精选成长基金基金经理，现任公司副总经理兼权益投资部总经理。具有基金从业资格。",
+            "linkUrl": "https:\/\/m.snjijin.com\/\/fundManager\/detail--101000231.htm",
+            "managerUrl": "https:\/\/oss.suning.com\/lcdss\/lcdssbucket\/manager_photo\/161005\/675392028607.JPG",
+            "managerName": "朱少醒"
+          }
+        },
+        {
+          "fundManager": {
+            "performance": "1351.01",
+            "background": "    梁杏，中国国籍，本科学士，14年证券从业年限。2007年7月至2011年6月在华安基金管理有限公司担任高级区域经理。2011年7月加入国泰基金管理有限公司，历任产品品牌经理、研究员、基金经理助理。2016年6月8日起至2021年1月1日任国泰国证医药卫生行业指数分级证券投资基金基金经理。2016年6月起任量化投资事业部副总监。2018年1月26日起至2019年4月12日，担任国泰宁益定期开放灵活配置混合型证券投资基金基金经理。2018年7月31日起，担任国泰量化收益灵活配置混合型证券投资基金的基金经理。2019年4月18日起，担任国泰中证生物医药交易型开放式指数证券投资基金的基金经理。2019年4月16日起，担任国泰中证生物医药交易型开放式指数证券投资基金联接基金基金经理。2019年11月22日起，担任国泰CES半导体行业交易型开放式指数证券投资基金发起式联接基金基金经理。2020年1月22日至2021年1月29日，担任国泰中证钢铁交易型开放式指数证券投资基金的基金经理。2020年1月20日起2021年1月29日，担任国泰中证煤炭交易型开放式指数证券投资基金的基金经理。2020年1月20日至2021年1月29日，担任国泰中证钢铁交易型开放式指数证券投资基金发起式联接基金的基金经理。2020年1月16日起至2021年1月29日，担任国泰中证煤炭交易型开放式指数证券投资基金发起式联接基金的基金经理。自2020年8月21日起，担任国泰上证综合交易型开放式指数证券投资基金的基金经理。2016年6月8日至2021年1月1日，担任国泰国证食品饮料行业指数分级证券投资基金的基金经理。2020年12月24日起，担任国泰中证医疗交易型开放式指数证券投资基金的基金经理。2021年1月1日起，担任国泰国证食品饮料行业指数证券投资基金的基金经理。2021年1月1日起，担任国泰国证医药卫生行业指数证券投资基金的基金经理。2021年1月22日起，担任国泰上证综合交易型开放式指数证券投资基金发起式联接基金的基金经理。自2021年2月3日起，担任国泰中证全指软件交易型开放式指数证券投资基金的基金经理。自2021年3月1日起，担任国泰中证畜牧养殖交易型开放式指数证券投资基金的基金经理。",
+            "linkUrl": "https:\/\/m.snjijin.com\/\/fundManager\/detail--101002518.htm",
+            "managerUrl": "https:\/\/oss.suning.com\/lcdss\/lcdssbucket\/manager_photo\/150199\/663147073711.JPG",
+            "managerName": "梁杏"
+          }
+        },
+        {
+          "fundManager": {
+            "performance": "1152.34",
+            "background": "    谢治宇，中国国籍，经济学硕士，11年证券从业年限。2007年加入兴业全球基金管理有限公司，任研究员；2010年起在兴业全球基金管理有限公司专户投资部任投资经理。基金管理部投资副总监兼本基金基金经理（2013年1月29日起至今）、兴全轻资产投资混合型证券投资基金（LOF）基金经理（2014年12月8日起至2018年5月3日）。自2018年1月23日起至2020年1月23日起担任兴全合宜灵活配置混合型证券投资基金基金经理。自2019年12月26日起，担任兴全社会价值三年持有期混合型证券投资基金的基金经理。2020年1月23日起，担任兴全合宜灵活配置混合型证券投资基金(LOF)基金经理。2013年1月29日至2021年1月1日，担任兴全合润分级股票型证券投资基金基金经理。自2021年1月1日起，担任兴全合润混合型证券投资基金的基金经理。",
+            "linkUrl": "https:\/\/m.snjijin.com\/\/fundManager\/detail--101001175.htm",
+            "managerUrl": "https:\/\/oss.suning.com\/lcdss\/lcdssbucket\/manager_photo\/150017\/663148518342.JPG",
+            "managerName": "谢治宇"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "hasMoreType",
+      "items": [
+        {
+          "hasMoreType": "financial"
+        }
+      ]
+    },
+    {
+      "modelName": "help",
+      "hasMore": "1",
+      "title": "帮助",
+      "items": [
+        {
+          "help": {
+            "linkUrl": "https:\/\/fipinfo.suning.com\/fipces\/help\/route.htm?helpId=1504526824247",
+            "title": "基金收益展示时间"
+          }
+        },
+        {
+          "help": {
+            "linkUrl": "https:\/\/fipinfo.suning.com\/fipces\/help\/route.htm?helpId=1504526412467",
+            "title": "基金赎回成功后资金会到哪里？"
+          }
+        },
+        {
+          "help": {
+            "linkUrl": "https:\/\/fipinfo.suning.com\/fipces\/help\/route.htm?helpId=1504526375986",
+            "title": "基金的分红方式都有哪些？有什么区别？"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    }
+  ],
+  "responseCode": "0000",
+  "responseMsg": "成功"
+}

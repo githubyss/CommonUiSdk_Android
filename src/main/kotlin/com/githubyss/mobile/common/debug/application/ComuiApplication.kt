@@ -1,6 +1,5 @@
 package com.githubyss.mobile.common.debug.application
 
-import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.ui.application.BaseApplication
 import kotlin.properties.Delegates
 
@@ -14,7 +13,7 @@ import kotlin.properties.Delegates
  */
 class ComuiApplication : BaseApplication() {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         var instance: ComuiApplication by Delegates.notNull()
@@ -31,8 +30,5 @@ class ComuiApplication : BaseApplication() {
         instance = this
 
         initARouter(instance)
-        initComkit(instance)
-        initComnet(instance)
-        initLog(LogcatUtils.LOG_LEVEL_VERBOSE)
     }
 }

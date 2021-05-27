@@ -33,7 +33,6 @@ data class SeeMoreModel constructor(@ItemType override var type: Int) : BaseItem
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

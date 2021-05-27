@@ -3,7 +3,8 @@ package com.githubyss.mobile.common.ui.recyclerview.base
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import android.widget.FrameLayout
+import androidx.viewbinding.ViewBinding
+import com.githubyss.mobile.common.ui.base.viewbinding.layout.reflect.BaseFrameLayoutBindingReflect
 
 
 /**
@@ -14,14 +15,14 @@ import android.widget.FrameLayout
  * @github githubyss
  * @createdTime 2021/04/12 18:32:46
  */
-open class BaseItemLayout : FrameLayout {
+abstract class BaseItemLayout<B : ViewBinding> : BaseFrameLayoutBindingReflect<B> {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     var onLayoutClickListener: OnLayoutClickListener? = null
     
     
-    /** ********* ********** ********** Constructors ********** ********** ********** */
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr)
     

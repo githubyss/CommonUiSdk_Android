@@ -24,14 +24,11 @@ import kotlin.math.min
  */
 open class MagnetView : FrameLayout {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         private val TAG = MagnetView::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private val MARGIN_EDGE: Int = ScreenUtils.dp2Px(14.0f) ?: 0
     private val TOUCH_TIME_THRESHOLD: Int = 150

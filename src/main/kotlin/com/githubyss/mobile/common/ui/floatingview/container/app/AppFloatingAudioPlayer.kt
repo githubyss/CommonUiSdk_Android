@@ -32,15 +32,11 @@ import java.lang.ref.WeakReference
  */
 class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, AudioPlayerViewAutoShorten> {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
-    
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object : SingletonHolder<AppFloatingAudioPlayer, Context>(::AppFloatingAudioPlayer) {
         private val TAG = AppFloatingAudioPlayer::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var designateLayoutParams: ViewGroup.LayoutParams? = null
     
@@ -56,7 +52,7 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
     var floatingForWebListener: FloatingAudioPlayerListener? = null
     
     
-    /** ********* ********** ********** Constructors ********** ********** ********** */
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     constructor(context: Context?) {
         containerContext = context

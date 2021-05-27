@@ -23,7 +23,7 @@ import com.githubyss.mobile.common.ui.floatingview.feature.magnet.MagnetView
  */
 class IconViewMagnet : MagnetView, IconViewInterface {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         private val TAG = IconViewMagnet::class.simpleName ?: "simpleName is null"
@@ -31,9 +31,6 @@ class IconViewMagnet : MagnetView, IconViewInterface {
         @LayoutRes
         private var designateLayoutId: Int = R.layout.comui_floating_icon
     }
-    
-    
-    /** ********* ********** ********** Properties ********** ********** ********** */
     
     private var _binding: ComuiFloatingIconBinding? = null
     private val binding: ComuiFloatingIconBinding get() = _binding!!
@@ -56,7 +53,7 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     var designateViewListener: IconViewListener? = null
     
     
-    /** ********* ********** ********** Constructors ********** ********** ********** */
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     constructor(context: Context, @LayoutRes layoutId: Int = designateLayoutId) : super(context, null) {
         designateContext = context
@@ -72,7 +69,7 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     }
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun customIcon(drawableId: Int) {
         iconDrawableId = drawableId
@@ -114,7 +111,7 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     }
     
     
-    /** ********* ********** ********** Private ********** ********** ********** */
+    /** ********** ********** ********** Private ********** ********** ********** */
     
     private fun initInDesignated() {
         initView()
@@ -130,7 +127,7 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     }
     
     
-    /** ********* ********** ********** Implementations ********** ********** ********** */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private val onClickListener = OnClickListener { v ->
         when (v?.id) {

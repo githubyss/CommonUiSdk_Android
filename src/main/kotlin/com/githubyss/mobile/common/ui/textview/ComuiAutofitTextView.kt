@@ -32,7 +32,7 @@ class ComuiAutofitTextView : AppCompatTextView {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)

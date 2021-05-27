@@ -6,7 +6,6 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import org.json.JSONException
 import org.json.JSONObject
-import kotlin.jvm.Throws
 
 
 /**
@@ -54,7 +53,6 @@ data class SpecialTopicModel constructor(@ItemType override var type: Int) : Bas
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

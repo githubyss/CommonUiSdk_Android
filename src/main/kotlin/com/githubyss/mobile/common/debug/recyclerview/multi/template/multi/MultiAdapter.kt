@@ -36,7 +36,7 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
     }
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun getItemCount(): Int {
         return dataList.size

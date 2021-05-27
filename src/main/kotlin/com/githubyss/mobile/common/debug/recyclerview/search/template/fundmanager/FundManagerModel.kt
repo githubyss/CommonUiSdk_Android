@@ -5,12 +5,10 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import org.json.JSONException
 import org.json.JSONObject
-import kotlin.jvm.Throws
 
 
 /**
  * FundManagerModel
- * 热门经理人数据结构
  *
  * @author Ace Yan
  * @github githubyss
@@ -48,7 +46,6 @@ data class FundManagerModel constructor(@ItemType override var type: Int) : Base
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

@@ -1,20 +1,17 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.IsFollow
 import com.githubyss.mobile.common.kit.glide.GlideUtils
-import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.base.viewbinding.inflateBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
  * WealthAccountAdapter
- * 财富号适配器
  *
  * @author Ace Yan
  * @github githubyss
@@ -28,20 +25,11 @@ class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
-            ItemType.ITEM -> {
-                WealthAccountHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_fund_wealth_account, parent, false))
-            }
-            else -> {
-                EmptyItemHolder(
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_list_item_none, parent, false)
-                )
-            }
-        }
+        return WealthAccountHolder(inflateBinding(parent))
+        // return inflate(parent)
     }
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -49,28 +37,26 @@ class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>
         when (holder) {
             is WealthAccountHolder -> {
                 if (dataModel is WealthAccountModel) {
-                    GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
-                    holder.tvTitle.setText(dataModel.title, keyList)
-                    holder.tvContent.setText(dataModel.content, keyList)
+                    GlideUtils.loadImage(dataModel.imageUrl, holder.binding.imageWealthAccount)
+                    holder.binding.textWealthAccountTitle.setText(dataModel.title, keyList)
+                    holder.binding.textWealthAccountContent.setText(dataModel.content, keyList)
                     when (dataModel.isFollowed) {
                         IsFollow.TRUE -> {
-                            holder.tglBtnIsFollowed.text = "已关注"
-                            holder.tglBtnIsFollowed.isEnabled = false
+                            holder.binding.buttonWealthAccountIsFollowed.text = "已关注"
+                            holder.binding.buttonWealthAccountIsFollowed.isEnabled = false
                         }
                         IsFollow.FALSE -> {
-                            holder.tglBtnIsFollowed.text = "＋ 关注"
-                            holder.tglBtnIsFollowed.isEnabled = true
+                            holder.binding.buttonWealthAccountIsFollowed.text = "＋ 关注"
+                            holder.binding.buttonWealthAccountIsFollowed.isEnabled = true
                         }
                     }
-                    holder.tglBtnIsFollowed.setOnClickListener { v ->
+                    holder.binding.buttonWealthAccountIsFollowed.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }
-                    holder.layoutItem.setOnClickListener { v ->
+                    holder.binding.flexboxItemWealthAccount.setOnClickListener { v ->
                         onItemClickListener?.onItemClick(holder, position, v, dataModel)
                     }
                 }
-            }
-            else -> {
             }
         }
     }

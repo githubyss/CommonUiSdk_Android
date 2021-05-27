@@ -3,16 +3,15 @@ package com.githubyss.mobile.common.debug.recyclerview.search.template.faq
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
  * FaqAdapter
- * 常见问题适配器
  *
  * @author Ace Yan
  * @github githubyss
@@ -26,7 +25,7 @@ class FaqAdapter constructor(private val dataList: List<BaseItemModel>, private 
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {

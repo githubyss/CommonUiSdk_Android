@@ -39,14 +39,11 @@ import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils
  */
 class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPlayer, AudioPlayerViewAutoShorten> {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object : SingletonHolder<SystemFloatingAudioPlayer, Context>(::SystemFloatingAudioPlayer) {
         private val TAG = SystemFloatingAudioPlayer::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var containerLayoutParams: WindowManager.LayoutParams? = null
     private var designateLayoutParams: ViewGroup.LayoutParams? = null

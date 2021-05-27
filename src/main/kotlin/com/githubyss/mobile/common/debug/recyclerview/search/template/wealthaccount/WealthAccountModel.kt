@@ -5,12 +5,10 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import org.json.JSONException
 import org.json.JSONObject
-import kotlin.jvm.Throws
 
 
 /**
  * WealthAccountModel
- * 财富号数据结构
  *
  * @author Ace Yan
  * @github githubyss
@@ -46,7 +44,6 @@ data class WealthAccountModel constructor(@ItemType override var type: Int) : Ba
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

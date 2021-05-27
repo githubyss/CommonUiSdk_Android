@@ -1,0 +1,11 @@
+{
+  "moduleTab": "all",
+  "success": true,
+  "directResult": {
+    "urlType": "0",
+    "linkUrl": "com.suning.jr:\/\/?key=metroPayCode&cityCode=025&codeType=1"
+  },
+  "searchWord": "南京地铁",
+  "responseCode": "0000",
+  "responseMsg": "成功"
+}

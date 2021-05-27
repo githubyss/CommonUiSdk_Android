@@ -26,16 +26,13 @@ import java.lang.ref.WeakReference
  */
 class BannerCarouselView : FrameLayout {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = BannerCarouselView::class.simpleName ?: "simpleName is null"
         private const val SWITCH_VIEW_PAGER = 1
         private const val TIME_PERIOD = 5000
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var indicatorWidth = 0.0f
     private var indicatorHeight = 0.0f
@@ -58,7 +55,7 @@ class BannerCarouselView : FrameLayout {
     }
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */

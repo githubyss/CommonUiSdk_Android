@@ -64,9 +64,9 @@ android {
         }
     }
 
-    viewBinding {
-        enabled = isViewBindingEnabled.toBoolean()
-    }
+     dataBinding {
+         enabled = isDataBindingEnabled.toBoolean()
+     }
 }
 
 dependencies {

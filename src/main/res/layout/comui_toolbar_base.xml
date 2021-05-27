@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbarBase"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:minHeight="?android:attr/actionBarSize"
-        android:background="@color/comres_toolbarBg_lightGray"
-        app:popupTheme="@style/AlertDialog.AppCompat.Light"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:titleTextColor="@color/comres_color_black"
-        />
+        >
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarBase"
+            android:background="@color/comres_toolbarBg_lightGray"
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:minHeight="?android:attr/actionBarSize"
+            app:popupTheme="@style/AlertDialog.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:titleTextColor="@color/comres_color_black"
+            />
+</layout>

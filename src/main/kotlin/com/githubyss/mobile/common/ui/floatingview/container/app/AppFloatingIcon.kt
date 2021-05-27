@@ -32,14 +32,11 @@ import java.lang.ref.WeakReference
  */
 class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object : SingletonHolder<AppFloatingIcon, Context>(::AppFloatingIcon) {
         private val TAG = AppFloatingIcon::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var designateLayoutParams: ViewGroup.LayoutParams? = null
     

@@ -26,7 +26,7 @@ class FinanceAqAdapter constructor(private val dataList: List<BaseItemModel>, pr
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {

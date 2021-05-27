@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="comui_appName">通用UI库</string>
-    <string name="comui_activityLabel_homepage">UI调试</string>
-
-    <string name="comui_homepage_title">UI调试</string>
-</resources>

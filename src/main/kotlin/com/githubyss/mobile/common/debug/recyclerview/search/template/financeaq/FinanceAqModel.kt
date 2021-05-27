@@ -4,7 +4,6 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import org.json.JSONException
 import org.json.JSONObject
-import kotlin.jvm.Throws
 
 
 /**
@@ -39,7 +38,6 @@ data class FinanceAqModel constructor(@ItemType override var type: Int) : BaseIt
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

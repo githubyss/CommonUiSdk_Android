@@ -1,7 +1,6 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.template.financeaq
 
 import android.view.View
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.textview.KeyWordHighlightTextView

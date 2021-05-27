@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/recyclerView_container"
-        android:background="@drawable/comres_card_bg_rectangle_normal_white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/comres_sideMargin_tiny"
-        android:layout_marginRight="@dimen/comres_sideMargin_tiny"
-        />
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerContainer"
+            android:background="@drawable/comres_card_bg_rectangle_normal_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/comres_sideMargin_tiny"
+            android:layout_marginRight="@dimen/comres_sideMargin_tiny"
+            />
+</layout>

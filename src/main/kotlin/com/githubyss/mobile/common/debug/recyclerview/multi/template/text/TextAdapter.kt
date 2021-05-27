@@ -33,7 +33,7 @@ class TextAdapter constructor(private val dataList: List<TextModel>) : RecyclerV
     }
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun getItemCount(): Int {
         return dataList.size

@@ -29,7 +29,7 @@ import com.githubyss.mobile.common.ui.floatingview.feature.autoshorten.AutoShort
  */
 class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         private val TAG = AudioPlayerViewAutoShorten::class.simpleName ?: "simpleName is null"
@@ -37,9 +37,6 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
         @LayoutRes
         private var designateLayoutId: Int = R.layout.comui_floating_audio_player
     }
-    
-    
-    /** ********* ********** ********** Properties ********** ********** ********** */
     
     private var _binding: ComuiFloatingAudioPlayerBinding? = null
     private val binding: ComuiFloatingAudioPlayerBinding get() = _binding!!
@@ -57,7 +54,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     var audioPlayListener: AudioPlayListener? = null
     
     
-    /** ********* ********** ********** Constructors ********** ********** ********** */
+    /** ********** ********** ********** Constructors ********** ********** ********** */
     
     constructor(context: Context, @LayoutRes layoutId: Int = designateLayoutId) : super(context, null) {
         designateContext = context
@@ -73,7 +70,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     }
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun lengthen() {
         designateView?.lengthenAnimator()
@@ -188,7 +185,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     }
     
     
-    /** ********* ********** ********** Private ********** ********** ********** */
+    /** ********** ********** ********** Private ********** ********** ********** */
     
     private fun initInDesignated() {
         initView()

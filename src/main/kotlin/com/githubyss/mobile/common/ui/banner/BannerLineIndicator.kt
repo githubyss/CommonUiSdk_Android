@@ -22,14 +22,11 @@ import com.githubyss.mobile.common.ui.R
  */
 class BannerLineIndicator : View {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = BannerLineIndicator::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var count: Int = 0
     private var actualCount: Int = 0
@@ -56,7 +53,7 @@ class BannerLineIndicator : View {
     }
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)

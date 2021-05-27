@@ -11,7 +11,6 @@ import androidx.annotation.StringDef;
 
 /**
  * IsFollow
- * 模块 Key
  *
  * @author Ace Yan
  * @github githubyss

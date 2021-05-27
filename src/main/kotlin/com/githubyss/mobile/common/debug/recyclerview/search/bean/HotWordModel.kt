@@ -2,7 +2,6 @@ package com.githubyss.mobile.common.debug.recyclerview.search.bean
 
 import org.json.JSONException
 import org.json.JSONObject
-import kotlin.jvm.Throws
 
 
 /**
@@ -34,7 +33,6 @@ class HotWordModel constructor() {
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     private fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

@@ -76,8 +76,8 @@ class CommonDialog @SuppressLint("ValidFragment") private constructor() : Dialog
                 dialog?.let {
                     manager.executePendingTransactions()
                     manager.beginTransaction()
-                            .remove(dialog)
-                            .commitAllowingStateLoss()
+                        .remove(dialog)
+                        .commitAllowingStateLoss()
                 }
             } catch (exception: IllegalStateException) {
                 LogcatUtils.e(t = exception)
@@ -209,7 +209,7 @@ class CommonDialog @SuppressLint("ValidFragment") private constructor() : Dialog
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        instance.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.comui_common_dialog_style)
+        // instance.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.comui_common_dialog_style)
     }
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

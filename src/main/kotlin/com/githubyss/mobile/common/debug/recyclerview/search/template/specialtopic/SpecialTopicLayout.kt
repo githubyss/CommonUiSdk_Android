@@ -2,7 +2,6 @@ package com.githubyss.mobile.common.debug.recyclerview.search.template.specialto
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,18 +24,14 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
  * @github githubyss
  * @createdTime 2021/04/06 09:43:59
  */
-class SpecialTopicLayout : BaseItemLayout {
+class SpecialTopicLayout : BaseItemLayout<ComuiListItemSpecialTopicBinding> {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = SpecialTopicLayout::class.simpleName ?: "simpleName is null"
     }
     
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
-    
-    private var binding: ComuiListItemSpecialTopicBinding
     private var bannerPagerAdapter: BannerPagerAdapter? = null
     
     
@@ -44,8 +39,6 @@ class SpecialTopicLayout : BaseItemLayout {
     
     constructor(dataModel: BaseItemModel, keyList: ArrayList<String>, context: Context, listener: OnLayoutClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         onLayoutClickListener = listener
-        // val rootView = LayoutInflater.from(context).inflate(R.layout.comui_list_item_special_topic, this)
-        binding = ComuiListItemSpecialTopicBinding.inflate(LayoutInflater.from(context), this, true)
         
         if (dataModel is SpecialTopicModel) {
             /** 背景图 */
@@ -54,12 +47,12 @@ class SpecialTopicLayout : BaseItemLayout {
             GlideUtils.loadBackground(dataModel.bgImageUrl, binding.layoutSpecialTopicItem)
             
             /** 背景标题&描述 */
-            binding.layoutSpecialTopicBg?.visibility = if (StringUtils.isEmpty(dataModel.bgImageUrl)) View.GONE else View.VISIBLE
-            binding.textViewSpecialTopicBgTitle?.visibility = if (StringUtils.isEmpty(dataModel.bgTitle)) View.GONE else View.VISIBLE
-            binding.textViewSpecialTopicBgDescription?.visibility = if (StringUtils.isEmpty(dataModel.bgDescription)) View.GONE else View.VISIBLE
-            binding.textViewSpecialTopicBgTitle?.text = dataModel.bgTitle
-            binding.textViewSpecialTopicBgDescription?.text = dataModel.bgDescription
-            binding.layoutSpecialTopicBg?.setOnClickListener { v ->
+            binding.layoutSpecialTopicBg.visibility = if (StringUtils.isEmpty(dataModel.bgImageUrl)) View.GONE else View.VISIBLE
+            binding.textViewSpecialTopicBgTitle.visibility = if (StringUtils.isEmpty(dataModel.bgTitle)) View.GONE else View.VISIBLE
+            binding.textViewSpecialTopicBgDescription.visibility = if (StringUtils.isEmpty(dataModel.bgDescription)) View.GONE else View.VISIBLE
+            binding.textViewSpecialTopicBgTitle.text = dataModel.bgTitle
+            binding.textViewSpecialTopicBgDescription.text = dataModel.bgDescription
+            binding.layoutSpecialTopicBg.setOnClickListener { v ->
                 onLayoutClickListener?.onClick(0, v, dataModel)
             }
             

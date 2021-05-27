@@ -2,7 +2,6 @@ package com.githubyss.mobile.common.ui.textview
 
 import android.text.Html
 import android.text.Spanned
-import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.R
 import java.util.*
@@ -92,7 +91,7 @@ object KeyWordHighlightUtils {
         }
         matcher.appendTail(sb)
         val ret = sb.toString()
-        LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> getHtmlText >> ret: $ret")
+        // LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> getHtmlText >> ret: $ret")
         return ret
     }
     
@@ -126,7 +125,7 @@ object KeyWordHighlightUtils {
         }
         matcher.appendTail(sb)
         val htmlText = sb.toString()
-        LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> matcherText >> htmlText: $htmlText")
+        // LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> matcherText >> htmlText: $htmlText")
         return Html.fromHtml(htmlText)
     }
     
@@ -157,7 +156,7 @@ object KeyWordHighlightUtils {
         }
         val ret = reg.deleteCharAt(reg.length - 1)
             .toString()
-        LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> getKeyMatchRegex >> ret: $ret")
+        // LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> getKeyMatchRegex >> ret: $ret")
         return ret
     }
     
@@ -172,7 +171,7 @@ object KeyWordHighlightUtils {
         val color = color ?: ResourceUtils.getColor(defaultColorId)
         val colorStr = String.format("#%06X", 0xFFFFFF and color)
         val ret = "<font color=\"${colorStr}\">${matcher.group()}</font>"
-        LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> getColorHtmlStr >> ret: $ret")
+        // LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> getColorHtmlStr >> ret: $ret")
         return ret
     }
 }

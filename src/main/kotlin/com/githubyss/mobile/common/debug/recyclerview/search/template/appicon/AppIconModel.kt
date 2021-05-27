@@ -4,12 +4,10 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import org.json.JSONException
 import org.json.JSONObject
-import kotlin.jvm.Throws
 
 
 /**
  * AppIconModel
- * 应用图标数据结构
  *
  * @author Ace Yan
  * @github githubyss
@@ -41,7 +39,6 @@ data class AppIconModel constructor(@ItemType override var type: Int) : BaseItem
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

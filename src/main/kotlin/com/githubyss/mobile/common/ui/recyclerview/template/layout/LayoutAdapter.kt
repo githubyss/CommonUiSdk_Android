@@ -19,14 +19,11 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  */
 class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @LayoutRes private var layoutId: Int = R.layout.comui_layout_bg_transparent_corner_none_margin_none) : BaseItemAdapter(dataList) {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = LayoutAdapter::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     var keyWord: String = ""
     var onLoadMoreListener: OnLoadMoreListener? = null
@@ -35,7 +32,7 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @Layout
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         // return when (viewType) {

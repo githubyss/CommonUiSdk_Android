@@ -2,7 +2,6 @@ package com.githubyss.mobile.common.debug.recyclerview.search.template.emptypage
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
 import android.view.View
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.HotWordMapModel
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyBinding
@@ -18,26 +17,19 @@ import com.google.android.flexbox.FlexboxLayout
  * @github githubyss
  * @createdTime 2021/04/12 23:20:41
  */
-class EmptyPageLayout : BaseItemLayout {
+class EmptyPageLayout : BaseItemLayout<ComuiListItemEmptyBinding> {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = EmptyPageLayout::class.simpleName ?: "simpleName is null"
     }
     
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
-    
-    private var binding: ComuiListItemEmptyBinding
-    
-    
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     constructor(dataModel: BaseItemModel?, keyWord: String, context: Context, listener: OnLayoutClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         onLayoutClickListener = listener
-        // val rootView = LayoutInflater.from(context).inflate(R.layout.comui_list_item_empty, this)
-        binding = ComuiListItemEmptyBinding.inflate(LayoutInflater.from(context), this, true)
         
         var formatKeyWord = ""
         formatKeyWord = if (keyWord.length > 4) {

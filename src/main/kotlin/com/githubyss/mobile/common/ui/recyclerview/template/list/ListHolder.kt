@@ -13,5 +13,5 @@ import com.githubyss.mobile.common.ui.R
  * @createdTime 2021/03/29 18:34:56
  */
 class ListHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-    var listItem = view.findViewById(R.id.recyclerView_container) as RecyclerView
+    var listItem = view.findViewById(R.id.recyclerContainer) as RecyclerView
 }

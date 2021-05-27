@@ -5,9 +5,15 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
-import kotlin.jvm.Throws
 
 
+/**
+ * SearchResultModel
+ *
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2021/06/01 17:20:08
+ */
 class SearchResultModel(json: JSONObject?) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
@@ -48,7 +54,6 @@ class SearchResultModel(json: JSONObject?) {
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     private fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpModel
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultModel
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
-import com.githubyss.mobile.common.ui.recyclerview.template.list.ListLayout
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconAdapter
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.appicon.AppIconAdapter
@@ -29,10 +28,18 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemLayout
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListAdapter
+import com.githubyss.mobile.common.ui.recyclerview.template.list.ListLayout
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
+/**
+ * LayoutListBuildUtil
+ *
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2021/06/01 17:20:38
+ */
 object LayoutListBuildUtil {
     fun buildLayoutList(context: Context, searchResultModel: SearchResultModel?, keyWord: String, hasHeader: Boolean, onItemClickListener: BaseItemAdapter.OnItemClickListener?, onLayoutClickListener: BaseItemLayout.OnLayoutClickListener?, onDirectJumpListener: DirectJumpModel.OnDirectJumpListener?): ArrayList<LayoutModel> {
         val layoutList = ArrayList<LayoutModel>()

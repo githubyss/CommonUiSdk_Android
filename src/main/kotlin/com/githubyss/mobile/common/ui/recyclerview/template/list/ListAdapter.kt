@@ -25,20 +25,17 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  */
 class ListAdapter constructor(private val dataList: List<BaseItemModel>) : BaseItemAdapter(dataList) {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = ListAdapter::class.simpleName ?: "simpleName is null"
     }
     
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
-    
-    
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {

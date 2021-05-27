@@ -18,7 +18,7 @@
             >
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.homepage.ComuiHomepageActivity"
+                android:name="com.githubyss.mobile.common.debug.homepage.HomepageActivity"
                 android:label="@string/comui_activityLabel_homepage"
                 android:theme="@style/comres_activity_noActionBar_theme"
                 android:launchMode="singleTask"
@@ -30,5 +30,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+                android:name="com.githubyss.mobile.common.debug.viewbinding.reflect.ViewBindingReflectActivity"
+                android:label="@string/comui_view_binding_reflect_title"
+                android:theme="@style/comres_activity_noActionBar_theme"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+                />
+
+        <activity
+                android:name="com.githubyss.mobile.common.debug.viewbinding.inline.ViewBindingInlineActivity"
+                android:label="@string/comui_view_binding_inline_title"
+                android:theme="@style/comres_activity_noActionBar_theme"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+                />
     </application>
 </manifest>

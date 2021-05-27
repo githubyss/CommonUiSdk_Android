@@ -3,19 +3,18 @@ package com.githubyss.mobile.common.debug.recyclerview.search.template.fundtopic
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.kit.manager.font.FontConfig
 import com.githubyss.mobile.common.kit.manager.font.FontManager
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
  * FundTopicAdapter
- * 热门基金适配器
  *
  * @author Ace Yan
  * @github githubyss
@@ -29,7 +28,7 @@ class FundTopicAdapter constructor(private val dataList: List<BaseItemModel>,  p
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {

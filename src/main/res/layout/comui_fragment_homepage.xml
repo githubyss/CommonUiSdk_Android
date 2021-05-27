@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.githubyss.mobile.common.debug.homepage.HomepageActivity"
+        >
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/comres_layoutBg_lightGray"
+            android:orientation="vertical"
+            >
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none"
+                >
+
+            <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/flexboxPageContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/comres_sideMargin_normal"
+                    android:paddingBottom="@dimen/comres_sideMargin_normal"
+                    android:paddingLeft="@dimen/comres_sideMargin_normal"
+                    android:paddingRight="@dimen/comres_sideMargin_normal"
+                    app:flexDirection="column"
+                    app:justifyContent="flex_start"
+                    >
+
+                <com.google.android.flexbox.FlexboxLayout
+                        style="@style/comui_equant_horizontal_flex_style"
+                        android:id="@+id/flexboxViewBinding"
+                        >
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnBindingReflect"
+                            android:text="ViewBinding\n（反射实现）"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnBindingInline"
+                            android:text="ViewBinding\n（内联实现）"
+                            />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                        style="@style/comui_equant_horizontal_flex_style"
+                        android:id="@+id/flexboxAnimation"
+                        >
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnPropertyAnimation"
+                            android:text="属性动画"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnTweenAnimation"
+                            android:text="补间动画"
+                            />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                        style="@style/comui_equant_horizontal_flex_style"
+                        android:id="@+id/flexboxRecyclerView"
+                        >
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnRecyclerViewMultiType"
+                            android:text="RecyclerView\n（多类型实现）"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnRecyclerViewMultiView"
+                            android:text="RecyclerView\n（多视图实现）"
+                            />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                        style="@style/comui_equant_horizontal_flex_style"
+                        android:id="@+id/flexboxIconFloatingView"
+                        >
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnShowFloatingWithinApp"
+                            android:text="显示应用级悬浮窗"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnCloseFloatingWithinApp"
+                            android:text="隐藏应用级悬浮窗"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnShowFloatingWithinSystem"
+                            android:text="显示系统级悬浮窗"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnCloseFloatingWithinSystem"
+                            android:text="隐藏系统级悬浮窗"
+                            />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                        style="@style/comui_equant_horizontal_flex_style"
+                        android:id="@+id/flexboxAutoShortedFloatingView"
+                        >
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnShowAutoShortedFloatingView"
+                            android:text="显示播放器悬浮窗"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnCloseAutoShortedFloatingView"
+                            android:text="隐藏播放器悬浮窗"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnLengthenAutoShortedFloatingView"
+                            android:text="展开播放器悬浮窗"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnShortenAutoShortedFloatingView"
+                            android:text="收起播放器悬浮窗"
+                            />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                        style="@style/comui_equant_horizontal_flex_style"
+                        android:id="@+id/flexboxAudioPlay"
+                        >
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnPlayPauseController"
+                            android:text="播放"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnPrevious"
+                            android:text="上一首"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnNext"
+                            android:text="下一首"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnSwitchVoice"
+                            android:text="切换音源"
+                            />
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/btnStop"
+                            android:text="停止"
+                            />
+                </com.google.android.flexbox.FlexboxLayout>
+            </com.google.android.flexbox.FlexboxLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

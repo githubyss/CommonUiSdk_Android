@@ -1,0 +1,283 @@
+{
+  "moduleTab": "financial",
+  "success": true,
+  "searchWord": "基金",
+  "searchResults": [
+    {
+      "modelName": "subject",
+      "hasMore": "0",
+      "title": "专题",
+      "items": [
+        {
+          "subject": {
+            "bgDesc": "",
+            "bgSubTitle": "0.1折精选好基",
+            "bgLinkUrl": "https:\/\/jinrong.suning.com\/scms\/JJ99percent.html",
+            "subjectImgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/a3wfOyWSUk_SihWJeesi9QQOl7Z5bM3sU0dLMjSJwF63soT9O0qZLxphaf6dx0S3.png",
+            "subTitle": "股债搭配 震荡市优选",
+            "bgImgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/fvBjlt4bKO5bx7DHOqnAlq-pxcls-20QYE9jKMumNxO7a8WUj2RdFNG01MQKLUlT.png",
+            "iconList": [
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/T_H4eZK7uGyvVtKL_ZO5mLhLzB94EVLvCwO75qs1qu5I1NXPk8MXy_p07p2A5zVL.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/m.snjijin.com\/resource\/alone-FIP.htm",
+                "title": "优选好基"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/pjUknG7HHmUlcVpQw7MRFwdG2MFp7WnMdZwjKU-NXxy_ovDchiwwBrySVBFMnVEr.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/jinrong.suning.com\/scms\/yizhouhot.html",
+                "title": "基金榜单"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/p9Bvqmii1YKPM8gJo0PxeVJc-A2JjyLp_d94pKIBhvA2TK-F3ip0ZwURjM-y_cWG.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/m.snjijin.com\/resource\/alone-fund.htm",
+                "title": "基金首页"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/If7LnIcHRIy8nJ09bzHfFA1J56Milwkky0dvYjlyxsMLY23KjwvPVni9LJz07oJ1.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/m.snjijin.com\/resource\/alone-ZUHE.htm",
+                "title": "基金组合"
+              }
+            ],
+            "bgtitle": "基金限时折扣",
+            "subjectTitleLinkUrl": "https:\/\/jinrong.suning.com\/scms\/waplc_jjhzy_appss.html",
+            "advertList": [
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/h61xRfte6icPhucQpL203jehyYsSiGTdueUOoSCrSDILkSY4dw7Z1XAYSikB8QE1.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/lcsales.suning.com\/lcmkts\/app\/goldActive\/goldIndex\/TCACTCODE202105190000001.htm?idsFirstLogin=true"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/Hu_Qk_8k_SS3cvX5BzNCzvpc5DyIH6_15_MMOGwud0ib1_sGAWNX9bEvOWmqqK4a.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/jinrong.suning.com\/scms\/goldcouponcopy1.html"
+              }
+            ],
+            "subjectName": "慧智盈 目标年化6.5%"
+          }
+        }
+      ]
+    },
+    {
+      "modelName": "fund",
+      "hasMore": "1",
+      "title": "基金产品",
+      "items": [
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "59.55",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "001695",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001695-1-121115-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过43关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "泓德泓业混合基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "58.47",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "217010",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-217010-1-110595-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过422关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "招商大盘蓝筹基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "54.33",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "001500",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001500-1-121097-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过201关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "泓德远见回报混合基金"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "fundTopic",
+      "hasMore": "0",
+      "title": "热门基金主题",
+      "items": [
+        {
+          "fundTopic": {
+            "fundTopicDesc": "“一带一路”是指“丝绸之路经济带”和“21世纪海上丝绸之路”的简称。依托沿线基础设施的胡同互联，对沿线贸易和生产要素进行优化配置，促进区域一体化发展。对沿线国家开放，将刺激区域内基础设施投入与建设，铁路、公路、通信等基金领域的投资。",
+            "interestRate": "48.63",
+            "linkUrl": "https:\/\/m.snjijin.com\/\/topic\/detail-1010005-4.htm",
+            "fundTopicName": "一带一路",
+            "interestRateDesc": "基金年涨跌幅"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "fundManager",
+      "hasMore": "1",
+      "title": "热门经理人",
+      "items": [
+        {
+          "fundManager": {
+            "performance": "2180.74",
+            "background": "    朱少醒先生,生于1973年，管理学博士，自1998年开始从事证券行业工作。曾先后担任华夏证券研究所分析师、富国基金管理公司研究策划部分析师、富国基金管理公司产品开发主管，2004年6月至2005年8月任富国天益价值证券投资基金基金经理助理，2005年11月起任富国天惠精选成长基金基金经理，现任公司副总经理兼权益投资部总经理。具有基金从业资格。",
+            "linkUrl": "https:\/\/m.snjijin.com\/\/fundManager\/detail--101000231.htm",
+            "managerUrl": "https:\/\/oss.suning.com\/lcdss\/lcdssbucket\/manager_photo\/161005\/675392028607.JPG",
+            "managerName": "朱少醒"
+          }
+        },
+        {
+          "fundManager": {
+            "performance": "1351.01",
+            "background": "    梁杏，中国国籍，本科学士，14年证券从业年限。2007年7月至2011年6月在华安基金管理有限公司担任高级区域经理。2011年7月加入国泰基金管理有限公司，历任产品品牌经理、研究员、基金经理助理。2016年6月8日起至2021年1月1日任国泰国证医药卫生行业指数分级证券投资基金基金经理。2016年6月起任量化投资事业部副总监。2018年1月26日起至2019年4月12日，担任国泰宁益定期开放灵活配置混合型证券投资基金基金经理。2018年7月31日起，担任国泰量化收益灵活配置混合型证券投资基金的基金经理。2019年4月18日起，担任国泰中证生物医药交易型开放式指数证券投资基金的基金经理。2019年4月16日起，担任国泰中证生物医药交易型开放式指数证券投资基金联接基金基金经理。2019年11月22日起，担任国泰CES半导体行业交易型开放式指数证券投资基金发起式联接基金基金经理。2020年1月22日至2021年1月29日，担任国泰中证钢铁交易型开放式指数证券投资基金的基金经理。2020年1月20日起2021年1月29日，担任国泰中证煤炭交易型开放式指数证券投资基金的基金经理。2020年1月20日至2021年1月29日，担任国泰中证钢铁交易型开放式指数证券投资基金发起式联接基金的基金经理。2020年1月16日起至2021年1月29日，担任国泰中证煤炭交易型开放式指数证券投资基金发起式联接基金的基金经理。自2020年8月21日起，担任国泰上证综合交易型开放式指数证券投资基金的基金经理。2016年6月8日至2021年1月1日，担任国泰国证食品饮料行业指数分级证券投资基金的基金经理。2020年12月24日起，担任国泰中证医疗交易型开放式指数证券投资基金的基金经理。2021年1月1日起，担任国泰国证食品饮料行业指数证券投资基金的基金经理。2021年1月1日起，担任国泰国证医药卫生行业指数证券投资基金的基金经理。2021年1月22日起，担任国泰上证综合交易型开放式指数证券投资基金发起式联接基金的基金经理。自2021年2月3日起，担任国泰中证全指软件交易型开放式指数证券投资基金的基金经理。自2021年3月1日起，担任国泰中证畜牧养殖交易型开放式指数证券投资基金的基金经理。",
+            "linkUrl": "https:\/\/m.snjijin.com\/\/fundManager\/detail--101002518.htm",
+            "managerUrl": "https:\/\/oss.suning.com\/lcdss\/lcdssbucket\/manager_photo\/150199\/663147073711.JPG",
+            "managerName": "梁杏"
+          }
+        },
+        {
+          "fundManager": {
+            "performance": "1152.34",
+            "background": "    谢治宇，中国国籍，经济学硕士，11年证券从业年限。2007年加入兴业全球基金管理有限公司，任研究员；2010年起在兴业全球基金管理有限公司专户投资部任投资经理。基金管理部投资副总监兼本基金基金经理（2013年1月29日起至今）、兴全轻资产投资混合型证券投资基金（LOF）基金经理（2014年12月8日起至2018年5月3日）。自2018年1月23日起至2020年1月23日起担任兴全合宜灵活配置混合型证券投资基金基金经理。自2019年12月26日起，担任兴全社会价值三年持有期混合型证券投资基金的基金经理。2020年1月23日起，担任兴全合宜灵活配置混合型证券投资基金(LOF)基金经理。2013年1月29日至2021年1月1日，担任兴全合润分级股票型证券投资基金基金经理。自2021年1月1日起，担任兴全合润混合型证券投资基金的基金经理。",
+            "linkUrl": "https:\/\/m.snjijin.com\/\/fundManager\/detail--101001175.htm",
+            "managerUrl": "https:\/\/oss.suning.com\/lcdss\/lcdssbucket\/manager_photo\/150017\/663148518342.JPG",
+            "managerName": "谢治宇"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "fortune",
+      "hasMore": "1",
+      "title": "财富号",
+      "items": [
+        {
+          "fortune": {
+            "createrAccount": "DV0121",
+            "fortuneDesc": "用优秀公司组合和指数基金做资产配置",
+            "isConcern": "0",
+            "fortuneLogo": "https:\/\/oss.suning.com\/lcfos\/lcfosbucket\/image\/e6894021fdd24a13938c3a1b6b45e334.png",
+            "fortuneName": "指数基金价值人生",
+            "linkUrl": "https:\/\/gpvideo.suning.com\/slvcms\/homePage\/index.html?indexUserNo=DV0121&indexType=DV"
+          }
+        },
+        {
+          "fortune": {
+            "createrAccount": "DV0253",
+            "fortuneDesc": "8年金融机构从业经验，擅长上市公司分析和基金分析，信奉价值投资和均衡配置的长期持有策略。",
+            "isConcern": "0",
+            "fortuneLogo": "https:\/\/oss.suning.com\/lcfos\/lcfosbucket\/image\/e93bee883093430e84fcb722001dc6b4.jpg",
+            "fortuneName": "在基金长跑中胜出",
+            "linkUrl": "https:\/\/gpvideo.suning.com\/slvcms\/homePage\/index.html?indexUserNo=DV0253&indexType=DV"
+          }
+        },
+        {
+          "fortune": {
+            "createrAccount": "DV0267",
+            "fortuneDesc": "科学理财，谨慎投资，贵在坚持！",
+            "isConcern": "0",
+            "fortuneLogo": "https:\/\/oss.suning.com\/lcfos\/lcfosbucket\/image\/e38eb70ddc174f2c80678704b0cab576.jpg",
+            "fortuneName": "一只钟爱基金的小蚂蚁",
+            "linkUrl": "https:\/\/gpvideo.suning.com\/slvcms\/homePage\/index.html?indexUserNo=DV0267&indexType=DV"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "information",
+      "hasMore": "1",
+      "title": "资讯",
+      "items": [
+        {
+          "information": {
+            "imgUrl": "https:\/\/oss.suning.com\/slvcms\/slvcmsbucket\/images\/1615428107569.png",
+            "linkUrl": "https:\/\/fipinfo.suning.com\/fipces\/article\/articleDetail.htm?articleId=1615428127171",
+            "updateTime": "2021-03-11",
+            "source": "望京博格",
+            "title": "从基金产品总监到大V，梦想做一个小小的灯塔",
+            "content": "给大家来一个不一样的故事吧很少从基金公司出来从事自媒体的行业的因为基金公司的收入尤其是大公司的收入可"
+          }
+        },
+        {
+          "information": {
+            "imgUrl": "https:\/\/oss.suning.com\/slvcms\/slvcmsbucket\/images\/1619402655581.jpg",
+            "linkUrl": "https:\/\/fipinfo.suning.com\/fipces\/article\/articleDetail.htm?articleId=1619402614607",
+            "updateTime": "2021-04-28",
+            "source": "苏宁财富学院",
+            "title": "挑选基金时，产品、基金经理、基金公司，如何权衡？",
+            "content": "业内大部分评奖是对基金本身的评选，但是现在有越来越多投资人关注管基金的人，也就是基金经理。选基金时，"
+          }
+        },
+        {
+          "information": {
+            "imgUrl": "https:\/\/oss.suning.com\/slvcms\/slvcmsbucket\/images\/1621219816438.png",
+            "linkUrl": "https:\/\/fipinfo.suning.com\/fipces\/article\/articleDetail.htm?articleId=1620886238904",
+            "updateTime": "2021-05-27",
+            "source": "财顾精选",
+            "title": "基金投资进阶课 | 第一讲 了解你的基金持仓 ",
+            "content": "财顾频道联合晨星基金出品《基金投资进阶课》，将系统介绍基金配置、组合管理的方法论，帮助广大用户提升投"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "question",
+      "hasMore": "1",
+      "title": "财顾问答",
+      "items": [
+        {
+          "question": {
+            "linkUrl": "https:\/\/gpvideo.suning.com\/slvcms\/questions\/index.html?masterId=3095199",
+            "title": "2020年被爆买的基金上了多少次热搜？老基金卖光了，小白投资者该去买新发基金还是坚守买老基金？",
+            "content": "个人的建议还是进行买老基金，毕竟老基金在各方面都有着很好的数据，更能进行一个了解和参考，当然如果老基金进行限购的话，尝试购买新基金也是一个不错的选择，首先在购买新基金的时候，一定要对产品有个详细的了解，这样才能清楚到底适不适合自己，新基金由于没有业绩方面的参考，我们可以从基金经理以往的历史业绩进行一个对比，这样才不至于盲目的跟风。"
+          }
+        },
+        {
+          "question": {
+            "linkUrl": "https:\/\/gpvideo.suning.com\/slvcms\/questions\/index.html?masterId=3096372",
+            "title": "基金出场6天“吸金”超2500！一季度超300只基金待发。这样情况下，我该去买新基金？",
+            "content": "今年新发行的基金销售还是比较火爆的，尤其是一些明星经理发行的新基金，基本上短短几日就到了未日配售，有的甚至一天之内被抢光，这有效地说明了目前投资者对市场还是比较看好的，所以在新基发行的过程当中出现抢购也不足为奇了，就拿我个人而言吧，今年新发行的基金也买了几只，主要还是比较看好当前的市场，所以操作上都选择了顺势而行，以此了达到投资效果！"
+          }
+        },
+        {
+          "question": {
+            "linkUrl": "https:\/\/gpvideo.suning.com\/slvcms\/questions\/index.html?masterId=3118962",
+            "title": "买基金是买新基金好还是买老基金好",
+            "content": "这问题并没有绝对的答案，这就好像是问，吃大米好还是吃面条好一样。  基金收益好坏，与其投资的行业，基金经理的风控能力，市场走势有关，跟新还是老能有多大关系？  支持老基金的人，观点无非是老基金有业绩参考，相对稳妥点。而新基金什么都没有，投进去就是抓瞎。  那我反问，如果张坤，葛兰开了一支新基金，各位会考虑买进么？显然很多人会买，这时候基金是不是新发行的，有关系么？大家还不是看中的是基金经理的人么？  喜欢吃大米吃米，喜欢吃面吃面。自己看中的基金，买就是了。"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    }
+  ],
+  "responseCode": "0000",
+  "responseMsg": "成功"
+}

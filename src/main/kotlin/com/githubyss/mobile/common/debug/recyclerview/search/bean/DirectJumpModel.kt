@@ -35,7 +35,6 @@ class DirectJumpModel constructor() {
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     private fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

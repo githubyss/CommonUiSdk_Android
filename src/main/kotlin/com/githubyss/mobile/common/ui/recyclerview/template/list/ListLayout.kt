@@ -18,14 +18,11 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
  */
 class ListLayout : FrameLayout {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = ListLayout::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var binding: ComuiRecyclerViewBgWhiteCornerNormalMarginTinyBinding
     
@@ -58,9 +55,9 @@ class ListLayout : FrameLayout {
         
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = orientation
-        binding.recyclerViewContainer.setHasFixedSize(true)
-        binding.recyclerViewContainer.layoutManager = layoutManager
-        binding.recyclerViewContainer.adapter = adapter
+        binding.recyclerContainer.setHasFixedSize(true)
+        binding.recyclerContainer.layoutManager = layoutManager
+        binding.recyclerContainer.adapter = adapter
     }
     
     

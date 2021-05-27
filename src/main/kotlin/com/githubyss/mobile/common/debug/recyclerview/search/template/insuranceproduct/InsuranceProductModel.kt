@@ -8,7 +8,6 @@ import org.json.JSONObject
 
 /**
  * InsuranceProductModel
- * 保险产品数据结构
  *
  * @author Ace Yan
  * @github githubyss
@@ -42,7 +41,6 @@ data class InsuranceProductModel constructor(@ItemType override var type: Int) :
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    @Throws(JSONException::class)
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return

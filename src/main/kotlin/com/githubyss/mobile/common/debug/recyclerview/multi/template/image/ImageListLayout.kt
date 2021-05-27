@@ -20,14 +20,11 @@ import com.githubyss.mobile.common.ui.databinding.ComuiRecyclerViewBgWhiteCorner
  */
 class ImageListLayout : FrameLayout {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = ImageListLayout::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var binding: ComuiRecyclerViewBgWhiteCornerNormalMarginTinyBinding
     
@@ -58,9 +55,9 @@ class ImageListLayout : FrameLayout {
         rvAdapter = ImageAdapter(dataList)
         rvAdapter?.onItemClickListener = onItemClickListener
         
-        binding.recyclerViewContainer.setHasFixedSize(true)
-        binding.recyclerViewContainer.layoutManager = LinearLayoutManager(viewContext)
-        binding.recyclerViewContainer.adapter = rvAdapter
+        binding.recyclerContainer.setHasFixedSize(true)
+        binding.recyclerContainer.layoutManager = LinearLayoutManager(viewContext)
+        binding.recyclerContainer.adapter = rvAdapter
     }
     
     

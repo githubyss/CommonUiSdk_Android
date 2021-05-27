@@ -19,14 +19,11 @@ import com.githubyss.mobile.common.ui.databinding.ComuiRecyclerViewBgWhiteCorner
  */
 class TextListLayout : FrameLayout {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
         val TAG = TextListLayout::class.simpleName ?: "simpleName is null"
     }
-    
-    
-    /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var binding: ComuiRecyclerViewBgWhiteCornerNormalMarginTinyBinding
     
@@ -57,13 +54,13 @@ class TextListLayout : FrameLayout {
         rvAdapter = TextAdapter(dataList)
         rvAdapter?.onItemClickListener = onItemClickListener
         
-        binding.recyclerViewContainer.setHasFixedSize(true)
-        binding.recyclerViewContainer.layoutManager = LinearLayoutManager(viewContext)
-        binding.recyclerViewContainer.adapter = rvAdapter
+        binding.recyclerContainer.setHasFixedSize(true)
+        binding.recyclerContainer.layoutManager = LinearLayoutManager(viewContext)
+        binding.recyclerContainer.adapter = rvAdapter
     }
     
     
-    /** ********* ********** ********** Override ********** ********** ********** */
+    /** ********** ********** ********** Override ********** ********** ********** */
     
     fun initView() {
     }
