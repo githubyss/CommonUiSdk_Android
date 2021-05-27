@@ -1,36 +1,41 @@
-// apply plugin: "com.android.application"
-apply plugin: "com.android.library"
+if (isRunAlone.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion compile_sdk_version
+    compileSdkVersion compile_sdk_version.toInteger()
     buildToolsVersion build_tools_version
 
     defaultConfig {
-        // applicationId "com.githubyss.mobile.common.ui.debug"
+        if (isRunAlone.toBoolean()) {
+            applicationId 'com.githubyss.mobile.common.ui.debug'
+        }
 
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
 
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
         debug {
-            debuggable true
-            minifyEnabled false
+            debuggable isDebuggable.toBoolean()
+            minifyEnabled isMinifyEnabled.toBoolean()
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         release {
-            debuggable false
-            minifyEnabled true
+            debuggable isDebuggable.toBoolean()
+            minifyEnabled isMinifyEnabled.toBoolean()
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -53,11 +58,14 @@ android {
     sourceSets {
         main {
             java.srcDirs += 'src/main/kotlin'
+            if (isRunAlone.toBoolean()) {
+                manifest.srcFile 'src/alone/AndroidManifest.xml'
+            }
         }
     }
 
     viewBinding {
-        enabled = true
+        enabled = isViewBindingEnabled.toBoolean()
     }
 }
 
@@ -65,13 +73,15 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':CommonLibSdk_Android')
-    implementation project(':CommonKitSdk_Android')
     implementation project(':CommonResSdk_Android')
+    implementation project(':CommonKitSdk_Android')
     implementation project(':CommonNetworkSdk_Android')
+    if (!isRunAlone.toBoolean()) {
+    }
 }
 
 kapt {
     arguments {
-        arg("moduleName", project.getName())
+        arg('moduleName', project.getName())
     }
 }
