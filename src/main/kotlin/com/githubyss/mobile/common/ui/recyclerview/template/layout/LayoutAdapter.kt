@@ -17,7 +17,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/15 17:05:43
  */
-class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @LayoutRes private var layoutId: Int = R.layout.comui_layout_bg_transparent_corner_none_margin_none) : BaseItemAdapter(dataList) {
+class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @LayoutRes private var layoutId: Int = R.layout.comui_layout_bg_transparent_corner_none_margin_none) : BaseItemAdapter<RecyclerView.ViewHolder>(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -44,7 +44,8 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @Layout
         //     }
         // }
         
-        return LayoutHolder(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
+        return LayoutHolder(LayoutInflater.from(parent.context)
+            .inflate(layoutId, parent, false))
     }
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

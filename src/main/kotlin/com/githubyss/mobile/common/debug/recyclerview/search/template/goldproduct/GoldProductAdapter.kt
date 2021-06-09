@@ -1,12 +1,12 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.kit.manager.font.FontConfig
 import com.githubyss.mobile.common.kit.manager.font.FontManager
-import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.BaseViewHolderBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.inflate
+import com.githubyss.mobile.common.ui.databinding.ComuiListItemGoldProductBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
@@ -19,56 +19,41 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/24 15:06:32
  */
-class GoldProductAdapter constructor(private val dataList: List<BaseItemModel>, private val keyList: ArrayList<String>) : BaseItemAdapter(dataList) {
+class GoldProductAdapter constructor(private val dataList: List<BaseItemModel>, private val keyList: ArrayList<String>) : BaseItemAdapter<RecyclerView.ViewHolder>(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    companion object {
+        val TAG = GoldProductAdapter::class.simpleName ?: "simpleName is null"
+    }
     
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
-            ItemType.ITEM -> {
-                GoldProductHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_gold_product, parent, false))
-            }
-            else -> {
-                EmptyItemHolder(
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_list_item_none, parent, false)
-                )
-            }
-        }
+        return inflate<ComuiListItemGoldProductBinding>(parent)
     }
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
-        when (holder) {
-            is GoldProductHolder -> {
-                if (dataModel is GoldProductModel) {
-                    holder.tvTitle.setText(dataModel.title, keyList)
-                    holder.tvPrice.text = dataModel.price
-                    FontManager.replaceFontFromAsset(holder.tvPrice, FontConfig.FontPath.DIN_NEXT_LT_PRO_MEDIUM)
-                    holder.tvUnit.text = dataModel.unit
-                    holder.tvCode.text = dataModel.code
-                    holder.tvRisk.text = dataModel.risk
-                    holder.tvClassify.text = dataModel.classify
-                    holder.tvPriceTime.text = dataModel.priceTime
-                    holder.layoutItem.setOnClickListener { v ->
-                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+        if (holder is BaseViewHolderBindingInline<*>) {
+            when (val binding = holder.binding) {
+                is ComuiListItemGoldProductBinding -> {
+                    if (dataModel is GoldProductModel) {
+                        binding.textGoldProductTitle.setText(dataModel.title, keyList)
+                        binding.textGoldProductPrice.text = dataModel.price
+                        FontManager.replaceFontFromAsset(binding.textGoldProductPrice, FontConfig.FontPath.DIN_NEXT_LT_PRO_MEDIUM)
+                        binding.textGoldProductUnit.text = dataModel.unit
+                        binding.textGoldProductCode.text = dataModel.code
+                        binding.textGoldProductRisk.text = dataModel.risk
+                        binding.textGoldProductClassify.text = dataModel.classify
+                        binding.textGoldProductPriceTime.text = dataModel.priceTime
+                        binding.flexboxItemGoldProduct.setOnClickListener { v ->
+                            onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                        }
                     }
                 }
             }
-            else -> {
-            }
         }
     }
-    
-    
-    /** ********** ********** ********** Functions ********** ********** ********** */
-    
-    
-    /** ********** ********** ********** Interface ********** ********** ********** */
 }

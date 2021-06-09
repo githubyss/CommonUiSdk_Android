@@ -58,7 +58,7 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
             MultiType.EMPTY -> {
                 EmptyPageHolder(
                     LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_list_item_empty, parent, false)
+                        .inflate(R.layout.comui_list_item_empty_page, parent, false)
                 )
             }
             MultiType.HEADER -> {
@@ -78,7 +78,7 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
             else -> {
                 EmptyPageHolder(
                     LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_list_item_empty, parent, false)
+                        .inflate(R.layout.comui_list_item_empty_page, parent, false)
                 )
             }
         }

@@ -34,13 +34,13 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**
- * LayoutListBuildUtil
+ * LayoutListBuildUtils
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/06/01 17:20:38
+ * @createdTime 2021/06/09 14:29:37
  */
-object LayoutListBuildUtil {
+object LayoutListBuildUtils {
     fun buildLayoutList(context: Context, searchResultModel: SearchResultModel?, keyWord: String, hasHeader: Boolean, onItemClickListener: BaseItemAdapter.OnItemClickListener?, onLayoutClickListener: BaseItemLayout.OnLayoutClickListener?, onDirectJumpListener: DirectJumpModel.OnDirectJumpListener?): ArrayList<LayoutModel> {
         val layoutList = ArrayList<LayoutModel>()
         if (searchResultModel == null) return layoutList

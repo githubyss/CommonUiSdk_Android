@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/24 14:41:04
  */
-abstract class BaseItemAdapter constructor(private val dataList: List<BaseItemModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+abstract class BaseItemAdapter<H : RecyclerView.ViewHolder> constructor(private val dataList: List<BaseItemModel>) : RecyclerView.Adapter<H>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     

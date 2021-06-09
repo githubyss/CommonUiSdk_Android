@@ -1,11 +1,5 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.template.financeaq
 
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.textview.KeyWordHighlightTextView
-import com.google.android.flexbox.FlexboxLayout
-
 
 /**
  * FinanceAqHolder
@@ -14,8 +8,8 @@ import com.google.android.flexbox.FlexboxLayout
  * @github githubyss
  * @createdTime 2021/03/30 11:56:09
  */
-class FinanceAqHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-    var layoutItem = view.findViewById(R.id.layout_recyclerFinanceAqItem) as FlexboxLayout
-    var tvTitle = view.findViewById(R.id.textView_recyclerFinanceAqTitle) as KeyWordHighlightTextView
-    var tvContent = view.findViewById(R.id.textView_recyclerFinanceAqContent) as KeyWordHighlightTextView
-}
+// class FinanceAqHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+//     var layoutItem = view.findViewById(R.id.flexboxItemFinanceAq) as FlexboxLayout
+//     var tvTitle = view.findViewById(R.id.textFinanceAqTitle) as KeyWordHighlightTextView
+//     var tvContent = view.findViewById(R.id.textFinanceAqContent) as KeyWordHighlightTextView
+// }

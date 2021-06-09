@@ -27,14 +27,4 @@ class LoadMoreLayout : BaseItemLayout<ComuiListItemLoadMoreBinding> {
     constructor(context: Context, listener: OnLayoutClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         onLayoutClickListener = listener
     }
-    
-    
-    /** ********** ********** ********** Functions ********** ********** ********** */
-    
-    
-    /** ********** ********** ********** Implementations ********** ********** ********** */
-    
-    
-    /** ********** ********** ********** Interface ********** ********** ********** */
-    
 }

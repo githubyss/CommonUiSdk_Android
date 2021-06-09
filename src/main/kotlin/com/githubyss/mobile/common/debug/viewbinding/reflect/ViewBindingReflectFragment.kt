@@ -36,7 +36,7 @@ class ViewBindingReflectFragment : BaseToolbarFragmentBindingReflect<ComuiFragme
     private fun initView() {
         setToolbarTitle(R.string.comui_view_binding_reflect_title)
         
-        binding.tvBindingReflect.setOnClickListener(onClickListener)
+        binding.textBindingReflect.setOnClickListener(onClickListener)
     }
     
     

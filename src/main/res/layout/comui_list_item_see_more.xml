@@ -9,7 +9,7 @@
     </data>
 
     <com.google.android.flexbox.FlexboxLayout
-            android:id="@+id/layout_seeMoreItem"
+            android:id="@+id/flexboxItemSeeMore"
             android:background="@drawable/comres_card_bg_rectangle_normal_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             >
 
         <com.githubyss.mobile.common.ui.textview.KeyWordHighlightTextView
-                android:id="@+id/tvSearchWordHint"
+                android:id="@+id/textSearchWordHint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="“搜索词”相关的理财内容聚合"
@@ -35,7 +35,7 @@
                 />
 
         <TextView
-                android:id="@+id/tvSeeMore"
+                android:id="@+id/textSeeMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"

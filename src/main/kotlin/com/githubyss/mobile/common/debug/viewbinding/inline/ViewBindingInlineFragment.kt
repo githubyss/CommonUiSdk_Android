@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragmentBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInlineBinding
-import com.githubyss.mobile.common.ui.kotlininline.bindView
 
 
 /**
@@ -39,7 +39,7 @@ class ViewBindingInlineFragment : BaseToolbarFragmentBindingInline(R.layout.comu
     private fun initView() {
         setToolbarTitle(R.string.comui_view_binding_inline_title)
         
-        binding.tvBindingInline.setOnClickListener(onClickListener)
+        binding.textBindingInline.setOnClickListener(onClickListener)
     }
     
     

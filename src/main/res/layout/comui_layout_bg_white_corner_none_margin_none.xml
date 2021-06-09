@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/layout_frameLayoutItem"
-        android:background="@color/comres_layoutBg_white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/comres_sideMargin_micro"
-        />
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+            android:id="@+id/frameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/comres_sideMargin_micro"
+            android:background="@color/comres_layoutBg_white"
+            />
+</layout>

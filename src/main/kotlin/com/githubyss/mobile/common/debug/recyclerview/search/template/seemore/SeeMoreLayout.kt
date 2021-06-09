@@ -35,20 +35,10 @@ class SeeMoreLayout : BaseItemLayout<ComuiListItemSeeMoreBinding> {
             keyWord
         }
         if (dataModel is SeeMoreModel) {
-            binding.tvSearchWordHint.setText("“${formatKeyWord}”相关的理财内容聚合", formatKeyWord)
-            binding.tvSeeMore.setOnClickListener { v ->
+            binding.textSearchWordHint.setText("“${formatKeyWord}”相关的理财内容聚合", formatKeyWord)
+            binding.textSeeMore.setOnClickListener { v ->
                 onLayoutClickListener?.onClick(0, v, dataModel)
             }
         }
     }
-    
-    
-    /** ********** ********** ********** Functions ********** ********** ********** */
-    
-    
-    /** ********** ********** ********** Implementations ********** ********** ********** */
-    
-    
-    /** ********** ********** ********** Interface ********** ********** ********** */
-    
 }

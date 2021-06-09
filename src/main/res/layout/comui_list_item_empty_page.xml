@@ -9,34 +9,34 @@
     </data>
 
     <com.google.android.flexbox.FlexboxLayout
-            android:id="@+id/layoutRecyclerEmptyItem"
+            android:id="@+id/flexboxItemEmptyPage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/comres_sideMargin_large"
             android:paddingRight="@dimen/comres_sideMargin_large"
             android:background="@color/comres_layoutBg_white"
-            app:alignItems="center"
             app:flexDirection="column"
             app:justifyContent="flex_start"
+            app:alignItems="center"
             >
 
         <com.google.android.flexbox.FlexboxLayout
                 android:id="@+id/layoutEmptyWithHotWord"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:paddingBottom="20dp"
+                android:layout_height="wrap_content"
                 android:paddingTop="20dp"
-                app:alignItems="center"
+                android:paddingBottom="20dp"
                 app:flexDirection="column"
                 app:justifyContent="flex_start"
+                app:alignItems="center"
                 >
 
             <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:alignItems="center"
                     app:flexDirection="column"
                     app:justifyContent="center"
+                    app:alignItems="center"
                     >
 
                 <ImageView
@@ -50,30 +50,30 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:maxLines="1"
                         android:text="找不到“”相关内容，尝试更换关键词"
                         android:textColor="@color/comres_color_999999"
                         android:textSize="@dimen/comres_textSize_11sp"
-                        android:maxLines="1"
                         />
             </com.google.android.flexbox.FlexboxLayout>
 
             <com.google.android.flexbox.FlexboxLayout
-                    android:id="@+id/layoutHotWord"
+                    android:id="@+id/flexboxHotWord"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    app:alignItems="flex_start"
                     app:flexDirection="column"
                     app:justifyContent="center"
+                    app:alignItems="flex_start"
                     >
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:maxLines="1"
                         android:text="大家都在搜"
                         android:textColor="@color/comres_color_333333"
                         android:textSize="@dimen/comres_textSize_15sp"
-                        android:maxLines="1"
                         />
 
                 <!--<com.suning.mobile.epa.newsearch.widget.customview.SearchOldFlowLayout-->

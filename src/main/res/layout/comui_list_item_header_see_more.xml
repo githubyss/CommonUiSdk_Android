@@ -1,50 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.flexbox.FlexboxLayout
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layout_recyclerHeaderHasMoreItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/comres_color_transparent"
-        app:alignItems="flex_start"
-        app:flexDirection="column"
-        app:justifyContent="center"
         >
 
+    <data>
+
+    </data>
+
     <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexboxItemHeaderHasMore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/comres_sideMargin_tiny"
-            app:alignItems="center"
-            app:flexDirection="row"
-            app:justifyContent="space_between"
+            android:background="@color/comres_color_transparent"
+            app:flexDirection="column"
+            app:justifyContent="center"
+            app:alignItems="flex_start"
             >
 
-        <TextView
-                android:id="@+id/textView_recyclerHeaderHasMoreTitle"
-                android:layout_width="wrap_content"
+        <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingRight="20dp"
-                android:text="Header"
-                android:textColor="@color/comres_color_333333"
-                android:textSize="@dimen/comres_textSize_16sp"
-                android:textStyle="bold"
-                android:maxLines="1"
-                />
+                android:padding="@dimen/comres_sideMargin_tiny"
+                app:flexDirection="row"
+                app:justifyContent="space_between"
+                app:alignItems="center"
+                >
 
-        <TextView
-                android:id="@+id/textView_recyclerHeaderHasMoreSeeMore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:drawableRight="@drawable/comui_icon_see_more_gray"
-                android:drawablePadding="4dp"
-                android:text="更多"
-                android:textColor="@color/comres_color_666666"
-                android:textSize="@dimen/comres_textSize_12sp"
-                android:maxLines="1"
-                />
+            <TextView
+                    android:id="@+id/textHeaderHasMoreTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"
+                    android:maxLines="1"
+                    android:text="Header"
+                    android:textColor="@color/comres_color_333333"
+                    android:textSize="@dimen/comres_textSize_16sp"
+                    android:textStyle="bold"
+                    />
+
+            <TextView
+                    android:id="@+id/textHeaderHasMoreSeeMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="4dp"
+                    android:drawableRight="@drawable/comui_icon_see_more_gray"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="更多"
+                    android:textColor="@color/comres_color_666666"
+                    android:textSize="@dimen/comres_textSize_12sp"
+                    />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <include layout="@layout/comui_view_separator_horizontal_light_gray" />
     </com.google.android.flexbox.FlexboxLayout>
-
-    <include layout="@layout/comui_view_separator_horizontal_light_gray" />
-</com.google.android.flexbox.FlexboxLayout>
+</layout>

@@ -15,7 +15,8 @@
             >
 
         <TextView
-                android:id="@+id/tvBindingReflect"
+                style="@style/comres_tag_gray_style"
+                android:id="@+id/textBindingReflect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.HotWordMapModel
-import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyBinding
+import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyPageBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemLayout
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.google.android.flexbox.FlexboxLayout
@@ -17,7 +17,7 @@ import com.google.android.flexbox.FlexboxLayout
  * @github githubyss
  * @createdTime 2021/04/12 23:20:41
  */
-class EmptyPageLayout : BaseItemLayout<ComuiListItemEmptyBinding> {
+class EmptyPageLayout : BaseItemLayout<ComuiListItemEmptyPageBinding> {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -44,11 +44,11 @@ class EmptyPageLayout : BaseItemLayout<ComuiListItemEmptyBinding> {
         if (dataModel == null) {
             // layoutParams.topMargin = ScreenUtils.dp2Px(123.0f)
             // layoutEmptyWithHotWord?.layoutParams = layoutParams
-            binding.layoutHotWord.visibility = View.GONE
+            binding.flexboxHotWord.visibility = View.GONE
         } else {
             // layoutParams.topMargin = ScreenUtils.dp2Px(20.0f)
             // layoutEmptyWithHotWord?.layoutParams = layoutParams
-            binding.layoutHotWord.visibility = View.VISIBLE
+            binding.flexboxHotWord.visibility = View.VISIBLE
             if (dataModel is HotWordMapModel) {
                 val hotWordList = ArrayList<String>()
                 for (aWord in dataModel.itemList) {

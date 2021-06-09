@@ -54,7 +54,7 @@ class TextAdapter constructor(private val dataList: List<TextModel>) : RecyclerV
         return when (viewType) {
             MultiType.EMPTY -> {
                 EmptyPageHolder(LayoutInflater.from(parent.context)
-                    .inflate(R.layout.comui_list_item_empty, parent, false))
+                    .inflate(R.layout.comui_list_item_empty_page, parent, false))
             }
             MultiType.HEADER -> {
                 HeaderHolder(LayoutInflater.from(parent.context)

@@ -44,24 +44,24 @@ class SpecialTopicLayout : BaseItemLayout<ComuiListItemSpecialTopicBinding> {
             /** 背景图 */
             // imageViewSpecialTopicBg?.visibility = if (StringUtils.isEmpty(dataModel.bgImageUrl)) View.GONE else View.VISIBLE
             // GlideUtils.loadImage(dataModel.bgImageUrl, imageViewSpecialTopicBg, R.drawable.new_search_result_bg_special_topic, context)
-            GlideUtils.loadBackground(dataModel.bgImageUrl, binding.layoutSpecialTopicItem)
+            GlideUtils.loadBackground(dataModel.bgImageUrl, binding.flexboxItemSpecialTopic)
             
             /** 背景标题&描述 */
-            binding.layoutSpecialTopicBg.visibility = if (StringUtils.isEmpty(dataModel.bgImageUrl)) View.GONE else View.VISIBLE
-            binding.textViewSpecialTopicBgTitle.visibility = if (StringUtils.isEmpty(dataModel.bgTitle)) View.GONE else View.VISIBLE
-            binding.textViewSpecialTopicBgDescription.visibility = if (StringUtils.isEmpty(dataModel.bgDescription)) View.GONE else View.VISIBLE
-            binding.textViewSpecialTopicBgTitle.text = dataModel.bgTitle
-            binding.textViewSpecialTopicBgDescription.text = dataModel.bgDescription
-            binding.layoutSpecialTopicBg.setOnClickListener { v ->
+            binding.flexboxSpecialTopicBg.visibility = if (StringUtils.isEmpty(dataModel.bgImageUrl)) View.GONE else View.VISIBLE
+            binding.textSpecialTopicBgTitle.visibility = if (StringUtils.isEmpty(dataModel.bgTitle)) View.GONE else View.VISIBLE
+            binding.textSpecialTopicBgDescription.visibility = if (StringUtils.isEmpty(dataModel.bgDescription)) View.GONE else View.VISIBLE
+            binding.textSpecialTopicBgTitle.text = dataModel.bgTitle
+            binding.textSpecialTopicBgDescription.text = dataModel.bgDescription
+            binding.flexboxSpecialTopicBg.setOnClickListener { v ->
                 onLayoutClickListener?.onClick(0, v, dataModel)
             }
             
             /** 头部头像&标题&描述 */
-            binding.layoutSpecialTopicHeader.visibility = if (StringUtils.isEmpty(dataModel.topicTitle) && StringUtils.isEmpty(dataModel.topicDescription)) View.GONE else View.VISIBLE
-            GlideUtils.loadImage(dataModel.topicIconUrl, binding.imageViewSpecialTopicIcon)
-            binding.textViewSpecialTopicTitle.text = dataModel.topicTitle
-            binding.textViewSpecialTopicDescription.text = dataModel.topicDescription
-            binding.layoutSpecialTopicHeader.setOnClickListener { v ->
+            binding.flexboxSpecialTopicHeader.visibility = if (StringUtils.isEmpty(dataModel.topicTitle) && StringUtils.isEmpty(dataModel.topicDescription)) View.GONE else View.VISIBLE
+            GlideUtils.loadImage(dataModel.topicIconUrl, binding.imageSpecialTopicIcon)
+            binding.textSpecialTopicTitle.text = dataModel.topicTitle
+            binding.textSpecialTopicDescription.text = dataModel.topicDescription
+            binding.flexboxSpecialTopicHeader.setOnClickListener { v ->
                 onLayoutClickListener?.onClick(0, v, dataModel)
             }
             
@@ -79,13 +79,13 @@ class SpecialTopicLayout : BaseItemLayout<ComuiListItemSpecialTopicBinding> {
             updateBannerView(dataModel.advertList)
             
             /** 图标 */
-            binding.listSpecialTopicIcon.visibility = if (dataModel.iconList.isEmpty()) View.GONE else View.VISIBLE
+            binding.recyclerSpecialTopicIcon.visibility = if (dataModel.iconList.isEmpty()) View.GONE else View.VISIBLE
             val layoutManager = LinearLayoutManager(context)
             layoutManager.orientation = RecyclerView.HORIZONTAL
-            binding.listSpecialTopicIcon.setHasFixedSize(true)
-            binding.listSpecialTopicIcon.layoutManager = layoutManager
+            binding.recyclerSpecialTopicIcon.setHasFixedSize(true)
+            binding.recyclerSpecialTopicIcon.layoutManager = layoutManager
             val iconListAdapter = AppIconAdapter(dataModel.iconList, keyList)
-            binding.listSpecialTopicIcon.adapter = iconListAdapter
+            binding.recyclerSpecialTopicIcon.adapter = iconListAdapter
             iconListAdapter.onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
                 override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View?, data: BaseItemModel) {
                     onLayoutClickListener?.onClick(position, view, data)
@@ -108,11 +108,4 @@ class SpecialTopicLayout : BaseItemLayout<ComuiListItemSpecialTopicBinding> {
             binding.bannerSpecialTopicAd.visibility = View.GONE
         }
     }
-    
-    
-    /** ********** ********** ********** Implementations ********** ********** ********** */
-    
-    
-    /** ********** ********** ********** Interface ********** ********** ********** */
-    
 }

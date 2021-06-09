@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.databinding.ComuiRecyclerViewBgWhiteCornerNormalMarginTinyBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 
@@ -37,7 +38,7 @@ class ListLayout : FrameLayout {
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(adapter: BaseItemAdapter, orientation: Int, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+    constructor(adapter: BaseItemAdapter<RecyclerView.ViewHolder>, orientation: Int, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         // this.layoutContext = context
         // this.adapter = adapter
         // this.orientation = orientation

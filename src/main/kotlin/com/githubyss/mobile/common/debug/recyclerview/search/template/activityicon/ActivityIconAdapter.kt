@@ -1,14 +1,14 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.search.template.emptyitem.EmptyItemHolder
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
-import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.base.viewbinding.inflateBinding
+import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.BaseViewHolderBindingInline
+import com.githubyss.mobile.common.ui.databinding.ComuiListItemActivityIconBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
@@ -21,63 +21,50 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @github githubyss
  * @createdTime 2021/03/26 10:29:29
  */
-class ActivityIconAdapter constructor(private val dataList: List<BaseItemModel>, private val keyList: ArrayList<String>) : BaseItemAdapter(dataList) {
+class ActivityIconAdapter constructor(private val dataList: List<BaseItemModel>, private val keyList: ArrayList<String>) : BaseItemAdapter<RecyclerView.ViewHolder>(dataList) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    companion object {
+        val TAG = ActivityIconAdapter::class.simpleName ?: "simpleName is null"
+    }
     
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
-            ItemType.ITEM -> {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.comui_list_item_activity_icon, parent, false)
-                view.layoutParams.width = (ScreenUtils.getScreenWidthPx(parent.context) - ScreenUtils.dp2Px(28.0f)) / 4
-                ActivityIconHolder(view)
-            }
-            else -> {
-                EmptyItemHolder(LayoutInflater.from(parent.context)
-                    .inflate(R.layout.comui_list_item_none, parent, false))
-            }
-        }
+        val binding = inflateBinding<ComuiListItemActivityIconBinding>(parent)
+        val view = binding.root
+        view.layoutParams.width = (ScreenUtils.getScreenWidthPx(parent.context) - ScreenUtils.dp2Px(28.0f)) / 4
+        return BaseViewHolderBindingInline(binding)
     }
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
-        when (holder) {
-            is ActivityIconHolder -> {
-                if (dataModel is ActivityIconModel) {
-                    val label = dataModel.label
-                    val url = dataModel.iconUrl
-                    if (StringUtils.isEmpty(label) && StringUtils.isEmpty(url)) {
-                        holder.layoutItem.visibility = View.INVISIBLE
-                    }
-                    
-                    GlideUtils.loadImage(dataModel.iconUrl, holder.ivIconImage)
-                    // val formatLabel = if (label.length > 4) {
-                    //     "${label.substring(0, 4)}..."
-                    // } else {
-                    //     label
-                    // }
-                    holder.tvLabel.setText(label, keyList)
-                    
-                    holder.layoutItem.setOnClickListener { v ->
-                        onItemClickListener?.onItemClick(holder, position, v, dataModel)
+        if (holder is BaseViewHolderBindingInline<*>) {
+            when (val binding = holder.binding) {
+                is ComuiListItemActivityIconBinding -> {
+                    if (dataModel is ActivityIconModel) {
+                        val label = dataModel.label
+                        val url = dataModel.iconUrl
+                        if (StringUtils.isEmpty(label) && StringUtils.isEmpty(url)) {
+                            binding.flexboxItemActivityIcon.visibility = View.INVISIBLE
+                        }
+                        
+                        GlideUtils.loadImage(dataModel.iconUrl, binding.imageActivityIcon)
+                        // val formatLabel = if (label.length > 4) {
+                        //     "${label.substring(0, 4)}..."
+                        // } else {
+                        //     label
+                        // }
+                        binding.textActivityIconLabel.setText(label, keyList)
+                        
+                        binding.flexboxItemActivityIcon.setOnClickListener { v ->
+                            onItemClickListener?.onItemClick(holder, position, v, dataModel)
+                        }
                     }
                 }
             }
-            else -> {
-            }
         }
     }
-    
-    
-    /** ********** ********** ********** Functions ********** ********** ********** */
-    
-    
-    /** ********** ********** ********** Interface ********** ********** ********** */
 }
