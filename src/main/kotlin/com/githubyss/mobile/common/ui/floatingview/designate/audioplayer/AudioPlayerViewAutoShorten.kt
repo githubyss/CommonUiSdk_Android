@@ -332,7 +332,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     /** 点击监听 */
     private val onClickListener = OnClickListener { v ->

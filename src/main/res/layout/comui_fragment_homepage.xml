@@ -38,18 +38,30 @@
 
                 <com.google.android.flexbox.FlexboxLayout
                         style="@style/comui_equant_horizontal_flex_style"
+                        android:id="@+id/flexbox_mvvm"
+                        >
+
+                    <Button
+                            style="@style/comui_equant_horizontal_button_style"
+                            android:id="@+id/button_mvvm"
+                            android:text="MVVM"
+                            />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                        style="@style/comui_equant_horizontal_flex_style"
                         android:id="@+id/flexboxViewBinding"
                         >
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnBindingReflect"
+                            android:id="@+id/button_binding_reflect"
                             android:text="ViewBinding\n（反射实现）"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnBindingInline"
+                            android:id="@+id/button_binding_inline"
                             android:text="ViewBinding\n（内联实现）"
                             />
                 </com.google.android.flexbox.FlexboxLayout>
@@ -61,13 +73,13 @@
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnPropertyAnimation"
+                            android:id="@+id/button_property_animation"
                             android:text="属性动画"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnTweenAnimation"
+                            android:id="@+id/button_tween_animation"
                             android:text="补间动画"
                             />
                 </com.google.android.flexbox.FlexboxLayout>
@@ -79,13 +91,13 @@
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnRecyclerViewMultiType"
+                            android:id="@+id/button_recycler_view_multi_type"
                             android:text="RecyclerView\n（多类型实现）"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnRecyclerViewMultiView"
+                            android:id="@+id/button_recycler_view_multi_view"
                             android:text="RecyclerView\n（多视图实现）"
                             />
                 </com.google.android.flexbox.FlexboxLayout>
@@ -97,25 +109,25 @@
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnShowFloatingWithinApp"
+                            android:id="@+id/button_show_floating_within_app"
                             android:text="显示应用级悬浮窗"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnCloseFloatingWithinApp"
+                            android:id="@+id/button_close_floating_within_app"
                             android:text="隐藏应用级悬浮窗"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnShowFloatingWithinSystem"
+                            android:id="@+id/button_show_floating_within_system"
                             android:text="显示系统级悬浮窗"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnCloseFloatingWithinSystem"
+                            android:id="@+id/button_close_floating_within_system"
                             android:text="隐藏系统级悬浮窗"
                             />
                 </com.google.android.flexbox.FlexboxLayout>
@@ -127,25 +139,25 @@
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnShowAutoShortedFloatingView"
+                            android:id="@+id/button_show_auto_shorted_floating_view"
                             android:text="显示播放器悬浮窗"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnCloseAutoShortedFloatingView"
+                            android:id="@+id/button_close_auto_shorted_floating_view"
                             android:text="隐藏播放器悬浮窗"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnLengthenAutoShortedFloatingView"
+                            android:id="@+id/button_lengthen_auto_shorted_floating_view"
                             android:text="展开播放器悬浮窗"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnShortenAutoShortedFloatingView"
+                            android:id="@+id/button_shorten_auto_shorted_floating_view"
                             android:text="收起播放器悬浮窗"
                             />
                 </com.google.android.flexbox.FlexboxLayout>
@@ -157,31 +169,31 @@
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnPlayPauseController"
+                            android:id="@+id/button_play_pause_controller"
                             android:text="播放"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnPrevious"
+                            android:id="@+id/button_previous"
                             android:text="上一首"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnNext"
+                            android:id="@+id/button_next"
                             android:text="下一首"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnSwitchVoice"
+                            android:id="@+id/button_switch_voice"
                             android:text="切换音源"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/btnStop"
+                            android:id="@+id/button_stop"
                             android:text="停止"
                             />
                 </com.google.android.flexbox.FlexboxLayout>

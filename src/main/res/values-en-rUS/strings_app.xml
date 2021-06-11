@@ -8,6 +8,7 @@
     <string name="comui_multi_type_title">Multi Type List</string>
     <string name="comui_search_result_title">Search Result List</string>
     <string name="comui_search_result_more_title">Search Result More List</string>
+    <string name="comui_mvvm_title">MVVM</string>
     <string name="comui_view_binding_reflect_title">ViewBinding by Reflect</string>
     <string name="comui_view_binding_inline_title">ViewBinding by Inline</string>
 </resources>

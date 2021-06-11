@@ -8,6 +8,7 @@
     <string name="comui_multi_type_title">多类型列表</string>
     <string name="comui_search_result_title">搜索结果列表</string>
     <string name="comui_search_result_more_title">搜索结果更多列表</string>
+    <string name="comui_mvvm_title">MVVM</string>
     <string name="comui_view_binding_reflect_title">ViewBinding（反射实现）</string>
     <string name="comui_view_binding_inline_title">ViewBinding（内联实现）</string>
 </resources>

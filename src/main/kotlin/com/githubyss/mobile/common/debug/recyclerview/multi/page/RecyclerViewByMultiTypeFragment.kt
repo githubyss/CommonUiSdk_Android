@@ -92,7 +92,7 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragmentBindingInline(R.layou
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private val onItemClickListener = object : MultiAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {

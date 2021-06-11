@@ -160,7 +160,7 @@ class SearchResultMoreFragment : BaseToolbarFragmentBindingInline(R.layout.comui
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View?, data: BaseItemModel) {

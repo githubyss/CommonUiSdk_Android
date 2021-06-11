@@ -27,7 +27,7 @@ class HomepageActivity : BaseToolbarActivityBindingInline() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        addFragment(HomepageFragment(), TAG, false, binding.frameLayoutFragmentContainer.id)
+        addFragment(HomepageFragment(), HomepageFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
     }
     
     override fun onResume() {

@@ -43,6 +43,8 @@ class FundProductAdapter constructor(private val dataList: List<BaseItemModel>, 
             when (val binding = holder.binding) {
                 is ComuiListItemFundProductBinding -> {
                     if (dataModel is FundProductModel) {
+                        // binding.fundProduct = dataModel
+                        // binding.executePendingBindings()
                         binding.textFundProductTitle.setText(dataModel.title, keyList)
                         FontManager.replaceFontFromAsset(binding.textFundProductRiseFallRatio, FontConfig.FontPath.DIN_NEXT_LT_PRO_MEDIUM)
                         try {

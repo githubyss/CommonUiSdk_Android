@@ -198,7 +198,7 @@ class BannerLineIndicator : View {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     /** 页面切换 */
     private val onPageChangeListener: OnPageChangeListener = object : OnPageChangeListener {

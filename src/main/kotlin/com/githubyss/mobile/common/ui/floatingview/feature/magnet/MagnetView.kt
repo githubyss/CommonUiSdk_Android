@@ -185,7 +185,7 @@ open class MagnetView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     /** 动画  */
     private class MoveAnimatorRunnable(var view: MagnetView) : Runnable {

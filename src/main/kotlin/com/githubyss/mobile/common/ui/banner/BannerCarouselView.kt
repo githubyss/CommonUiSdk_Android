@@ -158,7 +158,7 @@ class BannerCarouselView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Classes ********** ********** **********  */
+    /** ********** ********** ********** Classes ********** ********** ********** */
     
     internal class MyHandler(carouselView: BannerCarouselView) : Handler() {
         var weakReference: WeakReference<BannerCarouselView> = WeakReference(carouselView)
@@ -184,7 +184,7 @@ class BannerCarouselView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private val onPageChangeListener: OnPageChangeListener = object : OnPageChangeListener {
         override fun onPageScrolled(i: Int, v: Float, i1: Int) {}

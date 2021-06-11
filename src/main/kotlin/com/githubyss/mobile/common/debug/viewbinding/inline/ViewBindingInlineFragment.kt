@@ -20,7 +20,7 @@ class ViewBindingInlineFragment : BaseToolbarFragmentBindingInline(R.layout.comu
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = ViewBindingInlineFragment::class.simpleName ?: "simpleName is null"
+        val TAG = ViewBindingInlineFragment::class.simpleName ?: "simpleName is null"
     }
     
     private val binding by bindView<ComuiFragmentViewBindingInlineBinding>()
@@ -43,7 +43,7 @@ class ViewBindingInlineFragment : BaseToolbarFragmentBindingInline(R.layout.comu
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {

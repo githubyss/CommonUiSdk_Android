@@ -298,7 +298,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     /** 监听前后台切换  */
     private val voiceReceiver: BroadcastReceiver? = object : BroadcastReceiver() {

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.viewbinding.inline
+package com.githubyss.mobile.common.debug.mvvm
 
 import android.os.Bundle
 import com.githubyss.mobile.common.ui.R
@@ -6,30 +6,30 @@ import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarAc
 
 
 /**
- * ViewBindingInlineActivity
+ * MvvmActivity
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/06/04 14:55:13
+ * @createdTime 2021/06/10 10:56:07
  */
-class ViewBindingInlineActivity : BaseToolbarActivityBindingInline() {
+class MvvmActivity : BaseToolbarActivityBindingInline() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = ViewBindingInlineActivity::class.simpleName ?: "simpleName is null"
+        private val TAG = MvvmActivity::class.java.simpleName
     }
     
     
     /** ********** ********** ********** Override ********** ********** ********** */
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        addFragment(ViewBindingInlineFragment(), ViewBindingInlineFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
+        addFragment(MvvmFragment(), MvvmFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
     }
     
     override fun onResume() {
         super.onResume()
-        setToolbarTitle(R.string.comui_view_binding_inline_title)
+        setToolbarTitle(R.string.comui_mvvm_title)
     }
 }

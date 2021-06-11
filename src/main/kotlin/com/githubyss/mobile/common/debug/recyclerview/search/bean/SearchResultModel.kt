@@ -1,6 +1,8 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.bean
 
+import android.content.Context
 import com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore.HeaderHasMoreModel
+import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 import org.json.JSONException
 import org.json.JSONObject
@@ -17,6 +19,23 @@ import java.util.*
 class SearchResultModel(json: JSONObject?) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
+    
+    companion object {
+        val TAG = SearchResultModel::class.simpleName ?: "simpleName is null"
+        
+        fun requestDataByMock(context: Context, searchWord: String): SearchResultModel {
+            val jsonStringTabAll = ResourceUtils.getStringFromAssets("json/mock_request_search_result_tab_all.json")
+            val jsonStringTabFinancial = ResourceUtils.getStringFromAssets("json/mock_request_search_result_tab_financial.json")
+            val jsonStringTabDirectJump = ResourceUtils.getStringFromAssets("json/mock_request_search_result_direct_jump.json")
+            val jsonString = jsonStringTabAll
+            return SearchResultModel(JSONObject(jsonString))
+        }
+        
+        fun requestDataByNet(context: Context, searchWord: String): SearchResultModel {
+            val jsonString = ""
+            return SearchResultModel(JSONObject(jsonString))
+        }
+    }
     
     /** 搜索关键词 */
     var keyWord: String = ""

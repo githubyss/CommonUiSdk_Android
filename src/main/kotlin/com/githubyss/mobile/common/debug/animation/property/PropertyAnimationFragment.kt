@@ -141,7 +141,7 @@ class PropertyAnimationFragment : BaseToolbarFragmentBindingInline(R.layout.comu
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {

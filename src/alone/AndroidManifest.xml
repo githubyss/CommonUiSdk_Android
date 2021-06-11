@@ -9,20 +9,20 @@
 
     <application
             android:name="com.githubyss.mobile.common.debug.application.ComuiApplication"
-            android:label="@string/comui_appName"
-            android:theme="@style/comres_app_gray_theme"
-            android:icon="@mipmap/comres_ic_launcher"
-            android:roundIcon="@mipmap/comres_ic_launcher_round"
             android:allowBackup="false"
+            android:icon="@mipmap/comres_ic_launcher"
+            android:label="@string/comui_appName"
+            android:roundIcon="@mipmap/comres_ic_launcher_round"
             android:supportsRtl="true"
+            android:theme="@style/comres_app_gray_theme"
             >
 
         <activity
                 android:name="com.githubyss.mobile.common.debug.homepage.HomepageActivity"
                 android:label="@string/comui_activityLabel_homepage"
-                android:theme="@style/comres_activity_noActionBar_theme"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
+                android:theme="@style/comres_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 >
             <intent-filter>
@@ -32,20 +32,29 @@
         </activity>
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.viewbinding.reflect.ViewBindingReflectActivity"
-                android:label="@string/comui_view_binding_reflect_title"
-                android:theme="@style/comres_activity_noActionBar_theme"
+                android:name="com.githubyss.mobile.common.debug.mvvm.MvvmActivity"
+                android:label="@string/comui_mvvm_title"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
+                android:theme="@style/comres_activity_noActionBar_theme"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+                />
+
+        <activity
+                android:name="com.githubyss.mobile.common.debug.viewbinding.reflect.ViewBindingReflectActivity"
+                android:label="@string/comui_view_binding_reflect_title"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@style/comres_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 />
 
         <activity
                 android:name="com.githubyss.mobile.common.debug.viewbinding.inline.ViewBindingInlineActivity"
                 android:label="@string/comui_view_binding_inline_title"
-                android:theme="@style/comres_activity_noActionBar_theme"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
+                android:theme="@style/comres_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 />
     </application>

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.githubyss.mobile.common.debug.animation.property.PropertyAnimationFragment
+import com.githubyss.mobile.common.debug.mvvm.MvvmActivity
 import com.githubyss.mobile.common.debug.recyclerview.multi.page.RecyclerViewByMultiTypeFragment
 import com.githubyss.mobile.common.debug.recyclerview.search.page.SearchResultFragment
 import com.githubyss.mobile.common.debug.viewbinding.inline.ViewBindingInlineActivity
@@ -39,7 +40,7 @@ class HomepageFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragmen
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = HomepageFragment::class.simpleName ?: "simpleName is null"
+        val TAG = HomepageFragment::class.simpleName ?: "simpleName is null"
     }
     
     private val binding by bindView<ComuiFragmentHomepageBinding>()
@@ -58,47 +59,51 @@ class HomepageFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragmen
     private fun initView() {
         setToolbarTitle(R.string.comui_homepage_title)
         
-        binding.btnBindingReflect.setOnClickListener(onClickListener)
-        binding.btnBindingInline.setOnClickListener(onClickListener)
+        binding.buttonMvvm.setOnClickListener(onClickListener)
         
-        binding.btnPropertyAnimation.setOnClickListener(onClickListener)
-        binding.btnTweenAnimation.setOnClickListener(onClickListener)
+        binding.buttonBindingReflect.setOnClickListener(onClickListener)
+        binding.buttonBindingInline.setOnClickListener(onClickListener)
         
-        binding.btnRecyclerViewMultiType.setOnClickListener(onClickListener)
-        binding.btnRecyclerViewMultiView.setOnClickListener(onClickListener)
+        binding.buttonPropertyAnimation.setOnClickListener(onClickListener)
+        binding.buttonTweenAnimation.setOnClickListener(onClickListener)
         
-        binding.btnShowFloatingWithinApp.setOnClickListener(onClickListener)
-        binding.btnCloseFloatingWithinApp.setOnClickListener(onClickListener)
-        binding.btnShowFloatingWithinSystem.setOnClickListener(onClickListener)
-        binding.btnCloseFloatingWithinSystem.setOnClickListener(onClickListener)
+        binding.buttonRecyclerViewMultiType.setOnClickListener(onClickListener)
+        binding.buttonRecyclerViewMultiView.setOnClickListener(onClickListener)
         
-        binding.btnShowAutoShortedFloatingView.setOnClickListener(onClickListener)
-        binding.btnCloseAutoShortedFloatingView.setOnClickListener(onClickListener)
-        binding.btnLengthenAutoShortedFloatingView.setOnClickListener(onClickListener)
-        binding.btnShortenAutoShortedFloatingView.setOnClickListener(onClickListener)
+        binding.buttonShowFloatingWithinApp.setOnClickListener(onClickListener)
+        binding.buttonCloseFloatingWithinApp.setOnClickListener(onClickListener)
+        binding.buttonShowFloatingWithinSystem.setOnClickListener(onClickListener)
+        binding.buttonCloseFloatingWithinSystem.setOnClickListener(onClickListener)
         
-        binding.btnPlayPauseController.setOnClickListener(onClickListener)
-        binding.btnPrevious.setOnClickListener(onClickListener)
-        binding.btnNext.setOnClickListener(onClickListener)
-        binding.btnSwitchVoice.setOnClickListener(onClickListener)
-        binding.btnStop.setOnClickListener(onClickListener)
+        binding.buttonShowAutoShortedFloatingView.setOnClickListener(onClickListener)
+        binding.buttonCloseAutoShortedFloatingView.setOnClickListener(onClickListener)
+        binding.buttonLengthenAutoShortedFloatingView.setOnClickListener(onClickListener)
+        binding.buttonShortenAutoShortedFloatingView.setOnClickListener(onClickListener)
+        
+        binding.buttonPlayPauseController.setOnClickListener(onClickListener)
+        binding.buttonPrevious.setOnClickListener(onClickListener)
+        binding.buttonNext.setOnClickListener(onClickListener)
+        binding.buttonSwitchVoice.setOnClickListener(onClickListener)
+        binding.buttonStop.setOnClickListener(onClickListener)
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {
-            R.id.btnBindingReflect -> ActivityUtils.startActivity(activity, ViewBindingReflectActivity::class.java)
-            R.id.btnBindingInline -> ActivityUtils.startActivity(activity, ViewBindingInlineActivity::class.java)
+            R.id.button_mvvm -> ActivityUtils.startActivity(activity, MvvmActivity::class.java)
             
-            R.id.btnPropertyAnimation -> replaceFragment(PropertyAnimationFragment(), PropertyAnimationFragment.TAG, true)
-            R.id.btnTweenAnimation -> return@OnClickListener
+            R.id.button_binding_reflect -> ActivityUtils.startActivity(activity, ViewBindingReflectActivity::class.java)
+            R.id.button_binding_inline -> ActivityUtils.startActivity(activity, ViewBindingInlineActivity::class.java)
             
-            R.id.btnRecyclerViewMultiType -> replaceFragment(RecyclerViewByMultiTypeFragment(), RecyclerViewByMultiTypeFragment.TAG, true)
-            R.id.btnRecyclerViewMultiView -> replaceFragment(SearchResultFragment(), SearchResultFragment.TAG, true)
+            R.id.button_property_animation -> replaceFragment(PropertyAnimationFragment(), PropertyAnimationFragment.TAG, true)
+            R.id.button_tween_animation -> return@OnClickListener
             
-            R.id.btnShowFloatingWithinApp -> {
+            R.id.button_recycler_view_multi_type -> replaceFragment(RecyclerViewByMultiTypeFragment(), RecyclerViewByMultiTypeFragment.TAG, true)
+            R.id.button_recycler_view_multi_view -> replaceFragment(SearchResultFragment(), SearchResultFragment.TAG, true)
+            
+            R.id.button_show_floating_within_app -> {
                 val layoutParams = FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                 layoutParams.gravity = Gravity.BOTTOM or Gravity.END
                 layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, (ScreenUtils.dp2Px(14.0f)), (ScreenUtils.dp2Px(14.0f)))
@@ -122,13 +127,13 @@ class HomepageFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragmen
                 //             override fun onIconClick() {}
                 //         })
             }
-            R.id.btnCloseFloatingWithinApp -> {
+            R.id.button_close_floating_within_app -> {
                 AppFloatingIcon.getInstance(activity as Context)
                     .close()
                 // SystemFloatingIcon.getInstance(activity as Context)
                 //         .close()
             }
-            R.id.btnShowFloatingWithinSystem -> {
+            R.id.button_show_floating_within_system -> {
                 SystemFloatingIcon.getInstance(activity as Context)
                     .show()
                     ?.setMovable(true)
@@ -139,12 +144,12 @@ class HomepageFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragmen
                         override fun onIconClick() {}
                     })
             }
-            R.id.btnCloseFloatingWithinSystem -> {
+            R.id.button_close_floating_within_system -> {
                 SystemFloatingIcon.getInstance(activity as Context)
                     .close()
             }
             
-            R.id.btnShowAutoShortedFloatingView -> {
+            R.id.button_show_auto_shorted_floating_view -> {
                 // Fake data
                 val audioList: MutableList<AudioModel> = ArrayList()
                 audioList.add(AudioModel("00000", "测图", "", "", "", "http://ossprexg.cnsuning.com/fipcms/media/voice/male/1608360545089.wav", "http://ossprexg.cnsuning.com/fipcms/media/voice/female/1608360545089.wav"))
@@ -171,27 +176,27 @@ class HomepageFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragmen
                             run {
                                 LogcatUtils.d(TAG, "FloatingAudioPlayerListener >>> onUpdateAudioInfo >> audioModel: $audioModel")
                                 if (audioModel?.isPlaying ?: return) {
-                                    binding.btnPlayPauseController.text = "暂停"
+                                    binding.buttonPlayPauseController.text = "暂停"
                                 } else {
-                                    binding.btnPlayPauseController.text = "播放"
+                                    binding.buttonPlayPauseController.text = "播放"
                                 }
                             }
                         }
                     })?.designateView?.play(audioList)
             }
-            R.id.btnCloseAutoShortedFloatingView -> {
+            R.id.button_close_auto_shorted_floating_view -> {
                 AppFloatingAudioPlayer.getInstance(activity as Context)
                     .close()
             }
-            R.id.btnLengthenAutoShortedFloatingView -> {
+            R.id.button_lengthen_auto_shorted_floating_view -> {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.lengthen()
             }
-            R.id.btnShortenAutoShortedFloatingView -> {
+            R.id.button_shorten_auto_shorted_floating_view -> {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.shorten()
             }
             
-            R.id.btnPlayPauseController -> {
-                when (binding.btnPlayPauseController.text) {
+            R.id.button_play_pause_controller -> {
+                when (binding.buttonPlayPauseController.text) {
                     "播放" -> {
                         AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.start()
                     }
@@ -200,16 +205,16 @@ class HomepageFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragmen
                     }
                 }
             }
-            R.id.btnPrevious -> {
+            R.id.button_previous -> {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.previous()
             }
-            R.id.btnNext -> {
+            R.id.button_next -> {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.next()
             }
-            R.id.btnSwitchVoice -> {
+            R.id.button_switch_voice -> {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.switchVoice()
             }
-            R.id.btnStop -> {
+            R.id.button_stop -> {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.stop()
             }
         }

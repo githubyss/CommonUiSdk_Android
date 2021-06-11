@@ -293,7 +293,7 @@ class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPla
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     /** 监听前后台切换  */
     private val voiceReceiver: BroadcastReceiver? = object : BroadcastReceiver() {

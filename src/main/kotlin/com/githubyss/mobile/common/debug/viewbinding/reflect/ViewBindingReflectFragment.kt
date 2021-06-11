@@ -19,7 +19,7 @@ class ViewBindingReflectFragment : BaseToolbarFragmentBindingReflect<ComuiFragme
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = ViewBindingReflectFragment::class.simpleName ?: "simpleName is null"
+        val TAG = ViewBindingReflectFragment::class.simpleName ?: "simpleName is null"
     }
     
     
@@ -40,7 +40,7 @@ class ViewBindingReflectFragment : BaseToolbarFragmentBindingReflect<ComuiFragme
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {

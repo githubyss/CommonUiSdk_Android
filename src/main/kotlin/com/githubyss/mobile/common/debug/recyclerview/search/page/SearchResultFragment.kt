@@ -11,7 +11,6 @@ import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultMo
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuildUtils
 import com.githubyss.mobile.common.kit.util.ActivityUtils
-import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragmentBindingInline
@@ -23,7 +22,6 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
 import org.greenrobot.eventbus.EventBus
-import org.json.JSONObject
 
 
 /**
@@ -122,12 +120,8 @@ class SearchResultFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fra
         isRequesting = true
         layoutList.clear()
         
+        val searchResultModel = SearchResultModel.requestDataByMock(context, searchWord)
         isRequesting = false
-        val jsonStringTabAll = ResourceUtils.getStringFromAssets("json/mock_request_search_result_tab_all.json")
-        val jsonStringTabFinancial = ResourceUtils.getStringFromAssets("json/mock_request_search_result_tab_financial.json")
-        val jsonStringTabDirectJump = ResourceUtils.getStringFromAssets("json/mock_request_search_result_direct_jump.json")
-        val jsonString = jsonStringTabAll
-        val searchResultModel = SearchResultModel(JSONObject(jsonString))
         // if (searchResultModel.keyWord != this@SearchResultFragment.searchWord) return
         // if (searchResultModel.moduleTab == this@SearchResultFragment.moduleTab) return
         layoutList.clear()
@@ -142,7 +136,7 @@ class SearchResultFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fra
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** **********  */
+    /** ********** ********** ********** Implementations ********** ********** ********** */
     
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View?, data: BaseItemModel) {
