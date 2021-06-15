@@ -40,6 +40,7 @@ class MvvmVmObservableField : ViewModel() {
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     init {
+        initViewModelField()
         loadData()
     }
     
@@ -54,16 +55,17 @@ class MvvmVmObservableField : ViewModel() {
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    private fun loadData() {
-        mvvmBean?.text = "Init."
-        mvvmBean?.imageUrl = "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif"
-        initViewModelField()
-    }
+    /** ********** ********** Data Handling ********** ********** */
     
     private fun initViewModelField() {
         text = ObservableField()
         imageUrl = ObservableField()
         isTextShow = ObservableBoolean()
+    }
+    
+    private fun loadData() {
+        mvvmBean?.text = "Init."
+        mvvmBean?.imageUrl = "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif"
         
         text?.set(mvvmBean?.text)
         imageUrl?.set(mvvmBean?.imageUrl)
@@ -72,6 +74,23 @@ class MvvmVmObservableField : ViewModel() {
     
     private fun clearData() {
         mvvmBean = null
+    }
+    
+    /** ********** ********** Event Handling ********** ********** */
+    
+    fun onButtonChangeTextClick() {
+        val text = "Current Time: ${System.currentTimeMillis()}"
+        this.text?.set(text)
+    }
+    
+    fun onButtonShowTextClick() {
+        val isTextShow = true
+        this.isTextShow?.set(isTextShow)
+    }
+    
+    fun onButtonHideTextClick() {
+        val isTextShow = false
+        this.isTextShow?.set(isTextShow)
     }
     
     

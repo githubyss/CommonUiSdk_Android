@@ -1,9 +1,11 @@
 package com.githubyss.mobile.common.debug.mvvm
 
+import android.view.View
 import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.githubyss.mobile.common.debug.mvvm.child.MvvmChildVm
+import com.githubyss.mobile.common.ui.R
 
 
 /**
@@ -39,6 +41,7 @@ class MvvmVmLiveData : ViewModel() {
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     init {
+        initViewModelField()
         loadData()
     }
     
@@ -53,29 +56,59 @@ class MvvmVmLiveData : ViewModel() {
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
-    private fun loadData() {
-        mvvmBean?.text = "Init."
-        mvvmBean?.imageUrl = "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif"
-        initViewModelField()
-    }
+    /** ********** ********** Data Handling ********** ********** */
     
     private fun initViewModelField() {
-        text = MutableLiveData()
-        imageUrl = MutableLiveData()
-        isTextShow = MutableLiveData()
+        this.text = MutableLiveData()
+        this.imageUrl = MutableLiveData()
+        this.isTextShow = MutableLiveData()
+    }
+    
+    private fun loadData() {
+        mvvmBean = MvvmModel.MvvmBean("Init.", "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif")
         
-        text?.value = mvvmBean?.text
-        imageUrl?.value = mvvmBean?.imageUrl
-        isTextShow?.value = true
+        this.text?.value = mvvmBean?.text
+        this.imageUrl?.value = mvvmBean?.imageUrl
+        this.isTextShow?.value = true
     }
     
     private fun clearData() {
         mvvmBean = null
     }
     
-    fun refreshData() {
+    /** ********** ********** Event Handling ********** ********** */
     
+    fun onButtonClick(view: View) {
+        when (view.id) {
+            // R.id.button_change_text -> {
+            //     val text = "Current Time: ${System.currentTimeMillis()}"
+            //     this.text?.value = text
+            // }
+            R.id.button_show_text -> {
+                val isTextShow = true
+                this.isTextShow?.value = isTextShow
+            }
+            R.id.button_hide_text -> {
+                val isTextShow = false
+                this.isTextShow?.value = isTextShow
+            }
+        }
     }
+    
+    fun onButtonChangeTextClick() {
+        val text = "Current Time: ${System.currentTimeMillis()}"
+        this.text?.value = text
+    }
+    
+    // fun onButtonShowTextClick() {
+    //     val isTextShow = true
+    //     this.isTextShow?.value = isTextShow
+    // }
+    //
+    // fun onButtonHideTextClick() {
+    //     val isTextShow = false
+    //     this.isTextShow?.value = isTextShow
+    // }
     
     
     /** ********** ********** ********** Class ********** ********** ********** */

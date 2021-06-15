@@ -27,8 +27,8 @@ class MvvmFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_mv
     }
     
     private val binding by bindView<ComuiFragmentMvvmBinding>()
-    val mvvmVmObservableField: MvvmVmObservableField by lazy { ViewModelProvider(requireActivity()).get(MvvmVmObservableField::class.java) }
-    val mvvmVmLiveData: MvvmVmLiveData by lazy { ViewModelProvider(requireActivity()).get(MvvmVmLiveData::class.java) }
+    private val mvvmVmObservableField: MvvmVmObservableField by lazy { ViewModelProvider(requireActivity()).get(MvvmVmObservableField::class.java) }
+    private val mvvmVmLiveData: MvvmVmLiveData by lazy { ViewModelProvider(requireActivity()).get(MvvmVmLiveData::class.java) }
     
     
     /** ********** ********** ********** Override ********** ********** ********** */
@@ -47,15 +47,11 @@ class MvvmFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_mv
     private fun initView() {
         setToolbarTitle(R.string.comui_mvvm_title)
         
-        binding.buttonChangeText.setOnClickListener(onClickListener)
-        binding.buttonShowText.setOnClickListener(onClickListener)
-        binding.buttonHideText.setOnClickListener(onClickListener)
-        
         binding.lifecycleOwner = viewLifecycleOwner
     }
     
     private fun initData() {
-        binding.mvvm = mvvmVmLiveData
+        binding.mvvmVm = mvvmVmLiveData
     }
     
     private fun initObservableField() {
@@ -70,34 +66,8 @@ class MvvmFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_mv
     }
     
     private fun initLiveData() {
-        // mvvmVmLiveData.text?.observe(viewLifecycleOwner, Observer { t ->
-        //
-        // })
         mvvmVmLiveData.isTextShow?.observe(viewLifecycleOwner, Observer { b ->
             binding.textDisplay.visibility = if (b) View.VISIBLE else View.INVISIBLE
         })
-    }
-    
-    
-    /** ********** ********** ********** Implementations ********** ********** ********** */
-    
-    private val onClickListener = View.OnClickListener { v ->
-        when (v.id) {
-            R.id.button_change_text -> {
-                val text = "Current Time: ${System.currentTimeMillis()}"
-                mvvmVmObservableField.text?.set(text)
-                mvvmVmLiveData.text?.value = text
-            }
-            R.id.button_show_text -> {
-                val isTextShow = true
-                mvvmVmObservableField.isTextShow?.set(isTextShow)
-                mvvmVmLiveData.isTextShow?.value = isTextShow
-            }
-            R.id.button_hide_text -> {
-                val isTextShow = false
-                mvvmVmObservableField.isTextShow?.set(isTextShow)
-                mvvmVmLiveData.isTextShow?.value = isTextShow
-            }
-        }
     }
 }

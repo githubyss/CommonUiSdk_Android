@@ -11,7 +11,7 @@
         <import type="com.githubyss.mobile.common.debug.mvvm.MvvmVmLiveData" />
 
         <variable
-                name="mvvm"
+                name="mvvmVm"
                 type="MvvmVmLiveData"
                 />
     </data>
@@ -43,12 +43,14 @@
                     >
 
                 <TextView
-                        style="@style/comres_tag_gray_style"
+                        style="@style/comres_tips_gray_style"
                         android:id="@+id/textDisplay"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/comres_color_999999"
                         android:gravity="center"
-                        android:text="@{mvvm.text}"
+                        android:text="@{mvvmVm.text}"
                         android:textColor="@color/comres_color_black"
                         android:textSize="@dimen/comres_textSize_18sp"
                         />
@@ -58,6 +60,7 @@
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
                             android:id="@+id/button_change_text"
+                            android:onClick="@{() -> mvvmVm.onButtonChangeTextClick()}"
                             android:text="改变文案"
                             />
                 </com.google.android.flexbox.FlexboxLayout>
@@ -67,12 +70,14 @@
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
                             android:id="@+id/button_show_text"
+                            android:onClick="@{mvvmVm::onButtonClick}"
                             android:text="显示文案"
                             />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
                             android:id="@+id/button_hide_text"
+                            android:onClick="@{mvvmVm::onButtonClick}"
                             android:text="隐藏文案"
                             />
                 </com.google.android.flexbox.FlexboxLayout>

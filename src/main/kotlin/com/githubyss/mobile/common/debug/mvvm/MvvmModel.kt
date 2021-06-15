@@ -31,6 +31,8 @@ interface MvvmModel {
         
         /** ********** ********** ********** Constructors ********** ********** ********** */
         
+        constructor()
+        
         constructor(text: String, imageUrl: String) {
             this.text = text
             this.imageUrl = imageUrl
