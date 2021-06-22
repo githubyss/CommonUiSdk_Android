@@ -5,6 +5,7 @@ import android.view.View
 import androidx.databinding.Observable
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.githubyss.mobile.common.debug.mvvm.enumeration.DisplayType
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragmentBindingInline
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
@@ -66,8 +67,17 @@ class MvvmFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_mv
     }
     
     private fun initLiveData() {
-        mvvmVmLiveData.isTextShow?.observe(viewLifecycleOwner, Observer { b ->
-            binding.textDisplay.visibility = if (b) View.VISIBLE else View.INVISIBLE
+        mvvmVmLiveData.displayType?.observe(viewLifecycleOwner, Observer { s ->
+            when (s) {
+                DisplayType.TEXT -> {
+                    binding.flexboxText.visibility = View.VISIBLE
+                    binding.flexboxImage.visibility = View.GONE
+                }
+                DisplayType.IMAGE -> {
+                    binding.flexboxText.visibility = View.GONE
+                    binding.flexboxImage.visibility = View.VISIBLE
+                }
+            }
         })
     }
 }

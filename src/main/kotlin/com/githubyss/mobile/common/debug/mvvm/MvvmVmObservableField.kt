@@ -22,7 +22,8 @@ class MvvmVmObservableField : ViewModel() {
     // var context: Activity? = null
     
     /** model（数据源 Java Bean） */
-    var mvvmBean: MvvmModel.MvvmBean? = null
+    private var textBean: MvvmModel.TextBean? = null
+    private var imageBean: MvvmModel.ImageBean? = null
     
     /** 数据绑定，绑定到 UI 的字段（data field） */
     var text: ObservableField<String>? = null
@@ -64,16 +65,16 @@ class MvvmVmObservableField : ViewModel() {
     }
     
     private fun loadData() {
-        mvvmBean?.text = "Init."
-        mvvmBean?.imageUrl = "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif"
+        textBean = MvvmModel.TextBean("请点击开始！")
+        imageBean = MvvmModel.ImageBean("https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif")
         
-        text?.set(mvvmBean?.text)
-        imageUrl?.set(mvvmBean?.imageUrl)
+        text?.set(textBean?.text)
+        imageUrl?.set(imageBean?.imageUrl)
         isTextShow?.set(true)
     }
     
     private fun clearData() {
-        mvvmBean = null
+        textBean = null
     }
     
     /** ********** ********** Event Handling ********** ********** */

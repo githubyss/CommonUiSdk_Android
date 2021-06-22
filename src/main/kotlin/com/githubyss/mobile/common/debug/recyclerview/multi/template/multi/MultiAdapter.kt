@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.multi.template.image.ImageHolder
-import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.emptypage.EmptyPageHolder
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.footer.FooterHolder
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.header.HeaderHolder
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.image.ImageHolder
+import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
 
 
 /**
@@ -56,10 +56,8 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
     override fun onCreateViewHolder(parent: ViewGroup, @MultiType viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             MultiType.EMPTY -> {
-                EmptyPageHolder(
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_list_item_empty_page, parent, false)
-                )
+                EmptyPageHolder(LayoutInflater.from(parent.context)
+                    .inflate(R.layout.comui_list_item_empty_page, parent, false))
             }
             MultiType.HEADER -> {
                 HeaderHolder(LayoutInflater.from(parent.context)
@@ -70,16 +68,16 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
                     .inflate(R.layout.comui_list_item_footer, parent, false))
             }
             MultiType.TEXT -> {
-                TextHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_text, parent, false))
+                TextHolder(LayoutInflater.from(parent.context)
+                    .inflate(R.layout.comui_list_item_text, parent, false))
             }
             MultiType.IMAGE -> {
-                ImageHolder(LayoutInflater.from(parent.context).inflate(R.layout.comui_list_item_image, parent, false))
+                ImageHolder(LayoutInflater.from(parent.context)
+                    .inflate(R.layout.comui_list_item_image, parent, false))
             }
             else -> {
-                EmptyPageHolder(
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.comui_list_item_empty_page, parent, false)
-                )
+                EmptyPageHolder(LayoutInflater.from(parent.context)
+                    .inflate(R.layout.comui_list_item_empty_page, parent, false))
             }
         }
     }
@@ -114,7 +112,7 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
             }
             is ImageHolder -> {
                 holder.tvImageDescription.text = dataModel.title
-                GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
+                GlideUtils.loadImage(holder.ivImage, holder.layoutItem, dataModel.imageUrl)
             }
             else -> {
             }
@@ -129,7 +127,9 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
     }
     
     private fun initData() {
-        dataList.indices.asSequence().filter { dataList[it].selectStatus }.forEach { selectedPosition = it }
+        dataList.indices.asSequence()
+            .filter { dataList[it].selectStatus }
+            .forEach { selectedPosition = it }
     }
     
     

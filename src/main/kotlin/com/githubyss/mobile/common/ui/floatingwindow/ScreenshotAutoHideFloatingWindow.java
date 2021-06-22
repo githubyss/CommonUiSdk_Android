@@ -440,7 +440,7 @@ public class ScreenshotAutoHideFloatingWindow {
         // }
         //
         // /**
-        //  * 自动隐藏悬浮窗 Task
+        //  * 自动隐藏悬浮窗
         //  * yanss 2017/04/07 14:20:16
         //  */
         // autoHideTimerTask = new TimerTask() {

@@ -51,7 +51,7 @@ class AppIconAdapter constructor(private val dataList: List<BaseItemModel>, priv
                             binding.flexboxItemAppIcon.visibility = View.INVISIBLE
                         }
                         
-                        GlideUtils.loadImage(dataModel.iconUrl, binding.imageAppIcon)
+                        GlideUtils.loadImage(binding.imageAppIcon, binding.root, dataModel.iconUrl)
                         val formatLabel = if (label.length > 4) {
                             "${label.substring(0, 4)}..."
                         } else {

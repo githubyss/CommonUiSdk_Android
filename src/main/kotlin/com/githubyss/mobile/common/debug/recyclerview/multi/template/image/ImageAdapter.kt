@@ -84,7 +84,7 @@ class ImageAdapter constructor(private val dataList: List<ImageModel>) : Recycle
             }
             is ImageHolder -> {
                 holder.tvImageDescription.text = dataModel.description
-                GlideUtils.loadImage(dataModel.imageUrl, holder.ivImage)
+                GlideUtils.loadImage(holder.ivImage, holder.layoutItem, dataModel.imageUrl)
                 holder.layoutItem.setOnClickListener {
                     onItemClickListener?.onItemClick(holder, position)
                 }

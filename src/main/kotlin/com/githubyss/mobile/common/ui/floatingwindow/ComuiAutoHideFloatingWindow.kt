@@ -237,7 +237,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     
     fun setImage(path: String): ComuiAutoHideFloatingWindow {
         viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow
-        GlideUtils.loadImage(path, viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow)
+        GlideUtils.loadImage(viewHolder?.ivCenter, this, path)
         return this@ComuiAutoHideFloatingWindow
     }
     

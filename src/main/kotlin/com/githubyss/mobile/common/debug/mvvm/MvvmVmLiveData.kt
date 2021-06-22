@@ -5,7 +5,11 @@ import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.githubyss.mobile.common.debug.mvvm.child.MvvmChildVm
+import com.githubyss.mobile.common.debug.mvvm.enumeration.DisplayType
+import com.githubyss.mobile.common.debug.mvvm.enumeration.TimeOperateState
+import com.githubyss.mobile.common.kit.util.TimerUtils
 import com.githubyss.mobile.common.ui.R
+import java.util.*
 
 
 /**
@@ -23,12 +27,20 @@ class MvvmVmLiveData : ViewModel() {
     // var context: Activity? = null
     
     /** model（数据源 Java Bean） */
-    var mvvmBean: MvvmModel.MvvmBean? = null
+    private var textBean: MvvmModel.TextBean? = null
+    private var imageBean: MvvmModel.ImageBean? = null
     
     /** 数据绑定，绑定到 UI 的字段（data field） */
     var text: MutableLiveData<String>? = null
     var imageUrl: MutableLiveData<String>? = null
     var isTextShow: MutableLiveData<Boolean>? = null
+    
+    @DisplayType
+    var displayType: MutableLiveData<String>? = null
+    
+    @TimeOperateState
+    var timeOperateState: MutableLiveData<String>? = null
+    
     // var viewStyle = ViewStyle()
     
     /** 命令绑定（command） */
@@ -62,53 +74,76 @@ class MvvmVmLiveData : ViewModel() {
         this.text = MutableLiveData()
         this.imageUrl = MutableLiveData()
         this.isTextShow = MutableLiveData()
+        this.displayType = MutableLiveData()
+        this.timeOperateState = MutableLiveData()
     }
     
     private fun loadData() {
-        mvvmBean = MvvmModel.MvvmBean("Init.", "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif")
+        textBean = MvvmModel.TextBean("请点击开始！")
+        imageBean = MvvmModel.ImageBean("https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif")
         
-        this.text?.value = mvvmBean?.text
-        this.imageUrl?.value = mvvmBean?.imageUrl
+        this.text?.value = textBean?.text
+        this.imageUrl?.value = imageBean?.imageUrl
         this.isTextShow?.value = true
+        this.displayType?.value = DisplayType.TEXT
+        this.timeOperateState?.value = TimeOperateState.START
     }
     
     private fun clearData() {
-        mvvmBean = null
+        textBean = null
     }
     
     /** ********** ********** Event Handling ********** ********** */
     
     fun onButtonClick(view: View) {
         when (view.id) {
-            // R.id.button_change_text -> {
-            //     val text = "Current Time: ${System.currentTimeMillis()}"
-            //     this.text?.value = text
-            // }
-            R.id.button_show_text -> {
-                val isTextShow = true
-                this.isTextShow?.value = isTextShow
+            R.id.button_image_dog -> {
+                this.imageUrl?.value = "https://n.sinaimg.cn/tech/transform/403/w179h224/20210207/befe-kirmaiu6765911.gif"
             }
-            R.id.button_hide_text -> {
-                val isTextShow = false
-                this.isTextShow?.value = isTextShow
+            
+            R.id.button_image_cat -> {
+                this.imageUrl?.value = "https://n.sinaimg.cn/tech/transform/356/w222h134/20210224/4f29-kkmphps7924390.gif"
+            }
+            
+            R.id.button_image_chameleon -> {
+                this.imageUrl?.value = "https://n.sinaimg.cn/tech/transform/398/w212h186/20210309/512c-kmeeius1127364.gif"
             }
         }
     }
     
-    fun onButtonChangeTextClick() {
-        val text = "Current Time: ${System.currentTimeMillis()}"
-        this.text?.value = text
+    fun onButtonOperateTimeClick() {
+        when (this.timeOperateState?.value) {
+            TimeOperateState.START -> {
+                this.timeOperateState?.value = TimeOperateState.STOP
+                val timerTask = object : TimerTask() {
+                    override fun run() {
+                        this@MvvmVmLiveData.text?.postValue("当前时间: ${System.currentTimeMillis()}")
+                    }
+                }
+                TimerUtils.runTaskPeriodicallyWithTimeOffset(timerTask, 0, 500)
+            }
+            TimeOperateState.STOP -> {
+                this.timeOperateState?.value = TimeOperateState.START
+                TimerUtils.cancel()
+            }
+        }
     }
     
-    // fun onButtonShowTextClick() {
-    //     val isTextShow = true
-    //     this.isTextShow?.value = isTextShow
-    // }
-    //
-    // fun onButtonHideTextClick() {
-    //     val isTextShow = false
-    //     this.isTextShow?.value = isTextShow
-    // }
+    fun onButtonShowTimeTextClick() {
+        this.isTextShow?.value = true
+    }
+    
+    fun onButtonHideTimeTextClick() {
+        this.isTextShow?.value = false
+    }
+    
+    fun onButtonSwitchTextClick() {
+        this.displayType?.value = DisplayType.TEXT
+    }
+    
+    fun onButtonSwitchImageClick() {
+        this.displayType?.value = DisplayType.IMAGE
+    }
     
     
     /** ********** ********** ********** Class ********** ********** ********** */

@@ -44,7 +44,7 @@ class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>, 
                 is ComuiListItemFundManagerBinding -> {
                     when (dataModel) {
                         is FundManagerModel -> {
-                            GlideUtils.loadCircleImage(dataModel.imageUrl, binding.imageFundManager)
+                            GlideUtils.loadCircleImage(binding.imageFundManager, binding.flexboxItemFundManager, dataModel.imageUrl)
                             binding.textFundManagerTitle.setText(dataModel.title, keyList)
                             binding.textFundManagerBestReturn.text = dataModel.bestReturn
                             FontManager.replaceFontFromAsset(binding.textFundManagerRiseFallRatio, FontConfig.FontPath.DIN_NEXT_LT_PRO_MEDIUM)

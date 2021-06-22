@@ -73,12 +73,12 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     
     override fun customIcon(drawableId: Int) {
         iconDrawableId = drawableId
-        GlideUtils.loadImage(iconDrawableId, binding.imageViewIcon, context = designateContext ?: return)
+        GlideUtils.loadImage(binding.imageViewIcon, designateContext, iconDrawableId)
     }
     
     override fun customIcon(url: String?) {
         iconUrl = url
-        GlideUtils.loadImage(iconUrl, binding.imageViewIcon, context = designateContext ?: return)
+        GlideUtils.loadImage(binding.imageViewIcon, designateContext, iconUrl)
     }
     
     override fun customIcon(drawable: Drawable?) {

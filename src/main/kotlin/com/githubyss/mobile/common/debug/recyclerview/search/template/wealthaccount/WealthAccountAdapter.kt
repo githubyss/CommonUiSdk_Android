@@ -33,7 +33,7 @@ class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>
             when (val binding = holder.binding) {
                 is ComuiListItemFundWealthAccountBinding -> {
                     if (dataModel is WealthAccountModel) {
-                        GlideUtils.loadImage(dataModel.imageUrl, binding.imageWealthAccount)
+                        GlideUtils.loadImage(binding.imageWealthAccount, binding.root, dataModel.imageUrl)
                         binding.textWealthAccountTitle.setText(dataModel.title, keyList)
                         binding.textWealthAccountContent.setText(dataModel.content, keyList)
                         when (dataModel.isFollowed) {

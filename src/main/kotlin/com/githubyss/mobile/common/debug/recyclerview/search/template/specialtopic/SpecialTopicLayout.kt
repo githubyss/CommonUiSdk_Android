@@ -43,8 +43,8 @@ class SpecialTopicLayout : BaseItemLayout<ComuiListItemSpecialTopicBinding> {
         if (dataModel is SpecialTopicModel) {
             /** 背景图 */
             // imageViewSpecialTopicBg?.visibility = if (StringUtils.isEmpty(dataModel.bgImageUrl)) View.GONE else View.VISIBLE
-            // GlideUtils.loadImage(dataModel.bgImageUrl, imageViewSpecialTopicBg, R.drawable.new_search_result_bg_special_topic, context)
-            GlideUtils.loadBackground(dataModel.bgImageUrl, binding.flexboxItemSpecialTopic)
+            // GlideUtils.loadImage(imageViewSpecialTopicBg, context, dataModel.bgImageUrl, R.drawable.new_search_result_bg_special_topic)
+            GlideUtils.loadBackground(binding.flexboxItemSpecialTopic, this, dataModel.bgImageUrl)
             
             /** 背景标题&描述 */
             binding.flexboxSpecialTopicBg.visibility = if (StringUtils.isEmpty(dataModel.bgImageUrl)) View.GONE else View.VISIBLE
@@ -58,7 +58,7 @@ class SpecialTopicLayout : BaseItemLayout<ComuiListItemSpecialTopicBinding> {
             
             /** 头部头像&标题&描述 */
             binding.flexboxSpecialTopicHeader.visibility = if (StringUtils.isEmpty(dataModel.topicTitle) && StringUtils.isEmpty(dataModel.topicDescription)) View.GONE else View.VISIBLE
-            GlideUtils.loadImage(dataModel.topicIconUrl, binding.imageSpecialTopicIcon)
+            GlideUtils.loadImage(binding.imageSpecialTopicIcon, this, dataModel.topicIconUrl)
             binding.textSpecialTopicTitle.text = dataModel.topicTitle
             binding.textSpecialTopicDescription.text = dataModel.topicDescription
             binding.flexboxSpecialTopicHeader.setOnClickListener { v ->

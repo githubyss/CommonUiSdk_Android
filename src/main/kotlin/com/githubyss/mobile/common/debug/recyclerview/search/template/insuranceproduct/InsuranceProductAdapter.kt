@@ -39,7 +39,7 @@ class InsuranceProductAdapter constructor(private val dataList: List<BaseItemMod
             when (val binding = holder.binding) {
                 is ComuiListItemInsuranceProductBinding -> {
                     if (dataModel is InsuranceProductModel) {
-                        GlideUtils.loadImage(dataModel.imageUrl, binding.imageInsuranceProduct)
+                        GlideUtils.loadImage(binding.imageInsuranceProduct, binding.root, dataModel.imageUrl)
                         binding.textInsuranceProductTitle.setText(dataModel.title, keyList)
                         binding.textInsuranceProductHint.text = dataModel.hint
                         binding.textInsuranceProductPrice.text = dataModel.price

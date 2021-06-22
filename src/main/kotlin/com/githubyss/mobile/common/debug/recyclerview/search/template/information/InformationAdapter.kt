@@ -21,14 +21,14 @@ import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
  * @createdTime 2021/03/30 17:43:33
  */
 class InformationAdapter constructor(private val dataList: List<BaseItemModel>, private val keyList: ArrayList<String>) : BaseItemAdapter<RecyclerView.ViewHolder>(dataList) {
-
+    
     /** ********** ********** ********** Properties ********** ********** ********** */
-
+    
     companion object {
         val TAG = InformationAdapter::class.simpleName ?: "simpleName is null"
     }
-
-
+    
+    
     /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
@@ -49,7 +49,7 @@ class InformationAdapter constructor(private val dataList: List<BaseItemModel>, 
                                 binding.imageInformation.visibility = View.VISIBLE
                             }
                         }
-                        GlideUtils.loadImage(dataModel.imageUrl, binding.imageInformation)
+                        GlideUtils.loadImage(binding.imageInformation, binding.root, dataModel.imageUrl)
                         binding.textInformationTitle.setText(dataModel.title, keyList)
                         binding.textInformationContent.setText(dataModel.content, keyList)
                         binding.textInformationTime.text = dataModel.time

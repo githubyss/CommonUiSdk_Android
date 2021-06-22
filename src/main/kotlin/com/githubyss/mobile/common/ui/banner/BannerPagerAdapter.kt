@@ -64,7 +64,7 @@ class BannerPagerAdapter : PagerAdapter() {
                         if (banner.imageUrl.startsWith("file:///")) {
                             loadBitmapDefault(container.context, banner.imageUrl.substring(8), imageView)
                         } else {
-                            GlideUtils.loadImage(banner.imageUrl, imageView, context = container.context)
+                            GlideUtils.loadImage(imageView, container, banner.imageUrl)
                         }
                     }
                 }
@@ -147,7 +147,7 @@ class BannerPagerAdapter : PagerAdapter() {
      * @return
      */
     private fun loadBitmapDefault(context: Context, iconName: String, imageView: ImageView?) {
-        GlideUtils.loadImage(iconName, imageView, context = context)
+        GlideUtils.loadImage(imageView, context, iconName)
     }
     
     
