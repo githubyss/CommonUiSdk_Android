@@ -1,11 +1,5 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.template.faq
 
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.textview.KeyWordHighlightTextView
-import com.google.android.flexbox.FlexboxLayout
-
 
 /**
  * FaqHolder

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="comui_audio_player_back">Back</string>
+    <string name="comui_audio_player_share">Share</string>
+    <string name="comui_audio_player_share_success">Share success</string>
+    <string name="comui_audio_player_previous">Previous</string>
+    <string name="comui_audio_player_next">Next</string>
+    <string name="comui_audio_player_floating_permission_fail">Floating permission fail</string>
+    <string name="comui_audio_player_author">author:</string>
+    <string name="comui_audio_player_notification_ticker">Playing</string>
+    <string name="comui_audio_player_login_out">Exit confirm</string>
+    <string name="comui_audio_player_background">Play background</string>
+    <string name="comui_audio_player_stop">Stop</string>
+    <string name="comui_audio_player_no_list">List empty</string>
+</resources>

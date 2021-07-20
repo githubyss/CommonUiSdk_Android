@@ -6,7 +6,7 @@ import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.IsFollo
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.BaseViewHolderBindingInline
 import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.inflate
-import com.githubyss.mobile.common.ui.databinding.ComuiListItemFundWealthAccountBinding
+import com.githubyss.mobile.common.ui.databinding.ComuiListItemWealthAccountBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
@@ -24,14 +24,14 @@ class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>
     /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
-        return inflate<ComuiListItemFundWealthAccountBinding>(parent)
+        return inflate<ComuiListItemWealthAccountBinding>(parent)
     }
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
         if (holder is BaseViewHolderBindingInline<*>) {
             when (val binding = holder.binding) {
-                is ComuiListItemFundWealthAccountBinding -> {
+                is ComuiListItemWealthAccountBinding -> {
                     if (dataModel is WealthAccountModel) {
                         GlideUtils.loadImage(binding.imageWealthAccount, binding.root, dataModel.imageUrl)
                         binding.textWealthAccountTitle.setText(dataModel.title, keyList)

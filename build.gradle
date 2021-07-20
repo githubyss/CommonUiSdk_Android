@@ -59,14 +59,16 @@ android {
         main {
             java.srcDirs += 'src/main/kotlin'
             if (isRunAlone.toBoolean()) {
+                java.srcDirs += 'src/alone/kotlin'
+                res.srcDirs += 'src/alone/res'
                 manifest.srcFile 'src/alone/AndroidManifest.xml'
             }
         }
     }
 
-     dataBinding {
-         enabled = isDataBindingEnabled.toBoolean()
-     }
+    dataBinding {
+        enabled = isDataBindingEnabled.toBoolean()
+    }
 }
 
 dependencies {
