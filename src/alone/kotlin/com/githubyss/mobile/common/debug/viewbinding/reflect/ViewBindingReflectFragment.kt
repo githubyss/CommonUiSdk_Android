@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.debug.viewbinding.reflect
 import android.os.Bundle
 import android.view.View
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.reflect.BaseToolbarFragmentBindingReflect
+import com.githubyss.mobile.common.ui.base.viewbinding.page.reflect.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflectBinding
 
 
@@ -14,7 +14,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflec
  * @github githubyss
  * @createdTime 2021/06/03 19:46:28
  */
-class ViewBindingReflectFragment : BaseToolbarFragmentBindingReflect<ComuiFragmentViewBindingReflectBinding>() {
+class ViewBindingReflectFragment : BaseToolbarFragment<ComuiFragmentViewBindingReflectBinding>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -34,7 +34,7 @@ class ViewBindingReflectFragment : BaseToolbarFragmentBindingReflect<ComuiFragme
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_view_binding_reflect_title)
+        setToolbarTitle(R.string.comui_title_view_binding_reflect)
         
         binding.textBindingReflect.setOnClickListener(onClickListener)
     }

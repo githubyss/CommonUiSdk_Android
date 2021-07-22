@@ -1,24 +1,23 @@
 package com.githubyss.mobile.common.debug.viewbinding.reflect
 
 import android.os.Bundle
-import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.reflect.BaseToolbarActivity
+import com.githubyss.mobile.common.ui.base.viewbinding.page.reflect.BaseActivity
 import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBinding
 
 
 /**
- * ViewBindingReflectActivity
+ * ReflectActivity
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/06/03 19:17:26
+ * @createdTime 2021/07/20 18:01:36
  */
-class ViewBindingReflectActivity : BaseToolbarActivity<ComuiActivityBaseToolbarBinding>() {
+class ReflectActivity : BaseActivity<ComuiActivityBaseToolbarBinding>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = ViewBindingReflectActivity::class.simpleName ?: "simpleName is null"
+        private val TAG = ReflectActivity::class.java.simpleName
     }
     
     
@@ -27,10 +26,5 @@ class ViewBindingReflectActivity : BaseToolbarActivity<ComuiActivityBaseToolbarB
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addFragment(ViewBindingReflectFragment(), ViewBindingReflectFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
-    }
-    
-    override fun onResume() {
-        super.onResume()
-        setToolbarTitle(R.string.comui_title_view_binding_reflect)
     }
 }

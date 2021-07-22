@@ -33,7 +33,25 @@
 
         <activity
                 android:name="com.githubyss.mobile.common.debug.mvvm.MvvmActivity"
-                android:label="@string/comui_mvvm_title"
+                android:label="@string/comui_title_mvvm"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@style/comres_activity_noActionBar_theme"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+                />
+
+        <activity
+                android:name="com.githubyss.mobile.common.debug.viewbinding.reflect.ReflectActivity"
+                android:label="@string/comui_title_view_binding_reflect"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@style/comres_activity_noActionBar_theme"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+                />
+
+        <activity
+                android:name="com.githubyss.mobile.common.debug.viewbinding.inline.InlineActivity"
+                android:label="@string/comui_title_view_binding_inline"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
                 android:theme="@style/comres_activity_noActionBar_theme"
@@ -42,7 +60,7 @@
 
         <activity
                 android:name="com.githubyss.mobile.common.debug.viewbinding.reflect.ViewBindingReflectActivity"
-                android:label="@string/comui_view_binding_reflect_title"
+                android:label="@string/comui_title_view_binding_toolbar_reflect"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
                 android:theme="@style/comres_activity_noActionBar_theme"
@@ -51,7 +69,7 @@
 
         <activity
                 android:name="com.githubyss.mobile.common.debug.viewbinding.inline.ViewBindingInlineActivity"
-                android:label="@string/comui_view_binding_inline_title"
+                android:label="@string/comui_title_view_binding_toolbar_inline"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
                 android:theme="@style/comres_activity_noActionBar_theme"

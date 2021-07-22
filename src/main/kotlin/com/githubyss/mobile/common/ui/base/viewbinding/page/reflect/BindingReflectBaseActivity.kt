@@ -2,23 +2,21 @@ package com.githubyss.mobile.common.ui.base.viewbinding.page.reflect
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.githubyss.mobile.common.kit.util.LogcatUtils
-import com.githubyss.mobile.common.ui.base.viewbinding.page.BaseFragment
+import com.githubyss.mobile.common.ui.base.viewbinding.page.base.BaseActivity
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
 
 
 /**
- * BaseFragmentBindingReflect
+ * BindingReflectBaseActivity
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/04/08 11:27:32
+ * @createdTime 2021/04/08 10:48:25
  */
-abstract class BaseFragmentBindingReflect<B : ViewBinding> : BaseFragment() {
+abstract class BindingReflectBaseActivity<B : ViewBinding> : BaseActivity() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -28,14 +26,17 @@ abstract class BaseFragmentBindingReflect<B : ViewBinding> : BaseFragment() {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        
         // Call inflate method to fill view according to specified ViewBinding by using java reflect.
         val type = javaClass.genericSuperclass
         if (type is ParameterizedType) {
-            val clazz = type.actualTypeArguments[0] as Class<B>?
             try {
-                _binding = clazz?.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
-                    ?.invoke(null, inflater, container, false) as B
+                val clazz = type.actualTypeArguments[0] as Class<B>?
+                _binding = clazz?.getMethod("inflate", LayoutInflater::class.java)
+                    ?.invoke(null, layoutInflater) as B
+                setContentView(binding.root)
             } catch (e: NoSuchMethodException) {
                 LogcatUtils.e(t = e)
             } catch (e: IllegalAccessException) {
@@ -44,12 +45,5 @@ abstract class BaseFragmentBindingReflect<B : ViewBinding> : BaseFragment() {
                 LogcatUtils.e(t = e)
             }
         }
-        
-        return binding.root
-    }
-    
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

@@ -3,12 +3,38 @@
     <string name="comui_appName">通用UI库</string>
     <string name="comui_activityLabel_homepage">UI调试</string>
 
-    <string name="comui_homepage_title">UI调试首页</string>
-    <string name="comui_property_animation_title">属性动画</string>
-    <string name="comui_multi_type_title">多类型列表</string>
-    <string name="comui_search_result_title">搜索结果列表</string>
-    <string name="comui_search_result_more_title">搜索结果更多列表</string>
-    <string name="comui_mvvm_title">MVVM</string>
-    <string name="comui_view_binding_reflect_title">ViewBinding（反射实现）</string>
-    <string name="comui_view_binding_inline_title">ViewBinding（内联实现）</string>
+    <!-- Title -->
+    <string name="comui_title_homepage">UI调试首页</string>
+    <string name="comui_title_mvvm">MVVM</string>
+    <string name="comui_title_view_binding_reflect">Binding（反射实现）</string>
+    <string name="comui_title_view_binding_inline">Binding（内联实现）</string>
+    <string name="comui_title_view_binding_toolbar_reflect">Binding Toolbar（反射实现）</string>
+    <string name="comui_title_view_binding_toolbar_inline">Binding Toolbar（内联实现）</string>
+    <string name="comui_title_property_animation">属性动画</string>
+    <string name="comui_title_multi_type">多类型列表</string>
+    <string name="comui_title_search_result">搜索结果列表</string>
+    <string name="comui_title_search_result_more">搜索结果更多列表</string>
+
+    <!-- Button -->
+    <string name="comui_button_mvvm">MVVM</string>
+    <string name="comui_button_view_binding_reflect">Binding\n（反射实现）</string>
+    <string name="comui_button_view_binding_inline">Binding\n（内联实现）</string>
+    <string name="comui_button_view_binding_toolbar_reflect">Binding Toolbar\n（反射实现）</string>
+    <string name="comui_button_view_binding_toolbar_inline">Binding Toolbar\n（内联实现）</string>
+    <string name="comui_button_property_animation">属性动画</string>
+    <string name="comui_button_tween_animation">补间动画</string>
+    <string name="comui_button_multi_type">RecyclerView\n（多类型实现）</string>
+    <string name="comui_button_multi_view">RecyclerView\n（多视图实现）</string>
+    <string name="comui_button_show_floating_within_app">显示应用级悬浮窗</string>
+    <string name="comui_button_close_floating_within_app">隐藏应用级悬浮窗</string>
+    <string name="comui_button_show_floating_within_system">显示系统级悬浮窗</string>
+    <string name="comui_button_close_floating_within_system">隐藏系统级悬浮窗</string>
+    <string name="comui_button_show_auto_shorted_floating_view">显示自动收起悬浮窗</string>
+    <string name="comui_button_close_auto_shorted_floating_view">隐藏自动收起悬浮窗</string>
+    <string name="comui_button_lengthen_auto_shorted_floating_view">展开自动收起悬浮窗</string>
+    <string name="comui_button_shorten_auto_shorted_floating_view">收起自动收起悬浮窗</string>
+
+    <!-- Content -->
+    <string name="comui_view_binding_reflect">视图绑定（反射实现）</string>
+    <string name="comui_view_binding_inline">视图绑定（内联实现）</string>
 </resources>

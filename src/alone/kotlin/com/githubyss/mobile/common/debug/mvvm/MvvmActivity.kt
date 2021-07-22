@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.debug.mvvm
 
 import android.os.Bundle
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivityBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivity
 
 
 /**
@@ -12,7 +12,7 @@ import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarAc
  * @github githubyss
  * @createdTime 2021/06/10 10:56:07
  */
-class MvvmActivity : BaseToolbarActivityBindingInline() {
+class MvvmActivity : BaseToolbarActivity() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -30,6 +30,6 @@ class MvvmActivity : BaseToolbarActivityBindingInline() {
     
     override fun onResume() {
         super.onResume()
-        setToolbarTitle(R.string.comui_mvvm_title)
+        setToolbarTitle(R.string.comui_title_mvvm)
     }
 }

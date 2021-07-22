@@ -10,14 +10,16 @@ import com.githubyss.mobile.common.debug.animation.property.PropertyAnimationFra
 import com.githubyss.mobile.common.debug.mvvm.MvvmActivity
 import com.githubyss.mobile.common.debug.recyclerview.multi.page.RecyclerViewByMultiTypeFragment
 import com.githubyss.mobile.common.debug.recyclerview.search.page.SearchResultFragment
+import com.githubyss.mobile.common.debug.viewbinding.inline.InlineActivity
 import com.githubyss.mobile.common.debug.viewbinding.inline.ViewBindingInlineActivity
+import com.githubyss.mobile.common.debug.viewbinding.reflect.ReflectActivity
 import com.githubyss.mobile.common.debug.viewbinding.reflect.ViewBindingReflectActivity
 import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragmentBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentHomepageBinding
 import com.githubyss.mobile.common.ui.floatingview.container.FloatingAudioPlayerListener
@@ -35,12 +37,12 @@ import java.util.*
  * @github githubyss
  * @createdTime 2021/03/09 10:54:22
  */
-class HomepageFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_homepage) {
+class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = HomepageFragment::class.simpleName ?: "simpleName is null"
+        val TAG = HomepageFragment::class.java.simpleName
     }
     
     private val binding by bindView<ComuiFragmentHomepageBinding>()
@@ -57,12 +59,14 @@ class HomepageFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragmen
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_homepage_title)
+        setToolbarTitle(R.string.comui_title_homepage)
         
         binding.buttonMvvm.setOnClickListener(onClickListener)
         
         binding.buttonBindingReflect.setOnClickListener(onClickListener)
         binding.buttonBindingInline.setOnClickListener(onClickListener)
+        binding.buttonBindingReflectToolbar.setOnClickListener(onClickListener)
+        binding.buttonBindingInlineToolbar.setOnClickListener(onClickListener)
         
         binding.buttonPropertyAnimation.setOnClickListener(onClickListener)
         binding.buttonTweenAnimation.setOnClickListener(onClickListener)
@@ -94,8 +98,10 @@ class HomepageFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragmen
         when (v.id) {
             R.id.button_mvvm -> ActivityUtils.startActivity(activity, MvvmActivity::class.java)
             
-            R.id.button_binding_reflect -> ActivityUtils.startActivity(activity, ViewBindingReflectActivity::class.java)
-            R.id.button_binding_inline -> ActivityUtils.startActivity(activity, ViewBindingInlineActivity::class.java)
+            R.id.button_binding_reflect -> ActivityUtils.startActivity(activity, ReflectActivity::class.java)
+            R.id.button_binding_inline -> ActivityUtils.startActivity(activity, InlineActivity::class.java)
+            R.id.button_binding_reflect_toolbar -> ActivityUtils.startActivity(activity, ViewBindingReflectActivity::class.java)
+            R.id.button_binding_inline_toolbar -> ActivityUtils.startActivity(activity, ViewBindingInlineActivity::class.java)
             
             R.id.button_property_animation -> replaceFragment(PropertyAnimationFragment(), PropertyAnimationFragment.TAG, true)
             R.id.button_tween_animation -> return@OnClickListener

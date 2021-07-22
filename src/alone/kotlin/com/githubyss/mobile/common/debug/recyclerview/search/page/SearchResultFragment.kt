@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuil
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragmentBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
@@ -31,7 +31,7 @@ import org.greenrobot.eventbus.EventBus
  * @github githubyss
  * @createdTime 2021/03/15 16:51:37
  */
-class SearchResultFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_recycler_view) {
+class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_recycler_view) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -93,7 +93,7 @@ class SearchResultFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fra
     }
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_search_result_title)
+        setToolbarTitle(R.string.comui_title_search_result)
         
         rvAdapter = LayoutAdapter(layoutList)
         binding.recyclerContainer.setHasFixedSize(true)

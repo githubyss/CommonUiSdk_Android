@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.debug.viewbinding.inline
 
 import android.os.Bundle
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivityBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivity
 
 
 /**
@@ -12,7 +12,7 @@ import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarAc
  * @github githubyss
  * @createdTime 2021/06/04 14:55:13
  */
-class ViewBindingInlineActivity : BaseToolbarActivityBindingInline() {
+class ViewBindingInlineActivity : BaseToolbarActivity() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -30,6 +30,6 @@ class ViewBindingInlineActivity : BaseToolbarActivityBindingInline() {
     
     override fun onResume() {
         super.onResume()
-        setToolbarTitle(R.string.comui_view_binding_inline_title)
+        setToolbarTitle(R.string.comui_title_view_binding_inline)
     }
 }

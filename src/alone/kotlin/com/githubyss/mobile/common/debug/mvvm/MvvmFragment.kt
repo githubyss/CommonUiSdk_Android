@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.githubyss.mobile.common.debug.mvvm.enumeration.DisplayType
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragmentBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMvvmBinding
 
@@ -19,7 +19,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMvvmBinding
  * @github githubyss
  * @createdTime 2021/06/10 11:18:21
  */
-class MvvmFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_mvvm) {
+class MvvmFragment : BaseToolbarFragment(R.layout.comui_fragment_mvvm) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -46,7 +46,7 @@ class MvvmFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_mv
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_mvvm_title)
+        setToolbarTitle(R.string.comui_title_mvvm)
         
         binding.lifecycleOwner = viewLifecycleOwner
     }

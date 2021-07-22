@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.debug.homepage
 
 import android.os.Bundle
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivityBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivity
 import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingAudioPlayer
 import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingIcon
 
@@ -14,7 +14,7 @@ import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingIcon
  * @github githubyss
  * @createdTime 2021/03/09 10:54:13
  */
-class HomepageActivity : BaseToolbarActivityBindingInline() {
+class HomepageActivity : BaseToolbarActivity() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -32,7 +32,7 @@ class HomepageActivity : BaseToolbarActivityBindingInline() {
     
     override fun onResume() {
         super.onResume()
-        setToolbarTitle(R.string.comui_homepage_title)
+        setToolbarTitle(R.string.comui_title_homepage)
     }
     
     override fun onStart() {

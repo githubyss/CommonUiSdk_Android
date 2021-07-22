@@ -12,7 +12,7 @@ import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuil
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragmentBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
@@ -33,7 +33,7 @@ import org.json.JSONObject
  * @github githubyss
  * @createdTime 2021/03/30 20:05:25
  */
-class SearchResultMoreFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_recycler_view) {
+class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_recycler_view) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -104,7 +104,7 @@ class SearchResultMoreFragment : BaseToolbarFragmentBindingInline(R.layout.comui
     }
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_search_result_more_title)
+        setToolbarTitle(R.string.comui_title_search_result_more)
         
         rvAdapter = LayoutAdapter(layoutList, R.layout.comui_layout_bg_white_corner_none_margin_none)
         binding.recyclerContainer.setHasFixedSize(true)

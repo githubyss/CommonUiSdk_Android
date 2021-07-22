@@ -9,7 +9,7 @@ import com.githubyss.mobile.common.debug.recyclerview.multi.template.multi.Multi
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragmentBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
@@ -22,7 +22,7 @@ import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
  * @github githubyss
  * @createdTime 2021/03/09 11:02:35
  */
-class RecyclerViewByMultiTypeFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_recycler_view) {
+class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragment_recycler_view) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -48,7 +48,7 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragmentBindingInline(R.layou
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_multi_type_title)
+        setToolbarTitle(R.string.comui_title_multi_type)
         
         rvAdapter = MultiAdapter(dataList)
         binding.recyclerContainer.setHasFixedSize(true)

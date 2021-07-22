@@ -1,28 +1,33 @@
-package com.githubyss.mobile.common.ui.base.viewbinding.page
+package com.githubyss.mobile.common.ui.base.viewbinding.page.base
 
+import android.content.Context
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import androidx.annotation.IdRes
-import androidx.appcompat.app.AppCompatActivity
+import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.githubyss.mobile.common.kit.util.FragmentUtils
+import com.githubyss.mobile.common.debug.application.ComuiApplication
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.ui.R
 
 
 /**
- * BaseActivity
+ * BaseFragment
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/06/02 15:10:38
+ * @createdTime 2021/06/02 15:11:59
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = BaseActivity::class.simpleName ?: "simpleName is null"
+        val TAG = BaseFragment::class.simpleName ?: "simpleName is null"
     }
+    
+    var fragmentContext: Context? = null
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
@@ -34,18 +39,9 @@ abstract class BaseActivity : AppCompatActivity() {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        supportFragmentManager.let {
-            it.registerFragmentLifecycleCallbacks(FragmentUtils.fragmentLifecycle, true)
-        }
-    }
-    
-    override fun onDestroy() {
-        super.onDestroy()
-        supportFragmentManager.let {
-            it.unregisterFragmentLifecycleCallbacks(FragmentUtils.fragmentLifecycle)
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        fragmentContext = activity?.baseContext ?: ComuiApplication.instance
     }
     
     
@@ -54,14 +50,19 @@ abstract class BaseActivity : AppCompatActivity() {
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
+    /** Change button status. */
+    protected fun changeBtnStatus(button: Button?, status: Boolean) {
+        button?.isEnabled = status
+        button?.isClickable = status
+    }
+    
     /** Add fragment to activity. */
     protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frameLayoutFragmentContainer) {
-        supportFragmentManager.let {
+        fragmentManager?.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
             }
             
-            fragment.arguments = intent.extras
             val fragmentTransaction = it.beginTransaction()
             fragmentTransaction.add(containerId, fragment, tag)
             if (addToBackStack) {
@@ -72,12 +73,11 @@ abstract class BaseActivity : AppCompatActivity() {
     }
     
     protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frameLayoutFragmentContainer) {
-        supportFragmentManager.let {
+        fragmentManager?.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
             }
             
-            fragment.arguments = intent.extras
             val fragmentTransaction = it.beginTransaction()
             fragmentTransaction.replace(containerId, fragment, tag)
             if (addToBackStack) {

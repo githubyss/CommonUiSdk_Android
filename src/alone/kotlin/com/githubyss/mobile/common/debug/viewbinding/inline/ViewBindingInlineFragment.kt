@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.debug.viewbinding.inline
 import android.os.Bundle
 import android.view.View
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragmentBindingInline
+import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInlineBinding
 
@@ -15,7 +15,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInline
  * @github githubyss
  * @createdTime 2021/06/04 14:52:55
  */
-class ViewBindingInlineFragment : BaseToolbarFragmentBindingInline(R.layout.comui_fragment_view_binding_inline) {
+class ViewBindingInlineFragment : BaseToolbarFragment(R.layout.comui_fragment_view_binding_inline) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -37,7 +37,7 @@ class ViewBindingInlineFragment : BaseToolbarFragmentBindingInline(R.layout.comu
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_view_binding_inline_title)
+        setToolbarTitle(R.string.comui_title_view_binding_inline)
         
         binding.textBindingInline.setOnClickListener(onClickListener)
     }

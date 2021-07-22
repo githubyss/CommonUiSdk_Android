@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="comui_audio_player_back">退出</string>
-    <string name="comui_audio_player_share">分享</string>
-    <string name="comui_audio_player_share_success">分享成功</string>
+    <string name="comui_audio_player_play">播放</string>
+    <string name="comui_audio_player_pause">暂停</string>
+    <string name="comui_audio_player_stop">停止</string>
     <string name="comui_audio_player_previous">上一首</string>
     <string name="comui_audio_player_next">下一首</string>
-    <string name="comui_audio_player_floating_permission_fail">悬浮框权限申请失败</string>
-    <string name="comui_audio_player_author">作者：</string>
-    <string name="comui_audio_player_notification_ticker">正在播放</string>
-    <string name="comui_audio_player_login_out">是否退出播放</string>
+    <string name="comui_audio_player_fast_reverse">快退</string>
+    <string name="comui_audio_player_fast_forward">快进</string>
+    <string name="comui_audio_player_speed_up">快放</string>
+    <string name="comui_audio_player_slow_down">慢放</string>
+    <string name="comui_audio_player_switch_voice">切换音源</string>
+    <string name="comui_audio_player_exit">退出</string>
+    <string name="comui_audio_player_playing">正在播放</string>
     <string name="comui_audio_player_background">后台播放</string>
-    <string name="comui_audio_player_stop">停止播放</string>
+    <string name="comui_audio_player_share">分享</string>
+    <string name="comui_audio_player_share_success">分享成功</string>
+    <string name="comui_audio_player_author">作者</string>
     <string name="comui_audio_player_no_list">播放列表为空</string>
+    <string name="comui_audio_player_floating_permission_fail">悬浮框权限申请失败</string>
 </resources>
