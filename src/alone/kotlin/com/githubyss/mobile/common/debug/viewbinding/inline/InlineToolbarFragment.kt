@@ -9,18 +9,18 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInline
 
 
 /**
- * ViewBindingInlineFragment
+ * InlineToolbarFragment
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/06/04 14:52:55
  */
-class ViewBindingInlineFragment : BaseToolbarFragment(R.layout.comui_fragment_view_binding_inline) {
+class InlineToolbarFragment : BaseToolbarFragment(R.layout.comui_fragment_view_binding_inline) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = ViewBindingInlineFragment::class.simpleName ?: "simpleName is null"
+        val TAG = InlineToolbarFragment::class.simpleName ?: "simpleName is null"
     }
     
     private val binding by bindView<ComuiFragmentViewBindingInlineBinding>()

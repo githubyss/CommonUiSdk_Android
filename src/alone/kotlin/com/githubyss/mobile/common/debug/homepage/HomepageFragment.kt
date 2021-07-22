@@ -11,9 +11,9 @@ import com.githubyss.mobile.common.debug.mvvm.MvvmActivity
 import com.githubyss.mobile.common.debug.recyclerview.multi.page.RecyclerViewByMultiTypeFragment
 import com.githubyss.mobile.common.debug.recyclerview.search.page.SearchResultFragment
 import com.githubyss.mobile.common.debug.viewbinding.inline.InlineActivity
-import com.githubyss.mobile.common.debug.viewbinding.inline.ViewBindingInlineActivity
+import com.githubyss.mobile.common.debug.viewbinding.inline.InlineToolbarActivity
 import com.githubyss.mobile.common.debug.viewbinding.reflect.ReflectActivity
-import com.githubyss.mobile.common.debug.viewbinding.reflect.ViewBindingReflectActivity
+import com.githubyss.mobile.common.debug.viewbinding.reflect.ReflectToolbarActivity
 import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.LogcatUtils
@@ -100,8 +100,8 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
             
             R.id.button_binding_reflect -> ActivityUtils.startActivity(activity, ReflectActivity::class.java)
             R.id.button_binding_inline -> ActivityUtils.startActivity(activity, InlineActivity::class.java)
-            R.id.button_binding_reflect_toolbar -> ActivityUtils.startActivity(activity, ViewBindingReflectActivity::class.java)
-            R.id.button_binding_inline_toolbar -> ActivityUtils.startActivity(activity, ViewBindingInlineActivity::class.java)
+            R.id.button_binding_reflect_toolbar -> ActivityUtils.startActivity(activity, ReflectToolbarActivity::class.java)
+            R.id.button_binding_inline_toolbar -> ActivityUtils.startActivity(activity, InlineToolbarActivity::class.java)
             
             R.id.button_property_animation -> replaceFragment(PropertyAnimationFragment(), PropertyAnimationFragment.TAG, true)
             R.id.button_tween_animation -> return@OnClickListener

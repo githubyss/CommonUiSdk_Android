@@ -25,6 +25,6 @@ class ReflectActivity : BaseActivity<ComuiActivityBaseToolbarBinding>() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        addFragment(ViewBindingReflectFragment(), ViewBindingReflectFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
+        addFragment(ReflectToolbarFragment(), ReflectToolbarFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
     }
 }

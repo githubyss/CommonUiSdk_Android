@@ -6,18 +6,18 @@ import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarAc
 
 
 /**
- * ViewBindingInlineActivity
+ * InlineToolbarActivity
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/06/04 14:55:13
  */
-class ViewBindingInlineActivity : BaseToolbarActivity() {
+class InlineToolbarActivity : BaseToolbarActivity() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = ViewBindingInlineActivity::class.simpleName ?: "simpleName is null"
+        private val TAG = InlineToolbarActivity::class.simpleName ?: "simpleName is null"
     }
     
     
@@ -25,7 +25,7 @@ class ViewBindingInlineActivity : BaseToolbarActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        addFragment(ViewBindingInlineFragment(), ViewBindingInlineFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
+        addFragment(InlineToolbarFragment(), InlineToolbarFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
     }
     
     override fun onResume() {

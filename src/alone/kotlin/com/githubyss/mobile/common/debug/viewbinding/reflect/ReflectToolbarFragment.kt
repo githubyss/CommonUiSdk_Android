@@ -8,18 +8,18 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflec
 
 
 /**
- * ViewBindingReflectFragment
+ * ReflectToolbarFragment
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/06/03 19:46:28
  */
-class ViewBindingReflectFragment : BaseToolbarFragment<ComuiFragmentViewBindingReflectBinding>() {
+class ReflectToolbarFragment : BaseToolbarFragment<ComuiFragmentViewBindingReflectBinding>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = ViewBindingReflectFragment::class.simpleName ?: "simpleName is null"
+        val TAG = ReflectToolbarFragment::class.simpleName ?: "simpleName is null"
     }
     
     

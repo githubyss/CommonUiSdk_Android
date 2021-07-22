@@ -59,7 +59,7 @@
                 />
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.viewbinding.reflect.ViewBindingReflectActivity"
+                android:name="com.githubyss.mobile.common.debug.viewbinding.reflect.ReflectToolbarActivity"
                 android:label="@string/comui_title_view_binding_toolbar_reflect"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
@@ -68,7 +68,7 @@
                 />
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.viewbinding.inline.ViewBindingInlineActivity"
+                android:name="com.githubyss.mobile.common.debug.viewbinding.inline.InlineToolbarActivity"
                 android:label="@string/comui_title_view_binding_toolbar_inline"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"

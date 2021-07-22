@@ -7,18 +7,18 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
 
 
 /**
- * ViewBindingReflectActivity
+ * ReflectToolbarActivity
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/06/03 19:17:26
  */
-class ViewBindingReflectActivity : BaseToolbarActivity<ComuiActivityBaseToolbarBinding>() {
+class ReflectToolbarActivity : BaseToolbarActivity<ComuiActivityBaseToolbarBinding>() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = ViewBindingReflectActivity::class.simpleName ?: "simpleName is null"
+        private val TAG = ReflectToolbarActivity::class.simpleName ?: "simpleName is null"
     }
     
     
@@ -26,7 +26,7 @@ class ViewBindingReflectActivity : BaseToolbarActivity<ComuiActivityBaseToolbarB
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        addFragment(ViewBindingReflectFragment(), ViewBindingReflectFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
+        addFragment(ReflectToolbarFragment(), ReflectToolbarFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
     }
     
     override fun onResume() {
