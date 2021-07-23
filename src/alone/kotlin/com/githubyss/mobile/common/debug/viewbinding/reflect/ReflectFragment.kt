@@ -1,7 +1,5 @@
 package com.githubyss.mobile.common.debug.viewbinding.reflect
 
-import android.os.Bundle
-import android.view.View
 import com.githubyss.mobile.common.ui.base.viewbinding.page.reflect.BaseFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflectBinding
 
@@ -24,8 +22,7 @@ class ReflectFragment : BaseFragment<ComuiFragmentViewBindingReflectBinding>() {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun init() {
         binding.textBindingReflect.setOnClickListener {}
     }
 }

@@ -1,7 +1,5 @@
 package com.githubyss.mobile.common.debug.recyclerview.multi.page
 
-import android.os.Bundle
-import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.multi.MultiAdapter
@@ -38,18 +36,19 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragm
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun init() {
         initView()
         initData()
+    }
+    
+    override fun setToolbarTitle() {
+        setToolbarTitle(R.string.comui_title_multi_type)
     }
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_title_multi_type)
-        
         rvAdapter = MultiAdapter(dataList)
         binding.recyclerContainer.setHasFixedSize(true)
         binding.recyclerContainer.layoutManager = LinearLayoutManager(activity)

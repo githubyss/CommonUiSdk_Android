@@ -14,12 +14,12 @@
             >
 
         <include
-                android:id="@+id/toolbarBase"
+                android:id="@+id/toolbar_base"
                 layout="@layout/comui_toolbar_base"
                 />
 
         <FrameLayout
-                android:id="@+id/frameLayoutFragmentContainer"
+                android:id="@+id/frame_fragment_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/comres_layoutBg_transparent"

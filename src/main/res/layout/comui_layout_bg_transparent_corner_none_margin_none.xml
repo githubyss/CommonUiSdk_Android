@@ -7,7 +7,7 @@
     </data>
 
     <FrameLayout
-            android:id="@+id/frameContainer"
+            android:id="@+id/frame_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/comres_sideMargin_micro"

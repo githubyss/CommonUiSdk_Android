@@ -1,6 +1,5 @@
 package com.githubyss.mobile.common.debug.viewbinding.inline
 
-import android.os.Bundle
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseActivity
 
 
@@ -22,8 +21,7 @@ class InlineActivity : BaseActivity() {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        addFragment(InlineFragment(), InlineFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
+    override fun init() {
+        addFragment(InlineFragment(), InlineFragment.TAG, false, binding.frameFragmentContainer.id)
     }
 }

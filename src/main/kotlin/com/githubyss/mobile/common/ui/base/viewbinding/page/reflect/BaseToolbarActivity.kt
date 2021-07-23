@@ -16,7 +16,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
  * @github githubyss
  * @createdTime 2021/03/09 14:35:21
  */
-abstract class BaseToolbarActivity<B : ViewBinding> : BindingReflectBaseActivity<B>() {
+abstract class BaseToolbarActivity<B : ViewBinding> : BaseActivity<B>() {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
@@ -26,6 +26,16 @@ abstract class BaseToolbarActivity<B : ViewBinding> : BindingReflectBaseActivity
         /** Make sure that you can use Toolbar as simple as ActionBar. */
         if (binding is ComuiActivityBaseToolbarBinding) setSupportActionBar((binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase)
     }
+    
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle()
+    }
+    
+    
+    /** ********** ********** ********** Abstract ********** ********** ********** */
+    
+    abstract fun setToolbarTitle()
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */

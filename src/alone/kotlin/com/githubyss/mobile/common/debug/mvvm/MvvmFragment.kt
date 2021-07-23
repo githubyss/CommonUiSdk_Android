@@ -1,6 +1,5 @@
 package com.githubyss.mobile.common.debug.mvvm
 
-import android.os.Bundle
 import android.view.View
 import androidx.databinding.Observable
 import androidx.lifecycle.Observer
@@ -34,20 +33,21 @@ class MvvmFragment : BaseToolbarFragment(R.layout.comui_fragment_mvvm) {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun init() {
         initView()
         initData()
         // initObservableField()
         initLiveData()
     }
     
+    override fun setToolbarTitle() {
+        setToolbarTitle(R.string.comui_title_mvvm)
+    }
+    
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_title_mvvm)
-        
         binding.lifecycleOwner = viewLifecycleOwner
     }
     

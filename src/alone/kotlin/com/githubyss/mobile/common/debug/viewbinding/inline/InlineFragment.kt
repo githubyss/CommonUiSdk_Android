@@ -1,7 +1,5 @@
 package com.githubyss.mobile.common.debug.viewbinding.inline
 
-import android.os.Bundle
-import android.view.View
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseFragment
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
@@ -28,8 +26,7 @@ class InlineFragment : BaseFragment(R.layout.comui_fragment_view_binding_inline)
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun init() {
         binding.textBindingInline.setOnClickListener { }
     }
 }

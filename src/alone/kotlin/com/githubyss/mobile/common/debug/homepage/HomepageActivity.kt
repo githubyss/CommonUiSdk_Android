@@ -1,6 +1,5 @@
 package com.githubyss.mobile.common.debug.homepage
 
-import android.os.Bundle
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivity
 import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingAudioPlayer
@@ -25,13 +24,11 @@ class HomepageActivity : BaseToolbarActivity() {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        addFragment(HomepageFragment(), HomepageFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
+    override fun init() {
+        addFragment(HomepageFragment(), HomepageFragment.TAG, false, binding.frameFragmentContainer.id)
     }
     
-    override fun onResume() {
-        super.onResume()
+    override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_title_homepage)
     }
     

@@ -7,7 +7,6 @@ import android.widget.Button
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.githubyss.mobile.common.debug.application.ComuiApplication
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.ui.R
 
@@ -39,13 +38,20 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        fragmentContext = activity?.baseContext
+    }
+    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fragmentContext = activity?.baseContext ?: ComuiApplication.instance
+        init()
     }
     
     
-    /** ********** ********** ********** Open ********** ********** ********** */
+    /** ********** ********** ********** Abstract ********** ********** ********** */
+    
+    abstract fun init()
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */
@@ -57,7 +63,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     }
     
     /** Add fragment to activity. */
-    protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frameLayoutFragmentContainer) {
+    protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frame_fragment_container) {
         fragmentManager?.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
@@ -72,7 +78,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
         }
     }
     
-    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frameLayoutFragmentContainer) {
+    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frame_fragment_container) {
         fragmentManager?.let {
             if (it.findFragmentByTag(tag) != null) {
                 return

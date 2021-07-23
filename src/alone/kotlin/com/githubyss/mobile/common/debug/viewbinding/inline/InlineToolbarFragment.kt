@@ -1,6 +1,5 @@
 package com.githubyss.mobile.common.debug.viewbinding.inline
 
-import android.os.Bundle
 import android.view.View
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
@@ -28,17 +27,19 @@ class InlineToolbarFragment : BaseToolbarFragment(R.layout.comui_fragment_view_b
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun init() {
         initView()
+    }
+    
+    override fun setToolbarTitle() {
+        setToolbarTitle(R.string.comui_title_view_binding_inline)
+        // setToolbarTitle("Inline Toolbar Fragment")
     }
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_title_view_binding_inline)
-        
         binding.textBindingInline.setOnClickListener(onClickListener)
     }
     

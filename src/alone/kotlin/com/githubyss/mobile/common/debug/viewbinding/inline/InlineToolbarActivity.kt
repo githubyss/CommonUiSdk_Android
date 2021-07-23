@@ -1,6 +1,5 @@
 package com.githubyss.mobile.common.debug.viewbinding.inline
 
-import android.os.Bundle
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivity
 
@@ -23,13 +22,12 @@ class InlineToolbarActivity : BaseToolbarActivity() {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        addFragment(InlineToolbarFragment(), InlineToolbarFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
+    override fun init() {
+        addFragment(InlineToolbarFragment(), InlineToolbarFragment.TAG, false, binding.frameFragmentContainer.id)
     }
     
-    override fun onResume() {
-        super.onResume()
+    override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_title_view_binding_inline)
+        // setToolbarTitle("Inline Toolbar Activity")
     }
 }

@@ -11,7 +11,20 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
  * @github githubyss
  * @createdTime 2021/03/09 14:35:12
  */
-abstract class BaseToolbarFragment<B : ViewBinding> : BindingReflectBaseFragment<B>() {
+abstract class BaseToolbarFragment<B : ViewBinding> : BaseFragment<B>() {
+    
+    /** ********** ********** ********** Override ********** ********** ********** */
+    
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle()
+    }
+    
+    
+    /** ********** ********** ********** Abstract ********** ********** ********** */
+    
+    abstract fun setToolbarTitle()
+    
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     

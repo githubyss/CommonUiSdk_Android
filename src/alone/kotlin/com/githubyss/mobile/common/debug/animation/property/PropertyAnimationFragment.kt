@@ -3,7 +3,6 @@ package com.githubyss.mobile.common.debug.animation.property
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.graphics.Point
-import android.os.Bundle
 import android.view.View
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
 import com.githubyss.mobile.common.kit.util.LogcatUtils
@@ -40,9 +39,12 @@ class PropertyAnimationFragment : BaseToolbarFragment(R.layout.comui_fragment_pr
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun init() {
         initView()
+    }
+    
+    override fun setToolbarTitle() {
+        setToolbarTitle(R.string.comui_title_property_animation)
     }
     
     override fun onDestroy() {
@@ -55,8 +57,6 @@ class PropertyAnimationFragment : BaseToolbarFragment(R.layout.comui_fragment_pr
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_title_property_animation)
-        
         binding.btnMove.setOnClickListener(onClickListener)
         binding.btnScale.setOnClickListener(onClickListener)
         binding.btnShow.setOnClickListener(onClickListener)

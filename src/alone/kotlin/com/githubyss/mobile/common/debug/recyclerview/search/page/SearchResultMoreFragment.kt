@@ -1,7 +1,6 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.page
 
 import android.content.Context
-import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -59,14 +58,17 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_rec
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun init() {
         initView()
         if (!EventBus.getDefault()
                     .isRegistered(this)) {
             EventBus.getDefault()
                 .register(this)
         }
+    }
+    
+    override fun setToolbarTitle() {
+        setToolbarTitle(R.string.comui_title_search_result_more)
     }
     
     override fun onResume() {
@@ -104,8 +106,6 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_rec
     }
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_title_search_result_more)
-        
         rvAdapter = LayoutAdapter(layoutList, R.layout.comui_layout_bg_white_corner_none_margin_none)
         binding.recyclerContainer.setHasFixedSize(true)
         binding.recyclerContainer.layoutManager = LinearLayoutManager(activity)

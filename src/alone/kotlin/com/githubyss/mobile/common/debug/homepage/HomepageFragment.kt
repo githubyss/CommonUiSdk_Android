@@ -1,7 +1,6 @@
 package com.githubyss.mobile.common.debug.homepage
 
 import android.content.Context
-import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
@@ -50,17 +49,18 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun init() {
         initView()
+    }
+    
+    override fun setToolbarTitle() {
+        setToolbarTitle(R.string.comui_title_homepage)
     }
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        setToolbarTitle(R.string.comui_title_homepage)
-        
         binding.buttonMvvm.setOnClickListener(onClickListener)
         
         binding.buttonBindingReflect.setOnClickListener(onClickListener)

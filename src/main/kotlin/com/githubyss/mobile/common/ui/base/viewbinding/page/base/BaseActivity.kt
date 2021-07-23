@@ -39,6 +39,7 @@ abstract class BaseActivity : AppCompatActivity() {
         supportFragmentManager.let {
             it.registerFragmentLifecycleCallbacks(FragmentUtils.fragmentLifecycle, true)
         }
+        init()
     }
     
     override fun onDestroy() {
@@ -49,13 +50,15 @@ abstract class BaseActivity : AppCompatActivity() {
     }
     
     
-    /** ********** ********** ********** Open ********** ********** ********** */
+    /** ********** ********** ********** Abstract ********** ********** ********** */
+    
+    abstract fun init()
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     /** Add fragment to activity. */
-    protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frameLayoutFragmentContainer) {
+    protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frame_fragment_container) {
         supportFragmentManager.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
@@ -71,7 +74,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
     
-    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frameLayoutFragmentContainer) {
+    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frame_fragment_container) {
         supportFragmentManager.let {
             if (it.findFragmentByTag(tag) != null) {
                 return

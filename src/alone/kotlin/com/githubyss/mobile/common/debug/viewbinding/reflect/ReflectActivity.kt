@@ -1,6 +1,5 @@
 package com.githubyss.mobile.common.debug.viewbinding.reflect
 
-import android.os.Bundle
 import com.githubyss.mobile.common.ui.base.viewbinding.page.reflect.BaseActivity
 import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBinding
 
@@ -23,8 +22,7 @@ class ReflectActivity : BaseActivity<ComuiActivityBaseToolbarBinding>() {
     
     /** ********** ********** ********** Override ********** ********** ********** */
     
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        addFragment(ReflectToolbarFragment(), ReflectToolbarFragment.TAG, false, binding.frameLayoutFragmentContainer.id)
+    override fun init() {
+        addFragment(ReflectToolbarFragment(), ReflectToolbarFragment.TAG, false, binding.frameFragmentContainer.id)
     }
 }

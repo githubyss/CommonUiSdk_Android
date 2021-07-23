@@ -14,5 +14,5 @@ import com.githubyss.mobile.common.ui.R
  * @createdTime 2021/03/16 15:15:25
  */
 class LayoutHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-    var layoutItem = view.findViewById(R.id.frameContainer) as FrameLayout
+    var layoutItem = view.findViewById(R.id.frame_container) as FrameLayout
 }

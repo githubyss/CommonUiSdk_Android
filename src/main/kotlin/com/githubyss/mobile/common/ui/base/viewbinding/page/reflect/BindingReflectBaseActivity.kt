@@ -27,8 +27,6 @@ abstract class BindingReflectBaseActivity<B : ViewBinding> : BaseActivity() {
     /** ********** ********** ********** Override ********** ********** ********** */
     
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        
         // Call inflate method to fill view according to specified ViewBinding by using java reflect.
         val type = javaClass.genericSuperclass
         if (type is ParameterizedType) {
@@ -45,5 +43,7 @@ abstract class BindingReflectBaseActivity<B : ViewBinding> : BaseActivity() {
                 LogcatUtils.e(t = e)
             }
         }
+        
+        super.onCreate(savedInstanceState)
     }
 }
