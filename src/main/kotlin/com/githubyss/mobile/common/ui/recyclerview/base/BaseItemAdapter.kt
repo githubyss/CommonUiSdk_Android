@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.recyclerview.base
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 
 
 /**

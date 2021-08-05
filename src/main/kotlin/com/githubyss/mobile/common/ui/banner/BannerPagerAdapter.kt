@@ -11,7 +11,7 @@ import androidx.viewpager.widget.ViewPager
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 import java.util.*
 import kotlin.collections.ArrayList
 

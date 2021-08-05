@@ -10,7 +10,7 @@ import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
+import com.githubyss.mobile.common.debug.recyclerview.multi.enumeration.MultiType
 
 
 /**

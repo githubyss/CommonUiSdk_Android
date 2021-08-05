@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.template.financeaq
 
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 import org.json.JSONException
 import org.json.JSONObject
 

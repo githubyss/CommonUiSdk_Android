@@ -1,6 +1,6 @@
 package com.githubyss.mobile.common.ui.recyclerview.base
 
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 import org.json.JSONObject
 
 

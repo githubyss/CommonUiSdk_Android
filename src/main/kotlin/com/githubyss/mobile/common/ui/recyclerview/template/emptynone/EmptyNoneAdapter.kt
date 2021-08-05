@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.recyclerview.search.template.emptynone
+package com.githubyss.mobile.common.ui.recyclerview.template.emptynone
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -6,7 +6,7 @@ import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.infla
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyNoneBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 
 
 /**

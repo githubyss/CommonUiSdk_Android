@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.recyclerview.template.layout
 
 import android.view.View
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 import org.json.JSONObject
 
 

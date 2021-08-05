@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.debug.recyclerview.multi.template.image.Image
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
+import com.githubyss.mobile.common.debug.recyclerview.multi.enumeration.MultiType
 
 
 /**

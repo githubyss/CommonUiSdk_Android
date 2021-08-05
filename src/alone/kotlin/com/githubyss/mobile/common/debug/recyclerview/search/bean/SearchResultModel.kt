@@ -1,9 +1,9 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.bean
 
 import android.content.Context
-import com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore.HeaderHasMoreModel
 import com.githubyss.mobile.common.kit.util.ResourceUtils
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore.HeaderHasMoreModel
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*

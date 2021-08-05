@@ -1,6 +1,6 @@
 package com.githubyss.mobile.common.debug.recyclerview.multi.template.multi
 
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
+import com.githubyss.mobile.common.debug.recyclerview.multi.enumeration.MultiType
 
 
 /**

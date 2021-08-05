@@ -7,7 +7,7 @@ import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.infla
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemFinanceAqBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 
 
 /**

@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.BaseV
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemAppIconBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 
 
 /**

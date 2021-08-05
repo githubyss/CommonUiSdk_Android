@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore
+package com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore
 
 import android.view.View
 import android.widget.TextView

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.debug.recyclerview.search.template.emptynone
+package com.githubyss.mobile.common.ui.recyclerview.template.emptynone
 
 
 /**

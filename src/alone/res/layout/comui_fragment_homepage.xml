@@ -10,7 +10,7 @@
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/comres_layoutBg_lightGray"
@@ -217,5 +217,5 @@
                 </com.google.android.flexbox.FlexboxLayout>
             </com.google.android.flexbox.FlexboxLayout>
         </ScrollView>
-    </LinearLayout>
+    </FrameLayout>
 </layout>

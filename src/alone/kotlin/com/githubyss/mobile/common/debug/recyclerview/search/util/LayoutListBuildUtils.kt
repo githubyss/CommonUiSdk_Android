@@ -26,11 +26,11 @@ import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthacco
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemLayout
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListAdapter
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListLayout
 import com.githubyss.mobile.common.ui.recyclerview.template.list.ListModel
-import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
 
 
 /**

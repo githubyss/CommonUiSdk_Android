@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.util.ResourceUtils
-import com.githubyss.mobile.common.ui.recyclerview.type.MultiType
+import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 
 
 /**
@@ -75,7 +75,7 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
         super.getItemOffsets(outRect, view, parent, state)
         val position = parent.childCount - 1
         when (parent.adapter?.getItemViewType(position)) {
-            MultiType.EMPTY, MultiType.HEADER, MultiType.FOOTER -> {
+            ItemType.EMPTY, ItemType.HEADER, ItemType.FOOTER -> {
                 outRect.set(0, 0, 0, 0)
             }
             else -> {

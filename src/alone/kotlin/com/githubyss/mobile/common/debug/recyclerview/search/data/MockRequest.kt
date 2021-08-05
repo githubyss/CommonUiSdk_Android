@@ -21,7 +21,7 @@
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.fundtopic.FundTopicModel
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct.GoldProductAdapter
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct.GoldProductModel
-// import com.githubyss.mobile.common.debug.recyclerview.search.template.headerhasmore.HeaderHasMoreModel
+// import com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore.HeaderHasMoreModel
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationAdapter
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationModel
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductAdapter
@@ -34,7 +34,7 @@
 // import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 // import com.githubyss.mobile.common.ui.recyclerview.template.headerseemore.HeaderSeeMoreModel
 // import com.githubyss.mobile.common.ui.recyclerview.template.list.ListModel
-// import com.githubyss.mobile.common.ui.recyclerview.type.ItemType
+// import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
 //
 //
 // object MockRequest {
