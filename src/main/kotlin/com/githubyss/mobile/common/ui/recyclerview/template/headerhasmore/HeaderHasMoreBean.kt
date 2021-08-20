@@ -23,13 +23,13 @@ import java.util.*
 
 
 /**
- * HeaderHasMoreModel
+ * HeaderHasMoreBean
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/04/11 09:32:11
  */
-data class HeaderHasMoreModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
+data class HeaderHasMoreBean constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     

@@ -2,8 +2,8 @@ package com.githubyss.mobile.common.debug.recyclerview.search.util
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpModel
-import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultModel
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpBean
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultBean
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconAdapter
 import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconModel
@@ -41,13 +41,13 @@ import com.githubyss.mobile.common.ui.recyclerview.template.list.ListModel
  * @createdTime 2021/06/09 14:29:37
  */
 object LayoutListBuildUtils {
-    fun buildLayoutList(context: Context, searchResultModel: SearchResultModel?, keyWord: String, hasHeader: Boolean, onItemClickListener: BaseItemAdapter.OnItemClickListener?, onLayoutClickListener: BaseItemLayout.OnLayoutClickListener?, onDirectJumpListener: DirectJumpModel.OnDirectJumpListener?): ArrayList<LayoutModel> {
+    fun buildLayoutList(context: Context, searchResultBean: SearchResultBean?, keyWord: String, hasHeader: Boolean, onItemClickListener: BaseItemAdapter.OnItemClickListener?, onLayoutClickListener: BaseItemLayout.OnLayoutClickListener?, onDirectJumpListener: DirectJumpBean.OnDirectJumpListener?): ArrayList<LayoutModel> {
         val layoutList = ArrayList<LayoutModel>()
-        if (searchResultModel == null) return layoutList
+        if (searchResultBean == null) return layoutList
         
-        val directJump = searchResultModel.directJump
-        val hotWordsMap = searchResultModel.hotWordsMap
-        val searchResultModuleList = searchResultModel.searchResultModuleList
+        val directJump = searchResultBean.directJump
+        val hotWordsMap = searchResultBean.hotWordsMap
+        val searchResultModuleList = searchResultBean.searchResultModuleList
         when {
             directJump != null -> {
                 onDirectJumpListener?.onDirectJump(directJump)

@@ -5,13 +5,13 @@ import org.json.JSONObject
 
 
 /**
- * DirectJumpModel
+ * DirectJumpBean
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/04/09 15:18:46
  */
-class DirectJumpModel constructor() {
+class DirectJumpBean constructor() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -21,12 +21,6 @@ class DirectJumpModel constructor() {
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
-    
-    constructor(title: String, jumpUrl: String, jumpType: String) : this() {
-        this.title = title
-        this.jumpUrl = jumpUrl
-        this.jumpType = jumpType
-    }
     
     constructor(json: JSONObject?) : this() {
         setProperties(json)
@@ -51,6 +45,6 @@ class DirectJumpModel constructor() {
     /** ********** ********** ********** Interface ********** ********** ********** */
     
     interface OnDirectJumpListener {
-        fun onDirectJump(directJump: DirectJumpModel)
+        fun onDirectJump(directJump: DirectJumpBean)
     }
 }

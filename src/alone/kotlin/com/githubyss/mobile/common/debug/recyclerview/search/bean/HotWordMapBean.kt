@@ -8,13 +8,13 @@ import java.util.*
 
 
 /**
- * HotWordMapModel
+ * HotWordMapBean
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/04/11 09:32:11
  */
-data class HotWordMapModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
+data class HotWordMapBean constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -24,13 +24,13 @@ data class HotWordMapModel constructor(@ItemType override var type: Int) : BaseI
     var title: String = ""
         private set
     
-    var itemList = ArrayList<HotWordModel>()
+    var itemList = ArrayList<HotWordBean>()
         private set
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(moduleKey: String, title: String, itemList: ArrayList<HotWordModel>, @ItemType type: Int) : this(type) {
+    constructor(moduleKey: String, title: String, itemList: ArrayList<HotWordBean>, @ItemType type: Int) : this(type) {
         this.moduleKey = moduleKey
         this.title = title
         this.itemList = itemList
@@ -56,7 +56,7 @@ data class HotWordMapModel constructor(@ItemType override var type: Int) : BaseI
                 if (itemListLength > 0) {
                     for (i in 0 until itemListLength) {
                         val itemJson = itemListJson.getJSONObject(i)
-                        itemList.add(HotWordModel(itemJson))
+                        itemList.add(HotWordBean(itemJson))
                     }
                 }
             }

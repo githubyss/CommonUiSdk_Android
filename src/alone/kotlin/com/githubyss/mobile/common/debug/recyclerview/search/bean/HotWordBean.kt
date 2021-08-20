@@ -5,13 +5,13 @@ import org.json.JSONObject
 
 
 /**
- * HotWordModel
+ * HotWordBean
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/04/12 20:57:01
  */
-class HotWordModel constructor() {
+class HotWordBean constructor() {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     

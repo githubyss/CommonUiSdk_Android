@@ -3,37 +3,37 @@ package com.githubyss.mobile.common.debug.recyclerview.search.bean
 import android.content.Context
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
-import com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore.HeaderHasMoreModel
+import com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore.HeaderHasMoreBean
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
 
 
 /**
- * SearchResultModel
+ * SearchResultBean
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/06/01 17:20:08
  */
-class SearchResultModel(json: JSONObject?) {
+class SearchResultBean(json: JSONObject?) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = SearchResultModel::class.simpleName ?: "simpleName is null"
+        val TAG = SearchResultBean::class.simpleName ?: "simpleName is null"
         
-        fun requestDataByMock(context: Context, searchWord: String): SearchResultModel {
+        fun requestDataByMock(context: Context, searchWord: String): SearchResultBean {
             val jsonStringTabAll = ResourceUtils.getStringFromAssets("json/mock_request_search_result_tab_all.json")
             val jsonStringTabFinancial = ResourceUtils.getStringFromAssets("json/mock_request_search_result_tab_financial.json")
             val jsonStringTabDirectJump = ResourceUtils.getStringFromAssets("json/mock_request_search_result_direct_jump.json")
             val jsonString = jsonStringTabAll
-            return SearchResultModel(JSONObject(jsonString))
+            return SearchResultBean(JSONObject(jsonString))
         }
         
-        fun requestDataByNet(context: Context, searchWord: String): SearchResultModel {
+        fun requestDataByNet(context: Context, searchWord: String): SearchResultBean {
             val jsonString = ""
-            return SearchResultModel(JSONObject(jsonString))
+            return SearchResultBean(JSONObject(jsonString))
         }
     }
     
@@ -53,14 +53,14 @@ class SearchResultModel(json: JSONObject?) {
         private set
     
     /** 直达数据 */
-    var directJump: DirectJumpModel? = null
+    var directJump: DirectJumpBean? = null
         private set
     
     /** 热搜榜 */
-    var hotWordsMap: HotWordMapModel? = null
+    var hotWordsMap: HotWordMapBean? = null
     
     /** 结果列表 */
-    var searchResultModuleList = ArrayList<HeaderHasMoreModel>()
+    var searchResultModuleList: ArrayList<HeaderHasMoreBean> = ArrayList()
         private set
     
     
@@ -80,16 +80,14 @@ class SearchResultModel(json: JSONObject?) {
             keyWord = json.optString("searchWord")
             moduleTab = json.optString("moduleTab")
             hasMoreType = json.optString("hasMoreType")
-            directJump = if (json.has("directResult")) DirectJumpModel(json.optJSONObject("directResult")) else null
-            hotWordsMap = if (json.has("hotWordsMap")) HotWordMapModel(json.optJSONObject("hotWordsMap"), ItemType.ITEM) else null
+            directJump = DirectJumpBean(json.optJSONObject("directResult"))
+            hotWordsMap = HotWordMapBean(json.optJSONObject("hotWordsMap"), ItemType.ITEM)
             
             val searchResultModuleListJson = json.optJSONArray("searchResults")
             if (searchResultModuleListJson != null) {
                 val searchResultModuleListLength = searchResultModuleListJson.length()
-                if (searchResultModuleListLength > 0) {
-                    for (i in 0 until searchResultModuleListLength) {
-                        searchResultModuleList.add(HeaderHasMoreModel(searchResultModuleListJson.getJSONObject(i), ItemType.HEADER))
-                    }
+                for (idx in 0 until searchResultModuleListLength) {
+                    searchResultModuleList.add(HeaderHasMoreBean(searchResultModuleListJson.getJSONObject(idx), ItemType.HEADER))
                 }
             }
         } catch (e: JSONException) {

@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.debug.recyclerview.search.template.emptypage
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import com.githubyss.mobile.common.debug.recyclerview.search.bean.HotWordMapModel
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.HotWordMapBean
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyPageBinding
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemLayout
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
@@ -49,7 +49,7 @@ class EmptyPageLayout : BaseItemLayout<ComuiListItemEmptyPageBinding> {
             // layoutParams.topMargin = ScreenUtils.dp2Px(20.0f)
             // layoutEmptyWithHotWord?.layoutParams = layoutParams
             binding.flexboxHotWord.visibility = View.VISIBLE
-            if (dataModel is HotWordMapModel) {
+            if (dataModel is HotWordMapBean) {
                 val hotWordList = ArrayList<String>()
                 for (aWord in dataModel.itemList) {
                     hotWordList.add(aWord.title)

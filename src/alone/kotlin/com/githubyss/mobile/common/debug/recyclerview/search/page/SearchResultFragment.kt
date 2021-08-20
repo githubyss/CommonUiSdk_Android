@@ -5,8 +5,8 @@ import android.net.Uri
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpModel
-import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultModel
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpBean
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultBean
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuildUtils
 import com.githubyss.mobile.common.kit.util.ActivityUtils
@@ -120,18 +120,17 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_recycle
         isRequesting = true
         layoutList.clear()
         
-        val searchResultModel = SearchResultModel.requestDataByMock(context, searchWord)
+        val searchResultBean = SearchResultBean.requestDataByMock(context, searchWord)
         isRequesting = false
         // if (searchResultModel.keyWord != this@SearchResultFragment.searchWord) return
         // if (searchResultModel.moduleTab == this@SearchResultFragment.moduleTab) return
         layoutList.clear()
-        layoutList.addAll(LayoutListBuildUtils.buildLayoutList(context, searchResultModel, searchWord, true, onItemClickListener, onLayoutClickListener, onDirectJumpListener))
+        layoutList.addAll(LayoutListBuildUtils.buildLayoutList(context, searchResultBean, searchWord, true, onItemClickListener, onLayoutClickListener, onDirectJumpListener))
         rvAdapter?.notifyDataSetChanged()
     }
     
     private fun gotoResultMore(@SearchResultModuleKey key: String) {
-        EventBus.getDefault()
-            .postSticky(key)
+        EventBus.getDefault().postSticky(key)
         replaceFragment(SearchResultMoreFragment(), SearchResultMoreFragment.TAG, true)
     }
     
@@ -145,7 +144,7 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_recycle
             //     is EmptyItemHolder -> {
             //     }
             //     is HeaderHasMoreHolder -> {
-            //         if (data is HeaderHasMoreModel) {
+            //         if (data is HeaderHasMoreBean) {
             //             when (id) {
             //                 R.id.layout_recyclerHeaderHasMoreItem -> {
             //                     ToastUtils.showMessage("标题：${data.title}")
@@ -308,14 +307,14 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_recycle
             //     is SeeMoreModel -> {
             //         onMoreClickListener?.onItemMoreClick("")
             //     }
-            //     is HotWordMapModel -> {
+            //     is HotWordMapBean -> {
             //     }
             // }
         }
     }
     
-    private val onDirectJumpListener = object : DirectJumpModel.OnDirectJumpListener {
-        override fun onDirectJump(directJump: DirectJumpModel) {
+    private val onDirectJumpListener = object : DirectJumpBean.OnDirectJumpListener {
+        override fun onDirectJump(directJump: DirectJumpBean) {
             isDirectJump = true
             val jumpUrl = directJump.jumpUrl
             val uri = Uri.parse(jumpUrl)

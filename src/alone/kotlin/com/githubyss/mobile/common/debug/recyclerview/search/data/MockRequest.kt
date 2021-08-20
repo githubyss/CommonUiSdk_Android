@@ -21,7 +21,7 @@
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.fundtopic.FundTopicModel
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct.GoldProductAdapter
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct.GoldProductModel
-// import com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore.HeaderHasMoreModel
+// import com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore.HeaderHasMoreBean
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationAdapter
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationModel
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductAdapter
@@ -66,7 +66,7 @@
 //         activityIconList.add(ActivityIconModel("", "签到打卡", "https://ActivityIcon4", "", ItemType.ITEM))
 //
 //         val activityList = ArrayList<BaseItemModel>()
-//         if (hasHeader) activityList.add(HeaderHasMoreModel(SectionId.ACTIVITY_ICON, "活动", HasMore.TRUE, activityIconList, keyList, ItemType.HEADER))
+//         if (hasHeader) activityList.add(HeaderHasMoreBean(SectionId.ACTIVITY_ICON, "活动", HasMore.TRUE, activityIconList, keyList, ItemType.HEADER))
 //         activityList.add(ListModel(ActivityIconAdapter(activityIconList, keyList), RecyclerView.HORIZONTAL, context, onItemClickListener, ItemType.ITEM))
 //
 //         return activityList
@@ -119,7 +119,7 @@
 //         fundManagerItemList.add(FundManagerModel("", "王远", "任期最佳回报", "+15.26%", "基金经理简介基金经理简介基金经理简介基金经理简介基金经理简介基金经理基金经理简介基金经理简…", "https://FundManager3", ArrayList<BaseItemModel>(), ItemType.ITEM))
 //
 //         val fundManagerList = ArrayList<BaseItemModel>()
-//         if (hasHeader) fundManagerList.add(HeaderHasMoreModel(SectionId.FUND_MANAGER, "热门经理人", HasMore.TRUE, fundManagerItemList, keyList, ItemType.HEADER))
+//         if (hasHeader) fundManagerList.add(HeaderHasMoreBean(SectionId.FUND_MANAGER, "热门经理人", HasMore.TRUE, fundManagerItemList, keyList, ItemType.HEADER))
 //         fundManagerList.add(ListModel(FundManagerAdapter(fundManagerItemList, keyList), RecyclerView.VERTICAL, context, onItemClickListener, ItemType.ITEM))
 //
 //         return fundManagerList

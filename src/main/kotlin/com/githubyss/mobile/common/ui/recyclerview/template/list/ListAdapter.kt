@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.enumeration.HasMore
 import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
-import com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore.HeaderHasMoreModel
+import com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore.HeaderHasMoreBean
 
 
 /**
@@ -54,7 +54,7 @@ class ListAdapter constructor(private val dataList: List<BaseItemModel>) : BaseI
         if (holder is BaseViewHolderBindingInline<*>) {
             when (val binding = holder.binding) {
                 is ComuiListItemHeaderSeeMoreBinding -> {
-                    if (dataModel is HeaderHasMoreModel) {
+                    if (dataModel is HeaderHasMoreBean) {
                         binding.textHeaderHasMoreTitle.text = dataModel.title
                         binding.textHeaderHasMoreSeeMore.visibility = if (dataModel.hasMore == HasMore.TRUE) View.VISIBLE else View.GONE
                         binding.flexboxItemHeaderHasMore.setOnClickListener { v ->

@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpModel
-import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultModel
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpBean
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultBean
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuildUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
@@ -60,10 +60,8 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_rec
     
     override fun init() {
         initView()
-        if (!EventBus.getDefault()
-                    .isRegistered(this)) {
-            EventBus.getDefault()
-                .register(this)
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this)
         }
     }
     
@@ -78,10 +76,8 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_rec
     }
     
     override fun onDestroyView() {
-        if (EventBus.getDefault()
-                    .isRegistered(this)) {
-            EventBus.getDefault()
-                .unregister(this)
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this)
         }
         resetData()
         super.onDestroyView()
@@ -138,7 +134,7 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_rec
         
         isRequesting = false
         var jsonString = "{}"
-        val searchResultModel = SearchResultModel(JSONObject(jsonString))
+        val searchResultModel = SearchResultBean(JSONObject(jsonString))
         
         if (StringUtils.isEmpty(searchResultModel.keyWord) || searchResultModel.keyWord == this@SearchResultMoreFragment.searchWord) {
             if (searchResultModel.searchResultModuleList.isEmpty()) {
@@ -293,14 +289,14 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_rec
             //     }
             //     is AppIconModel -> {
             //     }
-            //     is HotWordMapModel -> {
+            //     is HotWordMapBean -> {
             //     }
             // }
         }
     }
     
-    private val onDirectJumpListener = object : DirectJumpModel.OnDirectJumpListener {
-        override fun onDirectJump(directJump: DirectJumpModel) {
+    private val onDirectJumpListener = object : DirectJumpBean.OnDirectJumpListener {
+        override fun onDirectJump(directJump: DirectJumpBean) {
         }
     }
     
