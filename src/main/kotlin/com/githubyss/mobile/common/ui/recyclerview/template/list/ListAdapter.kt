@@ -4,6 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.HeaderHasMoreBean
 import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.BaseViewHolderBindingInline
 import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyNoneBinding
@@ -13,7 +14,6 @@ import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recyclerview.enumeration.HasMore
 import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
-import com.githubyss.mobile.common.ui.recyclerview.template.headerhasmore.HeaderHasMoreBean
 
 
 /**

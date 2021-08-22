@@ -1,0 +1,278 @@
+{
+  "searchWord": "基金",
+  "searchResults": [
+    {
+      "modelName": "fund",
+      "hasMoreData": "1",
+      "title": "基金产品",
+      "items": [
+        {
+          "fund": {
+            "fundType": "指数型",
+            "interestRate": "36.80",
+            "isSelfSelec": "0",
+            "riskLevel": "高风险",
+            "fundCode": "160136",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-160136-1-111303-0-3.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过111关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "南方中证国有企业改革指数证券投资基金（LOF）"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "QDII型",
+            "interestRate": "28.14",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "164824",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-164824-1-120362-0-5.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过105关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "工银印度基金人民币（LOF）"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "27.63",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "001695",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001695-1-121115-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过43关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "泓德泓业混合基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "股票型",
+            "interestRate": "24.17",
+            "isSelfSelec": "0",
+            "riskLevel": "高风险",
+            "fundCode": "001208",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001208-1-121156-0-0.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过67关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "诺安低碳经济股票型证券投资基金A"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "23.39",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "002465",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-002465-1-112259-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过136关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "东兴众智优选混合基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "21.54",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "001500",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001500-1-121097-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过200关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "泓德远见回报混合基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "20.79",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "270006",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-270006-1-110470-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过228关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "广发优选基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "20.07",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "001256",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001256-1-121096-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过156关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "泓德优选成长混合基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "18.42",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "217010",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-217010-1-110595-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过430关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "招商大盘蓝筹基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "股票型",
+            "interestRate": "14.52",
+            "isSelfSelec": "0",
+            "riskLevel": "高风险",
+            "fundCode": "320014",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-320014-1-121165-0-0.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过37关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "诺安沪深300指数增强型证券投资基金A"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "12.12",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "217009",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-217009-1-110204-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过288关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "招商核心价值基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "指数型",
+            "interestRate": "8.68",
+            "isSelfSelec": "0",
+            "riskLevel": "高风险",
+            "fundCode": "320010",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-320010-1-121163-0-3.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过113关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "诺安中证100指数证券投资基金A"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "7.05",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "000963",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-000963-1-120962-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过498关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "兴业多策略混合型基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "混合型",
+            "interestRate": "6.48",
+            "isSelfSelec": "0",
+            "riskLevel": "中高风险",
+            "fundCode": "001708",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001708-1-112257-0-6.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过162关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "东兴改革精选混合基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "债券型",
+            "interestRate": "5.48",
+            "isSelfSelec": "0",
+            "riskLevel": "中低风险",
+            "fundCode": "217203",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-217203-1-110649-0-1.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过130关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "招商债券B基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "指数型",
+            "interestRate": "5.32",
+            "isSelfSelec": "0",
+            "riskLevel": "高风险",
+            "fundCode": "001351",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-001351-1-121157-0-3.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过50关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "诺安中证500指数增强型证券投资基金A"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "指数型",
+            "interestRate": "4.79",
+            "isSelfSelec": "0",
+            "riskLevel": "高风险",
+            "fundCode": "005125",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-005125-1-112952-0-3.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过85关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "华宝红利基金C"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "债券型",
+            "interestRate": "4.50",
+            "isSelfSelec": "0",
+            "riskLevel": "中风险",
+            "fundCode": "270009",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-270009-1-109258-0-1.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过226关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "广发强债基金"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "指数型",
+            "interestRate": "4.45",
+            "isSelfSelec": "0",
+            "riskLevel": "高风险",
+            "fundCode": "270010",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-270010-1-110471-0-3.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过343关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "广发300基金联接A"
+          }
+        },
+        {
+          "fund": {
+            "fundType": "债券型",
+            "interestRate": "4.27",
+            "isSelfSelec": "0",
+            "riskLevel": "中低风险",
+            "fundCode": "470030",
+            "linkUrl": "https:\/\/m.snjijin.com\/fundDetail\/index-470030-1-111427-0-1.htm?navigationType=LinkClicked&loginTheme=wap",
+            "selfSelecDesc": "超过1147关注",
+            "interestRateDesc": "近1年涨跌幅",
+            "productName": "汇添富鑫禧债券型基金"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    }
+  ],
+  "success": true,
+  "responseCode": "0000",
+  "responseMsg": "成功"
+}

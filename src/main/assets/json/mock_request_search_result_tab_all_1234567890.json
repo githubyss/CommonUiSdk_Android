@@ -1,0 +1,33 @@
+{
+  "moduleTab": "all",
+  "success": true,
+  "searchWord": "1234567890",
+  "hotWordsMap": {
+    "title": "大家都在搜",
+    "items": [
+      {
+        "orderNumber": "1",
+        "title": "任性付至高24期免息"
+      },
+      {
+        "orderNumber": "2",
+        "title": "借钱30天免息"
+      },
+      {
+        "orderNumber": "3",
+        "title": "限时加息5.5%"
+      },
+      {
+        "orderNumber": "4",
+        "title": "领750元现金"
+      },
+      {
+        "orderNumber": "5",
+        "title": "10万重疾保额每年仅216元"
+      }
+    ],
+    "key": "hotWordsMap"
+  },
+  "responseCode": "0000",
+  "responseMsg": "成功"
+}

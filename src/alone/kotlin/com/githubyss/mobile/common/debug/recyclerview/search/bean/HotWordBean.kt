@@ -11,22 +11,22 @@ import org.json.JSONObject
  * @github githubyss
  * @createdTime 2021/04/12 20:57:01
  */
-class HotWordBean constructor() {
+class HotWordBean constructor(val json: JSONObject?) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
+    /**  */
     var title: String = ""
+        private set
+    
+    /**  */
     var orderNumber: String = ""
+        private set
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(title: String, orderNumber: String) : this() {
-        this.title = title
-        this.orderNumber = orderNumber
-    }
-    
-    constructor(json: JSONObject?) : this() {
+    init {
         setProperties(json)
     }
     

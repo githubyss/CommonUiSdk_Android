@@ -6,7 +6,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpBean
-import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultBean
+import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultModel
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuildUtils
 import com.githubyss.mobile.common.kit.util.ActivityUtils
@@ -120,7 +120,7 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_recycle
         isRequesting = true
         layoutList.clear()
         
-        val searchResultBean = SearchResultBean.requestDataByMock(context, searchWord)
+        val searchResultBean = SearchResultModel.requestDataByLocalJson(context, searchWord)
         isRequesting = false
         // if (searchResultModel.keyWord != this@SearchResultFragment.searchWord) return
         // if (searchResultModel.moduleTab == this@SearchResultFragment.moduleTab) return

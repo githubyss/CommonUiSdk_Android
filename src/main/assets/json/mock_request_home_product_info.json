@@ -1,0 +1,477 @@
+{
+  "responseCode": "0000",
+  "responseMsg": "成功.",
+  "responseData": {
+    "productInfos": [
+      {
+        "moreIsLogin": "0",
+        "moreJoinType": "1",
+        "isMore": "1",
+        "moreJoinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/private\/prodList.html?pageCode=CPCK03&frompage=BX07020124X",
+        "iconUrl": "https:\/\/imageuat.suningbank.com0",
+        "id": "77",
+        "prodRows": [
+          [
+            {
+              "templateType": "021",
+              "productItemName": "月月取息",
+              "isLogin": "1",
+              "productId": "77",
+              "joinType": "1",
+              "startTime": "2021-01-21 14:27:00",
+              "endTime": "2021-12-31 12:26:00",
+              "id": "143",
+              "isRealName": "1",
+              "joinUrl": "https:\/\/www.baidu.com",
+              "items": {
+                "wealthProdName": "月月取息2",
+                "wealthRateContent": "年化利率",
+                "wealthSign": "%",
+                "wealthRate": "1",
+                "wealthDesc2": "随存随取",
+                "wealthDesc1": "100元起"
+              }
+            },
+            {
+              "templateType": "021",
+              "productItemName": "宁惠存",
+              "isLogin": "1",
+              "productId": "77",
+              "joinType": "1",
+              "startTime": "2021-01-19 11:50:00",
+              "endTime": "2026-01-15 11:50:00",
+              "id": "166",
+              "isRealName": "1",
+              "joinUrl": "https:\/\/www.baidu.com",
+              "items": {
+                "wealthProdName": "宁惠存",
+                "wealthRateContent": "年化利率",
+                "wealthSign": "%",
+                "wealthRate": "1.2345",
+                "wealthDesc2": "快速提取",
+                "wealthDesc1": "100元起"
+              }
+            }
+          ]
+        ],
+        "productName": "财富产品",
+        "moreIsRealName": "0"
+      },
+      {
+        "moreIsLogin": "1",
+        "moreJoinType": "1",
+        "isMore": "1",
+        "moreJoinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/dqckapp\/index.html?frompage=BX0701020X",
+        "iconUrl": "https:\/\/imageuat.suningbank.com0",
+        "id": "114",
+        "prodRows": [
+          [
+            {
+              "templateType": "021",
+              "productItemName": "*持仓页链接*",
+              "isLogin": "1",
+              "productId": "114",
+              "joinType": "1",
+              "startTime": "2021-04-19 16:09:00",
+              "endTime": "2029-04-19 16:09:00",
+              "id": "228",
+              "isRealName": "0",
+              "joinUrl": "https:\/\/issmprexg.snisc.cn\/index.htm",
+              "items": {
+                "wealthProdName": "*持仓页链接*",
+                "productCode": "",
+                "taCode": "",
+                "wealthRateContent": "1",
+                "wealthSign": "1",
+                "wealthRate": "11",
+                "wealthDesc2": "1",
+                "wealthDesc1": "1"
+              }
+            }
+          ]
+        ],
+        "productName": "0428定期存款",
+        "moreIsRealName": "1"
+      },
+      {
+        "moreIsLogin": "0",
+        "moreJoinType": "1",
+        "isMore": "1",
+        "moreJoinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/private\/prodList.html?App=7&Frompage=912&pageCode=CPGLC01",
+        "iconUrl": "https:\/\/imageuat.suningbank.com0",
+        "id": "123",
+        "prodRows": [
+          [
+            {
+              "templateType": "021",
+              "productItemName": "随变存",
+              "isLogin": "0",
+              "productId": "123",
+              "joinType": "1",
+              "startTime": "2021-06-01 16:53:00",
+              "endTime": "2029-06-23 16:53:00",
+              "id": "244",
+              "isRealName": "0",
+              "joinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/zyckapp\/index.html?prodCode=ZYUAT88&frompage=BX0701050X",
+              "items": {
+                "wealthProdName": "0603",
+                "wealthRateContent": "1243",
+                "wealthSign": "1234",
+                "wealthRate": "4",
+                "wealthDesc2": "124",
+                "wealthDesc1": "1234"
+              }
+            },
+            {
+              "templateType": "021",
+              "productItemName": "给力存",
+              "isLogin": "0",
+              "productId": "123",
+              "joinType": "1",
+              "startTime": "2021-06-02 14:33:00",
+              "endTime": "2028-06-09 14:32:00",
+              "id": "245",
+              "isRealName": "0",
+              "joinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/zyckapp\/index.html?prodCode=YXHDGLC01&frompage=BX0723424",
+              "items": {
+                "wealthProdName": "给力存",
+                "productCode": "",
+                "taCode": "",
+                "wealthRateContent": "年化",
+                "wealthSign": "%",
+                "wealthRate": "3",
+                "wealthDesc2": "321",
+                "wealthDesc1": "12"
+              }
+            }
+          ]
+        ],
+        "productName": "随变存",
+        "moreIsRealName": "0"
+      },
+      {
+        "moreIsLogin": "0",
+        "moreJoinType": "1",
+        "isMore": "1",
+        "moreJoinUrl": "https:\/\/www.baidu.com",
+        "iconUrl": "",
+        "id": "76",
+        "prodRows": [
+          [
+            {
+              "templateType": "011",
+              "productItemName": "给力存",
+              "isLogin": "1",
+              "productId": "76",
+              "joinType": "1",
+              "startTime": "2021-03-11 15:37:00",
+              "endTime": "2023-03-23 15:35:00",
+              "id": "189",
+              "isRealName": "1",
+              "joinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/zyckapp\/index.html?prodCode=ZYCKUAT01&frompage=BX0701050X",
+              "items": {
+                "newProdName": "给力存新人专享",
+                "newDesc2": "当日起息",
+                "newDesc1": "50元起存",
+                "newRateContent": "年化利率",
+                "newSign": "%",
+                "newDesc3": "随存随取",
+                "newRate": "5.1234",
+                "newBtnName": "立即体验",
+                "newBgImgUrl": "https:\/\/imageuat.suningbank.com\/channel\/pubresource\/16154483048923527.png"
+              }
+            }
+          ]
+        ],
+        "productName": "新人专区",
+        "moreIsRealName": "0"
+      },
+      {
+        "moreIsLogin": "1",
+        "moreJoinType": "1",
+        "isMore": "1",
+        "moreJoinUrl": "https:\/\/www.baidu.com",
+        "iconUrl": "https:\/\/imageuat.suningbank.com0",
+        "id": "78",
+        "prodRows": [
+          [
+            {
+              "templateType": "030",
+              "productItemName": "升级贷",
+              "isLogin": "1",
+              "productId": "78",
+              "joinType": "1",
+              "startTime": "2021-01-21 14:40:00",
+              "endTime": "2021-12-31 12:26:00",
+              "id": "145",
+              "isRealName": "1",
+              "joinUrl": "https:\/\/appbankuat1.suningbank.com:2444\/loan\/?FromPage=02014#\/appOther\/LoanHome\/sjd ",
+              "items": {
+                "buttonName": "获取额度",
+                "button2": "获取额度",
+                "bottom1": "30万元",
+                "top1": "纯信用",
+                "loanAmountContent": "最高可借额度",
+                "top2": "额度高",
+                "bottom3": "最高可借额度",
+                "loanAmount": "30万元",
+                "loanDesc1": "纯信用",
+                "loanDesc2": "额度高",
+                "loanDesc3": "",
+                "prodName": "升级贷",
+                "middle1": "年化利率",
+                "loanProdName": "升级贷",
+                "middle2": "9.0%",
+                "loanRateContent": "年化利率",
+                "loanRate": "9.0%",
+                "loanTag": ""
+              }
+            }
+          ],
+          [
+            {
+              "templateType": "040",
+              "productItemName": "采购贷",
+              "isLogin": "1",
+              "productId": "78",
+              "joinType": "1",
+              "startTime": "2021-07-01 16:58:00",
+              "endTime": "2026-08-15 16:58:00",
+              "id": "246",
+              "isRealName": "1",
+              "joinUrl": "https:\/\/appbankuat1.suningbank.com\/cgdstatic\/index.html#\/appOther\/LoanProductTransfer",
+              "items": {
+                "loanDesc1": "纯信用",
+                "buttonName": "获取额度",
+                "loanDesc2": "额度高",
+                "loanProdName": "采购贷",
+                "loanRateContent": "利率低至",
+                "loanAmountContent": "最高可借额度",
+                "loanRate": "10%",
+                "loanAmount": "2000000"
+              }
+            }
+          ],
+          [
+            {
+              "templateType": "040",
+              "productItemName": "微商贷",
+              "isLogin": "1",
+              "productId": "78",
+              "joinType": "1",
+              "startTime": "2021-01-21 16:06:00",
+              "endTime": "2021-12-31 12:26:00",
+              "id": "149",
+              "isRealName": "1",
+              "joinUrl": "https:\/\/appbankuat1.suningbank.com\/cgdstatic\/index.html#\/appOther\/LoanProductTransfer",
+              "items": {
+                "loanDesc1": "纯信用",
+                "buttonName": "获取额度",
+                "loanDesc2": "额度高",
+                "loanDesc3": "",
+                "loanProdName": "微商贷",
+                "loanRateContent": "利率低至",
+                "loanAmountContent": "最高可借额度",
+                "loanRate": "88.88%",
+                "loanAmount": "20000000",
+                "loanTag": ""
+              }
+            }
+          ]
+        ],
+        "productName": "贷款产品",
+        "moreIsRealName": "1"
+      },
+      {
+        "moreIsLogin": "0",
+        "moreJoinType": "1",
+        "isMore": "1",
+        "moreJoinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/dqckapp\/index.html?frompage=BX0701020X",
+        "iconUrl": "https:\/\/imageuat.suningbank.com0",
+        "id": "117",
+        "prodRows": [
+          [
+            {
+              "templateType": "021",
+              "productItemName": "定期存款列表",
+              "isLogin": "0",
+              "productId": "117",
+              "joinType": "1",
+              "startTime": "2021-05-26 14:59:00",
+              "endTime": "2022-05-26 14:59:00",
+              "id": "233",
+              "isRealName": "0",
+              "joinUrl": "https:\/\/mpsuat1.suningbank.com\/snbapp\/index.html?ChannelNo=AP#\/RightsCenter\/AggPage\/AP2021061514074000\/1",
+              "items": {
+                "wealthProdName": "定期存款6M",
+                "productCode": "",
+                "taCode": "",
+                "wealthRateContent": "gr",
+                "wealthSign": "%",
+                "wealthRate": "5",
+                "wealthDesc2": "nrn",
+                "wealthDesc1": "rnt"
+              }
+            }
+          ]
+        ],
+        "productName": "定期存款+",
+        "moreIsRealName": "0"
+      },
+      {
+        "moreIsLogin": "1",
+        "moreJoinType": "1",
+        "isMore": "1",
+        "moreJoinUrl": "http:\/\/www.baidu.com",
+        "iconUrl": "",
+        "id": "79",
+        "prodRows": [
+          [
+            {
+              "templateType": "051",
+              "productItemName": "抽奖",
+              "isLogin": "1",
+              "productId": "79",
+              "joinType": "1",
+              "startTime": "2021-04-06 19:50:00",
+              "endTime": "2022-05-27 16:37:00",
+              "id": "160",
+              "isRealName": "1",
+              "joinUrl": "1",
+              "items": {
+                "hotEventSkipUrl1": "https:\/\/www.baidu.com",
+                "hotEventSkipUrl2": "https:\/\/www.baidu.com",
+                "hotEventSkipType3": "1",
+                "hotEventSkipType2": "1",
+                "hotEventImgUrl2": "https:\/\/imageuat.suningbank.com\/channel\/pubresource\/16157802109515541.png",
+                "hotEventSkipType1": "1",
+                "hotEventImgUrl1": "https:\/\/imageuat.suningbank.com\/channel\/pubresource\/16157802051093453.png",
+                "hotEventImgUrl3": "https:\/\/imageuat.suningbank.com\/channel\/pubresource\/16157802145149478.png",
+                "hotEventSkipUrl3": "https:\/\/www.baidu.com"
+              }
+            }
+          ]
+        ],
+        "productName": "热门活动",
+        "moreIsRealName": "1"
+      },
+      {
+        "moreIsLogin": "1",
+        "moreJoinType": "1",
+        "isMore": "1",
+        "moreJoinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/cfbpapp\/html\/prodList.html?frompage=BX0701010X",
+        "iconUrl": "https:\/\/imageuat.suningbank.com0",
+        "id": "119",
+        "prodRows": [
+          [
+            {
+              "templateType": "021",
+              "productItemName": "代销001",
+              "isLogin": "1",
+              "productId": "119",
+              "joinType": "1",
+              "startTime": "2021-05-12 16:10:00",
+              "endTime": "2032-05-30 16:09:00",
+              "id": "235",
+              "isRealName": "1",
+              "joinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/cfbpapp\/index.html?prodCode=BJHD001&frompage=BX0701010X",
+              "items": {
+                "wealthProdName": "代销001",
+                "wealthRateContent": "利率",
+                "wealthSign": "%",
+                "wealthRate": "5",
+                "wealthDesc2": "就这文案",
+                "wealthDesc1": "就这文案"
+              }
+            },
+            {
+              "templateType": "021",
+              "productItemName": "代销02",
+              "isLogin": "0",
+              "productId": "119",
+              "joinType": "1",
+              "startTime": "2021-05-07 16:41:00",
+              "endTime": "2029-05-30 16:41:00",
+              "id": "237",
+              "isRealName": "0",
+              "joinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/cfbpapp\/index.html?prodCode=BJHD002&frompage=BX0701010X",
+              "items": {
+                "wealthProdName": "代销02",
+                "wealthRateContent": "%",
+                "wealthSign": "%",
+                "wealthRate": "6",
+                "wealthDesc2": "%",
+                "wealthDesc1": "%"
+              }
+            }
+          ]
+        ],
+        "productName": "稳健理财",
+        "moreIsRealName": "1"
+      },
+      {
+        "moreIsLogin": "1",
+        "moreJoinType": "-1",
+        "isMore": "1",
+        "moreJoinUrl": "",
+        "iconUrl": "https:\/\/imageuat.suningbank.com0",
+        "id": "125",
+        "prodRows": [
+          [
+            {
+              "templateType": "011",
+              "productItemName": "首页新人专区",
+              "isLogin": "1",
+              "productId": "125",
+              "joinType": "1",
+              "startTime": "2021-07-22 15:04:00",
+              "endTime": "2022-07-01 15:04:00",
+              "id": "252",
+              "isRealName": "1",
+              "joinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/lczapp\/index.html?frompage=B01104010X#\/holdHome",
+              "items": {
+                "newProdName": "新人（理财代码）",
+                "productCode": "02000268",
+                "taCode": "999",
+                "newDesc2": "文案2",
+                "newDesc1": "文案1",
+                "newRateContent": "利率文案",
+                "newSign": "%",
+                "newDesc3": "文案3",
+                "newRate": "2.54",
+                "newBtnName": "按钮",
+                "newBgImgUrl": "https:\/\/imageuat.suningbank.com\/channel\/pubresource\/16270241054627382.png"
+              }
+            }
+          ],
+          [
+            {
+              "templateType": "021",
+              "productItemName": "财富产品模板",
+              "isLogin": "1",
+              "productId": "125",
+              "joinType": "1",
+              "startTime": "2021-07-22 15:12:00",
+              "endTime": "2022-07-30 15:12:00",
+              "id": "253",
+              "isRealName": "1",
+              "joinUrl": "https:\/\/fmsfsuat1.suningbank.com:8771\/lczapp\/index.html?frompage=B01104010X#\/holdHome",
+              "items": {
+                "wealthProdName": "财富（无代码）",
+                "productCode": "",
+                "taCode": "",
+                "wealthRateContent": "利率文案",
+                "wealthSign": "%",
+                "wealthRate": "1.15",
+                "wealthDesc2": "文案二",
+                "wealthDesc1": "文案一"
+              }
+            }
+          ]
+        ],
+        "productName": "李洋专用",
+        "moreIsRealName": "1"
+      }
+    ]
+  }
+}

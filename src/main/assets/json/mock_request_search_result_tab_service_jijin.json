@@ -1,0 +1,108 @@
+{
+  "moduleTab": "service",
+  "success": true,
+  "searchWord": "基金",
+  "searchResults": [
+    {
+      "modelName": "subject",
+      "hasMore": "0",
+      "title": "专题",
+      "items": [
+        {
+          "subject": {
+            "subjectImgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/a3wfOyWSUk_SihWJeesi9QQOl7Z5bM3sU0dLMjSJwF63soT9O0qZLxphaf6dx0S3.png",
+            "subTitle": "股债搭配 震荡市优选",
+            "iconList": [
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/T_H4eZK7uGyvVtKL_ZO5mLhLzB94EVLvCwO75qs1qu5I1NXPk8MXy_p07p2A5zVL.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/m.snjijin.com\/resource\/alone-FIP.htm",
+                "title": "优选好基"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/pjUknG7HHmUlcVpQw7MRFwdG2MFp7WnMdZwjKU-NXxy_ovDchiwwBrySVBFMnVEr.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/jinrong.suning.com\/scms\/yizhouhot.html",
+                "title": "基金榜单"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/p9Bvqmii1YKPM8gJo0PxeVJc-A2JjyLp_d94pKIBhvA2TK-F3ip0ZwURjM-y_cWG.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/m.snjijin.com\/resource\/alone-fund.htm",
+                "title": "基金首页"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/If7LnIcHRIy8nJ09bzHfFA1J56Milwkky0dvYjlyxsMLY23KjwvPVni9LJz07oJ1.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/m.snjijin.com\/resource\/alone-ZUHE.htm",
+                "title": "基金组合"
+              }
+            ],
+            "subjectTitleLinkUrl": "https:\/\/jinrong.suning.com\/scms\/waplc_jjhzy_jrtc.html?utm_source=APPss",
+            "advertList": [
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/h61xRfte6icPhucQpL203jehyYsSiGTdueUOoSCrSDILkSY4dw7Z1XAYSikB8QE1.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/lcsales.suning.com\/lcmkts\/app\/goldActive\/goldIndex\/TCACTCODE202105190000001.htm?idsFirstLogin=true"
+              },
+              {
+                "imgUrl": "https:\/\/oss.suning.com\/fipcds\/fipcds_content_resource\/Hu_Qk_8k_SS3cvX5BzNCzvpc5DyIH6_15_MMOGwud0ib1_sGAWNX9bEvOWmqqK4a.png",
+                "urlType": "",
+                "linkUrl": "https:\/\/jinrong.suning.com\/scms\/goldcouponcopy1.html"
+              }
+            ],
+            "subjectName": "目标盈 目标年化6.5%"
+          }
+        }
+      ]
+    },
+    {
+      "modelName": "application",
+      "hasMore": "0",
+      "title": "应用",
+      "items": [
+        {
+          "application": {
+            "imgUrl": "https:\/\/respay.suning.com\/eppClientApp\/image\/icon\/1529052940966.png",
+            "urlType": "1",
+            "linkUrl": "https:\/\/m.snjijin.com\/index.htm?navigationType=LinkClicked&loginTheme=wap",
+            "title": "基金"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    },
+    {
+      "modelName": "help",
+      "hasMore": "1",
+      "title": "帮助",
+      "items": [
+        {
+          "help": {
+            "linkUrl": "https:\/\/fipinfo.suning.com\/fipces\/help\/route.htm?helpId=1504526824247",
+            "title": "基金收益展示时间"
+          }
+        },
+        {
+          "help": {
+            "linkUrl": "https:\/\/fipinfo.suning.com\/fipces\/help\/route.htm?helpId=1504526412467",
+            "title": "基金赎回成功后资金会到哪里？"
+          }
+        },
+        {
+          "help": {
+            "linkUrl": "https:\/\/fipinfo.suning.com\/fipces\/help\/route.htm?helpId=1504526375986",
+            "title": "基金的分红方式都有哪些？有什么区别？"
+          }
+        }
+      ],
+      "keylist": [
+        "基金"
+      ]
+    }
+  ],
+  "responseCode": "0000",
+  "responseMsg": "成功"
+}

@@ -2,6 +2,7 @@ package com.githubyss.mobile.common.debug.recyclerview.multi.page
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.multi.enumeration.MultiType
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.multi.MultiAdapter
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.multi.MultiModel
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
@@ -10,7 +11,6 @@ import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
 import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
-import com.githubyss.mobile.common.debug.recyclerview.multi.enumeration.MultiType
 
 
 /**
@@ -53,7 +53,26 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragm
         binding.recyclerContainer.setHasFixedSize(true)
         binding.recyclerContainer.layoutManager = LinearLayoutManager(activity)
         binding.recyclerContainer.adapter = rvAdapter
+        binding.recyclerContainer.layoutManager
         rvAdapter?.setOnItemClickListener(onItemClickListener)
+    }
+    
+    private fun initMultiRecyclerView(dataList: MutableList<MultiModel>) {
+        binding.recyclerContainer.apply {
+            layoutManager = object : LinearLayoutManager(activity) {
+                override fun canScrollVertically(): Boolean {
+                    return false
+                }
+            }.apply {
+                orientation = LinearLayoutManager.HORIZONTAL
+                isSmoothScrollbarEnabled = true
+                isAutoMeasureEnabled = true
+            }
+            
+            adapter = MultiAdapter(dataList)
+            setHasFixedSize(true)
+            isNestedScrollingEnabled = false
+        }
     }
     
     private fun initData() {

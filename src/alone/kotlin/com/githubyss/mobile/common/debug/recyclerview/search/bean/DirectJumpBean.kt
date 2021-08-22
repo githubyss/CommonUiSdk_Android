@@ -11,18 +11,22 @@ import org.json.JSONObject
  * @github githubyss
  * @createdTime 2021/04/09 15:18:46
  */
-class DirectJumpBean constructor() {
+class DirectJumpBean constructor(val json: JSONObject?) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    var title: String = ""
+    /** 跳转链接 */
     var jumpUrl: String = ""
-    var jumpType: String = ""
+        private set
+    
+    /** 跳转模式 */
+    var jumpMode: String = ""
+        private set
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(json: JSONObject?) : this() {
+    init {
         setProperties(json)
     }
     
@@ -31,11 +35,10 @@ class DirectJumpBean constructor() {
     
     private fun setProperties(json: JSONObject?) {
         try {
-            if (json == null) return
-            
-            title = json.optString("title")
-            jumpUrl = json.optString("linkUrl")
-            jumpType = json.optString("urlType")
+            json?.let {
+                jumpUrl = json.optString("linkUrl")
+                jumpMode = json.optString("urlType")
+            }
         } catch (e: JSONException) {
             e.printStackTrace()
         }

@@ -14,29 +14,26 @@ import java.util.*
  * @github githubyss
  * @createdTime 2021/04/11 09:32:11
  */
-data class HotWordMapBean constructor(@ItemType override var type: Int) : BaseItemModel(type) {
+data class HotWordMapBean constructor(val json: JSONObject?, @ItemType override var type: Int) : BaseItemModel(type) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
+    /**  */
     var moduleKey: String = ""
         private set
     
+    /**  */
     var title: String = ""
         private set
     
+    /**  */
     var itemList = ArrayList<HotWordBean>()
         private set
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(moduleKey: String, title: String, itemList: ArrayList<HotWordBean>, @ItemType type: Int) : this(type) {
-        this.moduleKey = moduleKey
-        this.title = title
-        this.itemList = itemList
-    }
-    
-    constructor(json: JSONObject?, @ItemType type: Int) : this(type) {
+    init {
         setProperties(json)
     }
     
@@ -45,18 +42,18 @@ data class HotWordMapBean constructor(@ItemType override var type: Int) : BaseIt
     
     override fun setProperties(json: JSONObject?) {
         try {
-            if (json == null) return
-            
-            moduleKey = json.optString("key")
-            title = json.optString("title")
-            
-            val itemListJson = json.optJSONArray("items")
-            if (itemListJson != null) {
-                val itemListLength = itemListJson.length()
-                if (itemListLength > 0) {
-                    for (i in 0 until itemListLength) {
-                        val itemJson = itemListJson.getJSONObject(i)
-                        itemList.add(HotWordBean(itemJson))
+            json?.let {
+                moduleKey = json.optString("key")
+                title = json.optString("title")
+                
+                val itemListJson = json.optJSONArray("items")
+                if (itemListJson != null) {
+                    val itemListLength = itemListJson.length()
+                    if (itemListLength > 0) {
+                        for (i in 0 until itemListLength) {
+                            val itemJson = itemListJson.getJSONObject(i)
+                            itemList.add(HotWordBean(itemJson))
+                        }
                     }
                 }
             }
