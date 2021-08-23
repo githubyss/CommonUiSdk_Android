@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.banner
 
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import org.json.JSONException
 import org.json.JSONObject
 

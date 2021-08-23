@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+
+    <data>
+
+        <import type="com.githubyss.mobile.common.debug.recyclerview.search.template.insurance_product.InsuranceProductModel" />
+
+        <variable
+                name="insuranceProduct"
+                type="InsuranceProductModel"
+                />
+    </data>
+
+    <!--<data>-->
+
+    <!--    <variable-->
+    <!--            name="insuranceProduct"-->
+    <!--            type="com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductModel"-->
+    <!--            />-->
+    <!--</data>-->
+
+    <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexboxItemInsuranceProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/comres_sideMargin_tiny"
+            android:paddingRight="@dimen/comres_sideMargin_tiny"
+            android:background="@color/comres_color_transparent"
+            app:flexDirection="column"
+            app:justifyContent="flex_start"
+            app:alignItems="center"
+            >
+
+        <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/comres_sideMargin_micro"
+                android:paddingBottom="@dimen/comres_sideMargin_micro"
+                app:flexDirection="row"
+                app:justifyContent="flex_start"
+                app:alignItems="center"
+                >
+
+            <ImageView
+                    android:id="@+id/imageInsuranceProduct"
+                    android:layout_width="90dp"
+                    android:layout_height="58dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/comres_tag_bg_rectangle_micro_gray"
+                    app:layout_flexShrink="0"
+                    />
+
+            <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:flexDirection="column"
+                    app:justifyContent="space_between"
+                    app:alignItems="flex_start"
+                    app:layout_flexGrow="1"
+                    >
+
+                <com.githubyss.mobile.common.ui.text_view.KeyWordHighlightTextView
+                        android:id="@+id/textInsuranceProductTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="20dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@{insuranceProduct.title}"
+                        android:textColor="@color/comres_color_333333"
+                        android:textSize="@dimen/comres_textSize_15sp"
+                        android:textStyle="bold"
+                        />
+
+                <TextView
+                        android:id="@+id/textInsuranceProductHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingRight="20dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="最高24.3万｜无免赔｜成长无忧"
+                        android:textColor="@color/comres_color_999999"
+                        android:textSize="@dimen/comres_textSize_12sp"
+                        />
+
+                <TextView
+                        android:id="@+id/textInsuranceProductPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingRight="20dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="1元首付"
+                        android:textColor="@color/comres_color_ff5500"
+                        android:textSize="@dimen/comres_textSize_14sp"
+                        />
+            </com.google.android.flexbox.FlexboxLayout>
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <include layout="@layout/comui_view_separator_horizontal_light_gray" />
+    </com.google.android.flexbox.FlexboxLayout>
+</layout>

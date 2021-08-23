@@ -2,12 +2,12 @@ package com.githubyss.mobile.common.debug.recyclerview.search.template.faq
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.BaseViewHolderBindingInline
-import com.githubyss.mobile.common.ui.base.viewbinding.recyclerview.inline.inflate
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline.BaseViewHolderBindingInline
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemFaqBinding
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 
 
 /**

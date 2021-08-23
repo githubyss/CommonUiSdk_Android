@@ -11,14 +11,14 @@ import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuil
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
-import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemLayout
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
+import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSearchResultMoreBinding
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.template.layout.LayoutAdapter
+import com.githubyss.mobile.common.ui.recycler_view.template.layout.LayoutModel
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -32,7 +32,7 @@ import org.json.JSONObject
  * @github githubyss
  * @createdTime 2021/03/30 20:05:25
  */
-class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_recycler_view) {
+class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_search_result_more) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -40,7 +40,7 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_rec
         val TAG = SearchResultMoreFragment::class.simpleName ?: "simpleName is null"
     }
     
-    private val binding by bindView<ComuiFragmentRecyclerViewBinding>()
+    private val binding by bindView<ComuiFragmentSearchResultMoreBinding>()
     
     private var searchWord: String = ""
     private var pageChannel: String = ""

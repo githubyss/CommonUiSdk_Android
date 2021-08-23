@@ -8,9 +8,9 @@ import com.githubyss.mobile.common.debug.recyclerview.multi.template.multi.Multi
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
-import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
+import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMultiTypeBinding
 
 
 /**
@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBindi
  * @github githubyss
  * @createdTime 2021/03/09 11:02:35
  */
-class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragment_recycler_view) {
+class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragment_multi_type) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -28,7 +28,7 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragm
         val TAG = RecyclerViewByMultiTypeFragment::class.java.simpleName
     }
     
-    private val binding by bindView<ComuiFragmentRecyclerViewBinding>()
+    private val binding by bindView<ComuiFragmentMultiTypeBinding>()
     
     private var dataList = ArrayList<MultiModel>()
     

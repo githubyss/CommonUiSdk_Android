@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.debug.mvvm
 
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivity
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarActivity
 
 
 /**

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+        >
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/comres_sideMargin_normal"
+            android:layout_marginRight="@dimen/comres_sideMargin_normal"
+            android:background="@drawable/comui_common_dialog_bg"
+            android:orientation="vertical"
+            >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                >
+
+            <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Title"
+                    android:textColor="@color/comres_color_353d44"
+                    android:textSize="@dimen/comres_textSize_18sp"
+                    />
+
+            <TextView
+                    android:id="@+id/tvFirstLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="First"
+                    android:textColor="@color/comres_color_353d44"
+                    android:textSize="@dimen/comres_textSize_14sp"
+                    />
+
+            <TextView
+                    android:id="@+id/tvSecondLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Second"
+                    android:textColor="@color/comres_color_353d44"
+                    android:textSize="@dimen/comres_textSize_14sp"
+                    />
+        </LinearLayout>
+
+        <include layout="@layout/comui_view_separator_horizontal_gray" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+            <Button
+                    android:id="@+id/btnLeft"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="Button"
+                    android:textColor="@color/comres_color_353d44"
+                    android:textSize="@dimen/comres_textSize_17sp"
+                    android:visibility="visible"
+                    />
+
+            <View
+                    android:id="@+id/vSeparator"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/comres_separator_gray"
+                    />
+
+            <Button
+                    android:id="@+id/btnRight"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="Button"
+                    android:textColor="@color/comres_color_1f86ed"
+                    android:textSize="@dimen/comres_textSize_17sp"
+                    android:visibility="visible"
+                    />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

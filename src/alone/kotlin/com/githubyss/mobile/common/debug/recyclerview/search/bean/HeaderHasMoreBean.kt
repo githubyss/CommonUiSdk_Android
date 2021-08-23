@@ -15,21 +15,21 @@ package com.githubyss.mobile.common.debug.recyclerview.search.bean
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.specialtopic.SpecialTopicModel
 // import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountModel
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
-import com.githubyss.mobile.common.debug.recyclerview.search.template.activityicon.ActivityIconModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.appicon.AppIconModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.activity_icon.ActivityIconModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.app_icon.AppIconModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.faq.FaqModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.financeaq.FinanceAqModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.fundmanager.FundManagerModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.fundproduct.FundProductModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.fundtopic.FundTopicModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.goldproduct.GoldProductModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.finance_aq.FinanceAqModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.fund_manager.FundManagerModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.fund_product.FundProductModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.fund_topic.FundTopicModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.gold_product.GoldProductModel
 import com.githubyss.mobile.common.debug.recyclerview.search.template.information.InformationModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.insuranceproduct.InsuranceProductModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.seemore.SeeMoreModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.specialtopic.SpecialTopicModel
-import com.githubyss.mobile.common.debug.recyclerview.search.template.wealthaccount.WealthAccountModel
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.enumeration.ItemType
+import com.githubyss.mobile.common.debug.recyclerview.search.template.insurance_product.InsuranceProductModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.see_more.SeeMoreModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.special_topic.SpecialTopicModel
+import com.githubyss.mobile.common.debug.recyclerview.search.template.wealth_account.WealthAccountModel
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*

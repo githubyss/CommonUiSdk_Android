@@ -12,14 +12,14 @@ import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuil
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
-import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemLayout
-import com.githubyss.mobile.common.ui.recyclerview.base.BaseItemModel
-import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutAdapter
-import com.githubyss.mobile.common.ui.recyclerview.template.layout.LayoutModel
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
+import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSearchResultBinding
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
+import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.template.layout.LayoutAdapter
+import com.githubyss.mobile.common.ui.recycler_view.template.layout.LayoutModel
 import org.greenrobot.eventbus.EventBus
 
 
@@ -30,7 +30,7 @@ import org.greenrobot.eventbus.EventBus
  * @github githubyss
  * @createdTime 2021/03/15 16:51:37
  */
-class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_recycler_view) {
+class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_search_result) {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
@@ -38,7 +38,7 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_recycle
         val TAG = SearchResultFragment::class.simpleName ?: "simpleName is null"
     }
     
-    private val binding by bindView<ComuiFragmentRecyclerViewBinding>()
+    private val binding by bindView<ComuiFragmentSearchResultBinding>()
     
     private var searchWord: String = ""
     private var moduleTab: String = ""

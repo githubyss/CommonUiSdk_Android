@@ -9,23 +9,23 @@ import com.githubyss.mobile.common.debug.animation.property.PropertyAnimationFra
 import com.githubyss.mobile.common.debug.mvvm.MvvmActivity
 import com.githubyss.mobile.common.debug.recyclerview.multi.page.RecyclerViewByMultiTypeFragment
 import com.githubyss.mobile.common.debug.recyclerview.search.page.SearchResultFragment
-import com.githubyss.mobile.common.debug.viewbinding.inline.InlineActivity
-import com.githubyss.mobile.common.debug.viewbinding.inline.InlineToolbarActivity
-import com.githubyss.mobile.common.debug.viewbinding.reflect.ReflectActivity
-import com.githubyss.mobile.common.debug.viewbinding.reflect.ReflectToolbarActivity
+import com.githubyss.mobile.common.debug.view_binding.inline.InlineActivity
+import com.githubyss.mobile.common.debug.view_binding.inline.InlineToolbarActivity
+import com.githubyss.mobile.common.debug.view_binding.reflect.ReflectActivity
+import com.githubyss.mobile.common.debug.view_binding.reflect.ReflectToolbarActivity
 import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarFragment
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.bindView
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentHomepageBinding
-import com.githubyss.mobile.common.ui.floatingview.container.FloatingAudioPlayerListener
-import com.githubyss.mobile.common.ui.floatingview.container.FloatingIconListener
-import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingAudioPlayer
-import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingIcon
-import com.githubyss.mobile.common.ui.floatingview.container.system.SystemFloatingIcon
+import com.githubyss.mobile.common.ui.floating_view.container.FloatingAudioPlayerListener
+import com.githubyss.mobile.common.ui.floating_view.container.FloatingIconListener
+import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAudioPlayer
+import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingIcon
+import com.githubyss.mobile.common.ui.floating_view.container.system.SystemFloatingIcon
 import java.util.*
 
 

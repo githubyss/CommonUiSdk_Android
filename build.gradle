@@ -58,9 +58,29 @@ android {
     sourceSets {
         main {
             java.srcDirs += 'src/main/kotlin'
+            res.srcDirs += [
+                    'src/main/res/common',
+                    'src/main/res/value',
+                    'src/main/res/dialog',
+                    'src/main/res/banner',
+                    'src/main/res/check_box',
+                    'src/main/res/recycler_view',
+                    'src/main/res/time_countdown',
+                    'src/main/res/floating_icon',
+                    'src/main/res/floating_audio_player',
+                    'src/main/res/auto_hide_floating_window',
+            ]
             if (isRunAlone.toBoolean()) {
                 java.srcDirs += 'src/alone/kotlin'
-                res.srcDirs += 'src/alone/res'
+                res.srcDirs += [
+                        'src/alone/res',
+                        'src/alone/res/homepage',
+                        'src/alone/res/mvvm',
+                        'src/alone/res/recycler_view/search_result',
+                        'src/alone/res/recycler_view/multi',
+                        'src/alone/res/animation',
+                        'src/alone/res/view_binding',
+                ]
                 manifest.srcFile 'src/alone/AndroidManifest.xml'
             }
         }

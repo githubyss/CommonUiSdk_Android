@@ -1,9 +1,9 @@
 package com.githubyss.mobile.common.debug.homepage
 
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.viewbinding.page.inline.BaseToolbarActivity
-import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingAudioPlayer
-import com.githubyss.mobile.common.ui.floatingview.container.app.AppFloatingIcon
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarActivity
+import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAudioPlayer
+import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingIcon
 
 
 /**
