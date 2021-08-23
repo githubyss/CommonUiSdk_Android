@@ -120,7 +120,7 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_recycle
         isRequesting = true
         layoutList.clear()
         
-        val searchResultBean = SearchResultModel.requestDataByLocalJson(context, searchWord)
+        val searchResultBean = SearchResultModel.requestDataByLocalJson(searchWord)
         isRequesting = false
         // if (searchResultModel.keyWord != this@SearchResultFragment.searchWord) return
         // if (searchResultModel.moduleTab == this@SearchResultFragment.moduleTab) return

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.debug.recyclerview.multi.enumeration.MultiType
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.emptypage.EmptyPageHolder
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.footer.FooterHolder
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.header.HeaderHolder
@@ -11,7 +12,6 @@ import com.githubyss.mobile.common.debug.recyclerview.multi.template.image.Image
 import com.githubyss.mobile.common.debug.recyclerview.multi.template.text.TextHolder
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.debug.recyclerview.multi.enumeration.MultiType
 
 
 /**
@@ -26,7 +26,7 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     private var selectedPosition = 0
-    private var onItemClickListener: OnItemClickListener? = null
+     var onItemClickListener: OnItemClickListener? = null
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
@@ -121,10 +121,6 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
     
     
     /** ********** ********** ********** Functions ********** ********** ********** */
-    
-    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.onItemClickListener = onItemClickListener
-    }
     
     private fun initData() {
         dataList.indices.asSequence()

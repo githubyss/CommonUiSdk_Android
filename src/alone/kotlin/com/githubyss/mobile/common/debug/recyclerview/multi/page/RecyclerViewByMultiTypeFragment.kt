@@ -25,13 +25,12 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragm
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = RecyclerViewByMultiTypeFragment::class.simpleName ?: "simpleName is null"
+        val TAG = RecyclerViewByMultiTypeFragment::class.java.simpleName
     }
     
     private val binding by bindView<ComuiFragmentRecyclerViewBinding>()
     
     private var dataList = ArrayList<MultiModel>()
-    private var rvAdapter: MultiAdapter? = null
     
     
     /** ********** ********** ********** Override ********** ********** ********** */
@@ -49,27 +48,28 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragm
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     private fun initView() {
-        rvAdapter = MultiAdapter(dataList)
-        binding.recyclerContainer.setHasFixedSize(true)
-        binding.recyclerContainer.layoutManager = LinearLayoutManager(activity)
-        binding.recyclerContainer.adapter = rvAdapter
-        binding.recyclerContainer.layoutManager
-        rvAdapter?.setOnItemClickListener(onItemClickListener)
+        initMultiRecyclerView(dataList)
     }
     
     private fun initMultiRecyclerView(dataList: MutableList<MultiModel>) {
-        binding.recyclerContainer.apply {
-            layoutManager = object : LinearLayoutManager(activity) {
-                override fun canScrollVertically(): Boolean {
-                    return false
+        val rvAdapter = MultiAdapter(dataList)
+        rvAdapter.onItemClickListener = object : MultiAdapter.OnItemClickListener {
+            override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
+                when (holder) {
+                    is TextHolder -> {
+                        ToastUtils.showMessage(msgStr = "${holder.tvText.text} was selected")
+                    }
                 }
-            }.apply {
-                orientation = LinearLayoutManager.HORIZONTAL
+            }
+        }
+        
+        binding.recyclerContainer.apply {
+            layoutManager = object : LinearLayoutManager(activity) {}.apply {
+                orientation = LinearLayoutManager.VERTICAL
                 isSmoothScrollbarEnabled = true
                 isAutoMeasureEnabled = true
             }
-            
-            adapter = MultiAdapter(dataList)
+            adapter = rvAdapter
             setHasFixedSize(true)
             isNestedScrollingEnabled = false
         }
@@ -111,14 +111,4 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragm
     
     
     /** ********** ********** ********** Implementations ********** ********** ********** */
-    
-    private val onItemClickListener = object : MultiAdapter.OnItemClickListener {
-        override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int) {
-            when (holder) {
-                is TextHolder -> {
-                    ToastUtils.showMessage(msgStr = "${holder.tvText.text} was selected")
-                }
-            }
-        }
-    }
 }

@@ -132,7 +132,7 @@ data class HeaderHasMoreBean constructor(val json: JSONObject?, @ItemType overri
                 }
             }
             val keyListJson = json.optJSONArray("keylist")
-            if (keyListJson != SZnull) {
+            if (keyListJson != null) {
                 val keyListLength = keyListJson.length()
                 if (keyListLength > 0) {
                     for (i in 0 until keyListLength) {
