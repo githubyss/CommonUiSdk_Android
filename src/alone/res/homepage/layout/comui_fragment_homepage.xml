@@ -1,219 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context="com.githubyss.mobile.common.debug.homepage.HomepageActivity"
-        >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.githubyss.mobile.common.debug.homepage.HomepageActivity">
 
     <data>
 
     </data>
 
     <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/comres_layoutBg_lightGray"
-            android:orientation="vertical"
-            >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/comres_layoutBg_lightGray"
+        android:orientation="vertical">
 
         <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fillViewport="true"
-                android:scrollbars="none"
-                >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
 
             <com.google.android.flexbox.FlexboxLayout
-                    android:id="@+id/flexbox_page_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="@dimen/comres_sideMargin_normal"
-                    android:paddingBottom="@dimen/comres_sideMargin_normal"
-                    android:paddingLeft="@dimen/comres_sideMargin_normal"
-                    android:paddingRight="@dimen/comres_sideMargin_normal"
-                    app:flexDirection="column"
-                    app:justifyContent="flex_start"
-                    >
+                android:id="@+id/flexbox_page_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/comres_sideMargin_normal"
+                android:paddingTop="@dimen/comres_sideMargin_normal"
+                android:paddingRight="@dimen/comres_sideMargin_normal"
+                android:paddingBottom="@dimen/comres_sideMargin_normal"
+                app:flexDirection="column"
+                app:justifyContent="flex_start">
 
                 <com.google.android.flexbox.FlexboxLayout
-                        style="@style/comui_equant_horizontal_flex_style"
-                        android:id="@+id/flexbox_mvvm"
-                        >
+                    android:id="@+id/flexbox_mvvm"
+                    style="@style/comui_equant_horizontal_flex_style">
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_mvvm"
-                            android:text="@string/comui_button_mvvm"
-                            />
+                        android:id="@+id/button_mvvm"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_mvvm" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout
-                        style="@style/comui_equant_horizontal_flex_style"
-                        android:id="@+id/flexbox_view_binding"
-                        >
+                    android:id="@+id/flexbox_view_binding"
+                    style="@style/comui_equant_horizontal_flex_style">
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_binding_reflect"
-                            android:text="@string/comui_button_view_binding_reflect"
-                            />
+                        android:id="@+id/button_binding_reflect"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_view_binding_reflect" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_binding_inline"
-                            android:text="@string/comui_button_view_binding_inline"
-                            />
+                        android:id="@+id/button_binding_inline"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_view_binding_inline" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout
-                        style="@style/comui_equant_horizontal_flex_style"
-                        android:id="@+id/flexbox_view_binding_toolbar"
-                        >
+                    android:id="@+id/flexbox_view_binding_toolbar"
+                    style="@style/comui_equant_horizontal_flex_style">
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_binding_reflect_toolbar"
-                            android:text="@string/comui_button_view_binding_toolbar_reflect"
-                            />
+                        android:id="@+id/button_binding_reflect_toolbar"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_view_binding_toolbar_reflect" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_binding_inline_toolbar"
-                            android:text="@string/comui_button_view_binding_toolbar_inline"
-                            />
+                        android:id="@+id/button_binding_inline_toolbar"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_view_binding_toolbar_inline" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout
-                        style="@style/comui_equant_horizontal_flex_style"
-                        android:id="@+id/flexboxAnimation"
-                        >
+                    android:id="@+id/flexboxAnimation"
+                    style="@style/comui_equant_horizontal_flex_style">
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_property_animation"
-                            android:text="@string/comui_button_property_animation"
-                            />
+                        android:id="@+id/button_property_animation"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_property_animation" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_tween_animation"
-                            android:text="@string/comui_button_tween_animation"
-                            />
+                        android:id="@+id/button_tween_animation"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_tween_animation" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout
-                        style="@style/comui_equant_horizontal_flex_style"
-                        android:id="@+id/flexboxRecyclerView"
-                        >
+                    android:id="@+id/flexboxRecyclerView"
+                    style="@style/comui_equant_horizontal_flex_style">
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_recycler_view_multi_type"
-                            android:text="@string/comui_button_multi_type"
-                            />
+                        android:id="@+id/button_recycler_view_multi_type"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_multi_type" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_recycler_view_multi_view"
-                            android:text="@string/comui_button_multi_view"
-                            />
+                        android:id="@+id/button_recycler_view_multi_view"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_multi_view" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout
-                        style="@style/comui_equant_horizontal_flex_style"
-                        android:id="@+id/flexboxIconFloatingView"
-                        >
+                    android:id="@+id/flexboxIconFloatingView"
+                    style="@style/comui_equant_horizontal_flex_style">
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_show_floating_within_app"
-                            android:text="@string/comui_button_show_floating_within_app"
-                            />
+                        android:id="@+id/button_show_floating_within_app"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_show_floating_within_app" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_close_floating_within_app"
-                            android:text="@string/comui_button_close_floating_within_app"
-                            />
+                        android:id="@+id/button_close_floating_within_app"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_close_floating_within_app" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_show_floating_within_system"
-                            android:text="@string/comui_button_show_floating_within_system"
-                            />
+                        android:id="@+id/button_show_floating_within_system"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_show_floating_within_system" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_close_floating_within_system"
-                            android:text="@string/comui_button_close_floating_within_system"
-                            />
+                        android:id="@+id/button_close_floating_within_system"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_close_floating_within_system" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout
-                        style="@style/comui_equant_horizontal_flex_style"
-                        android:id="@+id/flexboxAutoShortedFloatingView"
-                        >
+                    android:id="@+id/flexboxAutoShortedFloatingView"
+                    style="@style/comui_equant_horizontal_flex_style">
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_show_auto_shorted_floating_view"
-                            android:text="@string/comui_button_show_auto_shorted_floating_view"
-                            />
+                        android:id="@+id/button_show_auto_shorted_floating_view"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_show_auto_shorted_floating_view" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_close_auto_shorted_floating_view"
-                            android:text="@string/comui_button_close_auto_shorted_floating_view"
-                            />
+                        android:id="@+id/button_close_auto_shorted_floating_view"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_close_auto_shorted_floating_view" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_lengthen_auto_shorted_floating_view"
-                            android:text="@string/comui_button_lengthen_auto_shorted_floating_view"
-                            />
+                        android:id="@+id/button_lengthen_auto_shorted_floating_view"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_lengthen_auto_shorted_floating_view" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_shorten_auto_shorted_floating_view"
-                            android:text="@string/comui_button_shorten_auto_shorted_floating_view"
-                            />
+                        android:id="@+id/button_shorten_auto_shorted_floating_view"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_button_shorten_auto_shorted_floating_view" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout
-                        style="@style/comui_equant_horizontal_flex_style"
-                        android:id="@+id/flexboxAudioPlay"
-                        >
+                    android:id="@+id/flexboxAudioPlay"
+                    style="@style/comui_equant_horizontal_flex_style">
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_play_pause_controller"
-                            android:text="@string/comui_audio_player_play"
-                            />
+                        android:id="@+id/button_play_pause_controller"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_audio_player_play" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_previous"
-                            android:text="@string/comui_audio_player_previous"
-                            />
+                        android:id="@+id/button_previous"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_audio_player_previous" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_next"
-                            android:text="@string/comui_audio_player_next"
-                            />
+                        android:id="@+id/button_next"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_audio_player_next" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_switch_voice"
-                            android:text="@string/comui_audio_player_switch_voice"
-                            />
+                        android:id="@+id/button_switch_voice"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_audio_player_switch_voice" />
 
                     <Button
-                            style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_stop"
-                            android:text="@string/comui_audio_player_stop"
-                            />
+                        android:id="@+id/button_stop"
+                        style="@style/comui_equant_horizontal_button_style"
+                        android:text="@string/comui_audio_player_stop" />
                 </com.google.android.flexbox.FlexboxLayout>
             </com.google.android.flexbox.FlexboxLayout>
         </ScrollView>

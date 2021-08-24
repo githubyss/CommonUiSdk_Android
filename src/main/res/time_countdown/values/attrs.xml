@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TimeCountdown">
+        <attr name="remainingMillisecond"
+              format="string" />
+        <attr name="currentTimeStampMillisecond"
+              format="string" />
+        <attr name="endTimeStampMillisecond"
+              format="string" />
+    </declare-styleable>
+</resources>

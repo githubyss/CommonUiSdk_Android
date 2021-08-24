@@ -27,9 +27,9 @@ abstract class BaseFrameLayoutBindingReflect<B : ViewBinding> : FrameLayout {
     
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
-
+    
     @Suppress("LeakingThis")
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         // Call inflate method to fill view according to specified ViewBinding by using java reflect.
         val type: ParameterizedType? = javaClass.genericSuperclass as ParameterizedType?
         val cls = type?.actualTypeArguments?.get(0) as Class<B>?

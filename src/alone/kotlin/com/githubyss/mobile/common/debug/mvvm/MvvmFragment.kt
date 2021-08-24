@@ -49,6 +49,7 @@ class MvvmFragment : BaseToolbarFragment(R.layout.comui_fragment_mvvm) {
     
     private fun initView() {
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.tcvCountdown.remainingMillisecond = 7200000
     }
     
     private fun initData() {

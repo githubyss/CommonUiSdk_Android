@@ -56,7 +56,9 @@ open class AutoShortenView : FrameLayout {
     
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context) : this(context, null, 0)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         featureContext = context
     }
     
