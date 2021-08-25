@@ -12,10 +12,6 @@ android {
     buildToolsVersion build_tools_version
 
     defaultConfig {
-        if (isRunAlone.toBoolean()) {
-            applicationId 'com.githubyss.mobile.common.ui.debug'
-        }
-
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
 
@@ -55,33 +51,54 @@ android {
         exclude 'META-INF/metadata.jvm.kotlin_module'
     }
 
+    flavorDimensions 'alone'
+    productFlavors {
+        if (isRunAlone.toBoolean()) {
+            alone {
+                applicationId 'com.githubyss.mobile.common.ui'
+                dimension 'alone'
+            }
+        }
+    }
+
     sourceSets {
         main {
-            java.srcDirs += 'src/main/kotlin'
-            res.srcDirs += [
-                    'src/main/res/common',
-                    'src/main/res/value',
-                    'src/main/res/dialog',
-                    'src/main/res/banner',
-                    'src/main/res/check_box',
-                    'src/main/res/recycler_view',
-                    'src/main/res/time_countdown',
-                    'src/main/res/floating_icon',
-                    'src/main/res/floating_audio_player',
-                    'src/main/res/auto_hide_floating_window',
-            ]
-            if (isRunAlone.toBoolean()) {
-                java.srcDirs += 'src/alone/kotlin'
-                res.srcDirs += [
-                        'src/alone/res',
-                        'src/alone/res/homepage',
-                        'src/alone/res/mvvm',
-                        'src/alone/res/recycler_view/search_result',
-                        'src/alone/res/recycler_view/multi',
-                        'src/alone/res/animation',
-                        'src/alone/res/view_binding',
-                ]
-                manifest.srcFile 'src/alone/AndroidManifest.xml'
+            java {
+                srcDirs 'src/main/java'
+                srcDirs 'src/main/kotlin'
+            }
+            res {
+                srcDirs 'src/main/res'
+                srcDirs 'src/main/res/common'
+                srcDirs 'src/main/res/value'
+                srcDirs 'src/main/res/dialog'
+                srcDirs 'src/main/res/banner'
+                srcDirs 'src/main/res/check_box'
+                srcDirs 'src/main/res/recycler_view'
+                srcDirs 'src/main/res/time_countdown'
+                srcDirs 'src/main/res/floating_icon'
+                srcDirs 'src/main/res/floating_audio_player'
+                srcDirs 'src/main/res/auto_hide_floating_window'
+            }
+            jniLibs { srcDirs 'libs' }
+        }
+
+        if (isRunAlone.toBoolean()) {
+            alone {
+                java {
+                    srcDirs 'src/alone/java'
+                    srcDirs 'src/alone/kotlin'
+                }
+                res {
+                    srcDirs 'src/alone/res'
+                    srcDirs 'src/alone/res/homepage'
+                    srcDirs 'src/alone/res/mvvm'
+                    srcDirs 'src/alone/res/recycler_view/search_result'
+                    srcDirs 'src/alone/res/recycler_view/multi'
+                    srcDirs 'src/alone/res/animation'
+                    srcDirs 'src/alone/res/view_binding'
+                }
+                manifest { srcFile 'src/alone/AndroidManifest.xml' }
             }
         }
     }

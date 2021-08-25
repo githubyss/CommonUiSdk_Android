@@ -19,7 +19,7 @@ class ComuiApplication : BaseApplication() {
         var instance: ComuiApplication by Delegates.notNull()
             private set
         
-        private val TAG = ComuiApplication::class.simpleName ?: "simpleName is null"
+        private val TAG = ComuiApplication::class.java.simpleName
     }
     
     
@@ -28,7 +28,7 @@ class ComuiApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-
+        
         initARouter(instance)
     }
 }
