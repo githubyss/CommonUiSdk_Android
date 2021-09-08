@@ -9,6 +9,7 @@ import com.githubyss.mobile.common.debug.recyclerview.search.bean.DirectJumpBean
 import com.githubyss.mobile.common.debug.recyclerview.search.bean.SearchResultModel
 import com.githubyss.mobile.common.debug.recyclerview.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.debug.recyclerview.search.util.LayoutListBuildUtils
+import com.githubyss.mobile.common.kit.mock.OnResponse
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.ui.R
@@ -120,13 +121,19 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_search_
         isRequesting = true
         layoutList.clear()
         
-        val searchResultBean = SearchResultModel.requestDataByLocalJson(searchWord)
-        isRequesting = false
-        // if (searchResultModel.keyWord != this@SearchResultFragment.searchWord) return
-        // if (searchResultModel.moduleTab == this@SearchResultFragment.moduleTab) return
-        layoutList.clear()
-        layoutList.addAll(LayoutListBuildUtils.buildLayoutList(context, searchResultBean, searchWord, true, onItemClickListener, onLayoutClickListener, onDirectJumpListener))
-        rvAdapter?.notifyDataSetChanged()
+        SearchResultModel.request(searchWord, object : OnResponse<SearchResultModel> {
+            override fun onSuccess(model: SearchResultModel) {
+                isRequesting = false
+                // if (searchResultModel.keyWord != this@SearchResultFragment.searchWord) return
+                // if (searchResultModel.moduleTab == this@SearchResultFragment.moduleTab) return
+                layoutList.clear()
+                layoutList.addAll(LayoutListBuildUtils.buildLayoutList(context, model, searchWord, true, onItemClickListener, onLayoutClickListener, onDirectJumpListener))
+                rvAdapter?.notifyDataSetChanged()
+            }
+            
+            override fun onFail(message: String) {
+            }
+        })
     }
     
     private fun gotoResultMore(@SearchResultModuleKey key: String) {

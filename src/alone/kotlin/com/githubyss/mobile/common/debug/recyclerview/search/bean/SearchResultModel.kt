@@ -1,10 +1,12 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.bean
 
+import com.githubyss.mobile.common.kit.mock.OnResponse
+import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import org.json.JSONException
 import org.json.JSONObject
-import java.util.*
+import kotlin.collections.ArrayList
 
 
 /**
@@ -14,26 +16,66 @@ import java.util.*
  * @github githubyss
  * @createdTime 2021/06/01 17:20:08
  */
-class SearchResultModel(json: JSONObject?) {
+class SearchResultModel(val json: JSONObject?) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ********** ********** ********** Companion ********** ********** ********** */
     
     companion object {
         val TAG = SearchResultModel::class.java.simpleName
         
-        fun requestDataByLocalJson(searchWord: String): SearchResultModel {
-            val jsonStringTabAll = ResourceUtils.getStringFromAssets("json/mock_request_search_result_tab_all_jijin.json")
-            val jsonStringTabFinancial = ResourceUtils.getStringFromAssets("json/mock_request_search_result_more_jijin.json")
-            val jsonStringTabDirectJump = ResourceUtils.getStringFromAssets("json/mock_request_search_result_tab_all_nanjingditie.json")
-            val jsonString = jsonStringTabAll
-            return SearchResultModel(JSONObject(jsonString))
+        fun request(searchWord: String, onResponse: OnResponse<SearchResultModel>?) {
+            when (BuildConfig.MOCK_LOCAL) {
+                true -> requestDataByLocalJson(searchWord)
+                false -> requestDataByNet(searchWord)
+            }
         }
         
-        fun requestDataByNet(searchWord: String): SearchResultModel {
-            val jsonString = ""
-            return SearchResultModel(JSONObject(jsonString))
+        private fun requestDataByLocalJson(searchWord: String, onResponse: OnResponse<SearchResultModel>?) {
+            val jsonStringTabAll = ResourceUtils.getStringFromAssets("json/netres/search/mock_request_search_result_tab_all_jijin.json")
+            val jsonStringTabFinancial = ResourceUtils.getStringFromAssets("json/netres/search/mock_request_search_result_more_jijin.json")
+            val jsonStringTabDirectJump = ResourceUtils.getStringFromAssets("json/netres/search/mock_request_search_result_tab_all_nanjingditie.json")
+            onResponse?.onSuccess(SearchResultModel(JSONObject(jsonStringTabAll)))
+        }
+        
+        private fun requestDataByNet(searchWord: String, onResponse: OnResponse<SearchResultModel>?) {
+            //     val reqUrl = ""
+            //     val reqJsonObject = JSONObject()
+            //     reqJsonObject.put("", "")
+            //     var data = ""
+            //     var rpd = ""
+            //     val randomPass = EncryptProxy.createRandomPass()
+            //     // 一次一密
+            //     try {
+            //         data = URLEncoder.encode(EncryptProxyUtils.encryptRequestData(randomPass, reqJsonObject.toString()), "utf-8")
+            //         rpd = EncryptProxyUtils.encryptByPublicKey(randomPass)
+            //     } catch (e: UnsupportedEncodingException) {
+            //         LogcatUtils.e(t = e)
+            //     }
+            //
+            //     val pairs: MutableList<NameValuePair> = ArrayList()
+            //     pairs.add(BasicNameValuePair("data", data))
+            //     pairs.add(BasicNameValuePair("rpd", rpd))
+            //
+            //     val request = NetRequestUtils.request(reqUrl, URLEncodedUtils.format(pairs, "utf-8"), { response ->
+            //         val singleDecryptNetworkBean = SingleDecryptNetworkBean(randomPass, response.getResult())
+            //         val resCode = singleDecryptNetworkBean.rsponseCode
+            //         val resMsg = singleDecryptNetworkBean.rsponseMsg
+            //         val result = singleDecryptNetworkBean.result
+            //         if ("0000" == resCode) {
+            //             onResponse?.onSuccess(SearchResultModel(result))
+            //         } else {
+            //             onResponse?.onFail(resMsg)
+            //         }
+            //     }, { error ->
+            //         onResponse?.onFail(VolleyErrorHelper.getMessage(error))
+            //     }, false)
+            //     VolleyRequestController.getInstance().addToRequestQueueWithoutCache(request, this)
+            // }
         }
     }
+    
+    
+    /** ********** ********** ********** Properties ********** ********** ********** */
     
     /** 搜索关键词 */
     var keyWord: String = ""
@@ -89,7 +131,7 @@ class SearchResultModel(json: JSONObject?) {
                 }
             }
         } catch (e: JSONException) {
-            e.printStackTrace()
+            LogcatUtils.e(t = e)
         }
     }
 }

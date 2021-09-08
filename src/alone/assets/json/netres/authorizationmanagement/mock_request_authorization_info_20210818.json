@@ -1,0 +1,309 @@
+{
+  "responseData": {
+    "snbankAuthList": [
+      {
+        "isAuth": "1",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxf.png",
+        "merchantNo": "REF",
+        "merchantName": "苏宁任性付"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxf.png",
+        "merchantNo": "REF",
+        "merchantName": "苏宁任性付"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxf.png",
+        "merchantNo": "REF",
+        "merchantName": "苏宁任性付"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxf.png",
+        "merchantNo": "REF",
+        "merchantName": "苏宁任性付"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxf.png",
+        "merchantNo": "REF",
+        "merchantName": "苏宁任性付"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxf.png",
+        "merchantNo": "REF",
+        "merchantName": "苏宁任性付"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxf.png",
+        "merchantNo": "REF",
+        "merchantName": "苏宁任性付"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxd.png",
+        "merchantNo": "RXD",
+        "merchantName": "苏宁任性贷"
+      },
+      {
+        "isAuth": "1",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxd.png",
+        "merchantNo": "RXD",
+        "merchantName": "苏宁任性贷"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxd.png",
+        "merchantNo": "RXD",
+        "merchantName": "苏宁任性贷"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxd.png",
+        "merchantNo": "RXD",
+        "merchantName": "苏宁任性贷"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxd.png",
+        "merchantNo": "RXD",
+        "merchantName": "苏宁任性贷"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxd.png",
+        "merchantNo": "RXD",
+        "merchantName": "苏宁任性贷"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxd.png",
+        "merchantNo": "RXD",
+        "merchantName": "苏宁任性贷"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJJ",
+        "merchantName": "苏宁基金"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJJ",
+        "merchantName": "苏宁基金"
+      },
+      {
+        "isAuth": "1",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJJ",
+        "merchantName": "苏宁基金"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJJ",
+        "merchantName": "苏宁基金"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJJ",
+        "merchantName": "苏宁基金"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJJ",
+        "merchantName": "苏宁基金"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJJ",
+        "merchantName": "苏宁基金"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNLC",
+        "merchantName": "苏宁理财"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNLC",
+        "merchantName": "苏宁理财"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNLC",
+        "merchantName": "苏宁理财"
+      },
+      {
+        "isAuth": "1",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNLC",
+        "merchantName": "苏宁理财"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNLC",
+        "merchantName": "苏宁理财"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNLC",
+        "merchantName": "苏宁理财"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNLC",
+        "merchantName": "苏宁理财"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snbx.png",
+        "merchantNo": "SNBX",
+        "merchantName": "苏宁保险"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snbx.png",
+        "merchantNo": "SNBX",
+        "merchantName": "苏宁保险"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snbx.png",
+        "merchantNo": "SNBX",
+        "merchantName": "苏宁保险"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snbx.png",
+        "merchantNo": "SNBX",
+        "merchantName": "苏宁保险"
+      },
+      {
+        "isAuth": "1",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snbx.png",
+        "merchantNo": "SNBX",
+        "merchantName": "苏宁保险"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snbx.png",
+        "merchantNo": "SNBX",
+        "merchantName": "苏宁保险"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snbx.png",
+        "merchantNo": "SNBX",
+        "merchantName": "苏宁保险"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNCG",
+        "merchantName": "苏宁财顾"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNCG",
+        "merchantName": "苏宁财顾"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNCG",
+        "merchantName": "苏宁财顾"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNCG",
+        "merchantName": "苏宁财顾"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNCG",
+        "merchantName": "苏宁财顾"
+      },
+      {
+        "isAuth": "1",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNCG",
+        "merchantName": "苏宁财顾"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNCG",
+        "merchantName": "苏宁财顾"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJR",
+        "merchantName": "苏宁金融"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJR",
+        "merchantName": "苏宁金融"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJR",
+        "merchantName": "苏宁金融"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJR",
+        "merchantName": "苏宁金融"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJR",
+        "merchantName": "苏宁金融"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJR",
+        "merchantName": "苏宁金融"
+      },
+      {
+        "isAuth": "1",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJR",
+        "merchantName": "苏宁金融"
+      }
+    ],
+    "snjrAuthDetail": {
+      "authInfoObj": {
+        "authUrl": "http:\/\/com.suning.jinrong\/user\/unbind",
+        "authTitle": "苏宁金融账号"
+      },
+      "authComment": "授权以下苏宁金融账号访问苏宁银行的产品和服务"
+    }
+  },
+  "responseCode": "0000",
+  "responseMsg": "成功."
+}
