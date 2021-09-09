@@ -66,6 +66,27 @@ android {
     }
 
     sourceSets {
+        if (isRunAlone.toBoolean()) {
+            alone {
+                java {
+                    srcDirs 'src/alone/java'
+                    srcDirs 'src/alone/kotlin'
+                }
+                res {
+                    srcDirs 'src/alone/res'
+                    srcDirs 'src/alone/res/common'
+                    srcDirs 'src/alone/res/value'
+                    srcDirs 'src/alone/res/homepage'
+                    srcDirs 'src/alone/res/mvvm'
+                    srcDirs 'src/alone/res/recycler_view/search_result'
+                    srcDirs 'src/alone/res/recycler_view/multi'
+                    srcDirs 'src/alone/res/animation'
+                    srcDirs 'src/alone/res/view_binding'
+                }
+                manifest { srcFile 'src/alone/AndroidManifest.xml' }
+            }
+        }
+
         main {
             java {
                 srcDirs 'src/main/java'
@@ -84,26 +105,8 @@ android {
                 srcDirs 'src/main/res/floating_audio_player'
                 srcDirs 'src/main/res/auto_hide_floating_window'
             }
+            manifest { srcFile 'src/main/AndroidManifest.xml' }
             jniLibs { srcDirs 'libs' }
-        }
-
-        if (isRunAlone.toBoolean()) {
-            alone {
-                java {
-                    srcDirs 'src/alone/java'
-                    srcDirs 'src/alone/kotlin'
-                }
-                res {
-                    srcDirs 'src/alone/res'
-                    srcDirs 'src/alone/res/homepage'
-                    srcDirs 'src/alone/res/mvvm'
-                    srcDirs 'src/alone/res/recycler_view/search_result'
-                    srcDirs 'src/alone/res/recycler_view/multi'
-                    srcDirs 'src/alone/res/animation'
-                    srcDirs 'src/alone/res/view_binding'
-                }
-                manifest { srcFile 'src/alone/AndroidManifest.xml' }
-            }
         }
     }
 
