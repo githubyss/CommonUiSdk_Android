@@ -183,7 +183,8 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
                                 LogcatUtils.d(TAG, "FloatingAudioPlayerListener >>> onUpdateAudioInfo >> audioModel: $audioModel")
                                 if (audioModel?.isPlaying ?: return) {
                                     binding.buttonPlayPauseController.text = "暂停"
-                                } else {
+                                }
+                                else {
                                     binding.buttonPlayPauseController.text = "播放"
                                 }
                             }
@@ -195,10 +196,12 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
                     .close()
             }
             R.id.button_lengthen_auto_shorted_floating_view -> {
-                AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.lengthen()
+                AppFloatingAudioPlayer.getInstance(activity as Context)
+                    .designateView?.lengthen()
             }
             R.id.button_shorten_auto_shorted_floating_view -> {
-                AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.shorten()
+                AppFloatingAudioPlayer.getInstance(activity as Context)
+                    .designateView?.shorten()
             }
             
             R.id.button_play_pause_controller -> {

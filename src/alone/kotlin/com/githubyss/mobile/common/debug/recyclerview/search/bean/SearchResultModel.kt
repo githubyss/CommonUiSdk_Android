@@ -3,10 +3,10 @@ package com.githubyss.mobile.common.debug.recyclerview.search.bean
 import com.githubyss.mobile.common.kit.mock.OnResponse
 import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.kit.util.ResourceUtils
+import com.githubyss.mobile.common.ui.BuildConfig
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import org.json.JSONException
 import org.json.JSONObject
-import kotlin.collections.ArrayList
 
 
 /**
@@ -25,8 +25,8 @@ class SearchResultModel(val json: JSONObject?) {
         
         fun request(searchWord: String, onResponse: OnResponse<SearchResultModel>?) {
             when (BuildConfig.MOCK_LOCAL) {
-                true -> requestDataByLocalJson(searchWord)
-                false -> requestDataByNet(searchWord)
+                true -> requestDataByLocalJson(searchWord, onResponse)
+                false -> requestDataByNet(searchWord, onResponse)
             }
         }
         
@@ -37,8 +37,7 @@ class SearchResultModel(val json: JSONObject?) {
             onResponse?.onSuccess(SearchResultModel(JSONObject(jsonStringTabAll)))
         }
         
-        private fun requestDataByNet(searchWord: String, onResponse: OnResponse<SearchResultModel>?) {
-            //     val reqUrl = ""
+        private fun requestDataByNet(searchWord: String, onResponse: OnResponse<SearchResultModel>?) { //     val reqUrl = ""
             //     val reqJsonObject = JSONObject()
             //     reqJsonObject.put("", "")
             //     var data = ""

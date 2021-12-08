@@ -1,0 +1,58 @@
+{
+  "responseData": {
+    "snbankAuthList": [
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxf.png",
+        "merchantNo": "REF",
+        "merchantName": "苏宁任性付",
+        "merchantFullName": "苏宁数字科技（南京）有限公司"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_rxd.png",
+        "merchantNo": "RXD",
+        "merchantName": "苏宁任性贷",
+        "merchantFullName": "苏宁数字科技（南京）有限公司"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJJ",
+        "merchantName": "苏宁基金",
+        "merchantFullName": "南京苏宁基金销售有限公司"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNLC",
+        "merchantName": "苏宁理财",
+        "merchantFullName": "江苏苏宁金融信息服务有限公司"
+      },
+      {
+        "isAuth": "1",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snbx.png",
+        "merchantNo": "SNBX",
+        "merchantName": "苏宁保险",
+        "merchantFullName": "苏宁保险销售有限公司"
+      },
+      {
+        "isAuth": "0",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNCG",
+        "merchantName": "苏宁财顾",
+        "merchantFullName": ""
+      },
+      {
+        "isAuth": "1",
+        "iconUrl": "https:\/\/appbanksit1.suningbank.com\/images\/app_icon\/icon_snjr.png",
+        "merchantNo": "SNJR",
+        "merchantName": "苏宁金融",
+        "merchantFullName": "上海星图金融服务集团有限公司"
+      }
+    ],
+    "isRealAuth": "1"
+  },
+  "responseCode": "0000",
+  "responseMsg": "成功."
+}
