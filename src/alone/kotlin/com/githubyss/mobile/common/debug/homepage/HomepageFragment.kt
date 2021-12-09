@@ -1,10 +1,14 @@
 package com.githubyss.mobile.common.debug.homepage
 
 import android.content.Context
+import android.os.Bundle
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
 import com.githubyss.mobile.common.debug.animation.property.PropertyAnimationFragment
 import com.githubyss.mobile.common.debug.mvvm.MvvmActivity
 import com.githubyss.mobile.common.debug.recyclerview.multi.page.RecyclerViewByMultiTypeFragment
@@ -57,6 +61,167 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         setToolbarTitle(R.string.comui_title_homepage)
     }
     
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentAttached(fm: FragmentManager, f: Fragment, context: Context)
+     *
+     * @param context
+     * @return
+     */
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onAttach")
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?)
+     *
+     * @param savedInstanceState
+     * @return
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onCreate")
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 Nothing
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onCreateView")
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentViewCreated(fm: FragmentManager, f: Fragment, v: View, savedInstanceState: Bundle?)
+     *
+     * @param view
+     * @param savedInstanceState
+     * @return
+     */
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onViewCreated")
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentActivityCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?)
+     *
+     * @param savedInstanceState
+     * @return
+     */
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onActivityCreated")
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentStarted(fm: FragmentManager, f: Fragment)
+     *
+     * @param
+     * @return
+     */
+    override fun onStart() {
+        super.onStart()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onStart")
+        
+        attachView()
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentResumed(fm: FragmentManager, f: Fragment)
+     *
+     * @param
+     * @return
+     */
+    override fun onResume() {
+        super.onResume()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onResume")
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentPaused(fm: FragmentManager, f: Fragment)
+     *
+     * @param
+     * @return
+     */
+    override fun onPause() {
+        super.onPause()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onPause")
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentStopped(fm: FragmentManager, f: Fragment)
+     *
+     * @param
+     * @return
+     */
+    override fun onStop() {
+        super.onStop()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onStop")
+        
+        detachView()
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentSaveInstanceState(fm: FragmentManager, f: Fragment, outState: Bundle)
+     *
+     * @param outState
+     * @return
+     */
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onSaveInstanceState")
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentViewDestroyed(fm: FragmentManager, f: Fragment)
+     *
+     * @param
+     * @return
+     */
+    override fun onDestroyView() {
+        super.onDestroyView()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onDestroyView")
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentDestroyed(fm: FragmentManager, f: Fragment)
+     *
+     * @param
+     * @return
+     */
+    override fun onDestroy() {
+        super.onDestroy()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onDestroy")
+    }
+    
+    /**
+     * 对应 FragmentLifecycleCallbacks 的 onFragmentDetached(fm: FragmentManager, f: Fragment)
+     *
+     * @param
+     * @return
+     */
+    override fun onDetach() {
+        super.onDetach()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onDetach")
+    }
+    
+    /**
+     * 当一个子 Fragment attach 到当前 Fragment 时
+     *
+     * @param childFragment
+     * @return
+     */
+    override fun onAttachFragment(childFragment: Fragment) {
+        super.onAttachFragment(childFragment)
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onAttachFragment")
+    }
+    
     
     /** ********** ********** ********** Functions ********** ********** ********** */
     
@@ -74,10 +239,10 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         binding.buttonRecyclerViewMultiType.setOnClickListener(onClickListener)
         binding.buttonRecyclerViewMultiView.setOnClickListener(onClickListener)
         
-        binding.buttonShowFloatingWithinApp.setOnClickListener(onClickListener)
-        binding.buttonCloseFloatingWithinApp.setOnClickListener(onClickListener)
-        binding.buttonShowFloatingWithinSystem.setOnClickListener(onClickListener)
-        binding.buttonCloseFloatingWithinSystem.setOnClickListener(onClickListener)
+        binding.btnShowFloatingWithinApp.setOnClickListener(onClickListener)
+        binding.btnCloseFloatingWithinApp.setOnClickListener(onClickListener)
+        binding.btnShowFloatingWithinSystem.setOnClickListener(onClickListener)
+        binding.btnCloseFloatingWithinSystem.setOnClickListener(onClickListener)
         
         binding.buttonShowAutoShortedFloatingView.setOnClickListener(onClickListener)
         binding.buttonCloseAutoShortedFloatingView.setOnClickListener(onClickListener)
@@ -91,6 +256,15 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         binding.buttonStop.setOnClickListener(onClickListener)
     }
     
+    private fun attachView() {
+        AppFloatingIcon.getInstance(activity as Context)
+            .attach(binding.layoutPage)
+    }
+    
+    private fun detachView() {
+        AppFloatingIcon.getInstance(activity as Context)
+            .detach(binding.layoutPage)
+    }
     
     /** ********** ********** ********** Implementations ********** ********** ********** */
     
@@ -109,7 +283,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
             R.id.button_recycler_view_multi_type -> replaceFragment(RecyclerViewByMultiTypeFragment(), RecyclerViewByMultiTypeFragment.TAG, true)
             R.id.button_recycler_view_multi_view -> replaceFragment(SearchResultFragment(), SearchResultFragment.TAG, true)
             
-            R.id.button_show_floating_within_app -> {
+            R.id.btn_show_floating_within_app -> {
                 val layoutParams = FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                 layoutParams.gravity = Gravity.BOTTOM or Gravity.END
                 layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, (ScreenUtils.dp2Px(14.0f)), (ScreenUtils.dp2Px(14.0f)))
@@ -123,23 +297,12 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
                         override fun onRemove() {}
                         override fun onIconClick() {}
                     })
-                // SystemFloatingIcon.getInstance(activity as Context)
-                //         .show()
-                //         ?.setMovable(true)
-                //         ?.customIcon(R.drawable.comui_icon_lucky_money)
-                //         ?.setFloatingListener(object : FloatingIconListener {
-                //             override fun onShow() {}
-                //             override fun onRemove() {}
-                //             override fun onIconClick() {}
-                //         })
             }
-            R.id.button_close_floating_within_app -> {
+            R.id.btn_close_floating_within_app -> {
                 AppFloatingIcon.getInstance(activity as Context)
                     .close()
-                // SystemFloatingIcon.getInstance(activity as Context)
-                //         .close()
             }
-            R.id.button_show_floating_within_system -> {
+            R.id.btn_show_floating_within_system -> {
                 SystemFloatingIcon.getInstance(activity as Context)
                     .show()
                     ?.setMovable(true)
@@ -150,7 +313,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
                         override fun onIconClick() {}
                     })
             }
-            R.id.button_close_floating_within_system -> {
+            R.id.btn_close_floating_within_system -> {
                 SystemFloatingIcon.getInstance(activity as Context)
                     .close()
             }

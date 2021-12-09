@@ -1,9 +1,10 @@
 package com.githubyss.mobile.common.debug.homepage
 
+import android.os.Bundle
+import com.githubyss.mobile.common.kit.util.LogcatUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarActivity
 import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAudioPlayer
-import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingIcon
 
 
 /**
@@ -18,7 +19,7 @@ class HomepageActivity : BaseToolbarActivity() {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = HomepageActivity::class.simpleName ?: "simpleName is null"
+        private val TAG = HomepageActivity::class.java.simpleName
     }
     
     
@@ -32,18 +33,110 @@ class HomepageActivity : BaseToolbarActivity() {
         setToolbarTitle(R.string.comui_title_homepage)
     }
     
+    /**
+     * 对应 ActivityLifecycleCallbacks 的 onActivityCreated(activity: Activity, savedInstanceState: Bundle?)
+     *
+     * @param savedInstanceState
+     * @return
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onCreate")
+    }
+    
+    /**
+     * 对应 ActivityLifecycleCallbacks 的 onActivityStarted(activity: Activity)
+     *
+     * @param
+     * @return
+     */
     override fun onStart() {
         super.onStart()
-        AppFloatingIcon.getInstance(this)
-            .attach(this)
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onStart")
+        
+        attachView()
+    }
+    
+    /**
+     * 对应 ActivityLifecycleCallbacks 的 Nothing
+     *
+     * @param
+     * @return
+     */
+    override fun onRestart() {
+        super.onRestart()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onRestart")
+    }
+    
+    /**
+     * 对应 ActivityLifecycleCallbacks 的 onActivityResumed(activity: Activity)
+     *
+     * @param
+     * @return
+     */
+    override fun onResume() {
+        super.onResume()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onResume")
+    }
+    
+    /**
+     * 对应 ActivityLifecycleCallbacks 的 onActivityPaused(activity: Activity)
+     *
+     * @param
+     * @return
+     */
+    override fun onPause() {
+        super.onPause()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onPause")
+    }
+    
+    /**
+     * 对应 ActivityLifecycleCallbacks 的 onActivityStopped(activity: Activity)
+     *
+     * @param
+     * @return
+     */
+    override fun onStop() {
+        super.onStop()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onStop")
+        
+        detachView()
+    }
+    
+    /**
+     * 对应 ActivityLifecycleCallbacks 的 onActivitySaveInstanceState(activity: Activity, outState: Bundle)
+     *
+     * @param outState
+     * @return
+     */
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
+    
+    /**
+     * 对应 ActivityLifecycleCallbacks 的 onActivityDestroyed(activity: Activity)
+     *
+     * @param
+     * @return
+     */
+    override fun onDestroy() {
+        super.onDestroy()
+        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onDestroy")
+    }
+    
+    
+    /** ********** ********** ********** Functions ********** ********** ********** */
+    
+    private fun attachView() {
+        // AppFloatingIcon.getInstance(this)
+        //     .attach(this)
         AppFloatingAudioPlayer.getInstance(this)
             .attach(this)
     }
     
-    override fun onStop() {
-        super.onStop()
-        AppFloatingIcon.getInstance(this)
-            .detach(this)
+    private fun detachView() {
+        // AppFloatingIcon.getInstance(this)
+        //     .detach(this)
         AppFloatingAudioPlayer.getInstance(this)
             .detach(this)
     }

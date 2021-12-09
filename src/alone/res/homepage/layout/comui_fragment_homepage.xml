@@ -10,6 +10,7 @@
     </data>
 
     <FrameLayout
+            android:id="@+id/layout_page"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/comres_layoutBg_lightGray"
@@ -22,7 +23,7 @@
                 android:scrollbars="none">
 
             <LinearLayout
-                    android:id="@+id/flexbox_page_content"
+                    android:id="@+id/layout_scroll"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingTop="@dimen/comres_sideMargin_normal"
@@ -32,9 +33,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                <com.google.android.flexbox.FlexboxLayout
-                        style="@style/comui_equant_horizontal_flex_style"
-                        android:layout_width="wrap_content">
+                <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
@@ -98,22 +97,22 @@
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_show_floating_within_app"
+                            android:id="@+id/btn_show_floating_within_app"
                             android:text="@string/comui_button_show_floating_within_app" />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_close_floating_within_app"
+                            android:id="@+id/btn_close_floating_within_app"
                             android:text="@string/comui_button_close_floating_within_app" />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_show_floating_within_system"
+                            android:id="@+id/btn_show_floating_within_system"
                             android:text="@string/comui_button_show_floating_within_system" />
 
                     <Button
                             style="@style/comui_equant_horizontal_button_style"
-                            android:id="@+id/button_close_floating_within_system"
+                            android:id="@+id/btn_close_floating_within_system"
                             android:text="@string/comui_button_close_floating_within_system" />
                 </com.google.android.flexbox.FlexboxLayout>
 
