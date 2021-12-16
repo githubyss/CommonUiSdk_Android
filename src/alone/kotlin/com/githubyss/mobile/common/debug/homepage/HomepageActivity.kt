@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.debug.homepage
 
 import android.os.Bundle
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarActivity
 import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAudioPlayer
@@ -41,7 +41,7 @@ class HomepageActivity : BaseToolbarActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onCreate")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onCreate")
     }
     
     /**
@@ -52,7 +52,7 @@ class HomepageActivity : BaseToolbarActivity() {
      */
     override fun onStart() {
         super.onStart()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onStart")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onStart")
         
         attachView()
     }
@@ -65,7 +65,7 @@ class HomepageActivity : BaseToolbarActivity() {
      */
     override fun onRestart() {
         super.onRestart()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onRestart")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onRestart")
     }
     
     /**
@@ -76,7 +76,7 @@ class HomepageActivity : BaseToolbarActivity() {
      */
     override fun onResume() {
         super.onResume()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onResume")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onResume")
     }
     
     /**
@@ -87,7 +87,7 @@ class HomepageActivity : BaseToolbarActivity() {
      */
     override fun onPause() {
         super.onPause()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onPause")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onPause")
     }
     
     /**
@@ -98,7 +98,7 @@ class HomepageActivity : BaseToolbarActivity() {
      */
     override fun onStop() {
         super.onStop()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onStop")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onStop")
         
         detachView()
     }
@@ -121,7 +121,7 @@ class HomepageActivity : BaseToolbarActivity() {
      */
     override fun onDestroy() {
         super.onDestroy()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onDestroy")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onDestroy")
     }
     
     

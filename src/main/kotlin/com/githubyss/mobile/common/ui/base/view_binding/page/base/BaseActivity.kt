@@ -5,7 +5,7 @@ import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.githubyss.mobile.common.kit.util.FragmentUtils
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.R
 
 
@@ -28,7 +28,7 @@ abstract class BaseActivity : AppCompatActivity() {
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     init {
-        LogcatUtils.d(TAG, "Constructor init")
+        LogUtils.d(TAG, "Constructor init")
     }
     
     

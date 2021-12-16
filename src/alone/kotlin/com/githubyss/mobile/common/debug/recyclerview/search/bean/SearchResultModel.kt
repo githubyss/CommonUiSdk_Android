@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.debug.recyclerview.search.bean
 
 import com.githubyss.mobile.common.kit.mock.OnResponse
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.BuildConfig
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
@@ -48,7 +48,7 @@ class SearchResultModel(val json: JSONObject?) {
             //         data = URLEncoder.encode(EncryptProxyUtils.encryptRequestData(randomPass, reqJsonObject.toString()), "utf-8")
             //         rpd = EncryptProxyUtils.encryptByPublicKey(randomPass)
             //     } catch (e: UnsupportedEncodingException) {
-            //         LogcatUtils.e(t = e)
+            //         LogUtils.e(t = e)
             //     }
             //
             //     val pairs: MutableList<NameValuePair> = ArrayList()
@@ -130,7 +130,7 @@ class SearchResultModel(val json: JSONObject?) {
                 }
             }
         } catch (e: JSONException) {
-            LogcatUtils.e(t = e)
+            LogUtils.e(t = e)
         }
     }
 }

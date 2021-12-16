@@ -1,6 +1,6 @@
 package com.githubyss.mobile.common.debug.mvvm
 
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -50,7 +50,7 @@ interface MvvmModel {
 
                 text = json.optString("text")
             } catch (e: JSONException) {
-                LogcatUtils.e(TAG, e)
+                LogUtils.e(TAG, e)
             }
         }
     }
@@ -88,7 +88,7 @@ interface MvvmModel {
 
                 imageUrl = json.optString("imageUrl")
             } catch (e: JSONException) {
-                LogcatUtils.e(TAG, e)
+                LogUtils.e(TAG, e)
             }
         }
     }

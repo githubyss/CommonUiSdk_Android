@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.base.view_binding.page.base.BaseFragment
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
@@ -37,11 +37,11 @@ abstract class BindingReflectBaseFragment<B : ViewBinding> : BaseFragment() {
                 _binding = clazz?.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
                     ?.invoke(null, inflater, container, false) as B
             } catch (e: NoSuchMethodException) {
-                LogcatUtils.e(t = e)
+                LogUtils.e(t = e)
             } catch (e: IllegalAccessException) {
-                LogcatUtils.e(t = e)
+                LogUtils.e(t = e)
             } catch (e: InvocationTargetException) {
-                LogcatUtils.e(t = e)
+                LogUtils.e(t = e)
             }
         }
         

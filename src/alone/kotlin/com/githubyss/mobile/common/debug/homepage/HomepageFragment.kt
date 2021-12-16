@@ -19,7 +19,7 @@ import com.githubyss.mobile.common.debug.view_binding.reflect.ReflectActivity
 import com.githubyss.mobile.common.debug.view_binding.reflect.ReflectToolbarActivity
 import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
 import com.githubyss.mobile.common.kit.util.ActivityUtils
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
@@ -69,7 +69,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onAttach")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onAttach")
     }
     
     /**
@@ -80,7 +80,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onCreate")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onCreate")
     }
     
     /**
@@ -92,7 +92,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      * @return
      */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onCreateView")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onCreateView")
         return super.onCreateView(inflater, container, savedInstanceState)
     }
     
@@ -105,7 +105,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onViewCreated")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onViewCreated")
     }
     
     /**
@@ -116,7 +116,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onActivityCreated")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onActivityCreated")
     }
     
     /**
@@ -127,7 +127,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onStart() {
         super.onStart()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onStart")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onStart")
         
         attachView()
     }
@@ -140,7 +140,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onResume() {
         super.onResume()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onResume")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onResume")
     }
     
     /**
@@ -151,7 +151,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onPause() {
         super.onPause()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onPause")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onPause")
     }
     
     /**
@@ -162,7 +162,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onStop() {
         super.onStop()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onStop")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onStop")
         
         detachView()
     }
@@ -175,7 +175,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onSaveInstanceState")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onSaveInstanceState")
     }
     
     /**
@@ -186,7 +186,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onDestroyView() {
         super.onDestroyView()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onDestroyView")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onDestroyView")
     }
     
     /**
@@ -197,7 +197,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onDestroy() {
         super.onDestroy()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onDestroy")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onDestroy")
     }
     
     /**
@@ -208,7 +208,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onDetach() {
         super.onDetach()
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onDetach")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onDetach")
     }
     
     /**
@@ -219,7 +219,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
      */
     override fun onAttachFragment(childFragment: Fragment) {
         super.onAttachFragment(childFragment)
-        LogcatUtils.d(TAG, "${this::class.java.simpleName} > onAttachFragment")
+        LogUtils.d(TAG, "${this::class.java.simpleName} > onAttachFragment")
     }
     
     
@@ -343,7 +343,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
                         
                         override fun onUpdateAudioInfo(audioModel: AudioModel?) {
                             run {
-                                LogcatUtils.d(TAG, "FloatingAudioPlayerListener >>> onUpdateAudioInfo >> audioModel: $audioModel")
+                                LogUtils.d(TAG, "FloatingAudioPlayerListener >>> onUpdateAudioInfo >> audioModel: $audioModel")
                                 if (audioModel?.isPlaying ?: return) {
                                     binding.buttonPlayPauseController.text = "暂停"
                                 }

@@ -5,7 +5,7 @@ import android.animation.ValueAnimator
 import android.graphics.Point
 import android.view.View
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.ComuiPointEvaluator
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
@@ -137,7 +137,7 @@ class PropertyAnimationFragment : BaseToolbarFragment(R.layout.comui_fragment_pr
     }
     
     private fun logcatViewProperty(view: View) {
-        LogcatUtils.d(msg = "{x:${view.x.toInt()}, y:${view.y.toInt()}} {translationX:${view.translationX.toInt()}, translationY:${view.translationY.toInt()}} {top:${view.top}, bottom:${view.bottom}, left:${view.left}, right:${view.right}} {width:${view.width}, height:${view.height}}")
+        LogUtils.d(msg = "{x:${view.x.toInt()}, y:${view.y.toInt()}} {translationX:${view.translationX.toInt()}, translationY:${view.translationY.toInt()}} {top:${view.top}, bottom:${view.bottom}, left:${view.left}, right:${view.right}} {width:${view.width}, height:${view.height}}")
     }
     
     

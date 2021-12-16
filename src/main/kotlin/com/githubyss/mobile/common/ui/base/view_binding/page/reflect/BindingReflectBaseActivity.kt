@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.ui.base.view_binding.page.reflect
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.viewbinding.ViewBinding
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.base.view_binding.page.base.BaseActivity
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.ParameterizedType
@@ -36,11 +36,11 @@ abstract class BindingReflectBaseActivity<B : ViewBinding> : BaseActivity() {
                     ?.invoke(null, layoutInflater) as B
                 setContentView(binding.root)
             } catch (e: NoSuchMethodException) {
-                LogcatUtils.e(t = e)
+                LogUtils.e(t = e)
             } catch (e: IllegalAccessException) {
-                LogcatUtils.e(t = e)
+                LogUtils.e(t = e)
             } catch (e: InvocationTargetException) {
-                LogcatUtils.e(t = e)
+                LogUtils.e(t = e)
             }
         }
         

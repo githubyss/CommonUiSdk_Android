@@ -225,13 +225,11 @@ class SlideRefreshLoadScrollView : NestedScrollView {
                 animator.start()
                 ivPullLoading!!.visibility = View.INVISIBLE
                 tvPullLoading!!.visibility = View.INVISIBLE
-                tvForCamera!!.visibility = View.GONE
                 
             }
             PULL_To_REFRESH -> {
                 ivPullLoading!!.visibility = View.VISIBLE
                 tvPullLoading!!.visibility = View.VISIBLE
-                tvForCamera!!.visibility = View.VISIBLE
                 tvPullLoading!!.text = context.getString(R.string.down_refresh)
                 if (onScrollChangedListener != null) {
                     onScrollChangedListener!!.onPullStart()
@@ -240,13 +238,11 @@ class SlideRefreshLoadScrollView : NestedScrollView {
             RELEASE_To_REFRESH -> {
                 ivPullLoading!!.visibility = View.VISIBLE
                 tvPullLoading!!.visibility = View.VISIBLE
-                tvForCamera!!.visibility = View.VISIBLE
                 tvPullLoading!!.text = context.getString(R.string.up_refresh)
             }
             REFRESHING -> {
                 ivPullLoading!!.visibility = View.VISIBLE
                 tvPullLoading!!.visibility = View.VISIBLE
-                tvForCamera!!.visibility = View.VISIBLE
                 tvPullLoading!!.text = context.getString(R.string.on_refresh)
                 headerView!!.setPadding(0, mHeadPadding, 0, mHeadPadding)
             }
@@ -304,7 +300,7 @@ class SlideRefreshLoadScrollView : NestedScrollView {
      */
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(ev: MotionEvent): Boolean {
-        return if (headerView!!.height > Nums.FIVE) {
+        return if (headerView!!.height > 5) {
             true
         }
         else try {

@@ -14,7 +14,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.RequiresPermission
 import com.githubyss.mobile.common.kit.glide.GlideUtils
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.SystemUtils
 import com.githubyss.mobile.common.ui.R
 import java.lang.ref.WeakReference
@@ -295,7 +295,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
                 beShown = true
             }
         } catch (e: Exception) {
-            LogcatUtils.e(msg = e.toString())
+            LogUtils.e(msg = e.toString())
         }
         
         logcatViewProperty(rootView, "After addView rootView\t\t\t")
@@ -308,7 +308,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
                 beShown = false
             }
         } catch (e: Exception) {
-            LogcatUtils.e(msg = e.toString())
+            LogUtils.e(msg = e.toString())
         }
         
         logcatViewProperty(rootView, "After removeView rootView\t\t")
@@ -394,7 +394,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     private fun logcatViewProperty(view: View?, location: String = "") {
         val coordinate = IntArray(2)
         view?.getLocationOnScreen(coordinate)
-        LogcatUtils.d(msg = "$location: " + "view-> " + "{x:${view?.x?.toInt()}, y:${view?.y?.toInt()}}\t" + "{cX:${coordinate[0]}, cY:${coordinate[1]}}\t" + "{w:${view?.width}, h:${view?.height}}\t" + "{mW:${view?.measuredWidth}, mH:${view?.measuredHeight}}\t" + "{t:${view?.top}, b:${view?.bottom}, l:${view?.left}, r:${view?.right}}\t" + "params-> " + "{x:${windowLayoutParams?.x}, y:${windowLayoutParams?.y}}\t" + "{w:${windowLayoutParams?.width}, h:${windowLayoutParams?.height}}\t")
+        LogUtils.d(msg = "$location: " + "view-> " + "{x:${view?.x?.toInt()}, y:${view?.y?.toInt()}}\t" + "{cX:${coordinate[0]}, cY:${coordinate[1]}}\t" + "{w:${view?.width}, h:${view?.height}}\t" + "{mW:${view?.measuredWidth}, mH:${view?.measuredHeight}}\t" + "{t:${view?.top}, b:${view?.bottom}, l:${view?.left}, r:${view?.right}}\t" + "params-> " + "{x:${windowLayoutParams?.x}, y:${windowLayoutParams?.y}}\t" + "{w:${windowLayoutParams?.width}, h:${windowLayoutParams?.height}}\t")
     }
     
     // private fun logcatCoordinate(location: String = "") {

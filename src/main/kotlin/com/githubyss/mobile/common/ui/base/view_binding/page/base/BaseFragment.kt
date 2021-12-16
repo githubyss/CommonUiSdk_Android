@@ -7,7 +7,7 @@ import android.widget.Button
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.R
 
 
@@ -32,7 +32,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     /** ********** ********** ********** Constructors ********** ********** ********** */
     
     init {
-        LogcatUtils.d(TAG, "Constructor init")
+        LogUtils.d(TAG, "Constructor init")
     }
     
     

@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.R
 
@@ -80,9 +80,9 @@ class CommonDialog @SuppressLint("ValidFragment") private constructor() : Dialog
                         .commitAllowingStateLoss()
                 }
             } catch (exception: IllegalStateException) {
-                LogcatUtils.e(t = exception)
+                LogUtils.e(t = exception)
             } catch (exception: Exception) {
-                LogcatUtils.e(t = exception)
+                LogUtils.e(t = exception)
             }
         }
     }

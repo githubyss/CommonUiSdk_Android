@@ -4,7 +4,7 @@ import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
 import com.githubyss.mobile.common.kit.util.ActivityUtils
-import com.githubyss.mobile.common.kit.util.LogcatUtils
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.network.ComnetApplicationConfig
 import com.githubyss.mobile.common.ui.BuildConfig
 import kotlin.properties.Delegates
@@ -30,7 +30,7 @@ abstract class BaseApplication : Application() {
     
         initComkit(instance)
         initComnet(instance)
-        initLog(LogcatUtils.LOG_LEVEL_VERBOSE)
+        initLog(LogUtils.LOG_LEVEL_VERBOSE)
         registerActivityLifecycleCallbacks(ActivityUtils.activityLifecycle)
     }
     
@@ -60,6 +60,6 @@ abstract class BaseApplication : Application() {
     }
     
     open fun initLog(level: Int) {
-        LogcatUtils.logLevel = level
+        LogUtils.logLevel = level
     }
 }

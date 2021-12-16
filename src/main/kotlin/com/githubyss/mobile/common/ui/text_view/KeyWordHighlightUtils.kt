@@ -91,7 +91,7 @@ object KeyWordHighlightUtils {
         }
         matcher.appendTail(sb)
         val ret = sb.toString()
-        // LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> getHtmlText >> ret: $ret")
+        // LogUtils.d(TAG, "KeyWordHighlightUtils >>> getHtmlText >> ret: $ret")
         return ret
     }
     
@@ -125,7 +125,7 @@ object KeyWordHighlightUtils {
         }
         matcher.appendTail(sb)
         val htmlText = sb.toString()
-        // LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> matcherText >> htmlText: $htmlText")
+        // LogUtils.d(TAG, "KeyWordHighlightUtils >>> matcherText >> htmlText: $htmlText")
         return Html.fromHtml(htmlText)
     }
     
@@ -156,7 +156,7 @@ object KeyWordHighlightUtils {
         }
         val ret = reg.deleteCharAt(reg.length - 1)
             .toString()
-        // LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> getKeyMatchRegex >> ret: $ret")
+        // LogUtils.d(TAG, "KeyWordHighlightUtils >>> getKeyMatchRegex >> ret: $ret")
         return ret
     }
     
@@ -171,7 +171,7 @@ object KeyWordHighlightUtils {
         val color = color ?: ResourceUtils.getColor(defaultColorId)
         val colorStr = String.format("#%06X", 0xFFFFFF and color)
         val ret = "<font color=\"${colorStr}\">${matcher.group()}</font>"
-        // LogcatUtils.d(TAG, "KeyWordHighlightUtils >>> getColorHtmlStr >> ret: $ret")
+        // LogUtils.d(TAG, "KeyWordHighlightUtils >>> getColorHtmlStr >> ret: $ret")
         return ret
     }
 }
