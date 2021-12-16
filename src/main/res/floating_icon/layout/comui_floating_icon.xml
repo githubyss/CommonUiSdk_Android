@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-        xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
     </data>
 
-    <LinearLayout
-            android:id="@+id/ll_floating_view_root"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+    <FrameLayout
+        android:id="@+id/ll_floating_view_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-                android:id="@+id/frameLayout_miniPlayerContainer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="visible"
-                >
+            android:id="@+id/frameLayout_miniPlayerContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top|center"
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <ImageView
-                    android:id="@+id/imageView_icon"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/imuxuan"
-                    android:scaleType="fitCenter"
-                    />
+                android:id="@+id/imageView_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitCenter"
+                android:src="@drawable/comui_icon_lucky_money" />
 
             <ImageView
-                    android:id="@+id/imageView_close"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/comui_audio_player_close"
-                    android:scaleType="fitCenter"
-                    />
+                android:id="@+id/imageView_close"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/comui_audio_player_close" />
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 </layout>

@@ -75,12 +75,12 @@ android {
                 res {
                     srcDirs 'src/alone/res'
                     srcDirs 'src/alone/res/common'
-                    srcDirs 'src/alone/res/value'
 
                     srcDirs 'src/alone/res/homepage'
                     srcDirs 'src/alone/res/mvvm'
                     srcDirs 'src/alone/res/view_binding'
                     srcDirs 'src/alone/res/animation'
+                    srcDirs 'src/alone/res/recycler_view'
                     srcDirs 'src/alone/res/recycler_view/search_result'
                     srcDirs 'src/alone/res/recycler_view/multi'
                 }
@@ -96,16 +96,18 @@ android {
             res {
                 srcDirs 'src/main/res'
                 srcDirs 'src/main/res/common'
-                srcDirs 'src/main/res/value'
 
                 srcDirs 'src/main/res/banner'
                 srcDirs 'src/main/res/check_box'
                 srcDirs 'src/main/res/dialog'
-                srcDirs 'src/main/res/recycler_view'
                 srcDirs 'src/main/res/time_countdown'
+
                 srcDirs 'src/main/res/floating_icon'
                 srcDirs 'src/main/res/floating_audio_player'
                 srcDirs 'src/main/res/auto_hide_floating_window'
+
+                srcDirs 'src/main/res/recycler_view'
+                srcDirs 'src/main/res/slide_to_refresh_scroll_view'
             }
             manifest { srcFile 'src/main/AndroidManifest.xml' }
             jniLibs { srcDirs 'libs' }

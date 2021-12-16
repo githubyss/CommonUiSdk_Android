@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -14,60 +15,60 @@
         <com.google.android.flexbox.FlexboxLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:alignItems="center"
             app:flexDirection="row"
-            app:justifyContent="center">
+            app:justifyContent="center"
+            app:alignItems="center">
 
             <TextView
                 android:id="@+id/tv_remaining_hour"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/comui_time_bg"
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text="00"
                 android:textColor="@color/comres_color_ffffff"
-                android:textSize="@dimen/comres_textSize_12sp" />
+                android:textSize="@dimen/comres_textSize_18sp" />
 
             <TextView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text=":"
                 android:textColor="@color/comres_color_487bfe"
-                android:textSize="@dimen/comres_textSize_12sp" />
+                android:textSize="@dimen/comres_textSize_18sp" />
 
             <TextView
                 android:id="@+id/tv_remaining_minute"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/comui_time_bg"
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text="00"
                 android:textColor="@color/comres_color_ffffff"
-                android:textSize="@dimen/comres_textSize_12sp" />
+                android:textSize="@dimen/comres_textSize_18sp" />
 
             <TextView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text=":"
                 android:textColor="@color/comres_color_487bfe"
-                android:textSize="@dimen/comres_textSize_12sp" />
+                android:textSize="@dimen/comres_textSize_18sp" />
 
             <TextView
                 android:id="@+id/tv_remaining_second"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/comui_time_bg"
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text="00"
                 android:textColor="@color/comres_color_ffffff"
-                android:textSize="@dimen/comres_textSize_12sp" />
+                android:textSize="@dimen/comres_textSize_18sp" />
         </com.google.android.flexbox.FlexboxLayout>
     </FrameLayout>
 </layout>

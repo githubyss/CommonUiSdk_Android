@@ -36,7 +36,7 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     private val binding: ComuiFloatingIconBinding get() = _binding!!
     
     @DrawableRes
-    private var iconDrawableId: Int = R.drawable.imuxuan
+    private var iconDrawableId: Int = R.drawable.comui_icon_lucky_money
     private var iconUrl: String? = null
     private var iconDrawable: Drawable? = null
     private var iconBitmap: Bitmap? = null
@@ -70,6 +70,7 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     
     
     /** ********** ********** ********** Override ********** ********** ********** */
+    /** ********** ********** Override IconViewInterface ********** ********** */
     
     override fun customIcon(drawableId: Int) {
         iconDrawableId = drawableId
