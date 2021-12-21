@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="comui_ok">OK</string>
+    <string name="comui_cancel">Cancel</string>
+    <string name="comui_confirm">Confirm</string>
+    <string name="comui_submit">Submit</string>
+    <string name="comui_send">Send</string>
+    <string name="comui_start">Start</string>
+    <string name="comui_stop">Stop</string>
+    <string name="comui_open">Open</string>
+    <string name="comui_close">Close</string>
+    <string name="comui_setting">Setting</string>
+</resources>

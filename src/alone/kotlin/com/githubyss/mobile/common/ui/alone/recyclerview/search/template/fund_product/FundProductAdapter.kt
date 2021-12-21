@@ -51,20 +51,20 @@ class FundProductAdapter constructor(private val dataList: List<BaseItemModel>, 
                             when {
                                 dataModel.riseFallRatio.toFloat() == 0.0f -> {
                                     binding.textFundProductRiseFallRatio.text = "${dataModel.riseFallRatio}%"
-                                    binding.textFundProductRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_999999))
+                                    binding.textFundProductRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_999999))
                                 }
                                 dataModel.riseFallRatio.toFloat() > 0.0f -> {
                                     binding.textFundProductRiseFallRatio.text = "+${dataModel.riseFallRatio}%"
-                                    binding.textFundProductRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_ff5500))
+                                    binding.textFundProductRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_ff5500))
                                 }
                                 dataModel.riseFallRatio.toFloat() < 0.0f -> {
                                     binding.textFundProductRiseFallRatio.text = "${dataModel.riseFallRatio}%"
-                                    binding.textFundProductRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_00c29e))
+                                    binding.textFundProductRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_00c29e))
                                 }
                             }
                         } catch (e: NumberFormatException) {
                             binding.textFundProductRiseFallRatio.text = "-.--%"
-                            binding.textFundProductRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_999999))
+                            binding.textFundProductRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_999999))
                         }
                         binding.textFundProductCode.text = dataModel.code
                         binding.textFundProductRisk.text = dataModel.risk

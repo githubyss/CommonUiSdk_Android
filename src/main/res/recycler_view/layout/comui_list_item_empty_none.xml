@@ -10,6 +10,6 @@
             android:id="@+id/flexboxItemEmptyNone"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/comres_layoutBg_transparent"
+            android:background="@color/comui_layoutBg_transparent"
             />
 </layout>

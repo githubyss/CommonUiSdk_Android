@@ -8,7 +8,7 @@
 
     <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comres_separatorThickness_thin"
-            android:background="@color/comres_separator_lightGray"
+            android:layout_height="@dimen/comui_separatorThickness_thin"
+            android:background="@color/comui_separator_lightGray"
             />
 </LinearLayout>

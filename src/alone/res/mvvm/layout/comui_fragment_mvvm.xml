@@ -18,7 +18,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/comres_layoutBg_lightGray"
+        android:background="@color/comui_layoutBg_lightGray"
         android:orientation="vertical">
 
         <ScrollView
@@ -36,10 +36,10 @@
                     android:id="@+id/flexbox_page_content"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingTop="@dimen/comres_sideMargin_normal"
-                    android:paddingRight="@dimen/comres_sideMargin_normal"
-                    android:paddingBottom="@dimen/comres_sideMargin_normal"
-                    android:paddingLeft="@dimen/comres_sideMargin_normal"
+                    android:paddingTop="@dimen/comui_sideMargin_normal"
+                    android:paddingRight="@dimen/comui_sideMargin_normal"
+                    android:paddingBottom="@dimen/comui_sideMargin_normal"
+                    android:paddingLeft="@dimen/comui_sideMargin_normal"
                     app:flexDirection="column"
                     app:justifyContent="space_between">
 
@@ -57,16 +57,16 @@
                             android:layout_height="wrap_content" />
 
                         <TextView
-                            style="@style/comres_tips_gray_style"
+                            style="@style/comui_tips_gray_style"
                             android:id="@+id/text_display"
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
                             android:layout_marginBottom="4dp"
-                            android:background="@color/comres_color_999999"
+                            android:background="@color/comui_color_999999"
                             android:gravity="center"
                             android:text="@{mvvmVm.text}"
-                            android:textColor="@color/comres_color_black"
-                            android:textSize="@dimen/comres_textSize_18sp"
+                            android:textColor="@color/comui_color_black"
+                            android:textSize="@dimen/comui_textSize_18sp"
                             bind:isVisibleOrInvisible="@{mvvmVm.isTextShow}" />
 
                         <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">

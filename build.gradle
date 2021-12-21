@@ -70,13 +70,22 @@ android {
                 srcDirs 'src/main/res/common'
 
                 srcDirs 'src/main/res/banner'
+                srcDirs 'src/main/res/button'
+                srcDirs 'src/main/res/card'
                 srcDirs 'src/main/res/check_box'
                 srcDirs 'src/main/res/dialog'
+                srcDirs 'src/main/res/input'
+                srcDirs 'src/main/res/label'
+                srcDirs 'src/main/res/launcher'
+                srcDirs 'src/main/res/separator'
+                srcDirs 'src/main/res/tag'
+                srcDirs 'src/main/res/tip'
+                srcDirs 'src/main/res/toolbar'
                 srcDirs 'src/main/res/time_countdown'
 
-                srcDirs 'src/main/res/floating_icon'
-                srcDirs 'src/main/res/floating_audio_player'
                 srcDirs 'src/main/res/auto_hide_floating_window'
+                srcDirs 'src/main/res/floating_audio_player'
+                srcDirs 'src/main/res/floating_icon'
 
                 srcDirs 'src/main/res/recycler_view'
                 srcDirs 'src/main/res/slide_to_refresh_scroll_view'
@@ -142,7 +151,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':CommonLibSdk_Android')
-    implementation project(':CommonResSdk_Android')
     implementation project(':CommonKitSdk_Android')
     if (isLaunchApp) {
         implementation project(':CommonNetSdk_Android')

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="comui_ok">好</string>
+    <string name="comui_cancel">取消</string>
+    <string name="comui_confirm">确认</string>
+    <string name="comui_submit">提交</string>
+    <string name="comui_send">发送</string>
+    <string name="comui_start">开始</string>
+    <string name="comui_stop">停止</string>
+    <string name="comui_open">开启</string>
+    <string name="comui_close">关闭</string>
+    <string name="comui_setting">设置</string>
+</resources>

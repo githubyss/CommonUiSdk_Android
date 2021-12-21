@@ -27,8 +27,8 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text="00"
-                android:textColor="@color/comres_color_ffffff"
-                android:textSize="@dimen/comres_textSize_18sp" />
+                android:textColor="@color/comui_color_ffffff"
+                android:textSize="@dimen/comui_textSize_18sp" />
 
             <TextView
                 android:layout_width="20dp"
@@ -36,8 +36,8 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text=":"
-                android:textColor="@color/comres_color_487bfe"
-                android:textSize="@dimen/comres_textSize_18sp" />
+                android:textColor="@color/comui_color_487bfe"
+                android:textSize="@dimen/comui_textSize_18sp" />
 
             <TextView
                 android:id="@+id/tv_remaining_minute"
@@ -47,8 +47,8 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text="00"
-                android:textColor="@color/comres_color_ffffff"
-                android:textSize="@dimen/comres_textSize_18sp" />
+                android:textColor="@color/comui_color_ffffff"
+                android:textSize="@dimen/comui_textSize_18sp" />
 
             <TextView
                 android:layout_width="20dp"
@@ -56,8 +56,8 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text=":"
-                android:textColor="@color/comres_color_487bfe"
-                android:textSize="@dimen/comres_textSize_18sp" />
+                android:textColor="@color/comui_color_487bfe"
+                android:textSize="@dimen/comui_textSize_18sp" />
 
             <TextView
                 android:id="@+id/tv_remaining_second"
@@ -67,8 +67,8 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text="00"
-                android:textColor="@color/comres_color_ffffff"
-                android:textSize="@dimen/comres_textSize_18sp" />
+                android:textColor="@color/comui_color_ffffff"
+                android:textSize="@dimen/comui_textSize_18sp" />
         </com.google.android.flexbox.FlexboxLayout>
     </FrameLayout>
 </layout>

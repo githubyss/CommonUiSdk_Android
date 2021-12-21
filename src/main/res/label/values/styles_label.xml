@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Label darkslategray style. -->
+    <style name="comui_label_darkSlateGray_style">
+        <item name="android:background">@color/comui_color_transparent</item>
+        <item name="android:textColor">@color/comui_color_darkslategray</item>
+        <item name="android:textSize">@dimen/comui_labelTextSize_default</item>
+        <item name="android:gravity">left|center</item>
+        <item name="android:layout_gravity">left</item>
+    </style>
+</resources>

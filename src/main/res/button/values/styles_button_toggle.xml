@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button toggle rectangle gray-blue style. -->
+    <style name="comui_buttonToggle_rectangle_gray_blue_style">
+        <item name="android:background">@drawable/comui_button_toggle_bg_rectangle_micro_gray_blue</item>
+        <item name="android:textColor">@color/comui_buttonToggleTextUnchecked_gray_blue</item>
+        <item name="android:textSize">@dimen/comui_buttonToggleTextSize_default</item>
+        <item name="android:enabled">true</item>
+        <item name="android:checkable">true</item>
+        <item name="android:checked">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!-- Button toggle rectangle blue-transparent style. -->
+    <style name="comui_buttonToggle_rectangle_blue_transparent_style">
+        <item name="android:background">@drawable/comui_button_toggle_bg_rectangle_micro_blue_transparent</item>
+        <item name="android:textColor">@drawable/comui_button_toggle_bg_rectangle_micro_blue_transparent</item>
+        <item name="android:textSize">@dimen/comui_buttonToggleTextSize_default</item>
+        <item name="android:enabled">true</item>
+        <item name="android:checkable">true</item>
+        <item name="android:checked">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+</resources>

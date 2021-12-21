@@ -3,10 +3,10 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/layout_recyclerImageItem"
-        android:background="@color/comres_layoutBg_transparent"
+        android:background="@color/comui_layoutBg_transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/comres_sideMargin_normal"
+        android:paddingLeft="@dimen/comui_sideMargin_normal"
         app:alignItems="flex_start"
         app:flexDirection="column"
         app:justifyContent="space_between"
@@ -15,7 +15,7 @@
     <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:paddingRight="@dimen/comres_sideMargin_normal"
+            android:paddingRight="@dimen/comui_sideMargin_normal"
             app:alignItems="center"
             app:flexDirection="row"
             app:justifyContent="flex_start"
@@ -34,8 +34,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="Title"
-                android:textColor="@color/comres_color_black"
-                android:textSize="@dimen/comres_textSize_16sp"
+                android:textColor="@color/comui_color_black"
+                android:textSize="@dimen/comui_textSize_16sp"
                 />
     </com.google.android.flexbox.FlexboxLayout>
 

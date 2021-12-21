@@ -10,18 +10,18 @@
     <application
             android:name="com.githubyss.mobile.common.ui.alone.application.ComuiApplication"
             android:allowBackup="false"
-            android:icon="@mipmap/comres_ic_launcher"
+            android:icon="@mipmap/comui_ic_launcher"
             android:label="@string/comui_appName"
-            android:roundIcon="@mipmap/comres_ic_launcher_round"
+            android:roundIcon="@mipmap/comui_ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/comres_app_gray_theme"
+            android:theme="@style/comui_app_gray_theme"
             >
 
         <activity
                 android:name="com.githubyss.mobile.common.ui.alone.homepage.HomepageActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
-                android:theme="@style/comres_activity_noActionBar_theme"
+                android:theme="@style/comui_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 >
             <intent-filter>
@@ -34,7 +34,7 @@
                 android:name="com.githubyss.mobile.common.ui.alone.mvvm.MvvmActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
-                android:theme="@style/comres_activity_noActionBar_theme"
+                android:theme="@style/comui_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 />
 
@@ -42,7 +42,7 @@
                 android:name="com.githubyss.mobile.common.ui.alone.view_binding.reflect.ReflectActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
-                android:theme="@style/comres_activity_noActionBar_theme"
+                android:theme="@style/comui_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 />
 
@@ -50,7 +50,7 @@
                 android:name="com.githubyss.mobile.common.ui.alone.view_binding.inline.InlineActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
-                android:theme="@style/comres_activity_noActionBar_theme"
+                android:theme="@style/comui_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 />
 
@@ -58,7 +58,7 @@
                 android:name="com.githubyss.mobile.common.ui.alone.view_binding.reflect.ReflectToolbarActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
-                android:theme="@style/comres_activity_noActionBar_theme"
+                android:theme="@style/comui_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 />
 
@@ -66,7 +66,7 @@
                 android:name="com.githubyss.mobile.common.ui.alone.view_binding.inline.InlineToolbarActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
-                android:theme="@style/comres_activity_noActionBar_theme"
+                android:theme="@style/comui_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 />
     </application>

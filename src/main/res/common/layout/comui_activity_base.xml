@@ -9,7 +9,7 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/comres_layoutBg_transparent"
+            android:background="@color/comui_layoutBg_transparent"
             android:orientation="vertical"
             >
 
@@ -17,7 +17,7 @@
                 android:id="@+id/layout_fragment_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/comres_layoutBg_transparent"
+                android:background="@color/comui_layoutBg_transparent"
                 />
     </LinearLayout>
 </layout>

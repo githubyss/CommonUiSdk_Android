@@ -10,12 +10,12 @@
 
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_base"
-            android:background="@color/comres_toolbarBg_lightGray"
+            android:background="@color/comui_toolbarBg_lightGray"
             android:layout_height="?android:attr/actionBarSize"
             android:layout_width="match_parent"
             android:minHeight="?android:attr/actionBarSize"
             app:popupTheme="@style/AlertDialog.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:titleTextColor="@color/comres_color_black"
+            app:titleTextColor="@color/comui_color_black"
             />
 </layout>

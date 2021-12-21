@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="rectangle"
+        >
+
+    <solid android:color="@color/comui_tagBg_orange05pct" />
+    <corners android:radius="@dimen/comui_cornerRadius_micro" />
+    <stroke
+            android:width="@dimen/comui_strokeWidth_none"
+            android:color="@color/comui_tagStroke_orange"
+            />
+</shape>

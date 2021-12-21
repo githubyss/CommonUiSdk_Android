@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Label default dimens. -->
+    <dimen name="comui_labelTextSize_default">16sp</dimen>
+
+    <!-- Tips default dimens. -->
+    <dimen name="comui_tipsTextSize_default">11sp</dimen>
+
+    <!-- Button click default dimens. -->
+    <dimen name="comui_buttonClickTextSize_default">13sp</dimen>
+
+    <!-- Button toggle default dimens. -->
+    <dimen name="comui_buttonToggleTextSize_default">13sp</dimen>
+
+    <!-- Button checkbox default dimens. -->
+    <dimen name="comui_buttonCheckboxTextSize_default">13sp</dimen>
+
+    <!-- Card default dimens. -->
+    <dimen name="comui_cardLabelPrimaryTextSize_default">18sp</dimen>
+    <dimen name="comui_cardLabelSecondaryTextSize_default">15sp</dimen>
+
+    <!-- Dialog default dimens. -->
+    <dimen name="comui_dialogTextSize_default">13sp</dimen>
+
+    <!-- Tag default dimens. -->
+    <dimen name="comui_tagTextSize_default">10sp</dimen>
+</resources>

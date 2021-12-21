@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button click rectangle blue style. -->
+    <style name="comui_buttonClick_rectangle_blue_style">
+        <item name="android:background">@drawable/comui_button_click_bg_rectangle_micro_blue</item>
+        <item name="android:textColor">@color/comui_buttonClickText_blue</item>
+        <item name="android:textSize">@dimen/comui_buttonClickTextSize_default</item>
+        <item name="android:enabled">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">@dimen/comui_sideMargin_nano</item>
+    </style>
+
+    <!-- Button click rectangle white style. -->
+    <style name="comui_buttonClick_rectangle_white_style">
+        <item name="android:background">@drawable/comui_button_click_bg_rectangle_micro_white</item>
+        <item name="android:textColor">@color/comui_buttonClickText_white</item>
+        <item name="android:textSize">@dimen/comui_buttonClickTextSize_default</item>
+        <item name="android:enabled">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">@dimen/comui_sideMargin_micro</item>
+    </style>
+
+    <!-- Button click rectangle transparent style. -->
+    <style name="comui_buttonClick_rectangle_transparent_style">
+        <item name="android:background">@drawable/comui_button_click_bg_rectangle_micro_transparent</item>
+        <item name="android:textColor">@color/comui_buttonClickText_transparent</item>
+        <item name="android:textSize">@dimen/comui_buttonClickTextSize_default</item>
+        <item name="android:enabled">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">@dimen/comui_sideMargin_micro</item>
+    </style>
+</resources>

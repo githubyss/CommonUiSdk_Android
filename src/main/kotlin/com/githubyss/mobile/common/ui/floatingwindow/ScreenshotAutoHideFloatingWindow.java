@@ -290,8 +290,8 @@ public class ScreenshotAutoHideFloatingWindow {
         view.findViewById(R.id.iv_customservice).setOnClickListener(thisOnClickListener);
         view.findViewById(R.id.iv_share).setOnClickListener(thisOnClickListener);
 
-        animSlideDownIn = AnimationUtils.loadAnimation(mActivity, R.anim.slide_down_in);
-        animSlideUpOut = AnimationUtils.loadAnimation(mActivity, R.anim.slide_up_out);
+        animSlideDownIn = AnimationUtils.loadAnimation(mActivity, R.anim.comui_slide_down_in);
+        animSlideUpOut = AnimationUtils.loadAnimation(mActivity, R.anim.comui_slide_up_out);
 
         // LogUtils.e("initViewFindById", animSlideDownIn.toString() + "::" + animSlideUpOut.toString());
     }

@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/layout_recyclerFooterItem"
-        android:background="@color/comres_layoutBg_transparent"
+        android:background="@color/comui_layoutBg_transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:alignItems="flex_start"
@@ -15,9 +15,9 @@
             android:id="@+id/textView_recyclerFooter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/comres_sideMargin_normal"
+            android:layout_margin="@dimen/comui_sideMargin_normal"
             android:text="Footer"
-            android:textColor="@color/comres_color_red"
-            android:textSize="@dimen/comres_textSize_20sp"
+            android:textColor="@color/comui_color_red"
+            android:textSize="@dimen/comui_textSize_20sp"
             />
 </com.google.android.flexbox.FlexboxLayout>
