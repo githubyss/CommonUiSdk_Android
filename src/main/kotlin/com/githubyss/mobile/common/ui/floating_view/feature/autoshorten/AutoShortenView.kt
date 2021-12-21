@@ -24,7 +24,7 @@ import com.githubyss.mobile.common.ui.R
 open class AutoShortenView : FrameLayout {
     
     companion object {
-        private val TAG = AutoShortenView::class.simpleName ?: "simpleName is null"
+        private val TAG: String = AutoShortenView::class.java.simpleName
     }
     
     

@@ -42,7 +42,7 @@ class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPla
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object : SingletonHolder<SystemFloatingAudioPlayer, Context>(::SystemFloatingAudioPlayer) {
-        private val TAG = SystemFloatingAudioPlayer::class.simpleName ?: "simpleName is null"
+        private val TAG: String = SystemFloatingAudioPlayer::class.java.simpleName
     }
     
     private var containerLayoutParams: WindowManager.LayoutParams? = null

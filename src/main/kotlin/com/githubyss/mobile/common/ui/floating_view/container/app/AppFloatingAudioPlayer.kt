@@ -35,7 +35,7 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object : SingletonHolder<AppFloatingAudioPlayer, Context>(::AppFloatingAudioPlayer) {
-        private val TAG = AppFloatingAudioPlayer::class.simpleName ?: "simpleName is null"
+        private val TAG: String = AppFloatingAudioPlayer::class.java.simpleName
     }
     
     private var designateLayoutParams: ViewGroup.LayoutParams? = null

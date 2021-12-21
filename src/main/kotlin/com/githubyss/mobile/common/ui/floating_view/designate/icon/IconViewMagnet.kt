@@ -26,7 +26,7 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = IconViewMagnet::class.simpleName ?: "simpleName is null"
+        private val TAG: String = IconViewMagnet::class.java.simpleName
         
         @LayoutRes
         private var designateLayoutId: Int = R.layout.comui_floating_icon

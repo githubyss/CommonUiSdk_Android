@@ -21,7 +21,7 @@ object KeyWordHighlightUtils {
     
     /** ********** ********** ********** Properties ********** ********** ********** */
     
-    private val TAG = KeyWordHighlightUtils::class.simpleName ?: "simpleName is null"
+    private val TAG: String = KeyWordHighlightUtils::class.java.simpleName
     private val defaultColorId: Int = R.color.comres_color_3399ff
     
     

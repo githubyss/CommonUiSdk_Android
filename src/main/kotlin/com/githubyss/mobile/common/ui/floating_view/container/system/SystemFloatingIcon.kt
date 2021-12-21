@@ -42,7 +42,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object : SingletonHolder<SystemFloatingIcon, Context>(::SystemFloatingIcon) {
-        private val TAG = SystemFloatingIcon::class.simpleName ?: "simpleName is null"
+        private val TAG: String = SystemFloatingIcon::class.java.simpleName
     }
     
     private var containerLayoutParams: WindowManager.LayoutParams? = null

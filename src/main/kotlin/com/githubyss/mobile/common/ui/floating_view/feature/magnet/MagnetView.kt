@@ -27,7 +27,7 @@ open class MagnetView : FrameLayout {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = MagnetView::class.simpleName ?: "simpleName is null"
+        private val TAG: String = MagnetView::class.java.simpleName
     }
     
     private val MARGIN_EDGE: Int = ScreenUtils.dp2Px(14.0f) ?: 0

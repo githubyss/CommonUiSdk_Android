@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-            android:name="com.githubyss.mobile.common.debug.application.ComuiApplication"
+            android:name="com.githubyss.mobile.common.ui.alone.application.ComuiApplication"
             android:allowBackup="false"
             android:icon="@mipmap/comres_ic_launcher"
             android:label="@string/comui_appName"
@@ -18,7 +18,7 @@
             >
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.homepage.HomepageActivity"
+                android:name="com.githubyss.mobile.common.ui.alone.homepage.HomepageActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
                 android:theme="@style/comres_activity_noActionBar_theme"
@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.mvvm.MvvmActivity"
+                android:name="com.githubyss.mobile.common.ui.alone.mvvm.MvvmActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
                 android:theme="@style/comres_activity_noActionBar_theme"
@@ -39,7 +39,7 @@
                 />
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.view_binding.reflect.ReflectActivity"
+                android:name="com.githubyss.mobile.common.ui.alone.view_binding.reflect.ReflectActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
                 android:theme="@style/comres_activity_noActionBar_theme"
@@ -47,7 +47,7 @@
                 />
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.view_binding.inline.InlineActivity"
+                android:name="com.githubyss.mobile.common.ui.alone.view_binding.inline.InlineActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
                 android:theme="@style/comres_activity_noActionBar_theme"
@@ -55,7 +55,7 @@
                 />
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.view_binding.reflect.ReflectToolbarActivity"
+                android:name="com.githubyss.mobile.common.ui.alone.view_binding.reflect.ReflectToolbarActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
                 android:theme="@style/comres_activity_noActionBar_theme"
@@ -63,7 +63,7 @@
                 />
 
         <activity
-                android:name="com.githubyss.mobile.common.debug.view_binding.inline.InlineToolbarActivity"
+                android:name="com.githubyss.mobile.common.ui.alone.view_binding.inline.InlineToolbarActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait"
                 android:theme="@style/comres_activity_noActionBar_theme"

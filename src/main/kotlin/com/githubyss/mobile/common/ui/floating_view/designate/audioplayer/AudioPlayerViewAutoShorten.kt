@@ -32,7 +32,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        private val TAG = AudioPlayerViewAutoShorten::class.simpleName ?: "simpleName is null"
+        private val TAG: String = AudioPlayerViewAutoShorten::class.java.simpleName
         
         @LayoutRes
         private var designateLayoutId: Int = R.layout.comui_floating_audio_player

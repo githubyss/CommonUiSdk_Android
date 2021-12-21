@@ -5,7 +5,6 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.LogUtils
-import com.githubyss.mobile.common.network.ComnetApplicationConfig
 import com.githubyss.mobile.common.ui.BuildConfig
 import kotlin.properties.Delegates
 
@@ -18,7 +17,7 @@ abstract class BaseApplication : Application() {
         var instance: BaseApplication by Delegates.notNull()
             private set
 
-        private val TAG = BaseApplication::class.simpleName ?: "simpleName is null"
+        private val TAG: String = BaseApplication::class.java.simpleName
     }
 
 
@@ -48,7 +47,7 @@ abstract class BaseApplication : Application() {
     }
 
     open fun initComnet(application: Application) {
-        ComnetApplicationConfig.init(application)
+        // ComnetApplicationConfig.init(application)
     }
     
     open fun initARouter(application: Application) {

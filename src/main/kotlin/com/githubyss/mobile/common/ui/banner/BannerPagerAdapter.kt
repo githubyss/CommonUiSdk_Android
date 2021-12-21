@@ -28,7 +28,7 @@ class BannerPagerAdapter : PagerAdapter() {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = BannerPagerAdapter::class.simpleName ?: "simpleName is null"
+        val TAG: String = BannerPagerAdapter::class.java.simpleName
     }
     
     private var dataList: MutableList<BannerModel> = ArrayList()

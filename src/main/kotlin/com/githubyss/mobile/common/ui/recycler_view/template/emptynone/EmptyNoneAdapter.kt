@@ -21,7 +21,7 @@ class EmptyNoneAdapter constructor(private val dataList: List<BaseItemModel>) : 
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = EmptyNoneAdapter::class.simpleName ?: "simpleName is null"
+        val TAG: String = EmptyNoneAdapter::class.java.simpleName
     }
     
     

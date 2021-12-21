@@ -21,7 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = BaseActivity::class.simpleName ?: "simpleName is null"
+        val TAG: String = BaseActivity::class.java.simpleName
     }
     
     
@@ -58,7 +58,7 @@ abstract class BaseActivity : AppCompatActivity() {
     /** ********** ********** ********** Functions ********** ********** ********** */
     
     /** Add fragment to activity. */
-    protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frame_fragment_container) {
+    protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.layout_fragment_container) {
         supportFragmentManager.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
@@ -74,7 +74,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
     
-    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frame_fragment_container) {
+    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.layout_fragment_container) {
         supportFragmentManager.let {
             if (it.findFragmentByTag(tag) != null) {
                 return

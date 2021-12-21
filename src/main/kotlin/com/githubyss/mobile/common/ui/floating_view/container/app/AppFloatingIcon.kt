@@ -35,7 +35,7 @@ class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object : SingletonHolder<AppFloatingIcon, Context>(::AppFloatingIcon) {
-        private val TAG = AppFloatingIcon::class.simpleName ?: "simpleName is null"
+        private val TAG: String = AppFloatingIcon::class.java.simpleName
     }
     
     private var designateLayoutParams: ViewGroup.LayoutParams? = null

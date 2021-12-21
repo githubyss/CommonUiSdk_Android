@@ -29,7 +29,7 @@ class BannerCarouselView : FrameLayout {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = BannerCarouselView::class.simpleName ?: "simpleName is null"
+        val TAG: String = BannerCarouselView::class.java.simpleName
         private const val SWITCH_VIEW_PAGER = 1
         private const val TIME_PERIOD = 5000
     }

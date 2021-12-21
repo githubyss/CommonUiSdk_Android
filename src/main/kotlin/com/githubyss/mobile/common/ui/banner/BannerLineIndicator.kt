@@ -25,7 +25,7 @@ class BannerLineIndicator : View {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = BannerLineIndicator::class.simpleName ?: "simpleName is null"
+        val TAG: String = BannerLineIndicator::class.java.simpleName
     }
     
     private var count: Int = 0

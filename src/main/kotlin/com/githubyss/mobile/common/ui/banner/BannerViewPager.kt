@@ -19,7 +19,7 @@ class BannerViewPager : ViewPager {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = BannerViewPager::class.simpleName ?: "simpleName is null"
+        val TAG: String = BannerViewPager::class.java.simpleName
     }
     
     var onViewPagerTouchListener: OnViewPagerTouchListener? = null

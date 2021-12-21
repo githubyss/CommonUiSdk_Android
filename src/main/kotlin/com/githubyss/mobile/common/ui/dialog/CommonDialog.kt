@@ -28,7 +28,7 @@ class CommonDialog @SuppressLint("ValidFragment") private constructor() : Dialog
     companion object {
         var instance = Holder.INSTANCE
         
-        val TAG = CommonDialog::class.java.simpleName
+        val TAG: String = CommonDialog::class.java.simpleName
         
         private val KEY_TITLE = "text"
         private val KEY_FIRST_LINE = "firstLine"

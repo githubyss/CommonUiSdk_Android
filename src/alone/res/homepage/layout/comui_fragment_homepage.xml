@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.githubyss.mobile.common.debug.homepage.HomepageActivity">
+    tools:context=".alone.homepage.HomepageActivity">
 
     <data>
 
@@ -30,7 +30,7 @@
                 android:paddingRight="@dimen/comres_sideMargin_normal"
                 android:paddingBottom="@dimen/comres_sideMargin_normal"
                 android:paddingLeft="@dimen/comres_sideMargin_normal"
-                android:gravity="center"
+                android:gravity="center|top"
                 android:orientation="vertical">
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">

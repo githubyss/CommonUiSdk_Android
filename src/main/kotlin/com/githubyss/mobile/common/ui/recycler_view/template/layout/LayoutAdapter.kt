@@ -22,7 +22,7 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @Layout
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = LayoutAdapter::class.simpleName ?: "simpleName is null"
+        val TAG: String = LayoutAdapter::class.java.simpleName
     }
     
     var keyWord: String = ""

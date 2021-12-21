@@ -23,7 +23,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = BaseFragment::class.simpleName ?: "simpleName is null"
+        val TAG: String = BaseFragment::class.java.simpleName
     }
     
     var fragmentContext: Context? = null
@@ -63,7 +63,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     }
     
     /** Add fragment to activity. */
-    protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frame_fragment_container) {
+    protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.layout_fragment_container) {
         fragmentManager?.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
@@ -78,7 +78,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
         }
     }
     
-    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.frame_fragment_container) {
+    protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.layout_fragment_container) {
         fragmentManager?.let {
             if (it.findFragmentByTag(tag) != null) {
                 return

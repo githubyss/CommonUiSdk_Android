@@ -23,7 +23,7 @@
 //  * @Version:
 //  */
 // public class BitmapUtil {
-//     private static final String TAG = "BitmapUtil";
+//     private static final String TAG: String = "BitmapUtil";
 //
 //     /**
 //      * 图片圆角处理

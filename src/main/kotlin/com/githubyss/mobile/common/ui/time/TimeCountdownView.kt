@@ -21,7 +21,7 @@ class TimeCountdownView : BaseFrameLayoutBindingReflect<ComuiTimeCountdownBindin
     /** ********** ********** ********** Properties ********** ********** ********** */
     
     companion object {
-        val TAG = TimeCountdownView::class.java.simpleName
+        val TAG: String = TimeCountdownView::class.java.simpleName
     }
     
     var remainingMillisecond: Long = 0L
