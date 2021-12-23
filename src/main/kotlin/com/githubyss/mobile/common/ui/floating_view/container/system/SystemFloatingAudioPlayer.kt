@@ -19,8 +19,8 @@ import com.githubyss.mobile.common.kit.constant.Constants
 import com.githubyss.mobile.common.kit.designpattern.SingletonHolder
 import com.githubyss.mobile.common.kit.enumeration.VersionCode
 import com.githubyss.mobile.common.kit.enumeration.WindowManagerLayoutParamsType
-import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
-import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayManager
+import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
+import com.githubyss.mobile.common.kit.manager.audio_player.player.AudioPlayManager
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.floating_view.container.FloatingAudioPlayerListener
 import com.githubyss.mobile.common.ui.floating_view.designate.audioplayer.AudioPlayerViewAutoShorten

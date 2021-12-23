@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
+import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils

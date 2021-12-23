@@ -12,8 +12,8 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
 import com.githubyss.mobile.common.kit.designpattern.SingletonHolder
-import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
-import com.githubyss.mobile.common.kit.manager.audio.player.AudioPlayManager
+import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
+import com.githubyss.mobile.common.kit.manager.audio_player.player.AudioPlayManager
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.floating_view.container.FloatingAudioPlayerListener
 import com.githubyss.mobile.common.ui.floating_view.designate.audioplayer.AudioPlayerViewAutoShorten

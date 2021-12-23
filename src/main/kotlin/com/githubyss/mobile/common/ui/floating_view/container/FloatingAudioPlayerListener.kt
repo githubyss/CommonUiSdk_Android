@@ -1,6 +1,6 @@
 package com.githubyss.mobile.common.ui.floating_view.container
 
-import com.githubyss.mobile.common.kit.manager.audio.model.AudioModel
+import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
 
 
 /**
