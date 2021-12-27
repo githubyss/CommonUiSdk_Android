@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="comui_recycler_view_multi_title">多类型列表</string>
+
+    <!-- Button -->
+</resources>

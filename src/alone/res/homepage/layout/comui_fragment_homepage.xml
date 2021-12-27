@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".alone.homepage.HomepageActivity">
+    tools:context=".alone.page.homepage.HomepageActivity">
 
     <data>
 
@@ -38,7 +38,7 @@
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_mvvm"
-                        android:text="@string/comui_button_mvvm" />
+                        android:text="@string/comui_homepage_button_mvvm" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
@@ -46,12 +46,12 @@
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_binding_reflect"
-                        android:text="@string/comui_button_view_binding_reflect" />
+                        android:text="@string/comui_homepage_button_view_binding_reflect" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_binding_inline"
-                        android:text="@string/comui_button_view_binding_inline" />
+                        android:text="@string/comui_homepage_button_view_binding_inline" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
@@ -59,12 +59,12 @@
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_binding_reflect_toolbar"
-                        android:text="@string/comui_button_view_binding_toolbar_reflect" />
+                        android:text="@string/comui_homepage_button_view_binding_toolbar_reflect" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_binding_inline_toolbar"
-                        android:text="@string/comui_button_view_binding_toolbar_inline" />
+                        android:text="@string/comui_homepage_button_view_binding_toolbar_inline" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
@@ -72,12 +72,12 @@
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_property_animation"
-                        android:text="@string/comui_button_property_animation" />
+                        android:text="@string/comui_homepage_button_property_animation" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_tween_animation"
-                        android:text="@string/comui_button_tween_animation" />
+                        android:text="@string/comui_homepage_button_tween_animation" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
@@ -85,12 +85,12 @@
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_recycler_view_multi_type"
-                        android:text="@string/comui_button_multi_type" />
+                        android:text="@string/comui_homepage_button_multi_type" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_recycler_view_multi_view"
-                        android:text="@string/comui_button_multi_view" />
+                        android:text="@string/comui_homepage_button_multi_view" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
@@ -98,22 +98,22 @@
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/btn_show_floating_within_app"
-                        android:text="@string/comui_button_show_floating_within_app" />
+                        android:text="@string/comui_homepage_button_show_floating_within_app" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/btn_close_floating_within_app"
-                        android:text="@string/comui_button_close_floating_within_app" />
+                        android:text="@string/comui_homepage_button_close_floating_within_app" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/btn_show_floating_within_system"
-                        android:text="@string/comui_button_show_floating_within_system" />
+                        android:text="@string/comui_homepage_button_show_floating_within_system" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/btn_close_floating_within_system"
-                        android:text="@string/comui_button_close_floating_within_system" />
+                        android:text="@string/comui_homepage_button_close_floating_within_system" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
@@ -121,22 +121,22 @@
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_show_auto_shorted_floating_view"
-                        android:text="@string/comui_button_show_auto_shorted_floating_view" />
+                        android:text="@string/comui_homepage_button_show_auto_shorted_floating_view" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_close_auto_shorted_floating_view"
-                        android:text="@string/comui_button_close_auto_shorted_floating_view" />
+                        android:text="@string/comui_homepage_button_close_auto_shorted_floating_view" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_lengthen_auto_shorted_floating_view"
-                        android:text="@string/comui_button_lengthen_auto_shorted_floating_view" />
+                        android:text="@string/comui_homepage_button_lengthen_auto_shorted_floating_view" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_shorten_auto_shorted_floating_view"
-                        android:text="@string/comui_button_shorten_auto_shorted_floating_view" />
+                        android:text="@string/comui_homepage_button_shorten_auto_shorted_floating_view" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">

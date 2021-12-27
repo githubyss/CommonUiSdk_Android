@@ -2,39 +2,4 @@
 <resources>
     <!-- App name -->
     <string name="comui_appName">Common UI Android</string>
-
-    <!-- Title -->
-    <string name="comui_title_homepage">UI Debug Homepage</string>
-    <string name="comui_title_mvvm">MVVM</string>
-    <string name="comui_title_view_binding_reflect">Binding (by Reflect)</string>
-    <string name="comui_title_view_binding_inline">Binding (by Inline)</string>
-    <string name="comui_title_view_binding_toolbar_reflect">Binding Toolbar (by Reflect)</string>
-    <string name="comui_title_view_binding_toolbar_inline">Binding Toolbar (by Inline)</string>
-    <string name="comui_title_property_animation">Property Animation</string>
-    <string name="comui_title_multi_type">Multi Type List</string>
-    <string name="comui_title_search_result">Search Result List</string>
-    <string name="comui_title_search_result_more">Search Result More List</string>
-
-    <!-- Button -->
-    <string name="comui_button_mvvm">MVVM</string>
-    <string name="comui_button_view_binding_reflect">Binding\n(by Reflect)</string>
-    <string name="comui_button_view_binding_inline">Binding\n(by Inline)</string>
-    <string name="comui_button_view_binding_toolbar_reflect">Binding Toolbar\n(by Reflect)</string>
-    <string name="comui_button_view_binding_toolbar_inline">Binding Toolbar\n(by Inline)</string>
-    <string name="comui_button_property_animation">Property Animation</string>
-    <string name="comui_button_tween_animation">Tween Animation</string>
-    <string name="comui_button_multi_type">RecyclerView\n(Multi Type)</string>
-    <string name="comui_button_multi_view">RecyclerView\n(Multi View)</string>
-    <string name="comui_button_show_floating_within_app">Show floating within app</string>
-    <string name="comui_button_close_floating_within_app">Close floating within app</string>
-    <string name="comui_button_show_floating_within_system">Show floating within system</string>
-    <string name="comui_button_close_floating_within_system">Close floating within system</string>
-    <string name="comui_button_show_auto_shorted_floating_view">Show auto shorted floating view</string>
-    <string name="comui_button_close_auto_shorted_floating_view">Close auto shorted floating view</string>
-    <string name="comui_button_lengthen_auto_shorted_floating_view">Lengthen auto shorted floating view</string>
-    <string name="comui_button_shorten_auto_shorted_floating_view">Shorten auto shorted floating view</string>
-
-    <!-- Content -->
-    <string name="comui_view_binding_reflect">View binding (by Reflect)</string>
-    <string name="comui_view_binding_inline">View binding (by Inline)</string>
 </resources>

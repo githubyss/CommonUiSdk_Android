@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="comui_view_binding_reflect_title">Binding (by Reflect)</string>
+    <string name="comui_view_binding_toolbar_reflect_title">Binding Toolbar (by Reflect)</string>
+
+    <!-- Button -->
+
+    <!-- Content -->
+    <string name="comui_view_binding_reflect">View binding (by Reflect)</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="comui_recycler_view_search_result_title">Search Result List</string>
+    <string name="comui_recycler_view_search_result_more_title">Search Result More List</string>
+
+    <!-- Button -->
+</resources>

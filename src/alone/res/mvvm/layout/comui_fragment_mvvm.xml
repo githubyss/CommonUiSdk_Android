@@ -4,11 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".alone.mvvm.MvvmActivity">
+    tools:context=".alone.page.mvvm.MvvmActivity">
 
     <data>
 
-        <import type="com.githubyss.mobile.common.ui.alone.mvvm.MvvmVmLiveData" />
+        <import type="com.githubyss.mobile.common.ui.alone.page.mvvm.MvvmVmLiveData" />
 
         <variable
             name="mvvmVm"

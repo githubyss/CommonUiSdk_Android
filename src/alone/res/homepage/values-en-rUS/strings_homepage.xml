@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="comui_homepage_title">UI Debug Homepage</string>
+
+    <!-- Button -->
+    <string name="comui_homepage_button_mvvm">MVVM</string>
+    <string name="comui_homepage_button_view_binding_reflect">Binding\n(by Reflect)</string>
+    <string name="comui_homepage_button_view_binding_inline">Binding\n(by Inline)</string>
+    <string name="comui_homepage_button_view_binding_toolbar_reflect">Binding Toolbar\n(by Reflect)</string>
+    <string name="comui_homepage_button_view_binding_toolbar_inline">Binding Toolbar\n(by Inline)</string>
+    <string name="comui_homepage_button_property_animation">Property Animation</string>
+    <string name="comui_homepage_button_tween_animation">Tween Animation</string>
+    <string name="comui_homepage_button_multi_type">RecyclerView\n(Multi Type)</string>
+    <string name="comui_homepage_button_multi_view">RecyclerView\n(Multi View)</string>
+    <string name="comui_homepage_button_show_floating_within_app">Show floating within app</string>
+    <string name="comui_homepage_button_close_floating_within_app">Close floating within app</string>
+    <string name="comui_homepage_button_show_floating_within_system">Show floating within system</string>
+    <string name="comui_homepage_button_close_floating_within_system">Close floating within system</string>
+    <string name="comui_homepage_button_show_auto_shorted_floating_view">Show auto shorted floating view</string>
+    <string name="comui_homepage_button_close_auto_shorted_floating_view">Close auto shorted floating view</string>
+    <string name="comui_homepage_button_lengthen_auto_shorted_floating_view">Lengthen auto shorted floating view</string>
+    <string name="comui_homepage_button_shorten_auto_shorted_floating_view">Shorten auto shorted floating view</string>
+    <string name="comui_homepage_button_speech_recognition">Speech recognition</string>
+</resources>

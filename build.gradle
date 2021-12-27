@@ -111,9 +111,11 @@ android {
                     srcDirs 'src/alone/res/homepage'
                     srcDirs 'src/alone/res/mvvm'
                     srcDirs 'src/alone/res/view_binding'
-                    srcDirs 'src/alone/res/animation'
+                    srcDirs 'src/alone/res/view_binding/inline'
+                    srcDirs 'src/alone/res/view_binding/reflect'
+                    srcDirs 'src/alone/res/animate'
                     srcDirs 'src/alone/res/recycler_view'
-                    srcDirs 'src/alone/res/recycler_view/search_result'
+                    srcDirs 'src/alone/res/recycler_view/search'
                     srcDirs 'src/alone/res/recycler_view/multi'
                 }
                 manifest {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="comui_homepage_title">UI调试首页</string>
+
+    <!-- Button -->
+    <string name="comui_homepage_button_mvvm">MVVM</string>
+    <string name="comui_homepage_button_view_binding_reflect">Binding\n（反射实现）</string>
+    <string name="comui_homepage_button_view_binding_inline">Binding\n（内联实现）</string>
+    <string name="comui_homepage_button_view_binding_toolbar_reflect">Binding Toolbar\n（反射实现）</string>
+    <string name="comui_homepage_button_view_binding_toolbar_inline">Binding Toolbar\n（内联实现）</string>
+    <string name="comui_homepage_button_property_animation">属性动画</string>
+    <string name="comui_homepage_button_tween_animation">补间动画</string>
+    <string name="comui_homepage_button_multi_type">RecyclerView\n（多类型实现）</string>
+    <string name="comui_homepage_button_multi_view">RecyclerView\n（多视图实现）</string>
+    <string name="comui_homepage_button_show_floating_within_app">显示悬浮窗\n（App级）</string>
+    <string name="comui_homepage_button_close_floating_within_app">隐藏悬浮窗\n（App级）</string>
+    <string name="comui_homepage_button_show_floating_within_system">显示悬浮窗\n（Sys级）</string>
+    <string name="comui_homepage_button_close_floating_within_system">隐藏悬浮窗\n（Sys级）</string>
+    <string name="comui_homepage_button_show_auto_shorted_floating_view">显示悬浮窗\n（自动收起）</string>
+    <string name="comui_homepage_button_close_auto_shorted_floating_view">隐藏悬浮窗\n（自动收起）</string>
+    <string name="comui_homepage_button_lengthen_auto_shorted_floating_view">展开悬浮窗\n（自动收起）</string>
+    <string name="comui_homepage_button_shorten_auto_shorted_floating_view">收起悬浮窗\n（自动收起）</string>
+    <string name="comui_homepage_button_speech_recognition">语音识别</string>
+</resources>
