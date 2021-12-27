@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMvvmBinding
  */
 class MvvmFragment : BaseToolbarFragment(R.layout.comui_fragment_mvvm) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = MvvmFragment::class.java.simpleName
@@ -31,7 +31,7 @@ class MvvmFragment : BaseToolbarFragment(R.layout.comui_fragment_mvvm) {
     private val mvvmVmLiveData: MvvmVmLiveData by lazy { ViewModelProvider(requireActivity()).get(MvvmVmLiveData::class.java) }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         initView()
@@ -45,7 +45,7 @@ class MvvmFragment : BaseToolbarFragment(R.layout.comui_fragment_mvvm) {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun initView() {
         binding.lifecycleOwner = viewLifecycleOwner

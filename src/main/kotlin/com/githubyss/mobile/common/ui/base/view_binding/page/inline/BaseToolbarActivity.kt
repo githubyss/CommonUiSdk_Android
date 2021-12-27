@@ -18,12 +18,12 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
  */
 abstract class BaseToolbarActivity : BaseActivity() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     val binding by inflate<ComuiActivityBaseToolbarBinding>()
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,12 +38,12 @@ abstract class BaseToolbarActivity : BaseActivity() {
     }
     
     
-    /** ********** ********** ********** Abstract ********** ********** ********** */
+    /** ****************************** Abstract ****************************** */
     
     abstract fun setToolbarTitle()
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     /** Setup Toolbar text by ResId. */
     protected fun setToolbarTitle(titleResId: Int) {
@@ -93,7 +93,7 @@ abstract class BaseToolbarActivity : BaseActivity() {
     }
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     /** Toolbar navigation click listener in BaseToolbarActivity. */
     interface OnBaseToolbarNavigationClickListener {

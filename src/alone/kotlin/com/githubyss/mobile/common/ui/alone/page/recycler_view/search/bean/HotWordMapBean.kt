@@ -16,7 +16,7 @@ import java.util.*
  */
 data class HotWordMapBean constructor(val json: JSONObject?, @ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     /**  */
     var moduleKey: String = ""
@@ -31,14 +31,14 @@ data class HotWordMapBean constructor(val json: JSONObject?, @ItemType override 
         private set
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         setProperties(json)
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

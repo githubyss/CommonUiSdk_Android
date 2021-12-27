@@ -18,7 +18,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiTimeCountdownBinding
  */
 class TimeCountdownView : BaseFrameLayoutBindingReflect<ComuiTimeCountdownBinding> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = TimeCountdownView::class.java.simpleName
@@ -39,7 +39,7 @@ class TimeCountdownView : BaseFrameLayoutBindingReflect<ComuiTimeCountdownBindin
             if (currentTimeStampMillisecond > 0) startCountdown(currentTimeStampMillisecond, value)
         }
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -48,7 +48,7 @@ class TimeCountdownView : BaseFrameLayoutBindingReflect<ComuiTimeCountdownBindin
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun initAttrs(context: Context, attrs: AttributeSet?) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TimeCountdown)

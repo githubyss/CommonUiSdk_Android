@@ -34,7 +34,7 @@ import org.json.JSONObject
  */
 class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_search_result_more) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = SearchResultMoreFragment::class.java.simpleName
@@ -56,7 +56,7 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_sea
     private var rvAdapter: LayoutAdapter? = null
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         initView()
@@ -92,7 +92,7 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_sea
     }
     
     
-    /** ********** ********** ********** Function ********** ********** ********** */
+    /** ****************************** Function ****************************** */
     
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     fun onGetId(@SearchResultModuleKey key: String) {
@@ -156,7 +156,7 @@ class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_sea
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View?, data: BaseItemModel) {

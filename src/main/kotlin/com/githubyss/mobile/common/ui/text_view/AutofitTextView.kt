@@ -19,20 +19,20 @@ import androidx.appcompat.widget.AppCompatTextView
  */
 class AutofitTextView : AppCompatTextView {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     private var textPaint: Paint? = null
     private var textSizeF = 0F
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)

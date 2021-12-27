@@ -33,7 +33,7 @@ import org.greenrobot.eventbus.EventBus
  */
 class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_search_result) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = SearchResultFragment::class.java.simpleName
@@ -56,7 +56,7 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_search_
     var onMoreClickListener: OnMoreClickListener? = null
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         initView()
@@ -87,7 +87,7 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_search_
     }
     
     
-    /** ********** ********** ********** Function ********** ********** ********** */
+    /** ****************************** Function ****************************** */
     
     private fun resetData() {
         layoutList.clear()
@@ -142,7 +142,7 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_search_
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View?, data: BaseItemModel) {
@@ -336,7 +336,7 @@ class SearchResultFragment : BaseToolbarFragment(R.layout.comui_fragment_search_
     }
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     interface OnMoreClickListener {
         fun onHeaderMoreClick(moduleKey: String)

@@ -23,20 +23,20 @@ import com.githubyss.mobile.common.ui.R
  */
 class MultiAdapter constructor(private val dataList: List<MultiModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     private var selectedPosition = 0
      var onItemClickListener: OnItemClickListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         initData()
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun getItemCount(): Int {
         return dataList.size
@@ -120,7 +120,7 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun initData() {
         dataList.indices.asSequence()
@@ -129,7 +129,7 @@ class MultiAdapter constructor(private val dataList: List<MultiModel>) : Recycle
     }
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     interface OnItemClickListener {
         fun onItemClick(holder: RecyclerView.ViewHolder, position: Int)

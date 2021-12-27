@@ -15,14 +15,14 @@ import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
  */
 class LoadMoreLayout : BaseItemLayout<ComuiListItemLoadMoreBinding> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = LoadMoreLayout::class.java.simpleName
     }
 
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context, listener: OnLayoutClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         onLayoutClickListener = listener

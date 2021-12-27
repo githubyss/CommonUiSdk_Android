@@ -15,12 +15,12 @@ import org.json.JSONObject
  */
 data class SeeMoreModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var hasMoreType: String = ""
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(hasMoreType: String, @ItemType type: Int) : this(type) {
         this.hasMoreType = hasMoreType
@@ -31,7 +31,7 @@ data class SeeMoreModel constructor(@ItemType override var type: Int) : BaseItem
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

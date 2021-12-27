@@ -13,14 +13,14 @@ import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarA
  */
 class MvvmActivity : BaseToolbarActivity() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         private val TAG: String = MvvmActivity::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         addFragment(MvvmFragment(), MvvmFragment.TAG, false, binding.layoutFragmentContainer.id)

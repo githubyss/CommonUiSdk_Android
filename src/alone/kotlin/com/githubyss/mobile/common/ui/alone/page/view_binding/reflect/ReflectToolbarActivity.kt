@@ -14,14 +14,14 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
  */
 class ReflectToolbarActivity : BaseToolbarActivity<ComuiActivityBaseToolbarBinding>() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         private val TAG: String = ReflectToolbarActivity::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         addFragment(ReflectToolbarFragment(), ReflectToolbarFragment.TAG, false, binding.layoutFragmentContainer.id)

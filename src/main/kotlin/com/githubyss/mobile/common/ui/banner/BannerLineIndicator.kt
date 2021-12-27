@@ -22,7 +22,7 @@ import com.githubyss.mobile.common.ui.R
  */
 class BannerLineIndicator : View {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = BannerLineIndicator::class.java.simpleName
@@ -44,7 +44,7 @@ class BannerLineIndicator : View {
     private var lineColorOff: Int = ResourceUtils.getColor(R.color.comui_color_white60pct)
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -53,7 +53,7 @@ class BannerLineIndicator : View {
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
@@ -72,7 +72,7 @@ class BannerLineIndicator : View {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     /**
      * 配置位置指示器的颜色
@@ -198,7 +198,7 @@ class BannerLineIndicator : View {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     /** 页面切换 */
     private val onPageChangeListener: OnPageChangeListener = object : OnPageChangeListener {

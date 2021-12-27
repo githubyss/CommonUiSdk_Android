@@ -21,7 +21,7 @@ import java.util.*
  */
 class MvvmVmLiveData : ViewModel() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     /** context */
     // var context: Activity? = null
@@ -50,7 +50,7 @@ class MvvmVmLiveData : ViewModel() {
     var itemViewModel: ObservableArrayList<MvvmChildVm>? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         initViewModelField()
@@ -58,7 +58,7 @@ class MvvmVmLiveData : ViewModel() {
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCleared() {
         super.onCleared()
@@ -66,9 +66,9 @@ class MvvmVmLiveData : ViewModel() {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
-    /** ********** ********** Data Handling ********** ********** */
+    /** ******************** Data Handling ******************** */
     
     private fun initViewModelField() {
         this.text = MutableLiveData()
@@ -93,7 +93,7 @@ class MvvmVmLiveData : ViewModel() {
         textBean = null
     }
     
-    /** ********** ********** Event Handling ********** ********** */
+    /** ******************** Event Handling ******************** */
     
     fun onButtonClick(view: View) {
         when (view.id) {
@@ -146,7 +146,7 @@ class MvvmVmLiveData : ViewModel() {
     }
     
     
-    /** ********** ********** ********** Class ********** ********** ********** */
+    /** ****************************** Class ****************************** */
     
     // class ViewStyle {
     //     var isTextShow = ObservableBoolean()

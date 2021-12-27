@@ -11,7 +11,7 @@ import kotlin.properties.Delegates
 
 abstract class BaseApplication : Application() {
 
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
 
     companion object {
         var instance: BaseApplication by Delegates.notNull()
@@ -21,7 +21,7 @@ abstract class BaseApplication : Application() {
     }
 
 
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
 
     override fun onCreate() {
         super.onCreate()
@@ -40,7 +40,7 @@ abstract class BaseApplication : Application() {
     }
     
 
-    /** ********** ********** ********** Open ********** ********** ********** */
+    /** ****************************** Open ****************************** */
 
     open fun initComkit(application: Application) {
         ComkitApplicationConfig.init(application)

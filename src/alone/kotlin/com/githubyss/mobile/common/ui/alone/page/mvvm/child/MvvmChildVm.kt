@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModel
  */
 class MvvmChildVm : ViewModel() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     // context
     

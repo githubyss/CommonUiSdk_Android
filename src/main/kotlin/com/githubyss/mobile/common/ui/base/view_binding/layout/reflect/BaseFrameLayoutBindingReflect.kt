@@ -20,13 +20,13 @@ import java.lang.reflect.ParameterizedType
  */
 abstract class BaseFrameLayoutBindingReflect<B : ViewBinding> : FrameLayout {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     private var _binding: B? = null
     val binding: B get() = _binding!!
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     @Suppress("LeakingThis")
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {

@@ -32,7 +32,7 @@ import java.lang.ref.WeakReference
  */
 class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, AudioPlayerViewAutoShorten> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object : SingletonHolder<AppFloatingAudioPlayer, Context>(::AppFloatingAudioPlayer) {
         private val TAG: String = AppFloatingAudioPlayer::class.java.simpleName
@@ -52,14 +52,14 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
     var floatingForWebListener: FloatingAudioPlayerListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context?) {
         containerContext = context
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun show(): AppFloatingAudioPlayer? {
         if (!initLayoutParams()) return null
@@ -129,7 +129,7 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     fun setAppFloatingForNativeListener(listener: FloatingAudioPlayerListener): AppFloatingAudioPlayer {
         floatingForNativeListener = listener
@@ -142,7 +142,7 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
     }
     
     
-    /** ********** ********** ********** Private ********** ********** ********** */
+    /** ****************************** Private ****************************** */
     
     private fun initLayoutParams(): Boolean {
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM or Gravity.START

@@ -15,14 +15,14 @@ import org.json.JSONObject
  */
 data class BannerModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var imageUrl: String = ""
     var jumpUrl: String = ""
     var jumpType: String = ""
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(imageUrl: String, jumpUrl: String, jumpType: String, @ItemType type: Int) : this(type) {
         this.imageUrl = imageUrl
@@ -35,7 +35,7 @@ data class BannerModel constructor(@ItemType override var type: Int) : BaseItemM
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

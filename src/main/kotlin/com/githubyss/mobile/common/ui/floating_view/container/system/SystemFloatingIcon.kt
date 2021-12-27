@@ -39,7 +39,7 @@ import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils
  */
 class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewMagnet> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object : SingletonHolder<SystemFloatingIcon, Context>(::SystemFloatingIcon) {
         private val TAG: String = SystemFloatingIcon::class.java.simpleName
@@ -61,14 +61,14 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
     private var floatingListener: FloatingIconListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context?) {
         initInContainer(context)
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun show(): SystemFloatingIcon? {
         if (!checkPermission(true)) return null
@@ -117,7 +117,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     fun customIcon(drawableId: Int): SystemFloatingIcon {
         designateView?.customIcon(drawableId)
@@ -145,7 +145,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
     }
     
     
-    /** ********** ********** ********** Private ********** ********** ********** */
+    /** ****************************** Private ****************************** */
     
     private fun initInContainer(context: Context?) {
         containerContext = context
@@ -298,7 +298,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     /** 监听前后台切换  */
     private val voiceReceiver: BroadcastReceiver? = object : BroadcastReceiver() {

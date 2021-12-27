@@ -18,7 +18,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
  */
 abstract class BaseToolbarActivity<B : ViewBinding> : BaseActivity<B>() {
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +33,12 @@ abstract class BaseToolbarActivity<B : ViewBinding> : BaseActivity<B>() {
     }
     
     
-    /** ********** ********** ********** Abstract ********** ********** ********** */
+    /** ****************************** Abstract ****************************** */
     
     abstract fun setToolbarTitle()
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     /** Setup Toolbar text by ResId. */
     protected fun setToolbarTitle(titleResId: Int) {
@@ -88,7 +88,7 @@ abstract class BaseToolbarActivity<B : ViewBinding> : BaseActivity<B>() {
     }
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     /** Toolbar navigation click listener in BaseToolbarActivity. */
     interface OnBaseToolbarNavigationClickListener {

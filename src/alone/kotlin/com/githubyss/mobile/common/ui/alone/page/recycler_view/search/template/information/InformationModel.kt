@@ -15,7 +15,7 @@ import org.json.JSONObject
  */
 data class InformationModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var imageUrl: String = ""
     var title: String = ""
@@ -25,7 +25,7 @@ data class InformationModel constructor(@ItemType override var type: Int) : Base
     var jumpUrl: String = ""
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(imageUrl: String, title: String, content: String, time: String, author: String, jumpUrl: String, @ItemType type: Int) : this(type) {
         this.imageUrl = imageUrl
@@ -41,7 +41,7 @@ data class InformationModel constructor(@ItemType override var type: Int) : Base
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

@@ -23,7 +23,7 @@ import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
  */
 class PropertyAnimatorFragment : BaseToolbarFragment(R.layout.comui_fragment_property_animator) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = PropertyAnimatorFragment::class.java.simpleName
@@ -37,7 +37,7 @@ class PropertyAnimatorFragment : BaseToolbarFragment(R.layout.comui_fragment_pro
     private var scaleObjectAnimator: ObjectAnimator? = null
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         initView()
@@ -54,7 +54,7 @@ class PropertyAnimatorFragment : BaseToolbarFragment(R.layout.comui_fragment_pro
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun initView() {
         binding.btnMove.setOnClickListener(onClickListener)
@@ -141,7 +141,7 @@ class PropertyAnimatorFragment : BaseToolbarFragment(R.layout.comui_fragment_pro
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {

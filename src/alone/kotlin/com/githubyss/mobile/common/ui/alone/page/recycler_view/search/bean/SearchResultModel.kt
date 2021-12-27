@@ -18,7 +18,7 @@ import org.json.JSONObject
  */
 class SearchResultModel(val json: JSONObject?) {
     
-    /** ********** ********** ********** Companion ********** ********** ********** */
+    /** ****************************** Companion ****************************** */
     
     companion object {
         val TAG: String = SearchResultModel::class.java.simpleName
@@ -74,7 +74,7 @@ class SearchResultModel(val json: JSONObject?) {
     }
     
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     /** 搜索关键词 */
     var keyWord: String = ""
@@ -103,14 +103,14 @@ class SearchResultModel(val json: JSONObject?) {
         private set
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         setProperties(json)
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun setProperties(json: JSONObject?) {
         try {

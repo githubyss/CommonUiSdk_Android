@@ -31,7 +31,7 @@
 //  */
 // class SlideRefreshLoadScrollView : NestedScrollView {
 //
-//     /** ********** ********** ********** Companion ********** ********** ********** */
+//     /** ****************************** Companion ****************************** */
 //
 //     companion object {
 //         private val TAG: String = SlideRefreshLoadScrollView::class.java.simpleName
@@ -49,7 +49,7 @@
 //         private const val SLIDE_UP_TO_LOADING = 6
 //     }
 //
-//     /** ********** ********** ********** Properties ********** ********** ********** */
+//     /** ****************************** Properties ****************************** */
 //
 //     var isHomePage = false
 //     private var downX = 0
@@ -86,7 +86,7 @@
 //     private var onSlideUpListener: OnSlideUpListener? = null
 //
 //
-//     /** ********** ********** ********** Constructors ********** ********** ********** */
+//     /** ****************************** Constructors ****************************** */
 //
 //     constructor(context: Context?) : super(context!!) {
 //         mTouchSlop = ViewConfiguration.get(context).scaledTouchSlop
@@ -97,7 +97,7 @@
 //     }
 //
 //
-//     /** ********** ********** ********** Override ********** ********** ********** */
+//     /** ****************************** Override ****************************** */
 //
 //     /*************************滑动监听相关 */
 //     override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
@@ -110,7 +110,7 @@
 //     }
 //
 //
-//     /** ********** ********** ********** Functions ********** ********** ********** */
+//     /** ****************************** Functions ****************************** */
 //
 //     fun setOnScrollChangedListener(onScrollChangedListener: OnScrollChangedListener?) {
 //         this.onScrollChangedListener = onScrollChangedListener

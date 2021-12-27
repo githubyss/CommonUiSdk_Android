@@ -15,12 +15,12 @@ import org.json.JSONObject
  */
 data class LoadMoreModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var loadState: String = ""
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(loadState: String, @ItemType type: Int) : this(type) {
         this.loadState = loadState
@@ -31,7 +31,7 @@ data class LoadMoreModel constructor(@ItemType override var type: Int) : BaseIte
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

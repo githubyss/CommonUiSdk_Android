@@ -13,7 +13,7 @@ import org.json.JSONObject
  */
 class HotWordBean constructor(val json: JSONObject?) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     /**  */
     var title: String = ""
@@ -24,14 +24,14 @@ class HotWordBean constructor(val json: JSONObject?) {
         private set
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         setProperties(json)
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun setProperties(json: JSONObject?) {
         try {

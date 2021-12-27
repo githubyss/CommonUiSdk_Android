@@ -18,13 +18,13 @@ import java.lang.reflect.ParameterizedType
  */
 abstract class BindingReflectBaseActivity<B : ViewBinding> : BaseActivity() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     private var _binding: B? = null
     val binding: B get() = _binding!!
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCreate(savedInstanceState: Bundle?) {
         // Call inflate method to fill view according to specified ViewBinding by using java reflect.

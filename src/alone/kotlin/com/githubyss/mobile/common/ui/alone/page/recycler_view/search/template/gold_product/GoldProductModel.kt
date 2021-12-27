@@ -15,7 +15,7 @@ import org.json.JSONObject
  */
 data class GoldProductModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var title: String = ""
     var price: String = ""
@@ -27,7 +27,7 @@ data class GoldProductModel constructor(@ItemType override var type: Int) : Base
     var jumpUrl: String = ""
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(title: String, price: String, unit: String, code: String, risk: String, classify: String, priceTime: String, jumpUrl: String, @ItemType type: Int) : this(type) {
         this.title = title
@@ -45,7 +45,7 @@ data class GoldProductModel constructor(@ItemType override var type: Int) : Base
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

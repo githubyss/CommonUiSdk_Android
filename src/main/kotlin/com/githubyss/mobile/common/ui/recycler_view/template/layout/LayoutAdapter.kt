@@ -19,7 +19,7 @@ import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
  */
 class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @LayoutRes private var layoutId: Int = R.layout.comui_layout_bg_transparent_corner_none_margin_none) : BaseItemAdapter<RecyclerView.ViewHolder>(dataList) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = LayoutAdapter::class.java.simpleName
@@ -29,10 +29,10 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @Layout
     var onLoadMoreListener: OnLoadMoreListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         // return when (viewType) {
@@ -71,10 +71,10 @@ class LayoutAdapter constructor(private val dataList: List<LayoutModel>, @Layout
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     interface OnLoadMoreListener {
         fun onLoadMore()

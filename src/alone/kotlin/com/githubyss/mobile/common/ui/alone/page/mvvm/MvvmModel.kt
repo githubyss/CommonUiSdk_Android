@@ -15,12 +15,12 @@ import org.json.JSONObject
 interface MvvmModel {
 
 
-    /** ********** ********** ********** Class ********** ********** ********** */
+    /** ****************************** Class ****************************** */
 
     /** 文本 */
     class TextBean {
 
-        /** ********** ********** ********** Properties ********** ********** ********** */
+        /** ****************************** Properties ****************************** */
 
         companion object {
             val TAG: String = TextBean::class.java.simpleName
@@ -29,7 +29,7 @@ interface MvvmModel {
         var text: String = ""
 
 
-        /** ********** ********** ********** Constructors ********** ********** ********** */
+        /** ****************************** Constructors ****************************** */
 
         constructor()
 
@@ -42,7 +42,7 @@ interface MvvmModel {
         }
 
 
-        /** ********** ********** ********** Functions ********** ********** ********** */
+        /** ****************************** Functions ****************************** */
 
         private fun setProperties(json: JSONObject?) {
             try {
@@ -58,7 +58,7 @@ interface MvvmModel {
     /** 图片 */
     class ImageBean {
 
-        /** ********** ********** ********** Properties ********** ********** ********** */
+        /** ****************************** Properties ****************************** */
 
         companion object {
             val TAG: String = TextBean::class.java.simpleName
@@ -67,7 +67,7 @@ interface MvvmModel {
         var imageUrl: String = ""
 
 
-        /** ********** ********** ********** Constructors ********** ********** ********** */
+        /** ****************************** Constructors ****************************** */
 
         constructor()
 
@@ -80,7 +80,7 @@ interface MvvmModel {
         }
 
 
-        /** ********** ********** ********** Functions ********** ********** ********** */
+        /** ****************************** Functions ****************************** */
 
         private fun setProperties(json: JSONObject?) {
             try {

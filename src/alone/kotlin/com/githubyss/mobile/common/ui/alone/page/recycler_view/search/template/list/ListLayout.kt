@@ -19,7 +19,7 @@ import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
  */
 class ListLayout : FrameLayout {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = ListLayout::class.java.simpleName
@@ -36,7 +36,7 @@ class ListLayout : FrameLayout {
     // var onItemClickListener: BaseItemAdapter.OnItemClickListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(adapter: BaseItemAdapter<RecyclerView.ViewHolder>, orientation: Int, context: Context, listener: BaseItemAdapter.OnItemClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         // this.layoutContext = context
@@ -62,11 +62,11 @@ class ListLayout : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     fun initView() {
     }
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
 }

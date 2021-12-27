@@ -28,7 +28,7 @@ open class AutoShortenView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     private val AUTO_HIDE_DELAY_TIME: Long = 500
     private val ANIM_DURATION: Long = 500
@@ -54,7 +54,7 @@ open class AutoShortenView : FrameLayout {
     var featureViewListener: AutoShortenViewListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -63,7 +63,7 @@ open class AutoShortenView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     protected fun initInBase() {
         isClickable = true
@@ -100,7 +100,7 @@ open class AutoShortenView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Private ********** ********** ********** */
+    /** ****************************** Private ****************************** */
     
     private fun initAnimator() {
         animatorSlideRightShow = AnimatorInflater.loadAnimator(featureContext, R.animator.comui_floating_audio_player_slide_right_show)
@@ -161,7 +161,7 @@ open class AutoShortenView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     /** 动画监听  */
     private val animatorListenerAdapter: AnimatorListenerAdapter = object : AnimatorListenerAdapter() {

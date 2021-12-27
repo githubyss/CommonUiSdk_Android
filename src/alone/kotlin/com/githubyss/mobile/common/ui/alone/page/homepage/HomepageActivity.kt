@@ -16,14 +16,14 @@ import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAud
  */
 class HomepageActivity : BaseToolbarActivity() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         private val TAG: String = HomepageActivity::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         addFragment(HomepageFragment(), HomepageFragment.TAG, false, binding.layoutFragmentContainer.id)
@@ -125,7 +125,7 @@ class HomepageActivity : BaseToolbarActivity() {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun attachView() {
         // AppFloatingIcon.getInstance(this)

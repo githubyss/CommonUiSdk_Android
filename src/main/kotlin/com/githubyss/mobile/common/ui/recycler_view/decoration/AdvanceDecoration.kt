@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
  */
 class AdvanceDecoration : RecyclerView.ItemDecoration {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     // 采用系统内置的风格的分割线
     private val attrs = IntArray(1) { android.R.attr.listDivider }
@@ -32,7 +32,7 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
     private var orientation = RecyclerView.VERTICAL
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context?, @RecyclerView.Orientation orientation: Int, drawableId: Int? = null, dividerWeight: Int? = null, dividerColor: Int? = null) : super() {
         if (orientation != RecyclerView.VERTICAL && orientation != RecyclerView.HORIZONTAL) {
@@ -61,7 +61,7 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     /**
      * 获取项目的偏离
@@ -110,7 +110,7 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
     }
     
     
-    /** ********** ********** ********** Private ********** ********** ********** */
+    /** ****************************** Private ****************************** */
     
     /**
      * 绘制水平方向的分割线（横线）
@@ -158,5 +158,5 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
     }
     
     
-    /** ********** ********** ********** Class ********** ********** ********** */
+    /** ****************************** Class ****************************** */
 }

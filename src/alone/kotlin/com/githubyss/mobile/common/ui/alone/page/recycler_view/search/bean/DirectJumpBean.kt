@@ -13,7 +13,7 @@ import org.json.JSONObject
  */
 class DirectJumpBean constructor(val json: JSONObject?) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     /** 跳转链接 */
     var jumpUrl: String = ""
@@ -24,14 +24,14 @@ class DirectJumpBean constructor(val json: JSONObject?) {
         private set
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         setProperties(json)
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun setProperties(json: JSONObject?) {
         try {
@@ -45,7 +45,7 @@ class DirectJumpBean constructor(val json: JSONObject?) {
     }
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     interface OnDirectJumpListener {
         fun onDirectJump(directJump: DirectJumpBean)

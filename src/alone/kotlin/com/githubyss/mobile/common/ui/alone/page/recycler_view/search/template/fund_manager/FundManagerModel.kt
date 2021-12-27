@@ -16,7 +16,7 @@ import org.json.JSONObject
  */
 data class FundManagerModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var imageUrl: String = ""
     var title: String = ""
@@ -27,7 +27,7 @@ data class FundManagerModel constructor(@ItemType override var type: Int) : Base
     var fundProductList = ArrayList<BaseItemModel>()
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(imageUrl: String, title: String, bestReturn: String, riseFallRatio: String, description: String, jumpUrl: String, fundProductList: ArrayList<BaseItemModel>, @ItemType type: Int) : this(type) {
         this.imageUrl = imageUrl
@@ -44,7 +44,7 @@ data class FundManagerModel constructor(@ItemType override var type: Int) : Base
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

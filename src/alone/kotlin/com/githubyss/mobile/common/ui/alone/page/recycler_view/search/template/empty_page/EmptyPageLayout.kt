@@ -19,14 +19,14 @@ import com.google.android.flexbox.FlexboxLayout
  */
 class EmptyPageLayout : BaseItemLayout<ComuiListItemEmptyPageBinding> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = EmptyPageLayout::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(dataModel: BaseItemModel?, keyWord: String, context: Context, listener: OnLayoutClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         onLayoutClickListener = listener
@@ -64,12 +64,12 @@ class EmptyPageLayout : BaseItemLayout<ComuiListItemEmptyPageBinding> {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
 }

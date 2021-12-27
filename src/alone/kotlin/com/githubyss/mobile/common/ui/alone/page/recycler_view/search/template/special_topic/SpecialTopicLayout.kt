@@ -26,7 +26,7 @@ import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
  */
 class SpecialTopicLayout : BaseItemLayout<ComuiListItemSpecialTopicBinding> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = SpecialTopicLayout::class.java.simpleName
@@ -35,7 +35,7 @@ class SpecialTopicLayout : BaseItemLayout<ComuiListItemSpecialTopicBinding> {
     private var bannerPagerAdapter: BannerPagerAdapter? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(dataModel: BaseItemModel, keyList: ArrayList<String>, context: Context, listener: OnLayoutClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         onLayoutClickListener = listener
@@ -95,7 +95,7 @@ class SpecialTopicLayout : BaseItemLayout<ComuiListItemSpecialTopicBinding> {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun updateBannerView(bannerList: List<BannerModel>) {
         if (bannerList.isNotEmpty()) {

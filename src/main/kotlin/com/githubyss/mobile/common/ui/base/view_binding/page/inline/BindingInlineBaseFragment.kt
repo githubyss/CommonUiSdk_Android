@@ -16,14 +16,14 @@ inline fun <reified B : ViewBinding> Fragment.bindView(): FragmentBindingDelegat
 
 class FragmentBindingDelegate<B : ViewBinding>(private val clazz: Class<B>) : ReadOnlyProperty<Fragment, B> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     private var isInitialized = false
     private var _binding: B? = null
     private val binding: B get() = _binding!!
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun getValue(thisRef: Fragment, property: KProperty<*>): B {
         if (!isInitialized || _binding == null) {

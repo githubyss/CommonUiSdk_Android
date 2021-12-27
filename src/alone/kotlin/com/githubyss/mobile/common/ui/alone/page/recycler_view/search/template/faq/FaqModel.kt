@@ -15,13 +15,13 @@ import org.json.JSONObject
  */
 data class FaqModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var content: String = ""
     var jumpUrl: String = ""
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(content: String, jumpUrl: String, @ItemType type: Int) : this(type) {
         this.content = content
@@ -33,7 +33,7 @@ data class FaqModel constructor(@ItemType override var type: Int) : BaseItemMode
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

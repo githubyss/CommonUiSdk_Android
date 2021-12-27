@@ -39,7 +39,7 @@ import com.githubyss.mobile.common.ui.utils.PermissionOverlayUtils
  */
 class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPlayer, AudioPlayerViewAutoShorten> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object : SingletonHolder<SystemFloatingAudioPlayer, Context>(::SystemFloatingAudioPlayer) {
         private val TAG: String = SystemFloatingAudioPlayer::class.java.simpleName
@@ -65,14 +65,14 @@ class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPla
     var floatingForWebListener: FloatingAudioPlayerListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context?) {
         initInContainer(context)
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun show(): SystemFloatingAudioPlayer? {
         if (!checkPermission(true)) return null
@@ -123,7 +123,7 @@ class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPla
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     fun setAppFloatingForNativeListener(listener: FloatingAudioPlayerListener): SystemFloatingAudioPlayer {
         floatingForNativeListener = listener
@@ -136,7 +136,7 @@ class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPla
     }
     
     
-    /** ********** ********** ********** Private ********** ********** ********** */
+    /** ****************************** Private ****************************** */
     
     private fun initInContainer(context: Context?) {
         containerContext = context
@@ -293,7 +293,7 @@ class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPla
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     /** 监听前后台切换  */
     private val voiceReceiver: BroadcastReceiver? = object : BroadcastReceiver() {

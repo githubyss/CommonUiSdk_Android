@@ -26,7 +26,7 @@ import java.lang.ref.WeakReference
  */
 class BannerCarouselView : FrameLayout {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = BannerCarouselView::class.java.simpleName
@@ -45,7 +45,7 @@ class BannerCarouselView : FrameLayout {
     private var indicator: BannerLineIndicator? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -55,10 +55,10 @@ class BannerCarouselView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     fun setAdapter(adapter: PagerAdapter?) {
         if (isInit) {
@@ -158,7 +158,7 @@ class BannerCarouselView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Classes ********** ********** ********** */
+    /** ****************************** Classes ****************************** */
     
     internal class MyHandler(carouselView: BannerCarouselView) : Handler() {
         var weakReference: WeakReference<BannerCarouselView> = WeakReference(carouselView)
@@ -184,7 +184,7 @@ class BannerCarouselView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     private val onPageChangeListener: OnPageChangeListener = object : OnPageChangeListener {
         override fun onPageScrolled(i: Int, v: Float, i1: Int) {}

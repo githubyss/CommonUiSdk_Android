@@ -14,17 +14,17 @@ import androidx.appcompat.widget.AppCompatTextView
  */
 class KeyWordHighlightTextView : AppCompatTextView {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     fun setText(text: String?, vararg keywords: String?, color: Int? = null, vague: Boolean = false) {
         setText(KeyWordHighlightUtils.matcherText(text, keywords = *keywords, color, vague))

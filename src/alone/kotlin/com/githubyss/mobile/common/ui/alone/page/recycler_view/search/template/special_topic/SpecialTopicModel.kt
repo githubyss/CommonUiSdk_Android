@@ -17,7 +17,7 @@ import org.json.JSONObject
  */
 data class SpecialTopicModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var bgImageUrl: String = ""
     var bgTitle: String = ""
@@ -31,7 +31,7 @@ data class SpecialTopicModel constructor(@ItemType override var type: Int) : Bas
     var iconList: ArrayList<AppIconModel> = ArrayList()
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(bgImageUrl: String, bgTitle: String, bgDescription: String, bgJumpUrl: String, topicIconUrl: String, topicTitle: String, topicDescription: String, topicJumpUrl: String, advertList: ArrayList<BannerModel>, iconList: ArrayList<AppIconModel>, @ItemType type: Int) : this(type) {
         this.bgImageUrl = bgImageUrl
@@ -51,7 +51,7 @@ data class SpecialTopicModel constructor(@ItemType override var type: Int) : Bas
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

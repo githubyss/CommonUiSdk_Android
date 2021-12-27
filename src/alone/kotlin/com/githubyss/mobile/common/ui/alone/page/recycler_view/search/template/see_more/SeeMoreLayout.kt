@@ -16,14 +16,14 @@ import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
  */
 class SeeMoreLayout : BaseItemLayout<ComuiListItemSeeMoreBinding> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = SeeMoreLayout::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(dataModel: BaseItemModel, keyWord: String, context: Context, listener: OnLayoutClickListener? = null, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         onLayoutClickListener = listener

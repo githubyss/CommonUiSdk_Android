@@ -16,7 +16,7 @@ import androidx.viewpager.widget.ViewPager
  */
 class BannerViewPager : ViewPager {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = BannerViewPager::class.java.simpleName
@@ -31,14 +31,14 @@ class BannerViewPager : ViewPager {
     private var touchSlop = 0
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs) {
         init(context)
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         when (ev?.action) {
@@ -55,14 +55,14 @@ class BannerViewPager : ViewPager {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun init(context: Context) {
         touchSlop = ViewConfiguration.get(context).scaledTouchSlop
     }
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     interface OnViewPagerTouchListener {
         fun onTouchStart()

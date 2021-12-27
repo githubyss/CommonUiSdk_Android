@@ -25,7 +25,7 @@ import kotlin.collections.ArrayList
  */
 class BannerPagerAdapter : PagerAdapter() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = BannerPagerAdapter::class.java.simpleName
@@ -37,10 +37,10 @@ class BannerPagerAdapter : PagerAdapter() {
     var onBannerClickListener: OnBannerClickListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val itemWidth = ViewGroup.LayoutParams.MATCH_PARENT
@@ -114,7 +114,7 @@ class BannerPagerAdapter : PagerAdapter() {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     fun setBannerList(bannerList: List<BannerModel>) {
         synchronized(dataList) {
@@ -151,10 +151,10 @@ class BannerPagerAdapter : PagerAdapter() {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     interface OnBannerClickListener {
         fun onClick(position: Int, view: View, data: BannerModel)

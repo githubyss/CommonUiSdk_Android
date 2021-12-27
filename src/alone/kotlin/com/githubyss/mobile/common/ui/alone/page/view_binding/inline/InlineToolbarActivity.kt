@@ -13,14 +13,14 @@ import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarA
  */
 class InlineToolbarActivity : BaseToolbarActivity() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         private val TAG: String = InlineToolbarActivity::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         addFragment(InlineToolbarFragment(), InlineToolbarFragment.TAG, false, binding.layoutFragmentContainer.id)

@@ -12,14 +12,14 @@ import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseActivity
  */
 class InlineActivity : BaseActivity() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         private val TAG: String = InlineActivity::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         addFragment(InlineFragment(), InlineFragment.TAG, false, binding.layoutFragmentContainer.id)

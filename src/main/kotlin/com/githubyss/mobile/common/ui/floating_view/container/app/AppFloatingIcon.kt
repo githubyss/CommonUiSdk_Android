@@ -32,7 +32,7 @@ import java.lang.ref.WeakReference
  */
 class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object : SingletonHolder<AppFloatingIcon, Context>(::AppFloatingIcon) {
         private val TAG: String = AppFloatingIcon::class.java.simpleName
@@ -48,7 +48,7 @@ class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
     private var floatingListener: FloatingIconListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context?) {
         containerContext = context
@@ -64,7 +64,7 @@ class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
     // }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun show(): AppFloatingIcon? {
         if (!initLayoutParams()) return null
@@ -133,7 +133,7 @@ class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     fun customIcon(drawableId: Int): AppFloatingIcon {
         designateView?.customIcon(drawableId)
@@ -161,7 +161,7 @@ class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
     }
     
     
-    /** ********** ********** ********** Private ********** ********** ********** */
+    /** ****************************** Private ****************************** */
     
     private fun initLayoutParams(): Boolean {
         getDesignateLayoutParams().gravity = Gravity.BOTTOM or Gravity.START

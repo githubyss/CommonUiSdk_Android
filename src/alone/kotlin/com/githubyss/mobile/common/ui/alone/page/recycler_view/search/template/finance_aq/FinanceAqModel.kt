@@ -16,14 +16,14 @@ import org.json.JSONObject
  */
 data class FinanceAqModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var title: String = ""
     var content: String = ""
     var jumpUrl: String = ""
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(title: String, content: String, jumpUrl: String, @ItemType type: Int) : this(type) {
         this.title = content
@@ -36,7 +36,7 @@ data class FinanceAqModel constructor(@ItemType override var type: Int) : BaseIt
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

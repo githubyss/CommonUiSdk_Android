@@ -22,7 +22,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMultiTypeBinding
  */
 class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragment_multi_type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = RecyclerViewByMultiTypeFragment::class.java.simpleName
@@ -33,7 +33,7 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragm
     private var dataList = ArrayList<MultiModel>()
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         initView()
@@ -45,7 +45,7 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragm
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun initView() {
         initMultiRecyclerView(dataList)
@@ -110,5 +110,5 @@ class RecyclerViewByMultiTypeFragment : BaseToolbarFragment(R.layout.comui_fragm
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
 }

@@ -15,7 +15,7 @@ import androidx.appcompat.widget.AppCompatTextView
  */
 class MonospaceTextView : AppCompatTextView {
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)

@@ -24,7 +24,7 @@ import kotlin.math.min
  */
 open class MagnetView : FrameLayout {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         private val TAG: String = MagnetView::class.java.simpleName
@@ -54,7 +54,7 @@ open class MagnetView : FrameLayout {
     var featureViewListener: MagnetViewListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -63,7 +63,7 @@ open class MagnetView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         if (event == null) return false
@@ -102,7 +102,7 @@ open class MagnetView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     protected fun initInBase() {
         moveAnimatorRunnable = MoveAnimatorRunnable(this)
@@ -128,7 +128,7 @@ open class MagnetView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Private ********** ********** ********** */
+    /** ****************************** Private ****************************** */
     
     private fun isOnClickEvent(): Boolean {
         return System.currentTimeMillis() - lastTouchDownTime < TOUCH_TIME_THRESHOLD
@@ -187,7 +187,7 @@ open class MagnetView : FrameLayout {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     /** 动画  */
     private class MoveAnimatorRunnable(var view: MagnetView) : Runnable {

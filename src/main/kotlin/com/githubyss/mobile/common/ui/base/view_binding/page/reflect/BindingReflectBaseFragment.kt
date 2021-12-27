@@ -20,13 +20,13 @@ import java.lang.reflect.ParameterizedType
  */
 abstract class BindingReflectBaseFragment<B : ViewBinding> : BaseFragment() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     private var _binding: B? = null
     val binding: B get() = _binding!!
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Call inflate method to fill view according to specified ViewBinding by using java reflect.

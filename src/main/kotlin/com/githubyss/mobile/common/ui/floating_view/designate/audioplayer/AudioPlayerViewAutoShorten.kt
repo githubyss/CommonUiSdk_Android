@@ -29,7 +29,7 @@ import com.githubyss.mobile.common.ui.floating_view.feature.autoshorten.AutoShor
  */
 class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         private val TAG: String = AudioPlayerViewAutoShorten::class.java.simpleName
@@ -54,7 +54,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     var audioPlayListener: AudioPlayListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context, @LayoutRes layoutId: Int = designateLayoutId) : super(context, null) {
         designateContext = context
@@ -70,7 +70,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun lengthen() {
         designateView?.lengthenAnimator()
@@ -164,7 +164,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     fun isFloatingShow(): Boolean {
         return designateView?.isShown ?: false
@@ -185,7 +185,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     }
     
     
-    /** ********** ********** ********** Private ********** ********** ********** */
+    /** ****************************** Private ****************************** */
     
     private fun initInDesignated() {
         initView()
@@ -332,7 +332,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     /** 点击监听 */
     private val onClickListener = OnClickListener { v ->

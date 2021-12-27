@@ -17,17 +17,17 @@ import com.githubyss.mobile.common.ui.base.view_binding.layout.reflect.BaseFrame
  */
 abstract class BaseItemLayout<B : ViewBinding> : BaseFrameLayoutBindingReflect<B> {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var onLayoutClickListener: OnLayoutClickListener? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr)
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     interface OnLayoutClickListener {
         fun onClick(position: Int, view: View?, data: BaseItemModel)

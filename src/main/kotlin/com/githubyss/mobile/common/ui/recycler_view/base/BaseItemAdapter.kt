@@ -15,12 +15,12 @@ import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
  */
 abstract class BaseItemAdapter<H : RecyclerView.ViewHolder> constructor(private val dataList: List<BaseItemModel>) : RecyclerView.Adapter<H>() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var onItemClickListener: OnItemClickListener? = null
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun getItemCount(): Int {
         return dataList.size
@@ -38,7 +38,7 @@ abstract class BaseItemAdapter<H : RecyclerView.ViewHolder> constructor(private 
     }
     
     
-    /** ********** ********** ********** Interface ********** ********** ********** */
+    /** ****************************** Interface ****************************** */
     
     interface OnItemClickListener {
         fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View?, data: BaseItemModel)

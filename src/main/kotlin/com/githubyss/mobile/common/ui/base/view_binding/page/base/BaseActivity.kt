@@ -18,21 +18,21 @@ import com.githubyss.mobile.common.ui.R
  */
 abstract class BaseActivity : AppCompatActivity() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = BaseActivity::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         LogUtils.d(TAG, "Constructor init")
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,12 +50,12 @@ abstract class BaseActivity : AppCompatActivity() {
     }
     
     
-    /** ********** ********** ********** Abstract ********** ********** ********** */
+    /** ****************************** Abstract ****************************** */
     
     abstract fun init()
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     /** Add fragment to activity. */
     protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.layout_fragment_container) {

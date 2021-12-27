@@ -15,7 +15,7 @@ import org.json.JSONObject
  */
 data class AppIconModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var iconUrl: String = ""
     var label: String = ""
@@ -23,7 +23,7 @@ data class AppIconModel constructor(@ItemType override var type: Int) : BaseItem
     var jumpType: String = ""
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(iconUrl: String, label: String, jumpUrl: String, jumpType: String, @ItemType type: Int) : this(type) {
         this.iconUrl = iconUrl
@@ -37,7 +37,7 @@ data class AppIconModel constructor(@ItemType override var type: Int) : BaseItem
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

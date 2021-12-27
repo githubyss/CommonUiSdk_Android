@@ -13,14 +13,14 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflec
  */
 class ReflectFragment : BaseFragment<ComuiFragmentViewBindingReflectBinding>() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = ReflectFragment::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         binding.textBindingReflect.setOnClickListener {}

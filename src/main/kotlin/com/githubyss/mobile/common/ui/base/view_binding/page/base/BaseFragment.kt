@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.R
  */
 abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = BaseFragment::class.java.simpleName
@@ -29,14 +29,14 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     var fragmentContext: Context? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         LogUtils.d(TAG, "Constructor init")
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,12 +49,12 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
     }
     
     
-    /** ********** ********** ********** Abstract ********** ********** ********** */
+    /** ****************************** Abstract ****************************** */
     
     abstract fun init()
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     /** Change button status. */
     protected fun changeBtnStatus(button: Button?, status: Boolean) {

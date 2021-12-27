@@ -21,7 +21,7 @@ import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
  */
 class WealthAccountAdapter constructor(private val dataList: List<BaseItemModel>, private val keyList: ArrayList<String>) : BaseItemAdapter<RecyclerView.ViewHolder>(dataList) {
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return inflate<ComuiListItemWealthAccountBinding>(parent)

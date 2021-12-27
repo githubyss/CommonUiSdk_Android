@@ -15,7 +15,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInline
  */
 class InlineFragment : BaseFragment(R.layout.comui_fragment_view_binding_inline) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = InlineFragment::class.java.simpleName
@@ -24,7 +24,7 @@ class InlineFragment : BaseFragment(R.layout.comui_fragment_view_binding_inline)
     private val binding by bindView<ComuiFragmentViewBindingInlineBinding>()
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         binding.textBindingInline.setOnClickListener { }

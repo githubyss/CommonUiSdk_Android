@@ -16,7 +16,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInline
  */
 class InlineToolbarFragment : BaseToolbarFragment(R.layout.comui_fragment_view_binding_inline) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = InlineToolbarFragment::class.java.simpleName
@@ -25,7 +25,7 @@ class InlineToolbarFragment : BaseToolbarFragment(R.layout.comui_fragment_view_b
     private val binding by bindView<ComuiFragmentViewBindingInlineBinding>()
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         initView()
@@ -36,14 +36,14 @@ class InlineToolbarFragment : BaseToolbarFragment(R.layout.comui_fragment_view_b
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun initView() {
         binding.textBindingInline.setOnClickListener(onClickListener)
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {

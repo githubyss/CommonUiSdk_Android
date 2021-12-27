@@ -16,7 +16,7 @@ import org.json.JSONObject
  */
 data class WealthAccountModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var imageUrl: String = ""
     var title: String = ""
@@ -26,7 +26,7 @@ data class WealthAccountModel constructor(@ItemType override var type: Int) : Ba
     var jumpUrl: String = ""
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     constructor(imageUrl: String, title: String, content: String, account: String, @IsFollow isFollowed: String, jumpUrl: String, @ItemType type: Int) : this(type) {
         this.imageUrl = imageUrl
@@ -42,7 +42,7 @@ data class WealthAccountModel constructor(@ItemType override var type: Int) : Ba
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

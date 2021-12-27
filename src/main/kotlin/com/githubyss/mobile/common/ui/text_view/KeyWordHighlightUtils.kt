@@ -19,13 +19,13 @@ import java.util.regex.Pattern
  */
 object KeyWordHighlightUtils {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     private val TAG: String = KeyWordHighlightUtils::class.java.simpleName
     private val defaultColorId: Int = R.color.comui_color_3399ff
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     /**
      * 关键字高亮处理

@@ -44,7 +44,7 @@ import java.util.*
  */
 data class HeaderHasMoreBean constructor(val json: JSONObject?, @ItemType override var type: Int) : BaseItemModel(type) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     var moduleKey: String = ""
         private set
@@ -62,14 +62,14 @@ data class HeaderHasMoreBean constructor(val json: JSONObject?, @ItemType overri
         private set
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         setProperties(json)
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     override fun setProperties(json: JSONObject?) {
         try {

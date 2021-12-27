@@ -42,7 +42,7 @@ import java.util.*
  */
 class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = HomepageFragment::class.java.simpleName
@@ -51,7 +51,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
     private val binding by bindView<ComuiFragmentHomepageBinding>()
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         initView()
@@ -223,7 +223,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun initView() {
         binding.buttonMvvm.setOnClickListener(onClickListener)
@@ -266,7 +266,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
             .detach(binding.layoutPage)
     }
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {

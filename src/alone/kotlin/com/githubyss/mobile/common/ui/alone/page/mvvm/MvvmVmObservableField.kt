@@ -16,7 +16,7 @@ import com.githubyss.mobile.common.ui.alone.page.mvvm.child.MvvmChildVm
  */
 class MvvmVmObservableField : ViewModel() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     /** context */
     // var context: Activity? = null
@@ -38,7 +38,7 @@ class MvvmVmObservableField : ViewModel() {
     var itemViewModel: ObservableArrayList<MvvmChildVm>? = null
     
     
-    /** ********** ********** ********** Constructors ********** ********** ********** */
+    /** ****************************** Constructors ****************************** */
     
     init {
         initViewModelField()
@@ -46,7 +46,7 @@ class MvvmVmObservableField : ViewModel() {
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCleared() {
         super.onCleared()
@@ -54,9 +54,9 @@ class MvvmVmObservableField : ViewModel() {
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
-    /** ********** ********** Data Handling ********** ********** */
+    /** ******************** Data Handling ******************** */
     
     private fun initViewModelField() {
         text = ObservableField()
@@ -77,7 +77,7 @@ class MvvmVmObservableField : ViewModel() {
         textBean = null
     }
     
-    /** ********** ********** Event Handling ********** ********** */
+    /** ******************** Event Handling ******************** */
     
     fun onButtonChangeTextClick() {
         val text = "Current Time: ${System.currentTimeMillis()}"
@@ -95,7 +95,7 @@ class MvvmVmObservableField : ViewModel() {
     }
     
     
-    /** ********** ********** ********** Class ********** ********** ********** */
+    /** ****************************** Class ****************************** */
     
     // class ViewStyle {
     //     var isTextShow = ObservableBoolean()

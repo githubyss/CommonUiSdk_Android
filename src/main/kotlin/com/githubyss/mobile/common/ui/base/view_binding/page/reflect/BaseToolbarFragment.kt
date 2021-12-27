@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
  */
 abstract class BaseToolbarFragment<B : ViewBinding> : BaseFragment<B>() {
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onResume() {
         super.onResume()
@@ -21,12 +21,12 @@ abstract class BaseToolbarFragment<B : ViewBinding> : BaseFragment<B>() {
     }
     
     
-    /** ********** ********** ********** Abstract ********** ********** ********** */
+    /** ****************************** Abstract ****************************** */
     
     abstract fun setToolbarTitle()
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     /** Setup Toolbar text by ResId. */
     protected fun setToolbarTitle(titleResId: Int) {

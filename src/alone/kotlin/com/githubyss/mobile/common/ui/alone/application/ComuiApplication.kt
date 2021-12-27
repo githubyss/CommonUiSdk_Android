@@ -13,7 +13,7 @@ import kotlin.properties.Delegates
  */
 class ComuiApplication : BaseApplication() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         var instance: ComuiApplication by Delegates.notNull()
@@ -23,7 +23,7 @@ class ComuiApplication : BaseApplication() {
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun onCreate() {
         super.onCreate()

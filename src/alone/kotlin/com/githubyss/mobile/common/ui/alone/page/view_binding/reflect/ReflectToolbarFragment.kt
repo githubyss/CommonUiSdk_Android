@@ -15,14 +15,14 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflec
  */
 class ReflectToolbarFragment : BaseToolbarFragment<ComuiFragmentViewBindingReflectBinding>() {
     
-    /** ********** ********** ********** Properties ********** ********** ********** */
+    /** ****************************** Properties ****************************** */
     
     companion object {
         val TAG: String = ReflectToolbarFragment::class.java.simpleName
     }
     
     
-    /** ********** ********** ********** Override ********** ********** ********** */
+    /** ****************************** Override ****************************** */
     
     override fun init() {
         initView()
@@ -33,14 +33,14 @@ class ReflectToolbarFragment : BaseToolbarFragment<ComuiFragmentViewBindingRefle
     }
     
     
-    /** ********** ********** ********** Functions ********** ********** ********** */
+    /** ****************************** Functions ****************************** */
     
     private fun initView() {
         binding.textBindingReflect.setOnClickListener(onClickListener)
     }
     
     
-    /** ********** ********** ********** Implementations ********** ********** ********** */
+    /** ****************************** Implementations ****************************** */
     
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {
