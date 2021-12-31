@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VoiceHomeLayout">
+        <attr name="guideView"
+              format="reference" />
+        <attr name="beginSpeakingView"
+              format="reference" />
+        <attr name="unHeardView"
+              format="reference" />
+        <attr name="moreView"
+              format="reference" />
+        <attr name="noNetWorkView"
+              format="reference" />
+    </declare-styleable>
+</resources>

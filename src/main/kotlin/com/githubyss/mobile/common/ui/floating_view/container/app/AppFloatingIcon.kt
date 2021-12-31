@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
-import com.githubyss.mobile.common.kit.designpattern.SingletonHolder
+import com.githubyss.mobile.common.kit.designpattern.singleton.SingletonHolder
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.floating_view.container.FloatingIconListener
 import com.githubyss.mobile.common.ui.floating_view.designate.icon.IconViewListener

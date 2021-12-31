@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
-import com.githubyss.mobile.common.kit.designpattern.SingletonHolder
+import com.githubyss.mobile.common.kit.designpattern.singleton.SingletonHolder
 import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
 import com.githubyss.mobile.common.kit.manager.audio_player.player.AudioPlayManager
 import com.githubyss.mobile.common.kit.util.ScreenUtils

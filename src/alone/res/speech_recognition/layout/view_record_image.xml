@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <View
+        android:id="@+id/voice_btn"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.githubyss.mobile.common.ui.alone.page.speech_recognition.widget.RecordImageView
+        android:id="@+id/voice_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/voice_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="108dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="长按说话"
+        android:textColor="@color/record_image_textcolor" />
+
+    <ProgressBar
+        style="@style/load_progress_style"
+        android:id="@+id/voice_loading"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:indeterminateDrawable="@drawable/voice_load_progressbar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+</RelativeLayout>

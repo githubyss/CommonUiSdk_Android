@@ -143,7 +143,7 @@
 //         measureView(footerView)
 //         footerContentHeight = footerView?.measuredHeight ?: 0
 //         footerTextHeight = tvPullUpLoading?.measuredHeight ?: 0
-//         LogUtils.d("footerView?.measuredHeight: ${footerView?.measuredHeight}, tvPullUpLoading?.measuredHeight: ${tvPullUpLoading?.measuredHeight}")
+//         LogUtils.d(TAG, "footerView?.measuredHeight: ${footerView?.measuredHeight}, tvPullUpLoading?.measuredHeight: ${tvPullUpLoading?.measuredHeight}")
 //         footerView?.setPadding(0, 0, 0, -(footerContentHeight - footerTextHeight))
 //         footerView?.invalidate()
 //         parent.addView(footerView, parent.childCount)
@@ -372,7 +372,7 @@
 //         isToBottom = (scrollTop >= scrollViewActualHeight)
 //         var currentScrollViewHeight = getChildAt(0).measuredHeight - measuredHeight
 //         if (isRefreshable && !isToBottom) {
-//             LogUtils.d("Down >>> isRecoded: $isRecoded, isToBottom: $isToBottom, scrollY: $scrollY, startY: $startY, tempY: $tempY, scrollTop: $scrollTop, scrollViewActualHeight: $scrollViewActualHeight, currentScrollViewHeight: $currentScrollViewHeight")
+//             LogUtils.d(TAG, "Down >>> isRecoded: $isRecoded, isToBottom: $isToBottom, scrollY: $scrollY, startY: $startY, tempY: $tempY, scrollTop: $scrollTop, scrollViewActualHeight: $scrollViewActualHeight, currentScrollViewHeight: $currentScrollViewHeight")
 //             if (!isRecoded && scrollY == 0) {
 //                 isRecoded = true
 //                 startY = tempY
@@ -422,7 +422,7 @@
 //             }
 //         }
 //         else if (canSlideUp && isToBottom) {
-//             LogUtils.d("Up >>> isRecoded: $isRecoded, isToBottom: $isToBottom, scrollY: $scrollY, startY: $startY, tempY: $tempY, scrollTop: $scrollTop, scrollViewActualHeight: $scrollViewActualHeight, currentScrollViewHeight: $currentScrollViewHeight")
+//             LogUtils.d(TAG, "Up >>> isRecoded: $isRecoded, isToBottom: $isToBottom, scrollY: $scrollY, startY: $startY, tempY: $tempY, scrollTop: $scrollTop, scrollViewActualHeight: $scrollViewActualHeight, currentScrollViewHeight: $currentScrollViewHeight")
 //             if (!isRecoded) {
 //                 isRecoded = true
 //                 startY = tempY
@@ -448,7 +448,7 @@
 //             if (state != REFRESHING && isRecoded && state != LOADING) {
 //                 if (state == RELEASE_TO_LOADING) {
 //                     canReturn = true
-//                     LogUtils.d("RELEASE_TO_LOADING >>> (deltaY) / RATIO: ${(deltaY) / RATIO}, footerContentHeight: $footerContentHeight, deltaY: $deltaY")
+//                     LogUtils.d(TAG, "RELEASE_TO_LOADING >>> (deltaY) / RATIO: ${(deltaY) / RATIO}, footerContentHeight: $footerContentHeight, deltaY: $deltaY")
 //                     if ((deltaY) / RATIO < footerContentHeight && deltaY > 0) {
 //                         state = SLIDE_UP_TO_LOADING
 //                         changeFooterViewByState()

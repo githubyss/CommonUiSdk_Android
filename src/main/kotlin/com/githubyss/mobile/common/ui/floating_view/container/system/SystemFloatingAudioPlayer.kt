@@ -16,7 +16,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.githubyss.mobile.common.kit.constant.Constants
-import com.githubyss.mobile.common.kit.designpattern.SingletonHolder
+import com.githubyss.mobile.common.kit.designpattern.singleton.SingletonHolder
 import com.githubyss.mobile.common.kit.enumeration.VersionCode
 import com.githubyss.mobile.common.kit.enumeration.WindowManagerLayoutParamsType
 import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel

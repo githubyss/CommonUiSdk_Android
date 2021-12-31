@@ -19,15 +19,15 @@ import java.lang.reflect.ParameterizedType
  * @createdTime 2021/04/08 11:27:32
  */
 abstract class BindingReflectBaseFragment<B : ViewBinding> : BaseFragment() {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     private var _binding: B? = null
     val binding: B get() = _binding!!
-    
-    
+
+
     /** ****************************** Override ****************************** */
-    
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Call inflate method to fill view according to specified ViewBinding by using java reflect.
         val type = javaClass.genericSuperclass
@@ -36,18 +36,21 @@ abstract class BindingReflectBaseFragment<B : ViewBinding> : BaseFragment() {
             try {
                 _binding = clazz?.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
                     ?.invoke(null, inflater, container, false) as B
-            } catch (e: NoSuchMethodException) {
-                LogUtils.e(t = e)
-            } catch (e: IllegalAccessException) {
-                LogUtils.e(t = e)
-            } catch (e: InvocationTargetException) {
-                LogUtils.e(t = e)
+            }
+            catch (e: NoSuchMethodException) {
+                LogUtils.e(TAG, t = e)
+            }
+            catch (e: IllegalAccessException) {
+                LogUtils.e(TAG, t = e)
+            }
+            catch (e: InvocationTargetException) {
+                LogUtils.e(TAG, t = e)
             }
         }
-        
+
         return binding.root
     }
-    
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

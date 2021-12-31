@@ -171,7 +171,8 @@
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
-                        android:text="" />
+                        android:id="@+id/button_speech_recognition"
+                        android:text="@string/comui_homepage_button_speech_recognition" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">

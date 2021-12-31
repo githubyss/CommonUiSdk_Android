@@ -19,56 +19,56 @@ import com.githubyss.mobile.common.ui.R
  * @createdTime 2021/06/02 15:11:59
  */
 abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     companion object {
         val TAG: String = BaseFragment::class.java.simpleName
     }
-    
+
     var fragmentContext: Context? = null
-    
-    
+
+
     /** ****************************** Constructors ****************************** */
-    
+
     init {
         LogUtils.d(TAG, "Constructor init")
     }
-    
-    
+
+
     /** ****************************** Override ****************************** */
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         fragmentContext = activity?.baseContext
     }
-    
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
     }
-    
-    
+
+
     /** ****************************** Abstract ****************************** */
-    
+
     abstract fun init()
-    
-    
+
+
     /** ****************************** Functions ****************************** */
-    
+
     /** Change button status. */
     protected fun changeBtnStatus(button: Button?, status: Boolean) {
         button?.isEnabled = status
         button?.isClickable = status
     }
-    
+
     /** Add fragment to activity. */
     protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.layout_fragment_container) {
-        fragmentManager?.let {
+        parentFragmentManager.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
             }
-            
+
             val fragmentTransaction = it.beginTransaction()
             fragmentTransaction.add(containerId, fragment, tag)
             if (addToBackStack) {
@@ -77,13 +77,13 @@ abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
             fragmentTransaction.commitAllowingStateLoss()
         }
     }
-    
+
     protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.layout_fragment_container) {
-        fragmentManager?.let {
+        parentFragmentManager.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
             }
-            
+
             val fragmentTransaction = it.beginTransaction()
             fragmentTransaction.replace(containerId, fragment, tag)
             if (addToBackStack) {

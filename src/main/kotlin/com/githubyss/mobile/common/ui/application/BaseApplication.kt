@@ -14,8 +14,7 @@ abstract class BaseApplication : Application() {
     /** ****************************** Properties ****************************** */
 
     companion object {
-        var instance: BaseApplication by Delegates.notNull()
-            private set
+        private var instance: BaseApplication by Delegates.notNull()
 
         private val TAG: String = BaseApplication::class.java.simpleName
     }
@@ -26,19 +25,19 @@ abstract class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-    
+
         initComkit(instance)
         initComnet(instance)
         initLog(LogUtils.LOG_LEVEL_VERBOSE)
-        registerActivityLifecycleCallbacks(ActivityUtils.activityLifecycle)
+        initARouter(instance)
+        registerLifecycle()
     }
-    
+
     override fun onTerminate() {
-        unregisterActivityLifecycleCallbacks(ActivityUtils.activityLifecycle)
-        ActivityUtils.activityLifecycle.activityList.clear()
+        unregisterLifecycle()
         super.onTerminate()
     }
-    
+
 
     /** ****************************** Open ****************************** */
 
@@ -47,9 +46,19 @@ abstract class BaseApplication : Application() {
     }
 
     open fun initComnet(application: Application) {
-        // ComnetApplicationConfig.init(application)
     }
-    
+
+    open fun initLog(level: Int) {
+        // 可调试模式，启用日志
+        if (BuildConfig.DEBUG) {
+            LogUtils.enableLog()
+        }
+        else {
+            LogUtils.disableLog()
+        }
+        LogUtils.logLevel = level
+    }
+
     open fun initARouter(application: Application) {
         if (BuildConfig.DEBUG) {
             ARouter.openLog()
@@ -57,8 +66,16 @@ abstract class BaseApplication : Application() {
         }
         ARouter.init(application)
     }
-    
-    open fun initLog(level: Int) {
-        LogUtils.logLevel = level
+
+
+    /** ****************************** Functions ****************************** */
+
+    private fun registerLifecycle() {
+        registerActivityLifecycleCallbacks(ActivityUtils.activityLifecycle)
+    }
+
+    private fun unregisterLifecycle() {
+        unregisterActivityLifecycleCallbacks(ActivityUtils.activityLifecycle)
+        ActivityUtils.activityLifecycle.activityList.clear()
     }
 }

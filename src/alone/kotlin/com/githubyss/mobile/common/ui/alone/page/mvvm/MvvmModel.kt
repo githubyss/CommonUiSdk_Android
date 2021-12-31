@@ -49,8 +49,9 @@ interface MvvmModel {
                 json ?: return
 
                 text = json.optString("text")
-            } catch (e: JSONException) {
-                LogUtils.e(TAG, e)
+            }
+            catch (e: JSONException) {
+                LogUtils.e(TAG, t = e)
             }
         }
     }
@@ -87,8 +88,9 @@ interface MvvmModel {
                 json ?: return
 
                 imageUrl = json.optString("imageUrl")
-            } catch (e: JSONException) {
-                LogUtils.e(TAG, e)
+            }
+            catch (e: JSONException) {
+                LogUtils.e(TAG, t = e)
             }
         }
     }

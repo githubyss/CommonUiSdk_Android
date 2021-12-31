@@ -203,7 +203,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
         
         binding.seekBarAudioPlayer.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                // LogUtils.d("seekBar_audioPlayer onProgressChanged", "progress: " + progress);
+                // LogUtils.d(TAG, "seekBar_audioPlayer onProgressChanged", "progress: " + progress);
                 binding.textViewTimePosition.text = ProgressTextUtils.getProgressText(progress.toLong())
             }
             

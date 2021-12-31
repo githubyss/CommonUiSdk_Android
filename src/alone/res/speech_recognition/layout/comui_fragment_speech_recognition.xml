@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".alone.page.mvvm.MvvmActivity"
+    >
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:id="@+id/layout_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/comui_layoutBg_lightGray"
+        >
+
+        <include
+            android:id="@+id/view_voice_talking"
+            layout="@layout/view_voice_talking"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <RelativeLayout
+                android:id="@+id/bottom_voice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                >
+
+                <com.githubyss.mobile.common.ui.alone.page.speech_recognition.widget.RecordImageButton
+                    android:id="@+id/recordImageButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    />
+
+                <View
+                    android:id="@+id/voice_btn_close"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginBottom="35dp"
+                    android:layout_marginLeft="22dp"
+                    android:background="@drawable/comui_icon_speech_recognition_close"
+                    android:layout_alignParentBottom="true"
+                    />
+
+                <View
+                    android:id="@+id/voice_btn_help"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginBottom="35dp"
+                    android:background="@drawable/comui_icon_speech_recognition_help"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+    </FrameLayout>
+</layout>

@@ -140,7 +140,7 @@
 //             String filePathName = Environment.getExternalStorageDirectory() + "/SNEPA/";
 //             bitmap = BitmapFactory.decodeFile(filePathName + name + ".jpg");
 //         } catch (Exception e) {
-//             LogUtils.e(e.getMessage());
+//             LogUtils.e(TAG, e.getMessage());
 //         }
 //
 //         return bitmap;
@@ -273,13 +273,13 @@
 //             }
 //
 //         } catch (Exception e) {
-//             LogUtils.e(e);
+//             LogUtils.e(TAG, e);
 //         } finally {
 //             if (null != inputStream) {
 //                 try {
 //                     inputStream.close();
 //                 } catch (IOException e) {
-//                     LogUtils.e(e);
+//                     LogUtils.e(TAG, e);
 //                 }
 //             }
 //         }
@@ -298,13 +298,13 @@
 //                 size = inputStream.available();
 //             }
 //         } catch (Exception e) {
-//             LogUtils.e(e);
+//             LogUtils.e(TAG, e);
 //         } finally {
 //             if (null != inputStream) {
 //                 try {
 //                     inputStream.close();
 //                 } catch (IOException e) {
-//                     LogUtils.e(e);
+//                     LogUtils.e(TAG, e);
 //                 }
 //             }
 //         }

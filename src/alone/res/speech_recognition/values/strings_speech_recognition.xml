@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="comui_speech_recognition_title">语音识别</string>
+
+    <!-- Button -->
+
+    <!-- Hint -->
+    <string name="voicehelper_more_str1">\"我要充话费\"</string>
+    <string name="voicehelper_more_str2">\"给张飞转账\"</string>
+    <string name="voicehelper_more_str3">\"缴电费\"</string>
+    <string name="voicehelper_more_str4">\"附近外卖\"</string>
+    <string name="voicehelper_more_str5">\"订火车票\"</string>
+    <string name="voicehelper_more_str6">\"还信用卡\"</string>
+</resources>

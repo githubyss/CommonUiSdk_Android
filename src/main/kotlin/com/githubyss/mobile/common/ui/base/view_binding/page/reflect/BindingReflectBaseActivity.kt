@@ -17,15 +17,15 @@ import java.lang.reflect.ParameterizedType
  * @createdTime 2021/04/08 10:48:25
  */
 abstract class BindingReflectBaseActivity<B : ViewBinding> : BaseActivity() {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     private var _binding: B? = null
     val binding: B get() = _binding!!
-    
-    
+
+
     /** ****************************** Override ****************************** */
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         // Call inflate method to fill view according to specified ViewBinding by using java reflect.
         val type = javaClass.genericSuperclass
@@ -35,15 +35,18 @@ abstract class BindingReflectBaseActivity<B : ViewBinding> : BaseActivity() {
                 _binding = clazz?.getMethod("inflate", LayoutInflater::class.java)
                     ?.invoke(null, layoutInflater) as B
                 setContentView(binding.root)
-            } catch (e: NoSuchMethodException) {
-                LogUtils.e(t = e)
-            } catch (e: IllegalAccessException) {
-                LogUtils.e(t = e)
-            } catch (e: InvocationTargetException) {
-                LogUtils.e(t = e)
+            }
+            catch (e: NoSuchMethodException) {
+                LogUtils.e(TAG, t = e)
+            }
+            catch (e: IllegalAccessException) {
+                LogUtils.e(TAG, t = e)
+            }
+            catch (e: InvocationTargetException) {
+                LogUtils.e(TAG, t = e)
             }
         }
-        
+
         super.onCreate(savedInstanceState)
     }
 }

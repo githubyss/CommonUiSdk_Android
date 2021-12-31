@@ -18,6 +18,7 @@ import com.githubyss.mobile.common.ui.alone.page.animate.property.PropertyAnimat
 import com.githubyss.mobile.common.ui.alone.page.mvvm.MvvmActivity
 import com.githubyss.mobile.common.ui.alone.page.recycler_view.multi.page.RecyclerViewByMultiTypeFragment
 import com.githubyss.mobile.common.ui.alone.page.recycler_view.search.page.SearchResultFragment
+import com.githubyss.mobile.common.ui.alone.page.speech_recognition.SpeechRecognitionActivity
 import com.githubyss.mobile.common.ui.alone.page.view_binding.inline.InlineActivity
 import com.githubyss.mobile.common.ui.alone.page.view_binding.inline.InlineToolbarActivity
 import com.githubyss.mobile.common.ui.alone.page.view_binding.reflect.ReflectActivity
@@ -41,26 +42,26 @@ import java.util.*
  * @createdTime 2021/03/09 10:54:22
  */
 class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     companion object {
         val TAG: String = HomepageFragment::class.java.simpleName
     }
-    
+
     private val binding by bindView<ComuiFragmentHomepageBinding>()
-    
-    
+
+
     /** ****************************** Override ****************************** */
-    
+
     override fun init() {
         initView()
     }
-    
+
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_homepage_title)
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentAttached(fm: FragmentManager, f: Fragment, context: Context)
      *
@@ -71,7 +72,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onAttach(context)
         LogUtils.d(TAG, "${this::class.java.simpleName} > onAttach")
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?)
      *
@@ -82,7 +83,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onCreate(savedInstanceState)
         LogUtils.d(TAG, "${this::class.java.simpleName} > onCreate")
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 Nothing
      *
@@ -95,7 +96,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         LogUtils.d(TAG, "${this::class.java.simpleName} > onCreateView")
         return super.onCreateView(inflater, container, savedInstanceState)
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentViewCreated(fm: FragmentManager, f: Fragment, v: View, savedInstanceState: Bundle?)
      *
@@ -107,7 +108,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onViewCreated(view, savedInstanceState)
         LogUtils.d(TAG, "${this::class.java.simpleName} > onViewCreated")
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentActivityCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?)
      *
@@ -118,7 +119,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onActivityCreated(savedInstanceState)
         LogUtils.d(TAG, "${this::class.java.simpleName} > onActivityCreated")
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentStarted(fm: FragmentManager, f: Fragment)
      *
@@ -128,10 +129,10 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
     override fun onStart() {
         super.onStart()
         LogUtils.d(TAG, "${this::class.java.simpleName} > onStart")
-        
+
         attachView()
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentResumed(fm: FragmentManager, f: Fragment)
      *
@@ -142,7 +143,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onResume()
         LogUtils.d(TAG, "${this::class.java.simpleName} > onResume")
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentPaused(fm: FragmentManager, f: Fragment)
      *
@@ -153,7 +154,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onPause()
         LogUtils.d(TAG, "${this::class.java.simpleName} > onPause")
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentStopped(fm: FragmentManager, f: Fragment)
      *
@@ -163,10 +164,10 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
     override fun onStop() {
         super.onStop()
         LogUtils.d(TAG, "${this::class.java.simpleName} > onStop")
-        
+
         detachView()
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentSaveInstanceState(fm: FragmentManager, f: Fragment, outState: Bundle)
      *
@@ -177,7 +178,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onSaveInstanceState(outState)
         LogUtils.d(TAG, "${this::class.java.simpleName} > onSaveInstanceState")
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentViewDestroyed(fm: FragmentManager, f: Fragment)
      *
@@ -188,7 +189,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onDestroyView()
         LogUtils.d(TAG, "${this::class.java.simpleName} > onDestroyView")
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentDestroyed(fm: FragmentManager, f: Fragment)
      *
@@ -199,7 +200,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onDestroy()
         LogUtils.d(TAG, "${this::class.java.simpleName} > onDestroy")
     }
-    
+
     /**
      * 对应 FragmentLifecycleCallbacks 的 onFragmentDetached(fm: FragmentManager, f: Fragment)
      *
@@ -210,7 +211,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onDetach()
         LogUtils.d(TAG, "${this::class.java.simpleName} > onDetach")
     }
-    
+
     /**
      * 当一个子 Fragment attach 到当前 Fragment 时
      *
@@ -221,68 +222,70 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
         super.onAttachFragment(childFragment)
         LogUtils.d(TAG, "${this::class.java.simpleName} > onAttachFragment")
     }
-    
-    
+
+
     /** ****************************** Functions ****************************** */
-    
+
     private fun initView() {
         binding.buttonMvvm.setOnClickListener(onClickListener)
-        
+
         binding.buttonBindingReflect.setOnClickListener(onClickListener)
         binding.buttonBindingInline.setOnClickListener(onClickListener)
         binding.buttonBindingReflectToolbar.setOnClickListener(onClickListener)
         binding.buttonBindingInlineToolbar.setOnClickListener(onClickListener)
-        
+
         binding.buttonPropertyAnimation.setOnClickListener(onClickListener)
         binding.buttonTweenAnimation.setOnClickListener(onClickListener)
-        
+
         binding.buttonRecyclerViewMultiType.setOnClickListener(onClickListener)
         binding.buttonRecyclerViewMultiView.setOnClickListener(onClickListener)
-        
+
         binding.btnShowFloatingWithinApp.setOnClickListener(onClickListener)
         binding.btnCloseFloatingWithinApp.setOnClickListener(onClickListener)
         binding.btnShowFloatingWithinSystem.setOnClickListener(onClickListener)
         binding.btnCloseFloatingWithinSystem.setOnClickListener(onClickListener)
-        
+
         binding.buttonShowAutoShortedFloatingView.setOnClickListener(onClickListener)
         binding.buttonCloseAutoShortedFloatingView.setOnClickListener(onClickListener)
         binding.buttonLengthenAutoShortedFloatingView.setOnClickListener(onClickListener)
         binding.buttonShortenAutoShortedFloatingView.setOnClickListener(onClickListener)
-        
+
         binding.buttonPlayPauseController.setOnClickListener(onClickListener)
         binding.buttonPrevious.setOnClickListener(onClickListener)
         binding.buttonNext.setOnClickListener(onClickListener)
         binding.buttonSwitchVoice.setOnClickListener(onClickListener)
         binding.buttonStop.setOnClickListener(onClickListener)
+
+        binding.buttonSpeechRecognition.setOnClickListener(onClickListener)
     }
-    
+
     private fun attachView() {
         AppFloatingIcon.getInstance(activity as Context)
             .attach(binding.layoutPage)
     }
-    
+
     private fun detachView() {
         AppFloatingIcon.getInstance(activity as Context)
             .detach(binding.layoutPage)
     }
-    
+
     /** ****************************** Implementations ****************************** */
-    
+
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {
             R.id.button_mvvm -> ActivityUtils.startActivity(activity, MvvmActivity::class.java)
-            
+
             R.id.button_binding_reflect -> ActivityUtils.startActivity(activity, ReflectActivity::class.java)
             R.id.button_binding_inline -> ActivityUtils.startActivity(activity, InlineActivity::class.java)
             R.id.button_binding_reflect_toolbar -> ActivityUtils.startActivity(activity, ReflectToolbarActivity::class.java)
             R.id.button_binding_inline_toolbar -> ActivityUtils.startActivity(activity, InlineToolbarActivity::class.java)
-            
+
             R.id.button_property_animation -> replaceFragment(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, true)
             R.id.button_tween_animation -> return@OnClickListener
-            
+
             R.id.button_recycler_view_multi_type -> replaceFragment(RecyclerViewByMultiTypeFragment(), RecyclerViewByMultiTypeFragment.TAG, true)
             R.id.button_recycler_view_multi_view -> replaceFragment(SearchResultFragment(), SearchResultFragment.TAG, true)
-            
+
             R.id.btn_show_floating_within_app -> {
                 val layoutParams = FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                 layoutParams.gravity = Gravity.BOTTOM or Gravity.END
@@ -317,7 +320,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
                 SystemFloatingIcon.getInstance(activity as Context)
                     .close()
             }
-            
+
             R.id.button_show_auto_shorted_floating_view -> {
                 // Fake data
                 val audioList: MutableList<AudioModel> = ArrayList()
@@ -333,14 +336,14 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
                 // audioList.add(AudioModel("00001", "单女声-播报-错误Url-标题", "", "", "", "", "http://ossprexg.cnsuning.com/fipcms/media/22.wav"))
                 // audioList.add(AudioModel("00001", "男&女声-播报-标题", "", "", "", "http://ossprexg.cnsuning.com/fipcms/media/111.wav", "http://ossprexg.cnsuning.com/fipcms/media/222.wav"))
                 // audioList.add(AudioModel("00001", "男&女声-播报-男声错误Url-标题", "", "", "", "http://ossprexg.cnsuning.com/fipcms/media/11.wav", "http://ossprexg.cnsuning.com/fipcms/media/222.wav"))
-                
+
                 /** 先 setContext 再 show 后 initData，顺序不能乱 */
                 AppFloatingAudioPlayer.getInstance(activity as Context)
                     .show()
                     ?.setAppFloatingForNativeListener(object : FloatingAudioPlayerListener {
                         override fun onShow() {}
                         override fun onRemove() {}
-                        
+
                         override fun onUpdateAudioInfo(audioModel: AudioModel?) {
                             run {
                                 LogUtils.d(TAG, "FloatingAudioPlayerListener >>> onUpdateAudioInfo >> audioModel: $audioModel")
@@ -366,7 +369,7 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
                 AppFloatingAudioPlayer.getInstance(activity as Context)
                     .designateView?.shorten()
             }
-            
+
             R.id.button_play_pause_controller -> {
                 when (binding.buttonPlayPauseController.text) {
                     "播放" -> {
@@ -388,6 +391,10 @@ class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
             }
             R.id.button_stop -> {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.stop()
+            }
+
+            R.id.button_speech_recognition -> {
+                ActivityUtils.startActivity(activity, SpeechRecognitionActivity::class.java)
             }
         }
     }

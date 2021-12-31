@@ -117,6 +117,7 @@ android {
                     srcDirs 'src/alone/res/recycler_view'
                     srcDirs 'src/alone/res/recycler_view/search'
                     srcDirs 'src/alone/res/recycler_view/multi'
+                    srcDirs 'src/alone/res/speech_recognition'
                 }
                 manifest {
                     srcFile 'src/alone/AndroidManifest.xml'

@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.alone.page.recycler_view.search.bean
 
+import com.githubyss.mobile.common.kit.manager.font.FontManager
 import com.githubyss.mobile.common.kit.mock.OnResponse
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ResourceUtils
@@ -130,7 +131,7 @@ class SearchResultModel(val json: JSONObject?) {
                 }
             }
         } catch (e: JSONException) {
-            LogUtils.e(t = e)
+            LogUtils.e(TAG, t = e)
         }
     }
 }

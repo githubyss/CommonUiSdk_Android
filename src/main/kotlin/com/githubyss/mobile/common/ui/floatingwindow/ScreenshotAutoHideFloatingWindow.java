@@ -139,7 +139,7 @@ public class ScreenshotAutoHideFloatingWindow {
                         thisDelayHandler.removeCallbacks(autoHideRunnable);
                     }
 
-                    // LogUtils.e("~~~yanss~~~ >>> ACTION_DOWN() >>> 1)Begin 2)Current 3)Delta 4)Params.y 5)Y 6)getY()", Integer.toString(moveBeginCoordinateY) + "~" + Integer.toString(moveCurrentCoordinateY) + "~" + Integer.toString(moveDeltaCoordinateY) + "~" + Integer.toString(thisLayoutParams.y) + "~" + Integer.toString(rootViewCoordinateY) + "~" + Integer.toString(coordinateLocation[1]));
+                    // LogUtils.e(TAG, "~~~yanss~~~ >>> ACTION_DOWN() >>> 1)Begin 2)Current 3)Delta 4)Params.y 5)Y 6)getY()", Integer.toString(moveBeginCoordinateY) + "~" + Integer.toString(moveCurrentCoordinateY) + "~" + Integer.toString(moveDeltaCoordinateY) + "~" + Integer.toString(thisLayoutParams.y) + "~" + Integer.toString(rootViewCoordinateY) + "~" + Integer.toString(coordinateLocation[1]));
                     break;
 
                 case MotionEvent.ACTION_MOVE:
@@ -158,15 +158,15 @@ public class ScreenshotAutoHideFloatingWindow {
                     // }
 
                     // FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) rootView.getLayoutParams();
-                    // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onTouch() >>> marginTop", Integer.toString(layoutParams.topMargin));
+                    // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onTouch() >>> marginTop", Integer.toString(layoutParams.topMargin));
                     // layoutParams.topMargin = 0 - SuningFunctionUtils.dip2px(context, 50);
                     // rootView.setLayoutParams(layoutParams);
-                    // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onTouch() >>> marginTop 2", Integer.toString(layoutParams.topMargin));
+                    // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onTouch() >>> marginTop 2", Integer.toString(layoutParams.topMargin));
 
                     moveBeginCoordinateY = moveCurrentCoordinateY;
 
                     // rootView.getLocationOnScreen(coordinateLocation);
-                    // LogUtils.e("~~~yanss~~~ >>> ACTION_MOVE() >>> 1)Begin 2)Current 3)Delta 4)Params.y 5)Y 6)getY()", Integer.toString(moveBeginCoordinateY) + "~" + Integer.toString(moveCurrentCoordinateY) + "~" + Integer.toString(moveDeltaCoordinateY) + "~" + Integer.toString(thisLayoutParams.y) + "~" + Integer.toString(rootViewCoordinateY) + "~" + Integer.toString(coordinateLocation[1]));
+                    // LogUtils.e(TAG, "~~~yanss~~~ >>> ACTION_MOVE() >>> 1)Begin 2)Current 3)Delta 4)Params.y 5)Y 6)getY()", Integer.toString(moveBeginCoordinateY) + "~" + Integer.toString(moveCurrentCoordinateY) + "~" + Integer.toString(moveDeltaCoordinateY) + "~" + Integer.toString(thisLayoutParams.y) + "~" + Integer.toString(rootViewCoordinateY) + "~" + Integer.toString(coordinateLocation[1]));
                     break;
 
                 case MotionEvent.ACTION_UP:
@@ -194,7 +194,7 @@ public class ScreenshotAutoHideFloatingWindow {
 
 
                     // rootView.getLocationOnScreen(coordinateLocation);
-                    // LogUtils.e("~~~yanss~~~ >>> ACTION_UP() >>> 1)Begin 2)Current 3)Delta 4)Params.y 5)Y 6)getY()", Integer.toString(moveBeginCoordinateY) + "~" + Integer.toString(moveCurrentCoordinateY) + "~" + Integer.toString(moveDeltaCoordinateY) + "~" + Integer.toString(thisLayoutParams.y) + "~" + Integer.toString(rootViewCoordinateY) + "~" + Integer.toString(coordinateLocation[1]));
+                    // LogUtils.e(TAG, "~~~yanss~~~ >>> ACTION_UP() >>> 1)Begin 2)Current 3)Delta 4)Params.y 5)Y 6)getY()", Integer.toString(moveBeginCoordinateY) + "~" + Integer.toString(moveCurrentCoordinateY) + "~" + Integer.toString(moveDeltaCoordinateY) + "~" + Integer.toString(thisLayoutParams.y) + "~" + Integer.toString(rootViewCoordinateY) + "~" + Integer.toString(coordinateLocation[1]));
                     break;
 
                 default:
@@ -214,13 +214,13 @@ public class ScreenshotAutoHideFloatingWindow {
             isAnimating = true;
 
             if (animSlideDownIn.equals(animation)) {
-                // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onAnimationStart() >>> " + "animSlideDownIn");
+                // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onAnimationStart() >>> " + "animSlideDownIn");
                 isShown = true;
                 return;
             }
 
             if (animSlideUpOut.equals(animation)) {
-                // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onAnimationStart() >>> " + "animSlideUpOut");
+                // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onAnimationStart() >>> " + "animSlideUpOut");
                 if (null == hidingRunnable) {
                     hidingRunnable = new Runnable() {
                         @Override
@@ -245,7 +245,7 @@ public class ScreenshotAutoHideFloatingWindow {
             isAnimating = false;
 
             if (animSlideUpOut.equals(animation)) {
-                // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onAnimationEnd() >>> ", "animSlideUpOut");
+                // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onAnimationEnd() >>> ", "animSlideUpOut");
                 // clearView();
                 return;
             }
@@ -253,7 +253,7 @@ public class ScreenshotAutoHideFloatingWindow {
 
         @Override
         public void onAnimationRepeat(Animation animation) {
-            // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onAnimationRepeat() >>> " + "");
+            // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.onAnimationRepeat() >>> " + "");
         }
     };
 
@@ -293,7 +293,7 @@ public class ScreenshotAutoHideFloatingWindow {
         animSlideDownIn = AnimationUtils.loadAnimation(mActivity, R.anim.comui_slide_down_in);
         animSlideUpOut = AnimationUtils.loadAnimation(mActivity, R.anim.comui_slide_up_out);
 
-        // LogUtils.e("initViewFindById", animSlideDownIn.toString() + "::" + animSlideUpOut.toString());
+        // LogUtils.e(TAG, "initViewFindById", animSlideDownIn.toString() + "::" + animSlideUpOut.toString());
     }
 
     private void initViewContent() {
@@ -333,14 +333,14 @@ public class ScreenshotAutoHideFloatingWindow {
     }
 
     private Bitmap refreshViewContent() {
-        // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.refreshViewContent() >>> filePath = ", filePath == null ? "null" : filePath);
+        // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.refreshViewContent() >>> filePath = ", filePath == null ? "null" : filePath);
         Bitmap bitmap = ImageUtils.INSTANCE.getBitmap(filePath, 300, 300);
         if (null == bitmap) {
             if (null == waitBitmapRunnable) {
                 waitBitmapRunnable = new Runnable() {
                     @Override
                     public void run() {
-                        // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.run() >>> showFloatingWindow again");
+                        // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.run() >>> showFloatingWindow again");
                         showFloatingWindow(filePath);
                     }
                 };
@@ -370,7 +370,7 @@ public class ScreenshotAutoHideFloatingWindow {
      * @createdTime 2017/04/13 18:58:00
      */
     private void clearView() {
-        // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHide.clearView() Begin>>> isShown || isAnimating", isShown + "||" + isAnimating);
+        // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHide.clearView() Begin>>> isShown || isAnimating", isShown + "||" + isAnimating);
         try {
             isShown = false;
 
@@ -379,7 +379,7 @@ public class ScreenshotAutoHideFloatingWindow {
                 containerView.removeView(rootView);
             }
             thisWindowManager.removeView(containerView);
-            // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHide.clearView() End>>> isShown || isAnimating", isShown + "||" + isAnimating);
+            // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHide.clearView() End>>> isShown || isAnimating", isShown + "||" + isAnimating);
         } catch (Exception e) {
             // LogUtils.logException(e);
         }
@@ -389,7 +389,7 @@ public class ScreenshotAutoHideFloatingWindow {
     // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
 
     public void showFloatingWindow(String filePath) {
-        // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.showFloatingWindow() >>> show Time", Long.toString(SystemClock.elapsedRealtime()));
+        // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.showFloatingWindow() >>> show Time", Long.toString(SystemClock.elapsedRealtime()));
 
         this.filePath = filePath;
         if (null == refreshViewContent()) {
@@ -419,7 +419,7 @@ public class ScreenshotAutoHideFloatingWindow {
             autoHideRunnable = new Runnable() {
                 @Override
                 public void run() {
-                    // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.run() >>> isShown || isAnimating", isShown + "||" + isAnimating);
+                    // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.run() >>> isShown || isAnimating", isShown + "||" + isAnimating);
                     if (isShown && !isAnimating) {
                         sendMessage(MSG_HIDE_FLOATING_WINDOW);
                     }
@@ -455,7 +455,7 @@ public class ScreenshotAutoHideFloatingWindow {
     }
 
     public void hideFloatingWindow() {
-        // LogUtils.e("~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.hideFloatingWindow() >>> ");
+        // LogUtils.e(TAG, "~~~yanss~~~ >>> ScreenshotAutoHideFloatingWindow.hideFloatingWindow() >>> ");
         rootView.startAnimation(animSlideUpOut);
     }
 

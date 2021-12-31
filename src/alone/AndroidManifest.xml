@@ -69,5 +69,13 @@
                 android:theme="@style/comui_activity_noActionBar_theme"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                 />
+
+        <activity
+                android:name=".alone.page.speech_recognition.SpeechRecognitionActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@style/comui_activity_noActionBar_theme"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+                />
     </application>
 </manifest>
