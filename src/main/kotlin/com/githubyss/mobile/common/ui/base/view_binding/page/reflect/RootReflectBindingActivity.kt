@@ -11,13 +11,13 @@ import java.lang.reflect.ParameterizedType
 
 
 /**
- * BindingReflectActivity
+ * RootReflectBindingActivity
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/04/08 10:48:25
  */
-abstract class BindingReflectActivity<B : ViewBinding> : BaseActivity() {
+abstract class RootReflectBindingActivity<B : ViewBinding> : BaseActivity(0) {
 
     /** ****************************** Properties ****************************** */
 

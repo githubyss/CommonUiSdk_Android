@@ -1,6 +1,6 @@
 package com.githubyss.mobile.common.ui.alone.page.view_binding.reflect
 
-import com.githubyss.mobile.common.ui.base.view_binding.page.reflect.BaseReflectActivity
+import com.githubyss.mobile.common.ui.base.view_binding.page.reflect.BaseReflectBindingActivity
 import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseBinding
 
 
@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseBinding
  * @github githubyss
  * @createdTime 2021/07/20 18:01:36
  */
-class ReflectActivity : BaseReflectActivity<ComuiActivityBaseBinding>() {
+class ReflectActivity : BaseReflectBindingActivity<ComuiActivityBaseBinding>() {
     
     /** ****************************** Properties ****************************** */
     

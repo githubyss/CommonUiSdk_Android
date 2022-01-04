@@ -12,7 +12,7 @@ import androidx.viewbinding.ViewBinding
  * @github githubyss
  * @createdTime 2022/01/04 13:34:00
  */
-abstract class BaseReflectBindingFrameLayout<B : ViewBinding> : ReflectBindingFrameLayout<B> {
+abstract class BaseReflectBindingFrameLayout<B : ViewBinding> : RootReflectBindingFrameLayout<B> {
 
     /** ****************************** Constructors ****************************** */
 

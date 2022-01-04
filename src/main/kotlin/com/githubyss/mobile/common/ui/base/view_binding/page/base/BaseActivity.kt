@@ -17,24 +17,24 @@ import com.githubyss.mobile.common.ui.R
  * @github githubyss
  * @createdTime 2021/06/02 15:10:38
  */
-abstract class BaseActivity(@LayoutRes layoutId: Int = R.layout.comui_activity_base) : AppCompatActivity(layoutId) {
-    
+abstract class BaseActivity(@LayoutRes layoutId: Int) : AppCompatActivity(layoutId) {
+
     /** ****************************** Properties ****************************** */
-    
+
     companion object {
         val TAG: String = BaseActivity::class.java.simpleName
     }
-    
-    
+
+
     /** ****************************** Constructors ****************************** */
-    
+
     init {
         LogUtils.d(TAG, "Constructor init")
     }
-    
-    
+
+
     /** ****************************** Override ****************************** */
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportFragmentManager.let {
@@ -42,29 +42,29 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = R.layout.comui_activity_b
         }
         init()
     }
-    
+
     override fun onDestroy() {
         super.onDestroy()
         supportFragmentManager.let {
             it.unregisterFragmentLifecycleCallbacks(FragmentUtils.fragmentLifecycle)
         }
     }
-    
-    
+
+
     /** ****************************** Abstract ****************************** */
-    
+
     abstract fun init()
-    
-    
+
+
     /** ****************************** Functions ****************************** */
-    
+
     /** Add fragment to activity. */
     protected fun addFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.layout_fragment_container) {
         supportFragmentManager.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
             }
-            
+
             fragment.arguments = intent.extras
             val fragmentTransaction = it.beginTransaction()
             fragmentTransaction.add(containerId, fragment, tag)
@@ -74,13 +74,13 @@ abstract class BaseActivity(@LayoutRes layoutId: Int = R.layout.comui_activity_b
             fragmentTransaction.commitAllowingStateLoss()
         }
     }
-    
+
     protected fun replaceFragment(fragment: Fragment, tag: String? = null, addToBackStack: Boolean = true, @IdRes containerId: Int = R.id.layout_fragment_container) {
         supportFragmentManager.let {
             if (it.findFragmentByTag(tag) != null) {
                 return
             }
-            
+
             fragment.arguments = intent.extras
             val fragmentTransaction = it.beginTransaction()
             fragmentTransaction.replace(containerId, fragment, tag)

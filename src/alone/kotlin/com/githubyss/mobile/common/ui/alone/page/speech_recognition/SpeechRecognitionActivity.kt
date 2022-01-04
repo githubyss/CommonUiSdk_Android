@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.alone.page.speech_recognition
 
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarActivity
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineBindingToolbarActivity
 
 
 /**
@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineTo
  * @github githubyss
  * @createdTime 2021/12/27 14:29:03
  */
-class SpeechRecognitionActivity : BaseInlineToolbarActivity() {
+class SpeechRecognitionActivity : BaseInlineBindingToolbarActivity() {
 
     /** ****************************** Properties ****************************** */
 

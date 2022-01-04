@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.kit.mock.OnResponse
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSearchResultBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
@@ -31,7 +31,7 @@ import org.greenrobot.eventbus.EventBus
  * @github githubyss
  * @createdTime 2021/03/15 16:51:37
  */
-class SearchResultFragment : BaseInlineToolbarFragment(R.layout.comui_fragment_search_result) {
+class SearchResultFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fragment_search_result) {
     
     /** ****************************** Properties ****************************** */
     

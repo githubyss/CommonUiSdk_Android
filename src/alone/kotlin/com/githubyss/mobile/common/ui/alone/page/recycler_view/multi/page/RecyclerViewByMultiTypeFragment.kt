@@ -8,7 +8,7 @@ import com.githubyss.mobile.common.ui.alone.page.recycler_view.multi.template.mu
 import com.githubyss.mobile.common.ui.alone.page.recycler_view.multi.template.text.TextHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMultiTypeBinding
 
@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMultiTypeBinding
  * @github githubyss
  * @createdTime 2021/03/09 11:02:35
  */
-class RecyclerViewByMultiTypeFragment : BaseInlineToolbarFragment(R.layout.comui_fragment_multi_type) {
+class RecyclerViewByMultiTypeFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fragment_multi_type) {
     
     /** ****************************** Properties ****************************** */
     

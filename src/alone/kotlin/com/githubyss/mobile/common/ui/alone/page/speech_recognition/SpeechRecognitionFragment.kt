@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.alone.page.speech_recognition.manager.Voic
 import com.githubyss.mobile.common.ui.alone.page.speech_recognition.util.VoiceError
 import com.githubyss.mobile.common.ui.alone.page.speech_recognition.widget.RecordImageButton
 import com.githubyss.mobile.common.ui.alone.page.speech_recognition.widget.VoiceHomeLayout
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSpeechRecognitionBinding
 
@@ -25,7 +25,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSpeechRecognition
  * @github githubyss
  * @createdTime 2021/12/27 14:36:49
  */
-class SpeechRecognitionFragment : BaseInlineToolbarFragment(R.layout.comui_fragment_speech_recognition) {
+class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fragment_speech_recognition) {
 
     /** ****************************** Properties ****************************** */
 

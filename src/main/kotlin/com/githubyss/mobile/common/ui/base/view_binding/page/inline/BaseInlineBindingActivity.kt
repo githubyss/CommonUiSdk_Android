@@ -5,13 +5,13 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseBinding
 
 
 /**
- * BaseInlineActivity
+ * BaseInlineBindingActivity
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/07/20 16:50:32
  */
-abstract class BaseInlineActivity : BaseActivity() {
+abstract class BaseInlineBindingActivity : BaseActivity(0) {
 
     /** ****************************** Properties ****************************** */
 

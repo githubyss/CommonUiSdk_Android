@@ -1,10 +1,9 @@
-package com.githubyss.mobile.common.ui.base.view_binding.layout.reflect
+package com.githubyss.mobile.common.ui.base.view_binding.page.reflect
 
-import android.content.Context
-import android.util.AttributeSet
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.viewbinding.ViewBinding
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.base.view_binding.page.base.BaseFragment
@@ -14,13 +13,13 @@ import java.lang.reflect.ParameterizedType
 
 
 /**
- * ReflectBindingFrameLayout
+ * RootReflectBindingFragment
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/04/08 11:39:37
+ * @createdTime 2021/04/08 11:27:32
  */
-abstract class ReflectBindingFrameLayout<B : ViewBinding> : FrameLayout {
+abstract class RootReflectBindingFragment<B : ViewBinding> : BaseFragment(0) {
 
     /** ****************************** Properties ****************************** */
 
@@ -28,29 +27,33 @@ abstract class ReflectBindingFrameLayout<B : ViewBinding> : FrameLayout {
     val binding: B get() = _binding!!
 
 
-    /** ****************************** Constructors ****************************** */
+    /** ****************************** Override ****************************** */
 
-    @Suppress("LeakingThis")
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Call inflate method to fill view according to specified ViewBinding by using java reflect.
         val type = javaClass.genericSuperclass
         if (type is ParameterizedType) {
             try {
                 val clazz = type.actualTypeArguments[0] as Class<B>?
-                val inflateMethod: Method? = clazz?.getDeclaredMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
-                val inflater = LayoutInflater.from(context)
-                val container = this
-                _binding = inflateMethod?.invoke(null, inflater, container, true) as B
+                val inflateMethod: Method? = clazz?.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
+                _binding = inflateMethod?.invoke(null, inflater, container, false) as B
             }
             catch (e: NoSuchMethodException) {
-                LogUtils.e(BaseFragment.TAG, t = e)
+                LogUtils.e(TAG, t = e)
             }
             catch (e: IllegalAccessException) {
-                LogUtils.e(BaseFragment.TAG, t = e)
+                LogUtils.e(TAG, t = e)
             }
             catch (e: InvocationTargetException) {
-                LogUtils.e(BaseFragment.TAG, t = e)
+                LogUtils.e(TAG, t = e)
             }
         }
+
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

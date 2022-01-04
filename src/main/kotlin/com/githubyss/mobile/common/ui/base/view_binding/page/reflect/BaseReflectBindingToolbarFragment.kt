@@ -5,13 +5,13 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
 
 
 /**
- * BaseReflectToolbarFragment
+ * BaseReflectBindingToolbarFragment
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/03/09 14:35:12
  */
-abstract class BaseReflectToolbarFragment<B : ViewBinding> : BindingReflectFragment<B>() {
+abstract class BaseReflectBindingToolbarFragment<B : ViewBinding> : RootReflectBindingFragment<B>() {
     
     /** ****************************** Override ****************************** */
     
@@ -30,15 +30,15 @@ abstract class BaseReflectToolbarFragment<B : ViewBinding> : BindingReflectFragm
     
     /** Setup Toolbar text by ResId. */
     protected fun setToolbarTitle(titleResId: Int) {
-        if (activity is BaseReflectToolbarActivity<*> && (activity as BaseReflectToolbarActivity<*>).binding is ComuiActivityBaseToolbarBinding) {
-            ((activity as BaseReflectToolbarActivity<*>).binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.setTitle(titleResId)
+        if (activity is BaseReflectBindingToolbarActivity<*> && (activity as BaseReflectBindingToolbarActivity<*>).binding is ComuiActivityBaseToolbarBinding) {
+            ((activity as BaseReflectBindingToolbarActivity<*>).binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.setTitle(titleResId)
         }
     }
     
     /** Setup Toolbar text by String. */
     protected fun setToolbarTitle(titleString: String) {
-        if (activity is BaseReflectToolbarActivity<*> && (activity as BaseReflectToolbarActivity<*>).binding is ComuiActivityBaseToolbarBinding) {
-            ((activity as BaseReflectToolbarActivity<*>).binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.title = titleString
+        if (activity is BaseReflectBindingToolbarActivity<*> && (activity as BaseReflectBindingToolbarActivity<*>).binding is ComuiActivityBaseToolbarBinding) {
+            ((activity as BaseReflectBindingToolbarActivity<*>).binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.title = titleString
         }
     }
 }

@@ -7,7 +7,7 @@ import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.ui.base.view_binding.function.inflateBindingByViewGroup
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseInlineBindingViewHolder
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline.BaseInlineBindingViewHolder
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemActivityIconBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel

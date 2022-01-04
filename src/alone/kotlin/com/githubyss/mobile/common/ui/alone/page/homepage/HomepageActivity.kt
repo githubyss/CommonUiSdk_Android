@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.ui.alone.page.homepage
 import android.os.Bundle
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarActivity
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineBindingToolbarActivity
 import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAudioPlayer
 
 
@@ -14,7 +14,7 @@ import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAud
  * @github githubyss
  * @createdTime 2021/03/09 10:54:13
  */
-class HomepageActivity : BaseInlineToolbarActivity() {
+class HomepageActivity : BaseInlineBindingToolbarActivity() {
     
     /** ****************************** Properties ****************************** */
     

@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.base.view_binding.recycler_view
+package com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
