@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.alone.page.recycler_view.search.template.
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseViewHolderBindingInline
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseInlineBindingViewHolder
 import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemFinanceAqBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
@@ -35,7 +35,7 @@ class FinanceAqAdapter constructor(private val dataList: List<BaseItemModel>, pr
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
-        if (holder is BaseViewHolderBindingInline<*>) {
+        if (holder is BaseInlineBindingViewHolder<*>) {
             when (val binding = holder.binding) {
                 is ComuiListItemFinanceAqBinding -> {
                     if (dataModel is FinanceAqModel) {

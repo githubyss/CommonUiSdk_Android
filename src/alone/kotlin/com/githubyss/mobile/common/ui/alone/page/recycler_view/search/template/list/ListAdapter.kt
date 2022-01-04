@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.alone.page.recycler_view.search.bean.HeaderHasMoreBean
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseViewHolderBindingInline
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseInlineBindingViewHolder
 import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyNoneBinding
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemHeaderSeeMoreBinding
@@ -51,7 +51,7 @@ class ListAdapter constructor(private val dataList: List<BaseItemModel>) : BaseI
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
-        if (holder is BaseViewHolderBindingInline<*>) {
+        if (holder is BaseInlineBindingViewHolder<*>) {
             when (val binding = holder.binding) {
                 is ComuiListItemHeaderSeeMoreBinding -> {
                     if (dataModel is HeaderHasMoreBean) {

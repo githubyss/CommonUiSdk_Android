@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.viewbinding.ViewBinding
-import com.githubyss.mobile.common.ui.base.view_binding.layout.BaseFrameLayoutBindingReflect
+import com.githubyss.mobile.common.ui.base.view_binding.layout.reflect.BaseReflectBindingFrameLayout
 
 
 /**
@@ -15,7 +15,7 @@ import com.githubyss.mobile.common.ui.base.view_binding.layout.BaseFrameLayoutBi
  * @github githubyss
  * @createdTime 2021/04/12 18:32:46
  */
-abstract class BaseItemLayout<B : ViewBinding> : BaseFrameLayoutBindingReflect<B> {
+abstract class BaseItemLayout<B : ViewBinding> : BaseReflectBindingFrameLayout<B> {
     
     /** ****************************** Properties ****************************** */
     

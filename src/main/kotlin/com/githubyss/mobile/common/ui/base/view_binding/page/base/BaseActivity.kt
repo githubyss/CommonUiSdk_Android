@@ -2,6 +2,7 @@ package com.githubyss.mobile.common.ui.base.view_binding.page.base
 
 import android.os.Bundle
 import androidx.annotation.IdRes
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.githubyss.mobile.common.kit.util.FragmentUtils
@@ -16,7 +17,7 @@ import com.githubyss.mobile.common.ui.R
  * @github githubyss
  * @createdTime 2021/06/02 15:10:38
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity(@LayoutRes layoutId: Int = R.layout.comui_activity_base) : AppCompatActivity(layoutId) {
     
     /** ****************************** Properties ****************************** */
     

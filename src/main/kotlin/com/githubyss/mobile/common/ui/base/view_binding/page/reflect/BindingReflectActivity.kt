@@ -6,6 +6,7 @@ import androidx.viewbinding.ViewBinding
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.base.view_binding.page.base.BaseActivity
 import java.lang.reflect.InvocationTargetException
+import java.lang.reflect.Method
 import java.lang.reflect.ParameterizedType
 
 
@@ -32,8 +33,9 @@ abstract class BindingReflectActivity<B : ViewBinding> : BaseActivity() {
         if (type is ParameterizedType) {
             try {
                 val clazz = type.actualTypeArguments[0] as Class<B>?
-                _binding = clazz?.getMethod("inflate", LayoutInflater::class.java)
-                    ?.invoke(null, layoutInflater) as B
+                val inflateMethod: Method? = clazz?.getMethod("inflate", LayoutInflater::class.java)
+                val inflater = layoutInflater
+                _binding = inflateMethod?.invoke(null, inflater) as B
                 setContentView(binding.root)
             }
             catch (e: NoSuchMethodException) {

@@ -7,7 +7,7 @@ import com.githubyss.mobile.common.kit.manager.font.FontConfig
 import com.githubyss.mobile.common.kit.manager.font.FontManager
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseViewHolderBindingInline
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseInlineBindingViewHolder
 import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemFundManagerBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
@@ -39,7 +39,7 @@ class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>, 
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
-        if (holder is BaseViewHolderBindingInline<*>) {
+        if (holder is BaseInlineBindingViewHolder<*>) {
             when (val binding = holder.binding) {
                 is ComuiListItemFundManagerBinding -> {
                     when (dataModel) {

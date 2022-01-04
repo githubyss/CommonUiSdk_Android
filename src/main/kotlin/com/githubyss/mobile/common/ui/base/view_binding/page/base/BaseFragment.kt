@@ -18,7 +18,7 @@ import com.githubyss.mobile.common.ui.R
  * @github githubyss
  * @createdTime 2021/06/02 15:11:59
  */
-abstract class BaseFragment(@LayoutRes layoutId: Int = 0) : Fragment(layoutId) {
+abstract class BaseFragment(@LayoutRes layoutId: Int = R.layout.comui_fragment_base) : Fragment(layoutId) {
 
     /** ****************************** Properties ****************************** */
 
