@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.alone.page.view_binding.inline
 
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInlineBinding
 
@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInline
  * @github githubyss
  * @createdTime 2021/07/20 17:44:22
  */
-class InlineFragment : BaseFragment(R.layout.comui_fragment_view_binding_inline) {
+class InlineFragment : BaseInlineFragment(R.layout.comui_fragment_view_binding_inline) {
     
     /** ****************************** Properties ****************************** */
     

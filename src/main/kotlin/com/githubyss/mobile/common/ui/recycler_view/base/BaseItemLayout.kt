@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.viewbinding.ViewBinding
-import com.githubyss.mobile.common.ui.base.view_binding.layout.reflect.BaseFrameLayoutBindingReflect
+import com.githubyss.mobile.common.ui.base.view_binding.layout.BaseFrameLayoutBindingReflect
 
 
 /**

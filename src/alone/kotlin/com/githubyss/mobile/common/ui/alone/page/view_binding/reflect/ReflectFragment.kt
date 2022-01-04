@@ -1,6 +1,6 @@
 package com.githubyss.mobile.common.ui.alone.page.view_binding.reflect
 
-import com.githubyss.mobile.common.ui.base.view_binding.page.reflect.BaseFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.reflect.BaseReflectFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflectBinding
 
 
@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflec
  * @github githubyss
  * @createdTime 2021/07/21 11:16:42
  */
-class ReflectFragment : BaseFragment<ComuiFragmentViewBindingReflectBinding>() {
+class ReflectFragment : BaseReflectFragment<ComuiFragmentViewBindingReflectBinding>() {
     
     /** ****************************** Properties ****************************** */
     

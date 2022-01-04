@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.ui.alone.page.recycler_view.search.util.Layou
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSearchResultMoreBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
@@ -32,7 +32,7 @@ import org.json.JSONObject
  * @github githubyss
  * @createdTime 2021/03/30 20:05:25
  */
-class SearchResultMoreFragment : BaseToolbarFragment(R.layout.comui_fragment_search_result_more) {
+class SearchResultMoreFragment : BaseInlineToolbarFragment(R.layout.comui_fragment_search_result_more) {
     
     /** ****************************** Properties ****************************** */
     

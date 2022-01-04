@@ -14,22 +14,21 @@ import androidx.fragment.app.FragmentManager
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.base.BaseFragment
 
 
 /**
- * CommonDialog
+ * NormalDialog
  * <Description>
  * <Details>
  *
  * @author Ace Yan
  * @github githubyss
  */
-class CommonDialog @SuppressLint("ValidFragment") private constructor() : DialogFragment() {
+class NormalDialog @SuppressLint("ValidFragment") private constructor() : DialogFragment() {
     companion object {
         var instance = Holder.INSTANCE
 
-        val TAG: String = CommonDialog::class.java.simpleName
+        val TAG: String = NormalDialog::class.java.simpleName
 
         private val KEY_TITLE = "text"
         private val KEY_FIRST_LINE = "firstLine"
@@ -41,7 +40,7 @@ class CommonDialog @SuppressLint("ValidFragment") private constructor() : Dialog
         private val KEY_CENTER_STATUS = "centerStatus"
 
 
-        fun showByMsg(manager: FragmentManager?, titleStr: String = "", firstLineStr: String = "", secondLineStr: String = "", btnLeftStr: String = "", btnRightStr: String = "", onBtnLeftClickListener: View.OnClickListener? = null, onBtnRightClickListener: View.OnClickListener? = null, btnLeftHighlightStatus: Boolean = false, btnRightHighlightStatus: Boolean = true, centerStatus: Boolean = true, cancelale: Boolean = true): CommonDialog {
+        fun showByMsg(manager: FragmentManager?, titleStr: String = "", firstLineStr: String = "", secondLineStr: String = "", btnLeftStr: String = "", btnRightStr: String = "", onBtnLeftClickListener: View.OnClickListener? = null, onBtnRightClickListener: View.OnClickListener? = null, btnLeftHighlightStatus: Boolean = false, btnRightHighlightStatus: Boolean = true, centerStatus: Boolean = true, cancelale: Boolean = true): NormalDialog {
             checkOld(manager)
 
             instance.onBtnLeftClickListener = onBtnLeftClickListener
@@ -91,7 +90,7 @@ class CommonDialog @SuppressLint("ValidFragment") private constructor() : Dialog
     }
 
     private object Holder {
-        val INSTANCE = CommonDialog()
+        val INSTANCE = NormalDialog()
     }
 
 

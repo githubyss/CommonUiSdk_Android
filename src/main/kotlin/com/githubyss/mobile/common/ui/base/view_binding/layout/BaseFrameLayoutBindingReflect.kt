@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.base.view_binding.layout.reflect
+package com.githubyss.mobile.common.ui.base.view_binding.layout
 
 import android.content.Context
 import android.util.AttributeSet

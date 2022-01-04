@@ -1,6 +1,6 @@
 package com.githubyss.mobile.common.ui.alone.page.view_binding.inline
 
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseActivity
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineActivity
 
 
 /**
@@ -10,7 +10,7 @@ import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseActivity
  * @github githubyss
  * @createdTime 2021/07/20 17:42:44
  */
-class InlineActivity : BaseActivity() {
+class InlineActivity : BaseInlineActivity() {
     
     /** ****************************** Properties ****************************** */
     

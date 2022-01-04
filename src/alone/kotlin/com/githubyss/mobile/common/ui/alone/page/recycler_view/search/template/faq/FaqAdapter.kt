@@ -2,8 +2,8 @@ package com.githubyss.mobile.common.ui.alone.page.recycler_view.search.template.
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline.BaseViewHolderBindingInline
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline.inflate
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseViewHolderBindingInline
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemFaqBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel

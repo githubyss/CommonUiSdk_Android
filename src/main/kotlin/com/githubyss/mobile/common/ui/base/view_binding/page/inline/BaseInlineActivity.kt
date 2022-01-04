@@ -5,12 +5,15 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseBinding
 
 
 /**
- * BaseActivity
+ * BaseInlineActivity
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/07/20 16:50:32
  */
-abstract class BaseActivity : BaseActivity() {
+abstract class BaseInlineActivity : BaseActivity() {
+
+    /** ****************************** Properties ****************************** */
+
     val binding by inflate<ComuiActivityBaseBinding>()
 }

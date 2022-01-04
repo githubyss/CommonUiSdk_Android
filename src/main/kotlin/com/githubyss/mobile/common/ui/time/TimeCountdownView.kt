@@ -5,7 +5,7 @@ import android.os.CountDownTimer
 import android.util.AttributeSet
 import com.githubyss.mobile.common.kit.enumeration.TimeUnit
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.layout.reflect.BaseFrameLayoutBindingReflect
+import com.githubyss.mobile.common.ui.base.view_binding.layout.BaseFrameLayoutBindingReflect
 import com.githubyss.mobile.common.ui.databinding.ComuiTimeCountdownBinding
 
 

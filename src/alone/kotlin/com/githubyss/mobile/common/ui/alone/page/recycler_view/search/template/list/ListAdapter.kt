@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.alone.page.recycler_view.search.bean.HeaderHasMoreBean
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline.BaseViewHolderBindingInline
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline.inflate
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseViewHolderBindingInline
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyNoneBinding
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemHeaderSeeMoreBinding
 import com.githubyss.mobile.common.ui.databinding.ComuiRecyclerViewBgTransparentCornerNoneMarginNoneBinding

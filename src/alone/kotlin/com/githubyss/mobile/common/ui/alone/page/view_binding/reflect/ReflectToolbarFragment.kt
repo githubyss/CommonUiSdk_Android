@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.alone.page.view_binding.reflect
 
 import android.view.View
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.reflect.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.reflect.BaseReflectToolbarFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflectBinding
 
 
@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingReflec
  * @github githubyss
  * @createdTime 2021/06/03 19:46:28
  */
-class ReflectToolbarFragment : BaseToolbarFragment<ComuiFragmentViewBindingReflectBinding>() {
+class ReflectToolbarFragment : BaseReflectToolbarFragment<ComuiFragmentViewBindingReflectBinding>() {
     
     /** ****************************** Properties ****************************** */
     

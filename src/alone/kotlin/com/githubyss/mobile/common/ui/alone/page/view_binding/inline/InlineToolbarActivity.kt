@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.alone.page.view_binding.inline
 
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarActivity
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarActivity
 
 
 /**
@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarA
  * @github githubyss
  * @createdTime 2021/06/04 14:55:13
  */
-class InlineToolbarActivity : BaseToolbarActivity() {
+class InlineToolbarActivity : BaseInlineToolbarActivity() {
     
     /** ****************************** Properties ****************************** */
     

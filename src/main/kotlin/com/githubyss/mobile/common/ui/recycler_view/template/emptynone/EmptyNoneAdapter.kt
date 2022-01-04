@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.recycler_view.template.emptynone
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline.inflate
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyNoneBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel

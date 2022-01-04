@@ -1,27 +1,22 @@
-package com.githubyss.mobile.common.ui.base.view_binding.page.inline
+package com.githubyss.mobile.common.ui.base.view_binding.page.reflect
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.githubyss.mobile.common.ui.base.view_binding.page.base.BaseActivity
+import androidx.viewbinding.ViewBinding
 import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBinding
 
 
 /**
- * BaseToolbarActivity
+ * BaseReflectToolbarActivity
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2021/06/02 16:45:23
+ * @createdTime 2021/03/09 14:35:21
  */
-abstract class BaseToolbarActivity : BaseActivity() {
-    
-    /** ****************************** Properties ****************************** */
-    
-    val binding by inflate<ComuiActivityBaseToolbarBinding>()
-    
+abstract class BaseReflectToolbarActivity<B : ViewBinding> : BindingReflectActivity<B>() {
     
     /** ****************************** Override ****************************** */
     
@@ -47,7 +42,7 @@ abstract class BaseToolbarActivity : BaseActivity() {
     
     /** Setup Toolbar text by ResId. */
     protected fun setToolbarTitle(titleResId: Int) {
-        // toolbarBase.text = ResourceUtils.getString(this@BaseToolbarActivity, titleResId)
+        // toolbarBase.text = ResourceUtils.getString(this@BaseReflectToolbarActivity, titleResId)
         if (binding is ComuiActivityBaseToolbarBinding) (binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.setTitle(titleResId)
     }
     
@@ -58,7 +53,7 @@ abstract class BaseToolbarActivity : BaseActivity() {
     
     /** Setup Toolbar navigation icon by ResId. */
     protected fun setToolbarNavigationIcon(iconResId: Int) {
-        // toolbarBase.navigationIcon = ResourceUtils.getDrawable(this@BaseToolbarActivity, iconResId)
+        // toolbarBase.navigationIcon = ResourceUtils.getDrawable(this@BaseReflectToolbarActivity, iconResId)
         if (binding is ComuiActivityBaseToolbarBinding) (binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.setNavigationIcon(iconResId)
     }
     
@@ -95,12 +90,12 @@ abstract class BaseToolbarActivity : BaseActivity() {
     
     /** ****************************** Interface ****************************** */
     
-    /** Toolbar navigation click listener in BaseToolbarActivity. */
+    /** Toolbar navigation click listener in BaseReflectToolbarActivity. */
     interface OnBaseToolbarNavigationClickListener {
         fun onClick(v: View)
     }
     
-    /** Toolbar menu item click listener in BaseToolbarActivity. */
+    /** Toolbar menu item click listener in BaseReflectToolbarActivity. */
     interface OnBaseToolbarMenuItemClickListener {
         fun onClick(item: MenuItem): Boolean
     }

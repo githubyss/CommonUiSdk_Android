@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.githubyss.mobile.common.ui.alone.page.mvvm.enumeration.DisplayType
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMvvmBinding
 
@@ -18,7 +18,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMvvmBinding
  * @github githubyss
  * @createdTime 2021/06/10 11:18:21
  */
-class MvvmFragment : BaseToolbarFragment(R.layout.comui_fragment_mvvm) {
+class MvvmFragment : BaseInlineToolbarFragment(R.layout.comui_fragment_mvvm) {
     
     /** ****************************** Properties ****************************** */
     

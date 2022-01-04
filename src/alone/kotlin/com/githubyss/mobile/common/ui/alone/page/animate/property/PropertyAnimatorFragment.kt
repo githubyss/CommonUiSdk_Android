@@ -8,7 +8,7 @@ import com.githubyss.mobile.common.kit.ComkitApplicationConfig
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.ComuiPointEvaluator
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentPropertyAnimatorBinding
 import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
@@ -21,7 +21,7 @@ import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
  * @github githubyss
  * @createdTime 2021/03/09 11:10:20
  */
-class PropertyAnimatorFragment : BaseToolbarFragment(R.layout.comui_fragment_property_animator) {
+class PropertyAnimatorFragment : BaseInlineToolbarFragment(R.layout.comui_fragment_property_animator) {
 
     /** ****************************** Properties ****************************** */
 

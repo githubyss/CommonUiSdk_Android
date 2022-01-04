@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.alone.page.speech_recognition.manager.Voic
 import com.githubyss.mobile.common.ui.alone.page.speech_recognition.util.VoiceError
 import com.githubyss.mobile.common.ui.alone.page.speech_recognition.widget.RecordImageButton
 import com.githubyss.mobile.common.ui.alone.page.speech_recognition.widget.VoiceHomeLayout
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSpeechRecognitionBinding
 
@@ -25,7 +25,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSpeechRecognition
  * @github githubyss
  * @createdTime 2021/12/27 14:36:49
  */
-class SpeechRecognitionFragment : BaseToolbarFragment(R.layout.comui_fragment_speech_recognition) {
+class SpeechRecognitionFragment : BaseInlineToolbarFragment(R.layout.comui_fragment_speech_recognition) {
 
     /** ****************************** Properties ****************************** */
 
@@ -64,12 +64,12 @@ class SpeechRecognitionFragment : BaseToolbarFragment(R.layout.comui_fragment_sp
         binding.recordImageButton.setVoiceListener(voiceListener)
         binding.voiceBtnHelp.setOnClickListener(onClickListener)
         binding.voiceBtnClose.setOnClickListener(onClickListener)
-        binding.viewVoiceTalking.voiceHomeLayout.setmPhoneChargeClickListener(onClickListener)
-        binding.viewVoiceTalking.voiceHomeLayout.setmTransferClickListener(onClickListener)
-        binding.viewVoiceTalking.voiceHomeLayout.setmLifePaymentClickListener(onClickListener)
-        binding.viewVoiceTalking.voiceHomeLayout.setmPlayClickListener(onClickListener)
-        binding.viewVoiceTalking.voiceHomeLayout.setmTravelClickListener(onClickListener)
-        binding.viewVoiceTalking.voiceHomeLayout.setmCreditCardClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmPhoneChargeClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmTransferClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmLifePaymentClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmPlayClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmTravelClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmCreditCardClickListener(onClickListener)
     }
 
     private fun initSpeechRecognition() {

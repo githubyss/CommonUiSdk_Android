@@ -23,7 +23,7 @@ import com.githubyss.mobile.common.ui.alone.page.view_binding.inline.InlineActiv
 import com.githubyss.mobile.common.ui.alone.page.view_binding.inline.InlineToolbarActivity
 import com.githubyss.mobile.common.ui.alone.page.view_binding.reflect.ReflectActivity
 import com.githubyss.mobile.common.ui.alone.page.view_binding.reflect.ReflectToolbarActivity
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentHomepageBinding
 import com.githubyss.mobile.common.ui.floating_view.container.FloatingAudioPlayerListener
@@ -41,7 +41,7 @@ import java.util.*
  * @github githubyss
  * @createdTime 2021/03/09 10:54:22
  */
-class HomepageFragment : BaseToolbarFragment(R.layout.comui_fragment_homepage) {
+class HomepageFragment : BaseInlineToolbarFragment(R.layout.comui_fragment_homepage) {
 
     /** ****************************** Properties ****************************** */
 

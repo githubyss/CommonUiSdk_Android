@@ -4,10 +4,10 @@ import androidx.viewbinding.ViewBinding
 
 
 /**
- * BaseActivity
+ * BaseReflectActivity
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/07/20 16:40:17
  */
-abstract class BaseActivity<B : ViewBinding> : BindingReflectBaseActivity<B>()
+abstract class BaseReflectActivity<B : ViewBinding> : BindingReflectActivity<B>()

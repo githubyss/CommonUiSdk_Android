@@ -5,13 +5,13 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
 
 
 /**
- * BaseToolbarFragment
+ * BaseReflectToolbarFragment
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2021/03/09 14:35:12
  */
-abstract class BaseToolbarFragment<B : ViewBinding> : BaseFragment<B>() {
+abstract class BaseReflectToolbarFragment<B : ViewBinding> : BindingReflectFragment<B>() {
     
     /** ****************************** Override ****************************** */
     
@@ -30,15 +30,15 @@ abstract class BaseToolbarFragment<B : ViewBinding> : BaseFragment<B>() {
     
     /** Setup Toolbar text by ResId. */
     protected fun setToolbarTitle(titleResId: Int) {
-        if (activity is BaseToolbarActivity<*> && (activity as BaseToolbarActivity<*>).binding is ComuiActivityBaseToolbarBinding) {
-            ((activity as BaseToolbarActivity<*>).binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.setTitle(titleResId)
+        if (activity is BaseReflectToolbarActivity<*> && (activity as BaseReflectToolbarActivity<*>).binding is ComuiActivityBaseToolbarBinding) {
+            ((activity as BaseReflectToolbarActivity<*>).binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.setTitle(titleResId)
         }
     }
     
     /** Setup Toolbar text by String. */
     protected fun setToolbarTitle(titleString: String) {
-        if (activity is BaseToolbarActivity<*> && (activity as BaseToolbarActivity<*>).binding is ComuiActivityBaseToolbarBinding) {
-            ((activity as BaseToolbarActivity<*>).binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.title = titleString
+        if (activity is BaseReflectToolbarActivity<*> && (activity as BaseReflectToolbarActivity<*>).binding is ComuiActivityBaseToolbarBinding) {
+            ((activity as BaseReflectToolbarActivity<*>).binding as ComuiActivityBaseToolbarBinding).toolbarBase.toolbarBase.title = titleString
         }
     }
 }

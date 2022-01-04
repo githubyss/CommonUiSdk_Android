@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.alone.page.view_binding.inline
 
 import android.view.View
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseToolbarFragment
+import com.githubyss.mobile.common.ui.base.view_binding.page.inline.BaseInlineToolbarFragment
 import com.githubyss.mobile.common.ui.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInlineBinding
 
@@ -14,7 +14,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentViewBindingInline
  * @github githubyss
  * @createdTime 2021/06/04 14:52:55
  */
-class InlineToolbarFragment : BaseToolbarFragment(R.layout.comui_fragment_view_binding_inline) {
+class InlineToolbarFragment : BaseInlineToolbarFragment(R.layout.comui_fragment_view_binding_inline) {
     
     /** ****************************** Properties ****************************** */
     

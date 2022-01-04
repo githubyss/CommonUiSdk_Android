@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
-import com.githubyss.mobile.common.ui.base.view_binding.inflateBinding
-import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline.BaseViewHolderBindingInline
+import com.githubyss.mobile.common.ui.base.view_binding.function.inflateBindingViewGroup
+import com.githubyss.mobile.common.ui.base.view_binding.recycler_view.BaseViewHolderBindingInline
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemActivityIconBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
@@ -33,7 +33,7 @@ class ActivityIconAdapter constructor(private val dataList: List<BaseItemModel>,
     /** ****************************** Override ****************************** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
-        val binding = inflateBinding<ComuiListItemActivityIconBinding>(parent)
+        val binding = inflateBindingViewGroup<ComuiListItemActivityIconBinding>(parent)
         val view = binding.root
         view.layoutParams.width = (ScreenUtils.getScreenWidthPx(parent.context) - ScreenUtils.dp2Px(28.0f)) / 4
         return BaseViewHolderBindingInline(binding)

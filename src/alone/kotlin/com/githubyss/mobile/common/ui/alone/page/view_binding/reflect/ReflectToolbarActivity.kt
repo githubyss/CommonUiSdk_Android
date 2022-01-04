@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.alone.page.view_binding.reflect
 
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.base.view_binding.page.reflect.BaseToolbarActivity
+import com.githubyss.mobile.common.ui.base.view_binding.page.reflect.BaseReflectToolbarActivity
 import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBinding
 
 
@@ -12,7 +12,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiActivityBaseToolbarBindin
  * @github githubyss
  * @createdTime 2021/06/03 19:17:26
  */
-class ReflectToolbarActivity : BaseToolbarActivity<ComuiActivityBaseToolbarBinding>() {
+class ReflectToolbarActivity : BaseReflectToolbarActivity<ComuiActivityBaseToolbarBinding>() {
     
     /** ****************************** Properties ****************************** */
     

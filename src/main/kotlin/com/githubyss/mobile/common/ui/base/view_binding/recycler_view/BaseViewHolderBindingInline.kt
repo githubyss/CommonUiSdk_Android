@@ -1,9 +1,9 @@
-package com.githubyss.mobile.common.ui.base.view_binding.recycler_view.inline
+package com.githubyss.mobile.common.ui.base.view_binding.recycler_view
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.githubyss.mobile.common.ui.base.view_binding.inflateBinding
+import com.githubyss.mobile.common.ui.base.view_binding.function.inflateBindingViewGroup
 
 
 /**
@@ -16,5 +16,5 @@ import com.githubyss.mobile.common.ui.base.view_binding.inflateBinding
 class BaseViewHolderBindingInline<B : ViewBinding>(val binding: B) : RecyclerView.ViewHolder(binding.root)
 
 inline fun <reified B : ViewBinding> inflate(parent: ViewGroup): BaseViewHolderBindingInline<B> {
-    return BaseViewHolderBindingInline(inflateBinding(parent))
+    return BaseViewHolderBindingInline(inflateBindingViewGroup(parent))
 }
