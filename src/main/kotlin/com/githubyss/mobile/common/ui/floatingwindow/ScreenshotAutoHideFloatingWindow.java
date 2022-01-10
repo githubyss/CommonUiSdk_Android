@@ -8,7 +8,6 @@ import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -22,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.githubyss.mobile.common.kit.util.ImageUtils;
+import com.githubyss.mobile.common.kit.util.LogUtils;
 import com.githubyss.mobile.common.ui.R;
 
 
@@ -107,7 +107,7 @@ public class ScreenshotAutoHideFloatingWindow {
                     try {
                         bitmap = BitmapFactory.decodeFile(filePath);
                     } catch (Exception e) {
-                        Log.e("", e.getMessage());
+                        LogUtils.INSTANCE.e("", e.getMessage());
                     }
                     String[] sharePath = new String[]{"WXChat", "WXFriends", "Weibo", "QQChat", "QQZone"};
                 }

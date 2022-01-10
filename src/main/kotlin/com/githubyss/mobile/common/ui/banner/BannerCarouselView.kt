@@ -13,6 +13,7 @@ import android.widget.FrameLayout
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import java.lang.ref.WeakReference
 
@@ -171,7 +172,7 @@ class BannerCarouselView : FrameLayout {
                     try {
                         viewPager = weakReference.get()?.getChildAt(0) as ViewPager
                     } catch (e: Exception) {
-                        Log.e(TAG, "first child must be ViewPager!")
+                        LogUtils.e(TAG, "first child must be ViewPager!")
                     }
                     if (viewPager != null && viewPager.childCount > 1) {
                         if (viewPager.currentItem != 0 && viewPager.currentItem != (viewPager.adapter?.count ?: return) - 1) {

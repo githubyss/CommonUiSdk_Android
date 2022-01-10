@@ -578,7 +578,7 @@
 //      */
 //     public static Bitmap createProcessBitmap(Bitmap src, Bitmap watermark) {
 //         String tag = "createBitmap";
-//         Log.d(tag, "create a new bitmap");
+//         LogUtils.d(tag, "create a new bitmap");
 //         if (src == null) {
 //             return null;
 //         }

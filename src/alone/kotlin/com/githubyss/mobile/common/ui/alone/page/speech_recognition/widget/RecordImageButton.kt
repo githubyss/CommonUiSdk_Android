@@ -63,7 +63,7 @@ class RecordImageButton : RelativeLayout {
             val action = event.action
             when (action) {
                 MotionEvent.ACTION_DOWN -> {
-                    Log.e("onTouchEvent action down action", action.toString() + "")
+                    LogUtils.e("onTouchEvent action down action", action.toString() + "")
                     voice_tip!!.text = "松开完成"
                     voice_img!!.showAnimation()
                     voice_loading!!.visibility = GONE
@@ -72,7 +72,7 @@ class RecordImageButton : RelativeLayout {
                     }
                 }
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    Log.e("onTouchEvent action up action", action.toString() + "")
+                    LogUtils.e("onTouchEvent action up action", action.toString() + "")
                     voice_tip!!.text = "长按说话"
                     voice_img!!.dismissAnimation()
                     if (mListener != null) {
