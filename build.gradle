@@ -28,19 +28,46 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+    Properties properties = new Properties()
+    InputStream inputStream = project.rootProject.file("signing.properties").newDataInputStream()
+    properties.load(inputStream)
+    def RELEASE_STORE_FILE = file(properties.getProperty('RELEASE_STORE_FILE'))
+    def RELEASE_STORE_PASSWORD = properties.getProperty('RELEASE_STORE_PASSWORD')
+    def RELEASE_KEY_ALIAS = properties.getProperty('RELEASE_KEY_ALIAS')
+    def RELEASE_KEY_PWD = properties.getProperty('RELEASE_KEY_PWD')
+
+    signingConfigs {
+        release {
+            storeFile RELEASE_STORE_FILE
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PWD
+        }
+    }
+
     buildTypes {
         debug {
             debuggable isDebuggable.toBoolean()
             minifyEnabled isMinifyEnabled.toBoolean()
+            shrinkResources isShrinkResources.toBoolean()
+            zipAlignEnabled isZipAlignEnabled.toBoolean()
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.debug
 
             buildConfigField "boolean", "MOCK_LOCAL", "false"
         }
 
         release {
-            debuggable isDebuggable.toBoolean()
-            minifyEnabled isMinifyEnabled.toBoolean()
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            if (RELEASE_STORE_FILE.exists()) {
+                signingConfig signingConfigs.release
+            }
 
             buildConfigField "boolean", "MOCK_LOCAL", "false"
         }
