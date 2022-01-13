@@ -1,29 +1,30 @@
 <manifest
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        package="com.githubyss.mobile.common.ui"
-        tools:ignore="LockedOrientationActivity"
-        >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.githubyss.mobile.common.ui"
+    tools:ignore="LockedOrientationActivity"
+    >
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-            android:name=".alone.application.ComuiApplication"
-            android:allowBackup="false"
-            android:icon="@mipmap/comui_ic_launcher"
-            android:label="@string/comui_appName"
-            android:roundIcon="@mipmap/comui_ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/comui_app_gray_theme"
-            >
+        android:name=".alone.application.ComuiApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/comui_ic_launcher"
+        android:label="@string/comui_appName"
+        android:roundIcon="@mipmap/comui_ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/comui_app_gray_theme"
+        tools:replace="android:label"
+        >
 
         <activity
-                android:name=".alone.page.homepage.HomepageActivity"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:theme="@style/comui_activity_noActionBar_theme"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                >
+            android:name=".alone.page.homepage.HomepageActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comui_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -31,51 +32,51 @@
         </activity>
 
         <activity
-                android:name=".alone.page.mvvm.MvvmActivity"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:theme="@style/comui_activity_noActionBar_theme"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                />
+            android:name=".alone.page.mvvm.MvvmActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comui_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
 
         <activity
-                android:name=".alone.page.view_binding.reflect.ReflectActivity"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:theme="@style/comui_activity_noActionBar_theme"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                />
+            android:name=".alone.page.view_binding.reflect.ReflectActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comui_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
 
         <activity
-                android:name=".alone.page.view_binding.inline.InlineActivity"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:theme="@style/comui_activity_noActionBar_theme"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                />
+            android:name=".alone.page.view_binding.inline.InlineActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comui_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
 
         <activity
-                android:name=".alone.page.view_binding.reflect.ReflectToolbarActivity"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:theme="@style/comui_activity_noActionBar_theme"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                />
+            android:name=".alone.page.view_binding.reflect.ReflectToolbarActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comui_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
 
         <activity
-                android:name=".alone.page.view_binding.inline.InlineToolbarActivity"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:theme="@style/comui_activity_noActionBar_theme"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                />
+            android:name=".alone.page.view_binding.inline.InlineToolbarActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comui_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
 
         <activity
-                android:name=".alone.page.speech_recognition.SpeechRecognitionActivity"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:theme="@style/comui_activity_noActionBar_theme"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                />
+            android:name=".alone.page.speech_recognition.SpeechRecognitionActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/comui_activity_noActionBar_theme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
     </application>
 </manifest>
