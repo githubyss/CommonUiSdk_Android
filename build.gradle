@@ -131,33 +131,40 @@ android {
         if (isLaunchApp) {
             app {
                 java {
-                    srcDirs 'src/alone/java'
-                    srcDirs 'src/alone/kotlin'
+                    srcDirs 'src/app/java'
+                    srcDirs 'src/app/kotlin'
                 }
                 res {
-                    srcDirs 'src/alone/res'
-                    srcDirs 'src/alone/res/common'
+                    srcDirs 'src/app/res'
+                    srcDirs 'src/app/res/common'
 
-                    srcDirs 'src/alone/res/homepage'
-                    srcDirs 'src/alone/res/mvvm'
-                    srcDirs 'src/alone/res/view_binding'
-                    srcDirs 'src/alone/res/view_binding/inline'
-                    srcDirs 'src/alone/res/view_binding/reflect'
-                    srcDirs 'src/alone/res/animate'
-                    srcDirs 'src/alone/res/recycler_view'
-                    srcDirs 'src/alone/res/recycler_view/search'
-                    srcDirs 'src/alone/res/recycler_view/multi'
-                    srcDirs 'src/alone/res/speech_recognition'
+                    srcDirs 'src/app/res/homepage'
+                    srcDirs 'src/app/res/mvvm'
+                    srcDirs 'src/app/res/view_binding'
+                    srcDirs 'src/app/res/view_binding/inline'
+                    srcDirs 'src/app/res/view_binding/reflect'
+                    srcDirs 'src/app/res/animate'
+                    srcDirs 'src/app/res/recycler_view'
+                    srcDirs 'src/app/res/recycler_view/search'
+                    srcDirs 'src/app/res/recycler_view/multi'
+                    srcDirs 'src/app/res/speech_recognition'
                 }
                 manifest {
-                    srcFile 'src/alone/AndroidManifest.xml'
+                    srcFile 'src/app/AndroidManifest.xml'
                 }
             }
         }
 
-        sourceSets.all {
-            set -> println "${set.name} 的文件是 ${set.java.srcDirs}"
+        test {
+            java {
+                srcDirs 'src/test/java'
+                srcDirs 'src/test/kotlin'
+            }
         }
+
+        // sourceSets.all {
+        //     set -> println "${set.name} 的文件是 ${set.java.srcDirs}"
+        // }
     }
 
     compileOptions {
