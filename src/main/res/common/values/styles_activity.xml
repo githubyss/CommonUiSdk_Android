@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Activity no action bar theme. -->
-    <style name="comui_activity_noActionBar_theme"
-           parent="Theme.AppCompat.Light.NoActionBar" />
-</resources>

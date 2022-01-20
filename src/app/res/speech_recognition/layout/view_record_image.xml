@@ -12,7 +12,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <com.githubyss.mobile.common.ui.alone.page.speech_recognition.widget.RecordImageView
+    <com.githubyss.mobile.common.ui.app.page.speech_recognition.widget.RecordImageView
         android:id="@+id/voice_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".alone.page.mvvm.MvvmActivity">
+    tools:context=".app.page.mvvm.MvvmActivity">
 
     <data>
 
@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.githubyss.mobile.common.ui.alone.page.speech_recognition.widget.VoiceHomeLayout
+            <com.githubyss.mobile.common.ui.app.page.speech_recognition.widget.VoiceHomeLayout
                 android:id="@+id/voice_home_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -63,7 +63,7 @@
                         android:textColor="#666666"
                         android:textSize="20sp" />
                 </RelativeLayout>
-            </com.githubyss.mobile.common.ui.alone.page.speech_recognition.widget.VoiceHomeLayout>
+            </com.githubyss.mobile.common.ui.app.page.speech_recognition.widget.VoiceHomeLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="com.githubyss.mobile.common.ui.alone.page.recycler_view.search.template.insurance_product.InsuranceProductModel" />
+        <import type="com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.insurance_product.InsuranceProductModel" />
 
         <variable
             name="insuranceProduct"

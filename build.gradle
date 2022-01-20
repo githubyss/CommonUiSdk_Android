@@ -23,6 +23,9 @@ android {
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
 
+        versionCode 1
+        versionName "1.0"
+
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
         proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -79,13 +82,14 @@ android {
 
     flavorDimensions 'library'
     productFlavors {
-        app {
-            dimension 'library'
-            if (isLaunchApp) {
+        if (isLaunchApp) {
+            app {
+                dimension 'library'
                 applicationId 'com.githubyss.mobile.common.ui'
+                versionCode 1
+                versionName "1.0"
+                manifestPlaceholders = [APP_NAME: "通用控件库"]
             }
-            versionCode 1
-            versionName "1.0"
         }
     }
 
@@ -100,17 +104,7 @@ android {
                 srcDirs 'src/main/res/common'
 
                 srcDirs 'src/main/res/banner'
-                srcDirs 'src/main/res/button'
-                srcDirs 'src/main/res/card'
-                srcDirs 'src/main/res/check_box'
                 srcDirs 'src/main/res/dialog'
-                srcDirs 'src/main/res/input'
-                srcDirs 'src/main/res/label'
-                srcDirs 'src/main/res/launcher'
-                srcDirs 'src/main/res/separator'
-                srcDirs 'src/main/res/tag'
-                srcDirs 'src/main/res/tip'
-                srcDirs 'src/main/res/toolbar'
                 srcDirs 'src/main/res/time_countdown'
 
                 srcDirs 'src/main/res/auto_hide_floating_window'
@@ -162,9 +156,9 @@ android {
             }
         }
 
-        // sourceSets.all {
-        //     set -> println "${set.name} 的文件是 ${set.java.srcDirs}"
-        // }
+        sourceSets.all {
+            set -> println "${set.name} 的文件是 ${set.java.srcDirs}"
+        }
     }
 
     compileOptions {
@@ -187,18 +181,20 @@ android {
     }
 }
 
+kapt {
+    arguments {
+        arg('moduleName', project.getName())
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':CommonLibSdk_Android')
+    implementation project(':CommonResSdk_Android')
     implementation project(':CommonKitSdk_Android')
-    if (isLaunchApp) {
-        implementation project(':CommonNetSdk_Android')
-    }
-}
 
-kapt {
-    arguments {
-        arg('moduleName', project.getName())
+    if (isLaunchApp) {
+        appImplementation project(':CommonNetSdk_Android')
     }
 }

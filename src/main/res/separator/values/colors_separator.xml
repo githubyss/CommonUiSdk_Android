@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Separator color. -->
-    <color name="comui_separator_gray">#999999</color>
-    <color name="comui_separator_lightGray">#E8E8E8</color>
-</resources>

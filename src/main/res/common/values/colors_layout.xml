@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Layout background colors. -->
-    <color name="comui_layoutBg_transparent">#00000000</color>
-    <color name="comui_layoutBg_white">#FFFFFF</color>
-    <color name="comui_layoutBg_lightGray">#F2F2F2</color>
-    <color name="comui_layoutBg_blue">#1F86ED</color>
-</resources>
