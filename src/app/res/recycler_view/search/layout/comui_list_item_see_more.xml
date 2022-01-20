@@ -10,15 +10,15 @@
 
     <com.google.android.flexbox.FlexboxLayout
             android:id="@+id/flexboxItemSeeMore"
-            android:background="@drawable/comui_card_bg_rectangle_normal_white"
+            android:background="@drawable/comres_card_bg_rectangle_normal_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/comui_sideMargin_micro"
-            android:paddingBottom="@dimen/comui_sideMargin_micro"
-            android:paddingLeft="@dimen/comui_sideMargin_tiny"
-            android:paddingRight="@dimen/comui_sideMargin_tiny"
-            android:layout_marginLeft="@dimen/comui_sideMargin_tiny"
-            android:layout_marginRight="@dimen/comui_sideMargin_tiny"
+            android:paddingTop="@dimen/comres_sideMargin_micro"
+            android:paddingBottom="@dimen/comres_sideMargin_micro"
+            android:paddingLeft="@dimen/comres_sideMargin_tiny"
+            android:paddingRight="@dimen/comres_sideMargin_tiny"
+            android:layout_marginLeft="@dimen/comres_sideMargin_tiny"
+            android:layout_marginRight="@dimen/comres_sideMargin_tiny"
             app:alignItems="center"
             app:flexDirection="row"
             app:justifyContent="center"
@@ -29,8 +29,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="“搜索词”相关的理财内容聚合"
-                android:textColor="@color/comui_color_999999"
-                android:textSize="@dimen/comui_textSize_12sp"
+                android:textColor="@color/comres_color_999999"
+                android:textSize="@dimen/comres_textSize_12sp"
                 android:maxLines="1"
                 />
 
@@ -43,8 +43,8 @@
                 android:drawableRight="@drawable/comui_icon_see_more_blue"
                 android:drawablePadding="4dp"
                 android:text="查看更多"
-                android:textColor="@color/comui_color_247cf0"
-                android:textSize="@dimen/comui_textSize_12sp"
+                android:textColor="@color/comres_color_247cf0"
+                android:textSize="@dimen/comres_textSize_12sp"
                 android:maxLines="1"
                 />
     </com.google.android.flexbox.FlexboxLayout>

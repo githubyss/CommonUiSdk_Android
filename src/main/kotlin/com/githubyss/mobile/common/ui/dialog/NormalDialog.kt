@@ -161,10 +161,10 @@ class NormalDialog @SuppressLint("ValidFragment") private constructor() : Dialog
             btnLeft?.text = btnLeftStr
             btnLeft?.visibility = View.VISIBLE
             if (btnLeftHighlightStatus) {
-                btnLeft?.setTextColor(ResourceUtils.getColor(R.color.comui_color_1f86ed))
+                btnLeft?.setTextColor(ResourceUtils.getColor(R.color.comres_color_1f86ed))
             }
             else {
-                btnLeft?.setTextColor(ResourceUtils.getColor(R.color.comui_color_353d44))
+                btnLeft?.setTextColor(ResourceUtils.getColor(R.color.comres_color_353d44))
             }
         }
 
@@ -172,10 +172,10 @@ class NormalDialog @SuppressLint("ValidFragment") private constructor() : Dialog
             btnRight?.text = btnRightStr
             btnRight?.visibility = View.VISIBLE
             if (btnRightHighlightStatus) {
-                btnRight?.setTextColor(ResourceUtils.getColor(R.color.comui_color_1f86ed))
+                btnRight?.setTextColor(ResourceUtils.getColor(R.color.comres_color_1f86ed))
             }
             else {
-                btnRight?.setTextColor(ResourceUtils.getColor(R.color.comui_color_353d44))
+                btnRight?.setTextColor(ResourceUtils.getColor(R.color.comres_color_353d44))
             }
         }
 

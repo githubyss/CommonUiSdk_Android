@@ -13,7 +13,7 @@
         android:id="@+id/layout_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/comui_layoutBg_lightGray"
+        android:background="@color/comres_layoutBg_lightGray"
         android:orientation="vertical">
 
         <androidx.core.widget.NestedScrollView
@@ -26,46 +26,12 @@
                 android:id="@+id/layout_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="@dimen/comui_sideMargin_normal"
-                android:paddingRight="@dimen/comui_sideMargin_normal"
-                android:paddingBottom="@dimen/comui_sideMargin_normal"
-                android:paddingLeft="@dimen/comui_sideMargin_normal"
+                android:paddingTop="@dimen/comres_sideMargin_normal"
+                android:paddingRight="@dimen/comres_sideMargin_normal"
+                android:paddingBottom="@dimen/comres_sideMargin_normal"
+                android:paddingLeft="@dimen/comres_sideMargin_normal"
                 android:gravity="center|top"
                 android:orientation="vertical">
-
-                <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
-
-                    <Button
-                        style="@style/comui_equant_horizontal_button_style"
-                        android:id="@+id/button_mvvm"
-                        android:text="@string/comui_homepage_button_mvvm" />
-                </com.google.android.flexbox.FlexboxLayout>
-
-                <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
-
-                    <Button
-                        style="@style/comui_equant_horizontal_button_style"
-                        android:id="@+id/button_binding_reflect"
-                        android:text="@string/comui_homepage_button_view_binding_reflect" />
-
-                    <Button
-                        style="@style/comui_equant_horizontal_button_style"
-                        android:id="@+id/button_binding_inline"
-                        android:text="@string/comui_homepage_button_view_binding_inline" />
-                </com.google.android.flexbox.FlexboxLayout>
-
-                <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
-
-                    <Button
-                        style="@style/comui_equant_horizontal_button_style"
-                        android:id="@+id/button_binding_reflect_toolbar"
-                        android:text="@string/comui_homepage_button_view_binding_toolbar_reflect" />
-
-                    <Button
-                        style="@style/comui_equant_horizontal_button_style"
-                        android:id="@+id/button_binding_inline_toolbar"
-                        android:text="@string/comui_homepage_button_view_binding_toolbar_inline" />
-                </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">
 
@@ -144,27 +110,27 @@
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_play_pause_controller"
-                        android:text="@string/comui_audio_player_play" />
+                        android:text="@string/comres_audio_player_play" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_previous"
-                        android:text="@string/comui_audio_player_previous" />
+                        android:text="@string/comres_audio_player_previous" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_next"
-                        android:text="@string/comui_audio_player_next" />
+                        android:text="@string/comres_audio_player_next" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_switch_voice"
-                        android:text="@string/comui_audio_player_switch_voice" />
+                        android:text="@string/comres_audio_player_switch_voice" />
 
                     <Button
                         style="@style/comui_equant_horizontal_button_style"
                         android:id="@+id/button_stop"
-                        android:text="@string/comui_audio_player_stop" />
+                        android:text="@string/comres_audio_player_stop" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout style="@style/comui_equant_horizontal_flex_style">

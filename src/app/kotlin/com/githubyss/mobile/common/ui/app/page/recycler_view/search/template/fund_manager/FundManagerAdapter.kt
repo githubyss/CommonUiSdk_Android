@@ -52,20 +52,20 @@ class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>, 
                                 when {
                                     dataModel.riseFallRatio.toFloat() == 0.0f -> {
                                         binding.textFundManagerRiseFallRatio.text = "${dataModel.riseFallRatio}%"
-                                        binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_999999))
+                                        binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_999999))
                                     }
                                     dataModel.riseFallRatio.toFloat() > 0.0f -> {
                                         binding.textFundManagerRiseFallRatio.text = "+${dataModel.riseFallRatio}%"
-                                        binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_ff5500))
+                                        binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_ff5500))
                                     }
                                     dataModel.riseFallRatio.toFloat() < 0.0f -> {
                                         binding.textFundManagerRiseFallRatio.text = "${dataModel.riseFallRatio}%"
-                                        binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_00c29e))
+                                        binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_00c29e))
                                     }
                                 }
                             } catch (e: NumberFormatException) {
                                 binding.textFundManagerRiseFallRatio.text = "-.--%"
-                                binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_999999))
+                                binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_999999))
                             }
                             binding.textFundManagerDescription.setText(dataModel.description, keyList)
                             binding.flexboxItemFundManager.setOnClickListener { v ->

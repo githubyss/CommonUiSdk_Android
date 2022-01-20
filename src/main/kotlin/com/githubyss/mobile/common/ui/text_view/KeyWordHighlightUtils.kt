@@ -22,7 +22,7 @@ object KeyWordHighlightUtils {
     /** ****************************** Properties ****************************** */
     
     private val TAG: String = KeyWordHighlightUtils::class.java.simpleName
-    private val defaultColorId: Int = R.color.comui_color_3399ff
+    private val defaultColorId: Int = R.color.comres_color_3399ff
     
     
     /** ****************************** Functions ****************************** */

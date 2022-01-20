@@ -3,10 +3,10 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/layout_recyclerTextItem"
-        android:background="@color/comui_layoutBg_transparent"
+        android:background="@color/comres_layoutBg_transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/comui_sideMargin_normal"
+        android:paddingLeft="@dimen/comres_sideMargin_normal"
         app:alignItems="flex_start"
         app:flexDirection="column"
         app:justifyContent="space_between"
@@ -15,7 +15,7 @@
     <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:paddingRight="@dimen/comui_sideMargin_normal"
+            android:paddingRight="@dimen/comres_sideMargin_normal"
             app:alignItems="center"
             app:flexDirection="row"
             app:justifyContent="space_between"
@@ -26,17 +26,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Text"
-                android:textColor="@color/comui_color_black"
-                android:textSize="@dimen/comui_textSize_18sp"
+                android:textColor="@color/comres_color_black"
+                android:textSize="@dimen/comres_textSize_18sp"
                 />
 
         <ImageView
                 android:id="@+id/imageView_recyclerTextSelect"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@drawable/comui_single_selection_checkbox_bg"
+                android:background="@drawable/comres_single_selection_checkbox_bg"
                 />
     </com.google.android.flexbox.FlexboxLayout>
 
-    <include layout="@layout/comui_view_separator_horizontal_gray" />
+    <include layout="@layout/comres_view_separator_horizontal_gray" />
 </com.google.android.flexbox.FlexboxLayout>

@@ -8,6 +8,6 @@
             android:width="5dp"
             android:height="5dp"
             />
-    <solid android:color="@color/comui_color_lightgray" />
+    <solid android:color="@color/comres_color_lightgray" />
     <corners android:radius="0dp" />
 </shape>

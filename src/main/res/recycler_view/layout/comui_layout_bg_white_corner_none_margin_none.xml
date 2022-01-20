@@ -10,7 +10,7 @@
             android:id="@+id/frame_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/comui_sideMargin_micro"
-            android:background="@color/comui_layoutBg_white"
+            android:layout_marginBottom="@dimen/comres_sideMargin_micro"
+            android:background="@color/comres_layoutBg_white"
             />
 </layout>

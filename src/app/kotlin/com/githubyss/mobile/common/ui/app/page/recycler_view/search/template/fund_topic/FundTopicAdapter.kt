@@ -48,20 +48,20 @@ class FundTopicAdapter constructor(private val dataList: List<BaseItemModel>, pr
                             when {
                                 dataModel.riseFallRatio.toFloat() == 0.0f -> {
                                     binding.textFundTopicRiseFallRatio.text = "${dataModel.riseFallRatio}%"
-                                    binding.textFundTopicRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_999999))
+                                    binding.textFundTopicRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_999999))
                                 }
                                 dataModel.riseFallRatio.toFloat() > 0.0f -> {
                                     binding.textFundTopicRiseFallRatio.text = "+${dataModel.riseFallRatio}%"
-                                    binding.textFundTopicRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_ff5500))
+                                    binding.textFundTopicRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_ff5500))
                                 }
                                 dataModel.riseFallRatio.toFloat() < 0.0f -> {
                                     binding.textFundTopicRiseFallRatio.text = "${dataModel.riseFallRatio}%"
-                                    binding.textFundTopicRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_00c29e))
+                                    binding.textFundTopicRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_00c29e))
                                 }
                             }
                         } catch (e: NumberFormatException) {
                             binding.textFundTopicRiseFallRatio.text = "-.--%"
-                            binding.textFundTopicRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comui_color_999999))
+                            binding.textFundTopicRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_999999))
                         }
                         binding.textFundTopicHint.text = dataModel.hint
                         binding.textFundTopicRiseFallTimeSpan.text = dataModel.riseFallTimeSpan

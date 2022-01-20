@@ -4,11 +4,6 @@
     <string name="comui_homepage_title">UI Debug Homepage</string>
 
     <!-- Button -->
-    <string name="comui_homepage_button_mvvm">MVVM</string>
-    <string name="comui_homepage_button_view_binding_reflect">Binding\n(by Reflect)</string>
-    <string name="comui_homepage_button_view_binding_inline">Binding\n(by Inline)</string>
-    <string name="comui_homepage_button_view_binding_toolbar_reflect">Binding Toolbar\n(by Reflect)</string>
-    <string name="comui_homepage_button_view_binding_toolbar_inline">Binding Toolbar\n(by Inline)</string>
     <string name="comui_homepage_button_property_animation">Property Animation</string>
     <string name="comui_homepage_button_tween_animation">Tween Animation</string>
     <string name="comui_homepage_button_multi_type">RecyclerView\n(Multi Type)</string>

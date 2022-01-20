@@ -15,14 +15,9 @@ import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment
-import com.githubyss.mobile.common.ui.app.page.mvvm.MvvmActivity
 import com.githubyss.mobile.common.ui.app.page.recycler_view.multi.page.RecyclerViewByMultiTypeFragment
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.page.SearchResultFragment
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognitionActivity
-import com.githubyss.mobile.common.ui.app.page.view_binding.inline.InlineActivity
-import com.githubyss.mobile.common.ui.app.page.view_binding.inline.InlineToolbarActivity
-import com.githubyss.mobile.common.ui.app.page.view_binding.reflect.ReflectActivity
-import com.githubyss.mobile.common.ui.app.page.view_binding.reflect.ReflectToolbarActivity
 import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
 import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentHomepageBinding
@@ -76,13 +71,6 @@ class HomepageFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fragmen
     /** ****************************** Functions ****************************** */
 
     private fun initView() {
-        binding.buttonMvvm.setOnClickListener(onClickListener)
-
-        binding.buttonBindingReflect.setOnClickListener(onClickListener)
-        binding.buttonBindingInline.setOnClickListener(onClickListener)
-        binding.buttonBindingReflectToolbar.setOnClickListener(onClickListener)
-        binding.buttonBindingInlineToolbar.setOnClickListener(onClickListener)
-
         binding.buttonPropertyAnimation.setOnClickListener(onClickListener)
         binding.buttonTweenAnimation.setOnClickListener(onClickListener)
 
@@ -122,13 +110,6 @@ class HomepageFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fragmen
 
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {
-            R.id.button_mvvm -> ActivityUtils.startActivity(activity, MvvmActivity::class.java)
-
-            R.id.button_binding_reflect -> ActivityUtils.startActivity(activity, ReflectActivity::class.java)
-            R.id.button_binding_inline -> ActivityUtils.startActivity(activity, InlineActivity::class.java)
-            R.id.button_binding_reflect_toolbar -> ActivityUtils.startActivity(activity, ReflectToolbarActivity::class.java)
-            R.id.button_binding_inline_toolbar -> ActivityUtils.startActivity(activity, InlineToolbarActivity::class.java)
-
             R.id.button_property_animation -> replaceFragment(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, true)
             R.id.button_tween_animation -> return@OnClickListener
 
