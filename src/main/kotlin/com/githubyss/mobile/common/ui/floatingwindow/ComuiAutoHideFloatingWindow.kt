@@ -94,8 +94,8 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
 
 
     private class AutoHideHandler constructor(private val autoHideFloatingWindowWeakRef: WeakReference<ComuiAutoHideFloatingWindow>) : Handler() {
-        override fun handleMessage(msg: Message?) {
-            when (msg?.what) {
+        override fun handleMessage(msg: Message) {
+            when (msg.what) {
                 autoHideFloatingWindowWeakRef.get()?.MSG_HIDE_FLOATING_WINDOW -> {
                     autoHideFloatingWindowWeakRef.get()
                         ?.hide()
@@ -112,7 +112,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
                  * But for specification, Here is sending message to use handler to hide the window.
                  * by Ace Yan
                  */
-                autoHideHandler?.sendMessage(autoHideHandler?.obtainMessage(MSG_HIDE_FLOATING_WINDOW))
+                autoHideHandler?.sendMessage(autoHideHandler?.obtainMessage(MSG_HIDE_FLOATING_WINDOW) ?: return)
                 // hide()
             }
         }
@@ -139,7 +139,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
                 moveBeginY = event.rawY.toInt()
-                autoHideHandler?.removeCallbacks(autoHideRunnable)
+                autoHideHandler?.removeCallbacks(autoHideRunnable ?: return true)
 
                 logcatViewProperty(rootView, "ACTION_DOWN rootView\t")
             }
@@ -178,7 +178,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
             MotionEvent.ACTION_CANCEL -> {
                 slideDownAnimator?.cancel()
                 slideUpAnimator?.cancel()
-                autoHideHandler?.removeCallbacks(autoHideRunnable)
+                autoHideHandler?.removeCallbacks(autoHideRunnable ?: return true)
 
                 logcatViewProperty(rootView, "ACTION_UP rootView\t\t")
             }
@@ -393,7 +393,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
         if (canAutoHide) {
             if (autoHideHandler == null) autoHideHandler = AutoHideHandler(WeakReference(this@ComuiAutoHideFloatingWindow))
             if (autoHideRunnable == null) autoHideRunnable = AutoHideRunnable()
-            autoHideHandler?.postDelayed(autoHideRunnable, AUTO_HIDE_DELAY)
+            autoHideHandler?.postDelayed(autoHideRunnable ?: return, AUTO_HIDE_DELAY)
         }
     }
 

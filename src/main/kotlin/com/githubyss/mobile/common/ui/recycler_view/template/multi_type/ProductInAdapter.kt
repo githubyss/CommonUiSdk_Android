@@ -17,7 +17,7 @@
 // import com.google.android.flexbox.FlexboxLayout
 // import com.suning.mobile.snbank.R
 // import com.suning.mobile.snbank.bankcard.util.PinYinUtil
-// import com.suning.mobile.snbank.homek.model.ProductItem
+// import com.githubyss.mobile.common.ui.recycler_view.three_layer.old.ProductItem
 // import com.suning.mobile.snbank.homek.splitRateStr
 // import com.suning.mobile.snbank.homek.view.HomeItemClickListener
 // import com.suning.mobile.snbank.kit.common.AppConfig
@@ -34,7 +34,7 @@
 //  * 021-财富模板(三个网格) 111-基金模板（三个网格）  071-优选模板(两个网格)
 //  * 011-新人模板（0.75个屏幕），061-热门产品模板(0.75个屏幕)
 //  */
-// class HomeProductInAdapter(val mContext: Context,
+// class com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductInAdapter(val mContext: Context,
 //                            val areaName: String?,
 //                            var homePageBgType: HomePageBgType,
 //                            val show180: Boolean,

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_finance"
+        android:background="@drawable/loan_corner_bg"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_finance_top_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="6dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/comres_color_121a32"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_finance_top_desc_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/loan_text_pink"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxEms="18"
+                android:maxLines="1"
+                android:paddingStart="6dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/comres_color_fa5050"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_finance_top_desc_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/loan_text_pink"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxEms="18"
+                android:maxLines="1"
+                android:paddingStart="6dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/comres_color_fa5050"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_finance_top_desc_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/loan_text_pink"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxEms="18"
+                android:maxLines="1"
+                android:paddingStart="6dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/comres_color_fa5050"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="17dp"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_finance_bottom_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/comres_color_fa5050"
+                        android:fontFamily="@font/sn_font"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/tv_finance_bottom2_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="-2dp"
+                        android:textColor="@color/comres_color_fa5050"
+                        android:fontFamily="@font/sn_font"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_finance_bottom_num_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="2dp"
+                        android:paddingEnd="0dp"
+                        android:fontFamily="@font/sn_font"
+                        android:textColor="@color/comres_color_fa5050"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/tv_finance_bottom_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    android:textColor="@color/comres_color_8e94a8"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="bottom"
+                android:layout_gravity="bottom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_finance_bottom_num22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/comres_color_121a32"
+                        android:textSize="28sp" />
+                    <TextView
+                        android:id="@+id/tv_finance_bottom_num2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/comres_color_121a32"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_finance_bottom_num2_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="2dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/comres_color_121a32"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/tv_finance_bottom_desc2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/comres_color_8e94a8"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:gravity="bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_finance_bottom_num33"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/comres_color_121a32"
+                        android:textSize="28sp" />
+                    <TextView
+                        android:id="@+id/tv_finance_bottom_num3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/comres_color_121a32"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_finance_bottom_num3_sign"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="2dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/comres_color_121a32"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/tv_finance_bottom_desc3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/comres_color_8e94a8"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -13,19 +13,19 @@
 // import android.view.View
 // import android.view.ViewGroup
 // import com.suning.mobile.snbank.R
-// import com.suning.mobile.snbank.homek.model.ProductItem
+// import com.githubyss.mobile.common.ui.recycler_view.three_layer.old.ProductItem
 // import com.suning.mobile.snbank.homek.view.HomeItemClickListener
 //
 // /**
 //  * @author ：17021029
 //  * @since : 2021/1/7
 //  */
-// class HomeProductOutAdapter(val context: Context,
+// class com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductOutAdapter(val context: Context,
 //                             val areaName: String?,
 //                             val show180: Boolean,
 //                             var mProductListItems: ArrayList<ArrayList<ProductItem>>?,
 //                             var mProductItemHomeClickListener: HomeItemClickListener<ProductItem>)
-//     : RecyclerView.Adapter<HomeProductOutAdapter.ViewHolder>() {
+//     : RecyclerView.Adapter<com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductOutAdapter.ViewHolder>() {
 //     private val mLayoutInflater = LayoutInflater.from(context)
 //
 //     companion object {
@@ -121,7 +121,7 @@
 //                     if (mProductItems.size > 1) {
 //                         newProduct.add(mProductItems[0])
 //                     }
-//                     val homeProductInAdapter = HomeProductInAdapter(context, areaName, makeBg(position), show180,
+//                     val homeProductInAdapter = com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductInAdapter(context, areaName, makeBg(position), show180,
 //                             if (mProductItems.size > 1) newProduct else mProductItems, mProductItemHomeClickListener)
 //                     viewHolder.rvHomeOut.apply {
 //                         layoutManager = object : LinearLayoutManager(context) {
@@ -150,7 +150,7 @@
 //                     })
 //                 }
 //                 "080", "090", "100", "120", "130", "170", "220", "210", "240", "230", "200", "140", "250" -> {
-//                     val homeProductInAdapter = HomeProductInAdapter(context, areaName, makeBg(position), show180, mProductItems, mProductItemHomeClickListener)
+//                     val homeProductInAdapter = com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductInAdapter(context, areaName, makeBg(position), show180, mProductItems, mProductItemHomeClickListener)
 //                     viewHolder.rvHomeOut.apply {
 //                         layoutManager = object : LinearLayoutManager(context) {
 //                             override fun canScrollVertically(): Boolean {
@@ -173,7 +173,7 @@
 //                             newProduct.add(mProductItems[i])
 //                         }
 //                     }
-//                     val homeProductInAdapter = HomeProductInAdapter(context, areaName, makeBg(position), show180,
+//                     val homeProductInAdapter = com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductInAdapter(context, areaName, makeBg(position), show180,
 //                             if (mProductItems.size > 3) newProduct else mProductItems, mProductItemHomeClickListener)
 //                     viewHolder.rvHomeOut.apply {
 //                         layoutManager = object : GridLayoutManager(context, 3) {
@@ -197,7 +197,7 @@
 //                             newProduct.add(mProductItems[i])
 //                         }
 //                     }
-//                     val homeProductInAdapter = HomeProductInAdapter(context, areaName, makeBg(position), show180,
+//                     val homeProductInAdapter = com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductInAdapter(context, areaName, makeBg(position), show180,
 //                             if (mProductItems.size > 2) newProduct else mProductItems, mProductItemHomeClickListener)
 //                     viewHolder.rvHomeOut.apply {
 //                         layoutManager = object : GridLayoutManager(context, 2) {
@@ -215,7 +215,7 @@
 //                     }
 //                 }
 //                 "011", "061" -> {//瀑布流布局
-//                     val homeProductInAdapter = HomeProductInAdapter(context, areaName, makeBg(position), show180, mProductItems, mProductItemHomeClickListener)
+//                     val homeProductInAdapter = com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductInAdapter(context, areaName, makeBg(position), show180, mProductItems, mProductItemHomeClickListener)
 //                     //手机的密度
 //                     val phoneDensity = context.resources.displayMetrics.density
 //                     viewHolder.rvHomeOut.apply {

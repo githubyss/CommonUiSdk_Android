@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="comui_floating_window_title">悬浮窗</string>
+
+    <!-- Button -->
+    <string name="comui_floating_window_button_show_floating_within_app">显示悬浮窗\n（App级）</string>
+    <string name="comui_floating_window_button_close_floating_within_app">隐藏悬浮窗\n（App级）</string>
+    <string name="comui_floating_window_button_show_floating_within_system">显示悬浮窗\n（Sys级）</string>
+    <string name="comui_floating_window_button_close_floating_within_system">隐藏悬浮窗\n（Sys级）</string>
+    <string name="comui_floating_window_button_show_auto_shorted_floating_view">显示悬浮窗\n（自动收起）</string>
+    <string name="comui_floating_window_button_close_auto_shorted_floating_view">隐藏悬浮窗\n（自动收起）</string>
+    <string name="comui_floating_window_button_lengthen_auto_shorted_floating_view">展开悬浮窗\n（自动收起）</string>
+    <string name="comui_floating_window_button_shorten_auto_shorted_floating_view">收起悬浮窗\n（自动收起）</string>
+</resources>

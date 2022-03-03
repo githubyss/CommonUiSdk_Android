@@ -1,9 +1,8 @@
 package com.githubyss.mobile.common.ui.app.page.homepage
 
-import android.os.Bundle
-import com.githubyss.mobile.common.kit.util.LogUtils
+import com.githubyss.mobile.common.kit.base.view_binding.page.reflect.BaseReflectBindingToolbarActivity
+import com.githubyss.mobile.common.kit.databinding.ComkitActivityBaseToolbarBinding
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarActivity
 import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAudioPlayer
 
 
@@ -14,7 +13,7 @@ import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAud
  * @github githubyss
  * @createdTime 2021/03/09 10:54:13
  */
-class HomepageActivity : BaseInlineBindingToolbarActivity() {
+class HomepageActivity : BaseReflectBindingToolbarActivity<ComkitActivityBaseToolbarBinding>() {
 
     /** ****************************** Properties ****************************** */
 
@@ -25,8 +24,8 @@ class HomepageActivity : BaseInlineBindingToolbarActivity() {
 
     /** ****************************** Override ****************************** */
 
-    override fun init() {
-        addFragment(HomepageFragment(), HomepageFragment.TAG, false, binding.layoutFragmentContainer.id)
+    override fun setupUi() {
+        switchFragment(HomepageFragment(), HomepageFragment.TAG, FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, false)
     }
 
     override fun setToolbarTitle() {

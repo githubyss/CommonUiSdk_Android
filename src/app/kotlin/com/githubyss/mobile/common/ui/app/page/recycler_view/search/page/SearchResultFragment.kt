@@ -5,16 +5,17 @@ import android.net.Uri
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.app.page.recycler_view.search.bean.DirectJumpBean
-import com.githubyss.mobile.common.ui.app.page.recycler_view.search.bean.SearchResultModel
-import com.githubyss.mobile.common.ui.app.page.recycler_view.search.enumeration.SearchResultModuleKey
-import com.githubyss.mobile.common.ui.app.page.recycler_view.search.util.LayoutListBuildUtils
+import com.githubyss.mobile.common.kit.base.activity_fragment.BaseActivity
+import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.kit.mock.OnResponse
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
+import com.githubyss.mobile.common.ui.app.page.recycler_view.search.bean.DirectJumpBean
+import com.githubyss.mobile.common.ui.app.page.recycler_view.search.bean.SearchResultModel
+import com.githubyss.mobile.common.ui.app.page.recycler_view.search.enumeration.SearchResultModuleKey
+import com.githubyss.mobile.common.ui.app.page.recycler_view.search.util.LayoutListBuildUtils
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSearchResultBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
@@ -32,52 +33,52 @@ import org.greenrobot.eventbus.EventBus
  * @createdTime 2021/03/15 16:51:37
  */
 class SearchResultFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fragment_search_result) {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     companion object {
         val TAG: String = SearchResultFragment::class.java.simpleName
     }
-    
+
     private val binding by bindView<ComuiFragmentSearchResultBinding>()
-    
+
     private var searchWord: String = ""
     private var moduleTab: String = ""
     private var pageChannel: String = ""
     private var moduleKey: String = ""
-    
+
     private var isRequesting: Boolean = false
     private var isFirstInit: Boolean = false
-    
+
     private var layoutList = ArrayList<LayoutModel>()
     private var rvAdapter: LayoutAdapter? = null
     private var isDirectJump = false
-    
+
     var onMoreClickListener: OnMoreClickListener? = null
-    
-    
+
+
     /** ****************************** Override ****************************** */
-    
-    override fun init() {
+
+    override fun setupUi() {
         initView()
         requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
     }
-    
+
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_recycler_view_search_result_title)
     }
-    
+
     override fun onResume() {
         super.onResume()
         resetData()
         requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
     }
-    
+
     override fun onDestroyView() {
         resetData()
         super.onDestroyView()
     }
-    
+
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         resetData()
@@ -85,42 +86,42 @@ class SearchResultFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fra
             if (!isDirectJump) requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
         }
     }
-    
-    
+
+
     /** ****************************** Function ****************************** */
-    
+
     private fun resetData() {
         layoutList.clear()
         rvAdapter?.notifyDataSetChanged()
         isDirectJump = false
     }
-    
+
     private fun initView() {
         rvAdapter = LayoutAdapter(layoutList)
-        binding.recyclerContainer.setHasFixedSize(true)
-        binding.recyclerContainer.layoutManager = LinearLayoutManager(activity)
-        binding.recyclerContainer.adapter = rvAdapter
+        binding?.recyclerContainer?.setHasFixedSize(true)
+        binding?.recyclerContainer?.layoutManager = LinearLayoutManager(activity)
+        binding?.recyclerContainer?.adapter = rvAdapter
     }
-    
+
     private fun requestData(searchWord: String, moduleTab: String, pageChannel: String, moduleKey: String) {
         this.searchWord = searchWord
         this.moduleTab = moduleTab
         this.pageChannel = pageChannel
         this.moduleKey = moduleKey
-        
+
         if (!isRequesting && !isFirstInit) {
-            requestDataByMock(fragmentContext ?: return, searchWord)
+            requestDataByMock(activity ?: return, searchWord)
         }
         isFirstInit = false
-        
+
         rvAdapter?.keyWord = searchWord
-        
+
     }
-    
+
     private fun requestDataByMock(context: Context, searchWord: String) {
         isRequesting = true
         layoutList.clear()
-        
+
         SearchResultModel.request(searchWord, object : OnResponse<SearchResultModel> {
             override fun onSuccess(model: SearchResultModel) {
                 isRequesting = false
@@ -130,20 +131,20 @@ class SearchResultFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fra
                 layoutList.addAll(LayoutListBuildUtils.buildLayoutList(context, model, searchWord, true, onItemClickListener, onLayoutClickListener, onDirectJumpListener))
                 rvAdapter?.notifyDataSetChanged()
             }
-            
+
             override fun onFail(message: String) {
             }
         })
     }
-    
+
     private fun gotoResultMore(@SearchResultModuleKey key: String) {
         EventBus.getDefault().postSticky(key)
-        replaceFragment(SearchResultMoreFragment(), SearchResultMoreFragment.TAG, true)
+        switchFragment(SearchResultMoreFragment(), SearchResultMoreFragment.TAG, this, BaseActivity.FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, true)
     }
-    
-    
+
+
     /** ****************************** Implementations ****************************** */
-    
+
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View?, data: BaseItemModel) {
             val id = view?.id
@@ -294,7 +295,7 @@ class SearchResultFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fra
             // }
         }
     }
-    
+
     private val onLayoutClickListener: BaseItemLayout.OnLayoutClickListener = object : BaseItemLayout.OnLayoutClickListener {
         override fun onClick(position: Int, view: View?, data: BaseItemModel) {
             val id = view?.id
@@ -319,7 +320,7 @@ class SearchResultFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fra
             // }
         }
     }
-    
+
     private val onDirectJumpListener = object : DirectJumpBean.OnDirectJumpListener {
         override fun onDirectJump(directJump: DirectJumpBean) {
             isDirectJump = true
@@ -327,17 +328,18 @@ class SearchResultFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fra
             val uri = Uri.parse(jumpUrl)
             val scheme = uri.scheme
             if (StringUtils.isEmpty(scheme)) {
-            } else {
+            }
+            else {
             }
             if (ActivityUtils.isActivityAlive(activity) && StringUtils.isNotEmpty(directJump.jumpUrl)) {
                 activity?.finish()
             }
         }
     }
-    
-    
+
+
     /** ****************************** Interface ****************************** */
-    
+
     interface OnMoreClickListener {
         fun onHeaderMoreClick(moduleKey: String)
         fun onItemMoreClick(key: String)

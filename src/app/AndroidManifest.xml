@@ -19,6 +19,7 @@
 
         <activity
             android:name=".app.page.homepage.HomepageActivity"
+            android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"

@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view.search.bean
 
 import com.githubyss.mobile.common.kit.mock.OnResponse
+import com.githubyss.mobile.common.kit.util.JsonUtils
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.BuildConfig
@@ -31,10 +32,10 @@ class SearchResultModel(val json: JSONObject?) {
         }
         
         private fun requestDataByLocalJson(searchWord: String, onResponse: OnResponse<SearchResultModel>?) {
-            val jsonStringTabAll = ResourceUtils.getStringFromAssets("json/netres/search/mock_request_search_result_tab_all_jijin.json")
-            val jsonStringTabFinancial = ResourceUtils.getStringFromAssets("json/netres/search/mock_request_search_result_more_jijin.json")
-            val jsonStringTabDirectJump = ResourceUtils.getStringFromAssets("json/netres/search/mock_request_search_result_tab_all_nanjingditie.json")
-            onResponse?.onSuccess(SearchResultModel(JSONObject(jsonStringTabAll)))
+            val jsonTabAll = JsonUtils.getJSONObjectFromAssets("json/netres/search/mock_request_search_result_tab_all_jijin.json")
+            val jsonTabFinancial = JsonUtils.getJSONObjectFromAssets("json/netres/search/mock_request_search_result_more_jijin.json")
+            val jsonTabDirectJump = JsonUtils.getJSONObjectFromAssets("json/netres/search/mock_request_search_result_tab_all_nanjingditie.json")
+            onResponse?.onSuccess(SearchResultModel(jsonTabAll))
         }
         
         private fun requestDataByNet(searchWord: String, onResponse: OnResponse<SearchResultModel>?) { //     val reqUrl = ""

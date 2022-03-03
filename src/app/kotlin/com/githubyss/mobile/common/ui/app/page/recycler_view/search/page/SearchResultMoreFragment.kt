@@ -4,15 +4,15 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
+import com.githubyss.mobile.common.kit.util.StringUtils
+import com.githubyss.mobile.common.kit.util.ToastUtils
+import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.bean.DirectJumpBean
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.bean.SearchResultModel
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.util.LayoutListBuildUtils
-import com.githubyss.mobile.common.kit.util.StringUtils
-import com.githubyss.mobile.common.kit.util.ToastUtils
-import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSearchResultMoreBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
@@ -33,48 +33,48 @@ import org.json.JSONObject
  * @createdTime 2021/03/30 20:05:25
  */
 class SearchResultMoreFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fragment_search_result_more) {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     companion object {
         val TAG: String = SearchResultMoreFragment::class.java.simpleName
     }
-    
+
     private val binding by bindView<ComuiFragmentSearchResultMoreBinding>()
-    
+
     private var searchWord: String = ""
     private var pageChannel: String = ""
-    
+
     @SearchResultModuleKey
     private var moduleKey: String = SearchResultModuleKey.NONE
-    
+
     private var pageNumber: Int = 0
     private var hasMoreData: Boolean = true
     private var isRequesting: Boolean = false
-    
+
     private var layoutList = ArrayList<LayoutModel>()
     private var rvAdapter: LayoutAdapter? = null
-    
-    
+
+
     /** ****************************** Override ****************************** */
-    
-    override fun init() {
+
+    override fun setupUi() {
         initView()
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this)
         }
     }
-    
+
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_recycler_view_search_result_more_title)
     }
-    
+
     override fun onResume() {
         super.onResume()
         resetData()
         requestData(this.searchWord, this.pageChannel, this.moduleKey)
     }
-    
+
     override fun onDestroyView() {
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this)
@@ -82,7 +82,7 @@ class SearchResultMoreFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         resetData()
         super.onDestroyView()
     }
-    
+
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         resetData()
@@ -90,52 +90,52 @@ class SearchResultMoreFragment : BaseInlineBindingToolbarFragment(R.layout.comui
             requestData(this.searchWord, this.pageChannel, this.moduleKey)
         }
     }
-    
-    
+
+
     /** ****************************** Function ****************************** */
-    
+
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     fun onGetId(@SearchResultModuleKey key: String) {
         ToastUtils.showMessage("模板 key 为：${key}")
         this.moduleKey = key
         requestData("", this.pageChannel, this.moduleKey)
     }
-    
+
     private fun initView() {
         rvAdapter = LayoutAdapter(layoutList, R.layout.comui_layout_bg_white_corner_none_margin_none)
-        binding.recyclerContainer.setHasFixedSize(true)
-        binding.recyclerContainer.layoutManager = LinearLayoutManager(activity)
-        binding.recyclerContainer.adapter = rvAdapter
+        binding?.recyclerContainer?.setHasFixedSize(true)
+        binding?.recyclerContainer?.layoutManager = LinearLayoutManager(activity)
+        binding?.recyclerContainer?.adapter = rvAdapter
         rvAdapter?.onItemClickListener = onItemClickListener
         rvAdapter?.onLoadMoreListener = onLoadMoreListener
     }
-    
+
     private fun resetData() {
         layoutList.clear()
         rvAdapter?.notifyDataSetChanged()
         pageNumber = 0
         hasMoreData = true
     }
-    
+
     private fun requestData(searchWord: String, pageChannel: String, @SearchResultModuleKey moduleKey: String) {
         this.searchWord = searchWord
         this.pageChannel = pageChannel
         this.moduleKey = moduleKey
-        
+
         if (!isRequesting) {
-            requestDataByMock(fragmentContext ?: return, searchWord, pageChannel, moduleKey)
+            requestDataByMock(activity ?: return, searchWord, pageChannel, moduleKey)
         }
-        
+
         rvAdapter?.keyWord = searchWord
     }
-    
+
     private fun requestDataByMock(context: Context, searchWord: String, pageChannel: String, @SearchResultModuleKey key: String) {
         isRequesting = true
-        
+
         isRequesting = false
         var jsonString = "{}"
         val searchResultModel = SearchResultModel(JSONObject(jsonString))
-        
+
         if (StringUtils.isEmpty(searchResultModel.keyWord) || searchResultModel.keyWord == this@SearchResultMoreFragment.searchWord) {
             if (searchResultModel.searchResultModuleList.isEmpty()) {
                 hasMoreData = false
@@ -154,10 +154,10 @@ class SearchResultMoreFragment : BaseInlineBindingToolbarFragment(R.layout.comui
             rvAdapter?.notifyDataSetChanged()
         }
     }
-    
-    
+
+
     /** ****************************** Implementations ****************************** */
-    
+
     private val onItemClickListener = object : BaseItemAdapter.OnItemClickListener {
         override fun onItemClick(holder: RecyclerView.ViewHolder, position: Int, view: View?, data: BaseItemModel) {
             val id = view?.id
@@ -272,7 +272,7 @@ class SearchResultMoreFragment : BaseInlineBindingToolbarFragment(R.layout.comui
             // }
         }
     }
-    
+
     private val onLayoutClickListener: BaseItemLayout.OnLayoutClickListener = object : BaseItemLayout.OnLayoutClickListener {
         override fun onClick(position: Int, view: View?, data: BaseItemModel) {
             val id = view?.id
@@ -294,19 +294,19 @@ class SearchResultMoreFragment : BaseInlineBindingToolbarFragment(R.layout.comui
             // }
         }
     }
-    
+
     private val onDirectJumpListener = object : DirectJumpBean.OnDirectJumpListener {
         override fun onDirectJump(directJump: DirectJumpBean) {
         }
     }
-    
+
     private val onLoadMoreListener = object : LayoutAdapter.OnLoadMoreListener {
         override fun onLoadMore() {
             if (hasMoreData) {
                 pageNumber++
-                requestDataByMock(fragmentContext ?: return, searchWord, pageChannel, moduleKey)
+                requestDataByMock(activity ?: return, searchWord, pageChannel, moduleKey)
             }
         }
     }
-    
+
 }

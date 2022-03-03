@@ -9,12 +9,6 @@
 
     <data>
 
-        <import type="com.githubyss.mobile.common.ui.app.page.mvvm.MvvmVmLiveData" />
-
-        <variable
-            name="mvvmVm"
-            type="MvvmVmLiveData"
-            />
     </data>
 
     <LinearLayout

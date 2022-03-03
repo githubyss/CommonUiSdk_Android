@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowViewModel" />
+
+        <variable
+            name="floatingWindowVm"
+            type="FloatingWindowViewModel"
+            />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/layout_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/comres_layoutBg_lightGray"
+        android:orientation="vertical"
+        >
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            >
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/comres_sideMargin_normal"
+                android:paddingRight="@dimen/comres_sideMargin_normal"
+                android:paddingBottom="@dimen/comres_sideMargin_normal"
+                android:paddingLeft="@dimen/comres_sideMargin_normal"
+                app:flexDirection="column"
+                app:justifyContent="flex_start"
+                app:alignItems="center"
+                >
+
+                <com.google.android.flexbox.FlexboxLayout style="@style/comres_equant_horizontal_flex_style">
+
+                    <Button
+                        style="@style/comres_equant_horizontal_button_style"
+                        android:id="@+id/btn_show_floating_within_app"
+                        android:onClick="@{floatingWindowVm::onAnyButtonClick}"
+                        android:text="@string/comui_floating_window_button_show_floating_within_app"
+                        />
+
+                    <Button
+                        style="@style/comres_equant_horizontal_button_style"
+                        android:id="@+id/btn_close_floating_within_app"
+                        android:onClick="@{floatingWindowVm::onAnyButtonClick}"
+                        android:text="@string/comui_floating_window_button_close_floating_within_app"
+                        />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout style="@style/comres_equant_horizontal_flex_style">
+
+                    <Button
+                        style="@style/comres_equant_horizontal_button_style"
+                        android:id="@+id/btn_show_floating_within_system"
+                        android:onClick="@{floatingWindowVm::onAnyButtonClick}"
+                        android:text="@string/comui_floating_window_button_show_floating_within_system"
+                        />
+
+                    <Button
+                        style="@style/comres_equant_horizontal_button_style"
+                        android:id="@+id/btn_close_floating_within_system"
+                        android:onClick="@{floatingWindowVm::onAnyButtonClick}"
+                        android:text="@string/comui_floating_window_button_close_floating_within_system"
+                        />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout style="@style/comres_equant_horizontal_flex_style">
+
+                    <Button
+                        style="@style/comres_equant_horizontal_button_style"
+                        android:id="@+id/button_show_auto_shorted_floating_view"
+                        android:onClick="@{floatingWindowVm::onAnyButtonClick}"
+                        android:text="@string/comui_floating_window_button_show_auto_shorted_floating_view"
+                        />
+
+                    <Button
+                        style="@style/comres_equant_horizontal_button_style"
+                        android:id="@+id/button_close_auto_shorted_floating_view"
+                        android:onClick="@{floatingWindowVm::onAnyButtonClick}"
+                        android:text="@string/comui_floating_window_button_close_auto_shorted_floating_view"
+                        />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout style="@style/comres_equant_horizontal_flex_style">
+
+                    <Button
+                        style="@style/comres_equant_horizontal_button_style"
+                        android:id="@+id/button_lengthen_auto_shorted_floating_view"
+                        android:onClick="@{floatingWindowVm::onAnyButtonClick}"
+                        android:text="@string/comui_floating_window_button_lengthen_auto_shorted_floating_view"
+                        />
+
+                    <Button
+                        style="@style/comres_equant_horizontal_button_style"
+                        android:id="@+id/button_shorten_auto_shorted_floating_view"
+                        android:onClick="@{floatingWindowVm::onAnyButtonClick}"
+                        android:text="@string/comui_floating_window_button_shorten_auto_shorted_floating_view"
+                        />
+                </com.google.android.flexbox.FlexboxLayout>
+            </com.google.android.flexbox.FlexboxLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_fund_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_fund_bg"
+            android:background="@drawable/loan_corner_bg"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <com.suning.mobile.snbank.kit.view.RoundImageView
+                android:id="@+id/riv_fund_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="21dp" />
+
+            <TextView
+                android:id="@+id/tv_fund_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
+                android:paddingTop="10dp"
+                android:textColor="@color/comres_color_121a32"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_fund_desc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
+                android:paddingTop="5dp"
+                android:textColor="@color/comres_color_121a32"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_fund_desc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="14dp"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textColor="@color/comres_color_55607c"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

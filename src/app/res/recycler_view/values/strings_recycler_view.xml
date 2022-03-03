@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="comui_recycler_view_title">列表</string>
+
+    <!-- Button -->
+    <string name="comui_recycler_view_button_multi_type">多类型实现</string>
+    <string name="comui_recycler_view_button_multi_view">多视图实现</string>
+    <string name="comui_recycler_view_button_three_layer">三层通用</string>
+</resources>

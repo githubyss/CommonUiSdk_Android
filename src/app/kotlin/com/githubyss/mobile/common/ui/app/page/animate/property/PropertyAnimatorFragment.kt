@@ -5,11 +5,11 @@ import android.animation.ValueAnimator
 import android.graphics.Point
 import android.view.View
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
+import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.ComuiPointEvaluator
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentPropertyAnimatorBinding
 import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
 
@@ -39,7 +39,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
 
     /** ****************************** Override ****************************** */
 
-    override fun init() {
+    override fun setupUi() {
         initView()
     }
 
@@ -57,10 +57,10 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
     /** ****************************** Functions ****************************** */
 
     private fun initView() {
-        binding.btnMove.setOnClickListener(onClickListener)
-        binding.btnScale.setOnClickListener(onClickListener)
-        binding.btnShow.setOnClickListener(onClickListener)
-        binding.btnHide.setOnClickListener(onClickListener)
+        binding?.btnMove?.setOnClickListener(onClickListener)
+        binding?.btnScale?.setOnClickListener(onClickListener)
+        binding?.btnShow?.setOnClickListener(onClickListener)
+        binding?.btnHide?.setOnClickListener(onClickListener)
     }
 
     private fun Point.scale(scale: Int): Point {
@@ -108,7 +108,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         scaleValueAnimator?.start()
     }
 
-    private fun startMoveObjectAnimator(view: View) {
+    private fun startMoveObjectAnimator(view: View?) {
         moveObjectAnimator = ObjectAnimator.ofFloat(view, "translationX", 0F, 300F, 0F)
         // moveObjectAnimator = ObjectAnimator.ofFloat(view, "x", 0F, 300F)
         moveObjectAnimator?.startDelay = 0
@@ -118,8 +118,8 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         moveObjectAnimator?.start()
     }
 
-    private fun startScaleObjectAnimator(view: View) {
-        val originalWidth = view.layoutParams.width
+    private fun startScaleObjectAnimator(view: View?) {
+        val originalWidth = view?.layoutParams?.width ?: return
         val targetedWidth = originalWidth * 2
         scaleObjectAnimator = ObjectAnimator.ofFloat(view, "rotation", 0F, 360F)
         scaleObjectAnimator?.startDelay = 0
@@ -146,11 +146,11 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {
             R.id.btnMove -> {
-                startMoveObjectAnimator(binding.btnAnimator)
+                startMoveObjectAnimator(binding?.btnAnimator)
             }
 
             R.id.btnScale -> {
-                startScaleObjectAnimator(binding.btnAnimator)
+                startScaleObjectAnimator(binding?.btnAnimator)
             }
 
             R.id.btnShow -> {

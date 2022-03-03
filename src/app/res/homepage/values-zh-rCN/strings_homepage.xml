@@ -6,15 +6,7 @@
     <!-- Button -->
     <string name="comui_homepage_button_property_animation">属性动画</string>
     <string name="comui_homepage_button_tween_animation">补间动画</string>
-    <string name="comui_homepage_button_multi_type">RecyclerView\n（多类型实现）</string>
-    <string name="comui_homepage_button_multi_view">RecyclerView\n（多视图实现）</string>
-    <string name="comui_homepage_button_show_floating_within_app">显示悬浮窗\n（App级）</string>
-    <string name="comui_homepage_button_close_floating_within_app">隐藏悬浮窗\n（App级）</string>
-    <string name="comui_homepage_button_show_floating_within_system">显示悬浮窗\n（Sys级）</string>
-    <string name="comui_homepage_button_close_floating_within_system">隐藏悬浮窗\n（Sys级）</string>
-    <string name="comui_homepage_button_show_auto_shorted_floating_view">显示悬浮窗\n（自动收起）</string>
-    <string name="comui_homepage_button_close_auto_shorted_floating_view">隐藏悬浮窗\n（自动收起）</string>
-    <string name="comui_homepage_button_lengthen_auto_shorted_floating_view">展开悬浮窗\n（自动收起）</string>
-    <string name="comui_homepage_button_shorten_auto_shorted_floating_view">收起悬浮窗\n（自动收起）</string>
+    <string name="comui_homepage_button_recycler_view">列表</string>
+    <string name="comui_homepage_button_floating_window">悬浮窗</string>
     <string name="comui_homepage_button_speech_recognition">语音识别</string>
 </resources>

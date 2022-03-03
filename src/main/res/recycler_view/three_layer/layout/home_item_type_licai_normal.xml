@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+    <LinearLayout
+            android:id="@+id/ll_finance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="16dp"
+            android:background="@drawable/loan_corner_bg"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp">
+
+            <TextView
+                    android:id="@+id/tv_licai_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:text="XXX"
+                    android:textColor="#222222"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            <ImageView
+                    android:id="@+id/iv_licai_div"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginBottom="-5dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"
+                    android:src="#FFD6D0" />
+
+            <TextView
+                    android:id="@+id/tv_licai_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="XXX"
+                    android:textColor="#222222"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:id="@+id/tv_top_licai_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:background="@drawable/loan_text_pink"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"
+                    android:maxEms="18"
+                    android:maxLines="1"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp"
+                    android:text="XXX"
+                    android:textColor="@color/comres_color_fa5050"
+                    android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:gravity="bottom"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp">
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:id="@+id/tv_licai_rate_start"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sn_font"
+                            android:maxLines="1"
+                            android:text="X.XX"
+                            android:textColor="@color/comres_color_fa5050"
+                            android:textSize="24sp" />
+
+                    <TextView
+                            android:id="@+id/tv_licai_sign_start"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sn_font"
+                            android:layout_gravity="bottom"
+                            android:maxLines="1"
+                            android:text="%"
+                            android:textColor="@color/comres_color_fa5050"
+                            android:textSize="19sp" />
+
+                    <TextView
+                            android:id="@+id/tv_licai_rate_join"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sn_font"
+                            android:layout_gravity="bottom"
+                            android:maxLines="1"
+                            android:text="-"
+                            android:textColor="@color/comres_color_fa5050"
+                            android:textSize="24sp" />
+
+                    <TextView
+                            android:id="@+id/tv_licai_rate_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sn_font"
+                            android:maxLines="1"
+                            android:text="X.XX"
+                            android:textColor="@color/comres_color_fa5050"
+                            android:textSize="24sp" />
+
+                    <TextView
+                            android:id="@+id/tv_licai_sign_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sn_font"
+                            android:layout_gravity="bottom"
+                            android:maxLines="1"
+                            android:text="%"
+                            android:textColor="@color/comres_color_fa5050"
+                            android:textSize="19sp" />
+                </LinearLayout>
+
+                <TextView
+                        android:id="@+id/tv_finance_rate_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="XXX"
+                        android:textColor="@color/comres_color_8e94a8"
+                        android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/tv_finance_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="XXX"
+                        android:textColor="@color/comres_color_121a32"
+                        android:textSize="18sp" />
+
+                <TextView
+                        android:id="@+id/tv_finance_month_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="XXX"
+                        android:textColor="@color/comres_color_8e94a8"
+                        android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/tv_finance_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="XXX"
+                        android:textColor="@color/comres_color_121a32"
+                        android:textSize="18sp" />
+
+                <TextView
+                        android:id="@+id/tv_finance_amount_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="XXX"
+                        android:textColor="@color/comres_color_8e94a8"
+                        android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

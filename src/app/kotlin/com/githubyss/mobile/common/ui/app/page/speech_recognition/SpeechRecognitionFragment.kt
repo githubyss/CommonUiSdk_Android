@@ -38,7 +38,7 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
 
     /** ****************************** Override ****************************** */
 
-    override fun init() {
+    override fun setupUi() {
         initView()
         initSpeechRecognition()
     }
@@ -61,9 +61,9 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
     /** ****************************** Functions ****************************** */
 
     private fun initView() {
-        binding.recordImageButton.setVoiceListener(voiceListener)
-        binding.voiceBtnHelp.setOnClickListener(onClickListener)
-        binding.voiceBtnClose.setOnClickListener(onClickListener)
+        binding?.recordImageButton?.setVoiceListener(voiceListener)
+        binding?.voiceBtnHelp?.setOnClickListener(onClickListener)
+        binding?.voiceBtnClose?.setOnClickListener(onClickListener)
         // binding.viewVoiceTalking.voiceHomeLayout.setmPhoneChargeClickListener(onClickListener)
         // binding.viewVoiceTalking.voiceHomeLayout.setmTransferClickListener(onClickListener)
         // binding.viewVoiceTalking.voiceHomeLayout.setmLifePaymentClickListener(onClickListener)
@@ -80,7 +80,7 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
             }
 
             override fun onError(errorCode: Int, errorDescription: String) {
-                binding.recordImageButton.hideLoading()
+                binding?.recordImageButton?.hideLoading()
                 when (errorCode) {
                     10118 -> showView(VoiceHomeLayout.ViewType.Unheard)
                     20001, 20002, 20003, 20004, 20005 -> showView(VoiceHomeLayout.ViewType.NoNetwork)
@@ -89,16 +89,16 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
             }
 
             override fun onEndOfSpeech() {
-                binding.recordImageButton.hideLoading()
+                binding?.recordImageButton?.hideLoading()
             }
 
             override fun onResult(result: String, isLast: Boolean) {
-                binding.viewVoiceTalking.voiceHomeLayout.hideAllView()
-                binding.viewVoiceTalking.question.text = "${binding.viewVoiceTalking.question.text}${VoiceJsonParser.parseIatResult(result)}"
+                binding?.viewVoiceTalking?.voiceHomeLayout?.hideAllView()
+                binding?.viewVoiceTalking?.question?.text = "${binding?.viewVoiceTalking?.question?.text}${VoiceJsonParser.parseIatResult(result)}"
                 if (isLast) {
                     // TODO 最后的结果
-                    binding.recordImageButton.hideLoading()
-                    val questionText: String = binding.viewVoiceTalking.question.text.toString()
+                    binding?.recordImageButton?.hideLoading()
+                    val questionText: String = binding?.viewVoiceTalking?.question?.text.toString()
                     val actionCode: Int = VoiceLocalMatch.getActionCode(questionText)
                     when (actionCode) {
                         VoiceIntentManager.ACTION_DEFAULT ->
@@ -106,7 +106,7 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
                             SpeechRecognitionManager.understandText(questionText)
                         else -> {
                             val voiceManager = VoiceIntentManager(activity, actionCode)
-                            binding.viewVoiceTalking.answer.text = voiceManager.answer
+                            binding?.viewVoiceTalking?.answer?.text = voiceManager.answer
                             voiceManager.doAction()
                         }
                     }
@@ -114,7 +114,7 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
             }
 
             override fun onVolumeChanged(volume: Int, data: ByteArray) {
-                binding.recordImageButton.setVolum(volume)
+                binding?.recordImageButton?.setVolum(volume)
             }
 
             override fun onEvent(eventType: Int, arg1: Int, arg2: Int, obj: Bundle?) {
@@ -134,17 +134,17 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
                             try {
                                 val snIntentCode = VoiceJsonParser.getIntentCode(result)
                                 val voiceManager = VoiceIntentManager(activity, Integer.valueOf(snIntentCode))
-                                binding.viewVoiceTalking.answer.text = voiceManager.answer
+                                binding?.viewVoiceTalking?.answer?.text = voiceManager.answer
                                 voiceManager.doAction()
                             }
                             catch (e: Exception) {
                                 //防止产品配置出错
-                                binding.viewVoiceTalking.answer.text = VoiceError.getErrorMsg(VoiceError.ERROR_CANNNOT_UNDERSTAND)
+                                binding?.viewVoiceTalking?.answer?.text = VoiceError.getErrorMsg(VoiceError.ERROR_CANNNOT_UNDERSTAND)
                             }
                         }
                         else {
                             //走科大讯飞提供的开放技能服务
-                            binding.viewVoiceTalking.answer.text = VoiceJsonParser.getAnswerResult(result)
+                            binding?.viewVoiceTalking?.answer?.text = VoiceJsonParser.getAnswerResult(result)
                         }
                     }
                     else {
@@ -152,35 +152,35 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
                         //当前产品不配置，所以科大大部分都会提示不识别，需要客户端本地去做下关键词拦截，跳转模块儿
                         val actionCode = VoiceLocalMatch.getActionCode(result)
                         val voiceIntentManager = VoiceIntentManager(activity, actionCode)
-                        binding.viewVoiceTalking.answer.text = voiceIntentManager.answer //VoiceError.getErrorMsg(VoiceJsonParser.getResultRCCode(resultText))
+                        binding?.viewVoiceTalking?.answer?.text = voiceIntentManager.answer //VoiceError.getErrorMsg(VoiceJsonParser.getResultRCCode(resultText))
                         voiceIntentManager.doAction()
                     }
                 }
                 else {
                     LogUtils.d(TAG, "understander result:null")
-                    binding.viewVoiceTalking.answer.text = VoiceError.getErrorMsg(VoiceError.ERROR_CANNNOT_UNDERSTAND)
+                    binding?.viewVoiceTalking?.answer?.text = VoiceError.getErrorMsg(VoiceError.ERROR_CANNNOT_UNDERSTAND)
                 }
             }
 
             override fun onError(errorCode: Int, errorDescription: String) {
-                binding.viewVoiceTalking.answer.text = VoiceError.getErrorMsg(errorCode)
+                binding?.viewVoiceTalking?.answer?.text = VoiceError.getErrorMsg(errorCode)
             }
         }
     }
 
     private fun showView(viewType: VoiceHomeLayout.ViewType) {
         if (viewType === VoiceHomeLayout.ViewType.More) {
-            binding.voiceBtnHelp.visibility = View.INVISIBLE
+            binding?.voiceBtnHelp?.visibility = View.INVISIBLE
         }
         else {
-            binding.voiceBtnHelp.visibility = View.VISIBLE
+            binding?.voiceBtnHelp?.visibility = View.VISIBLE
         }
-        binding.viewVoiceTalking.voiceHomeLayout.showView(viewType)
+        binding?.viewVoiceTalking?.voiceHomeLayout?.showView(viewType)
     }
 
     private fun resetTalk() {
-        binding.viewVoiceTalking.question.text = ""
-        binding.viewVoiceTalking.answer.text = ""
+        binding?.viewVoiceTalking?.question?.text = ""
+        binding?.viewVoiceTalking?.answer?.text = ""
     }
 
 
@@ -189,8 +189,8 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {
             R.id.voice_btn_close -> {
-                val viewType: VoiceHomeLayout.ViewType? = binding.viewVoiceTalking.voiceHomeLayout.currentViewType
-                if (binding.viewVoiceTalking.voiceHomeLayout.visibility === View.VISIBLE && viewType == VoiceHomeLayout.ViewType.More) {
+                val viewType: VoiceHomeLayout.ViewType? = binding?.viewVoiceTalking?.voiceHomeLayout?.currentViewType
+                if (binding?.viewVoiceTalking?.voiceHomeLayout?.visibility === View.VISIBLE && viewType == VoiceHomeLayout.ViewType.More) {
                     //监测如果当前停留在更多页，返回到语音引导页
                     showView(VoiceHomeLayout.ViewType.Guide)
                 }
@@ -241,7 +241,7 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
                 return
             }
             if (!SpeechRecognitionManager.isSpeaking) return
-            binding.recordImageButton.showLoading()
+            binding?.recordImageButton?.showLoading()
             SpeechRecognitionManager.stopListening()
         }
     }

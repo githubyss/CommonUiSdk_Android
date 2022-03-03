@@ -1,0 +1,537 @@
+{
+  "code": "0000",
+  "message": "成功.",
+  "data": {
+    "productInfos": [
+      {
+        "moreIsLogin": "0",
+        "productIsShow": "1",
+        "moreJoinType": "-1",
+        "isMore": "0",
+        "moreJoinUrl": "",
+        "moreVersionCode": "",
+        "iconUrl": "https:\/\/image.suningbank.com0",
+        "id": "1",
+        "moreUpgradeType": "",
+        "productName": "爆款推荐",
+        "moreIsRealName": "0",
+        "marginTop": 10,
+        "productTemplates": [
+          {
+            "templateType": "011",
+            "templateItems": [
+              {
+                "productItemName": "随变存3.12",
+                "productId": "1",
+                "versionCode": "",
+                "isLogin": "1",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2022-01-10 18:45:00",
+                "endTime": "2024-02-29 18:45:00",
+                "id": "111",
+                "isRealName": "1",
+                "joinUrl": "https:\/\/fmsfs.suningbank.com\/zyckapp\/index.html?frompage=BX0702010X&prodCode=SNGLC007",
+                "roundTopLeft": 10,
+                "roundTopRight": 10,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 10,
+                "marginLeft": 0,
+                "marginTop": 0,
+                "detail": {
+                  "newProdName": "随变存",
+                  "productCode": "",
+                  "taCode": "",
+                  "newDesc2": "当日起息",
+                  "newDesc1": "50元起",
+                  "newRateContent": "年化利率",
+                  "newSign": "%",
+                  "newDesc3": "随存随取",
+                  "newRate": "3.12",
+                  "newBtnName": "立即体验",
+                  "newBgImgUrl": "https:\/\/image.suningbank.com\/channel\/pubresource\/16418114874922954.png"
+                }
+              },
+              {
+                "productItemName": "定期存款1年",
+                "productId": "1",
+                "versionCode": "",
+                "isLogin": "1",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2021-12-20 15:08:00",
+                "endTime": "2025-12-31 15:08:00",
+                "id": "10",
+                "isRealName": "1",
+                "joinUrl": "https:\/\/mps.suningbank.com\/snbapp\/index.html?ChannelNo=AP&RescLoc=11#\/RightsCenter\/AggPage\/1NDQCPY\/1",
+                "roundTopLeft": 10,
+                "roundTopRight": 10,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 10,
+                "marginLeft": 0,
+                "marginTop": 0,
+                "detail": {
+                  "newProdName": "定期存款1年",
+                  "productCode": "",
+                  "taCode": "",
+                  "newDesc2": "当日起息",
+                  "newDesc1": "50元起存",
+                  "newRateContent": "年化利率",
+                  "newSign": "%",
+                  "newDesc3": "安全保障",
+                  "newRate": "4.35",
+                  "newBtnName": "立即体验",
+                  "newBgImgUrl": "https:\/\/image.suningbank.com\/channel\/pubresource\/16184997625404833.png"
+                }
+              },
+              {
+                "productItemName": "6个月定期存款",
+                "productId": "1",
+                "versionCode": "",
+                "isLogin": "1",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2021-12-20 15:08:00",
+                "endTime": "2025-12-27 15:08:00",
+                "id": "42",
+                "isRealName": "1",
+                "joinUrl": "https:\/\/mps.suningbank.com\/snbapp\/index.html?ChannelNo=AP&RescLoc=11#\/RightsCenter\/AggPage\/6GYDQCK02\/1",
+                "roundTopLeft": 10,
+                "roundTopRight": 10,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 10,
+                "marginLeft": 0,
+                "marginTop": 0,
+                "detail": {
+                  "newProdName": "定期存款6个月",
+                  "productCode": "",
+                  "taCode": "",
+                  "newDesc2": "当日起息",
+                  "newDesc1": "50元起存",
+                  "newRateContent": "年化利率",
+                  "newSign": "%",
+                  "newDesc3": "安全保障",
+                  "newRate": "4.30",
+                  "newBtnName": "立即体验",
+                  "newBgImgUrl": "https:\/\/image.suningbank.com\/channel\/pubresource\/16285057409423515.png"
+                }
+              },
+              {
+                "productItemName": "天天盈产品",
+                "productId": "1",
+                "versionCode": "",
+                "isLogin": "0",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2021-08-25 15:32:00",
+                "endTime": "2026-10-24 23:59:00",
+                "id": "48",
+                "isRealName": "0",
+                "joinUrl": "https:\/\/fmsfs.suningbank.com\/lczapp\/index.html#\/holdHome?frompage=BX0701070X",
+                "roundTopLeft": 10,
+                "roundTopRight": 10,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 10,
+                "marginLeft": 0,
+                "marginTop": 0,
+                "detail": {
+                  "newProdName": "天天盈",
+                  "productCode": "1A000013",
+                  "taCode": "999",
+                  "newDesc2": "低风险",
+                  "newDesc1": "代销理财",
+                  "newRateContent": "近七日年化",
+                  "newSign": "%",
+                  "newDesc3": "1元起购",
+                  "newRate": "2.92",
+                  "newBtnName": "立即体验",
+                  "newBgImgUrl": "https:\/\/image.suningbank.com\/channel\/pubresource\/16298763201523764.png"
+                }
+              },
+              {
+                "productItemName": "升级贷",
+                "productId": "1",
+                "versionCode": "",
+                "isLogin": "0",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2021-12-09 11:54:00",
+                "endTime": "2026-12-24 11:48:00",
+                "id": "103",
+                "isRealName": "0",
+                "joinUrl": "https:\/\/onlineloan.suningbank.com\/loan\/?FromPage=02014&#\/appOther\/LoanHome\/sjd",
+                "roundTopLeft": 10,
+                "roundTopRight": 10,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 10,
+                "marginLeft": 0,
+                "marginTop": 0,
+                "detail": {
+                  "newProdName": "升级贷",
+                  "productCode": "",
+                  "taCode": "",
+                  "newDesc2": "快速下款",
+                  "newDesc1": "最高30万",
+                  "newRateContent": "年利率低至",
+                  "newSign": "%",
+                  "newDesc3": "单利计息",
+                  "newRate": "7.18",
+                  "newBtnName": "获取额度",
+                  "newBgImgUrl": "https:\/\/image.suningbank.com\/channel\/pubresource\/16390220775376479.png"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "moreIsLogin": "0",
+        "productIsShow": "1",
+        "moreJoinType": "-1",
+        "isMore": "0",
+        "moreJoinUrl": "",
+        "moreVersionCode": "",
+        "iconUrl": "https:\/\/image.suningbank.com0",
+        "id": "2",
+        "moreUpgradeType": "",
+        "productName": "财富产品",
+        "moreIsRealName": "0",
+        "marginTop": 10,
+        "productTemplates": [
+          {
+            "templateType": "021",
+            "templateItems": [
+              {
+                "productItemName": "定期存款1年",
+                "productId": "2",
+                "versionCode": "",
+                "isLogin": "1",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2021-12-20 15:39:00",
+                "endTime": "2024-12-20 15:39:00",
+                "id": "11",
+                "isRealName": "1",
+                "joinUrl": "https:\/\/fmsfs.suningbank.com\/dqckapp\/?frompage=BX0701050X&prodCode=SNDQCK1Y03#\/Buy",
+                "roundTopLeft": 10,
+                "roundTopRight": 0,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 0,
+                "marginLeft": 0,
+                "marginTop": 0,
+                "detail": {
+                  "wealthProdName": "定期存款1年",
+                  "productCode": "",
+                  "taCode": "",
+                  "wealthRateContent": "年化利率",
+                  "wealthSign": "%",
+                  "wealthRate": "2.2",
+                  "wealthDesc2": "整存整取",
+                  "wealthDesc1": "50元起存"
+                }
+              },
+              {
+                "productItemName": "定期存款6月",
+                "productId": "2",
+                "versionCode": "",
+                "isLogin": "1",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2021-12-20 15:39:00",
+                "endTime": "2024-12-20 15:39:00",
+                "id": "13",
+                "isRealName": "1",
+                "joinUrl": "https:\/\/fmsfs.suningbank.com\/dqckapp\/?frompage=BX0701050X&prodCode=SNDQCK6M03#\/Buy",
+                "roundTopLeft": 0,
+                "roundTopRight": 0,
+                "roundBottomLeft": 0,
+                "roundBottomRight": 0,
+                "marginLeft": 1,
+                "marginTop": 0,
+                "detail": {
+                  "wealthProdName": "定期存款6个月",
+                  "productCode": "",
+                  "taCode": "",
+                  "wealthRateContent": "年化利率",
+                  "wealthSign": "%",
+                  "wealthRate": "2.0",
+                  "wealthDesc2": "整存整取",
+                  "wealthDesc1": "50元起存"
+                }
+              },
+              {
+                "productItemName": "定期存款3月",
+                "productId": "2",
+                "versionCode": "",
+                "isLogin": "1",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2021-12-20 15:39:00",
+                "endTime": "2024-09-20 15:39:00",
+                "id": "12",
+                "isRealName": "1",
+                "joinUrl": "https:\/\/fmsfs.suningbank.com\/dqckapp\/?frompage=BX0701050X&prodCode=SNDQCK3M03#\/Buy",
+                "roundTopLeft": 0,
+                "roundTopRight": 10,
+                "roundBottomLeft": 0,
+                "roundBottomRight": 10,
+                "marginLeft": 1,
+                "marginTop": 0,
+                "detail": {
+                  "wealthProdName": "定期存款3个月",
+                  "productCode": "",
+                  "taCode": "",
+                  "wealthRateContent": "年化利率",
+                  "wealthSign": "%",
+                  "wealthRate": "1.8",
+                  "wealthDesc2": "整存整取",
+                  "wealthDesc1": "50元起存"
+                }
+              }
+            ]
+          },
+          {
+            "templateType": "080",
+            "templateItems": [
+              {
+                "productItemName": "目标盈",
+                "productId": "2",
+                "versionCode": "",
+                "isLogin": "1",
+                "joinType": "4",
+                "upgradeType": "",
+                "startTime": "2021-12-02 10:44:00",
+                "endTime": "2023-12-27 10:42:00",
+                "id": "94",
+                "isRealName": "0",
+                "joinUrl": "https:\/\/jinrong.suning.com\/scms\/waplcjjmby.html?channelCode=JJ_SNbank&utm_source=JJ_SNbank",
+                "roundTopLeft": 10,
+                "roundTopRight": 10,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 10,
+                "marginLeft": 0,
+                "marginTop": 5,
+                "detail": {
+                  "amtSign": "天",
+                  "termSign": "元福利",
+                  "financeDesc1": "省心投资",
+                  "financeRateSign": "%",
+                  "financeAmount": "360",
+                  "financeTerm": "5",
+                  "financeTermContent": "达标提醒",
+                  "financeRate": "9",
+                  "productCode": "",
+                  "taCode": "",
+                  "financeAmountContent": "建议持有",
+                  "financeRateContent": "目标收益率",
+                  "financeProdName": "目标盈"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "moreIsLogin": "1",
+        "productIsShow": "1",
+        "moreJoinType": "-1",
+        "isMore": "0",
+        "moreJoinUrl": "",
+        "moreVersionCode": "",
+        "iconUrl": "https:\/\/image.suningbank.com0",
+        "id": "3",
+        "moreUpgradeType": "",
+        "productName": "贷款产品",
+        "moreIsRealName": "1",
+        "marginTop": 10,
+        "productTemplates": [
+          {
+            "templateType": "030",
+            "templateItems": [
+              {
+                "productItemName": "升级贷",
+                "productId": "3",
+                "versionCode": "",
+                "isLogin": "0",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2021-06-23 14:40:00",
+                "endTime": "2029-06-28 14:39:00",
+                "id": "37",
+                "isRealName": "0",
+                "joinUrl": "https:\/\/onlineloan.suningbank.com\/loan\/?FromPage=02014&#\/appOther\/LoanHome\/sjd",
+                "roundTopLeft": 10,
+                "roundTopRight": 10,
+                "roundBottomLeft": 0,
+                "roundBottomRight": 0,
+                "marginLeft": 0,
+                "marginTop": 0,
+                "detail": {
+                  "button2": "获取额度",
+                  "bottom1": "300000",
+                  "loanStatus": "g",
+                  "prodName": "升级贷",
+                  "middle1": "年利率低至",
+                  "middle2": "7.18%",
+                  "top1": "快速下款",
+                  "top2": "单利计息",
+                  "bottom3": "最高可借额度"
+                }
+              }
+            ]
+          },
+          {
+            "templateType": "240",
+            "templateItems": [
+              {
+                "productItemName": "微商贷",
+                "productId": "3",
+                "versionCode": "360,",
+                "isLogin": "1",
+                "joinType": "1",
+                "upgradeType": "1",
+                "startTime": "2021-09-17 00:51:00",
+                "endTime": "2026-09-24 00:51:00",
+                "id": "55",
+                "isRealName": "1",
+                "joinUrl": "https:\/\/onlineloan.suningbank.com\/jhstatic\/#\/loanListEntry",
+                "roundTopLeft": 0,
+                "roundTopRight": 0,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 10,
+                "marginLeft": 0,
+                "marginTop": 1,
+                "detail": {
+                  "loanDesc1": "全线上",
+                  "buttonName": "立即申请",
+                  "loanDesc2": "放款快",
+                  "loanProdName": "微商贷",
+                  "loanAmount": "小微企业专享贷款"
+                }
+              }
+            ]
+          },
+          {
+            "templateType": "040",
+            "templateItems": [
+              {
+                "productItemName": "省薪借",
+                "productId": "3",
+                "versionCode": "",
+                "isLogin": "1",
+                "joinType": "4",
+                "upgradeType": "",
+                "startTime": "2021-11-25 15:42:00",
+                "endTime": "2026-11-26 15:40:00",
+                "id": "90",
+                "isRealName": "0",
+                "joinUrl": "https:\/\/rxf.suning.com\/epps-cpf\/app\/darwMgt\/assetOverview.do?union=y&darwPlatform=y&channelType=010101703",
+                "roundTopLeft": 10,
+                "roundTopRight": 10,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 10,
+                "marginLeft": 0,
+                "marginTop": 5,
+                "detail": {
+                  "loanDesc1": "随借随还",
+                  "buttonName": "立即申请",
+                  "loanDesc2": "享你所想",
+                  "loanProdName": "省薪借",
+                  "loanRateContent": "年化利率至高",
+                  "loanAmountContent": "最高可借额度",
+                  "loanRate": "24%",
+                  "loanAmount": "200000"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "moreIsLogin": "1",
+        "productIsShow": "1",
+        "moreJoinType": "-1",
+        "isMore": "0",
+        "moreJoinUrl": "",
+        "moreVersionCode": "",
+        "iconUrl": "https:\/\/image.suningbank.com0",
+        "id": "4",
+        "moreUpgradeType": "",
+        "productName": "热门活动",
+        "moreIsRealName": "1",
+        "marginTop": 10,
+        "productTemplates": [
+          {
+            "templateType": "051",
+            "templateItems": [
+              {
+                "productItemName": "热门活动app",
+                "productId": "4",
+                "versionCode": "",
+                "isLogin": "1",
+                "joinType": "1",
+                "upgradeType": "",
+                "startTime": "2021-04-15 23:37:00",
+                "endTime": "2026-12-10 23:35:00",
+                "id": "17",
+                "isRealName": "1",
+                "joinUrl": "1",
+                "roundTopLeft": 10,
+                "roundTopRight": 0,
+                "roundBottomLeft": 10,
+                "roundBottomRight": 0,
+                "marginLeft": 0,
+                "marginTop": 0,
+                "detail": {
+                  "hotEventSkipUrl1": "https:\/\/mps.suningbank.com\/snbapp\/index.html?ChannelNo=AP&RescLoc=11&lotteryPageNo=PAP2022010700342245&lotteryType=2#\/RightsCenter\/LotteryNew\/AP\/\/1\/1",
+                  "hotEventSkipUrl2": "https:\/\/mps.suningbank.com\/snbapp\/coupon.html?ChannelNo=AP#\/RightsCenter\/ElecCoupon\/3",
+                  "hotEventSkipType3": "1",
+                  "hotEventSkipType2": "1",
+                  "hotEventImgUrl2": "https:\/\/image.suningbank.com\/channel\/pubresource\/16233177253848540.png",
+                  "hotEventSkipType1": "1",
+                  "hotEventImgUrl1": "https:\/\/image.suningbank.com\/channel\/pubresource\/16419846293430987.png",
+                  "hotEventImgUrl3": "https:\/\/image.suningbank.com\/channel\/pubresource\/16233177289028681.png",
+                  "hotEventSkipUrl3": "https:\/\/mps.suningbank.com\/snbapp\/index.html#\/RightsCenter\/Lottery\/AP\/\/1\/1"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "moreIsLogin": "0",
+        "productIsShow": "1",
+        "moreJoinType": "-1",
+        "isMore": "0",
+        "moreJoinUrl": "",
+        "moreVersionCode": "",
+        "iconUrl": "https:\/\/image.suningbank.com0",
+        "id": "14",
+        "moreUpgradeType": "",
+        "productName": "今日资讯",
+        "moreIsRealName": "0",
+        "marginTop": 10,
+        "productTemplates": [
+          {
+            "templateType": "160",
+            "templateItems": [
+              {
+                "productItemName": "咨讯",
+                "isLogin": "1",
+                "productId": "14",
+                "joinType": "4",
+                "upgradeType": "1",
+                "startTime": "2021-09-17 01:05:00",
+                "endTime": "2026-09-24 01:05:00",
+                "id": "57",
+                "isRealName": "0",
+                "joinUrl": "https:\/\/fipinfo.suning.com\/fipces\/bankCg\/bankCaiGuMainPage.htm",
+                "versionCode": "360,"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

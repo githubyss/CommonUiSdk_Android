@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="comui_recycler_view_title">Recycler View</string>
+
+    <!-- Button -->
+    <string name="comui_recycler_view_button_multi_type">Multi Type</string>
+    <string name="comui_recycler_view_button_multi_view">Multi View</string>
+    <string name="comui_recycler_view_button_three_layer">Three Layer</string>
+</resources>

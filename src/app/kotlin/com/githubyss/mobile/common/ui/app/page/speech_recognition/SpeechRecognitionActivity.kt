@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.app.page.speech_recognition
 
-import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarActivity
+import com.githubyss.mobile.common.ui.R
 
 
 /**
@@ -22,8 +22,8 @@ class SpeechRecognitionActivity : BaseInlineBindingToolbarActivity() {
 
     /** ****************************** Override ****************************** */
 
-    override fun init() {
-        addFragment(SpeechRecognitionFragment(), SpeechRecognitionFragment.TAG, false, binding.layoutFragmentContainer.id)
+    override fun setupUi() {
+        switchFragment(SpeechRecognitionFragment(), SpeechRecognitionFragment.TAG, FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, false)
     }
 
     override fun setToolbarTitle() {

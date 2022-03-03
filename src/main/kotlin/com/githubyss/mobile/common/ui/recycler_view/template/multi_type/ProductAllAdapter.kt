@@ -19,8 +19,8 @@
 // import android.widget.TextView
 // import com.suning.mobile.snbank.R
 // import com.suning.mobile.snbank.bankcard.util.PinYinUtil
-// import com.suning.mobile.snbank.homek.model.ProductInfo
-// import com.suning.mobile.snbank.homek.model.ProductItem
+// import com.githubyss.mobile.common.ui.recycler_view.three_layer.old.ProductInfo
+// import com.githubyss.mobile.common.ui.recycler_view.three_layer.old.ProductItem
 // import com.suning.mobile.snbank.homek.view.HomeItemClickListener
 // import com.suning.mobile.snbank.kit.common.Strs
 // import com.suning.mobile.snbank.ums.UmsClickListener
@@ -31,10 +31,10 @@
 //  * @author ：17021029
 //  * @since : 2021/1/7
 //  */
-// class HomeProductAllAdapter(val context: Context,
+// class com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductAllAdapter(val context: Context,
 //                             var productInfos: MutableList<ProductInfo>?,
 //                             private var mProductItemHomeClickListener: HomeItemClickListener<ProductItem>)
-//     : RecyclerView.Adapter<HomeProductAllAdapter.ViewHolder>() {
+//     : RecyclerView.Adapter<com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductAllAdapter.ViewHolder>() {
 //     private val mLayoutInflater = LayoutInflater.from(context)
 //
 //     fun notifyDataChanged(products: MutableList<ProductInfo>?) {
@@ -55,7 +55,7 @@
 //
 //     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 //         val mProductInfos = productInfos!![position]
-//         val homeProductOutAdapter = HomeProductOutAdapter(context, mProductInfos.productName, false, mProductInfos.prodRowModels, mProductItemHomeClickListener)
+//         val homeProductOutAdapter = com.githubyss.mobile.common.ui.recycler_view.three_layer.old.HomeProductOutAdapter(context, mProductInfos.productName, false, mProductInfos.prodRowModels, mProductItemHomeClickListener)
 //         val mLayoutManager: LinearLayoutManager = object : LinearLayoutManager(context) {
 //             override fun canScrollVertically(): Boolean {
 //                 return false

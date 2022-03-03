@@ -15,13 +15,13 @@ apply plugin: 'kotlin-kapt'
 
 android {
     buildToolsVersion build_tools_version
-    compileSdkVersion compile_sdk_version.toInteger()
+    compileSdk compile_sdk_version.toInteger()
 
     resourcePrefix 'comui_'
 
     defaultConfig {
-        minSdkVersion min_sdk_version
-        targetSdkVersion target_sdk_version
+        minSdk min_sdk_version.toInteger()
+        targetSdk target_sdk_version.toInteger()
 
         versionCode 1
         versionName "1.0"
@@ -80,6 +80,39 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility java_version
+        targetCompatibility java_version
+    }
+
+    kotlinOptions {
+        jvmTarget = java_version
+        useIR = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion androidx_compose_version
+        kotlinCompilerVersion kotlin_version
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/metadata.kotlin_module'
+        exclude 'META-INF/metadata.jvm.kotlin_module'
+    }
+
+    dataBinding {
+        enabled isDataBindingEnabled.toBoolean()
+    }
+
+    buildFeatures {
+        compose isComposeEnabled.toBoolean()
+    }
+
     flavorDimensions 'library'
     productFlavors {
         if (isLaunchApp) {
@@ -112,6 +145,7 @@ android {
                 srcDirs 'src/main/res/floating_icon'
 
                 srcDirs 'src/main/res/recycler_view'
+                srcDirs 'src/main/res/recycler_view/three_layer'
                 srcDirs 'src/main/res/slide_to_refresh_scroll_view'
             }
             manifest {
@@ -134,9 +168,12 @@ android {
 
                     srcDirs 'src/app/res/homepage'
                     srcDirs 'src/app/res/animate'
+                    srcDirs 'src/app/res/time_countdown'
+                    srcDirs 'src/app/res/floating_window'
                     srcDirs 'src/app/res/recycler_view'
                     srcDirs 'src/app/res/recycler_view/search'
                     srcDirs 'src/app/res/recycler_view/multi'
+                    srcDirs 'src/app/res/recycler_view/three_layer'
                     srcDirs 'src/app/res/speech_recognition'
                 }
                 manifest {
@@ -155,25 +192,6 @@ android {
         sourceSets.all {
             set -> println "${set.name} 的文件是 ${set.java.srcDirs}"
         }
-    }
-
-    compileOptions {
-        sourceCompatibility java_version
-        targetCompatibility java_version
-    }
-
-    packagingOptions {
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/metadata.kotlin_module'
-        exclude 'META-INF/metadata.jvm.kotlin_module'
-    }
-
-    dataBinding {
-        enabled = isDataBindingEnabled.toBoolean()
     }
 }
 
