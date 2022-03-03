@@ -136,7 +136,7 @@
                             />
                 </com.google.android.flexbox.FlexboxLayout>
 
-                <com.githubyss.mobile.common.ui.banner.BannerCarouselView
+                <com.githubyss.mobile.common.ui.banner.classical.BannerCarouselView
                         android:id="@+id/bannerSpecialTopicAd"
                         android:layout_width="match_parent"
                         android:layout_height="75dp"

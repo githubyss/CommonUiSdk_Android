@@ -30,7 +30,7 @@
                 app:alignItems="flex_start"
                 >
 
-            <com.githubyss.mobile.common.ui.text_view.KeyWordHighlightTextView
+            <com.githubyss.mobile.common.ui.text_view.classical.KeyWordHighlightTextView
                     android:id="@+id/textFaqContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

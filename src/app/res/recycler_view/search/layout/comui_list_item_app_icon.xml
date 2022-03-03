@@ -28,7 +28,7 @@
                 android:layout_height="28dp"
                 />
 
-        <com.githubyss.mobile.common.ui.text_view.KeyWordHighlightTextView
+        <com.githubyss.mobile.common.ui.text_view.classical.KeyWordHighlightTextView
                 android:id="@+id/textAppIconLabel"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"

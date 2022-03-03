@@ -7,11 +7,11 @@ import com.githubyss.mobile.common.kit.manager.font.FontConfig
 import com.githubyss.mobile.common.kit.manager.font.FontManager
 import com.githubyss.mobile.common.kit.util.ResourceUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.kit.base.view_binding.recycler_view.inline.BaseInlineBindingViewHolder
-import com.githubyss.mobile.common.kit.base.view_binding.recycler_view.inline.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemFundManagerBinding
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.binding_inline.BaseInlineBindingViewHolder
+import com.githubyss.mobile.common.ui.recycler_view.base.binding_inline.inflate
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 
 
@@ -23,20 +23,20 @@ import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
  * @createdTime 2021/03/23 11:32:43
  */
 class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>, private val keyList: ArrayList<String>) : BaseItemAdapter<RecyclerView.ViewHolder>(dataList) {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     companion object {
         val TAG: String = FundManagerAdapter::class.java.simpleName
     }
-    
-    
+
+
     /** ****************************** Override ****************************** */
-    
+
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
         return inflate<ComuiListItemFundManagerBinding>(parent)
     }
-    
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val dataModel = dataList[position]
         if (holder is BaseInlineBindingViewHolder<*>) {
@@ -63,7 +63,8 @@ class FundManagerAdapter constructor(private val dataList: List<BaseItemModel>, 
                                         binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_00c29e))
                                     }
                                 }
-                            } catch (e: NumberFormatException) {
+                            }
+                            catch (e: NumberFormatException) {
                                 binding.textFundManagerRiseFallRatio.text = "-.--%"
                                 binding.textFundManagerRiseFallRatio.setTextColor(ResourceUtils.getColor(R.color.comres_color_999999))
                             }

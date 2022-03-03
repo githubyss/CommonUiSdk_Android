@@ -3,6 +3,8 @@ package com.githubyss.mobile.common.ui.app.page.speech_recognition
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.bindView
 import com.githubyss.mobile.common.kit.manager.speech_recognition.SpeechRecognitionManager
 import com.githubyss.mobile.common.kit.manager.speech_recognition.VoiceJsonParser
 import com.githubyss.mobile.common.kit.util.LogUtils
@@ -13,8 +15,6 @@ import com.githubyss.mobile.common.ui.app.page.speech_recognition.manager.VoiceT
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.util.VoiceError
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.widget.RecordImageButton
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.widget.VoiceHomeLayout
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSpeechRecognitionBinding
 
 
@@ -39,7 +39,16 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
     /** ****************************** Override ****************************** */
 
     override fun setupUi() {
-        initView()
+        binding?.recordImageButton?.setVoiceListener(voiceListener)
+        binding?.voiceBtnHelp?.setOnClickListener(onClickListener)
+        binding?.voiceBtnClose?.setOnClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmPhoneChargeClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmTransferClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmLifePaymentClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmPlayClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmTravelClickListener(onClickListener)
+        // binding.viewVoiceTalking.voiceHomeLayout.setmCreditCardClickListener(onClickListener)
+
         initSpeechRecognition()
     }
 
@@ -59,18 +68,6 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
 
 
     /** ****************************** Functions ****************************** */
-
-    private fun initView() {
-        binding?.recordImageButton?.setVoiceListener(voiceListener)
-        binding?.voiceBtnHelp?.setOnClickListener(onClickListener)
-        binding?.voiceBtnClose?.setOnClickListener(onClickListener)
-        // binding.viewVoiceTalking.voiceHomeLayout.setmPhoneChargeClickListener(onClickListener)
-        // binding.viewVoiceTalking.voiceHomeLayout.setmTransferClickListener(onClickListener)
-        // binding.viewVoiceTalking.voiceHomeLayout.setmLifePaymentClickListener(onClickListener)
-        // binding.viewVoiceTalking.voiceHomeLayout.setmPlayClickListener(onClickListener)
-        // binding.viewVoiceTalking.voiceHomeLayout.setmTravelClickListener(onClickListener)
-        // binding.viewVoiceTalking.voiceHomeLayout.setmCreditCardClickListener(onClickListener)
-    }
 
     private fun initSpeechRecognition() {
         SpeechRecognitionManager.configSDK(activity ?: return)

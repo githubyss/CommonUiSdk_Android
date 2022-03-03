@@ -1,9 +1,9 @@
 package com.githubyss.mobile.common.ui.app.page.homepage
 
-import com.githubyss.mobile.common.kit.base.view_binding.page.reflect.BaseReflectBindingToolbarActivity
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarActivity
 import com.githubyss.mobile.common.kit.databinding.ComkitActivityBaseToolbarBinding
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAudioPlayer
+import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingAudioPlayer
 
 
 /**

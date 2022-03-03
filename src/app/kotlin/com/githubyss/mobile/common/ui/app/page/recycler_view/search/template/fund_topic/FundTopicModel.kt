@@ -1,6 +1,6 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.fund_topic
 
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import org.json.JSONException
 import org.json.JSONObject

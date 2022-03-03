@@ -5,16 +5,16 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.app_icon.AppIconAdapter
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
-import com.githubyss.mobile.common.ui.banner.BannerModel
-import com.githubyss.mobile.common.ui.banner.BannerPagerAdapter
+import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.app_icon.AppIconAdapter
+import com.githubyss.mobile.common.ui.banner.classical.BannerModel
+import com.githubyss.mobile.common.ui.banner.classical.BannerPagerAdapter
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemSpecialTopicBinding
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemLayout
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 
 
 /**

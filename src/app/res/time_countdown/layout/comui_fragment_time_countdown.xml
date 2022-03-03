@@ -43,7 +43,7 @@
                     app:justifyContent="space_between"
                     >
 
-                    <com.githubyss.mobile.common.ui.time.TimeCountdownView
+                    <com.githubyss.mobile.common.ui.time_view.classical.TimeCountdownView
                         android:id="@+id/tcv_countdown"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -1,6 +1,6 @@
 package com.githubyss.mobile.common.ui.app.page.speech_recognition
 
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarActivity
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarActivity
 import com.githubyss.mobile.common.ui.R
 
 

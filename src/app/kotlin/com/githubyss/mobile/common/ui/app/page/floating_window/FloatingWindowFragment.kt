@@ -6,18 +6,17 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.githubyss.mobile.common.kit.base.view_binding.page.reflect.BaseReflectBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
 import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.kit.util.ScreenUtils
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentFloatingWindowBinding
-import com.githubyss.mobile.common.ui.floating_view.container.FloatingAudioPlayerListener
-import com.githubyss.mobile.common.ui.floating_view.container.FloatingIconListener
-import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAudioPlayer
-import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingIcon
-import com.githubyss.mobile.common.ui.floating_view.container.system.SystemFloatingIcon
-import java.util.*
+import com.githubyss.mobile.common.ui.floating_view.classical.container.FloatingAudioPlayerListener
+import com.githubyss.mobile.common.ui.floating_view.classical.container.FloatingIconListener
+import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingAudioPlayer
+import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingIcon
+import com.githubyss.mobile.common.ui.floating_view.classical.container.system.SystemFloatingIcon
 
 
 /**
@@ -41,12 +40,18 @@ class FloatingWindowFragment : BaseReflectBindingToolbarFragment<ComuiFragmentFl
     /** ****************************** Override ****************************** */
 
     override fun setupUi() {
-        initView()
-        initData()
+        binding?.lifecycleOwner = viewLifecycleOwner
+    }
+
+    override fun setupData() {
     }
 
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_floating_window_title)
+    }
+
+    override fun setupViewModel() {
+        binding?.floatingWindowVm = floatingWindowVm
     }
 
     override fun observeViewModel() {
@@ -76,14 +81,6 @@ class FloatingWindowFragment : BaseReflectBindingToolbarFragment<ComuiFragmentFl
 
 
     /** ****************************** Functions ****************************** */
-
-    private fun initView() {
-        binding?.lifecycleOwner = viewLifecycleOwner
-    }
-
-    private fun initData() {
-        binding?.floatingWindowVm = floatingWindowVm
-    }
 
     private fun attachView() {
         AppFloatingIcon.getInstance(activity as Context)

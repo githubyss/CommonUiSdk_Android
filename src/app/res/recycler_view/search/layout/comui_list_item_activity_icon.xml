@@ -28,7 +28,7 @@
                 android:layout_height="76dp"
                 />
 
-        <com.githubyss.mobile.common.ui.text_view.KeyWordHighlightTextView
+        <com.githubyss.mobile.common.ui.text_view.classical.KeyWordHighlightTextView
                 android:id="@+id/textActivityIconLabel"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"

@@ -3,14 +3,14 @@ package com.githubyss.mobile.common.ui.app.page.recycler_view
 import android.content.Context
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.githubyss.mobile.common.kit.base.activity_fragment.BaseActivity
-import com.githubyss.mobile.common.kit.base.view_binding.page.reflect.BaseReflectBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.recycler_view.multi.page.MultiTypeRecyclerViewFragment
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.page.SearchResultFragment
 import com.githubyss.mobile.common.ui.app.page.recycler_view.three_layer.page.ThreeLayerRecyclerViewFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
-import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingIcon
+import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingIcon
 
 
 /**
@@ -34,12 +34,18 @@ class RecyclerViewFragment : BaseReflectBindingToolbarFragment<ComuiFragmentRecy
     /** ****************************** Override ****************************** */
 
     override fun setupUi() {
-        initView()
-        initData()
+        binding?.lifecycleOwner = viewLifecycleOwner
+    }
+
+    override fun setupData() {
     }
 
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_recycler_view_title)
+    }
+
+    override fun setupViewModel() {
+        binding?.recyclerViewVm = recyclerViewVm
     }
 
     override fun observeViewModel() {
@@ -69,14 +75,6 @@ class RecyclerViewFragment : BaseReflectBindingToolbarFragment<ComuiFragmentRecy
 
 
     /** ****************************** Functions ****************************** */
-
-    private fun initView() {
-        binding?.lifecycleOwner = viewLifecycleOwner
-    }
-
-    private fun initData() {
-        binding?.recyclerViewVm = recyclerViewVm
-    }
 
     private fun attachView() {
         AppFloatingIcon.getInstance(activity as Context)

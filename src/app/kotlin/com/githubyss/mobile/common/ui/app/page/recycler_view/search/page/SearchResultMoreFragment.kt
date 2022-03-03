@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.bindView
 import com.githubyss.mobile.common.kit.util.StringUtils
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
@@ -14,9 +14,9 @@ import com.githubyss.mobile.common.ui.app.page.recycler_view.search.bean.SearchR
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.util.LayoutListBuildUtils
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSearchResultMoreBinding
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemLayout
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.template.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recycler_view.template.layout.LayoutModel
 import org.greenrobot.eventbus.EventBus
@@ -59,7 +59,13 @@ class SearchResultMoreFragment : BaseInlineBindingToolbarFragment(R.layout.comui
     /** ****************************** Override ****************************** */
 
     override fun setupUi() {
-        initView()
+        rvAdapter = LayoutAdapter(layoutList, R.layout.comui_layout_bg_white_corner_none_margin_none)
+        binding?.recyclerContainer?.setHasFixedSize(true)
+        binding?.recyclerContainer?.layoutManager = LinearLayoutManager(activity)
+        binding?.recyclerContainer?.adapter = rvAdapter
+        rvAdapter?.onItemClickListener = onItemClickListener
+        rvAdapter?.onLoadMoreListener = onLoadMoreListener
+
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this)
         }
@@ -99,15 +105,6 @@ class SearchResultMoreFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         ToastUtils.showMessage("模板 key 为：${key}")
         this.moduleKey = key
         requestData("", this.pageChannel, this.moduleKey)
-    }
-
-    private fun initView() {
-        rvAdapter = LayoutAdapter(layoutList, R.layout.comui_layout_bg_white_corner_none_margin_none)
-        binding?.recyclerContainer?.setHasFixedSize(true)
-        binding?.recyclerContainer?.layoutManager = LinearLayoutManager(activity)
-        binding?.recyclerContainer?.adapter = rvAdapter
-        rvAdapter?.onItemClickListener = onItemClickListener
-        rvAdapter?.onLoadMoreListener = onLoadMoreListener
     }
 
     private fun resetData() {

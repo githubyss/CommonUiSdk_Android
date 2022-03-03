@@ -28,7 +28,7 @@ import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.ins
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.see_more.SeeMoreModel
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.special_topic.SpecialTopicModel
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.wealth_account.WealthAccountModel
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import org.json.JSONException
 import org.json.JSONObject
@@ -43,42 +43,42 @@ import java.util.*
  * @createdTime 2021/04/11 09:32:11
  */
 data class HeaderHasMoreBean constructor(val json: JSONObject?, @ItemType override var type: Int) : BaseItemModel(type) {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     var moduleKey: String = ""
         private set
-    
+
     var title: String = ""
         private set
-    
+
     var hasMore: String = ""
         private set
-    
+
     var itemList = ArrayList<BaseItemModel>()
         private set
-    
+
     var keyList = ArrayList<String>()
         private set
-    
-    
+
+
     /** ****************************** Constructors ****************************** */
-    
+
     init {
         setProperties(json)
     }
-    
-    
+
+
     /** ****************************** Functions ****************************** */
-    
+
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return
-            
+
             moduleKey = json.optString("modelName")
             title = json.optString("title")
             hasMore = json.optString("hasMore")
-            
+
             val itemListJson = json.optJSONArray("items")
             itemListJson?.let {
                 val itemListLength = itemListJson.length()
@@ -140,7 +140,8 @@ data class HeaderHasMoreBean constructor(val json: JSONObject?, @ItemType overri
                     }
                 }
             }
-        } catch (e: JSONException) {
+        }
+        catch (e: JSONException) {
             e.printStackTrace()
         }
     }

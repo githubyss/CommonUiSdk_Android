@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view.three_layer.page
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.githubyss.mobile.common.kit.base.view_binding.page.reflect.BaseReflectBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentThreeLayerRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recycler_view.three_layer.ItemClickListener
@@ -30,8 +30,11 @@ class ThreeLayerRecyclerViewFragment : BaseReflectBindingToolbarFragment<ComuiFr
     /** ****************************** Override ****************************** */
 
     override fun setupUi() {
-        initView()
-        initData()
+        initRecyclerView(dataList)
+    }
+
+    override fun setupData() {
+        // Rootresp( JsonUtils.getJSONObjectFromAssets("json/netres/product/product_info_structure.json"))
     }
 
     override fun setToolbarTitle() {
@@ -40,10 +43,6 @@ class ThreeLayerRecyclerViewFragment : BaseReflectBindingToolbarFragment<ComuiFr
 
 
     /** ****************************** Functions ****************************** */
-
-    private fun initView() {
-        initRecyclerView(dataList)
-    }
 
     private fun initRecyclerView(dataList: MutableList<ProductInfo>) {
         val rvAdapter = WithHeaderAdapter(activity ?: return, dataList, object : ItemClickListener<ProductInfo.ProductTemplate.ProductTemplateItem> {
@@ -66,10 +65,6 @@ class ThreeLayerRecyclerViewFragment : BaseReflectBindingToolbarFragment<ComuiFr
             setHasFixedSize(true)
             isNestedScrollingEnabled = false
         }
-    }
-
-    private fun initData() {
-       // Rootresp( JsonUtils.getJSONObjectFromAssets("json/netres/product/product_info_structure.json"))
     }
 
 

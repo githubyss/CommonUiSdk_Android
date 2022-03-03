@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.fund_manager
 
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.fund_product.FundProductModel
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import org.json.JSONException
 import org.json.JSONObject
@@ -15,9 +15,9 @@ import org.json.JSONObject
  * @createdTime 2021/03/23 11:32:39
  */
 data class FundManagerModel constructor(@ItemType override var type: Int) : BaseItemModel(type) {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     var imageUrl: String = ""
     var title: String = ""
     var bestReturn: String = ""
@@ -25,10 +25,10 @@ data class FundManagerModel constructor(@ItemType override var type: Int) : Base
     var description: String = ""
     var jumpUrl: String = ""
     var fundProductList = ArrayList<BaseItemModel>()
-    
-    
+
+
     /** ****************************** Constructors ****************************** */
-    
+
     constructor(imageUrl: String, title: String, bestReturn: String, riseFallRatio: String, description: String, jumpUrl: String, fundProductList: ArrayList<BaseItemModel>, @ItemType type: Int) : this(type) {
         this.imageUrl = imageUrl
         this.title = title
@@ -38,25 +38,25 @@ data class FundManagerModel constructor(@ItemType override var type: Int) : Base
         this.jumpUrl = jumpUrl
         this.fundProductList = fundProductList
     }
-    
+
     constructor(json: JSONObject?, @ItemType type: Int) : this(type) {
         setProperties(json)
     }
-    
-    
+
+
     /** ****************************** Functions ****************************** */
-    
+
     override fun setProperties(json: JSONObject?) {
         try {
             if (json == null) return
-            
+
             imageUrl = json.optString("managerUrl")
             title = json.optString("managerName")
             bestReturn = "任期最佳回报"
             riseFallRatio = json.optString("performance")
             description = json.optString("background")
             jumpUrl = json.optString("linkUrl")
-            
+
             val fundProductsJson = json.optJSONArray("fundList")
             if (fundProductsJson != null && fundProductsJson.length() > 0) {
                 val length = fundProductsJson.length()
@@ -65,7 +65,8 @@ data class FundManagerModel constructor(@ItemType override var type: Int) : Base
                     fundProductList.add(FundProductModel(item, ItemType.ITEM))
                 }
             }
-        } catch (e: JSONException) {
+        }
+        catch (e: JSONException) {
             e.printStackTrace()
         }
     }

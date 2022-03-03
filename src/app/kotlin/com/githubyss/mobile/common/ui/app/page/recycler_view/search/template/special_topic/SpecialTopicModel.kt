@@ -1,8 +1,8 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.special_topic
 
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.app_icon.AppIconModel
-import com.githubyss.mobile.common.ui.banner.BannerModel
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.banner.classical.BannerModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import org.json.JSONException
 import org.json.JSONObject

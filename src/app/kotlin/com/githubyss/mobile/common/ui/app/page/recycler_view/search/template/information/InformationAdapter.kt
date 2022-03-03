@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.glide.GlideUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
-import com.githubyss.mobile.common.kit.base.view_binding.recycler_view.inline.BaseInlineBindingViewHolder
-import com.githubyss.mobile.common.kit.base.view_binding.recycler_view.inline.inflate
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemInformationBinding
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.binding_inline.BaseInlineBindingViewHolder
+import com.githubyss.mobile.common.ui.recycler_view.base.binding_inline.inflate
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 
 

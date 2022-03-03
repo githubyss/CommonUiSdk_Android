@@ -5,9 +5,9 @@ import android.net.Uri
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.kit.base.activity_fragment.BaseActivity
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.bindView
+import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
 import com.githubyss.mobile.common.kit.mock.OnResponse
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.StringUtils
@@ -17,9 +17,9 @@ import com.githubyss.mobile.common.ui.app.page.recycler_view.search.bean.SearchR
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.enumeration.SearchResultModuleKey
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.util.LayoutListBuildUtils
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSearchResultBinding
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemLayout
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.template.layout.LayoutAdapter
 import com.githubyss.mobile.common.ui.recycler_view.template.layout.LayoutModel
 import org.greenrobot.eventbus.EventBus
@@ -60,7 +60,13 @@ class SearchResultFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fra
     /** ****************************** Override ****************************** */
 
     override fun setupUi() {
-        initView()
+        rvAdapter = LayoutAdapter(layoutList)
+        binding?.recyclerContainer?.setHasFixedSize(true)
+        binding?.recyclerContainer?.layoutManager = LinearLayoutManager(activity)
+        binding?.recyclerContainer?.adapter = rvAdapter
+    }
+
+    override fun setupData() {
         requestData(this.searchWord, this.moduleTab, this.pageChannel, this.moduleKey)
     }
 
@@ -94,13 +100,6 @@ class SearchResultFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fra
         layoutList.clear()
         rvAdapter?.notifyDataSetChanged()
         isDirectJump = false
-    }
-
-    private fun initView() {
-        rvAdapter = LayoutAdapter(layoutList)
-        binding?.recyclerContainer?.setHasFixedSize(true)
-        binding?.recyclerContainer?.layoutManager = LinearLayoutManager(activity)
-        binding?.recyclerContainer?.adapter = rvAdapter
     }
 
     private fun requestData(searchWord: String, moduleTab: String, pageChannel: String, moduleKey: String) {

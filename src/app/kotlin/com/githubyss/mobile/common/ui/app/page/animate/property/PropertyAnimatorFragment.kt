@@ -5,11 +5,11 @@ import android.animation.ValueAnimator
 import android.graphics.Point
 import android.view.View
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.bindView
 import com.githubyss.mobile.common.kit.util.LogUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.ComuiPointEvaluator
+import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.PointEvaluator
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentPropertyAnimatorBinding
 import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
 
@@ -40,7 +40,10 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
     /** ****************************** Override ****************************** */
 
     override fun setupUi() {
-        initView()
+        binding?.btnMove?.setOnClickListener(onClickListener)
+        binding?.btnScale?.setOnClickListener(onClickListener)
+        binding?.btnShow?.setOnClickListener(onClickListener)
+        binding?.btnHide?.setOnClickListener(onClickListener)
     }
 
     override fun setToolbarTitle() {
@@ -56,13 +59,6 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
 
     /** ****************************** Functions ****************************** */
 
-    private fun initView() {
-        binding?.btnMove?.setOnClickListener(onClickListener)
-        binding?.btnScale?.setOnClickListener(onClickListener)
-        binding?.btnShow?.setOnClickListener(onClickListener)
-        binding?.btnHide?.setOnClickListener(onClickListener)
-    }
-
     private fun Point.scale(scale: Int): Point {
         this.x *= scale
         this.y *= scale
@@ -75,7 +71,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         val originPoint = Point(originX, originY)
         // val targetedPoint = Point(originX, originY + 500)
         val targetedPoint = originPoint.scale(2)
-        moveValueAnimator = ValueAnimator.ofObject(ComuiPointEvaluator(), originPoint, targetedPoint)
+        moveValueAnimator = ValueAnimator.ofObject(PointEvaluator(), originPoint, targetedPoint)
         moveValueAnimator?.duration = 1000
         moveValueAnimator?.startDelay = 0
         moveValueAnimator?.repeatCount = 1

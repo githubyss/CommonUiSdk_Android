@@ -2,14 +2,14 @@ package com.githubyss.mobile.common.ui.app.page.recycler_view.multi.page
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.bindView
 import com.githubyss.mobile.common.ui.app.page.recycler_view.multi.enumeration.MultiType
 import com.githubyss.mobile.common.ui.app.page.recycler_view.multi.template.multi.MultiAdapter
 import com.githubyss.mobile.common.ui.app.page.recycler_view.multi.template.multi.MultiModel
 import com.githubyss.mobile.common.ui.app.page.recycler_view.multi.template.text.TextHolder
 import com.githubyss.mobile.common.kit.util.ToastUtils
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.view_binding.page.inline.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentMultiTypeRecyclerViewBinding
 
 

@@ -3,8 +3,8 @@ package com.githubyss.mobile.common.ui.app.page.homepage
 import android.content.Context
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.githubyss.mobile.common.kit.base.activity_fragment.BaseActivity
-import com.githubyss.mobile.common.kit.base.view_binding.page.reflect.BaseReflectBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.FragmentUtils
 import com.githubyss.mobile.common.ui.R
@@ -13,8 +13,8 @@ import com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowFra
 import com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewFragment
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognitionActivity
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentHomepageBinding
-import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingAudioPlayer
-import com.githubyss.mobile.common.ui.floating_view.container.app.AppFloatingIcon
+import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingAudioPlayer
+import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingIcon
 
 
 /**
@@ -38,12 +38,19 @@ class HomepageFragment : BaseReflectBindingToolbarFragment<ComuiFragmentHomepage
     /** ****************************** Override ****************************** */
 
     override fun setupUi() {
-        initView()
-        initData()
+        binding?.lifecycleOwner = viewLifecycleOwner
+    }
+
+    override fun setupData() {
+        this.homepageVm.viewId?.value = 0
     }
 
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_homepage_title)
+    }
+
+    override fun setupViewModel() {
+        binding?.homepageVm = homepageVm
     }
 
     override fun observeViewModel() {
@@ -73,15 +80,6 @@ class HomepageFragment : BaseReflectBindingToolbarFragment<ComuiFragmentHomepage
 
 
     /** ****************************** Functions ****************************** */
-
-    private fun initView() {
-        binding?.lifecycleOwner = viewLifecycleOwner
-    }
-
-    private fun initData() {
-        binding?.homepageVm = homepageVm
-        this.homepageVm.viewId?.value = 0
-    }
 
     private fun attachView() {
         AppFloatingIcon.getInstance(activity as Context)

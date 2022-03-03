@@ -3,8 +3,8 @@ package com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.se
 import android.content.Context
 import android.util.AttributeSet
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemSeeMoreBinding
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemLayout
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 
 
 /**

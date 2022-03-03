@@ -23,14 +23,14 @@ import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.loa
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.see_more.SeeMoreLayout
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.special_topic.SpecialTopicLayout
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.wealth_account.WealthAccountAdapter
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemLayout
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import com.githubyss.mobile.common.ui.recycler_view.template.layout.LayoutModel
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.list.ListAdapter
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.list.ListLayout
 import com.githubyss.mobile.common.ui.app.page.recycler_view.search.template.list.ListModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemLayout
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 
 
 /**
