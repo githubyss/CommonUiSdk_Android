@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.recycler_view.template.layout
 
 import android.view.View
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemModel
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import org.json.JSONObject
 

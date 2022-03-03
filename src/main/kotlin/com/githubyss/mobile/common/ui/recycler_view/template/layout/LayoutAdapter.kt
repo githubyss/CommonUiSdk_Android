@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recycler_view.base.BaseItemAdapter
+import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 
 
