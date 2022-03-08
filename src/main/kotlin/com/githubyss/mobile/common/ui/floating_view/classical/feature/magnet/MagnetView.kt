@@ -9,8 +9,8 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import com.githubyss.mobile.common.kit.util.BarUtils
-import com.githubyss.mobile.common.kit.util.ScreenUtils
+import com.githubyss.mobile.common.kit.util.dp2Px
+import com.githubyss.mobile.common.kit.util.getStatusBarHeight
 import kotlin.math.max
 import kotlin.math.min
 
@@ -30,7 +30,7 @@ open class MagnetView : FrameLayout {
         private val TAG: String = MagnetView::class.java.simpleName
     }
     
-    private val MARGIN_EDGE: Int = ScreenUtils.dp2Px(14.0f) ?: 0
+    private val MARGIN_EDGE: Int = dp2Px(14.0f) ?: 0
     private val TOUCH_TIME_THRESHOLD: Int = 150
     
     private var originalRawX: Float = 0f
@@ -106,7 +106,7 @@ open class MagnetView : FrameLayout {
     
     protected fun initInBase() {
         moveAnimatorRunnable = MoveAnimatorRunnable(this)
-        statusBarHeight = BarUtils.getStatusBarHeight(context)
+        statusBarHeight = getStatusBarHeight(context)
         isClickable = true
         // updateSize();
     }

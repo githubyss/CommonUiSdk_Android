@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Title -->
-    <string name="comui_recycler_view_search_result_title">搜索结果列表</string>
-    <string name="comui_recycler_view_search_result_more_title">搜索结果更多列表</string>
-
-    <!-- Button -->
-</resources>

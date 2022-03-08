@@ -11,8 +11,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import com.githubyss.mobile.common.kit.util.LogUtils
-import com.githubyss.mobile.common.kit.util.ResourceUtils
+import com.githubyss.mobile.common.kit.util.getColor
+import com.githubyss.mobile.common.kit.util.logE
 import com.githubyss.mobile.common.ui.R
 
 
@@ -81,10 +81,10 @@ class NormalDialog @SuppressLint("ValidFragment") private constructor() : Dialog
                 }
             }
             catch (exception: IllegalStateException) {
-                LogUtils.e(TAG, t = exception)
+                logE(TAG, t = exception)
             }
             catch (exception: Exception) {
-                LogUtils.e(TAG, t = exception)
+                logE(TAG, t = exception)
             }
         }
     }
@@ -161,10 +161,10 @@ class NormalDialog @SuppressLint("ValidFragment") private constructor() : Dialog
             btnLeft?.text = btnLeftStr
             btnLeft?.visibility = View.VISIBLE
             if (btnLeftHighlightStatus) {
-                btnLeft?.setTextColor(ResourceUtils.getColor(R.color.comres_color_1f86ed))
+                btnLeft?.setTextColor(getColor(R.color.comres_color_1f86ed))
             }
             else {
-                btnLeft?.setTextColor(ResourceUtils.getColor(R.color.comres_color_353d44))
+                btnLeft?.setTextColor(getColor(R.color.comres_color_353d44))
             }
         }
 
@@ -172,10 +172,10 @@ class NormalDialog @SuppressLint("ValidFragment") private constructor() : Dialog
             btnRight?.text = btnRightStr
             btnRight?.visibility = View.VISIBLE
             if (btnRightHighlightStatus) {
-                btnRight?.setTextColor(ResourceUtils.getColor(R.color.comres_color_1f86ed))
+                btnRight?.setTextColor(getColor(R.color.comres_color_1f86ed))
             }
             else {
-                btnRight?.setTextColor(ResourceUtils.getColor(R.color.comres_color_353d44))
+                btnRight?.setTextColor(getColor(R.color.comres_color_353d44))
             }
         }
 

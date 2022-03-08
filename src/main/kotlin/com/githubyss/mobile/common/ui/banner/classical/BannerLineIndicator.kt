@@ -8,8 +8,8 @@ import android.view.View
 import androidx.annotation.ColorInt
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import com.githubyss.mobile.common.kit.util.ResourceUtils
-import com.githubyss.mobile.common.kit.util.ScreenUtils
+import com.githubyss.mobile.common.kit.util.dp2Px
+import com.githubyss.mobile.common.kit.util.getColor
 import com.githubyss.mobile.common.ui.R
 
 
@@ -40,8 +40,8 @@ class BannerLineIndicator : View {
     private var viewHeight: Int = 0
     private var isFirstMeasure: Boolean = true
     
-    private var lineColorOn: Int = ResourceUtils.getColor(R.color.comres_color_ffffff)
-    private var lineColorOff: Int = ResourceUtils.getColor(R.color.comres_color_white60pct)
+    private var lineColorOn: Int = getColor(R.color.comres_color_ffffff)
+    private var lineColorOff: Int = getColor(R.color.comres_color_white60pct)
     
     
     /** ****************************** Constructors ****************************** */
@@ -140,8 +140,8 @@ class BannerLineIndicator : View {
     
     private fun init() {
         paint = Paint()
-        lineWidth = ScreenUtils.dp2Px(9.0f).toFloat()
-        lineHeight = ScreenUtils.dp2Px(1.5f).toFloat()
+        lineWidth = dp2Px(9.0f).toFloat()
+        lineHeight = dp2Px(1.5f).toFloat()
     }
     
     /**

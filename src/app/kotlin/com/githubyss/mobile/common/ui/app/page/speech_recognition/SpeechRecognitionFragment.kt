@@ -7,7 +7,8 @@ import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.Bas
 import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.bindView
 import com.githubyss.mobile.common.kit.manager.speech_recognition.SpeechRecognitionManager
 import com.githubyss.mobile.common.kit.manager.speech_recognition.VoiceJsonParser
-import com.githubyss.mobile.common.kit.util.LogUtils
+import com.githubyss.mobile.common.kit.util.logD
+import com.githubyss.mobile.common.kit.util.logE
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.manager.VoiceIntentManager
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.manager.VoiceLocalMatch
@@ -122,7 +123,7 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
             override fun onResult(result: String) {
                 if (null != result) {
                     // 显示
-                    LogUtils.e(TAG, "OnTextUnderstanderCallback.onResult >>> $result")
+                    logE(TAG, "OnTextUnderstanderCallback.onResult >>> $result")
                     if (!TextUtils.isEmpty(result) && VoiceJsonParser.getResultRCCode(result) === 0) {
                         //0	操作成功
                         val vendor = VoiceJsonParser.getVendor(result)
@@ -154,7 +155,7 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment(R.layout.comu
                     }
                 }
                 else {
-                    LogUtils.d(TAG, "understander result:null")
+                    logD(TAG, "understander result:null")
                     binding?.viewVoiceTalking?.answer?.text = VoiceError.getErrorMsg(VoiceError.ERROR_CANNNOT_UNDERSTAND)
                 }
             }

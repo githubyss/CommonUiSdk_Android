@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.text_view.classical
 
 import android.text.Html
 import android.text.Spanned
-import com.githubyss.mobile.common.kit.util.ResourceUtils
+import com.githubyss.mobile.common.kit.util.getColor
 import com.githubyss.mobile.common.ui.R
 import java.util.*
 import java.util.regex.Matcher
@@ -41,7 +41,7 @@ object KeyWordHighlightUtils {
         keywords ?: return Html.fromHtml(text)
         if (keywords.isEmpty()) return Html.fromHtml(text)
         
-        val color = color ?: ResourceUtils.getColor(defaultColorId)
+        val color = color ?: getColor(defaultColorId)
         val keywordSet: MutableSet<String?> = HashSet<String?>()
         for (key in keywords) {
             keywordSet.add(key)
@@ -63,7 +63,7 @@ object KeyWordHighlightUtils {
         keywords ?: return Html.fromHtml(text)
         if (keywords.isEmpty()) return Html.fromHtml(text)
         
-        val color = color ?: ResourceUtils.getColor(defaultColorId)
+        val color = color ?: getColor(defaultColorId)
         val keywordSet: MutableSet<String?> = HashSet<String?>(keywords)
         return Html.fromHtml(getHtmlText(text, keywordSet, color, vague))
     }
@@ -82,7 +82,7 @@ object KeyWordHighlightUtils {
         keywords ?: return text
         if (keywords.isEmpty()) return text
         
-        val color = color ?: ResourceUtils.getColor(defaultColorId)
+        val color = color ?: getColor(defaultColorId)
         val sb = StringBuffer()
         val matcher = Pattern.compile(getKeyMatchRegex(keywords, vague), Pattern.CASE_INSENSITIVE or Pattern.UNICODE_CASE or Pattern.COMMENTS)
             .matcher(text)
@@ -91,7 +91,7 @@ object KeyWordHighlightUtils {
         }
         matcher.appendTail(sb)
         val ret = sb.toString()
-        // LogUtils.d(TAG, "KeyWordHighlightUtils >>> getHtmlText >> ret: $ret")
+        // logD(TAG, "KeyWordHighlightUtils >>> getHtmlText >> ret: $ret")
         return ret
     }
     
@@ -125,7 +125,7 @@ object KeyWordHighlightUtils {
         }
         matcher.appendTail(sb)
         val htmlText = sb.toString()
-        // LogUtils.d(TAG, "KeyWordHighlightUtils >>> matcherText >> htmlText: $htmlText")
+        // logD(TAG, "KeyWordHighlightUtils >>> matcherText >> htmlText: $htmlText")
         return Html.fromHtml(htmlText)
     }
     
@@ -156,7 +156,7 @@ object KeyWordHighlightUtils {
         }
         val ret = reg.deleteCharAt(reg.length - 1)
             .toString()
-        // LogUtils.d(TAG, "KeyWordHighlightUtils >>> getKeyMatchRegex >> ret: $ret")
+        // logD(TAG, "KeyWordHighlightUtils >>> getKeyMatchRegex >> ret: $ret")
         return ret
     }
     
@@ -168,10 +168,10 @@ object KeyWordHighlightUtils {
      * @return Html格式化的颜色（String）
      */
     private fun getColorHtmlStr(matcher: Matcher, color: Int? = null): String {
-        val color = color ?: ResourceUtils.getColor(defaultColorId)
+        val color = color ?: getColor(defaultColorId)
         val colorStr = String.format("#%06X", 0xFFFFFF and color)
         val ret = "<font color=\"${colorStr}\">${matcher.group()}</font>"
-        // LogUtils.d(TAG, "KeyWordHighlightUtils >>> getColorHtmlStr >> ret: $ret")
+        // logD(TAG, "KeyWordHighlightUtils >>> getColorHtmlStr >> ret: $ret")
         return ret
     }
 }

@@ -8,7 +8,7 @@ import android.os.Handler
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
-import com.githubyss.mobile.common.kit.util.ScreenUtils
+import com.githubyss.mobile.common.kit.util.dp2Px
 import com.githubyss.mobile.common.ui.R
 
 
@@ -177,7 +177,7 @@ open class AutoShortenView : FrameLayout {
 
             if (animatorSlideRightLengthen == animation) {
                 if (featureView != null) {
-                    featureView?.translationX = -(ScreenUtils.dp2Px(230.0f).toFloat())
+                    featureView?.translationX = -(dp2Px(230.0f).toFloat())
                     onLengthen()
                 }
                 return

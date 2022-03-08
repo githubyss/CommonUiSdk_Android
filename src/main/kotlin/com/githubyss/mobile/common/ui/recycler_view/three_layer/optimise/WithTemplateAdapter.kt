@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.githubyss.mobile.common.kit.constant.Strs
-import com.githubyss.mobile.common.kit.util.StringUtils
+import com.githubyss.mobile.common.kit.util.isSpace
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recycler_view.three_layer.HomePageBgType
 import com.githubyss.mobile.common.ui.recycler_view.three_layer.ItemClickListener
@@ -1572,7 +1572,7 @@ class WithTemplateAdapter(private val mContext: Context,
                 tvLoanTopProductName.text = it.productName
                 // GlideUtils.loadImage(mContext, it.hotIcon, ivLoanTopHotIcon)
 
-                if (StringUtils.isSpace(it.desc1)) {
+                if (isSpace(it.desc1)) {
                     tvLoanTopDesc1.visibility = View.GONE
                 }
                 else {
@@ -1580,7 +1580,7 @@ class WithTemplateAdapter(private val mContext: Context,
                     tvLoanTopDesc1.text = it.desc1
                 }
 
-                if (StringUtils.isSpace(it.desc2)) {
+                if (isSpace(it.desc2)) {
                     tvLoanTopDesc2.visibility = View.GONE
                 }
                 else {
@@ -1588,7 +1588,7 @@ class WithTemplateAdapter(private val mContext: Context,
                     tvLoanTopDesc2.text = it.desc2
                 }
 
-                if (StringUtils.isSpace(it.desc3)) {
+                if (isSpace(it.desc3)) {
                     tvLoanTopDesc3.visibility = View.GONE
                 }
                 else {
@@ -1596,7 +1596,7 @@ class WithTemplateAdapter(private val mContext: Context,
                     tvLoanTopDesc3.text = it.desc3
                 }
 
-                if (StringUtils.isSpace(it.desc4)) {
+                if (isSpace(it.desc4)) {
                     tvLoanTopDesc4.visibility = View.GONE
                 }
                 else {
@@ -1604,7 +1604,7 @@ class WithTemplateAdapter(private val mContext: Context,
                     tvLoanTopDesc4.text = it.desc4
                 }
 
-                if (StringUtils.isSpace(it.amt)) {
+                if (isSpace(it.amt)) {
                     tvLoanTopAmt.visibility = View.GONE
                 }
                 else {
@@ -1612,7 +1612,7 @@ class WithTemplateAdapter(private val mContext: Context,
                     tvLoanTopAmt.text = it.amt
                 }
 
-                if (StringUtils.isSpace(it.buttonName)) {
+                if (isSpace(it.buttonName)) {
                     btnLoanTopPrimary.visibility = View.GONE
                 }
                 else {
@@ -1973,13 +1973,13 @@ class WithTemplateAdapter(private val mContext: Context,
                 // llFinance.setBackgroundResource(getBgResourceID(homePageBgType))
 
                 tvLicaiTitle.text = it.productName ?: ""
-                ivLicaiDiv.visibility = if (StringUtils.isSpace(it.desc1)) View.GONE else View.VISIBLE
+                ivLicaiDiv.visibility = if (isSpace(it.desc1)) View.GONE else View.VISIBLE
                 tvLicaiSubtitle.text = it.desc1 ?: ""
                 tvTopLicaiDesc.text = it.desc2
-                tvTopLicaiDesc.visibility = if (StringUtils.isSpace(it.desc2)) View.GONE else View.VISIBLE
+                tvTopLicaiDesc.visibility = if (isSpace(it.desc2)) View.GONE else View.VISIBLE
 
 
-                if (!StringUtils.isSpace(it.rate)) {
+                if (!isSpace(it.rate)) {
                     tvLicaiRateStart.text = it.rate
                     tvLicaiSignStart.text = it.rateSign
                     tvLicaiRateStart.visibility = View.VISIBLE
@@ -1989,7 +1989,7 @@ class WithTemplateAdapter(private val mContext: Context,
                     tvLicaiRateStart.visibility = View.GONE
                     tvLicaiSignStart.visibility = View.GONE
                 }
-                if (!StringUtils.isSpace(it.rate2)) {
+                if (!isSpace(it.rate2)) {
                     tvLicaiRateEnd.text = it.rate2
                     tvLicaiSignEnd.text = it.rateSign2
                     tvLicaiRateJoin.visibility = View.VISIBLE
@@ -2046,12 +2046,12 @@ class WithTemplateAdapter(private val mContext: Context,
                 // llFinance.setBackgroundResource(getBgResourceID(homePageBgType))
 
                 tvLicaiTitle.text = it.productName ?: ""
-                ivLicaiDiv.visibility = if (StringUtils.isSpace(it.desc1)) View.GONE else View.VISIBLE
+                ivLicaiDiv.visibility = if (isSpace(it.desc1)) View.GONE else View.VISIBLE
                 tvLicaiSubtitle.text = it.desc1 ?: ""
                 tvTopLicaiDesc.text = it.desc2
-                tvTopLicaiDesc.visibility = if (StringUtils.isSpace(it.desc2)) View.GONE else View.VISIBLE
+                tvTopLicaiDesc.visibility = if (isSpace(it.desc2)) View.GONE else View.VISIBLE
 
-                if (!StringUtils.isSpace(it.rate)) {
+                if (!isSpace(it.rate)) {
                     tvLicaiRateStart.text = it.rate
                     tvLicaiSignStart.text = it.rateSign
                     tvLicaiRateStart.visibility = View.VISIBLE
@@ -2061,7 +2061,7 @@ class WithTemplateAdapter(private val mContext: Context,
                     tvLicaiRateStart.visibility = View.GONE
                     tvLicaiSignStart.visibility = View.GONE
                 }
-                if (!StringUtils.isSpace(it.rate2)) {
+                if (!isSpace(it.rate2)) {
                     tvLicaiRateEnd.text = it.rate2
                     tvLicaiSignEnd.text = it.rateSign2
                     tvLicaiRateJoin.visibility = View.VISIBLE
@@ -2077,10 +2077,10 @@ class WithTemplateAdapter(private val mContext: Context,
                 tvLicaiDesc.text = it.desc3
 
                 val sb = StringBuilder().append("")
-                if (!StringUtils.isSpace(it.desc4)) {
+                if (!isSpace(it.desc4)) {
                     sb.append(it.desc4)
                 }
-                if (!StringUtils.isSpace(it.desc5)) {
+                if (!isSpace(it.desc5)) {
                     sb.append(" | ")
                     sb.append(it.desc5)
                 }

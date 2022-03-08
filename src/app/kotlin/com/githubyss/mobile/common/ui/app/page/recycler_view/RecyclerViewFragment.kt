@@ -1,16 +1,10 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view
 
-import android.content.Context
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.app.page.recycler_view.multi.page.MultiTypeRecyclerViewFragment
-import com.githubyss.mobile.common.ui.app.page.recycler_view.search.page.SearchResultFragment
-import com.githubyss.mobile.common.ui.app.page.recycler_view.three_layer.page.ThreeLayerRecyclerViewFragment
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
-import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingIcon
 
 
 /**
@@ -28,7 +22,7 @@ class RecyclerViewFragment : BaseReflectBindingToolbarFragment<ComuiFragmentRecy
         val TAG: String = RecyclerViewFragment::class.java.simpleName
     }
 
-    private val recyclerViewVm: RecyclerViewViewModel by lazy { ViewModelProvider(requireActivity()).get(RecyclerViewViewModel::class.java) }
+    private val recyclerViewVm: RecyclerViewViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */
@@ -56,16 +50,6 @@ class RecyclerViewFragment : BaseReflectBindingToolbarFragment<ComuiFragmentRecy
         this.recyclerViewVm.viewId?.removeObservers(viewLifecycleOwner)
     }
 
-    override fun onStart() {
-        super.onStart()
-        attachView()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        detachView()
-    }
-
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden) {
@@ -76,23 +60,14 @@ class RecyclerViewFragment : BaseReflectBindingToolbarFragment<ComuiFragmentRecy
 
     /** ****************************** Functions ****************************** */
 
-    private fun attachView() {
-        AppFloatingIcon.getInstance(activity as Context)
-            .attach(binding?.layoutPage)
-    }
-
-    private fun detachView() {
-        AppFloatingIcon.getInstance(activity as Context)
-            .detach(binding?.layoutPage)
-    }
 
     /** ****************************** Implementations ****************************** */
 
     private val vmObserverViewId = Observer<Int> { t ->
         when (t) {
-            R.id.button_recycler_view_multi_type -> switchFragment(MultiTypeRecyclerViewFragment(), MultiTypeRecyclerViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, true)
-            R.id.button_recycler_view_multi_view -> switchFragment(SearchResultFragment(), SearchResultFragment.TAG, this, BaseActivity.FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, true)
-            R.id.button_recycler_view_three_layer -> switchFragment(ThreeLayerRecyclerViewFragment(), ThreeLayerRecyclerViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, true)
+            R.id.button_recycler_view_multi_type -> {}
+            R.id.button_recycler_view_multi_view ->{}
+            R.id.button_recycler_view_three_layer -> {}
         }
     }
 }

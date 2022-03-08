@@ -14,8 +14,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.RequiresPermission
 import com.githubyss.mobile.common.kit.glide.GlideUtils
-import com.githubyss.mobile.common.kit.util.LogUtils
-import com.githubyss.mobile.common.kit.util.SystemUtils
+import com.githubyss.mobile.common.kit.util.getWindowManager
+import com.githubyss.mobile.common.kit.util.logD
+import com.githubyss.mobile.common.kit.util.logE
 import com.githubyss.mobile.common.ui.R
 import java.lang.ref.WeakReference
 
@@ -247,7 +248,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
 
     private fun initLayoutParams() {
         if (windowManager == null) {
-            windowManager = SystemUtils.getWindowManager()
+            windowManager = getWindowManager()
         }
 
         if (windowLayoutParams == null) {
@@ -300,7 +301,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
             }
         }
         catch (e: Exception) {
-            LogUtils.e(TAG, e.toString())
+            logE(TAG, e.toString())
         }
 
         logcatViewProperty(rootView, "After addView rootView\t\t\t")
@@ -314,7 +315,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
             }
         }
         catch (e: Exception) {
-            LogUtils.e(TAG, e.toString())
+            logE(TAG, e.toString())
         }
 
         logcatViewProperty(rootView, "After removeView rootView\t\t")
@@ -400,14 +401,14 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
     private fun logcatViewProperty(view: View?, location: String = "") {
         val coordinate = IntArray(2)
         view?.getLocationOnScreen(coordinate)
-        LogUtils.d(TAG, "$location: " + "view-> " + "{x:${view?.x?.toInt()}, y:${view?.y?.toInt()}}\t" + "{cX:${coordinate[0]}, cY:${coordinate[1]}}\t" + "{w:${view?.width}, h:${view?.height}}\t" + "{mW:${view?.measuredWidth}, mH:${view?.measuredHeight}}\t" + "{t:${view?.top}, b:${view?.bottom}, l:${view?.left}, r:${view?.right}}\t" + "params-> " + "{x:${windowLayoutParams?.x}, y:${windowLayoutParams?.y}}\t" + "{w:${windowLayoutParams?.width}, h:${windowLayoutParams?.height}}\t")
+        logD(TAG, "$location: " + "view-> " + "{x:${view?.x?.toInt()}, y:${view?.y?.toInt()}}\t" + "{cX:${coordinate[0]}, cY:${coordinate[1]}}\t" + "{w:${view?.width}, h:${view?.height}}\t" + "{mW:${view?.measuredWidth}, mH:${view?.measuredHeight}}\t" + "{t:${view?.top}, b:${view?.bottom}, l:${view?.left}, r:${view?.right}}\t" + "params-> " + "{x:${windowLayoutParams?.x}, y:${windowLayoutParams?.y}}\t" + "{w:${windowLayoutParams?.width}, h:${windowLayoutParams?.height}}\t")
     }
 
     // private fun logcatCoordinate(location: String = "") {
-    //     ComkitLogcatUtils.d(msg = "$location: {coordinateLocationRoot:{${coordinateLocationRoot[0]}, ${coordinateLocationRoot[1]}}}   {coordinateLocationWindow:{${coordinateLocationWindow[0]}, ${coordinateLocationWindow[1]}}}   {rootLayoutParams.topMargin:${rootLayoutParams.topMargin}}   {windowLayoutParams.y = ${windowLayoutParams.y}}")
+    //     ComkitLogcatUtils.logD(msg = "$location: {coordinateLocationRoot:{${coordinateLocationRoot[0]}, ${coordinateLocationRoot[1]}}}   {coordinateLocationWindow:{${coordinateLocationWindow[0]}, ${coordinateLocationWindow[1]}}}   {rootLayoutParams.topMargin:${rootLayoutParams.topMargin}}   {windowLayoutParams.y = ${windowLayoutParams.y}}")
     // }
 
     // private fun logcatViewProperty(view: View?, location: String = "") {
-    //     ComkitLogcatUtils.d(msg = "$location view: {x:${ComkitScreenProcessor.px2Dp(input = view?.x)}, y:${ComkitScreenProcessor.px2Dp(input = view?.y)}} {width:${ComkitScreenProcessor.px2Dp(input = view?.width?.toFloat())}, height:${ComkitScreenProcessor.px2Dp(input = view?.height?.toFloat())}} {measuredWidth:${ComkitScreenProcessor.px2Dp(input = view?.measuredWidth?.toFloat())}, measuredHeight:${ComkitScreenProcessor.px2Dp(input = view?.measuredHeight?.toFloat())}} {top:${ComkitScreenProcessor.px2Dp(input = view?.top?.toFloat())}, bottom:${ComkitScreenProcessor.px2Dp(input = view?.bottom?.toFloat())}, left:${ComkitScreenProcessor.px2Dp(input = view?.left?.toFloat())}, right:${ComkitScreenProcessor.px2Dp(input = view?.right?.toFloat())}}")
+    //     ComkitLogcatUtils.logD(msg = "$location view: {x:${ComkitScreenProcessor.px2Dp(input = view?.x)}, y:${ComkitScreenProcessor.px2Dp(input = view?.y)}} {width:${ComkitScreenProcessor.px2Dp(input = view?.width?.toFloat())}, height:${ComkitScreenProcessor.px2Dp(input = view?.height?.toFloat())}} {measuredWidth:${ComkitScreenProcessor.px2Dp(input = view?.measuredWidth?.toFloat())}, measuredHeight:${ComkitScreenProcessor.px2Dp(input = view?.measuredHeight?.toFloat())}} {top:${ComkitScreenProcessor.px2Dp(input = view?.top?.toFloat())}, bottom:${ComkitScreenProcessor.px2Dp(input = view?.bottom?.toFloat())}, left:${ComkitScreenProcessor.px2Dp(input = view?.left?.toFloat())}, right:${ComkitScreenProcessor.px2Dp(input = view?.right?.toFloat())}}")
     // }
 }

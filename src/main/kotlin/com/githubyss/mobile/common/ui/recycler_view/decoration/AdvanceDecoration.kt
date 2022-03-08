@@ -7,7 +7,7 @@ import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.kit.util.ResourceUtils
+import com.githubyss.mobile.common.kit.util.getDrawable
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 
 
@@ -44,7 +44,7 @@ class AdvanceDecoration : RecyclerView.ItemDecoration {
         divider = if (drawableId == null) {
             typedArray?.getDrawable(0)
         } else {
-            ResourceUtils.getDrawable(drawableId)
+            getDrawable(drawableId)
         }
         this.dividerWeight = dividerWeight ?: (when (orientation) {
             RecyclerView.HORIZONTAL -> divider?.intrinsicWidth ?: 0

@@ -110,7 +110,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
             //         AudioPlayManager.getInstance().play(containerContext);
             //         designatedFloatingView.refreshVoiceSwitch();
             //     } else {
-            //         ComkitToastUtils.INSTANCE.showMessage(containerContext, ResourceUtils.INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+            //         ComkitINSTANCE.showToast(containerContext, INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
             //     }
             // } else {
             //     designatedFloatingView.refreshData();
@@ -203,7 +203,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
         
         binding.seekBarAudioPlayer.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                // LogUtils.d(TAG, "seekBar_audioPlayer onProgressChanged", "progress: " + progress);
+                // logD(TAG, "seekBar_audioPlayer onProgressChanged", "progress: " + progress);
                 binding.textViewTimePosition.text = ProgressTextUtils.getProgressText(progress.toLong())
             }
             

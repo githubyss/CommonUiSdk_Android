@@ -1,8 +1,8 @@
 package com.githubyss.mobile.common.ui.app.page.homepage
 
 import android.content.Context
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
 import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
 import com.githubyss.mobile.common.kit.util.ActivityUtils
@@ -32,7 +32,7 @@ class HomepageFragment : BaseReflectBindingToolbarFragment<ComuiFragmentHomepage
         val TAG: String = HomepageFragment::class.java.simpleName
     }
 
-    private val homepageVm: HomepageViewModel by lazy { ViewModelProvider(requireActivity()).get(HomepageViewModel::class.java) }
+    private val homepageVm: HomepageViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */

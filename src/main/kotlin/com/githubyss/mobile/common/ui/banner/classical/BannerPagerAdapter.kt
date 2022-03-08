@@ -9,7 +9,7 @@ import android.widget.LinearLayout
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.githubyss.mobile.common.kit.glide.GlideUtils
-import com.githubyss.mobile.common.kit.util.StringUtils
+import com.githubyss.mobile.common.kit.util.isNotEmpty
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
 import java.util.*
@@ -60,7 +60,7 @@ class BannerPagerAdapter : PagerAdapter() {
                 viewCache[position] = convertView
                 if (position in 0 until count) {
                     val banner = dataList[position]
-                    if (StringUtils.isNotEmpty(banner.imageUrl)) {
+                    if (isNotEmpty(banner.imageUrl)) {
                         if (banner.imageUrl.startsWith("file:///")) {
                             loadBitmapDefault(container.context, banner.imageUrl.substring(8), imageView)
                         } else {

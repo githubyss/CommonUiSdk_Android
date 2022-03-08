@@ -5,7 +5,7 @@ import android.graphics.drawable.Icon
 import android.net.Uri
 import android.text.TextUtils
 import androidx.fragment.app.FragmentActivity
-import com.githubyss.mobile.common.kit.util.LogUtils
+import com.githubyss.mobile.common.kit.util.logE
 import com.githubyss.mobile.common.ui.app.application.ComuiApplication
 import java.util.*
 
@@ -50,7 +50,7 @@ class VoiceToTarget private constructor(context: Context) {
                     }
                 }
                 catch (e: Exception) {
-                    LogUtils.e(TAG, t = e)
+                    logE(TAG, t = e)
                     return false
                 }
             }
@@ -64,7 +64,7 @@ class VoiceToTarget private constructor(context: Context) {
                     return uri.getQueryParameter(KEY)
                 }
                 catch (e: Exception) {
-                    LogUtils.e(TAG, t = e)
+                    logE(TAG, t = e)
                 }
             }
             return uriString
@@ -76,7 +76,7 @@ class VoiceToTarget private constructor(context: Context) {
                     return Uri.parse(uriString)
                 }
                 catch (e: Exception) {
-                    LogUtils.e(TAG, t = e)
+                    logE(TAG, t = e)
                 }
             }
             return null
@@ -89,7 +89,7 @@ class VoiceToTarget private constructor(context: Context) {
                     return uri.getQueryParameter(KEY_UTM_SOURCE)
                 }
                 catch (e: Exception) {
-                    LogUtils.e(TAG, t = e)
+                    logE(TAG, t = e)
                 }
             }
             return null
@@ -102,7 +102,7 @@ class VoiceToTarget private constructor(context: Context) {
                     return uri.getQueryParameter(KEY_UTM_MEDIUM)
                 }
                 catch (e: Exception) {
-                    LogUtils.e(TAG, t = e)
+                    logE(TAG, t = e)
                 }
             }
             return null
@@ -129,7 +129,7 @@ class VoiceToTarget private constructor(context: Context) {
             key = uri.getQueryParameter(KEY).toString()
         }
         catch (e: Exception) {
-            LogUtils.e(TAG, t = e)
+            logE(TAG, t = e)
             return
         }
         //        mActivity = activity;

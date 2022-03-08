@@ -4,12 +4,12 @@ import android.content.Context
 import android.view.Gravity
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
 import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
-import com.githubyss.mobile.common.kit.util.LogUtils
-import com.githubyss.mobile.common.kit.util.ScreenUtils
+import com.githubyss.mobile.common.kit.util.dp2Px
+import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentFloatingWindowBinding
 import com.githubyss.mobile.common.ui.floating_view.classical.container.FloatingAudioPlayerListener
@@ -34,7 +34,7 @@ class FloatingWindowFragment : BaseReflectBindingToolbarFragment<ComuiFragmentFl
         val TAG: String = FloatingWindowFragment::class.java.simpleName
     }
 
-    private val floatingWindowVm: FloatingWindowViewModel by lazy { ViewModelProvider(requireActivity()).get(FloatingWindowViewModel::class.java) }
+    private val floatingWindowVm: FloatingWindowViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */
@@ -99,7 +99,7 @@ class FloatingWindowFragment : BaseReflectBindingToolbarFragment<ComuiFragmentFl
             R.id.btn_show_floating_within_app -> {
                 val layoutParams = FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                 layoutParams.gravity = Gravity.BOTTOM or Gravity.END
-                layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, (ScreenUtils.dp2Px(14.0f)), (ScreenUtils.dp2Px(14.0f)))
+                layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, (dp2Px(14.0f)), (dp2Px(14.0f)))
                 AppFloatingIcon.getInstance(activity as Context)
                     .show()
                     ?.layoutParams(layoutParams)
@@ -156,7 +156,7 @@ class FloatingWindowFragment : BaseReflectBindingToolbarFragment<ComuiFragmentFl
 
                         override fun onUpdateAudioInfo(audioModel: AudioModel?) {
                             run {
-                                LogUtils.d(TAG, "FloatingAudioPlayerListener >>> onUpdateAudioInfo >> audioModel: $audioModel")
+                                logD(TAG, "FloatingAudioPlayerListener >>> onUpdateAudioInfo >> audioModel: $audioModel")
                                 if (audioModel?.isPlaying ?: return) {
                                 }
                                 else {

@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.githubyss.mobile.common.kit.util.LogUtils
+import com.githubyss.mobile.common.kit.util.logE
 import com.githubyss.mobile.common.ui.R
 
 
@@ -63,7 +63,7 @@ class RecordImageButton : RelativeLayout {
             val action = event.action
             when (action) {
                 MotionEvent.ACTION_DOWN -> {
-                    LogUtils.e("onTouchEvent action down action", action.toString() + "")
+                    logE("onTouchEvent action down action", action.toString() + "")
                     voice_tip!!.text = "松开完成"
                     voice_img!!.showAnimation()
                     voice_loading!!.visibility = GONE
@@ -72,7 +72,7 @@ class RecordImageButton : RelativeLayout {
                     }
                 }
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    LogUtils.e("onTouchEvent action up action", action.toString() + "")
+                    logE("onTouchEvent action up action", action.toString() + "")
                     voice_tip!!.text = "长按说话"
                     voice_img!!.dismissAnimation()
                     if (mListener != null) {

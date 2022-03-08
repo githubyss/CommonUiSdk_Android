@@ -102,7 +102,7 @@
 //
 //         if(EPApp.getApp() != null
 //                 && EPApp.getApp().getExternalCacheDir() != null
-//                 && !StringUtils.isEmpty(EPApp.getApp().getExternalCacheDir().getPath())){
+//                 && !isEmpty(EPApp.getApp().getExternalCacheDir().getPath())){
 //             try {
 //                 imageFile = new File(EPApp.getApp().getExternalCacheDir().getPath(), name + fileType);
 //                 imageFile.createNewFile();
@@ -140,7 +140,7 @@
 //             String filePathName = Environment.getExternalStorageDirectory() + "/SNEPA/";
 //             bitmap = BitmapFactory.decodeFile(filePathName + name + ".jpg");
 //         } catch (Exception e) {
-//             LogUtils.e(TAG, e.getMessage());
+//             logE(TAG, e.getMessage());
 //         }
 //
 //         return bitmap;
@@ -273,13 +273,13 @@
 //             }
 //
 //         } catch (Exception e) {
-//             LogUtils.e(TAG, e);
+//             logE(TAG, e);
 //         } finally {
 //             if (null != inputStream) {
 //                 try {
 //                     inputStream.close();
 //                 } catch (IOException e) {
-//                     LogUtils.e(TAG, e);
+//                     logE(TAG, e);
 //                 }
 //             }
 //         }
@@ -298,13 +298,13 @@
 //                 size = inputStream.available();
 //             }
 //         } catch (Exception e) {
-//             LogUtils.e(TAG, e);
+//             e(TAG, e);
 //         } finally {
 //             if (null != inputStream) {
 //                 try {
 //                     inputStream.close();
 //                 } catch (IOException e) {
-//                     LogUtils.e(TAG, e);
+//                     e(TAG, e);
 //                 }
 //             }
 //         }
@@ -456,18 +456,18 @@
 //         if (Math.abs(degree) > 0) {
 //             bitmap = BitmapUtil.rotaingImageView(degree, bitmap);
 //         }
-//         LogUtils.d(TAG, "bitmap.getByteCount = " + bitmap.getByteCount());
+//         logD(TAG, "bitmap.getByteCount = " + bitmap.getByteCount());
 //         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 //         // 质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
 //         bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
 //         int quality = 90;
-//         LogUtils.d(TAG, "baos = " + baos.toByteArray().length);
+//         logD(TAG, "baos = " + baos.toByteArray().length);
 //         // 循环判断如果压缩后图片是否大于1M,大于继续压缩
 //         while (baos.toByteArray().length * 1.0 / 1024 / 1024 > 1) {
 //             baos.reset();
-//             LogUtils.d(TAG, "quality = " + quality);
+//             logD(TAG, "quality = " + quality);
 //             bitmap.compress(Bitmap.CompressFormat.JPEG, quality, baos);
-//             LogUtils.d(TAG, "baos = " + baos.toByteArray().length);
+//             logD(TAG, "baos = " + baos.toByteArray().length);
 //             quality -= 10;
 //             if (quality <= 10) {
 //                 break;
@@ -485,7 +485,7 @@
 //             fos.flush();
 //             fos.close();
 //         } catch (IOException e) {
-//             LogUtils.e(TAG, "compressImage IOException = " + e.getMessage());
+//             e(TAG, "compressImage IOException = " + e.getMessage());
 //         }
 //         return outFile;
 //     }
@@ -516,7 +516,7 @@
 //         try {
 //             fileOutputStream.close();
 //         } catch (IOException e) {
-//             LogUtils.e(TAG, "compressImageForCrop IOException = " + e.getMessage());
+//             e(TAG, "compressImageForCrop IOException = " + e.getMessage());
 //         }
 //         return outFile;
 //     }
@@ -578,7 +578,7 @@
 //      */
 //     public static Bitmap createProcessBitmap(Bitmap src, Bitmap watermark) {
 //         String tag = "createBitmap";
-//         LogUtils.d(tag, "create a new bitmap");
+//         logD(tag, "create a new bitmap");
 //         if (src == null) {
 //             return null;
 //         }
@@ -690,7 +690,7 @@
 //                 Environment.MEDIA_MOUNTED);
 //         boolean result = false;
 //         if (!isSDexisting) {
-//             ToastUtil.showMessage("请确认SD卡已插入!");
+//             ToastUtil.showToast("请确认SD卡已插入!");
 //         } else {
 //             File cameraFile = new File(Environment.getExternalStorageDirectory()
 //                     + "//DCIM//Camera");

@@ -1522,42 +1522,42 @@
 //                     tvLoanTopProductName.text = it.productName
 //                     // GlideUtils.loadImage(mContext, it.hotIcon, ivLoanTopHotIcon)
 //
-//                     if (StringUtils.isSpace(it.desc1)) {
+//                     if (isSpace(it.desc1)) {
 //                         tvLoanTopDesc1.visibility = View.GONE
 //                     } else {
 //                         tvLoanTopDesc1.visibility = View.VISIBLE
 //                         tvLoanTopDesc1.text = it.desc1
 //                     }
 //
-//                     if (StringUtils.isSpace(it.desc2)) {
+//                     if (isSpace(it.desc2)) {
 //                         tvLoanTopDesc2.visibility = View.GONE
 //                     } else {
 //                         tvLoanTopDesc2.visibility = View.VISIBLE
 //                         tvLoanTopDesc2.text = it.desc2
 //                     }
 //
-//                     if (StringUtils.isSpace(it.desc3)) {
+//                     if (isSpace(it.desc3)) {
 //                         tvLoanTopDesc3.visibility = View.GONE
 //                     } else {
 //                         tvLoanTopDesc3.visibility = View.VISIBLE
 //                         tvLoanTopDesc3.text = it.desc3
 //                     }
 //
-//                     if (StringUtils.isSpace(it.desc4)) {
+//                     if (isSpace(it.desc4)) {
 //                         tvLoanTopDesc4.visibility = View.GONE
 //                     } else {
 //                         tvLoanTopDesc4.visibility = View.VISIBLE
 //                         tvLoanTopDesc4.text = it.desc4
 //                     }
 //
-//                     if (StringUtils.isSpace(it.amt)) {
+//                     if (isSpace(it.amt)) {
 //                         tvLoanTopAmt.visibility = View.GONE
 //                     } else {
 //                         tvLoanTopAmt.visibility = View.VISIBLE
 //                         tvLoanTopAmt.text = it.amt
 //                     }
 //
-//                     if (StringUtils.isSpace(it.buttonName)) {
+//                     if (isSpace(it.buttonName)) {
 //                         btnLoanTopPrimary.visibility = View.GONE
 //                     } else {
 //                         btnLoanTopPrimary.visibility = View.VISIBLE
@@ -1918,13 +1918,13 @@
 //                 llFinance.setBackgroundResource(getBgResourceID(homePageBgType))
 //
 //                 tvLicaiTitle.text = it.productName ?: ""
-//                 ivLicaiDiv.visibility = if (StringUtils.isSpace(it.desc1)) View.GONE else View.VISIBLE
+//                 ivLicaiDiv.visibility = if (isSpace(it.desc1)) View.GONE else View.VISIBLE
 //                 tvLicaiSubtitle.text = it.desc1 ?: ""
 //                 tvTopLicaiDesc.text = it.desc2
-//                 tvTopLicaiDesc.visibility = if (StringUtils.isSpace(it.desc2)) View.GONE else View.VISIBLE
+//                 tvTopLicaiDesc.visibility = if (isSpace(it.desc2)) View.GONE else View.VISIBLE
 //
 //
-//                 if (!StringUtils.isSpace(it.rate)) {
+//                 if (!isSpace(it.rate)) {
 //                     tvLicaiRateStart.text = it.rate
 //                     tvLicaiSignStart.text = it.rateSign
 //                     tvLicaiRateStart.visibility = View.VISIBLE
@@ -1933,7 +1933,7 @@
 //                     tvLicaiRateStart.visibility = View.GONE
 //                     tvLicaiSignStart.visibility = View.GONE
 //                 }
-//                 if (!StringUtils.isSpace(it.rate2)) {
+//                 if (!isSpace(it.rate2)) {
 //                     tvLicaiRateEnd.text = it.rate2
 //                     tvLicaiSignEnd.text = it.rateSign2
 //                     tvLicaiRateJoin.visibility = View.VISIBLE
@@ -1989,12 +1989,12 @@
 //                 llFinance.setBackgroundResource(getBgResourceID(homePageBgType))
 //
 //                 tvLicaiTitle.text = it.productName ?: ""
-//                 ivLicaiDiv.visibility = if (StringUtils.isSpace(it.desc1)) View.GONE else View.VISIBLE
+//                 ivLicaiDiv.visibility = if (isSpace(it.desc1)) View.GONE else View.VISIBLE
 //                 tvLicaiSubtitle.text = it.desc1 ?: ""
 //                 tvTopLicaiDesc.text = it.desc2
-//                 tvTopLicaiDesc.visibility = if (StringUtils.isSpace(it.desc2)) View.GONE else View.VISIBLE
+//                 tvTopLicaiDesc.visibility = if (isSpace(it.desc2)) View.GONE else View.VISIBLE
 //
-//                 if (!StringUtils.isSpace(it.rate)) {
+//                 if (!isSpace(it.rate)) {
 //                     tvLicaiRateStart.text = it.rate
 //                     tvLicaiSignStart.text = it.rateSign
 //                     tvLicaiRateStart.visibility = View.VISIBLE
@@ -2003,7 +2003,7 @@
 //                     tvLicaiRateStart.visibility = View.GONE
 //                     tvLicaiSignStart.visibility = View.GONE
 //                 }
-//                 if (!StringUtils.isSpace(it.rate2)) {
+//                 if (!isSpace(it.rate2)) {
 //                     tvLicaiRateEnd.text = it.rate2
 //                     tvLicaiSignEnd.text = it.rateSign2
 //                     tvLicaiRateJoin.visibility = View.VISIBLE
@@ -2018,10 +2018,10 @@
 //                 tvLicaiDesc.text = it.desc3
 //
 //                 val sb = StringBuilder().append("")
-//                 if (!StringUtils.isSpace(it.desc4)) {
+//                 if (!isSpace(it.desc4)) {
 //                     sb.append(it.desc4)
 //                 }
-//                 if (!StringUtils.isSpace(it.desc5)) {
+//                 if (!isSpace(it.desc5)) {
 //                     sb.append(" | ")
 //                     sb.append(it.desc5)
 //                 }

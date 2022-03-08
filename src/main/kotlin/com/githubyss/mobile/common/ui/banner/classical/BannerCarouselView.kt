@@ -12,8 +12,8 @@ import android.widget.FrameLayout
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import com.githubyss.mobile.common.kit.util.LogUtils
-import com.githubyss.mobile.common.kit.util.ScreenUtils
+import com.githubyss.mobile.common.kit.util.dp2Px
+import com.githubyss.mobile.common.kit.util.logE
 import java.lang.ref.WeakReference
 
 
@@ -78,7 +78,7 @@ class BannerCarouselView : FrameLayout {
             viewPager.setCurrentItem(1, false)
             dotIndicator.visibility = View.VISIBLE
             val params = dotIndicator.layoutParams
-            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + ScreenUtils.dp2Px(3.0f) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
+            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + dp2Px(3.0f) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
             dotIndicator.layoutParams = params
         }
         dotIndicator.bindSlideWithViewPager(viewPager)
@@ -106,9 +106,9 @@ class BannerCarouselView : FrameLayout {
     
     private fun init() {
         handler = MyHandler(this)
-        indicatorWidth = ScreenUtils.dp2Px(9.0f).toFloat()
-        indicatorHeight = ScreenUtils.dp2Px(1.5f).toFloat()
-        indicatorMargin = ScreenUtils.dp2Px(5.0f)
+        indicatorWidth = dp2Px(9.0f).toFloat()
+        indicatorHeight = dp2Px(1.5f).toFloat()
+        indicatorMargin = dp2Px(5.0f)
     }
     
     private fun initView(context: Context) {
@@ -145,7 +145,7 @@ class BannerCarouselView : FrameLayout {
             viewPager.setCurrentItem(1, false)
             dotIndicator.visibility = View.VISIBLE
             val params = dotIndicator.layoutParams
-            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + ScreenUtils.dp2Px(3.0f) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
+            params.width = (indicatorWidth * ((pageAdapter?.count ?: return) - 2) + dp2Px(3.0f) * ((pageAdapter?.count ?: return) - 3) + indicatorWidth).toInt()
             dotIndicator.layoutParams = params
         }
         dotIndicator.removePageChangeListener()
@@ -171,7 +171,7 @@ class BannerCarouselView : FrameLayout {
                     try {
                         viewPager = weakReference.get()?.getChildAt(0) as ViewPager
                     } catch (e: Exception) {
-                        LogUtils.e(TAG, "first child must be ViewPager!")
+                        logE(TAG, "first child must be ViewPager!")
                     }
                     if (viewPager != null && viewPager.childCount > 1) {
                         if (viewPager.currentItem != 0 && viewPager.currentItem != (viewPager.adapter?.count ?: return) - 1) {

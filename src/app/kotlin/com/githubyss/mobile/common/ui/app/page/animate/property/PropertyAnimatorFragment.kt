@@ -7,7 +7,7 @@ import android.view.View
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
 import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
 import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.bindView
-import com.githubyss.mobile.common.kit.util.LogUtils
+import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.PointEvaluator
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentPropertyAnimatorBinding
@@ -133,7 +133,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
     }
 
     private fun logcatViewProperty(view: View) {
-        LogUtils.d(TAG, "{x:${view.x.toInt()}, y:${view.y.toInt()}} {translationX:${view.translationX.toInt()}, translationY:${view.translationY.toInt()}} {top:${view.top}, bottom:${view.bottom}, left:${view.left}, right:${view.right}} {width:${view.width}, height:${view.height}}")
+        logD(TAG, "{x:${view.x.toInt()}, y:${view.y.toInt()}} {translationX:${view.translationX.toInt()}, translationY:${view.translationY.toInt()}} {top:${view.top}, bottom:${view.bottom}, left:${view.left}, right:${view.right}} {width:${view.width}, height:${view.height}}")
     }
 
 

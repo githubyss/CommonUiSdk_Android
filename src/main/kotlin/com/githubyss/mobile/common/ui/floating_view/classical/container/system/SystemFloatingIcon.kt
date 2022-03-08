@@ -21,7 +21,7 @@ import com.githubyss.mobile.common.kit.constant.Constants
 import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder
 import com.githubyss.mobile.common.kit.enumeration.VersionCode
 import com.githubyss.mobile.common.kit.enumeration.WindowManagerLayoutParamsType
-import com.githubyss.mobile.common.kit.util.ScreenUtils
+import com.githubyss.mobile.common.kit.util.dp2Px
 import com.githubyss.mobile.common.ui.floating_view.classical.container.FloatingIconListener
 import com.githubyss.mobile.common.ui.floating_view.classical.designate.icon.IconViewListener
 import com.githubyss.mobile.common.ui.floating_view.classical.designate.icon.IconViewMagnet
@@ -185,7 +185,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
         getContainerLayoutParams().width = WindowManager.LayoutParams.WRAP_CONTENT
         getContainerLayoutParams().height = WindowManager.LayoutParams.WRAP_CONTENT
         getContainerLayoutParams().x = 0
-        getContainerLayoutParams().y = ScreenUtils.dp2Px(0.0f) ?: return false
+        getContainerLayoutParams().y = dp2Px(0.0f) ?: return false
         // getContainerLayoutParams().windowAnimations = android.R.style.Animation_Translucent;
         getDesignateLayoutParams().gravity = Gravity.BOTTOM or Gravity.START
         getDesignateLayoutParams().setMargins(0, getDesignateLayoutParams().topMargin, getDesignateLayoutParams().rightMargin, 0)
