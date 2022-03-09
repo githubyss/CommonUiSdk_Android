@@ -110,7 +110,7 @@ class AudioPlayerViewAutoShorten : AutoShortenView, AudioPlayerViewInterface {
             //         AudioPlayManager.getInstance().play(containerContext);
             //         designatedFloatingView.refreshVoiceSwitch();
             //     } else {
-            //         ComkitINSTANCE.showToast(containerContext, INSTANCE.getString(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
+            //         ComkitINSTANCE.showToast(containerContext, getStringFromRes(containerContext, R.string.music_play_no_list), Toast.LENGTH_SHORT, false);
             //     }
             // } else {
             //     designatedFloatingView.refreshData();

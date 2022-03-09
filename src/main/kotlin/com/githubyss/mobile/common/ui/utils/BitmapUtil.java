@@ -590,7 +590,7 @@
 //         Bitmap newb = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);// 创建一个新的和SRC长度宽度一样的位图
 //         Canvas cv = new Canvas(newb);
 //         final Paint paint = new Paint();
-//         paint.setColor(ResUtil.getColor(R.color.color_3399ff));
+//         paint.setColor(getColorFromRes(R.color.color_3399ff));
 //
 //         // draw src into
 //         cv.drawBitmap(src, 0, 0, paint);// 在 0，0坐标开始画入src
