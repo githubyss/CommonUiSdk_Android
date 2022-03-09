@@ -15,6 +15,7 @@ import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
 import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder
 import com.githubyss.mobile.common.kit.util.dp2Px
+import com.githubyss.mobile.common.kit.util.logE
 import com.githubyss.mobile.common.ui.floating_view.classical.container.FloatingIconListener
 import com.githubyss.mobile.common.ui.floating_view.classical.designate.icon.IconViewListener
 import com.githubyss.mobile.common.ui.floating_view.classical.designate.icon.IconViewMagnet
@@ -246,7 +247,7 @@ class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
             return activity.window.decorView.findViewById(R.id.content) as FrameLayout
         }
         catch (e: Exception) {
-            e.printStackTrace()
+            logE(TAG, t = e)
         }
         return null
     }

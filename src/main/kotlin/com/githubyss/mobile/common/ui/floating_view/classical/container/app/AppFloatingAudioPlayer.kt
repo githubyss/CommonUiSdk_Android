@@ -15,6 +15,7 @@ import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder
 import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
 import com.githubyss.mobile.common.kit.manager.audio_player.player.AudioPlayManager
 import com.githubyss.mobile.common.kit.util.dp2Px
+import com.githubyss.mobile.common.kit.util.logE
 import com.githubyss.mobile.common.ui.floating_view.classical.container.FloatingAudioPlayerListener
 import com.githubyss.mobile.common.ui.floating_view.classical.designate.audioplayer.AudioPlayerViewAutoShorten
 import com.githubyss.mobile.common.ui.floating_view.classical.designate.audioplayer.AudioPlayerViewListener
@@ -231,7 +232,7 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
             return activity.window.decorView.findViewById(R.id.content) as FrameLayout
         }
         catch (e: Exception) {
-            e.printStackTrace()
+            logE(TAG, t = e)
         }
         return null
     }

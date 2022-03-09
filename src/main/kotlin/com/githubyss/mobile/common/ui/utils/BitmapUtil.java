@@ -112,9 +112,9 @@
 //                 out.flush();
 //                 out.close();
 //             } catch (FileNotFoundException e) {
-//                 e.printStackTrace();
+//                 logE(TAG, t = e);
 //             } catch (IOException e) {
-//                 e.printStackTrace();
+//                 logE(TAG, t = e);
 //             }
 //         }
 //
@@ -335,7 +335,7 @@
 //             is.read(b, 0, b.length);
 //             value = bytesToHexString(b);
 //         } catch (Exception e) {
-//             e.printStackTrace();
+//             logE(TAG, t = e);
 //         } finally {
 //             if (null != is) {
 //                 try {
@@ -393,7 +393,7 @@
 //                     break;
 //             }
 //         } catch (IOException e) {
-//             e.printStackTrace();
+//             logE(TAG, t = e);
 //         }
 //         return degree;
 //     }
@@ -430,7 +430,7 @@
 //             out = new FileOutputStream(file);
 //             out.write(bitmapData);
 //         } catch (Exception e) {
-//             e.printStackTrace();
+//             logE(TAG, t = e);
 //         } finally {
 //             try {
 //                 bos.close();
@@ -438,7 +438,7 @@
 //                     out.close();
 //                 }
 //             } catch (IOException e) {
-//                 e.printStackTrace();
+//                 logE(TAG, t = e);
 //             }
 //         }
 //         return mBitmap;
@@ -552,7 +552,7 @@
 //                     out = new FileOutputStream(fileRecommendImageView);
 //                     out.write(bitmapData);
 //                 } catch (Exception e) {
-//                     e.printStackTrace();
+//                     logE(TAG, t = e);
 //                 } finally {
 //                     try {
 //                         bos.close();
@@ -560,7 +560,7 @@
 //                             out.close();
 //                         }
 //                     } catch (IOException e) {
-//                         e.printStackTrace();
+//                         logE(TAG, t = e);
 //                     }
 //                 }
 //             } catch (Exception e) {
@@ -671,7 +671,7 @@
 //             bos.close();
 //             buffer = bos.toByteArray();
 //         } catch (IOException e) {
-//             e.printStackTrace();
+//             logE(TAG, t = e);
 //         }
 //         return buffer;
 //     }
@@ -707,9 +707,9 @@
 //                 out.close();
 //                 result = true;
 //             } catch (FileNotFoundException e) {
-//                 e.printStackTrace();
+//                 logE(TAG, t = e);
 //             } catch (IOException e) {
-//                 e.printStackTrace();
+//                 logE(TAG, t = e);
 //             }
 //             MediaScannerConnection.scanFile(EPApp.mContext, new String[]{imageFile.getAbsolutePath()}, null, null);
 //         }
