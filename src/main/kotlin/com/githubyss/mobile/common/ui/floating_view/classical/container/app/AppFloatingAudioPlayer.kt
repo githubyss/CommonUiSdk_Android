@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
-import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder
+import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder1Arg
 import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
 import com.githubyss.mobile.common.kit.manager.audio_player.player.AudioPlayManager
 import com.githubyss.mobile.common.kit.util.dp2Px
@@ -35,7 +35,7 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
 
     /** ****************************** Properties ****************************** */
 
-    companion object : SingletonHolder<AppFloatingAudioPlayer, Context>(::AppFloatingAudioPlayer) {
+    companion object : SingletonHolder1Arg<AppFloatingAudioPlayer, Context>(::AppFloatingAudioPlayer) {
         private val TAG: String = AppFloatingAudioPlayer::class.java.simpleName
     }
 

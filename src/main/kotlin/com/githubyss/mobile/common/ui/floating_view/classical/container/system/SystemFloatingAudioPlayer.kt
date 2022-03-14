@@ -16,7 +16,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.githubyss.mobile.common.kit.constant.Constants
-import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder
+import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder1Arg
 import com.githubyss.mobile.common.kit.enumeration.VersionCode
 import com.githubyss.mobile.common.kit.enumeration.WindowManagerLayoutParamsType
 import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
@@ -41,7 +41,7 @@ class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPla
     
     /** ****************************** Properties ****************************** */
     
-    companion object : SingletonHolder<SystemFloatingAudioPlayer, Context>(::SystemFloatingAudioPlayer) {
+    companion object : SingletonHolder1Arg<SystemFloatingAudioPlayer, Context>(::SystemFloatingAudioPlayer) {
         private val TAG: String = SystemFloatingAudioPlayer::class.java.simpleName
     }
     

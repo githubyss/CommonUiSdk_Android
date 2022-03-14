@@ -18,7 +18,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.githubyss.mobile.common.kit.constant.Constants
-import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder
+import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder1Arg
 import com.githubyss.mobile.common.kit.enumeration.VersionCode
 import com.githubyss.mobile.common.kit.enumeration.WindowManagerLayoutParamsType
 import com.githubyss.mobile.common.kit.util.dp2Px
@@ -41,7 +41,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
     
     /** ****************************** Properties ****************************** */
     
-    companion object : SingletonHolder<SystemFloatingIcon, Context>(::SystemFloatingIcon) {
+    companion object : SingletonHolder1Arg<SystemFloatingIcon, Context>(::SystemFloatingIcon) {
         private val TAG: String = SystemFloatingIcon::class.java.simpleName
     }
     

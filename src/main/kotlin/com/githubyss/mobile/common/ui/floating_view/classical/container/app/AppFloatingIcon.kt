@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
-import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder
+import com.githubyss.mobile.common.kit.design_pattern.singleton.SingletonHolder1Arg
 import com.githubyss.mobile.common.kit.util.dp2Px
 import com.githubyss.mobile.common.kit.util.logE
 import com.githubyss.mobile.common.ui.floating_view.classical.container.FloatingIconListener
@@ -35,7 +35,7 @@ class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
 
     /** ****************************** Properties ****************************** */
 
-    companion object : SingletonHolder<AppFloatingIcon, Context>(::AppFloatingIcon) {
+    companion object : SingletonHolder1Arg<AppFloatingIcon, Context>(::AppFloatingIcon) {
         private val TAG: String = AppFloatingIcon::class.java.simpleName
     }
 
