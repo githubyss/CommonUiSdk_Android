@@ -162,7 +162,7 @@
 //
 //     private fun initHeadPadding() {
 //         val scale = context.resources.displayMetrics.density
-//         mHeadPadding = (HEAD_PADDING * getScreenDensity() + 0.5f).toInt()
+//         mHeadPadding = (HEAD_PADDING * screenDensity() + 0.5f).toInt()
 //     }
 //
 //     private fun initFooterPadding() {

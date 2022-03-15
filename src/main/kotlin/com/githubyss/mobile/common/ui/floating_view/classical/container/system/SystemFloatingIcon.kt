@@ -219,7 +219,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
         
         // if (!isShown) {
         // } else {
-        //     getWindowManager().updateViewLayout(containerView, layoutParams);
+        //     windowManager().updateViewLayout(containerView, layoutParams);
         // }
     }
     

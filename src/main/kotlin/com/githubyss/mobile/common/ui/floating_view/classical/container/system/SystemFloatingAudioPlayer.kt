@@ -211,7 +211,7 @@ class SystemFloatingAudioPlayer : SystemFloatingInterface<SystemFloatingAudioPla
         
         // if (!isShown) {
         // } else {
-        //     getWindowManager().updateViewLayout(containerView, layoutParams);
+        //     windowManager().updateViewLayout(containerView, layoutParams);
         // }
     }
     
