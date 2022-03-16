@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.recycler_view.base.binding_inline
 
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.githubyss.mobile.common.kit.view_binding.binding_inflate.inflateBindingByViewGroup
+import com.githubyss.mobile.common.kit.binding.binding_inflate.inflateBindingByViewGroup
 
 
 /**
