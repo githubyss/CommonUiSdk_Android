@@ -74,7 +74,6 @@ class HomepageFragment : BaseReflectBindingToolbarFragment<ComuiFragmentHomepage
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden) {
-            setToolbarTitle()
         }
     }
 

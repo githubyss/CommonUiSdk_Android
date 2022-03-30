@@ -75,7 +75,6 @@ class FloatingWindowFragment : BaseReflectBindingToolbarFragment<ComuiFragmentFl
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden) {
-            setToolbarTitle()
         }
     }
 

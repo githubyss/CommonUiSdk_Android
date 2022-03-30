@@ -53,7 +53,6 @@ class RecyclerViewFragment : BaseReflectBindingToolbarFragment<ComuiFragmentRecy
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden) {
-            setToolbarTitle()
         }
     }
 
