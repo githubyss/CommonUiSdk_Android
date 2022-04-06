@@ -4,6 +4,7 @@
     <string name="comui_homepage_title">UI调试首页</string>
 
     <!-- Button -->
+    <string name="comui_homepage_button_compose_button">Compose 按钮</string>
     <string name="comui_homepage_button_property_animation">属性动画</string>
     <string name="comui_homepage_button_tween_animation">补间动画</string>
     <string name="comui_homepage_button_recycler_view">列表</string>

@@ -71,12 +71,6 @@ class HomepageFragment : BaseReflectBindingToolbarFragment<ComuiFragmentHomepage
         detachView()
     }
 
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        if (!hidden) {
-        }
-    }
-
 
     /** ****************************** Functions ****************************** */
 
