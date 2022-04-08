@@ -41,7 +41,6 @@ class ComposeButtonFragment : BaseComposeToolbarFragment() {
         TopNavigationBar(composeButtonVm.title) { activity?.onBackPressed() }
     }
 
-    @Preview
     @Composable
     override fun Content() {
         PageSidePadding(

@@ -50,7 +50,6 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         TopNavigationBar(homepageVm.title)
     }
 
-    @Preview
     @Composable
     override fun Content() {
         PageSidePadding(
