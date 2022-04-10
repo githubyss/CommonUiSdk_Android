@@ -208,6 +208,7 @@ kapt {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(':DesignPatternLibrary_Android')
     implementation project(':CommonLibSdk_Android')
     implementation project(':CommonResSdk_Android')
     implementation project(':CommonKitSdk_Android')
