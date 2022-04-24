@@ -619,7 +619,7 @@
 //         int w = src.getWidth();// 源文件的大小
 //         int h = src.getHeight();
 //         // calculate the scale - in this case = 0.4f
-//         DisplayMetrics dm = EPApp.mContext.getResources().displayMetrics();
+//         DisplayMetrics dm = getSystemResources().displayMetrics();
 // //        destWidth = (int) (destWidth * dm.density );
 // //        destHeigth = (int) (destHeigth * dm.density);
 //         float scaleWidth = ((float) destWidth) / w * (dm.density/3);// 宽度缩小比例
@@ -631,7 +631,7 @@
 //     }
 //
 //     public static Bitmap getScaledBitmapFromFile(Context context, File file) {
-//         DisplayMetrics displayMetrics = context.getResources().displayMetrics();
+//         DisplayMetrics displayMetrics = getSystemResources().displayMetrics();
 //         int targetW = displayMetrics.widthPixels;
 //         int targetH = displayMetrics.heightPixels;
 //

@@ -147,7 +147,7 @@ class AppFloatingAudioPlayer : AppFloatingInterface<AppFloatingAudioPlayer, Audi
 
     private fun initLayoutParams(): Boolean {
         getDesignatedLayoutParams().gravity = Gravity.BOTTOM or Gravity.START
-        getDesignatedLayoutParams().setMargins(dp2Px(0.0f) ?: return false, getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, dp2Px(50.0f) ?: return false)
+        getDesignatedLayoutParams().setMargins(dp2Px(0.0f).toInt(), getDesignatedLayoutParams().topMargin, getDesignatedLayoutParams().rightMargin, dp2Px(50.0f).toInt())
         return true
     }
 

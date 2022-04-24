@@ -166,7 +166,7 @@ class AppFloatingIcon : AppFloatingInterface<AppFloatingIcon, IconViewMagnet> {
 
     private fun initLayoutParams(): Boolean {
         getDesignateLayoutParams().gravity = Gravity.BOTTOM or Gravity.START
-        getDesignateLayoutParams().setMargins(dp2Px(14.0f) ?: return false, getDesignateLayoutParams().topMargin, getDesignateLayoutParams().rightMargin, dp2Px(14.0f) ?: return false)
+        getDesignateLayoutParams().setMargins(dp2Px(14.0f).toInt(), getDesignateLayoutParams().topMargin, getDesignateLayoutParams().rightMargin, dp2Px(14.0f).toInt())
         return true
     }
 

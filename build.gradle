@@ -172,6 +172,7 @@ android {
                     srcDirs 'src/app/res/homepage'
                     srcDirs 'src/app/res/compose_button'
                     srcDirs 'src/app/res/animate'
+                    srcDirs 'src/app/res/custom_view'
                     srcDirs 'src/app/res/time_countdown'
                     srcDirs 'src/app/res/floating_window'
                     srcDirs 'src/app/res/recycler_view'

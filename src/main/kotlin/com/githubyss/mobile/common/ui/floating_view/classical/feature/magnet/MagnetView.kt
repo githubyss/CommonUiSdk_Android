@@ -23,16 +23,16 @@ import kotlin.math.min
  * @createdTime 2021/02/10 15:10:05
  */
 open class MagnetView : FrameLayout {
-    
+
     /** ****************************** Properties ****************************** */
-    
+
     companion object {
         private val TAG: String = MagnetView::class.java.simpleName
     }
-    
-    private val MARGIN_EDGE: Int = dp2Px(14.0f) ?: 0
+
+    private val MARGIN_EDGE: Int = dp2Px(14.0f).toInt()
     private val TOUCH_TIME_THRESHOLD: Int = 150
-    
+
     private var originalRawX: Float = 0f
     private var originalRawY: Float = 0f
     private var originalX: Float = 0f
@@ -43,28 +43,28 @@ open class MagnetView : FrameLayout {
     private var portraitY: Float = 0f
     private var lastTouchDownTime: Long = 0
     private var isNearestLeft = true
-    
+
     private var moveAnimatorRunnable: MoveAnimatorRunnable? = null
-    
+
     private var featureContext: Context? = null
     protected var featureView: View? = null
-    
+
     open var isMovable = true
-    
+
     var featureViewListener: MagnetViewListener? = null
-    
-    
+
+
     /** ****************************** Constructors ****************************** */
-    
+
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         featureContext = context
     }
-    
-    
+
+
     /** ****************************** Override ****************************** */
-    
+
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         if (event == null) return false
         when (event.action) {
@@ -88,7 +88,7 @@ open class MagnetView : FrameLayout {
         }
         return true
     }
-    
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         if (parent != null) {
@@ -100,17 +100,17 @@ open class MagnetView : FrameLayout {
             }
         }
     }
-    
-    
+
+
     /** ****************************** Functions ****************************** */
-    
+
     protected fun initInBase() {
         moveAnimatorRunnable = MoveAnimatorRunnable(this)
         statusBarHeight = getStatusBarHeight(context)
         isClickable = true
         // updateSize();
     }
-    
+
     protected fun moveToEdge(isLeft: Boolean = isNearestLeft(), isLandscape: Boolean = false) {
         val moveDistance = if (isLeft) MARGIN_EDGE else (screenWidth - MARGIN_EDGE)
         var y = y
@@ -120,20 +120,20 @@ open class MagnetView : FrameLayout {
         }
         moveAnimatorRunnable?.start(moveDistance.toFloat(), min(max(0f, y), screenHeight - height.toFloat()))
     }
-    
+
     protected fun isNearestLeft(): Boolean {
         val middle = screenWidth / 2
         isNearestLeft = x < middle
         return isNearestLeft
     }
-    
-    
+
+
     /** ****************************** Private ****************************** */
-    
+
     private fun isOnClickEvent(): Boolean {
         return System.currentTimeMillis() - lastTouchDownTime < TOUCH_TIME_THRESHOLD
     }
-    
+
     private fun updateViewPosition(event: MotionEvent) {
         x = originalX + event.rawX - originalRawX
         // 限制不可超出屏幕高度
@@ -146,7 +146,7 @@ open class MagnetView : FrameLayout {
         }
         y = desY
     }
-    
+
     private fun changeOriginalTouchParams(event: MotionEvent) {
         originalX = x
         originalY = y
@@ -154,7 +154,7 @@ open class MagnetView : FrameLayout {
         originalRawY = event.rawY
         lastTouchDownTime = System.currentTimeMillis()
     }
-    
+
     private fun updateSize() {
         val viewGroup = parent as ViewGroup
         if (viewGroup != null) {
@@ -162,47 +162,47 @@ open class MagnetView : FrameLayout {
             screenHeight = viewGroup.height
         }
     }
-    
+
     private fun clearPortraitY() {
         portraitY = 0f
     }
-    
+
     private fun move(deltaX: Float, deltaY: Float) {
         x += deltaX
         y += deltaY
     }
-    
+
     private fun markPortraitY(isLandscape: Boolean) {
         if (isLandscape) {
             portraitY = y
         }
     }
-    
+
     private fun onIconClick() {
         featureViewListener?.onIconClick()
     }
-    
+
     private fun onRemove() {
         featureViewListener?.onRemove()
     }
-    
-    
+
+
     /** ****************************** Implementations ****************************** */
-    
+
     /** 动画  */
     private class MoveAnimatorRunnable(var view: MagnetView) : Runnable {
         private val handler = Handler(Looper.getMainLooper())
         private var destinationX: Float = 0f
         private var destinationY: Float = 0f
         private var startingTime: Long = 0
-        
+
         fun start(x: Float, y: Float) {
             destinationX = x
             destinationY = y
             startingTime = System.currentTimeMillis()
             handler.post(this)
         }
-        
+
         override fun run() {
             if (view.rootView == null || view.rootView.parent == null) {
                 return
@@ -215,7 +215,7 @@ open class MagnetView : FrameLayout {
                 handler.post(this)
             }
         }
-        
+
         fun stop() {
             handler.removeCallbacks(this)
         }

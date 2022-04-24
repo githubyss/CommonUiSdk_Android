@@ -3,7 +3,6 @@ package com.githubyss.mobile.common.ui.app.page.homepage
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
@@ -15,6 +14,7 @@ import com.githubyss.mobile.common.res.common.dimen.SideNormal
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment
 import com.githubyss.mobile.common.ui.app.page.compose_button.ComposeButtonFragment
+import com.githubyss.mobile.common.ui.app.page.custom_view.CustomViewFragment
 import com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowFragment
 import com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewFragment
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognitionActivity
@@ -135,6 +135,11 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
             ) {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.stop()
             }
+        }
+        ButtonClickBlueWeightHorizontal(
+            text = "自定义View",
+        ) {
+            FragmentUtils.switchFragmentByAddHideShow(CustomViewFragment(), CustomViewFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
     }
 }

@@ -98,7 +98,7 @@ class FloatingWindowFragment : BaseReflectBindingToolbarFragment<ComuiFragmentFl
             R.id.btn_show_floating_within_app -> {
                 val layoutParams = FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                 layoutParams.gravity = Gravity.BOTTOM or Gravity.END
-                layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, (dp2Px(14.0f)), (dp2Px(14.0f)))
+                layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, (dp2Px(14.0f).toInt()), (dp2Px(14.0f).toInt()))
                 AppFloatingIcon.getInstance(activity as Context)
                     .show()
                     ?.layoutParams(layoutParams)
