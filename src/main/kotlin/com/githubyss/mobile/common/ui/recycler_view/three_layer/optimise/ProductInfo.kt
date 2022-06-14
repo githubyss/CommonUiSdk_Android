@@ -1,8 +1,8 @@
 package com.githubyss.mobile.common.ui.recycler_view.three_layer.optimise
 
 import com.githubyss.mobile.common.kit.util.getJSONArrayFromJSONObject
-import com.githubyss.mobile.common.kit.util.getJSONObjectFromJSONObject
 import com.githubyss.mobile.common.kit.util.getJSONObjectFromJSONArray
+import com.githubyss.mobile.common.kit.util.getJSONObjectFromJSONObject
 import com.githubyss.mobile.common.kit.util.getStringFromJSONObject
 import org.json.JSONArray
 import org.json.JSONException
@@ -10,27 +10,27 @@ import org.json.JSONObject
 
 
 class ProductInfo(json: JSONObject?) {
-    var id: String = ""
-    var productName: String = ""
-    var productIsShow: String = ""
+    var id: String? = ""
+    var productName: String? = ""
+    var productIsShow: String? = ""
 
-    var iconUrl: String = ""
-    var isMore: String = ""
+    var iconUrl: String? = ""
+    var isMore: String? = ""
 
     //-1-不跳转，0-native，1-h5，2-h5-支持小程序分享
-    var moreJoinType: String = ""
-    var moreJoinUrl: String = ""
-    var moreJoinTip: String = ""
-    var moreVersionCode: String = ""
-    var moreUpgradeType: String = ""
+    var moreJoinType: String? = ""
+    var moreJoinUrl: String? = ""
+    var moreJoinTip: String? = ""
+    var moreVersionCode: String? = ""
+    var moreUpgradeType: String? = ""
 
-    var marginTop: String = ""
+    var marginTop: String? = ""
 
     //0-不实名 1-实名
-    var moreIsRealName: String = ""
+    var moreIsRealName: String? = ""
 
     //0-不登录 1-登录
-    var moreIsLogin: String = ""
+    var moreIsLogin: String? = ""
 
     var productTemplateList: ArrayList<ProductTemplate> = ArrayList()
         private set
