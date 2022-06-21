@@ -6,7 +6,7 @@ import androidx.compose.ui.unit.dp
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
 import com.githubyss.mobile.common.res.common.dimen.SideNormal
-import com.githubyss.mobile.common.ui.button_click.compose.ButtonClickBlue
+import com.githubyss.mobile.common.ui.button_click.compose.ButtonTextClickBlue
 import com.githubyss.mobile.common.ui.card.compose.CardOrange
 import com.githubyss.mobile.common.ui.card.compose.CardTransparent
 import com.githubyss.mobile.common.ui.card.compose.CardWhite
@@ -57,7 +57,7 @@ class ComposeCardFragment : BaseComposeToolbarFragment() {
             isFillMaxWidth = true,
         )
         {
-            ButtonClickBlue(text = "XXXXXXXXXXXXXXXXXXXXX")
+            ButtonTextClickBlue(text = "XXXXXXXXXXXXXXXXXXXXX")
         }
 
         CardWhite(

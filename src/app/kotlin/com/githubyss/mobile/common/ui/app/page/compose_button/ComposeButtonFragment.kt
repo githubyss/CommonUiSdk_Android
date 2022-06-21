@@ -1,15 +1,32 @@
 package com.githubyss.mobile.common.ui.app.page.compose_button
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Checkbox
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
-import com.githubyss.mobile.common.res.common.dimen.SideNano
-import com.githubyss.mobile.common.res.common.dimen.SideNormal
-import com.githubyss.mobile.common.ui.button_click.compose.ButtonClickBlue
-import com.githubyss.mobile.common.ui.button_click.compose.ButtonClickBlueMargin
-import com.githubyss.mobile.common.ui.button_click.compose.ButtonClickBlueWeightHorizontal
+import com.githubyss.mobile.common.res.common.color.White00Pct
+import com.githubyss.mobile.common.res.common.dimen.*
+import com.githubyss.mobile.common.ui.button_click.compose.*
 import com.githubyss.mobile.common.ui.layout.compose.LayoutWeightHorizontal
 import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
 import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
@@ -53,36 +70,77 @@ class ComposeButtonFragment : BaseComposeToolbarFragment() {
 
     @Composable
     private fun Buttons() {
-        ButtonClickBlue(
-            text = "XXXXXXXXXXXXXXXXXXXXX",
+        val interactionSource = remember { MutableInteractionSource() }
+        ButtonClickCommon(
+            interactionSource = interactionSource,
+            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow, contentColor = Color.DarkGray,
+                                                 disabledBackgroundColor = Color.Gray, disabledContentColor = Color.White00Pct),
+            shape = RoundedCornerShape(Dp.CornerRadiusBig),
+            border = BorderStroke(Dp.BorderWidthThin, Color.Transparent),
+            paddingHorizontal = Dp.SideTiny,
+            paddingVertical = Dp.SideTiny,
+            isFillMaxWidth = true,
+            height = 0.dp,
+        )
+        {
+            Column {
+                Row {
+                    Icon(Icons.Filled.AccountBox, null)
+                    Text(
+                        text = "文案",
+                        fontSize = TextUnit.FontSizeNormal,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .wrapContentWidth()
+                            .wrapContentHeight()
+                            .background(Color.Transparent),
+                    )
+                }
+                Checkbox(
+                    checked = true,
+                    modifier = Modifier
+                        .wrapContentWidth()
+                        .wrapContentHeight()
+                        .background(Color.Transparent),
+                    onCheckedChange = {}
+                )
+            }
+        }
+
+        ButtonTextClickBlue(
+            text = "自适应宽，自适应高，默认外间距",
             marginHorizontal = Dp.SideNano,
             marginVertical = Dp.SideNano,
         )
 
-        ButtonClickBlueMargin(text = "XXXXXXXXXXXXXXXXXXXXX")
+        ButtonTextClickBluePadding(text = "自适应宽，自适应高，无外间距，默认内间距")
 
-        ButtonClickBlue(
-            text = "XXXXXXXXXXXXXXXXXXXXX",
+        ButtonTextClickBlueMarginPadding(text = "自适应宽，自适应高，默认外间距，默认内间距")
+
+        ButtonTextClickBlue(
+            text = "满宽，自适应高，默认外间距，无内间距",
             marginHorizontal = Dp.SideNano,
             marginVertical = Dp.SideNano,
             isFillMaxWidth = true,
         )
 
-        ButtonClickBlueMargin(
-            text = "XXXXXXXXXXXXXXXXXXXXX",
+        ButtonTextClickBluePadding(
+            text = "满宽，自适应高，无外间距，默认内间距",
             isFillMaxWidth = true,
         )
 
-        ButtonClickBlueWeightHorizontal(text = "XXXXXXXXXXXXXXXXXXXXX")
+        ButtonTextClickBlueWeightHorizontal(text = "等分宽，自适应高，无外间距，无内间距")
+
+        ButtonTextClickBlueWeightHorizontalMarginPadding(text = "等分宽，自适应高，默认外间距，默认内间距")
 
         LayoutWeightHorizontal {
-            ButtonClickBlueWeightHorizontal(
-                text = "XXXXXXXXXXX",
+            ButtonTextClickBlueWeightHorizontal(
+                text = "1/3宽，自适应高，无外间距，无内间距",
                 modifier = Modifier.weight(1F),
             )
-            ButtonClickBlueWeightHorizontal(
-                text = "YYYYYYYYYYYYYYYYYYYYY",
-                modifier = Modifier.weight(1F),
+            ButtonTextClickBlueWeightHorizontal(
+                text = "2/3宽，自适应高，无外间距，无内间距",
+                modifier = Modifier.weight(2F),
             )
         }
     }
