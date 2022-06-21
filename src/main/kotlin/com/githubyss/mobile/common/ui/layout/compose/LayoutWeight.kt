@@ -14,6 +14,6 @@ fun LayoutWeightHorizontal(content: @Composable RowScope.() -> Unit) {
         content = content,
         modifier = Modifier
             .fillMaxWidth()
-            .wrapContentHeight()
+            .wrapContentHeight(),
     )
 }

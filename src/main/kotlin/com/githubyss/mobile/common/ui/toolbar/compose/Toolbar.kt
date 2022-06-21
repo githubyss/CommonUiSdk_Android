@@ -109,7 +109,7 @@ fun TopActionBar(
                 // modifier = Modifier
                 //     .wrapContentWidth()
                 //     .wrapContentHeight()
-                //     .background(textBg)
+                //     .background(textBg),
             )
         },
         backgroundColor = backgroundColor,
@@ -121,7 +121,8 @@ fun TopActionBar(
             }
             onNavigationClick != null -> {
                 {
-                    IconButton(onClick = onNavigationClick) {
+                    IconButton(onClick = onNavigationClick)
+                    {
                         Icon(Icons.Filled.ArrowBack, null)
                     }
                 }
@@ -136,10 +137,12 @@ fun TopActionBar(
             }
             else -> {
                 {
-                    // IconButton(onClick = { }) {
+                    // IconButton(onClick = { })
+                    // {
                     //     Icon(Icons.Filled.Share, null)
                     // }
-                    // IconButton(onClick = { }) {
+                    // IconButton(onClick = { })
+                    // {
                     //     Icon(Icons.Filled.Settings, null)
                     // }
                 }

@@ -19,10 +19,10 @@ fun PageSideMarginPadding(
     background: Color = Color.pageBgLightGray,
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
-    paddingHorizontal: Dp = Dp.SideNormal,
-    paddingVertical: Dp = Dp.SideNone,
     marginHorizontal: Dp = Dp.SideNone,
     marginVertical: Dp = Dp.SideNone,
+    paddingHorizontal: Dp = Dp.SideNone,
+    paddingVertical: Dp = Dp.SideNone,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(
@@ -37,7 +37,7 @@ fun PageSideMarginPadding(
             .background(background)
             .verticalScroll(rememberScrollState())
             // 先设置长高、背景、滑动，再设置 padding，padding 作用等同于 padding
-            .padding(horizontal = paddingHorizontal, vertical = paddingVertical)
+            .padding(horizontal = paddingHorizontal, vertical = paddingVertical),
     )
 }
 
@@ -46,7 +46,7 @@ fun PageSideMargin(
     background: Color = Color.pageBgLightGray,
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
-    marginHorizontal: Dp = Dp.SideNone,
+    marginHorizontal: Dp = Dp.SideNormal,
     marginVertical: Dp = Dp.SideNone,
     content: @Composable ColumnScope.() -> Unit,
 ) {

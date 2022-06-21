@@ -48,7 +48,8 @@ fun TextColumn(
         verticalArrangement = verticalArrangement,
         horizontalAlignment = horizontalAlignment,
         modifier = modifier,
-    ) {
+    )
+    {
         Text(
             text = text,
             color = textColor,
@@ -68,7 +69,7 @@ fun TextColumn(
             modifier = Modifier
                 .wrapContentWidth()
                 .wrapContentHeight()
-                .background(textBg)
+                .background(textBg),
         )
     }
 }

@@ -5,6 +5,7 @@
 
     <!-- Button -->
     <string name="comui_homepage_button_compose_button">Compose Button</string>
+    <string name="comui_homepage_button_compose_card">Compose Card</string>
     <string name="comui_homepage_button_property_animation">Property Animation</string>
     <string name="comui_homepage_button_tween_animation">Tween Animation</string>
     <string name="comui_homepage_button_recycler_view">Recycler View</string>

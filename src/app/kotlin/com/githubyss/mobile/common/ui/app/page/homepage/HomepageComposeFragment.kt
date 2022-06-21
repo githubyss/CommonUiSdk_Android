@@ -3,6 +3,7 @@ package com.githubyss.mobile.common.ui.app.page.homepage
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
@@ -14,6 +15,7 @@ import com.githubyss.mobile.common.res.common.dimen.SideNormal
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment
 import com.githubyss.mobile.common.ui.app.page.compose_button.ComposeButtonFragment
+import com.githubyss.mobile.common.ui.app.page.compose_card.ComposeCardFragment
 import com.githubyss.mobile.common.ui.app.page.custom_view.CustomViewFragment
 import com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowFragment
 import com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewFragment
@@ -50,11 +52,13 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         TopNavigationBar(homepageVm.title)
     }
 
+    @Preview
     @Composable
     override fun Content() {
         PageSidePadding(
             paddingVertical = Dp.SideNormal,
-        ) {
+        )
+        {
             Buttons()
         }
     }
@@ -64,42 +68,54 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
 
     @Composable
     private fun Buttons() {
-        ButtonClickBlueWeightHorizontal(text = getStringFromRes(R.string.comui_homepage_button_compose_button)) {
+        ButtonClickBlueWeightHorizontal(text = getStringFromRes(R.string.comui_homepage_button_compose_button))
+        {
             FragmentUtils.switchFragmentByAddHideShow(ComposeButtonFragment(), ComposeButtonFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
+
+        ButtonClickBlueWeightHorizontal(text = getStringFromRes(R.string.comui_homepage_button_compose_card))
+        {
+            FragmentUtils.switchFragmentByAddHideShow(ComposeCardFragment(), ComposeCardFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+        }
+
         LayoutWeightHorizontal {
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.comui_homepage_button_property_animation),
-                modifier = Modifier.weight(1F)
-            ) {
+                modifier = Modifier.weight(1F),
+            )
+            {
                 FragmentUtils.switchFragmentByAddHideShow(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
             }
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.comui_homepage_button_tween_animation),
-                modifier = Modifier.weight(1F)
-            ) {
+                modifier = Modifier.weight(1F),
+            )
+            {
             }
         }
-        ButtonClickBlueWeightHorizontal(
-            text = getStringFromRes(R.string.comui_homepage_button_recycler_view),
-        ) {
+
+        ButtonClickBlueWeightHorizontal(text = getStringFromRes(R.string.comui_homepage_button_recycler_view))
+        {
             switchFragment(RecyclerViewFragment(), RecyclerViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
-        ButtonClickBlueWeightHorizontal(
-            text = getStringFromRes(R.string.comui_homepage_button_floating_window),
-        ) {
+
+        ButtonClickBlueWeightHorizontal(text = getStringFromRes(R.string.comui_homepage_button_floating_window))
+        {
             switchFragment(FloatingWindowFragment(), FloatingWindowFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
-        ButtonClickBlueWeightHorizontal(
-            text = getStringFromRes(R.string.comui_homepage_button_speech_recognition),
-        ) {
+
+        ButtonClickBlueWeightHorizontal(text = getStringFromRes(R.string.comui_homepage_button_speech_recognition))
+        {
             ActivityUtils.startActivity(activity, SpeechRecognitionActivity::class.java)
         }
-        LayoutWeightHorizontal {
+
+        LayoutWeightHorizontal()
+        {
             ButtonClickBlueWeightHorizontal(
                 text = homepageVm.playController,
-                modifier = Modifier.weight(1F)
-            ) {
+                modifier = Modifier.weight(1F),
+            )
+            {
                 when (homepageVm.playController) {
                     homepageVm.playControllerPlay -> {
                         AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.start()
@@ -113,32 +129,36 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
             }
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.comres_audio_player_previous),
-                modifier = Modifier.weight(1F)
-            ) {
+                modifier = Modifier.weight(1F),
+            )
+            {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.previous()
             }
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.comres_audio_player_next),
-                modifier = Modifier.weight(1F)
-            ) {
+                modifier = Modifier.weight(1F),
+            )
+            {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.next()
             }
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.comres_audio_player_switch_voice),
-                modifier = Modifier.weight(1F)
-            ) {
+                modifier = Modifier.weight(1F),
+            )
+            {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.switchVoice()
             }
             ButtonClickBlueWeightHorizontal(
                 text = getStringFromRes(R.string.comres_audio_player_stop),
-                modifier = Modifier.weight(1F)
-            ) {
+                modifier = Modifier.weight(1F),
+            )
+            {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.stop()
             }
         }
-        ButtonClickBlueWeightHorizontal(
-            text = "自定义View",
-        ) {
+
+        ButtonClickBlueWeightHorizontal(text = "自定义View")
+        {
             FragmentUtils.switchFragmentByAddHideShow(CustomViewFragment(), CustomViewFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
     }

@@ -2,7 +2,6 @@ package com.githubyss.mobile.common.ui.app.page.compose_button
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
@@ -43,9 +42,8 @@ class ComposeButtonFragment : BaseComposeToolbarFragment() {
 
     @Composable
     override fun Content() {
-        PageSidePadding(
-            paddingVertical = Dp.SideNormal
-        ) {
+        PageSidePadding(paddingVertical = Dp.SideNormal)
+        {
             Buttons()
         }
     }
@@ -57,33 +55,34 @@ class ComposeButtonFragment : BaseComposeToolbarFragment() {
     private fun Buttons() {
         ButtonClickBlue(
             text = "XXXXXXXXXXXXXXXXXXXXX",
-            outsidePaddingHorizontal = Dp.SideNano,
-            outsidePaddingVertical = Dp.SideNano
+            marginHorizontal = Dp.SideNano,
+            marginVertical = Dp.SideNano,
         )
-        ButtonClickBlueMargin(
-            text = "XXXXXXXXXXXXXXXXXXXXX"
-        )
+
+        ButtonClickBlueMargin(text = "XXXXXXXXXXXXXXXXXXXXX")
+
         ButtonClickBlue(
             text = "XXXXXXXXXXXXXXXXXXXXX",
-            outsidePaddingHorizontal = Dp.SideNano,
-            outsidePaddingVertical = Dp.SideNano,
-            isFillMaxWidth = true
+            marginHorizontal = Dp.SideNano,
+            marginVertical = Dp.SideNano,
+            isFillMaxWidth = true,
         )
+
         ButtonClickBlueMargin(
             text = "XXXXXXXXXXXXXXXXXXXXX",
-            isFillMaxWidth = true
+            isFillMaxWidth = true,
         )
-        ButtonClickBlueWeightHorizontal(
-            text = "XXXXXXXXXXXXXXXXXXXXX"
-        )
+
+        ButtonClickBlueWeightHorizontal(text = "XXXXXXXXXXXXXXXXXXXXX")
+
         LayoutWeightHorizontal {
             ButtonClickBlueWeightHorizontal(
                 text = "XXXXXXXXXXX",
-                modifier = Modifier.weight(1F)
+                modifier = Modifier.weight(1F),
             )
             ButtonClickBlueWeightHorizontal(
                 text = "YYYYYYYYYYYYYYYYYYYYY",
-                modifier = Modifier.weight(1F)
+                modifier = Modifier.weight(1F),
             )
         }
     }
