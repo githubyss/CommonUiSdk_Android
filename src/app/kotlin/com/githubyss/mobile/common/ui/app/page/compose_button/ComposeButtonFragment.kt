@@ -73,10 +73,11 @@ class ComposeButtonFragment : BaseComposeToolbarFragment() {
         val interactionSource = remember { MutableInteractionSource() }
         ButtonClickCommon(
             interactionSource = interactionSource,
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow, contentColor = Color.DarkGray,
-                                                 disabledBackgroundColor = Color.Gray, disabledContentColor = Color.White00Pct),
             shape = RoundedCornerShape(Dp.CornerRadiusBig),
             border = BorderStroke(Dp.BorderWidthThin, Color.Transparent),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color.Yellow, contentColor = Color.DarkGray,
+                disabledBackgroundColor = Color.Gray, disabledContentColor = Color.White00Pct),
             paddingHorizontal = Dp.SideTiny,
             paddingVertical = Dp.SideTiny,
             isFillMaxWidth = true,
@@ -108,7 +109,7 @@ class ComposeButtonFragment : BaseComposeToolbarFragment() {
         }
 
         ButtonTextClickBlue(
-            text = "自适应宽，自适应高，默认外间距",
+            text = "自适应宽，自适应高，默认外间距，无内间距",
             marginHorizontal = Dp.SideNano,
             marginVertical = Dp.SideNano,
         )

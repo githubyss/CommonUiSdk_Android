@@ -1,15 +1,22 @@
 package com.githubyss.mobile.common.ui.app.page.compose_card
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
-import com.githubyss.mobile.common.res.common.dimen.SideNormal
+import com.githubyss.mobile.common.res.common.color.White12Pct
+import com.githubyss.mobile.common.res.common.dimen.*
 import com.githubyss.mobile.common.ui.button_click.compose.ButtonTextClickBlue
-import com.githubyss.mobile.common.ui.card.compose.CardOrange
-import com.githubyss.mobile.common.ui.card.compose.CardTransparent
-import com.githubyss.mobile.common.ui.card.compose.CardWhite
+import com.githubyss.mobile.common.ui.card.compose.*
 import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
 import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
 
@@ -52,26 +59,84 @@ class ComposeCardFragment : BaseComposeToolbarFragment() {
 
     @Composable
     private fun Cards() {
-        CardOrange(
+        CardCommon(
+            shape = RoundedCornerShape(Dp.CornerRadiusTiny),
+            border = BorderStroke(Dp.BorderWidthThin, Color.Blue),
+            background = Color.Transparent,
+            elevation = Dp.ElevationNone,
+            marginTop = Dp.SideNormal,
+            paddingStart = Dp.SideTiny,
+            paddingTop = Dp.SideTiny,
+            paddingEnd = Dp.SideTiny,
+            paddingBottom = Dp.SideTiny,
             height = 100.dp,
             isFillMaxWidth = true,
         )
         {
-            ButtonTextClickBlue(text = "XXXXXXXXXXXXXXXXXXXXX")
+            CardContent()
+        }
+
+        CardOrange(
+            marginTop = Dp.SideNormal,
+            marginBottom = Dp.SideNormal,
+            paddingStart = Dp.SideTiny,
+            paddingTop = Dp.SideTiny,
+            paddingEnd = Dp.SideTiny,
+            paddingBottom = Dp.SideTiny,
+            height = 100.dp,
+            isFillMaxWidth = true,
+        )
+        {
+            CardContent()
         }
 
         CardWhite(
-            height = 100.dp,
+            shape = RoundedCornerShape(Dp.CornerRadiusBig),
+            marginTop = Dp.SideNormal,
+            marginBottom = Dp.SideNormal,
             isFillMaxWidth = true,
         )
         {
+            CardContent()
         }
 
         CardTransparent(
-            height = 100.dp,
+            shape = RoundedCornerShape(Dp.CornerRadiusHuge),
+            marginTop = Dp.SideNormal,
+            marginBottom = Dp.SideNormal,
             isFillMaxWidth = true,
         )
         {
+            CardContent()
+        }
+
+        Card2Text1Switch(
+            textPrimary = "主文案",
+            textSecondary = "如果你想测试卡片的宽度文案的话就用这个吧没问题的",
+            marginTop = Dp.SideNormal,
+            marginBottom = Dp.SideNormal,
+            height = 0.dp,
+            isFillMaxWidth = true,
+        )
+    }
+
+    @Composable
+    private fun CardContent() {
+        ConstraintLayout(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .background(Color.White12Pct),
+        )
+        {
+            val (button) = createRefs()
+            ButtonTextClickBlue(
+                text = "自适应宽，默认高，无外间距，无内间距",
+                modifier = Modifier
+                    .constrainAs(button) {
+                        centerTo(parent)
+                    }
+            )
         }
     }
 }

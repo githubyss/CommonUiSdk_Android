@@ -1,28 +1,30 @@
 package com.githubyss.mobile.common.ui.card.compose
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.githubyss.mobile.common.res.card.*
+import com.githubyss.mobile.common.res.common.dimen.ElevationLow
+import com.githubyss.mobile.common.res.common.dimen.ElevationNone
 import com.githubyss.mobile.common.res.common.dimen.SideNone
 
 
 @Composable
 fun CardOrange(
     modifier: Modifier = Modifier,
-    background: Brush = MaterialTheme.cardOrangeBackground,
-    shape: Shape = MaterialTheme.cardOrangeShape,
-    border: BorderStroke = MaterialTheme.cardOrangeBorder,
-    marginHorizontal: Dp = Dp.SideNone,
-    marginVertical: Dp = Dp.SideNone,
-    paddingHorizontal: Dp = Dp.SideNone,
-    paddingVertical: Dp = Dp.SideNone,
+    shape: Shape = MaterialTheme.cardShape,
+    elevation: Dp = Dp.ElevationLow,
+    marginStart: Dp = Dp.SideNone,
+    marginTop: Dp = Dp.SideNone,
+    marginEnd: Dp = Dp.SideNone,
+    marginBottom: Dp = Dp.SideNone,
+    paddingStart: Dp = Dp.SideNone,
+    paddingTop: Dp = Dp.SideNone,
+    paddingEnd: Dp = Dp.SideNone,
+    paddingBottom: Dp = Dp.SideNone,
     width: Dp = 0.dp,
     height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
@@ -31,9 +33,12 @@ fun CardOrange(
 ) {
     CardCommon(
         modifier,
-        background, shape, border,
-        marginHorizontal, marginVertical,
-        paddingHorizontal, paddingVertical,
+        shape,
+        MaterialTheme.cardOrangeBorder,
+        MaterialTheme.cardOrangeBackground,
+        elevation,
+        marginStart, marginTop, marginEnd, marginBottom,
+        paddingStart, paddingTop, paddingEnd, paddingBottom,
         width, height,
         isFillMaxWidth, isFillMaxHeight,
         content,
@@ -43,13 +48,16 @@ fun CardOrange(
 @Composable
 fun CardWhite(
     modifier: Modifier = Modifier,
-    background: Brush = MaterialTheme.cardWhiteBackground,
-    shape: Shape = MaterialTheme.cardWhiteShape,
-    border: BorderStroke = MaterialTheme.cardWhiteBorder,
-    marginHorizontal: Dp = Dp.SideNone,
-    marginVertical: Dp = Dp.SideNone,
-    paddingHorizontal: Dp = Dp.SideNone,
-    paddingVertical: Dp = Dp.SideNone,
+    shape: Shape = MaterialTheme.cardShape,
+    elevation: Dp = Dp.ElevationLow,
+    marginStart: Dp = Dp.SideNone,
+    marginTop: Dp = Dp.SideNone,
+    marginEnd: Dp = Dp.SideNone,
+    marginBottom: Dp = Dp.SideNone,
+    paddingStart: Dp = Dp.SideNone,
+    paddingTop: Dp = Dp.SideNone,
+    paddingEnd: Dp = Dp.SideNone,
+    paddingBottom: Dp = Dp.SideNone,
     width: Dp = 0.dp,
     height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
@@ -58,9 +66,12 @@ fun CardWhite(
 ) {
     CardCommon(
         modifier,
-        background, shape, border,
-        marginHorizontal, marginVertical,
-        paddingHorizontal, paddingVertical,
+        shape,
+        MaterialTheme.cardWhiteBorder,
+        MaterialTheme.cardWhiteBackground,
+        elevation,
+        marginStart, marginTop, marginEnd, marginBottom,
+        paddingStart, paddingTop, paddingEnd, paddingBottom,
         width, height,
         isFillMaxWidth, isFillMaxHeight,
         content,
@@ -70,13 +81,16 @@ fun CardWhite(
 @Composable
 fun CardTransparent(
     modifier: Modifier = Modifier,
-    background: Color = MaterialTheme.cardTransparentBackground,
-    shape: Shape = MaterialTheme.cardTransparentShape,
-    border: BorderStroke = MaterialTheme.cardTransparentBorder,
-    marginHorizontal: Dp = Dp.SideNone,
-    marginVertical: Dp = Dp.SideNone,
-    paddingHorizontal: Dp = Dp.SideNone,
-    paddingVertical: Dp = Dp.SideNone,
+    shape: Shape = MaterialTheme.cardShape,
+    elevation: Dp = Dp.ElevationNone,
+    marginStart: Dp = Dp.SideNone,
+    marginTop: Dp = Dp.SideNone,
+    marginEnd: Dp = Dp.SideNone,
+    marginBottom: Dp = Dp.SideNone,
+    paddingStart: Dp = Dp.SideNone,
+    paddingTop: Dp = Dp.SideNone,
+    paddingEnd: Dp = Dp.SideNone,
+    paddingBottom: Dp = Dp.SideNone,
     width: Dp = 0.dp,
     height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
@@ -85,9 +99,12 @@ fun CardTransparent(
 ) {
     CardCommon(
         modifier,
-        background, shape, border,
-        marginHorizontal, marginVertical,
-        paddingHorizontal, paddingVertical,
+        shape,
+        MaterialTheme.cardTransparentBorder,
+        MaterialTheme.cardTransparentBackground,
+        elevation,
+        marginStart, marginTop, marginEnd, marginBottom,
+        paddingStart, paddingTop, paddingEnd, paddingBottom,
         width, height,
         isFillMaxWidth, isFillMaxHeight,
         content,

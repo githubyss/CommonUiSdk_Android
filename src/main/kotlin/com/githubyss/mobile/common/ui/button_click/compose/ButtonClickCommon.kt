@@ -29,9 +29,9 @@ import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
 fun ButtonClickCommon(
     modifier: Modifier = Modifier,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: ButtonColors,
     shape: Shape,
     border: BorderStroke,
+    colors: ButtonColors,
     marginHorizontal: Dp = Dp.SideNone,
     marginVertical: Dp = Dp.SideNone,
     paddingHorizontal: Dp = Dp.SideNone,

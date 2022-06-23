@@ -9,14 +9,14 @@ import androidx.compose.ui.unit.dp
 
 @Stable
 fun Modifier.modifierWidthAssemble(width: Dp, isFillMaxWidth: Boolean): Modifier = when {
-    width > 0.dp -> this.width(width)
     isFillMaxWidth -> this.fillMaxWidth()
+    width > 0.dp -> this.width(width)
     else -> this.wrapContentWidth()
 }
 
 @Stable
 fun Modifier.modifierHeightAssemble(height: Dp, isFillMaxHeight: Boolean): Modifier = when {
-    height > 0.dp -> this.height(height)
     isFillMaxHeight -> this.fillMaxHeight()
+    height > 0.dp -> this.height(height)
     else -> this.wrapContentHeight()
 }

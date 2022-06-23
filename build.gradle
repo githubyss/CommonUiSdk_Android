@@ -157,6 +157,7 @@ dependencies {
     implementation dependenciesLib.androidx_recyclerview
     implementation dependenciesLib.androidx_compose_ui_tooling
     implementation dependenciesLib.androidx_compose_material
+    implementation dependenciesLib.androidx_constraintlayout_compose
     implementation dependenciesLib.androidx_activity_compose
     implementation dependenciesLib.google_flexbox
 
