@@ -16,7 +16,10 @@ import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseCompos
 import com.githubyss.mobile.common.res.common.color.White12Pct
 import com.githubyss.mobile.common.res.common.dimen.*
 import com.githubyss.mobile.common.ui.button_click.compose.ButtonTextClickBlue
-import com.githubyss.mobile.common.ui.card.compose.*
+import com.githubyss.mobile.common.ui.card.compose.CardCommon
+import com.githubyss.mobile.common.ui.card.compose.CardOrange
+import com.githubyss.mobile.common.ui.card.compose.CardTransparent
+import com.githubyss.mobile.common.ui.card.compose.CardWhite
 import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
 import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
 
@@ -109,15 +112,6 @@ class ComposeCardFragment : BaseComposeToolbarFragment() {
         {
             CardContent()
         }
-
-        Card2Text1Switch(
-            textPrimary = "主文案",
-            textSecondary = "如果你想测试卡片的宽度文案的话就用这个吧没问题的",
-            marginTop = Dp.SideNormal,
-            marginBottom = Dp.SideNormal,
-            height = 0.dp,
-            isFillMaxWidth = true,
-        )
     }
 
     @Composable

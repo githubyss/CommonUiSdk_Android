@@ -151,15 +151,15 @@ dependencies {
     implementation project(':CommonResSdk_Android')
     implementation project(':CommonKitSdk_Android')
 
-    implementation dependenciesLib.androidx_appcompat
-    implementation dependenciesLib.androidx_localbroadcastmanager
-    implementation dependenciesLib.androidx_constraintlayout
-    implementation dependenciesLib.androidx_recyclerview
-    implementation dependenciesLib.androidx_compose_ui_tooling
-    implementation dependenciesLib.androidx_compose_material
-    implementation dependenciesLib.androidx_constraintlayout_compose
-    implementation dependenciesLib.androidx_activity_compose
-    implementation dependenciesLib.google_flexbox
+    api dependenciesLib.androidx_appcompat
+    api dependenciesLib.androidx_localbroadcastmanager
+    api dependenciesLib.androidx_constraintlayout
+    api dependenciesLib.androidx_recyclerview
+    api dependenciesLib.androidx_compose_ui_tooling
+    api dependenciesLib.androidx_compose_material
+    api dependenciesLib.androidx_constraintlayout_compose
+    api dependenciesLib.androidx_activity_compose
+    api dependenciesLib.google_flexbox
 
     if (isLaunchApp) {
         appImplementation project(':CommonNetSdk_Android')
