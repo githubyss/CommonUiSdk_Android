@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.app.page.compose_button
+package com.githubyss.mobile.common.ui.app.page.button
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -35,28 +35,28 @@ import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
 
 
 /**
- * ComposeButtonFragment
+ * ButtonComposeFragment
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2022/04/06 10:14:17
  */
-class ComposeButtonFragment : BaseComposeToolbarFragment() {
+class ButtonComposeFragment : BaseComposeToolbarFragment() {
 
     /** ****************************** Properties ****************************** */
 
     companion object {
-        val TAG: String = ComposeButtonFragment::class.java.simpleName
+        val TAG: String = ButtonComposeFragment::class.java.simpleName
     }
 
-    private val composeButtonVm: ComposeButtonViewModel by viewModels()
+    private val buttonComposeVm: ButtonComposeViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */
 
     @Composable
     override fun Toolbar() {
-        TopNavigationBar(composeButtonVm.title) { activity?.onBackPressed() }
+        TopNavigationBar(buttonComposeVm.title) { activity?.onBackPressed() }
     }
 
     @Composable

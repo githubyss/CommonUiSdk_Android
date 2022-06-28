@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.app.page.compose_button
+package com.githubyss.mobile.common.ui.app.page.text_field
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -9,17 +9,17 @@ import com.githubyss.mobile.common.ui.R
 
 
 /**
- * ComposeButtonViewModel
+ * TextFieldComposeViewModel
  *
  * @author Ace Yan
  * @github githubyss
- * @createdTime 2022/04/06 10:15:01
+ * @createdTime 2022/06/29 00:12:15
  */
-class ComposeButtonViewModel : ViewModel() {
+class TextFieldComposeViewModel : ViewModel() {
 
     /** ****************************** Properties ****************************** */
 
-    private val titleDefault = getStringFromRes(R.string.comui_compose_button_title)
+    private val titleDefault = getStringFromRes(R.string.comui_text_field_compose_title)
 
     /** 数据绑定，绑定到 UI 的字段（data field） */
     var title: String by mutableStateOf(titleDefault)

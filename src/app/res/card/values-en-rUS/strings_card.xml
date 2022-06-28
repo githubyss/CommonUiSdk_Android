@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Title -->
-    <string name="comui_compose_button_title">Compose Button</string>
+    <string name="comui_card_compose_title">Card Compose</string>
 
     <!-- Button -->
 

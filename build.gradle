@@ -105,8 +105,8 @@ android {
                     srcDirs 'src/app/res/common'
 
                     srcDirs 'src/app/res/homepage'
-                    srcDirs 'src/app/res/compose_button'
-                    srcDirs 'src/app/res/compose_card'
+                    srcDirs 'src/app/res/button'
+                    srcDirs 'src/app/res/card'
                     srcDirs 'src/app/res/text'
                     srcDirs 'src/app/res/text_field'
                     srcDirs 'src/app/res/animate'

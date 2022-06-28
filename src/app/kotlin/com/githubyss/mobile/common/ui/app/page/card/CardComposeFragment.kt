@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.app.page.compose_card
+package com.githubyss.mobile.common.ui.app.page.card
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -25,28 +25,28 @@ import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
 
 
 /**
- * ComposeCardFragment
+ * CardComposeFragment
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2022/06/20 15:47:27
  */
-class ComposeCardFragment : BaseComposeToolbarFragment() {
+class CardComposeFragment : BaseComposeToolbarFragment() {
 
     /** ****************************** Properties ****************************** */
 
     companion object {
-        val TAG: String = ComposeCardFragment::class.java.simpleName
+        val TAG: String = CardComposeFragment::class.java.simpleName
     }
 
-    private val composeCardVm: ComposeCardViewModel by viewModels()
+    private val cardComposeVm: CardComposeViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */
 
     @Composable
     override fun Toolbar() {
-        TopNavigationBar(composeCardVm.title) { activity?.onBackPressed() }
+        TopNavigationBar(cardComposeVm.title) { activity?.onBackPressed() }
     }
 
     @Composable

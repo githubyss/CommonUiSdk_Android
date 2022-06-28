@@ -4,9 +4,10 @@
     <string name="comui_homepage_title">UI Debug Homepage</string>
 
     <!-- Button -->
-    <string name="comui_homepage_button_compose_button">Compose Button</string>
-    <string name="comui_homepage_button_compose_card">Compose Card</string>
+    <string name="comui_homepage_button_button_compose">Button Compose</string>
+    <string name="comui_homepage_button_card_compose">Card Compose</string>
     <string name="comui_homepage_button_text_compose">Text Compose</string>
+    <string name="comui_homepage_button_text_field_compose">Text Field Compose</string>
     <string name="comui_homepage_button_property_animation">Property Animation</string>
     <string name="comui_homepage_button_tween_animation">Tween Animation</string>
     <string name="comui_homepage_button_recycler_view">Recycler View</string>
