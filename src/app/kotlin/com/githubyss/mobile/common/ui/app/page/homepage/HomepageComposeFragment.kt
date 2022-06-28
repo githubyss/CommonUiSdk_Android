@@ -20,6 +20,7 @@ import com.githubyss.mobile.common.ui.app.page.custom_view.CustomViewFragment
 import com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowFragment
 import com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewFragment
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognitionActivity
+import com.githubyss.mobile.common.ui.app.page.text.TextComposeFragment
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingAudioPlayer
 import com.githubyss.mobile.common.ui.layout.compose.LayoutWeightHorizontal
@@ -74,6 +75,10 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_compose_card)) {
             FragmentUtils.switchFragmentByAddHideShow(ComposeCardFragment(), ComposeCardFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+        }
+
+        ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_text_compose)) {
+            FragmentUtils.switchFragmentByAddHideShow(TextComposeFragment(), TextComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
         LayoutWeightHorizontal {
