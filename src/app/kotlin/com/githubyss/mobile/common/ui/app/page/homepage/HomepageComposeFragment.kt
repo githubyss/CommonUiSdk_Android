@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseCompos
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.FragmentUtils
 import com.githubyss.mobile.common.kit.util.getStringFromRes
-import com.githubyss.mobile.common.res.common.dimen.SideNormal
+import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment
 import com.githubyss.mobile.common.ui.app.page.compose_button.ComposeButtonFragment
@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.app.page.custom_view.CustomViewFragment
 import com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowFragment
 import com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewFragment
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognitionActivity
-import com.githubyss.mobile.common.ui.button_click.compose.ButtonTextClickBlueWeightHorizontalMarginPadding
+import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingAudioPlayer
 import com.githubyss.mobile.common.ui.layout.compose.LayoutWeightHorizontal
 import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
@@ -56,7 +56,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
     @Composable
     override fun Content() {
         PageSidePadding(
-            paddingVertical = Dp.SideNormal,
+            paddingVertical = Dp.SpaceNormal,
         )
         {
             Buttons()
@@ -68,53 +68,45 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
 
     @Composable
     private fun Buttons() {
-        ButtonTextClickBlueWeightHorizontalMarginPadding(text = getStringFromRes(R.string.comui_homepage_button_compose_button))
-        {
+        ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_compose_button)) {
             FragmentUtils.switchFragmentByAddHideShow(ComposeButtonFragment(), ComposeButtonFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
-        ButtonTextClickBlueWeightHorizontalMarginPadding(text = getStringFromRes(R.string.comui_homepage_button_compose_card))
-        {
+        ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_compose_card)) {
             FragmentUtils.switchFragmentByAddHideShow(ComposeCardFragment(), ComposeCardFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
         LayoutWeightHorizontal {
-            ButtonTextClickBlueWeightHorizontalMarginPadding(
+            ButtonClickDefault(
                 text = getStringFromRes(R.string.comui_homepage_button_property_animation),
                 modifier = Modifier.weight(1F),
-            )
-            {
+            ) {
                 FragmentUtils.switchFragmentByAddHideShow(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
             }
-            ButtonTextClickBlueWeightHorizontalMarginPadding(
+            ButtonClickDefault(
                 text = getStringFromRes(R.string.comui_homepage_button_tween_animation),
                 modifier = Modifier.weight(1F),
-            )
-            {
+            ) {
             }
         }
 
-        ButtonTextClickBlueWeightHorizontalMarginPadding(text = getStringFromRes(R.string.comui_homepage_button_recycler_view))
-        {
+        ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_recycler_view)) {
             switchFragment(RecyclerViewFragment(), RecyclerViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
-        ButtonTextClickBlueWeightHorizontalMarginPadding(text = getStringFromRes(R.string.comui_homepage_button_floating_window))
-        {
+        ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_floating_window)) {
             switchFragment(FloatingWindowFragment(), FloatingWindowFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
-        ButtonTextClickBlueWeightHorizontalMarginPadding(text = getStringFromRes(R.string.comui_homepage_button_speech_recognition))
-        {
+        ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_speech_recognition)) {
             ActivityUtils.startActivity(activity, SpeechRecognitionActivity::class.java)
         }
 
         LayoutWeightHorizontal {
-            ButtonTextClickBlueWeightHorizontalMarginPadding(
+            ButtonClickDefault(
                 text = homepageVm.playController,
                 modifier = Modifier.weight(1F),
-            )
-            {
+            ) {
                 when (homepageVm.playController) {
                     homepageVm.playControllerPlay -> {
                         AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.start()
@@ -126,38 +118,33 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
                     }
                 }
             }
-            ButtonTextClickBlueWeightHorizontalMarginPadding(
+            ButtonClickDefault(
                 text = getStringFromRes(R.string.comres_audio_player_previous),
                 modifier = Modifier.weight(1F),
-            )
-            {
+            ) {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.previous()
             }
-            ButtonTextClickBlueWeightHorizontalMarginPadding(
+            ButtonClickDefault(
                 text = getStringFromRes(R.string.comres_audio_player_next),
                 modifier = Modifier.weight(1F),
-            )
-            {
+            ) {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.next()
             }
-            ButtonTextClickBlueWeightHorizontalMarginPadding(
+            ButtonClickDefault(
                 text = getStringFromRes(R.string.comres_audio_player_switch_voice),
                 modifier = Modifier.weight(1F),
-            )
-            {
+            ) {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.switchVoice()
             }
-            ButtonTextClickBlueWeightHorizontalMarginPadding(
+            ButtonClickDefault(
                 text = getStringFromRes(R.string.comres_audio_player_stop),
                 modifier = Modifier.weight(1F),
-            )
-            {
+            ) {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.stop()
             }
         }
 
-        ButtonTextClickBlueWeightHorizontalMarginPadding(text = "自定义View")
-        {
+        ButtonClickDefault(text = "自定义View") {
             FragmentUtils.switchFragmentByAddHideShow(CustomViewFragment(), CustomViewFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
     }

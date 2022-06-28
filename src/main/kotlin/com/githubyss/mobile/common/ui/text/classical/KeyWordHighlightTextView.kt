@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.text_view.classical
+package com.githubyss.mobile.common.ui.text.classical
 
 import android.content.Context
 import android.util.AttributeSet

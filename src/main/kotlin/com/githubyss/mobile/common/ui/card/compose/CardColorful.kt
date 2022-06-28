@@ -3,32 +3,35 @@ package com.githubyss.mobile.common.ui.card.compose
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.githubyss.mobile.common.res.card.*
+import com.githubyss.mobile.common.res.common.brush.Transparent
 import com.githubyss.mobile.common.res.common.dimen.ElevationLow
 import com.githubyss.mobile.common.res.common.dimen.ElevationNone
-import com.githubyss.mobile.common.res.common.dimen.SideNone
+import com.githubyss.mobile.common.res.common.dimen.SpaceNone
 
 
 @Composable
 fun CardOrange(
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.cardShape,
-    elevation: Dp = Dp.ElevationLow,
-    marginStart: Dp = Dp.SideNone,
-    marginTop: Dp = Dp.SideNone,
-    marginEnd: Dp = Dp.SideNone,
-    marginBottom: Dp = Dp.SideNone,
-    paddingStart: Dp = Dp.SideNone,
-    paddingTop: Dp = Dp.SideNone,
-    paddingEnd: Dp = Dp.SideNone,
-    paddingBottom: Dp = Dp.SideNone,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
     width: Dp = 0.dp,
     height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
+    elevation: Dp = Dp.ElevationLow,
     content: @Composable () -> Unit,
 ) {
     CardCommon(
@@ -36,11 +39,13 @@ fun CardOrange(
         shape,
         MaterialTheme.cardOrangeBorder,
         MaterialTheme.cardOrangeBackground,
-        elevation,
-        marginStart, marginTop, marginEnd, marginBottom,
-        paddingStart, paddingTop, paddingEnd, paddingBottom,
+        Color.Transparent,
+        Color.cardOrangeContent,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
         isFillMaxWidth, isFillMaxHeight,
+        elevation,
         content,
     )
 }
@@ -49,19 +54,19 @@ fun CardOrange(
 fun CardWhite(
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.cardShape,
-    elevation: Dp = Dp.ElevationLow,
-    marginStart: Dp = Dp.SideNone,
-    marginTop: Dp = Dp.SideNone,
-    marginEnd: Dp = Dp.SideNone,
-    marginBottom: Dp = Dp.SideNone,
-    paddingStart: Dp = Dp.SideNone,
-    paddingTop: Dp = Dp.SideNone,
-    paddingEnd: Dp = Dp.SideNone,
-    paddingBottom: Dp = Dp.SideNone,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
     width: Dp = 0.dp,
     height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
+    elevation: Dp = Dp.ElevationLow,
     content: @Composable () -> Unit,
 ) {
     CardCommon(
@@ -69,11 +74,13 @@ fun CardWhite(
         shape,
         MaterialTheme.cardWhiteBorder,
         MaterialTheme.cardWhiteBackground,
-        elevation,
-        marginStart, marginTop, marginEnd, marginBottom,
-        paddingStart, paddingTop, paddingEnd, paddingBottom,
+        Color.Transparent,
+        Color.cardWhiteContent,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
         isFillMaxWidth, isFillMaxHeight,
+        elevation,
         content,
     )
 }
@@ -82,31 +89,33 @@ fun CardWhite(
 fun CardTransparent(
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.cardShape,
-    elevation: Dp = Dp.ElevationNone,
-    marginStart: Dp = Dp.SideNone,
-    marginTop: Dp = Dp.SideNone,
-    marginEnd: Dp = Dp.SideNone,
-    marginBottom: Dp = Dp.SideNone,
-    paddingStart: Dp = Dp.SideNone,
-    paddingTop: Dp = Dp.SideNone,
-    paddingEnd: Dp = Dp.SideNone,
-    paddingBottom: Dp = Dp.SideNone,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
     width: Dp = 0.dp,
     height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
+    elevation: Dp = Dp.ElevationNone,
     content: @Composable () -> Unit,
 ) {
     CardCommon(
         modifier,
         shape,
         MaterialTheme.cardTransparentBorder,
+        Brush.Transparent,
         MaterialTheme.cardTransparentBackground,
-        elevation,
-        marginStart, marginTop, marginEnd, marginBottom,
-        paddingStart, paddingTop, paddingEnd, paddingBottom,
+        Color.cardTransparentContent,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
         isFillMaxWidth, isFillMaxHeight,
+        elevation,
         content,
     )
 }

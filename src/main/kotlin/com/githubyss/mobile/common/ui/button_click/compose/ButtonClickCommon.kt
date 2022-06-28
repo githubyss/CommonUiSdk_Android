@@ -6,13 +6,15 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonColors
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.ButtonElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.githubyss.mobile.common.res.common.dimen.SideNone
+import com.githubyss.mobile.common.res.common.dimen.SpaceNone
 import com.githubyss.mobile.common.ui.utils.modifierHeightAssemble
 import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
 
@@ -28,36 +30,42 @@ import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
 @Composable
 fun ButtonClickCommon(
     modifier: Modifier = Modifier,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape,
     border: BorderStroke,
     colors: ButtonColors,
-    marginHorizontal: Dp = Dp.SideNone,
-    marginVertical: Dp = Dp.SideNone,
-    paddingHorizontal: Dp = Dp.SideNone,
-    paddingVertical: Dp = Dp.SideNone,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
     width: Dp = 0.dp,
-    height: Dp = 60.dp,
+    height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
+    elevation: ButtonElevation = ButtonDefaults.elevation(),
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     enabled: Boolean = true,
     onClick: () -> Unit = {},
     content: @Composable () -> Unit,
 ) {
     // 先设置 padding，再设置长高，padding 作用等同于 margin
-    var modifierRevised = modifier.padding(marginHorizontal, marginVertical)
-    modifierRevised = modifierRevised.modifierWidthAssemble(width, isFillMaxWidth)
-    modifierRevised = modifierRevised.modifierHeightAssemble(height, isFillMaxHeight)
+    var modifierButton: Modifier = modifier.padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
+    modifierButton = modifierButton.modifierWidthAssemble(width, isFillMaxWidth)
+    modifierButton = modifierButton.modifierHeightAssemble(height, isFillMaxHeight)
+
+    val paddingContent: PaddingValues = PaddingValues(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
 
     Button(
-        onClick = onClick,
-        enabled = enabled,
-        interactionSource = interactionSource,
-        shape = shape,
-        border = border,
-        colors = colors,
-        contentPadding = PaddingValues(paddingHorizontal, paddingVertical),
-        modifier = modifierRevised,
+        onClick,
+        modifierButton,
+        enabled,
+        interactionSource,
+        elevation,
+        shape, border, colors,
+        paddingContent,
     )
     {
         content()

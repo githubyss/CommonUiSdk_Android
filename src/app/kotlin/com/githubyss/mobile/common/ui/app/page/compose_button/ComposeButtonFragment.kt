@@ -3,6 +3,7 @@ package com.githubyss.mobile.common.ui.app.page.compose_button
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -26,6 +27,7 @@ import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
 import com.githubyss.mobile.common.res.common.color.White00Pct
 import com.githubyss.mobile.common.res.common.dimen.*
+import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.button_click.compose.*
 import com.githubyss.mobile.common.ui.layout.compose.LayoutWeightHorizontal
 import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
@@ -59,7 +61,7 @@ class ComposeButtonFragment : BaseComposeToolbarFragment() {
 
     @Composable
     override fun Content() {
-        PageSidePadding(paddingVertical = Dp.SideNormal)
+        PageSidePadding(paddingVertical = Dp.SpaceNormal)
         {
             Buttons()
         }
@@ -72,23 +74,28 @@ class ComposeButtonFragment : BaseComposeToolbarFragment() {
     private fun Buttons() {
         val interactionSource = remember { MutableInteractionSource() }
         ButtonClickCommon(
-            interactionSource = interactionSource,
             shape = RoundedCornerShape(Dp.CornerRadiusBig),
-            border = BorderStroke(Dp.BorderWidthThin, Color.Transparent),
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color.Yellow, contentColor = Color.DarkGray,
-                disabledBackgroundColor = Color.Gray, disabledContentColor = Color.White00Pct),
-            paddingHorizontal = Dp.SideTiny,
-            paddingVertical = Dp.SideTiny,
-            isFillMaxWidth = true,
+            border = BorderStroke(Dp.BorderWidthThin, Color.Yellow),
+            colors = when {
+                interactionSource.collectIsPressedAsState().value -> ButtonDefaults.buttonColors(
+                    backgroundColor = Color.Transparent, contentColor = Color.Blue,
+                    disabledBackgroundColor = Color.Gray, disabledContentColor = Color.White00Pct)
+                else -> ButtonDefaults.buttonColors(
+                    backgroundColor = Color.Yellow, contentColor = Color.DarkGray,
+                    disabledBackgroundColor = Color.Gray, disabledContentColor = Color.White00Pct)
+            },
+            paddingTop = Dp.SpaceTiny, paddingBottom = Dp.SpaceTiny, paddingStart = Dp.SpaceTiny, paddingEnd = Dp.SpaceTiny,
             height = 0.dp,
+            elevation = ButtonDefaults.elevation(Dp.ElevationNone, Dp.ElevationNone, Dp.ElevationNone),
+            isFillMaxWidth = true,
+            interactionSource = interactionSource,
         )
         {
             Column {
                 Row {
                     Icon(Icons.Filled.AccountBox, null)
                     Text(
-                        text = "文案",
+                        text = "图标",
                         fontSize = TextUnit.FontSizeNormal,
                         textAlign = TextAlign.Center,
                         modifier = Modifier
@@ -97,51 +104,85 @@ class ComposeButtonFragment : BaseComposeToolbarFragment() {
                             .background(Color.Transparent),
                     )
                 }
-                Checkbox(
-                    checked = true,
-                    modifier = Modifier
-                        .wrapContentWidth()
-                        .wrapContentHeight()
-                        .background(Color.Transparent),
-                    onCheckedChange = {}
-                )
+                Row {
+                    Checkbox(
+                        checked = true,
+                        modifier = Modifier
+                            .wrapContentWidth()
+                            .wrapContentHeight()
+                            .background(Color.Transparent),
+                        onCheckedChange = {}
+                    )
+                    Text(
+                        text = "选框",
+                        fontSize = TextUnit.FontSizeNormal,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .wrapContentWidth()
+                            .wrapContentHeight()
+                            .background(Color.Transparent),
+                    )
+                }
             }
         }
 
-        ButtonTextClickBlue(
-            text = "自适应宽，自适应高，默认外间距，无内间距",
-            marginHorizontal = Dp.SideNano,
-            marginVertical = Dp.SideNano,
-        )
+        ButtonTextClickBlue(text = "自适应宽，自适应高，没有外间距，没有内间距")
 
-        ButtonTextClickBluePadding(text = "自适应宽，自适应高，无外间距，默认内间距")
+        ButtonTextClickBluePadding(text = "自适应宽，自适应高，没有外间距，默认内间距")
 
         ButtonTextClickBlueMarginPadding(text = "自适应宽，自适应高，默认外间距，默认内间距")
 
         ButtonTextClickBlue(
-            text = "满宽，自适应高，默认外间距，无内间距",
-            marginHorizontal = Dp.SideNano,
-            marginVertical = Dp.SideNano,
+            text = "满宽，自适应高，没有外间距，没有内间距",
             isFillMaxWidth = true,
         )
 
         ButtonTextClickBluePadding(
-            text = "满宽，自适应高，无外间距，默认内间距",
+            text = "满宽，自适应高，没有外间距，默认内间距",
             isFillMaxWidth = true,
         )
 
-        ButtonTextClickBlueWeightHorizontal(text = "等分宽，自适应高，无外间距，无内间距")
+        ButtonTextClickBlueMarginPadding(
+            text = "满宽，自适应高，默认外间距，默认内间距",
+            isFillMaxWidth = true,
+        )
+
+        ButtonTextClickBlueWeightHorizontal(text = "等分宽，自适应高，没有外间距，没有内间距")
 
         ButtonTextClickBlueWeightHorizontalMarginPadding(text = "等分宽，自适应高，默认外间距，默认内间距")
 
         LayoutWeightHorizontal {
             ButtonTextClickBlueWeightHorizontal(
-                text = "1/3宽，自适应高，无外间距，无内间距",
+                text = "1/3宽，自适应高，没有外间距，没有内间距",
                 modifier = Modifier.weight(1F),
             )
             ButtonTextClickBlueWeightHorizontal(
-                text = "2/3宽，自适应高，无外间距，无内间距",
+                text = "2/3宽，自适应高，没有外间距，没有内间距",
                 modifier = Modifier.weight(2F),
+            )
+        }
+
+        LayoutWeightHorizontal {
+            ButtonTextClickBlueWeightHorizontalMarginPadding(
+                text = "1/3宽，自适应高，默认外间距，默认内间距",
+                modifier = Modifier.weight(1F),
+            )
+            ButtonTextClickBlueWeightHorizontalMarginPadding(
+                text = "2/3宽，自适应高，默认外间距，默认内间距",
+                modifier = Modifier.weight(2F),
+            )
+        }
+
+        ButtonClickDefault(text = "预设，等分宽，固定高度，默认外间距，默认内间距")
+
+        LayoutWeightHorizontal {
+            ButtonClickDefault(
+                text = "1/2宽，固定高度，默认外间距，默认内间距",
+                modifier = Modifier.weight(1F),
+            )
+            ButtonClickDefault(
+                text = "1/2宽，固定高度，默认外间距，默认内间距",
+                modifier = Modifier.weight(1F),
             )
         }
     }

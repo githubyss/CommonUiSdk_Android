@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.custom_view
+package com.githubyss.mobile.common.ui.custom
 
 import android.content.Context
 import android.graphics.Canvas

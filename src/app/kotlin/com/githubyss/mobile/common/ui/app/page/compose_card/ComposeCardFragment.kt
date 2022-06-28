@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -13,7 +14,6 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
-import com.githubyss.mobile.common.res.common.color.White12Pct
 import com.githubyss.mobile.common.res.common.dimen.*
 import com.githubyss.mobile.common.ui.button_click.compose.ButtonTextClickBlue
 import com.githubyss.mobile.common.ui.card.compose.CardCommon
@@ -51,7 +51,7 @@ class ComposeCardFragment : BaseComposeToolbarFragment() {
 
     @Composable
     override fun Content() {
-        PageSidePadding(paddingVertical = Dp.SideNormal)
+        PageSidePadding(paddingVertical = Dp.SpaceNormal)
         {
             Cards()
         }
@@ -64,28 +64,29 @@ class ComposeCardFragment : BaseComposeToolbarFragment() {
     private fun Cards() {
         CardCommon(
             shape = RoundedCornerShape(Dp.CornerRadiusTiny),
-            border = BorderStroke(Dp.BorderWidthThin, Color.Blue),
-            background = Color.Transparent,
-            elevation = Dp.ElevationNone,
-            marginTop = Dp.SideNormal,
-            paddingStart = Dp.SideTiny,
-            paddingTop = Dp.SideTiny,
-            paddingEnd = Dp.SideTiny,
-            paddingBottom = Dp.SideTiny,
+            border = BorderStroke(Dp.BorderWidthThin, Color.Transparent),
+            cardBackgroundColor = Color.Red,
+            cardContentColor = Color.Yellow,
+            marginTop = Dp.SpaceSideMarginDefault,
+            paddingTop = Dp.SpaceCardPaddingDefault,
+            paddingBottom = Dp.SpaceCardPaddingDefault,
+            paddingStart = Dp.SpaceCardPaddingDefault,
+            paddingEnd = Dp.SpaceCardPaddingDefault,
             height = 100.dp,
             isFillMaxWidth = true,
+            elevation = Dp.ElevationNone,
         )
         {
             CardContent()
         }
 
         CardOrange(
-            marginTop = Dp.SideNormal,
-            marginBottom = Dp.SideNormal,
-            paddingStart = Dp.SideTiny,
-            paddingTop = Dp.SideTiny,
-            paddingEnd = Dp.SideTiny,
-            paddingBottom = Dp.SideTiny,
+            marginTop = Dp.SpaceSideMarginDefault,
+            marginBottom = Dp.SpaceSideMarginDefault,
+            paddingTop = Dp.SpaceCardPaddingDefault,
+            paddingBottom = Dp.SpaceCardPaddingDefault,
+            paddingStart = Dp.SpaceCardPaddingDefault,
+            paddingEnd = Dp.SpaceCardPaddingDefault,
             height = 100.dp,
             isFillMaxWidth = true,
         )
@@ -95,8 +96,8 @@ class ComposeCardFragment : BaseComposeToolbarFragment() {
 
         CardWhite(
             shape = RoundedCornerShape(Dp.CornerRadiusBig),
-            marginTop = Dp.SideNormal,
-            marginBottom = Dp.SideNormal,
+            marginTop = Dp.SpaceSideMarginDefault,
+            marginBottom = Dp.SpaceSideMarginDefault,
             isFillMaxWidth = true,
         )
         {
@@ -105,8 +106,8 @@ class ComposeCardFragment : BaseComposeToolbarFragment() {
 
         CardTransparent(
             shape = RoundedCornerShape(Dp.CornerRadiusHuge),
-            marginTop = Dp.SideNormal,
-            marginBottom = Dp.SideNormal,
+            marginTop = Dp.SpaceSideMarginDefault,
+            marginBottom = Dp.SpaceSideMarginDefault,
             isFillMaxWidth = true,
         )
         {
@@ -120,10 +121,19 @@ class ComposeCardFragment : BaseComposeToolbarFragment() {
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight()
-                .background(Color.White12Pct),
+                .background(Color.Transparent),
         )
         {
-            val (button) = createRefs()
+            val (text, button) = createRefs()
+            Text(text = "这个是卡片内容",
+                 modifier = Modifier
+                     .constrainAs(text) {
+                         top.linkTo(parent.top)
+                         bottom.linkTo(button.top)
+                         start.linkTo(parent.start)
+                         end.linkTo(parent.end)
+                     }
+            )
             ButtonTextClickBlue(
                 text = "自适应宽，默认高，无外间距，无内间距",
                 modifier = Modifier

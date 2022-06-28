@@ -3,13 +3,15 @@ package com.githubyss.mobile.common.ui.button_click.compose
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.ButtonElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.githubyss.mobile.common.res.button_click.*
-import com.githubyss.mobile.common.res.common.dimen.SideNone
+import com.githubyss.mobile.common.res.common.dimen.SpaceNone
 
 
 /** Button click blue. */
@@ -24,14 +26,20 @@ import com.githubyss.mobile.common.res.common.dimen.SideNone
 @Composable
 fun ButtonClickBlue(
     modifier: Modifier = Modifier,
-    marginHorizontal: Dp = Dp.SideNone,
-    marginVertical: Dp = Dp.SideNone,
-    paddingHorizontal: Dp = Dp.SideNone,
-    paddingVertical: Dp = Dp.SideNone,
+    shape: Shape = ButtonDefaults.buttonClickShape,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
     width: Dp = 0.dp,
     height: Dp = 60.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
+    elevation: ButtonElevation = ButtonDefaults.elevation(),
     enabled: Boolean = true,
     onClick: () -> Unit = {},
     content: @Composable () -> Unit,
@@ -39,14 +47,15 @@ fun ButtonClickBlue(
     val interactionSource = remember { MutableInteractionSource() }
     ButtonClickCommon(
         modifier,
-        interactionSource,
-        ButtonDefaults.buttonClickShape,
+        shape,
         ButtonDefaults.buttonClickBlueBorder,
         ButtonDefaults.buttonClickBlueBackground(interactionSource.collectIsPressedAsState().value),
-        marginHorizontal, marginVertical,
-        paddingHorizontal, paddingVertical,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
         isFillMaxWidth, isFillMaxHeight,
+        elevation,
+        interactionSource,
         enabled,
         onClick,
     )
@@ -68,14 +77,20 @@ fun ButtonClickBlue(
 @Composable
 fun ButtonClickWhite(
     modifier: Modifier = Modifier,
-    marginHorizontal: Dp = Dp.SideNone,
-    marginVertical: Dp = Dp.SideNone,
-    paddingHorizontal: Dp = Dp.SideNone,
-    paddingVertical: Dp = Dp.SideNone,
+    shape: Shape = ButtonDefaults.buttonClickShape,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
     width: Dp = 0.dp,
-    height: Dp = 60.dp,
+    height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
+    elevation: ButtonElevation = ButtonDefaults.elevation(),
     enabled: Boolean = true,
     onClick: () -> Unit = {},
     content: @Composable () -> Unit,
@@ -83,14 +98,15 @@ fun ButtonClickWhite(
     val interactionSource = remember { MutableInteractionSource() }
     ButtonClickCommon(
         modifier,
-        interactionSource,
-        ButtonDefaults.buttonClickShape,
+        shape,
         ButtonDefaults.buttonClickWhiteBorder,
         ButtonDefaults.buttonClickBlueBackground(interactionSource.collectIsPressedAsState().value),
-        marginHorizontal, marginVertical,
-        paddingHorizontal, paddingVertical,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
         isFillMaxWidth, isFillMaxHeight,
+        elevation,
+        interactionSource,
         enabled,
         onClick,
     )
@@ -112,14 +128,20 @@ fun ButtonClickWhite(
 @Composable
 fun ButtonClickTransparent(
     modifier: Modifier = Modifier,
-    marginHorizontal: Dp = Dp.SideNone,
-    marginVertical: Dp = Dp.SideNone,
-    paddingHorizontal: Dp = Dp.SideNone,
-    paddingVertical: Dp = Dp.SideNone,
+    shape: Shape = ButtonDefaults.buttonClickShape,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
     width: Dp = 0.dp,
-    height: Dp = 60.dp,
+    height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
+    elevation: ButtonElevation = ButtonDefaults.elevation(),
     enabled: Boolean = true,
     onClick: () -> Unit = {},
     content: @Composable () -> Unit,
@@ -127,14 +149,15 @@ fun ButtonClickTransparent(
     val interactionSource = remember { MutableInteractionSource() }
     ButtonClickCommon(
         modifier,
-        interactionSource,
-        ButtonDefaults.buttonClickShape,
+        shape,
         ButtonDefaults.buttonClickTransparentBorder,
         ButtonDefaults.buttonClickTransparentBackground(interactionSource.collectIsPressedAsState().value),
-        marginHorizontal, marginVertical,
-        paddingHorizontal, paddingVertical,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
         isFillMaxWidth, isFillMaxHeight,
+        elevation,
+        interactionSource,
         enabled,
         onClick,
     )
