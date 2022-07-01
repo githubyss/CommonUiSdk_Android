@@ -1,9 +1,6 @@
 package com.githubyss.mobile.common.ui.text.compose
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.LocalTextStyle
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,29 +14,22 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.githubyss.mobile.common.res.common.dimen.SpaceNone
-import com.githubyss.mobile.common.ui.utils.modifierHeightAssemble
-import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
 
 
 @Composable
-fun TextCommon(
+fun TextTag1Line(
     modifier: Modifier = Modifier,
     text: String,
     textColor: Color = Color.Unspecified,
-    textBackground: Color = Color.Transparent,
-    textDecoration: TextDecoration = TextDecoration.None,
-    textAlign: TextAlign = TextAlign.Start,
-    textDirection: TextDirection = TextDirection.Ltr,
-    textIndent: TextIndent = TextIndent.None,
+    textBackground: Color = Color.Unspecified,
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle = FontStyle.Normal,
     fontWeight: FontWeight = FontWeight.Normal,
     fontFamily: FontFamily = FontFamily.Default,
     letterSpacing: TextUnit = TextUnit.Unspecified,
+    textDecoration: TextDecoration = TextDecoration.None,
     lineHeight: TextUnit = TextUnit.Unspecified,
     overflow: TextOverflow = TextOverflow.Clip,
-    softWrap: Boolean = true,
-    maxLines: Int = Int.MAX_VALUE,
     textStyle: TextStyle = LocalTextStyle.current,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
@@ -49,39 +39,30 @@ fun TextCommon(
     paddingBottom: Dp = Dp.SpaceNone,
     paddingStart: Dp = Dp.SpaceNone,
     paddingEnd: Dp = Dp.SpaceNone,
-    width: Dp = 0.dp,
     height: Dp = 0.dp,
-    isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
     onTextLayout: (TextLayoutResult) -> Unit = {},
 ) {
-    var modifierText: Modifier = modifier.padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
-    modifierText = modifierText.modifierWidthAssemble(width, isFillMaxWidth)
-    modifierText = modifierText.modifierHeightAssemble(height, isFillMaxHeight)
-    // 这里在 Modifier 中设置 background，会根据宽高来渲染背景色。
-    modifierText = modifierText.background(textBackground)
-    modifierText = modifierText.padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
-
-    // 这里在 TextStyle 中设置 background，只会渲染文字部分。
-    val textStyleExtra = TextStyle(
-        background = textBackground,
-        textDirection = textDirection, textIndent = textIndent,
-    )
-    val textStyleFinal = textStyle.plus(textStyleExtra)
-
-    Text(
+    TextCommon(
+        modifier,
         text,
-        modifierText,
         textColor,
+        textBackground,
+        textDecoration,
+        TextAlign.Center,
+        TextDirection.Ltr,
+        TextIndent.None,
         fontSize, fontStyle, fontWeight, fontFamily,
         letterSpacing,
-        textDecoration,
-        textAlign,
         lineHeight,
         overflow,
-        softWrap,
-        maxLines,
+        false,
+        1,
+        textStyle,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
+        0.dp, height,
+        false, isFillMaxHeight,
         onTextLayout,
-        textStyleFinal,
     )
 }

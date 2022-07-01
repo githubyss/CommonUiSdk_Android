@@ -60,7 +60,7 @@ class TextComposeFragment : BaseComposeToolbarFragment() {
         TextCommon(text = "默认的实现")
 
         TextCommon(
-            text = "无边距的实现",
+            text = "自定义颜色、字号、背景色",
             textColor = Color.Red,
             fontSize = TextUnit.FontSize30Sp,
             textBackground = Color.Yellow,

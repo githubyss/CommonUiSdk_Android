@@ -67,12 +67,13 @@ fun CardCommon(
     //     content()
     // }
 
-    // 通过 Box 设置背景颜色
+    // 这里在 Box 的 Modifier 中设置 background，会遮盖卡片背景色，渲染渐变色的时候使用。究其原因，是因为 Card 参数列表里没有 Brush，而实现渐变色需要使用 Brush
     modifierBox = modifierBox
         .background(contentBackground)
         .padding(start = paddingStart, top = paddingTop, end = paddingEnd, bottom = paddingBottom)
 
-    // 通过 Card 设置背景颜色、内容颜色
+    // 这里在 Card 参数中设置 backgroundColor，可以实现单一颜色的渲染，无法实现渐变色的渲染。
+    // 当同时在 Box 的 Modifier 中设置 background 时，Card 的 backgroundColor 会被 Box background 遮盖。换句话说，就是此时设置 backgroundColor 无效。
     Card(
         modifierCard,
         shape,

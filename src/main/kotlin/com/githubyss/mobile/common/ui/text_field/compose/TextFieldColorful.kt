@@ -1,15 +1,12 @@
 package com.githubyss.mobile.common.ui.text_field.compose
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.ZeroCornerSize
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.material.LocalTextStyle
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -24,22 +21,14 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.githubyss.mobile.common.res.common.dimen.SpaceNone
-import com.githubyss.mobile.common.ui.utils.modifierHeightAssemble
-import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
+import com.githubyss.mobile.common.res.text_field.textFieldBlackColors
+import com.githubyss.mobile.common.res.text_field.textFieldShape
+import com.githubyss.mobile.common.res.text_field.textFieldTransparentColors
 
 
-/**
- * 使用 TextFieldColors 配置颜色模式
- *
- * @param
- * @return
- */
 @Composable
-fun TextFieldCommon(
-    modifier: Modifier = Modifier,
+fun TextFieldBlack(
     text: String,
-    // backgroundColor: Color = Color.Unspecified,
-    // textColor: Color = Color.Unspecified,
     textDecoration: TextDecoration = TextDecoration.None,
     textAlign: TextAlign = TextAlign.Start,
     textDirection: TextDirection = TextDirection.Ltr,
@@ -60,8 +49,7 @@ fun TextFieldCommon(
     singleLine: Boolean = false,
     isError: Boolean = false,
     maxLines: Int = Int.MAX_VALUE,
-    shape: Shape = MaterialTheme.shapes.small.copy(bottomEnd = ZeroCornerSize, bottomStart = ZeroCornerSize),
-    colors: TextFieldColors = TextFieldDefaults.textFieldColors(),
+    shape: Shape = TextFieldDefaults.textFieldShape,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -74,84 +62,43 @@ fun TextFieldCommon(
     height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     onKeyboardActions: (String) -> Unit = {},
     onValueChange: (String) -> Unit = {},
 ) {
-    var modifierTextField: Modifier = modifier.padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
-    modifierTextField = modifierTextField.modifierWidthAssemble(width, isFillMaxWidth)
-    modifierTextField = modifierTextField.modifierHeightAssemble(height, isFillMaxHeight)
-    // 这里在 Modifier 中设置 background，会根据宽高来渲染背景色。
-    // modifierTextField = modifierTextField.background(backgroundColor)
-    modifierTextField = modifierTextField.padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
-
-    // textColor、textBackground 在 colors 中设置，不用单独配置
-    // 这里在 TextStyle 中设置 background，只会渲染文字部分。
-    val textStyleExtra = TextStyle(
-        // background = backgroundColor,
-        // color = textColor,
-        textDecoration = textDecoration, textAlign = textAlign, textDirection = textDirection, textIndent = textIndent,
-        fontSize = fontSize, fontStyle = fontStyle, fontWeight = fontWeight, fontFamily = fontFamily,
-        letterSpacing = letterSpacing, lineHeight = lineHeight,
-    )
-    val textStyleFinal = textStyle.plus(textStyleExtra)
-
-    TextField(
+    val modifier = Modifier
+    val colors = TextFieldDefaults.textFieldBlackColors
+    val interactionSource = remember { MutableInteractionSource() }
+    TextFieldCommon(
+        modifier,
         text,
-        onValueChange,
-        modifierTextField,
+        textDecoration, textAlign, textDirection, textIndent,
+        fontSize, fontStyle, fontWeight, fontFamily,
+        letterSpacing, lineHeight, textStyle,
+        label, placeholder,
+        leadingIcon, trailingIcon,
         enabled,
         readOnly,
-        textStyleFinal,
-        label,
-        placeholder,
-        leadingIcon,
-        trailingIcon,
-        isError,
-        visualTransformation,
-        keyboardOptions,
-        KeyboardActions { onKeyboardActions(text) },
         singleLine,
+        isError,
         maxLines,
-        interactionSource,
         shape,
         colors,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
+        width, height,
+        isFillMaxWidth, isFillMaxHeight,
+        interactionSource,
+        visualTransformation,
+        keyboardOptions,
+        onKeyboardActions, onValueChange,
     )
 }
 
-/**
- * 使用独立的颜色配置颜色模式
- *
- * @param
- * @return
- */
 @Composable
-fun TextFieldCommon(
-    modifier: Modifier = Modifier,
+fun TextFieldTransparent(
     text: String,
-    backgroundColor: Color = Color.Unspecified,
-    textColor: Color = Color.Unspecified,
-    disabledTextColor: Color = Color.Unspecified,
-    unfocusedLabelColor: Color = Color.Unspecified,
-    focusedLabelColor: Color = Color.Unspecified,
-    errorLabelColor: Color = Color.Unspecified,
-    disabledLabelColor: Color = Color.Unspecified,
-    placeholderColor: Color = Color.Unspecified,
-    disabledPlaceholderColor: Color = Color.Unspecified,
-    cursorColor: Color = Color.Unspecified,
-    errorCursorColor: Color = Color.Unspecified,
-    focusedIndicatorColor: Color = Color.Unspecified,
-    unfocusedIndicatorColor: Color = Color.Unspecified,
-    errorIndicatorColor: Color = Color.Unspecified,
-    disabledIndicatorColor: Color = Color.Unspecified,
-    leadingIconColor: Color = Color.Unspecified,
-    disabledLeadingIconColor: Color = Color.Unspecified,
-    errorLeadingIconColor: Color = Color.Unspecified,
-    trailingIconColor: Color = Color.Unspecified,
-    disabledTrailingIconColor: Color = Color.Unspecified,
-    errorTrailingIconColor: Color = Color.Unspecified,
     textDecoration: TextDecoration = TextDecoration.None,
     textAlign: TextAlign = TextAlign.Start,
     textDirection: TextDirection = TextDirection.Ltr,
@@ -172,7 +119,7 @@ fun TextFieldCommon(
     singleLine: Boolean = false,
     isError: Boolean = false,
     maxLines: Int = Int.MAX_VALUE,
-    shape: Shape = MaterialTheme.shapes.small.copy(bottomEnd = ZeroCornerSize, bottomStart = ZeroCornerSize),
+    shape: Shape = TextFieldDefaults.textFieldShape,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -185,23 +132,14 @@ fun TextFieldCommon(
     height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     onKeyboardActions: (String) -> Unit = {},
     onValueChange: (String) -> Unit = {},
 ) {
-    val colors = TextFieldDefaults.textFieldColors(
-        backgroundColor = backgroundColor,
-        textColor = textColor, disabledTextColor = disabledTextColor,
-        unfocusedLabelColor = unfocusedLabelColor, focusedLabelColor = focusedLabelColor, errorLabelColor = errorLabelColor, disabledLabelColor = disabledLabelColor,
-        placeholderColor = placeholderColor, disabledPlaceholderColor = disabledPlaceholderColor,
-        cursorColor = cursorColor, errorCursorColor = errorCursorColor,
-        focusedIndicatorColor = focusedIndicatorColor, unfocusedIndicatorColor = unfocusedIndicatorColor, errorIndicatorColor = errorIndicatorColor, disabledIndicatorColor = disabledIndicatorColor,
-        leadingIconColor = leadingIconColor, disabledLeadingIconColor = disabledLeadingIconColor, errorLeadingIconColor = errorLeadingIconColor,
-        trailingIconColor = trailingIconColor, disabledTrailingIconColor = disabledTrailingIconColor, errorTrailingIconColor = errorTrailingIconColor,
-    )
-
+    val modifier: Modifier = Modifier
+    val colors = TextFieldDefaults.textFieldTransparentColors
+    val interactionSource = remember { MutableInteractionSource() }
     TextFieldCommon(
         modifier,
         text,
