@@ -1,7 +1,9 @@
 package com.githubyss.mobile.common.ui.button_click.compose
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.material.ButtonColors
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ButtonElevation
 import androidx.compose.runtime.Composable
@@ -45,11 +47,14 @@ fun ButtonClickBlue(
     content: @Composable () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
+    val border: BorderStroke = ButtonDefaults.buttonClickBlueBorder
+    val colors: ButtonColors = ButtonDefaults.buttonClickBlueBackground(interactionSource.collectIsPressedAsState().value)
+
     ButtonClickCommon(
         modifier,
         shape,
-        ButtonDefaults.buttonClickBlueBorder,
-        ButtonDefaults.buttonClickBlueBackground(interactionSource.collectIsPressedAsState().value),
+        border,
+        colors,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
@@ -96,11 +101,14 @@ fun ButtonClickWhite(
     content: @Composable () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
+    val border: BorderStroke = ButtonDefaults.buttonClickWhiteBorder
+    val colors: ButtonColors = ButtonDefaults.buttonClickWhiteBackground(interactionSource.collectIsPressedAsState().value)
+
     ButtonClickCommon(
         modifier,
         shape,
-        ButtonDefaults.buttonClickWhiteBorder,
-        ButtonDefaults.buttonClickBlueBackground(interactionSource.collectIsPressedAsState().value),
+        border,
+        colors,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
@@ -147,11 +155,14 @@ fun ButtonClickTransparent(
     content: @Composable () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
+    val border: BorderStroke = ButtonDefaults.buttonClickTransparentBorder
+    val colors: ButtonColors = ButtonDefaults.buttonClickTransparentBackground(interactionSource.collectIsPressedAsState().value)
+
     ButtonClickCommon(
         modifier,
         shape,
-        ButtonDefaults.buttonClickTransparentBorder,
-        ButtonDefaults.buttonClickTransparentBackground(interactionSource.collectIsPressedAsState().value),
+        border,
+        colors,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,

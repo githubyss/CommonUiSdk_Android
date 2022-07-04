@@ -43,26 +43,34 @@ fun TextTag1Line(
     isFillMaxHeight: Boolean = false,
     onTextLayout: (TextLayoutResult) -> Unit = {},
 ) {
+    val textAlign: TextAlign = TextAlign.Center
+    val textDirection: TextDirection = TextDirection.Ltr
+    val textIndent: TextIndent = TextIndent.None
+    val softWrap: Boolean = false
+    val maxLines: Int = 1
+    val width: Dp = 0.dp
+    val isFillMaxWidth: Boolean = false
+
     TextCommon(
         modifier,
         text,
         textColor,
         textBackground,
         textDecoration,
-        TextAlign.Center,
-        TextDirection.Ltr,
-        TextIndent.None,
+        textAlign,
+        textDirection,
+        textIndent,
         fontSize, fontStyle, fontWeight, fontFamily,
         letterSpacing,
         lineHeight,
         overflow,
-        false,
-        1,
+        softWrap,
+        maxLines,
         textStyle,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
-        0.dp, height,
-        false, isFillMaxHeight,
+        width, height,
+        isFillMaxWidth, isFillMaxHeight,
         onTextLayout,
     )
 }

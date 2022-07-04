@@ -25,7 +25,7 @@ import com.githubyss.mobile.common.ui.app.page.text_field.TextFieldComposeFragme
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingAudioPlayer
 import com.githubyss.mobile.common.ui.layout.compose.LayoutWeightHorizontal
-import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
+import com.githubyss.mobile.common.ui.page.compose.PagePadding
 import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
 
 
@@ -57,8 +57,9 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
     @Preview
     @Composable
     override fun Content() {
-        PageSidePadding(
-            paddingVertical = Dp.SpaceNormal,
+        PagePadding(
+            paddingTop = Dp.SpaceNormal,
+            paddingBottom = Dp.SpaceNormal,
         )
         {
             Buttons()

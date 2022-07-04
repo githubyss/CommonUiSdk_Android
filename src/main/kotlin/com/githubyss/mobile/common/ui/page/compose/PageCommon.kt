@@ -15,70 +15,88 @@ import com.githubyss.mobile.common.res.page.pageBgLightGray
 
 
 @Composable
-fun PageSideMarginPadding(
+fun PageCommon(
     background: Color = Color.pageBgLightGray,
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
-    marginHorizontal: Dp = Dp.SpaceNone,
-    marginVertical: Dp = Dp.SpaceNone,
-    paddingHorizontal: Dp = Dp.SpaceNone,
-    paddingVertical: Dp = Dp.SpaceNone,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(
-        verticalArrangement = verticalArrangement,
-        horizontalAlignment = horizontalAlignment,
-        content = content,
-        modifier = Modifier
+        Modifier
             // 先设置 padding，再设置长高、背景、滑动，padding 作用等同于 margin
-            .padding(horizontal = marginHorizontal, vertical = marginVertical)
+            .padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
             .fillMaxWidth()
             .fillMaxHeight()
             .background(background)
             .verticalScroll(rememberScrollState())
             // 先设置长高、背景、滑动，再设置 padding，padding 作用等同于 padding
-            .padding(horizontal = paddingHorizontal, vertical = paddingVertical),
+            .padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd),
+        verticalArrangement,
+        horizontalAlignment,
     )
+    {
+        content()
+    }
 }
 
 @Composable
-fun PageSideMargin(
+fun PageMargin(
     background: Color = Color.pageBgLightGray,
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
-    marginHorizontal: Dp = Dp.SpaceNormal,
-    marginVertical: Dp = Dp.SpaceNone,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNormal,
+    marginEnd: Dp = Dp.SpaceNormal,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    PageSideMarginPadding(
-        background = background,
-        verticalArrangement = verticalArrangement,
-        horizontalAlignment = horizontalAlignment,
-        paddingHorizontal = Dp.SpaceNone,
-        paddingVertical = Dp.SpaceNone,
-        marginHorizontal = marginHorizontal,
-        marginVertical = marginVertical,
-        content = content,
+    val paddingTop: Dp = Dp.SpaceNone
+    val paddingBottom: Dp = Dp.SpaceNone
+    val paddingStart: Dp = Dp.SpaceNone
+    val paddingEnd: Dp = Dp.SpaceNone
+
+    PageCommon(
+        background,
+        verticalArrangement, horizontalAlignment,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
     )
+    {
+        content()
+    }
 }
 
 @Composable
-fun PageSidePadding(
+fun PagePadding(
     background: Color = Color.pageBgLightGray,
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
-    paddingHorizontal: Dp = Dp.SpaceNormal,
-    paddingVertical: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNormal,
+    paddingEnd: Dp = Dp.SpaceNormal,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    PageSideMarginPadding(
-        background = background,
-        verticalArrangement = verticalArrangement,
-        horizontalAlignment = horizontalAlignment,
-        paddingHorizontal = paddingHorizontal,
-        paddingVertical = paddingVertical,
-        marginHorizontal = Dp.SpaceNone,
-        marginVertical = Dp.SpaceNone,
-        content = content,
+    val marginTop: Dp = Dp.SpaceNone
+    val marginBottom: Dp = Dp.SpaceNone
+    val marginStart: Dp = Dp.SpaceNone
+    val marginEnd: Dp = Dp.SpaceNone
+
+    PageCommon(
+        background,
+        verticalArrangement, horizontalAlignment,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
     )
+    {
+        content()
+    }
 }

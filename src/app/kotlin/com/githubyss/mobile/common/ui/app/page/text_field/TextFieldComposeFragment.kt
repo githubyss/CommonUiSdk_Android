@@ -17,7 +17,7 @@ import com.githubyss.mobile.common.res.common.dimen.FontSize30Sp
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 import com.githubyss.mobile.common.res.common.dimen.SpaceSideMarginDefault
 import com.githubyss.mobile.common.res.text_field.textFieldShape
-import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
+import com.githubyss.mobile.common.ui.page.compose.PagePadding
 import com.githubyss.mobile.common.ui.text_field.compose.*
 import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
 
@@ -49,7 +49,10 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
 
     @Composable
     override fun Content() {
-        PageSidePadding(paddingVertical = Dp.SpaceNormal)
+        PagePadding(
+            paddingTop = Dp.SpaceNormal,
+            paddingBottom = Dp.SpaceNormal,
+        )
         {
             TextFields()
         }

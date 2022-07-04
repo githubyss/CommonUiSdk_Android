@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.card.compose
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -34,13 +35,18 @@ fun CardOrange(
     elevation: Dp = Dp.ElevationLow,
     content: @Composable () -> Unit,
 ) {
+    val border: BorderStroke = MaterialTheme.cardOrangeBorder
+    val contentBackground: Brush = MaterialTheme.cardOrangeBackground
+    val cardBackgroundColor: Color = Color.Transparent
+    val cardContentColor: Color = Color.cardOrangeContent
+
     CardCommon(
         modifier,
         shape,
-        MaterialTheme.cardOrangeBorder,
-        MaterialTheme.cardOrangeBackground,
-        Color.Transparent,
-        Color.cardOrangeContent,
+        border,
+        contentBackground,
+        cardBackgroundColor,
+        cardContentColor,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
@@ -69,13 +75,18 @@ fun CardWhite(
     elevation: Dp = Dp.ElevationLow,
     content: @Composable () -> Unit,
 ) {
+    val border: BorderStroke = MaterialTheme.cardWhiteBorder
+    val contentBackground: Brush = MaterialTheme.cardWhiteBackground
+    val cardBackgroundColor: Color = Color.Transparent
+    val cardContentColor: Color = Color.cardWhiteContent
+
     CardCommon(
         modifier,
         shape,
-        MaterialTheme.cardWhiteBorder,
-        MaterialTheme.cardWhiteBackground,
-        Color.Transparent,
-        Color.cardWhiteContent,
+        border,
+        contentBackground,
+        cardBackgroundColor,
+        cardContentColor,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
@@ -104,13 +115,18 @@ fun CardTransparent(
     elevation: Dp = Dp.ElevationNone,
     content: @Composable () -> Unit,
 ) {
+    val border: BorderStroke = MaterialTheme.cardTransparentBorder
+    val contentBackground: Brush = Brush.Transparent
+    val cardBackgroundColor: Color = MaterialTheme.cardTransparentBackground
+    val cardContentColor: Color = Color.cardTransparentContent
+
     CardCommon(
         modifier,
         shape,
-        MaterialTheme.cardTransparentBorder,
-        Brush.Transparent,
-        MaterialTheme.cardTransparentBackground,
-        Color.cardTransparentContent,
+        border,
+        contentBackground,
+        cardBackgroundColor,
+        cardContentColor,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,

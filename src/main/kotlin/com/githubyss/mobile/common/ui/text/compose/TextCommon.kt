@@ -63,11 +63,11 @@ fun TextCommon(
     modifierText = modifierText.padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
 
     // 这里在 TextStyle 中设置 background，只会渲染文字部分。
-    val textStyleExtra = TextStyle(
+    val textStyleExtra: TextStyle = TextStyle(
         background = textBackground,
         textDirection = textDirection, textIndent = textIndent,
     )
-    val textStyleFinal = textStyle.plus(textStyleExtra)
+    val textStyleRevised: TextStyle = textStyle.plus(textStyleExtra)
 
     Text(
         text,
@@ -82,6 +82,6 @@ fun TextCommon(
         softWrap,
         maxLines,
         onTextLayout,
-        textStyleFinal,
+        textStyleRevised,
     )
 }

@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.card.compose.CardCommon
 import com.githubyss.mobile.common.ui.card.compose.CardOrange
 import com.githubyss.mobile.common.ui.card.compose.CardTransparent
 import com.githubyss.mobile.common.ui.card.compose.CardWhite
-import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
+import com.githubyss.mobile.common.ui.page.compose.PagePadding
 import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
 
 
@@ -51,7 +51,10 @@ class CardComposeFragment : BaseComposeToolbarFragment() {
 
     @Composable
     override fun Content() {
-        PageSidePadding(paddingVertical = Dp.SpaceNormal)
+        PagePadding(
+            paddingTop = Dp.SpaceNormal,
+            paddingBottom = Dp.SpaceNormal,
+        )
         {
             Cards()
         }

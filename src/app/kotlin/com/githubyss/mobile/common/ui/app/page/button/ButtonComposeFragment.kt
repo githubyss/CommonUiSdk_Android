@@ -30,7 +30,7 @@ import com.githubyss.mobile.common.res.common.dimen.*
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.button_click.compose.*
 import com.githubyss.mobile.common.ui.layout.compose.LayoutWeightHorizontal
-import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
+import com.githubyss.mobile.common.ui.page.compose.PagePadding
 import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
 
 
@@ -61,7 +61,10 @@ class ButtonComposeFragment : BaseComposeToolbarFragment() {
 
     @Composable
     override fun Content() {
-        PageSidePadding(paddingVertical = Dp.SpaceNormal)
+        PagePadding(
+            paddingTop = Dp.SpaceNormal,
+            paddingBottom = Dp.SpaceNormal,
+        )
         {
             Buttons()
         }

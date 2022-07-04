@@ -89,14 +89,14 @@ fun TextFieldCommon(
 
     // textColor、textBackground 在 colors 中设置，不用单独配置
     // 这里在 TextStyle 中设置 background，只会渲染文字部分。
-    val textStyleExtra = TextStyle(
+    val textStyleExtra: TextStyle = TextStyle(
         // background = backgroundColor,
         // color = textColor,
         textDecoration = textDecoration, textAlign = textAlign, textDirection = textDirection, textIndent = textIndent,
         fontSize = fontSize, fontStyle = fontStyle, fontWeight = fontWeight, fontFamily = fontFamily,
         letterSpacing = letterSpacing, lineHeight = lineHeight,
     )
-    val textStyleFinal = textStyle.plus(textStyleExtra)
+    val textStyleRevised: TextStyle = textStyle.plus(textStyleExtra)
 
     TextField(
         text,
@@ -104,7 +104,7 @@ fun TextFieldCommon(
         modifierTextField,
         enabled,
         readOnly,
-        textStyleFinal,
+        textStyleRevised,
         label,
         placeholder,
         leadingIcon,
@@ -191,7 +191,7 @@ fun TextFieldCommon(
     onKeyboardActions: (String) -> Unit = {},
     onValueChange: (String) -> Unit = {},
 ) {
-    val colors = TextFieldDefaults.textFieldColors(
+    val colors: TextFieldColors = TextFieldDefaults.textFieldColors(
         backgroundColor = backgroundColor,
         textColor = textColor, disabledTextColor = disabledTextColor,
         unfocusedLabelColor = unfocusedLabelColor, focusedLabelColor = focusedLabelColor, errorLabelColor = errorLabelColor, disabledLabelColor = disabledLabelColor,

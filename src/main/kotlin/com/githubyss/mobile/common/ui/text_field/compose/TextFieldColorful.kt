@@ -3,6 +3,7 @@ package com.githubyss.mobile.common.ui.text_field.compose
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.LocalTextStyle
+import androidx.compose.material.TextFieldColors
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -67,9 +68,10 @@ fun TextFieldBlack(
     onKeyboardActions: (String) -> Unit = {},
     onValueChange: (String) -> Unit = {},
 ) {
-    val modifier = Modifier
-    val colors = TextFieldDefaults.textFieldBlackColors
-    val interactionSource = remember { MutableInteractionSource() }
+    val modifier: Modifier = Modifier
+    val colors: TextFieldColors = TextFieldDefaults.textFieldBlackColors
+    val interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+
     TextFieldCommon(
         modifier,
         text,
@@ -138,8 +140,9 @@ fun TextFieldTransparent(
     onValueChange: (String) -> Unit = {},
 ) {
     val modifier: Modifier = Modifier
-    val colors = TextFieldDefaults.textFieldTransparentColors
-    val interactionSource = remember { MutableInteractionSource() }
+    val colors: TextFieldColors = TextFieldDefaults.textFieldTransparentColors
+    val interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+
     TextFieldCommon(
         modifier,
         text,

@@ -45,8 +45,8 @@ fun TextFieldPassword(
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle = FontStyle.Normal,
     fontWeight: FontWeight = FontWeight.Normal,
-    fontFamily: FontFamily = FontFamily.Monospace,
-    letterSpacing: TextUnit = TextUnit.SpaceTiny,
+    fontFamily: FontFamily = FontFamily.Default,
+    letterSpacing: TextUnit = TextUnit.Unspecified,
     lineHeight: TextUnit = TextUnit.Unspecified,
     textStyle: TextStyle = LocalTextStyle.current,
     enabled: Boolean = true,
@@ -88,11 +88,9 @@ fun TextFieldPassword(
             onClear()
         })
     }
-    val visualTransformation: VisualTransformation = if (isPasswordVisible.value && canPasswordVisible) {
-        VisualTransformation.None
-    }
-    else {
-        PasswordVisualTransformation()
+    val visualTransformation: VisualTransformation = when {
+        isPasswordVisible.value && canPasswordVisible -> VisualTransformation.None
+        else -> PasswordVisualTransformation()
     }
     val keyboardOptions: KeyboardOptions = KeyboardOptions(
         keyboardType = keyboardType,
