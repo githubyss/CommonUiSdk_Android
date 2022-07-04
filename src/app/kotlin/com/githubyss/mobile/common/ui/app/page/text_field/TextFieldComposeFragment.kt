@@ -5,17 +5,21 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
+import com.githubyss.mobile.common.res.common.dimen.FontSize20Sp
 import com.githubyss.mobile.common.res.common.dimen.FontSize30Sp
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 import com.githubyss.mobile.common.res.common.dimen.SpaceSideMarginDefault
+import com.githubyss.mobile.common.res.text_field.outlinedTextFieldShape
 import com.githubyss.mobile.common.res.text_field.textFieldShape
 import com.githubyss.mobile.common.ui.page.compose.PagePadding
 import com.githubyss.mobile.common.ui.text_field.compose.*
@@ -64,21 +68,21 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
     @Composable
     private fun TextFields() {
         TextFieldPasswordNumber(
-            text = textFieldComposeVm.text,
-            label = textFieldComposeVm.label,
+            text = textFieldComposeVm.textPasswordNumber,
+            label = textFieldComposeVm.labelPasswordNumber,
             placeholder = textFieldComposeVm.placeholder,
             fontSize = TextUnit.FontSize30Sp,
             marginBottom = Dp.SpaceSideMarginDefault,
             onKeyboardActions = {
             },
             onValueChange = {
-                textFieldComposeVm.updateText(it)
+                textFieldComposeVm.updateTextPasswordNumber(it)
             },
             onClear = {
-                textFieldComposeVm.updateText("")
+                textFieldComposeVm.updateTextPasswordNumber("")
             },
             onErrorChange = {
-                textFieldComposeVm.updateLabel(it)
+                textFieldComposeVm.updateLabelPasswordNumber(it)
             },
         )
 
@@ -86,7 +90,7 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
             text = textFieldComposeVm.text,
             label = textFieldComposeVm.label,
             placeholder = textFieldComposeVm.placeholder,
-            fontSize = TextUnit.FontSize30Sp,
+            fontSize = TextUnit.FontSize20Sp,
             isError = textFieldComposeVm.isError,
             marginBottom = Dp.SpaceSideMarginDefault,
             onKeyboardActions = {
@@ -107,13 +111,13 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
 
         TextFieldBlack(
             text = textFieldComposeVm.text,
-            fontSize = TextUnit.FontSize30Sp,
+            fontSize = TextUnit.FontSize20Sp,
             marginBottom = Dp.SpaceSideMarginDefault,
-            label = { Text(text = "请输入信息") },
-            placeholder = { Text(text = "这是个例子") },
-            leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Lock") },
+            label = { Text(text = "提示") },
+            placeholder = { Text(text = "占位示例") },
+            leadingIcon = { Icon(Icons.Filled.Add, contentDescription = "Add") },
             trailingIcon = {
-                Icon(Icons.Filled.Clear, contentDescription = "Clear", modifier = Modifier.clickable {
+                Icon(Icons.Filled.Favorite, contentDescription = "Favorite", modifier = Modifier.clickable {
                 })
             },
             singleLine = true,
@@ -122,10 +126,10 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
 
         TextFieldTransparent(
             text = textFieldComposeVm.text,
-            fontSize = TextUnit.FontSize30Sp,
+            fontSize = TextUnit.FontSize20Sp,
             marginBottom = Dp.SpaceSideMarginDefault,
-            label = { Text(text = "请输入信息") },
-            placeholder = { Text(text = "这是个例子") },
+            label = { Text(text = "提示") },
+            placeholder = { Text(text = "占位示例") },
             leadingIcon = { Icon(Icons.Filled.Add, contentDescription = "Add") },
             trailingIcon = {
                 Icon(Icons.Filled.Favorite, contentDescription = "Favorite", modifier = Modifier.clickable {
@@ -135,15 +139,43 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
             onValueChange = { textFieldComposeVm.updateText(it) },
         )
 
+        OutlinedTextFieldBlack(
+            text = textFieldComposeVm.text,
+            fontSize = TextUnit.FontSize20Sp,
+            marginBottom = Dp.SpaceSideMarginDefault,
+            label = { Text(text = "提示") },
+            placeholder = { Text(text = "占位示例") },
+            leadingIcon = { Icon(Icons.Filled.Add, contentDescription = "Add") },
+            trailingIcon = {
+                Icon(Icons.Filled.Favorite, contentDescription = "Favorite", modifier = Modifier.clickable {
+                })
+            },
+            singleLine = true,
+            onValueChange = { textFieldComposeVm.updateText(it) },
+        )
+
         TextFieldCommon(
             text = textFieldComposeVm.text,
-            textColor = Color.Blue,
-            backgroundColor = Color.Red,
-            fontSize = TextUnit.FontSize30Sp,
+            fontSize = TextUnit.FontSize20Sp,
             shape = TextFieldDefaults.textFieldShape,
             marginBottom = Dp.SpaceSideMarginDefault,
-            label = { Text(text = "请输入信息") },
-            placeholder = { Text(text = "这是个例子") },
+            label = { Text(text = "提示") },
+            placeholder = { Text(text = "占位示例") },
+            leadingIcon = { Icon(Icons.Filled.AccountBox, contentDescription = "AccountBox") },
+            trailingIcon = {
+                Icon(Icons.Filled.Call, contentDescription = "Call", modifier = Modifier.clickable {
+                })
+            },
+            onValueChange = { textFieldComposeVm.updateText(it) },
+        )
+
+        OutlinedTextFieldCommon(
+            text = textFieldComposeVm.text,
+            fontSize = TextUnit.FontSize20Sp,
+            shape = TextFieldDefaults.outlinedTextFieldShape,
+            marginBottom = Dp.SpaceSideMarginDefault,
+            label = { Text(text = "提示") },
+            placeholder = { Text(text = "占位示例") },
             leadingIcon = { Icon(Icons.Filled.AccountBox, contentDescription = "AccountBox") },
             trailingIcon = {
                 Icon(Icons.Filled.Call, contentDescription = "Call", modifier = Modifier.clickable {
@@ -154,9 +186,14 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
 
         TextFieldCommon(
             text = textFieldComposeVm.text,
-            textColor = Color.Blue,
-            backgroundColor = Color.Red,
-            fontSize = TextUnit.FontSize30Sp,
+            fontSize = TextUnit.FontSize20Sp,
+            marginBottom = Dp.SpaceSideMarginDefault,
+            onValueChange = { textFieldComposeVm.updateText(it) },
+        )
+
+        OutlinedTextFieldCommon(
+            text = textFieldComposeVm.text,
+            fontSize = TextUnit.FontSize20Sp,
             marginBottom = Dp.SpaceSideMarginDefault,
             onValueChange = { textFieldComposeVm.updateText(it) },
         )

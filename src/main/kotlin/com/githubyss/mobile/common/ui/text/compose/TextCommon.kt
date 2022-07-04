@@ -26,7 +26,7 @@ fun TextCommon(
     modifier: Modifier = Modifier,
     text: String,
     textColor: Color = Color.Unspecified,
-    textBackground: Color = Color.Transparent,
+    textBackground: Color = Color.Unspecified,
     textDecoration: TextDecoration = TextDecoration.None,
     textAlign: TextAlign = TextAlign.Start,
     textDirection: TextDirection = TextDirection.Ltr,

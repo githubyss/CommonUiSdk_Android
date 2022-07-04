@@ -2,7 +2,6 @@ package com.githubyss.mobile.common.ui.text_field.compose
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -30,17 +29,18 @@ import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
 
 /**
  * 使用独立的颜色配置颜色模式
- * 默认的实现，颜色都是未指定，也就是透明色。
+ * 默认的实现中，颜色都是未指定，也就是透明色。
  * 所以不能直接用默认值，需要指定一部分颜色才可以。
  *
  * @param
  * @return
  */
 @Composable
-fun TextFieldCommon(
+fun OutlinedTextFieldCommon(
     modifier: Modifier = Modifier,
     text: String,
-    backgroundColor: Color = Color.Unspecified,
+    // 最终实现 TextFieldImpl 中，TextFieldType.Outlined 时，不会配置 backgroundColor，所以这里配置 backgroundColor 无效，可以去除。
+    // backgroundColor: Color = Color.Unspecified,
     textColor: Color = Color.Unspecified,
     disabledTextColor: Color = Color.Unspecified,
     unfocusedLabelColor: Color = Color.Unspecified,
@@ -81,7 +81,7 @@ fun TextFieldCommon(
     singleLine: Boolean = false,
     isError: Boolean = false,
     maxLines: Int = Int.MAX_VALUE,
-    shape: Shape = MaterialTheme.shapes.small.copy(bottomEnd = ZeroCornerSize, bottomStart = ZeroCornerSize),
+    shape: Shape = MaterialTheme.shapes.small,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -101,7 +101,7 @@ fun TextFieldCommon(
     onValueChange: (String) -> Unit = {},
 ) {
     val colors: TextFieldColors = TextFieldDefaults.textFieldColors(
-        backgroundColor = backgroundColor,
+        // backgroundColor = backgroundColor,
         textColor = textColor, disabledTextColor = disabledTextColor,
         unfocusedLabelColor = unfocusedLabelColor, focusedLabelColor = focusedLabelColor, errorLabelColor = errorLabelColor, disabledLabelColor = disabledLabelColor,
         placeholderColor = placeholderColor, disabledPlaceholderColor = disabledPlaceholderColor,
@@ -111,7 +111,7 @@ fun TextFieldCommon(
         trailingIconColor = trailingIconColor, disabledTrailingIconColor = disabledTrailingIconColor, errorTrailingIconColor = errorTrailingIconColor,
     )
 
-    TextFieldCommon(
+    OutlinedTextFieldCommon(
         modifier,
         text,
         textDecoration, textAlign, textDirection, textIndent,
@@ -146,7 +146,7 @@ fun TextFieldCommon(
  * @return
  */
 @Composable
-fun TextFieldCommon(
+fun OutlinedTextFieldCommon(
     modifier: Modifier = Modifier,
     text: String,
     textDecoration: TextDecoration = TextDecoration.None,
@@ -169,8 +169,8 @@ fun TextFieldCommon(
     singleLine: Boolean = false,
     isError: Boolean = false,
     maxLines: Int = Int.MAX_VALUE,
-    shape: Shape = MaterialTheme.shapes.small.copy(bottomEnd = ZeroCornerSize, bottomStart = ZeroCornerSize),
-    colors: TextFieldColors = TextFieldDefaults.textFieldColors(),
+    shape: Shape = MaterialTheme.shapes.small,
+    colors: TextFieldColors = TextFieldDefaults.outlinedTextFieldColors(),
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -207,7 +207,7 @@ fun TextFieldCommon(
     )
     val textStyleRevised: TextStyle = textStyle.plus(textStyleExtra)
 
-    TextField(
+    OutlinedTextField(
         text,
         onValueChange,
         modifierTextField,
