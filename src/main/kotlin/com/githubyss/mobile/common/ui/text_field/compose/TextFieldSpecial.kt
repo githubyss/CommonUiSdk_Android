@@ -29,7 +29,6 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.core.text.isDigitsOnly
 import com.githubyss.mobile.common.res.common.dimen.SpaceNone
-import com.githubyss.mobile.common.res.common.dimen.SpaceTiny
 import com.githubyss.mobile.common.res.text_field.textFieldShape
 
 
@@ -97,7 +96,7 @@ fun TextFieldPassword(
         imeAction = imeAction,
     )
 
-    TextFieldBlack(
+    TextFieldTransparent(
         text,
         textDecoration, textAlign, textDirection, textIndent,
         fontSize, fontStyle, fontWeight, fontFamily,
@@ -132,8 +131,8 @@ fun TextFieldPasswordNumber(
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle = FontStyle.Normal,
     fontWeight: FontWeight = FontWeight.Normal,
-    fontFamily: FontFamily = FontFamily.Monospace,
-    letterSpacing: TextUnit = TextUnit.SpaceTiny,
+    fontFamily: FontFamily = FontFamily.Default,
+    letterSpacing: TextUnit = TextUnit.Unspecified,
     lineHeight: TextUnit = TextUnit.Unspecified,
     textStyle: TextStyle = LocalTextStyle.current,
     enabled: Boolean = true,
