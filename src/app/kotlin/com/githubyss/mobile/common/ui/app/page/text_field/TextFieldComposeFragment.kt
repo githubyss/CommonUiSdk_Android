@@ -18,10 +18,7 @@ import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 import com.githubyss.mobile.common.res.common.dimen.SpaceSideMarginDefault
 import com.githubyss.mobile.common.res.text_field.textFieldShape
 import com.githubyss.mobile.common.ui.page.compose.PageSidePadding
-import com.githubyss.mobile.common.ui.text_field.compose.TextFieldBlack
-import com.githubyss.mobile.common.ui.text_field.compose.TextFieldCommon
-import com.githubyss.mobile.common.ui.text_field.compose.TextFieldPassword
-import com.githubyss.mobile.common.ui.text_field.compose.TextFieldTransparent
+import com.githubyss.mobile.common.ui.text_field.compose.*
 import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
 
 
@@ -63,38 +60,52 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
 
     @Composable
     private fun TextFields() {
-        TextFieldCommon(text = "默认的实现")
-
-        TextFieldCommon(
+        TextFieldPasswordNumber(
             text = textFieldComposeVm.text,
-            textColor = Color.Blue,
-            backgroundColor = Color.Red,
+            label = textFieldComposeVm.label,
+            placeholder = textFieldComposeVm.placeholder,
             fontSize = TextUnit.FontSize30Sp,
-            marginTop = Dp.SpaceSideMarginDefault,
-            onValueChange = { textFieldComposeVm.updateText(it) },
+            marginBottom = Dp.SpaceSideMarginDefault,
+            onKeyboardActions = {
+            },
+            onValueChange = {
+                textFieldComposeVm.updateText(it)
+            },
+            onClear = {
+                textFieldComposeVm.updateText("")
+            },
+            onErrorChange = {
+                textFieldComposeVm.updateLabel(it)
+            },
         )
 
-        TextFieldCommon(
+        TextFieldPassword(
             text = textFieldComposeVm.text,
-            textColor = Color.Blue,
-            backgroundColor = Color.Red,
+            label = textFieldComposeVm.label,
+            placeholder = textFieldComposeVm.placeholder,
             fontSize = TextUnit.FontSize30Sp,
-            shape = TextFieldDefaults.textFieldShape,
-            marginTop = Dp.SpaceSideMarginDefault,
-            label = { Text(text = "请输入信息") },
-            placeholder = { Text(text = "这是个例子") },
-            leadingIcon = { Icon(Icons.Filled.AccountBox, contentDescription = "AccountBox") },
-            trailingIcon = {
-                Icon(Icons.Filled.Call, contentDescription = "Call", modifier = Modifier.clickable {
-                })
+            isError = textFieldComposeVm.isError,
+            marginBottom = Dp.SpaceSideMarginDefault,
+            onKeyboardActions = {
+                textFieldComposeVm.validateDigits(it)
+                textFieldComposeVm.updateLabel(textFieldComposeVm.isError)
             },
-            onValueChange = { textFieldComposeVm.updateText(it) },
+            onValueChange = {
+                textFieldComposeVm.updateText(it)
+                textFieldComposeVm.validateDigits(it)
+                textFieldComposeVm.updateLabel(textFieldComposeVm.isError)
+            },
+            onClear = {
+                textFieldComposeVm.updateText("")
+                textFieldComposeVm.validateDigits("")
+                textFieldComposeVm.updateLabel(textFieldComposeVm.isError)
+            }
         )
 
         TextFieldBlack(
             text = textFieldComposeVm.text,
             fontSize = TextUnit.FontSize30Sp,
-            marginTop = Dp.SpaceSideMarginDefault,
+            marginBottom = Dp.SpaceSideMarginDefault,
             label = { Text(text = "请输入信息") },
             placeholder = { Text(text = "这是个例子") },
             leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Lock") },
@@ -109,7 +120,7 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
         TextFieldTransparent(
             text = textFieldComposeVm.text,
             fontSize = TextUnit.FontSize30Sp,
-            marginTop = Dp.SpaceSideMarginDefault,
+            marginBottom = Dp.SpaceSideMarginDefault,
             label = { Text(text = "请输入信息") },
             placeholder = { Text(text = "这是个例子") },
             leadingIcon = { Icon(Icons.Filled.Add, contentDescription = "Add") },
@@ -121,22 +132,32 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
             onValueChange = { textFieldComposeVm.updateText(it) },
         )
 
-        TextFieldPassword(
+        TextFieldCommon(
             text = textFieldComposeVm.text,
-            label = textFieldComposeVm.label,
-            placeholder = textFieldComposeVm.placeholder,
+            textColor = Color.Blue,
+            backgroundColor = Color.Red,
             fontSize = TextUnit.FontSize30Sp,
-            isError = textFieldComposeVm.isError,
-            marginTop = Dp.SpaceSideMarginDefault,
-            onKeyboardActions = {
-                textFieldComposeVm.validateDigitsOnly(textFieldComposeVm.text)
-                textFieldComposeVm.updateLabel("密码格式错误，请检查并改正")
+            shape = TextFieldDefaults.textFieldShape,
+            marginBottom = Dp.SpaceSideMarginDefault,
+            label = { Text(text = "请输入信息") },
+            placeholder = { Text(text = "这是个例子") },
+            leadingIcon = { Icon(Icons.Filled.AccountBox, contentDescription = "AccountBox") },
+            trailingIcon = {
+                Icon(Icons.Filled.Call, contentDescription = "Call", modifier = Modifier.clickable {
+                })
             },
-            onValueChange = {
-                textFieldComposeVm.updateText(it)
-                textFieldComposeVm.validateDigitsOnly(textFieldComposeVm.text)
-            },
-            onClear = { textFieldComposeVm.updateText("") }
+            onValueChange = { textFieldComposeVm.updateText(it) },
         )
+
+        TextFieldCommon(
+            text = textFieldComposeVm.text,
+            textColor = Color.Blue,
+            backgroundColor = Color.Red,
+            fontSize = TextUnit.FontSize30Sp,
+            marginBottom = Dp.SpaceSideMarginDefault,
+            onValueChange = { textFieldComposeVm.updateText(it) },
+        )
+
+        TextFieldCommon(text = "默认的实现")
     }
 }
