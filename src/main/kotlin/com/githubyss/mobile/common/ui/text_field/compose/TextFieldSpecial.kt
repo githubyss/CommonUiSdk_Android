@@ -75,17 +75,27 @@ fun TextFieldPassword(
     val readOnly: Boolean = false
     val singleLine: Boolean = true
     val maxLines: Int = 1
-    val labelView: @Composable (() -> Unit) = { Text(text = label) }
-    val placeholderView: @Composable (() -> Unit) = { Text(text = placeholder) }
+    val labelView: @Composable (() -> Unit) = {
+        Text(text = label)
+    }
+    val placeholderView: @Composable (() -> Unit) = {
+        Text(text = placeholder)
+    }
     val leadingIcon: @Composable (() -> Unit) = {
-        Icon(imageVector = Icons.Filled.Lock, contentDescription = "Lock", modifier = Modifier.clickable {
-            isPasswordVisible.value = !isPasswordVisible.value
-        })
+        Icon(
+            imageVector = Icons.Filled.Lock, contentDescription = "Lock",
+            modifier = Modifier.clickable {
+                isPasswordVisible.value = !isPasswordVisible.value
+            },
+        )
     }
     val trailingIcon: @Composable (() -> Unit) = {
-        Icon(imageVector = Icons.Filled.Clear, contentDescription = "Clear", modifier = Modifier.clickable {
-            onClear()
-        })
+        Icon(
+            imageVector = Icons.Filled.Clear, contentDescription = "Clear",
+            modifier = Modifier.clickable {
+                onClear()
+            },
+        )
     }
     val visualTransformation: VisualTransformation = when {
         isPasswordVisible.value && canPasswordVisible -> VisualTransformation.None
@@ -103,11 +113,8 @@ fun TextFieldPassword(
         letterSpacing, lineHeight, textStyle,
         labelView, placeholderView,
         leadingIcon, trailingIcon,
-        enabled,
-        readOnly,
-        singleLine,
-        isError,
-        maxLines,
+        enabled, readOnly, isError,
+        singleLine, maxLines,
         shape,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
@@ -183,8 +190,7 @@ fun TextFieldPasswordNumber(
         textDecoration, textAlign, textDirection, textIndent,
         fontSize, fontStyle, fontWeight, fontFamily,
         letterSpacing, lineHeight, textStyle,
-        enabled,
-        isError,
+        enabled, isError,
         shape,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,

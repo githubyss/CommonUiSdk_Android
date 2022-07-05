@@ -1,8 +1,11 @@
 package com.githubyss.mobile.common.ui.app.page.text_field
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
@@ -11,8 +14,12 @@ import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
 import com.githubyss.mobile.common.res.common.dimen.FontSize20Sp
@@ -21,6 +28,8 @@ import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 import com.githubyss.mobile.common.res.common.dimen.SpaceSideMarginDefault
 import com.githubyss.mobile.common.res.text_field.outlinedTextFieldShape
 import com.githubyss.mobile.common.res.text_field.textFieldShape
+import com.githubyss.mobile.common.res.text_field.textFieldTransparentBackgroundNormal
+import com.githubyss.mobile.common.res.text_field.textFieldTransparentIndicatorFocused
 import com.githubyss.mobile.common.ui.page.compose.PagePadding
 import com.githubyss.mobile.common.ui.text_field.compose.*
 import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
@@ -199,5 +208,27 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
         )
 
         TextFieldCommon(text = "默认的实现")
+
+        TextField(value = textFieldComposeVm.text, onValueChange = { textFieldComposeVm.updateText(it) })
+
+        BasicTextField(
+            value = textFieldComposeVm.text, onValueChange = { textFieldComposeVm.updateText(it) },
+            modifier = Modifier
+                // .defaultMinSize(
+                //     minWidth = TextFieldDefaults.MinWidth,
+                //     minHeight = TextFieldDefaults.MinHeight
+                // )
+                .background(color = Color.textFieldTransparentBackgroundNormal, shape = TextFieldDefaults.textFieldShape)
+                .drawBehind {
+                    val strokeWidth = 1.dp.value * density
+                    val y = size.height - strokeWidth / 2
+                    drawLine(
+                        Color.textFieldTransparentIndicatorFocused,
+                        Offset(0f, y),
+                        Offset(size.width, y),
+                        strokeWidth
+                    )
+                }
+        )
     }
 }
