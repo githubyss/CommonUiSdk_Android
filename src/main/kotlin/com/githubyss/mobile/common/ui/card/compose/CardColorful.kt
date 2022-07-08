@@ -19,7 +19,7 @@ import com.githubyss.mobile.common.res.common.dimen.SpaceNone
 @Composable
 fun CardOrange(
     modifier: Modifier = Modifier,
-    shape: Shape = MaterialTheme.cardShape,
+    shape: Shape = MaterialTheme.cardShapeRound,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -59,7 +59,7 @@ fun CardOrange(
 @Composable
 fun CardWhite(
     modifier: Modifier = Modifier,
-    shape: Shape = MaterialTheme.cardShape,
+    shape: Shape = MaterialTheme.cardShapeRound,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -99,7 +99,7 @@ fun CardWhite(
 @Composable
 fun CardTransparent(
     modifier: Modifier = Modifier,
-    shape: Shape = MaterialTheme.cardShape,
+    shape: Shape = MaterialTheme.cardShapeRound,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,

@@ -55,12 +55,13 @@ fun TextCommon(
     isFillMaxHeight: Boolean = false,
     onTextLayout: (TextLayoutResult) -> Unit = {},
 ) {
-    var modifierText: Modifier = modifier.padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
-    modifierText = modifierText.modifierWidthAssemble(width, isFillMaxWidth)
-    modifierText = modifierText.modifierHeightAssemble(height, isFillMaxHeight)
-    // 这里在 Modifier 中设置 background，会根据宽高来渲染背景色。
-    modifierText = modifierText.background(textBackground)
-    modifierText = modifierText.padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
+    val modifierText: Modifier = modifier
+        .padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
+        .modifierWidthAssemble(width, isFillMaxWidth)
+        .modifierHeightAssemble(height, isFillMaxHeight)
+        // 这里在 Modifier 中设置 background，会根据宽高来渲染背景色。
+        .background(textBackground)
+        .padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
 
     // 这里在 TextStyle 中设置 background，只会渲染文字部分。
     val textStyleExtra: TextStyle = TextStyle(

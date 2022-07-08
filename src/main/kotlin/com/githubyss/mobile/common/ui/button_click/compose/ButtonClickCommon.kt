@@ -52,9 +52,10 @@ fun ButtonClickCommon(
     content: @Composable () -> Unit,
 ) {
     // 先设置 padding，再设置长高，padding 作用等同于 margin
-    var modifierButton: Modifier = modifier.padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
-    modifierButton = modifierButton.modifierWidthAssemble(width, isFillMaxWidth)
-    modifierButton = modifierButton.modifierHeightAssemble(height, isFillMaxHeight)
+    val modifierButton: Modifier = modifier
+        .padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
+        .modifierWidthAssemble(width, isFillMaxWidth)
+        .modifierHeightAssemble(height, isFillMaxHeight)
 
     val paddingContent: PaddingValues = PaddingValues(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
 

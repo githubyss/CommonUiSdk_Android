@@ -53,22 +53,10 @@ fun CardCommon(
 ) {
     val modifierCard: Modifier = Modifier.padding(start = marginStart, top = marginTop, end = marginEnd, bottom = marginBottom)
 
-    var modifierBox: Modifier = modifier
-    modifierBox = modifierBox.modifierWidthAssemble(width, isFillMaxWidth)
-    modifierBox = modifierBox.modifierHeightAssemble(height, isFillMaxHeight)
-
-    // modifierBox = modifierBox
-    //     .border(border, shape)
-    //     .background(background, shape)
-    //     .padding(horizontal = paddingHorizontal, vertical = paddingVertical)
-    //     .clip(shape)
-    // Box(modifier = modifierBox)
-    // {
-    //     content()
-    // }
-
-    // 这里在 Box 的 Modifier 中设置 background，会遮盖卡片背景色，渲染渐变色的时候使用。究其原因，是因为 Card 参数列表里没有 Brush，而实现渐变色需要使用 Brush
-    modifierBox = modifierBox
+    val modifierBox: Modifier = modifier
+        .modifierWidthAssemble(width, isFillMaxWidth)
+        .modifierHeightAssemble(height, isFillMaxHeight)
+        // 这里在 Box 的 Modifier 中设置 background，会遮盖卡片背景色，渲染渐变色的时候使用。究其原因，是因为 Card 参数列表里没有 Brush，而实现渐变色需要使用 Brush
         .background(contentBackground)
         .padding(start = paddingStart, top = paddingTop, end = paddingEnd, bottom = paddingBottom)
 
@@ -88,4 +76,14 @@ fun CardCommon(
             content()
         }
     }
+
+    // modifierBox = modifierBox
+    //     .border(border, shape)
+    //     .background(background, shape)
+    //     .padding(horizontal = paddingHorizontal, vertical = paddingVertical)
+    //     .clip(shape)
+    // Box(modifier = modifierBox)
+    // {
+    //     content()
+    // }
 }

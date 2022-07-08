@@ -185,12 +185,13 @@ fun OutlinedTextFieldCommon(
     onKeyboardActions: (String) -> Unit = {},
     onValueChange: (String) -> Unit = {},
 ) {
-    var modifierTextField: Modifier = modifier.padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
-    modifierTextField = modifierTextField.modifierWidthAssemble(width, isFillMaxWidth)
-    modifierTextField = modifierTextField.modifierHeightAssemble(height, isFillMaxHeight)
-    // 这里在 Modifier 中设置 background，会根据宽高来渲染背景色。
-    // modifierTextField = modifierTextField.background(backgroundColor)
-    modifierTextField = modifierTextField.padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
+    val modifierTextField: Modifier = modifier
+        .padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
+        .modifierWidthAssemble(width, isFillMaxWidth)
+        .modifierHeightAssemble(height, isFillMaxHeight)
+        // 这里在 Modifier 中设置 background，会根据宽高来渲染背景色。
+        // .background(backgroundColor)
+        .padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
 
     // textColor、textBackground 在 colors 中设置，不用单独配置
     // 这里在 TextStyle 中设置 background，只会渲染文字部分。
