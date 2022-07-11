@@ -22,12 +22,12 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.githubyss.mobile.common.res.common.dimen.SpaceNone
-import com.githubyss.mobile.common.res.text_field.outlinedTextFieldBlackColors
-import com.githubyss.mobile.common.res.text_field.outlinedTextFieldShape
+import com.githubyss.mobile.common.res.text_field.textFieldOutlinedBlackColors
+import com.githubyss.mobile.common.res.text_field.textFieldOutlinedShape
 
 
 @Composable
-fun OutlinedTextFieldBlack(
+fun TextFieldOutlinedBlack(
     text: String,
     textDecoration: TextDecoration = TextDecoration.None,
     textAlign: TextAlign = TextAlign.Start,
@@ -49,7 +49,7 @@ fun OutlinedTextFieldBlack(
     readOnly: Boolean = false,
     singleLine: Boolean = false,
     maxLines: Int = Int.MAX_VALUE,
-    shape: Shape = TextFieldDefaults.outlinedTextFieldShape,
+    shape: Shape = TextFieldDefaults.textFieldOutlinedShape,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -68,10 +68,10 @@ fun OutlinedTextFieldBlack(
     onValueChange: (String) -> Unit = {},
 ) {
     val modifier: Modifier = Modifier
-    val colors: TextFieldColors = TextFieldDefaults.outlinedTextFieldBlackColors
+    val colors: TextFieldColors = TextFieldDefaults.textFieldOutlinedBlackColors
     val interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 
-    OutlinedTextFieldCommon(
+    TextFieldOutlinedCommon(
         modifier,
         text,
         textDecoration, textAlign, textDirection, textIndent,

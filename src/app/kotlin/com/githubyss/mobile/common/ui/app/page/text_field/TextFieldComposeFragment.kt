@@ -26,7 +26,7 @@ import com.githubyss.mobile.common.res.common.dimen.FontSize20Sp
 import com.githubyss.mobile.common.res.common.dimen.FontSize30Sp
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 import com.githubyss.mobile.common.res.common.dimen.SpaceSideMarginDefault
-import com.githubyss.mobile.common.res.text_field.outlinedTextFieldShape
+import com.githubyss.mobile.common.res.text_field.textFieldOutlinedShape
 import com.githubyss.mobile.common.res.text_field.textFieldShape
 import com.githubyss.mobile.common.res.text_field.textFieldTransparentBackgroundNormal
 import com.githubyss.mobile.common.res.text_field.textFieldTransparentIndicatorFocused
@@ -148,7 +148,7 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
             onValueChange = { textFieldComposeVm.updateText(it) },
         )
 
-        OutlinedTextFieldBlack(
+        TextFieldOutlinedBlack(
             text = textFieldComposeVm.text,
             fontSize = TextUnit.FontSize20Sp,
             marginBottom = Dp.SpaceSideMarginDefault,
@@ -178,10 +178,10 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
             onValueChange = { textFieldComposeVm.updateText(it) },
         )
 
-        OutlinedTextFieldCommon(
+        TextFieldOutlinedCommon(
             text = textFieldComposeVm.text,
             fontSize = TextUnit.FontSize20Sp,
-            shape = TextFieldDefaults.outlinedTextFieldShape,
+            shape = TextFieldDefaults.textFieldOutlinedShape,
             marginBottom = Dp.SpaceSideMarginDefault,
             label = { Text(text = "提示") },
             placeholder = { Text(text = "占位示例") },
@@ -200,7 +200,7 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
             onValueChange = { textFieldComposeVm.updateText(it) },
         )
 
-        OutlinedTextFieldCommon(
+        TextFieldOutlinedCommon(
             text = textFieldComposeVm.text,
             fontSize = TextUnit.FontSize20Sp,
             marginBottom = Dp.SpaceSideMarginDefault,
