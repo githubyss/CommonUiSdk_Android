@@ -202,6 +202,176 @@ fun TextFieldPasswordNumber(
     )
 }
 
+@Composable
+fun TextFieldPasswordOutlined(
+    text: String,
+    label: String,
+    placeholder: String,
+    textDecoration: TextDecoration = TextDecoration.None,
+    textAlign: TextAlign = TextAlign.Start,
+    textDirection: TextDirection = TextDirection.Ltr,
+    textIndent: TextIndent = TextIndent.None,
+    fontSize: TextUnit = TextUnit.Unspecified,
+    fontStyle: FontStyle = FontStyle.Normal,
+    fontWeight: FontWeight = FontWeight.Normal,
+    fontFamily: FontFamily = FontFamily.Default,
+    letterSpacing: TextUnit = TextUnit.Unspecified,
+    lineHeight: TextUnit = TextUnit.Unspecified,
+    textStyle: TextStyle = LocalTextStyle.current,
+    enabled: Boolean = true,
+    isError: Boolean = false,
+    shape: Shape = TextFieldDefaults.textFieldShape,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
+    width: Dp = 0.dp,
+    height: Dp = 0.dp,
+    isFillMaxWidth: Boolean = false,
+    isFillMaxHeight: Boolean = false,
+    keyboardType: KeyboardType = KeyboardType.Password,
+    imeAction: ImeAction = ImeAction.Done,
+    onKeyboardActions: (String) -> Unit = {},
+    onValueChange: (String) -> Unit = {},
+    onClear: () -> Unit = {},
+    canPasswordVisible: Boolean = true,
+) {
+    val isPasswordVisible = remember { mutableStateOf(false) }
+
+    val readOnly: Boolean = false
+    val singleLine: Boolean = true
+    val maxLines: Int = 1
+    val labelView: @Composable (() -> Unit) = {
+        Text(text = label)
+    }
+    val placeholderView: @Composable (() -> Unit) = {
+        Text(text = placeholder)
+    }
+    val leadingIcon: @Composable (() -> Unit) = {
+        Icon(
+            imageVector = Icons.Filled.Lock, contentDescription = "Lock",
+            modifier = Modifier.clickable {
+                isPasswordVisible.value = !isPasswordVisible.value
+            },
+        )
+    }
+    val trailingIcon: @Composable (() -> Unit) = {
+        Icon(
+            imageVector = Icons.Filled.Clear, contentDescription = "Clear",
+            modifier = Modifier.clickable {
+                onClear()
+            },
+        )
+    }
+    val visualTransformation: VisualTransformation = when {
+        isPasswordVisible.value && canPasswordVisible -> VisualTransformation.None
+        else -> PasswordVisualTransformation()
+    }
+    val keyboardOptions: KeyboardOptions = KeyboardOptions(
+        keyboardType = keyboardType,
+        imeAction = imeAction,
+    )
+
+    TextFieldOutlinedBlack(
+        text,
+        textDecoration, textAlign, textDirection, textIndent,
+        fontSize, fontStyle, fontWeight, fontFamily,
+        letterSpacing, lineHeight, textStyle,
+        labelView, placeholderView,
+        leadingIcon, trailingIcon,
+        enabled, isError, readOnly,
+        singleLine, maxLines,
+        shape,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
+        width, height,
+        isFillMaxWidth, isFillMaxHeight,
+        visualTransformation,
+        keyboardOptions,
+        onKeyboardActions, onValueChange,
+    )
+}
+
+@Composable
+fun TextFieldPasswordNumberOutlined(
+    text: String,
+    label: String,
+    placeholder: String,
+    textDecoration: TextDecoration = TextDecoration.None,
+    textAlign: TextAlign = TextAlign.Start,
+    textDirection: TextDirection = TextDirection.Ltr,
+    textIndent: TextIndent = TextIndent.None,
+    fontSize: TextUnit = TextUnit.Unspecified,
+    fontStyle: FontStyle = FontStyle.Normal,
+    fontWeight: FontWeight = FontWeight.Normal,
+    fontFamily: FontFamily = FontFamily.Default,
+    letterSpacing: TextUnit = TextUnit.Unspecified,
+    lineHeight: TextUnit = TextUnit.Unspecified,
+    textStyle: TextStyle = LocalTextStyle.current,
+    enabled: Boolean = true,
+    shape: Shape = TextFieldDefaults.textFieldShape,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
+    width: Dp = 0.dp,
+    height: Dp = 0.dp,
+    isFillMaxWidth: Boolean = false,
+    isFillMaxHeight: Boolean = false,
+    imeAction: ImeAction = ImeAction.Done,
+    onKeyboardActions: (String) -> Unit = {},
+    onValueChange: (String) -> Unit = {},
+    onClear: () -> Unit = {},
+    onErrorChange: (Boolean) -> Unit = {},
+    canPasswordVisible: Boolean = true,
+) {
+    var isError: Boolean by remember { mutableStateOf(false) }
+
+    val keyboardType: KeyboardType = KeyboardType.Number
+
+    val onKeyboardActionsRevised: (String) -> Unit = {
+        onKeyboardActions(it)
+        isError = !validateDigits(it)
+        onErrorChange(isError)
+    }
+
+    val onValueChangeRevised: (String) -> Unit = {
+        onValueChange(it)
+        isError = !validateDigits(it)
+        onErrorChange(isError)
+    }
+
+    val onClearRevised: () -> Unit = {
+        onClear()
+        isError = !validateDigits("")
+        onErrorChange(isError)
+    }
+
+    TextFieldPasswordOutlined(
+        text, label, placeholder,
+        textDecoration, textAlign, textDirection, textIndent,
+        fontSize, fontStyle, fontWeight, fontFamily,
+        letterSpacing, lineHeight, textStyle,
+        enabled, isError,
+        shape,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
+        width, height,
+        isFillMaxWidth, isFillMaxHeight,
+        keyboardType, imeAction,
+        onKeyboardActionsRevised, onValueChangeRevised,
+        onClearRevised, canPasswordVisible,
+    )
+}
+
 private fun validateDigits(text: String): Boolean {
     return text.isEmpty() || text.isDigitsOnly()
 }

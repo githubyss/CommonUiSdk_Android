@@ -45,18 +45,30 @@ import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
  * @return
  */
 @Composable
-fun TextFieldBasicCommon(
+fun TextFieldCommonBasic(
     modifier: Modifier = Modifier,
     text: String,
     normalBackgroundColor: Color = Color.Unspecified,
     normalTextColor: Color = Color.Unspecified,
     disabledTextColor: Color = Color.Unspecified,
-    normalCursorColor: Color = Color.Black,
+    unfocusedLabelColor: Color = Color.Unspecified,
+    focusedLabelColor: Color = Color.Unspecified,
+    errorLabelColor: Color = Color.Unspecified,
+    disabledLabelColor: Color = Color.Unspecified,
+    normalPlaceholderColor: Color = Color.Unspecified,
+    disabledPlaceholderColor: Color = Color.Unspecified,
+    normalCursorColor: Color = Color.Unspecified,
     errorCursorColor: Color = Color.Unspecified,
-    focusedIndicatorColor: Color = Color.Black,
-    unfocusedIndicatorColor: Color = Color.Black,
+    focusedIndicatorColor: Color = Color.Unspecified,
+    unfocusedIndicatorColor: Color = Color.Unspecified,
     errorIndicatorColor: Color = Color.Unspecified,
     disabledIndicatorColor: Color = Color.Unspecified,
+    normalLeadingIconColor: Color = Color.Unspecified,
+    disabledLeadingIconColor: Color = Color.Unspecified,
+    errorLeadingIconColor: Color = Color.Unspecified,
+    normalTrailingIconColor: Color = Color.Unspecified,
+    disabledTrailingIconColor: Color = Color.Unspecified,
+    errorTrailingIconColor: Color = Color.Unspecified,
     textDecoration: TextDecoration = TextDecoration.None,
     textAlign: TextAlign = TextAlign.Start,
     textDirection: TextDirection = TextDirection.Ltr,
@@ -68,6 +80,10 @@ fun TextFieldBasicCommon(
     letterSpacing: TextUnit = TextUnit.Unspecified,
     lineHeight: TextUnit = TextUnit.Unspecified,
     textStyle: TextStyle = LocalTextStyle.current,
+    label: @Composable (() -> Unit)? = null,
+    placeholder: @Composable (() -> Unit)? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
     enabled: Boolean = true,
     isError: Boolean = false,
     readOnly: Boolean = false,
@@ -91,16 +107,97 @@ fun TextFieldBasicCommon(
     decorationBox: @Composable (innerTextField: @Composable () -> Unit) -> Unit = @Composable { innerTextField -> innerTextField() },
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     onKeyboardActions: (String) -> Unit = {},
-    onTextLayout: (TextLayoutResult) -> Unit = {},
     onValueChange: (String) -> Unit = {},
+    onTextLayout: (TextLayoutResult) -> Unit = {},
 ) {
     val colors: TextFieldColors = TextFieldDefaults.textFieldColors(
         backgroundColor = normalBackgroundColor,
         textColor = normalTextColor, disabledTextColor = disabledTextColor,
+        unfocusedLabelColor = unfocusedLabelColor, focusedLabelColor = focusedLabelColor, errorLabelColor = errorLabelColor, disabledLabelColor = disabledLabelColor,
+        placeholderColor = normalPlaceholderColor, disabledPlaceholderColor = disabledPlaceholderColor,
         cursorColor = normalCursorColor, errorCursorColor = errorCursorColor,
         focusedIndicatorColor = focusedIndicatorColor, unfocusedIndicatorColor = unfocusedIndicatorColor, errorIndicatorColor = errorIndicatorColor, disabledIndicatorColor = disabledIndicatorColor,
+        leadingIconColor = normalLeadingIconColor, disabledLeadingIconColor = disabledLeadingIconColor, errorLeadingIconColor = errorLeadingIconColor,
+        trailingIconColor = normalTrailingIconColor, disabledTrailingIconColor = disabledTrailingIconColor, errorTrailingIconColor = errorTrailingIconColor,
     )
 
+    TextFieldCommonBasic(
+        modifier,
+        text,
+        textDecoration, textAlign, textDirection, textIndent,
+        fontSize, fontStyle, fontWeight, fontFamily,
+        letterSpacing, lineHeight, textStyle,
+        label, placeholder,
+        leadingIcon, trailingIcon,
+        enabled, isError, readOnly,
+        singleLine, maxLines,
+        shape, colors,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
+        width, height,
+        isFillMaxWidth, isFillMaxHeight,
+        interactionSource,
+        visualTransformation,
+        decorationBox,
+        keyboardOptions,
+        onKeyboardActions, onValueChange, onTextLayout,
+    )
+}
+
+/**
+ * 使用 TextFieldColors 配置颜色模式
+ * 默认的实现中，颜色模式使用 TextFieldDefaults.textFieldColors()。
+ * 可以直接用，如果需要定制，则需要提供新的 TextFieldColors。
+ *
+ * @param
+ * @return
+ */
+@Composable
+fun TextFieldCommonBasic(
+    modifier: Modifier = Modifier,
+    text: String,
+    textDecoration: TextDecoration = TextDecoration.None,
+    textAlign: TextAlign = TextAlign.Start,
+    textDirection: TextDirection = TextDirection.Ltr,
+    textIndent: TextIndent = TextIndent.None,
+    fontSize: TextUnit = TextUnit.Unspecified,
+    fontStyle: FontStyle = FontStyle.Normal,
+    fontWeight: FontWeight = FontWeight.Normal,
+    fontFamily: FontFamily = FontFamily.Default,
+    letterSpacing: TextUnit = TextUnit.Unspecified,
+    lineHeight: TextUnit = TextUnit.Unspecified,
+    textStyle: TextStyle = LocalTextStyle.current,
+    label: @Composable (() -> Unit)? = null,
+    placeholder: @Composable (() -> Unit)? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+    enabled: Boolean = true,
+    isError: Boolean = false,
+    readOnly: Boolean = false,
+    singleLine: Boolean = false,
+    maxLines: Int = Int.MAX_VALUE,
+    shape: Shape = MaterialTheme.shapes.small.copy(bottomEnd = ZeroCornerSize, bottomStart = ZeroCornerSize),
+    colors: TextFieldColors = TextFieldDefaults.textFieldColors(),
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
+    width: Dp = 0.dp,
+    height: Dp = 0.dp,
+    isFillMaxWidth: Boolean = false,
+    isFillMaxHeight: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    decorationBox: @Composable (innerTextField: @Composable () -> Unit) -> Unit = @Composable { innerTextField -> innerTextField() },
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    onKeyboardActions: (String) -> Unit = {},
+    onValueChange: (String) -> Unit = {},
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+) {
     val textColor: Color = colors.textColor(enabled = enabled).value
     val backgroundColor: Color = colors.backgroundColor(enabled = enabled).value
     val cursorBrush: SolidColor = SolidColor(colors.cursorColor(isError = isError).value)
