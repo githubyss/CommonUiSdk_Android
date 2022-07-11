@@ -36,7 +36,7 @@ import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
  * @return
  */
 @Composable
-fun TextFieldOutlinedCommon(
+fun TextFieldCommonOutlined(
     modifier: Modifier = Modifier,
     text: String,
     // 最终实现 TextFieldImpl 中，TextFieldType.Outlined 时，不会配置 backgroundColor，所以这里配置 backgroundColor 无效，可以去除。
@@ -111,7 +111,7 @@ fun TextFieldOutlinedCommon(
         trailingIconColor = trailingIconColor, disabledTrailingIconColor = disabledTrailingIconColor, errorTrailingIconColor = errorTrailingIconColor,
     )
 
-    TextFieldOutlinedCommon(
+    TextFieldCommonOutlined(
         modifier,
         text,
         textDecoration, textAlign, textDirection, textIndent,
@@ -142,7 +142,7 @@ fun TextFieldOutlinedCommon(
  * @return
  */
 @Composable
-fun TextFieldOutlinedCommon(
+fun TextFieldCommonOutlined(
     modifier: Modifier = Modifier,
     text: String,
     textDecoration: TextDecoration = TextDecoration.None,

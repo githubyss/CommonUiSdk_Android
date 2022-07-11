@@ -276,7 +276,7 @@ fun TextFieldPasswordOutlined(
         imeAction = imeAction,
     )
 
-    TextFieldOutlinedBlack(
+    TextFieldBlackOutlined(
         text,
         textDecoration, textAlign, textDirection, textIndent,
         fontSize, fontStyle, fontWeight, fontFamily,
