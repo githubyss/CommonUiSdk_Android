@@ -113,7 +113,7 @@ fun TextFieldPassword(
         letterSpacing, lineHeight, textStyle,
         labelView, placeholderView,
         leadingIcon, trailingIcon,
-        enabled, readOnly, isError,
+        enabled, isError, readOnly,
         singleLine, maxLines,
         shape,
         marginTop, marginBottom, marginStart, marginEnd,

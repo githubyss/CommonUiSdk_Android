@@ -211,6 +211,34 @@ class TextFieldComposeFragment : BaseComposeToolbarFragment() {
 
         TextField(value = textFieldComposeVm.text, onValueChange = { textFieldComposeVm.updateText(it) })
 
+        TextFieldBasicCommon(text = "默认的实现")
+
+        TextFieldBasicCommon(
+            text = textFieldComposeVm.text,
+            marginBottom = Dp.SpaceSideMarginDefault,
+            width = 50.dp,
+            onValueChange = { textFieldComposeVm.updateText(it) },
+        )
+
+        TextFieldBasicCommon(
+            text = textFieldComposeVm.text,
+            normalBackgroundColor = Color.Blue,
+            normalTextColor = Color.White,
+            disabledTextColor = Color.LightGray,
+            normalCursorColor = Color.White,
+            errorCursorColor = Color.Red,
+            focusedIndicatorColor = Color.Yellow,
+            unfocusedIndicatorColor = Color.Black,
+            errorIndicatorColor = Color.Red,
+            disabledIndicatorColor = Color.LightGray,
+            fontSize = TextUnit.FontSize20Sp,
+            singleLine = true,
+            maxLines = Int.MAX_VALUE,
+            marginBottom = Dp.SpaceSideMarginDefault,
+            width = 50.dp,
+            onValueChange = { textFieldComposeVm.updateText(it) },
+        )
+
         BasicTextField(
             value = textFieldComposeVm.text, onValueChange = { textFieldComposeVm.updateText(it) },
             modifier = Modifier
