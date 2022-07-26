@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="voiceSelectDialogVm"
+            type="com.githubyss.mobile.common.ui.dialog.VoiceSelectDialogVm"
+            />
+
+        <variable
+            name="voiceSelectDialogView"
+            type="com.githubyss.mobile.common.ui.dialog.VoiceSelectDialog"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/comres_card_bg_rectangle_normal_white"
+        >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@{voiceSelectDialogVm.title}"
+            android:textColor="#FF00FF"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/separator_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <include
+            android:id="@+id/separator_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            layout="@layout/comres_view_separator_horizontal_gray"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_voice_list"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            />
+
+        <include
+            android:id="@+id/separator_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_voice_list"
+            layout="@layout/comres_view_separator_horizontal_gray"
+            />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@color/comres_buttonClickBgNormal_blue"
+            android:onClick="@{voiceSelectDialogView::onClick}"
+            android:text="@{voiceSelectDialogVm.btnConfirm}"
+            app:layout_constraintEnd_toStartOf="@id/btn_cancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_voice_list"
+            />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@color/comres_buttonClickBgNormal_blue"
+            android:onClick="@{voiceSelectDialogView::onClick}"
+            android:text="@{voiceSelectDialogVm.btnCancel}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_confirm"
+            app:layout_constraintTop_toBottomOf="@id/rv_voice_list"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

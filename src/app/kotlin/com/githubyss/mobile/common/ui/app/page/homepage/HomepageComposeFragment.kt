@@ -23,6 +23,8 @@ import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognit
 import com.githubyss.mobile.common.ui.app.page.text.TextComposeFragment
 import com.githubyss.mobile.common.ui.app.page.text_field.TextFieldComposeFragment
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
+import com.githubyss.mobile.common.ui.dialog.VoiceSelectDialog
+import com.githubyss.mobile.common.ui.dialog.VoiceSelectDialogVm
 import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingAudioPlayer
 import com.githubyss.mobile.common.ui.layout.compose.LayoutWeightHorizontal
 import com.githubyss.mobile.common.ui.page.compose.PagePadding
@@ -103,6 +105,12 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_recycler_view)) {
             switchFragment(RecyclerViewFragment(), RecyclerViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+        }
+
+        ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_dialog)) {
+            VoiceSelectDialog.instance.showDialog(
+                parentFragmentManager,
+                VoiceSelectDialogVm.TITLE_DEFAULT, VoiceSelectDialogVm.BTN_CONFIRM_DEFAULT, VoiceSelectDialogVm.BTN_CANCEL_DEFAULT)
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_floating_window)) {

@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.ui.app.page.homepage
 import android.content.Context
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
 import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.FragmentUtils
@@ -24,48 +24,61 @@ import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppF
  * @github githubyss
  * @createdTime 2021/03/09 10:54:22
  */
-class HomepageFragment : BaseReflectBindingToolbarFragment<ComuiFragmentHomepageBinding>() {
+class HomepageFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmentHomepageBinding>() {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Companion ****************************** */
 
+    /**  */
     companion object {
         val TAG: String = HomepageFragment::class.java.simpleName
     }
 
+
+    /** ****************************** Properties ****************************** */
+
+    /**  */
     private val homepageVm: HomepageViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */
 
-    override fun setupUi() {
-        binding?.lifecycleOwner = viewLifecycleOwner
-    }
-
+    /**  */
     override fun setupData() {
         this.homepageVm.viewId?.value = 0
     }
 
+    /**  */
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_homepage_title)
     }
 
-    override fun setupViewModel() {
-        binding?.homepageVm = homepageVm
+    /**  */
+    override fun bindLifecycleOwner() {
+        binding.lifecycleOwner = viewLifecycleOwner
     }
 
-    override fun observeViewModel() {
+    /**  */
+    override fun bindViewModelXml() {
+        binding.homepageVm = homepageVm
+    }
+
+    /**  */
+    override fun observeViewModelData() {
         this.homepageVm.viewId?.observe(viewLifecycleOwner, vmObserverViewId)
     }
 
+    /**  */
     override fun removeViewModelObserver() {
         this.homepageVm.viewId?.removeObservers(viewLifecycleOwner)
     }
 
+    /**  */
     override fun onStart() {
         super.onStart()
         attachView()
     }
 
+    /**  */
     override fun onStop() {
         super.onStop()
         detachView()
@@ -74,18 +87,21 @@ class HomepageFragment : BaseReflectBindingToolbarFragment<ComuiFragmentHomepage
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     private fun attachView() {
         AppFloatingIcon.getInstance(activity as Context)
-            .attach(binding?.layoutPage)
+            .attach(binding.layoutPage)
     }
 
+    /**  */
     private fun detachView() {
         AppFloatingIcon.getInstance(activity as Context)
-            .detach(binding?.layoutPage)
+            .detach(binding.layoutPage)
     }
 
     /** ****************************** Implementations ****************************** */
 
+    /**  */
     private val vmObserverViewId = Observer<Int> { t ->
         when (t) {
             R.id.button_property_animation -> FragmentUtils.switchFragmentByAddHideShow(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, true)

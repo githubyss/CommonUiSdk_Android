@@ -11,6 +11,7 @@
     <string name="comui_homepage_button_property_animation">Property Animation</string>
     <string name="comui_homepage_button_tween_animation">Tween Animation</string>
     <string name="comui_homepage_button_recycler_view">Recycler View</string>
+    <string name="comui_homepage_button_dialog">Dialog</string>
     <string name="comui_homepage_button_floating_window">Floating Window</string>
     <string name="comui_homepage_button_speech_recognition">Speech Recognition</string>
 </resources>

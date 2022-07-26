@@ -6,7 +6,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
 import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
 import com.githubyss.mobile.common.kit.util.dp2Px
 import com.githubyss.mobile.common.kit.util.logD
@@ -26,52 +26,62 @@ import com.githubyss.mobile.common.ui.floating_view.classical.container.system.S
  * @github githubyss
  * @createdTime 2022/02/16 16:22:15
  */
-class FloatingWindowFragment : BaseReflectBindingToolbarFragment<ComuiFragmentFloatingWindowBinding>() {
+class FloatingWindowFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmentFloatingWindowBinding>() {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Companion ****************************** */
 
+    /**  */
     companion object {
         val TAG: String = FloatingWindowFragment::class.java.simpleName
     }
 
+
+    /** ****************************** Properties ****************************** */
+
+    /**  */
     private val floatingWindowVm: FloatingWindowViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */
 
-    override fun setupUi() {
-        binding?.lifecycleOwner = viewLifecycleOwner
-    }
-
-    override fun setupData() {
-    }
-
+    /**  */
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_floating_window_title)
     }
 
-    override fun setupViewModel() {
-        binding?.floatingWindowVm = floatingWindowVm
+    /**  */
+    override fun bindLifecycleOwner() {
+        binding.lifecycleOwner = viewLifecycleOwner
     }
 
-    override fun observeViewModel() {
+    /**  */
+    override fun bindViewModelXml() {
+        binding.floatingWindowVm = floatingWindowVm
+    }
+
+    /**  */
+    override fun observeViewModelData() {
         this.floatingWindowVm.viewId?.observe(viewLifecycleOwner, vmObserverViewId)
     }
 
+    /**  */
     override fun removeViewModelObserver() {
         this.floatingWindowVm.viewId?.removeObservers(viewLifecycleOwner)
     }
 
+    /**  */
     override fun onStart() {
         super.onStart()
         attachView()
     }
 
+    /**  */
     override fun onStop() {
         super.onStop()
         detachView()
     }
 
+    /**  */
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden) {
@@ -81,18 +91,21 @@ class FloatingWindowFragment : BaseReflectBindingToolbarFragment<ComuiFragmentFl
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     private fun attachView() {
         AppFloatingIcon.getInstance(activity as Context)
-            .attach(binding?.layoutPage)
+            .attach(binding.layoutPage)
     }
 
+    /**  */
     private fun detachView() {
         AppFloatingIcon.getInstance(activity as Context)
-            .detach(binding?.layoutPage)
+            .detach(binding.layoutPage)
     }
 
     /** ****************************** Implementations ****************************** */
 
+    /**  */
     private val vmObserverViewId = Observer<Int> { t ->
         when (t) {
             R.id.btn_show_floating_within_app -> {

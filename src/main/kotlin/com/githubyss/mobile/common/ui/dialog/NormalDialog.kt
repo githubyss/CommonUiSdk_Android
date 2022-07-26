@@ -18,26 +18,31 @@ import com.githubyss.mobile.common.ui.R
 
 /**
  * NormalDialog
- * <Description>
- * <Details>
+ * 使用 DialogFragment 而不使用 Dialog 创建自定义弹框。
+ * DialogFragment 可以在 Activity 状态转变之后重建，例如旋转屏幕。
  *
  * @author Ace Yan
  * @github githubyss
+ * @createdTime 2022/07/25 12:00:36
  */
 class NormalDialog @SuppressLint("ValidFragment") private constructor() : DialogFragment() {
+
+    /** ****************************** Companion ****************************** */
+
+    /**  */
     companion object {
         var instance = Holder.INSTANCE
 
-        val TAG: String = NormalDialog::class.java.simpleName
+        private val TAG = NormalDialog::class.java.simpleName
 
-        private val KEY_TITLE = "text"
-        private val KEY_FIRST_LINE = "firstLine"
-        private val KEY_SECOND_LINE = "secondLine"
-        private val KEY_BTN_LEFT = "btnLeft"
-        private val KEY_BTN_RIGHT = "btnRight"
-        private val KEY_BTN_LEFT_HIGHLIGHT_STATUS = "btnLeftHighlightStatus"
-        private val KEY_BTN_RIGHT_HIGHLIGHT_STATUS = "btnRightHighlightStatus"
-        private val KEY_CENTER_STATUS = "centerStatus"
+        private const val KEY_TITLE = "text"
+        private const val KEY_FIRST_LINE = "firstLine"
+        private const val KEY_SECOND_LINE = "secondLine"
+        private const val KEY_BTN_LEFT = "btnLeft"
+        private const val KEY_BTN_RIGHT = "btnRight"
+        private const val KEY_BTN_LEFT_HIGHLIGHT_STATUS = "btnLeftHighlightStatus"
+        private const val KEY_BTN_RIGHT_HIGHLIGHT_STATUS = "btnRightHighlightStatus"
+        private const val KEY_CENTER_STATUS = "centerStatus"
 
 
         fun showByMsg(manager: FragmentManager?, titleStr: String = "", firstLineStr: String = "", secondLineStr: String = "", btnLeftStr: String = "", btnRightStr: String = "", onBtnLeftClickListener: View.OnClickListener? = null, onBtnRightClickListener: View.OnClickListener? = null, btnLeftHighlightStatus: Boolean = false, btnRightHighlightStatus: Boolean = true, centerStatus: Boolean = true, cancelale: Boolean = true): NormalDialog {
@@ -94,6 +99,9 @@ class NormalDialog @SuppressLint("ValidFragment") private constructor() : Dialog
     }
 
 
+    /** ****************************** Properties ****************************** */
+
+    /**  */
     private var rootView: View? = null
 
     private var tvTitle: TextView? = null
@@ -108,6 +116,38 @@ class NormalDialog @SuppressLint("ValidFragment") private constructor() : Dialog
 
     private var bundle: Bundle? = null
 
+
+    /** ****************************** Override ****************************** */
+
+    /**
+     *
+     *
+     * @param
+     * @return
+     */
+    override fun show(manager: FragmentManager, tag: String?) {
+        val transaction = manager.beginTransaction()
+        transaction.add(this, tag)
+        transaction.commitAllowingStateLoss()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // instance.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.comui_common_dialog_style)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        rootView = inflater.inflate(R.layout.comui_dialog_common, container, false)
+
+        initView(rootView)
+        initData()
+        refreshDialog()
+
+        return rootView
+    }
+
+
+    /** ****************************** Functions ****************************** */
 
     private fun initView(view: View?) {
         tvTitle = view?.findViewById(R.id.tvTitle)
@@ -206,24 +246,9 @@ class NormalDialog @SuppressLint("ValidFragment") private constructor() : Dialog
     }
 
 
-    override fun show(manager: FragmentManager, tag: String?) {
-        val transaction = manager.beginTransaction()
-        transaction.add(this, tag)
-        transaction.commitAllowingStateLoss()
-    }
+    /** ****************************** Class ****************************** */
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // instance.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.comui_common_dialog_style)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater.inflate(R.layout.comui_dialog_common, container, false)
-
-        initView(rootView)
-        initData()
-        refreshDialog()
-
-        return rootView
+    private sealed class Key(val key: String) {
+        object TITLE : Key("text")
     }
 }

@@ -33,22 +33,28 @@ import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
  */
 class CardComposeFragment : BaseComposeToolbarFragment() {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Companion ****************************** */
 
+    /**  */
     companion object {
         val TAG: String = CardComposeFragment::class.java.simpleName
     }
+
+
+    /** ****************************** Properties ****************************** */
 
     private val cardComposeVm: CardComposeViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     @Composable
     override fun Toolbar() {
         TopNavigationBar(cardComposeVm.title) { activity?.onBackPressed() }
     }
 
+    /**  */
     @Composable
     override fun Content() {
         PagePadding(
@@ -63,6 +69,7 @@ class CardComposeFragment : BaseComposeToolbarFragment() {
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     @Composable
     private fun Cards() {
         CardCommon(
@@ -118,6 +125,7 @@ class CardComposeFragment : BaseComposeToolbarFragment() {
         }
     }
 
+    /**  */
     @Composable
     private fun CardContent() {
         ConstraintLayout(

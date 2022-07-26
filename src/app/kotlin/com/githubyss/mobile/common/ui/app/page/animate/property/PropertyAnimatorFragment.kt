@@ -6,7 +6,7 @@ import android.graphics.Point
 import android.view.View
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
 import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.bindView
+import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline_root.bindView
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.PointEvaluator
@@ -21,15 +21,20 @@ import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
  * @github githubyss
  * @createdTime 2021/03/09 11:10:20
  */
-class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui_fragment_property_animator) {
+class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment<ComuiFragmentPropertyAnimatorBinding>(R.layout.comui_fragment_property_animator) {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Companion ****************************** */
 
+    /**  */
     companion object {
         val TAG: String = PropertyAnimatorFragment::class.java.simpleName
     }
 
-    private val binding by bindView<ComuiFragmentPropertyAnimatorBinding>()
+
+    /** ****************************** Properties ****************************** */
+
+    /**  */
+    private val _binding by bindView<ComuiFragmentPropertyAnimatorBinding>()
 
     private var moveValueAnimator: ValueAnimator? = null
     private var scaleValueAnimator: ValueAnimator? = null
@@ -39,17 +44,22 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     override fun setupUi() {
-        binding?.btnMove?.setOnClickListener(onClickListener)
-        binding?.btnScale?.setOnClickListener(onClickListener)
-        binding?.btnShow?.setOnClickListener(onClickListener)
-        binding?.btnHide?.setOnClickListener(onClickListener)
+        binding = _binding
+
+        binding.btnMove.setOnClickListener(onClickListener)
+        binding.btnScale.setOnClickListener(onClickListener)
+        binding.btnShow.setOnClickListener(onClickListener)
+        binding.btnHide.setOnClickListener(onClickListener)
     }
 
+    /**  */
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_property_animator_title)
     }
 
+    /**  */
     override fun onDestroy() {
         super.onDestroy()
         stopAnimator()
@@ -59,12 +69,14 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     private fun Point.scale(scale: Int): Point {
         this.x *= scale
         this.y *= scale
         return Point(x, y)
     }
 
+    /**  */
     private fun startMoveValueAnimator(view: View) {
         val originX = view.x.toInt()
         val originY = view.y.toInt()
@@ -86,6 +98,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         moveValueAnimator?.start()
     }
 
+    /**  */
     private fun startScaleValueAnimator(view: View) {
         val originalWidth = view.layoutParams.width
         val targetedWidth = originalWidth * 2
@@ -104,6 +117,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         scaleValueAnimator?.start()
     }
 
+    /**  */
     private fun startMoveObjectAnimator(view: View?) {
         moveObjectAnimator = ObjectAnimator.ofFloat(view, "translationX", 0F, 300F, 0F)
         // moveObjectAnimator = ObjectAnimator.ofFloat(view, "x", 0F, 300F)
@@ -114,6 +128,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         moveObjectAnimator?.start()
     }
 
+    /**  */
     private fun startScaleObjectAnimator(view: View?) {
         val originalWidth = view?.layoutParams?.width ?: return
         val targetedWidth = originalWidth * 2
@@ -125,6 +140,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         scaleObjectAnimator?.start()
     }
 
+    /**  */
     private fun stopAnimator() {
         moveValueAnimator?.cancel()
         scaleValueAnimator?.cancel()
@@ -132,6 +148,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
         scaleObjectAnimator?.cancel()
     }
 
+    /**  */
     private fun logcatViewProperty(view: View) {
         logD(TAG, "{x:${view.x.toInt()}, y:${view.y.toInt()}} {translationX:${view.translationX.toInt()}, translationY:${view.translationY.toInt()}} {top:${view.top}, bottom:${view.bottom}, left:${view.left}, right:${view.right}} {width:${view.width}, height:${view.height}}")
     }
@@ -139,6 +156,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment(R.layout.comui
 
     /** ****************************** Implementations ****************************** */
 
+    /**  */
     private val onClickListener = View.OnClickListener { v ->
         when (v.id) {
             R.id.btnMove -> {

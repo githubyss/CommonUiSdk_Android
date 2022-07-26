@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.core.text.isDigitsOnly
 import com.githubyss.mobile.common.res.common.dimen.SpaceNone
+import com.githubyss.mobile.common.res.text_field.textFieldOutlinedShape
 import com.githubyss.mobile.common.res.text_field.textFieldShape
 
 
@@ -220,7 +221,7 @@ fun TextFieldPasswordOutlined(
     textStyle: TextStyle = LocalTextStyle.current,
     enabled: Boolean = true,
     isError: Boolean = false,
-    shape: Shape = TextFieldDefaults.textFieldShape,
+    shape: Shape = TextFieldDefaults.textFieldOutlinedShape,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -313,7 +314,7 @@ fun TextFieldPasswordNumberOutlined(
     lineHeight: TextUnit = TextUnit.Unspecified,
     textStyle: TextStyle = LocalTextStyle.current,
     enabled: Boolean = true,
-    shape: Shape = TextFieldDefaults.textFieldShape,
+    shape: Shape = TextFieldDefaults.textFieldOutlinedShape,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,

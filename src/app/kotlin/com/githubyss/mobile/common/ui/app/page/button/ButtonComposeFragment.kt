@@ -43,22 +43,29 @@ import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
  */
 class ButtonComposeFragment : BaseComposeToolbarFragment() {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Companion ****************************** */
 
+    /**  */
     companion object {
         val TAG: String = ButtonComposeFragment::class.java.simpleName
     }
 
+
+    /** ****************************** Properties ****************************** */
+
+    /**  */
     private val buttonComposeVm: ButtonComposeViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     @Composable
     override fun Toolbar() {
         TopNavigationBar(buttonComposeVm.title) { activity?.onBackPressed() }
     }
 
+    /**  */
     @Composable
     override fun Content() {
         PagePadding(
@@ -73,6 +80,7 @@ class ButtonComposeFragment : BaseComposeToolbarFragment() {
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     @Composable
     private fun Buttons() {
         val interactionSource = remember { MutableInteractionSource() }
