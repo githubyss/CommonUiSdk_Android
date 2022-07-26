@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="voiceTone"
+            type="com.githubyss.mobile.common.ui.dialog.voice_select.VoiceTone"
+            />
+
+        <variable
+            name="onItemClickListener"
+            type="com.githubyss.mobile.common.ui.dialog.voice_select.BaseBindingRecyclerViewAdapter.OnItemClickListener"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/comui_dialog_bg_voice_selected"
+        android:layout_width="105dp"
+        android:layout_height="140dp"
+        android:onClick="@{() -> onItemClickListener.onItemClick(voiceTone)}"
+        >
+
+        <ImageView
+            android:id="@+id/iv_voice_pic"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            bind:path="@{voiceTone.picUrl}"
+            bind:placeholder="@{null}"
+            bind:error="@{null}"
+            />
+
+        <TextView
+            android:id="@+id/tv_voice_name"
+            android:layout_width="28dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="9dp"
+            android:text="@{voiceTone.name}"
+            android:textAlignment="center"
+            android:textColor="#3F434F"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/iv_voice_pic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <ImageView
+            android:background="@drawable/comres_icon_select_yes_round"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="11dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_voice_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

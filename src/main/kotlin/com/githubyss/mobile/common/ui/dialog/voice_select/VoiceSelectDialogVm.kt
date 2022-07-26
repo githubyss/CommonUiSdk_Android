@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.dialog
+package com.githubyss.mobile.common.ui.dialog.voice_select
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,6 +15,7 @@ class VoiceSelectDialogVm : ViewModel() {
 
     /** ****************************** Companion ****************************** */
 
+    /**  */
     companion object {
         const val TITLE_DEFAULT = "发音人选择"
         const val BTN_CONFIRM_DEFAULT = "保存"
@@ -28,6 +29,7 @@ class VoiceSelectDialogVm : ViewModel() {
     lateinit var title: MutableLiveData<String>
     lateinit var btnConfirm: MutableLiveData<String>
     lateinit var btnCancel: MutableLiveData<String>
+    lateinit var voiceToneList: MutableLiveData<ArrayList<VoiceTone>>
 
 
     /** ****************************** Constructors ****************************** */
@@ -56,14 +58,18 @@ class VoiceSelectDialogVm : ViewModel() {
         title = MutableLiveData(TITLE_DEFAULT)
         btnConfirm = MutableLiveData(BTN_CONFIRM_DEFAULT)
         btnCancel = MutableLiveData(BTN_CANCEL_DEFAULT)
+        voiceToneList = MutableLiveData(ArrayList())
     }
 
-    fun setupData(titleStr: String? = TITLE_DEFAULT, btnConfirmStr: String? = BTN_CONFIRM_DEFAULT, btnCancelStr: String? = BTN_CANCEL_DEFAULT) {
-        title.value = titleStr ?: TITLE_DEFAULT
-        btnConfirm.value = btnConfirmStr ?: BTN_CONFIRM_DEFAULT
-        btnCancel.value = btnCancelStr ?: BTN_CANCEL_DEFAULT
+    /**  */
+    fun setupData(title: String? = TITLE_DEFAULT, btnConfirm: String? = BTN_CONFIRM_DEFAULT, btnCancel: String? = BTN_CANCEL_DEFAULT, voiceToneList: ArrayList<VoiceTone>? = ArrayList()) {
+        this.title.value = title ?: TITLE_DEFAULT
+        this.btnConfirm.value = btnConfirm ?: BTN_CONFIRM_DEFAULT
+        this.btnCancel.value = btnCancel ?: BTN_CANCEL_DEFAULT
+        this.voiceToneList.value = voiceToneList ?: ArrayList()
     }
 
+    /**  */
     fun clearData() {
     }
 

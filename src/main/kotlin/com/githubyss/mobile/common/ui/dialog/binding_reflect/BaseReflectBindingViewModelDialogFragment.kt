@@ -19,7 +19,7 @@ abstract class BaseReflectBindingViewModelDialogFragment<B : ViewDataBinding> : 
         super.onResume()
 
         bindLifecycleOwner()
-        bindViewModelXml()
+        bindXmlData()
         observeViewModelData()
     }
 
@@ -36,7 +36,7 @@ abstract class BaseReflectBindingViewModelDialogFragment<B : ViewDataBinding> : 
     abstract fun bindLifecycleOwner()
 
     /** 绑定 ViewModel 到 ViewDataBinding */
-    abstract fun bindViewModelXml()
+    abstract fun bindXmlData()
 
     /** 观察 ViewModel 的数据变化 */
     abstract fun observeViewModelData()

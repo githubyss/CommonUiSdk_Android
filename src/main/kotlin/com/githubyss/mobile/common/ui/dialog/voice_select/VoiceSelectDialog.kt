@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.dialog
+package com.githubyss.mobile.common.ui.dialog.voice_select
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.ColorDrawable
@@ -28,13 +28,14 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
 
     /**  */
     companion object {
-        var instance = VoiceSelectDialog.Holder.INSTANCE
+        var instance = Holder.INSTANCE
 
         private val TAG = VoiceSelectDialog::class.java.simpleName
 
         private const val KEY_TITLE = "title"
         private const val KEY_BTN_CONFIRM = "btnConfirm"
         private const val KEY_BTN_CANCEL = "btnCancel"
+        private const val KEY_VOICE_TONE_LIST = "voiceToneList"
     }
 
 
@@ -42,7 +43,9 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
 
     /**  */
     private lateinit var bundle: Bundle
-    private val voiceSelectDialogVm: VoiceSelectDialogVm by viewModels()
+    private val voiceSelectDialogVm by viewModels<VoiceSelectDialogVm>()
+    private val onClickPresenter by lazy { OnClickPresenter() }
+    private val voiceToneListAdapter by lazy { VoiceToneListAdapter() }
 
 
     /** ****************************** Override ****************************** */
@@ -58,7 +61,9 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
         val titleStr = bundle.getString(KEY_TITLE)
         val btnConfirmStr = bundle.getString(KEY_BTN_CONFIRM)
         val btnCancelStr = bundle.getString(KEY_BTN_CANCEL)
-        voiceSelectDialogVm.setupData(titleStr, btnConfirmStr, btnCancelStr)
+        val voiceToneList = bundle.getParcelableArrayList<VoiceTone>(KEY_VOICE_TONE_LIST)
+        voiceSelectDialogVm.setupData(titleStr, btnConfirmStr, btnCancelStr, voiceToneList)
+        voiceSelectDialogVm.voiceToneList.value?.let { voiceToneListAdapter.updateDataList(it) }
     }
 
     /**  */
@@ -67,9 +72,15 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
     }
 
     /**  */
-    override fun bindViewModelXml() {
+    override fun bindXmlData() {
         binding.voiceSelectDialogVm = voiceSelectDialogVm
-        binding.voiceSelectDialogView = this
+        binding.onClickPresenter = onClickPresenter
+        binding.voiceToneListAdapter = voiceToneListAdapter
+        voiceToneListAdapter.onItemClickListener = object : BaseBindingRecyclerViewAdapter.OnItemClickListener<VoiceTone> {
+            override fun onItemClick(data: VoiceTone) {
+                logD(TAG, "点击了项目")
+            }
+        }
     }
 
     /**  */
@@ -102,13 +113,14 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
     /** ****************************** Functions ****************************** */
 
     /**  */
-    fun showDialog(fragmentManager: FragmentManager?, titleStr: String = "", btnConfirmStr: String = "", btnCancelStr: String = "", cancelable: Boolean = true): VoiceSelectDialog {
+    fun showDialog(fragmentManager: FragmentManager?, titleStr: String = "", btnConfirmStr: String = "", btnCancelStr: String = "", voiceToneList: ArrayList<VoiceTone>? = ArrayList(), cancelable: Boolean = true): VoiceSelectDialog {
         instance.isCancelable = cancelable
 
         val bundle = Bundle()
         bundle.putString(KEY_TITLE, titleStr)
         bundle.putString(KEY_BTN_CONFIRM, btnConfirmStr)
         bundle.putString(KEY_BTN_CANCEL, btnCancelStr)
+        bundle.putParcelableArrayList(KEY_VOICE_TONE_LIST, voiceToneList)
 
         fragmentManager?.executePendingTransactions()
         fragmentManager?.let {
@@ -121,22 +133,6 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
         return instance
     }
 
-    /**  */
-    fun onClick(v: View) {
-        when (v.id) {
-            R.id.btn_confirm -> {
-                logD(msg = "点击了确认")
-                showToast("点击了确认")
-                dismissAllowingStateLoss()
-            }
-            R.id.btn_cancel -> {
-                logD(msg = "点击了取消")
-                showToast("点击了取消")
-                dismissAllowingStateLoss()
-            }
-        }
-    }
-
 
     /** ****************************** Class ****************************** */
 
@@ -146,7 +142,22 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
     }
 
     /**  */
+    inner class OnClickPresenter {
+        fun onConfirmClick(v: View) {
+            logD(msg = "点击了确认")
+            showToast("点击了确认")
+            dismissAllowingStateLoss()
+        }
+
+        fun onCancelClick(v: View) {
+            logD(msg = "点击了取消")
+            showToast("点击了取消")
+            dismissAllowingStateLoss()
+        }
+    }
+
+    /**  */
     private sealed class Key(val key: String) {
-        object TITLE : Key("text")
+        object TITLE : Key("")
     }
 }
