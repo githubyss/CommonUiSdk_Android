@@ -25,7 +25,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@drawable/comres_card_bg_rectangle_normal_white"
+        android:background="@drawable/comui_dialog_bg_voice_select"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="22dp"
@@ -70,7 +70,7 @@
             />
 
         <Button
-            style="@style/comres_buttonClick_voiceSelectConfirm_style"
+            style="@style/comui_buttonClick_voiceSelectConfirm_style"
             android:id="@+id/btn_confirm"
             android:layout_width="130dp"
             android:layout_height="40dp"
@@ -85,7 +85,7 @@
             />
 
         <Button
-            style="@style/comres_buttonClick_voiceSelectCancel_style"
+            style="@style/comui_buttonClick_voiceSelectCancel_style"
             android:id="@+id/btn_cancel"
             android:layout_width="130dp"
             android:layout_height="40dp"

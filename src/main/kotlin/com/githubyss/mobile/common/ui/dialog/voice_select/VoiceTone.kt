@@ -2,6 +2,7 @@ package com.githubyss.mobile.common.ui.dialog.voice_select
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.annotation.DrawableRes
 import androidx.databinding.ObservableField
 
 
@@ -12,7 +13,7 @@ import androidx.databinding.ObservableField
  * @github githubyss
  * @createdTime 2022/07/26 13:51:18
  */
-class VoiceTone(var id: Int, var name: String, var picUrl: String, @VoiceToneSelectState selected: String) : Parcelable/*, BaseObservable()*/ {
+class VoiceTone(var id: Int, var name: String, @DrawableRes var picDrawableId: Int, @VoiceToneSelectState selected: String) : Parcelable/*, BaseObservable()*/ {
 
     /** ****************************** Companion ****************************** */
 
@@ -48,7 +49,7 @@ class VoiceTone(var id: Int, var name: String, var picUrl: String, @VoiceToneSel
     /** ****************************** Constructors ****************************** */
 
     /**  */
-    constructor(parcel: Parcel) : this(parcel.readInt(), parcel.readString() ?: "", parcel.readString() ?: "", parcel.readString() ?: "")
+    constructor(parcel: Parcel) : this(parcel.readInt(), parcel.readString() ?: "", parcel.readInt(), parcel.readString() ?: "")
 
     init {
         this.selected.set(selected)
@@ -62,7 +63,7 @@ class VoiceTone(var id: Int, var name: String, var picUrl: String, @VoiceToneSel
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
         parcel.writeString(name)
-        parcel.writeString(picUrl)
+        parcel.writeInt(picDrawableId)
         parcel.writeString(selected.get())
         // parcel.writeString(selected.value)
     }

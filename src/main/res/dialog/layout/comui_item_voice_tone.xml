@@ -22,7 +22,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@{voiceTone.selected == VoiceToneSelectState.YES ? @drawable/comui_dialog_bg_voice_select_yes : @drawable/comui_dialog_bg_voice_select_no}"
+        android:background="@{voiceTone.selected == VoiceToneSelectState.YES ? @drawable/comui_dialog_bg_voice_tone_yes : @drawable/comui_dialog_bg_voice_tone_no}"
         android:layout_width="105dp"
         android:layout_height="140dp"
         android:layout_marginEnd="14dp"
@@ -37,14 +37,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            bind:path="@{voiceTone.picUrl}"
+            bind:path="@{voiceTone.picDrawableId}"
             bind:placeholder="@{null}"
             bind:error="@{null}"
             />
 
         <TextView
             android:id="@+id/tv_voice_name"
-            android:layout_width="28dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginTop="9dp"
             android:text="@{voiceTone.name}"
@@ -57,10 +57,10 @@
             />
 
         <ImageView
-            android:background="@{voiceTone.selected == VoiceToneSelectState.YES ? @drawable/comres_icon_select_yes_round : @drawable/comres_icon_select_no_round}"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginTop="11dp"
+            android:src="@{voiceTone.selected == VoiceToneSelectState.YES ? @drawable/comres_icon_select_yes_round : @drawable/comres_icon_select_no_round}"
             app:layout_constraintTop_toBottomOf="@id/tv_voice_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

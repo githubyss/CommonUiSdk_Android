@@ -1,6 +1,5 @@
 package com.githubyss.mobile.common.ui.dialog.voice_select
 
-import AceTemp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +22,7 @@ abstract class BaseBindingRecyclerViewAdapter<B : ViewDataBinding, D>(@LayoutRes
 
     /**  */
     companion object {
-        val TAG: String = AceTemp::class.java.simpleName
+        val TAG: String = BaseBindingRecyclerViewAdapter::class.java.simpleName
     }
 
 
