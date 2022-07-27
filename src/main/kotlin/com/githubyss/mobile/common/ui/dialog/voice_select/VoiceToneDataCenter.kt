@@ -4,6 +4,7 @@ import com.githubyss.mobile.common.ui.R
 
 
 object VoiceToneDataCenter {
+    @JvmStatic
     val voiceToneList = ArrayList<VoiceTone>()
 
     init {
