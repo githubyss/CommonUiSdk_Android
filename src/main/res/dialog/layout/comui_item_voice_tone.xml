@@ -8,6 +8,8 @@
 
     <data>
 
+        <import type="com.githubyss.mobile.common.ui.dialog.voice_select.VoiceToneSelectState" />
+
         <variable
             name="voiceTone"
             type="com.githubyss.mobile.common.ui.dialog.voice_select.VoiceTone"
@@ -20,9 +22,10 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@drawable/comui_dialog_bg_voice_selected"
+        android:background="@{voiceTone.selected == VoiceToneSelectState.YES ? @drawable/comui_dialog_bg_voice_select_yes : @drawable/comui_dialog_bg_voice_select_no}"
         android:layout_width="105dp"
         android:layout_height="140dp"
+        android:layout_marginEnd="14dp"
         android:onClick="@{() -> onItemClickListener.onItemClick(voiceTone)}"
         >
 
@@ -54,7 +57,7 @@
             />
 
         <ImageView
-            android:background="@drawable/comres_icon_select_yes_round"
+            android:background="@{voiceTone.selected == VoiceToneSelectState.YES ? @drawable/comres_icon_select_yes_round : @drawable/comres_icon_select_no_round}"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginTop="11dp"

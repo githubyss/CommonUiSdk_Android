@@ -26,17 +26,16 @@ class VoiceSelectDialogVm : ViewModel() {
     /** ****************************** Properties ****************************** */
 
     /** 数据绑定，绑定到 UI 的字段（data field） */
-    lateinit var title: MutableLiveData<String>
-    lateinit var btnConfirm: MutableLiveData<String>
-    lateinit var btnCancel: MutableLiveData<String>
-    lateinit var voiceToneList: MutableLiveData<ArrayList<VoiceTone>>
+    val title by lazy { MutableLiveData<String>() }
+    val btnConfirm by lazy { MutableLiveData<String>() }
+    val btnCancel by lazy { MutableLiveData<String>() }
+    val voiceToneList by lazy { MutableLiveData<ArrayList<VoiceTone>>() }
 
 
     /** ****************************** Constructors ****************************** */
 
     /**  */
     init {
-        initViewModelField()
     }
 
 
@@ -54,19 +53,34 @@ class VoiceSelectDialogVm : ViewModel() {
     /** ******************** Data Handling ******************** */
 
     /**  */
-    private fun initViewModelField() {
-        title = MutableLiveData(TITLE_DEFAULT)
-        btnConfirm = MutableLiveData(BTN_CONFIRM_DEFAULT)
-        btnCancel = MutableLiveData(BTN_CANCEL_DEFAULT)
-        voiceToneList = MutableLiveData(ArrayList())
+    fun setupData(title: String, btnConfirm: String, btnCancel: String, voiceToneList: ArrayList<VoiceTone>) {
+        this.title.value = title
+        this.btnConfirm.value = btnConfirm
+        this.btnCancel.value = btnCancel
+        this.voiceToneList.value = voiceToneList
     }
 
-    /**  */
-    fun setupData(title: String? = TITLE_DEFAULT, btnConfirm: String? = BTN_CONFIRM_DEFAULT, btnCancel: String? = BTN_CANCEL_DEFAULT, voiceToneList: ArrayList<VoiceTone>? = ArrayList()) {
-        this.title.value = title ?: TITLE_DEFAULT
-        this.btnConfirm.value = btnConfirm ?: BTN_CONFIRM_DEFAULT
-        this.btnCancel.value = btnCancel ?: BTN_CANCEL_DEFAULT
-        this.voiceToneList.value = voiceToneList ?: ArrayList()
+    fun voiceToneListSelected(voiceTone: VoiceTone) {
+        val newList = ArrayList<VoiceTone>()
+        voiceToneList.value?.let { list ->
+            list.mapTo(newList) {
+                when (it.id) {
+                    voiceTone.id -> {
+                        // it.selected = VoiceToneSelectState.YES
+                        it.selected.set(VoiceToneSelectState.YES)
+                        // it.selected.value = VoiceToneSelectState.YES
+                    }
+                    else -> {
+                        // it.selected = VoiceToneSelectState.NO
+                        it.selected.set(VoiceToneSelectState.NO)
+                        // it.selected.value = VoiceToneSelectState.NO
+                    }
+                }
+                it
+            }
+        }
+        voiceToneList.value?.clear()
+        voiceToneList.value?.addAll(newList)
     }
 
     /**  */

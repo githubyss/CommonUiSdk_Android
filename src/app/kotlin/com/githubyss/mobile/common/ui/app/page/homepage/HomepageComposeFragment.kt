@@ -25,7 +25,7 @@ import com.githubyss.mobile.common.ui.app.page.text_field.TextFieldComposeFragme
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.dialog.voice_select.VoiceSelectDialog
 import com.githubyss.mobile.common.ui.dialog.voice_select.VoiceSelectDialogVm
-import com.githubyss.mobile.common.ui.dialog.voice_select.VoiceTone
+import com.githubyss.mobile.common.ui.dialog.voice_select.VoiceToneDataCenter
 import com.githubyss.mobile.common.ui.floating_view.classical.container.app.AppFloatingAudioPlayer
 import com.githubyss.mobile.common.ui.layout.compose.LayoutWeightHorizontal
 import com.githubyss.mobile.common.ui.page.compose.PagePadding
@@ -109,16 +109,11 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_dialog)) {
-            val voiceToneList = ArrayList<VoiceTone>()
-            voiceToneList.add(VoiceTone(0, "茉莉", ""))
-            voiceToneList.add(VoiceTone(1, "蜜桃", ""))
-            voiceToneList.add(VoiceTone(2, "丁丁", ""))
-            voiceToneList.add(VoiceTone(3, "翠喜", ""))
             VoiceSelectDialog.instance.showDialog(
                 parentFragmentManager,
                 VoiceSelectDialogVm.TITLE_DEFAULT,
                 VoiceSelectDialogVm.BTN_CONFIRM_DEFAULT, VoiceSelectDialogVm.BTN_CANCEL_DEFAULT,
-                voiceToneList)
+                VoiceToneDataCenter.voiceToneList)
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_floating_window)) {

@@ -51,19 +51,29 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
     /** ****************************** Override ****************************** */
 
     /**  */
-    override fun setupUi() {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        setStyle(STYLE_NO_FRAME, R.style.comui_dialog_style)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     /**  */
     override fun setupData() {
         bundle = arguments ?: return
 
-        val titleStr = bundle.getString(KEY_TITLE)
-        val btnConfirmStr = bundle.getString(KEY_BTN_CONFIRM)
-        val btnCancelStr = bundle.getString(KEY_BTN_CANCEL)
-        val voiceToneList = bundle.getParcelableArrayList<VoiceTone>(KEY_VOICE_TONE_LIST)
+        val titleStr = bundle.getString(KEY_TITLE) ?: ""
+        val btnConfirmStr = bundle.getString(KEY_BTN_CONFIRM) ?: ""
+        val btnCancelStr = bundle.getString(KEY_BTN_CANCEL) ?: ""
+        val voiceToneList = bundle.getParcelableArrayList<VoiceTone>(KEY_VOICE_TONE_LIST) ?: ArrayList()
         voiceSelectDialogVm.setupData(titleStr, btnConfirmStr, btnCancelStr, voiceToneList)
-        voiceSelectDialogVm.voiceToneList.value?.let { voiceToneListAdapter.updateDataList(it) }
+        voiceToneListAdapter.updateDataList(voiceToneList)
+        voiceToneListAdapter.onItemClickListener = object : BaseBindingRecyclerViewAdapter.OnItemClickListener<VoiceTone> {
+            override fun onItemClick(data: VoiceTone) {
+                logD(TAG, "点击了项目")
+                showToast("点击了项目")
+                voiceSelectDialogVm.voiceToneListSelected(data)
+            }
+        }
     }
 
     /**  */
@@ -76,11 +86,6 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
         binding.voiceSelectDialogVm = voiceSelectDialogVm
         binding.onClickPresenter = onClickPresenter
         binding.voiceToneListAdapter = voiceToneListAdapter
-        voiceToneListAdapter.onItemClickListener = object : BaseBindingRecyclerViewAdapter.OnItemClickListener<VoiceTone> {
-            override fun onItemClick(data: VoiceTone) {
-                logD(TAG, "点击了项目")
-            }
-        }
     }
 
     /**  */
@@ -89,13 +94,6 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
 
     /**  */
     override fun removeViewModelObserver() {
-    }
-
-    /**  */
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        setStyle(STYLE_NO_FRAME, R.style.comui_dialog_style)
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
-        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     /**  */

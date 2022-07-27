@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
  * @github githubyss
  * @createdTime 2022/07/26 13:30:45
  */
-abstract class BaseBindingRecyclerViewAdapter<D, B : ViewDataBinding>(@LayoutRes val layoutId: Int) : RecyclerView.Adapter<BaseBindingRecyclerViewAdapter.BaseViewHolder>() {
+abstract class BaseBindingRecyclerViewAdapter<B : ViewDataBinding, D>(@LayoutRes val layoutId: Int) : RecyclerView.Adapter<BaseBindingRecyclerViewAdapter.BaseViewHolder>() {
 
     /** ****************************** Companion ****************************** */
 
@@ -82,9 +82,7 @@ abstract class BaseBindingRecyclerViewAdapter<D, B : ViewDataBinding>(@LayoutRes
     /** ****************************** Class ****************************** */
 
     /**  */
-    class BaseViewHolder : RecyclerView.ViewHolder {
-        constructor(itemView: View) : super(itemView)
-    }
+    class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
 
     /** ****************************** Interface ****************************** */
