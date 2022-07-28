@@ -3,8 +3,12 @@ package com.githubyss.mobile.common.ui.app.page.recycler_view
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
+import com.githubyss.mobile.common.kit.util.logD
+import com.githubyss.mobile.common.kit.util.showToast
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
+import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
+import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter
 
 
 /**
@@ -28,6 +32,7 @@ class RecyclerViewFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFra
 
     /**  */
     private val recyclerViewVm: RecyclerViewViewModel by viewModels()
+    private val bindingRecyclerViewAdapter by lazy { BindingRecyclerViewAdapter() }
 
 
     /** ****************************** Override ****************************** */
@@ -37,14 +42,25 @@ class RecyclerViewFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFra
         setToolbarTitle(R.string.comui_recycler_view_title)
     }
 
+    override fun setupData() {
+        bindingRecyclerViewAdapter.updateDataList(MultiTypeDataCenter.items)
+        bindingRecyclerViewAdapter.onItemClickListener = object : BindingRecyclerViewAdapter.OnItemClickListener {
+            override fun onItemClick(data: BindingAdapterItem) {
+                logD(TAG, "点击了项目")
+                showToast("点击了项目")
+            }
+        }
+    }
+
     /**  */
     override fun bindLifecycleOwner() {
         binding.lifecycleOwner = viewLifecycleOwner
     }
 
     /**  */
-    override fun bindViewModelXml() {
+    override fun bindXmlData() {
         binding.recyclerViewVm = recyclerViewVm
+        binding.bindingRecyclerViewAdapter = bindingRecyclerViewAdapter
     }
 
     /**  */

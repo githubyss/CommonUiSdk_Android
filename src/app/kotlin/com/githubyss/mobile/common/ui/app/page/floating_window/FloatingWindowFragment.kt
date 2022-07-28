@@ -55,7 +55,7 @@ class FloatingWindowFragment : BaseReflectBindingViewModelToolbarFragment<ComuiF
     }
 
     /**  */
-    override fun bindViewModelXml() {
+    override fun bindXmlData() {
         binding.floatingWindowVm = floatingWindowVm
     }
 

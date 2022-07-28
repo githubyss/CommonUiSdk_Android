@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.ItemText"
+            />
+
+        <variable
+            name="onItemClickListener"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BaseBindingRecyclerViewAdapter.OnItemClickListener"
+            />
+    </data>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/comres_sideMargin_normal"
+        android:onClick="@{() -> onItemClickListener.onItemClick(item)}"
+        android:text="@{item.text}"
+        android:textAlignment="center"
+        android:textColor="#3F434F"
+        android:textSize="@dimen/comres_textSize_large"
+        />
+</layout>

@@ -1,5 +1,7 @@
 package com.githubyss.mobile.common.ui.dialog.binding_reflect
 
+import android.os.Bundle
+import android.view.View
 import androidx.databinding.ViewDataBinding
 
 
@@ -15,8 +17,8 @@ abstract class BaseReflectBindingViewModelDialogFragment<B : ViewDataBinding> : 
     /** ****************************** Override ****************************** */
 
     /**  */
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         bindLifecycleOwner()
         bindXmlData()

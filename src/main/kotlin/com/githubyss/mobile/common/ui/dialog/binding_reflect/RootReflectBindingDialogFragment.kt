@@ -39,7 +39,7 @@ abstract class RootReflectBindingDialogFragment<B : ViewDataBinding> : BaseDialo
                 _binding = (methodInflate.invoke(null, inflater, container, false)) as B
 
                 // 这个写法有问题，会崩溃
-                // _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
+                // _binding = DataBindingUtil.inflate<B>(inflater, layoutId, container, false)
             }
             catch (e: NoSuchMethodException) {
                 logE(TAG, t = e)

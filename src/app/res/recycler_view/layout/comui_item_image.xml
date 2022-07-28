@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.ItemImage"
+            />
+
+        <variable
+            name="onItemClickListener"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter.OnItemClickListener"
+            />
+    </data>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/comres_sideMargin_normal"
+        android:onClick="@{() -> onItemClickListener.onItemClick(item)}"
+        bind:path="@{item.picDrawableId}"
+        bind:placeholder="@{null}"
+        bind:error="@{null}"
+        />
+</layout>

@@ -58,7 +58,7 @@ class HomepageFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmen
     }
 
     /**  */
-    override fun bindViewModelXml() {
+    override fun bindXmlData() {
         binding.homepageVm = homepageVm
     }
 

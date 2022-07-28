@@ -1,16 +1,16 @@
 package com.githubyss.mobile.common.ui.recycler_view.base.binding_inline
 
-import android.view.ViewGroup
-import androidx.viewbinding.ViewBinding
-import com.githubyss.mobile.common.kit.binding.binding_inflate.inflateBindingByViewGroup
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 
 
 /**
- * 通过 ViewGroup 获取 ViewHolder
+ * RootInlineBindingViewHolder
  *
- * @param parent ViewGroup
- * @return ViewHolder 实例
+ * @author Ace Yan
+ * @github githubyss
+ * @createdTime 2021/06/08 09:59:43
  */
-inline fun <reified B : ViewBinding> inflate(parent: ViewGroup): BaseInlineBindingViewHolder<B> {
-    return BaseInlineBindingViewHolder(inflateBindingByViewGroup(parent))
+class RootInlineBindingViewHolder<B : ViewDataBinding>(binding: B) : RecyclerView.ViewHolder(binding.root) {
+    lateinit var binding: B
 }
