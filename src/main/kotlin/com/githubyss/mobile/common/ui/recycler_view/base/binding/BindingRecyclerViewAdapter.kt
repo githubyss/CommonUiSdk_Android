@@ -70,16 +70,13 @@ class BindingRecyclerViewAdapter() : RecyclerView.Adapter<BindingRecyclerViewAda
      */
     override fun onBindViewHolder(holder: BindingViewHolder, position: Int) {
         holder.bindXmlData(items[position])
+        holder.bindXmlClickListener(onItemClickListener)
     }
 
     /**  */
-    /**
-     *
-     *
-     * @param
-     * @return
-     */
     override fun getItemCount() = items.size
+
+    /**  */
     override fun getItemViewType(position: Int): Int {
         return items[position].layoutId
     }
@@ -108,6 +105,10 @@ class BindingRecyclerViewAdapter() : RecyclerView.Adapter<BindingRecyclerViewAda
 
         fun bindXmlData(item: BindingAdapterItem) {
             binding.setVariable(BR.item, item)
+        }
+
+        fun bindXmlClickListener(onItemClickListener: OnItemClickListener) {
+            binding.setVariable(BR.onItemClickListener, onItemClickListener)
         }
     }
 

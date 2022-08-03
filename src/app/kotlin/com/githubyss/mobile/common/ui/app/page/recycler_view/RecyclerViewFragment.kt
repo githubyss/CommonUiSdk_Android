@@ -7,6 +7,8 @@ import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.kit.util.showToast
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ArticleListDataCenter
+import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemArticleTitle
+import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemDatetime
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter
@@ -47,8 +49,13 @@ class RecyclerViewFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFra
         bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.items)
         bindingRecyclerViewAdapter.onItemClickListener = object : BindingRecyclerViewAdapter.OnItemClickListener {
             override fun onItemClick(data: BindingAdapterItem) {
-                logD(TAG, "点击了项目")
-                showToast("点击了项目")
+                val itemInfo = when (data) {
+                    is ItemDatetime -> data.datetime
+                    is ItemArticleTitle -> data.title
+                    else -> ""
+                }
+                logD(TAG, "点击了项目 $itemInfo")
+                showToast("点击了项目 $itemInfo")
             }
         }
     }
