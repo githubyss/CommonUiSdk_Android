@@ -12,27 +12,29 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-    <!-- Button click voice select style. -->
-    <style name="comui_buttonClick_voiceSelectConfirm_style">
-        <item name="android:background">@drawable/comui_button_click_bg_voice_select_confirm</item>
-        <item name="android:textColor">#FFFFFF</item>
+    <!-- Dialog button clickable voice select style. -->
+    <style name="comui_dialog_button_clickable_hint_left"
+           parent="comres_button_clickable_common">
+        <item name="android:background">@drawable/comres_button_clickable_bg_graydark_no_border_rectangle_8dp_round_bottomleft</item>
+        <item name="android:textColor">@drawable/comres_button_clickable_bg_graydark_no_border_rectangle_8dp_round_bottomleft</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:enabled">true</item>
-        <item name="android:clickable">true</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:padding">@dimen/comres_sideMargin_nano</item>
     </style>
 
-    <!-- Button click voice select style. -->
-    <style name="comui_buttonClick_voiceSelectCancel_style">
-        <item name="android:background">@drawable/comui_button_click_bg_voice_select_cancel</item>
-        <item name="android:textColor">#464B5C</item>
+    <style name="comui_dialog_button_clickable_hint_right"
+           parent="comres_button_clickable_common">
+        <item name="android:background">@drawable/comres_button_clickable_bg_graylight_no_border_rectangle_8dp_round_bottomright</item>
+        <item name="android:textColor">@drawable/comres_button_clickable_bg_graylight_no_border_rectangle_8dp_round_bottomright</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:enabled">true</item>
-        <item name="android:clickable">true</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:padding">@dimen/comres_sideMargin_nano</item>
+    </style>
+
+    <!-- Dialog button clickable voice select style. -->
+    <style name="comui_dialog_button_clickable_voice_select_confirm"
+           parent="comres_button_clickable_graydark_no_border_rectangle_4dp_round_all">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="comui_dialog_button_clickable_voice_select_cancel"
+           parent="comres_button_clickable_white_with_border_rectangle_4dp_round_all">
+        <item name="android:textSize">14sp</item>
     </style>
 </resources>

@@ -2,8 +2,6 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     >
 
     <data>
@@ -26,16 +24,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:background="@drawable/comui_dialog_bg_voice_select"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="22dp"
         android:paddingEnd="22dp"
         >
 
-        <ImageButton
+        <ImageView
             android:id="@+id/ib_close"
             android:layout_width="16dp"
             android:layout_height="16dp"
+            android:src="@drawable/comres_icon_close_no_border"
             app:layout_constraintTop_toTopOf="@id/tv_title"
             app:layout_constraintBottom_toBottomOf="@id/tv_title"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +43,7 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="34dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="30dp"
@@ -54,7 +53,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/rv_voice_list"
             app:layout_constraintStart_toEndOf="@id/ib_close"
-            app:layout_constraintEnd_toEndOf="parent"
             />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -70,7 +68,7 @@
             />
 
         <Button
-            style="@style/comui_buttonClick_voiceSelectConfirm_style"
+            style="@style/comui_dialog_button_clickable_voice_select_confirm"
             android:id="@+id/btn_confirm"
             android:layout_width="130dp"
             android:layout_height="40dp"
@@ -85,10 +83,11 @@
             />
 
         <Button
-            style="@style/comui_buttonClick_voiceSelectCancel_style"
+            style="@style/comui_dialog_button_clickable_voice_select_cancel"
             android:id="@+id/btn_cancel"
             android:layout_width="130dp"
             android:layout_height="40dp"
+            android:layout_marginStart="20dp"
             android:onClick="@{onClickPresenter::onCancelClick}"
             android:text="@{voiceSelectDialogVm.btnCancel}"
             app:layout_constraintTop_toTopOf="@id/btn_confirm"

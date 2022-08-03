@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="hintDialogVm"
+            type="com.githubyss.mobile.common.ui.dialog.hint.HintDialogVm"
+            />
+
+        <variable
+            name="onClickPresenter"
+            type="com.githubyss.mobile.common.ui.dialog.hint.HintDialog.OnClickPresenter"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/comui_dialog_bg_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginTop="16dp"
+            android:maxLines="1"
+            android:text="@{hintDialogVm.title}"
+            android:textColor="#FF464B5C"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="253dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{hintDialogVm.content}"
+            android:textColor="#CC464B5C"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintBottom_toTopOf="@id/btn_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Button
+            style="@style/comui_dialog_button_clickable_hint_left"
+            android:id="@+id/btn_left"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:onClick="@{onClickPresenter::onBtnLeftClick}"
+            android:text="@{hintDialogVm.btnLeft}"
+            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_right"
+            />
+
+        <Button
+            style="@style/comui_dialog_button_clickable_hint_right"
+            android:id="@+id/btn_right"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:onClick="@{onClickPresenter::onBtnRightClick}"
+            android:text="@{hintDialogVm.btnRight}"
+            app:layout_constraintTop_toTopOf="@id/btn_left"
+            app:layout_constraintBottom_toBottomOf="@id/btn_left"
+            app:layout_constraintStart_toEndOf="@id/btn_left"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

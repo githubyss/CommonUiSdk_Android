@@ -35,7 +35,9 @@ abstract class BaseReflectBindingViewModelDialogFragment<B : ViewDataBinding> : 
     /** ****************************** Abstract ****************************** */
 
     /** 绑定 Activity LifecycleOwner 到 ViewDataBinding */
-    abstract fun bindLifecycleOwner()
+    open fun bindLifecycleOwner() {
+        binding.lifecycleOwner = viewLifecycleOwner
+    }
 
     /** 绑定 ViewModel 到 ViewDataBinding */
     abstract fun bindXmlData()

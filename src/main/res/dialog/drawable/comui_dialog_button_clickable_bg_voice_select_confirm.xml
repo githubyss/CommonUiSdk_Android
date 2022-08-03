@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="true"
+    <item android:color="@color/comres_button_clickable_text_normal_graydark"
+          android:state_enabled="true"
           android:state_pressed="false">
         <shape android:shape="rectangle">
-            <solid android:color="#464B5C" />
+            <solid android:color="#FF464B5C" />
             <corners android:radius="4dp" />
             <stroke android:color="#00000000"
                     android:width="0dp" />
         </shape>
     </item>
 
-    <item android:state_enabled="true"
+    <item android:color="@color/comres_button_clickable_text_pressed_graydark"
+          android:state_enabled="true"
           android:state_pressed="true">
         <shape android:shape="rectangle">
-            <solid android:color="#464B5C" />
+            <solid android:color="#CC464B5C" />
             <corners android:radius="4dp" />
             <stroke android:color="#00000000"
                     android:width="0dp" />
         </shape>
     </item>
 
-    <item android:state_enabled="false">
+    <item android:color="@color/comres_button_clickable_text_disabled_graydark"
+          android:state_enabled="false">
         <shape android:shape="rectangle">
-            <solid android:color="#464B5C" />
+            <solid android:color="#99464B5C" />
             <corners android:radius="4dp" />
             <stroke android:color="#00000000"
                     android:width="0dp" />

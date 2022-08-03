@@ -86,16 +86,4 @@ class VoiceSelectDialogVm : ViewModel() {
     /**  */
     fun clearData() {
     }
-
-
-    /** ******************** Event Handling ******************** */
-
-    // /**  */
-    // fun onBtnConfirmClick(v: View) {
-    //     logD(msg = "点击了确认")
-    // }
-    //
-    // fun onBtnCancelClick(v: View) {
-    //     logD(msg = "点击了取消")
-    // }
 }

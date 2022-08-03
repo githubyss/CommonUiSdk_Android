@@ -78,11 +78,6 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
     }
 
     /**  */
-    override fun bindLifecycleOwner() {
-        binding.lifecycleOwner = viewLifecycleOwner
-    }
-
-    /**  */
     override fun bindXmlData() {
         binding.voiceSelectDialogVm = voiceSelectDialogVm
         binding.onClickPresenter = onClickPresenter
@@ -153,10 +148,5 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
             showToast("点击了取消")
             dismissAllowingStateLoss()
         }
-    }
-
-    /**  */
-    private sealed class Key(val key: String) {
-        object TITLE : Key("")
     }
 }

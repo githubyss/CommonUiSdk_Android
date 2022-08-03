@@ -23,6 +23,8 @@ import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognit
 import com.githubyss.mobile.common.ui.app.page.text.TextComposeFragment
 import com.githubyss.mobile.common.ui.app.page.text_field.TextFieldComposeFragment
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
+import com.githubyss.mobile.common.ui.dialog.hint.HintDialog
+import com.githubyss.mobile.common.ui.dialog.hint.HintDialogVm
 import com.githubyss.mobile.common.ui.dialog.voice_select.VoiceSelectDialog
 import com.githubyss.mobile.common.ui.dialog.voice_select.VoiceSelectDialogVm
 import com.githubyss.mobile.common.ui.dialog.voice_select.VoiceToneDataCenter
@@ -107,13 +109,27 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_recycler_view)) {
             switchFragment(RecyclerViewFragment(), RecyclerViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
+        
+        LayoutWeightHorizontal {
+            ButtonClickDefault(
+                text = getStringFromRes(R.string.comui_homepage_button_dialog), modifier = Modifier.weight(1F),
+            ) {
+                VoiceSelectDialog.instance.showDialog(
+                    parentFragmentManager,
+                    VoiceSelectDialogVm.TITLE_DEFAULT,
+                    VoiceSelectDialogVm.BTN_CONFIRM_DEFAULT, VoiceSelectDialogVm.BTN_CANCEL_DEFAULT,
+                    VoiceToneDataCenter.voiceToneList)
+            }
 
-        ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_dialog)) {
-            VoiceSelectDialog.instance.showDialog(
-                parentFragmentManager,
-                VoiceSelectDialogVm.TITLE_DEFAULT,
-                VoiceSelectDialogVm.BTN_CONFIRM_DEFAULT, VoiceSelectDialogVm.BTN_CANCEL_DEFAULT,
-                VoiceToneDataCenter.voiceToneList)
+            ButtonClickDefault(
+                text = "提示对话框",
+                modifier = Modifier.weight(1F),
+            ) {
+                HintDialog.showDialog(
+                    parentFragmentManager,
+                    "这是标题", "这是内容，可以在这里写下给用户的提示信息。这是内容，可以在这里写下给用户的提示信息。",
+                    HintDialogVm.BTN_LEFT_DEFAULT, HintDialogVm.BTN_RIGHT_DEFAULT)
+            }
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_floating_window)) {
