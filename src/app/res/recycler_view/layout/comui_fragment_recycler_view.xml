@@ -22,6 +22,8 @@
         android:background="@color/comres_layoutBg_lightGray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingStart="@dimen/comres_sideMargin_normal"
+        android:paddingEnd="@dimen/comres_sideMargin_normal"
         >
 
         <androidx.recyclerview.widget.RecyclerView
@@ -43,8 +45,6 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/comres_sideMargin_normal"
             android:paddingBottom="@dimen/comres_sideMargin_normal"
-            android:paddingLeft="@dimen/comres_sideMargin_normal"
-            android:paddingRight="@dimen/comres_sideMargin_normal"
             app:layout_constraintTop_toBottomOf="@id/rv_list"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

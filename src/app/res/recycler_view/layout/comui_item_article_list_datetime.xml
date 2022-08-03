@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemDatetime"
+            />
+
+        <variable
+            name="onItemClickListener"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BaseBindingRecyclerViewAdapter.OnItemClickListener"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        >
+
+        <View
+            android:id="@+id/v_line"
+            android:background="#D2D4DA"
+            android:layout_width="1dp"
+            android:layout_height="23dp"
+            android:visibility="@{item.position == 0 ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <View
+            android:id="@+id/v_line2"
+            android:background="#D2D4DA"
+            android:layout_width="1dp"
+            android:layout_height="23dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_time_line"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/time_line"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_datetime"
+            />
+
+        <TextView
+            android:id="@+id/tv_datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="13dp"
+            android:onClick="@{() -> onItemClickListener.onItemClick(item)}"
+            android:text="@{item.datetime}"
+            android:textAlignment="center"
+            android:textColor="#393D4B"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_time_line"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

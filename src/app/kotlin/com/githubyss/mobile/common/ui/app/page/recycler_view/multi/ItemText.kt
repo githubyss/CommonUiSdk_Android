@@ -1,7 +1,5 @@
-package com.githubyss.mobile.common.ui.app.page.recycler_view
+package com.githubyss.mobile.common.ui.app.page.recycler_view.multi
 
-import android.os.Parcel
-import android.os.Parcelable
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
 

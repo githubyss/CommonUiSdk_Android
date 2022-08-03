@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemArticleTitle"
+            />
+
+        <variable
+            name="onItemClickListener"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BaseBindingRecyclerViewAdapter.OnItemClickListener"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:onClick="@{() -> onItemClickListener.onItemClick(item)}"
+        >
+
+        <View
+            android:id="@+id/v_line"
+            android:background="#D2D4DA"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_tag_new"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/tag_new"
+            android:visibility="@{item.isNew &amp;&amp; !item.isPlaying ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/v_line"
+            app:layout_constraintEnd_toStartOf="@id/tv_title"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_tag_playing"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/tag_playing"
+            android:visibility="@{item.isPlaying ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintTop_toTopOf="@id/iv_tag_new"
+            app:layout_constraintBottom_toBottomOf="@id/iv_tag_new"
+            app:layout_constraintStart_toStartOf="@id/iv_tag_new"
+            app:layout_constraintEnd_toEndOf="@id/iv_tag_new"
+            />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.title}"
+            android:textColor="@{item.isPlaying ? @color/play_list_title_playing_yes : @color/play_list_title_playing_no}"
+            android:textSize="15sp"
+            app:layout_constraintTop_toTopOf="@id/iv_tag_new"
+            app:layout_constraintBottom_toBottomOf="@id/iv_tag_new"
+            app:layout_constraintStart_toEndOf="@id/iv_tag_new"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

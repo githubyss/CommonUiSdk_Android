@@ -10,7 +10,7 @@
 
         <variable
             name="item"
-            type="com.githubyss.mobile.common.ui.app.page.recycler_view.ItemText"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.multi.ItemText"
             />
 
         <variable

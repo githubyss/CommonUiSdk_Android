@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="play_list_title_playing_yes">#5F7BE4</color>
+    <color name="play_list_title_playing_no">#3F434F</color>
+</resources>

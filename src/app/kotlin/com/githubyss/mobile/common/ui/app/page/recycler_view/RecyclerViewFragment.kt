@@ -6,6 +6,7 @@ import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect_vi
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.kit.util.showToast
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ArticleListDataCenter
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter
@@ -43,7 +44,7 @@ class RecyclerViewFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFra
     }
 
     override fun setupData() {
-        bindingRecyclerViewAdapter.updateDataList(MultiTypeDataCenter.items)
+        bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.items)
         bindingRecyclerViewAdapter.onItemClickListener = object : BindingRecyclerViewAdapter.OnItemClickListener {
             override fun onItemClick(data: BindingAdapterItem) {
                 logD(TAG, "点击了项目")

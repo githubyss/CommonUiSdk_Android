@@ -1,4 +1,4 @@
-package com.githubyss.mobile.common.ui.app.page.recycler_view
+package com.githubyss.mobile.common.ui.app.page.recycler_view.multi
 
 import androidx.annotation.DrawableRes
 import com.githubyss.mobile.common.ui.R
