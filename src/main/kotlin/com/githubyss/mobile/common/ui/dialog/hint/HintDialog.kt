@@ -7,41 +7,65 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
-import com.githubyss.mobile.common.kit.util.getColorFromRes
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.kit.util.showToast
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiDialogHintBinding
 import com.githubyss.mobile.common.ui.dialog.binding_reflect.BaseReflectBindingViewModelDialogFragment
-import java.util.*
 
 
 /**
  * HintDialog
+ * 一个标题、一个内容、两个按钮的对话框
+ *
+ * 不要用单例实现，因为单例的对话框会使多个弹框的成员变量混乱。
+ * 但是可以使用 instance 的 get() 方法，将对话框的创建放在对话框内部，暴露 instance 供外部调用。效果同 newInstance()。
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2022/08/02 15:30:25
  */
-object HintDialog : BaseReflectBindingViewModelDialogFragment<ComuiDialogHintBinding>() {
+class HintDialog : BaseReflectBindingViewModelDialogFragment<ComuiDialogHintBinding>() {
 
     /** ****************************** Companion ****************************** */
 
-    /**  */
-    private val TAG = HintDialog::class.java.simpleName
-
-    private const val KEY_TITLE = "title"
-    private const val KEY_CONTENT = "content"
-    private const val KEY_BTN_LEFT = "btnLeft"
-    private const val KEY_BTN_RIGHT = "btnRight"
+    companion object {
+        val instance get() = HintDialog()
+        // fun newInstance() = HintDialog()
+    }
 
 
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private lateinit var bundle: Bundle
+    private val TAG = HintDialog::class.java.simpleName
+
+    private val KEY_TITLE = "title"
+    private val KEY_CONTENT = "content"
+    private val KEY_BTN_LEFT = "btnLeft"
+    private val KEY_BTN_RIGHT = "btnRight"
+
+    /**  */
+    private lateinit var onBtnLeftClick: () -> Unit
+    private lateinit var onBtnRightClick: () -> Unit
+
+    /**  */
     private val hintDialogVm by viewModels<HintDialogVm>()
-    private val onClickPresenter by lazy { OnClickPresenter() }
+
+    /**  */
+    private val onClickListener by lazy {
+        object : OnClickListener {
+            override fun onBtnLeftClick() {
+                this@HintDialog.onBtnLeftClickDefault()
+                this@HintDialog.onBtnLeftClick()
+            }
+
+            override fun onBtnRightClick() {
+                this@HintDialog.onBtnRightClickDefault()
+                this@HintDialog.onBtnRightClick()
+            }
+        }
+    }
 
     private val list = arrayListOf<Int>()
 
@@ -57,7 +81,7 @@ object HintDialog : BaseReflectBindingViewModelDialogFragment<ComuiDialogHintBin
 
     /**  */
     override fun setupData() {
-        bundle = arguments ?: return
+        val bundle = arguments ?: return
 
         val titleStr = bundle.getString(KEY_TITLE) ?: ""
         val contentStr = bundle.getString(KEY_CONTENT) ?: ""
@@ -69,7 +93,9 @@ object HintDialog : BaseReflectBindingViewModelDialogFragment<ComuiDialogHintBin
     /**  */
     override fun bindXmlData() {
         binding.hintDialogVm = hintDialogVm
-        binding.onClickPresenter = onClickPresenter
+        // binding.onClickPresenter = onClickPresenter
+        binding.onClickListener = onClickListener
+        binding.hintDialogView = this
     }
 
     /**  */
@@ -95,14 +121,17 @@ object HintDialog : BaseReflectBindingViewModelDialogFragment<ComuiDialogHintBin
     /** ****************************** Functions ****************************** */
 
     /**  */
-    fun showDialog(fragmentManager: FragmentManager?, titleStr: String = "", contentStr: String = "", btnConfirmStr: String = "", btnCancelStr: String = "", cancelable: Boolean = true): HintDialog {
+    @JvmOverloads
+    fun showDialog(fragmentManager: FragmentManager?, titleStr: String = "", contentStr: String = "", btnLeftStr: String = "", btnRightStr: String = "", onBtnLeftClick: () -> Unit = {}, onBtnRightClick: () -> Unit = {}, cancelable: Boolean = true): HintDialog {
         this.isCancelable = cancelable
+        this.onBtnLeftClick = onBtnLeftClick
+        this.onBtnRightClick = onBtnRightClick
 
         val bundle = Bundle()
         bundle.putString(KEY_TITLE, titleStr)
         bundle.putString(KEY_CONTENT, contentStr)
-        bundle.putString(KEY_BTN_LEFT, btnConfirmStr)
-        bundle.putString(KEY_BTN_RIGHT, btnCancelStr)
+        bundle.putString(KEY_BTN_LEFT, btnLeftStr)
+        bundle.putString(KEY_BTN_RIGHT, btnRightStr)
 
         fragmentManager?.executePendingTransactions()
         fragmentManager?.let {
@@ -119,20 +148,24 @@ object HintDialog : BaseReflectBindingViewModelDialogFragment<ComuiDialogHintBin
     /** ****************************** Class ****************************** */
 
     /**  */
-    class OnClickPresenter {
-        fun onBtnLeftClick(v: View) {
-            logD(msg = "点击了左按钮")
-            showToast("点击了左按钮")
-            binding.tvTitle.setTextColor(getColorFromRes(R.color.comres_color_red))
-            list.add(Random().nextInt())
-            logD(msg = list.toString())
-        }
+    private fun onBtnLeftClickDefault() {
+        logD(msg = "点击了左按钮")
+        showToast("点击了左按钮")
+        dismissAllowingStateLoss()
+    }
 
-        fun onBtnRightClick(v: View) {
-            logD(msg = "点击了右按钮")
-            showToast("点击了右按钮")
-            binding.tvTitle.setTextColor(getColorFromRes(R.color.comres_color_blue))
-            dismissAllowingStateLoss()
-        }
+    private fun onBtnRightClickDefault() {
+        logD(msg = "点击了右按钮")
+        showToast("点击了右按钮")
+        dismissAllowingStateLoss()
+    }
+
+
+    /** ****************************** Interface ****************************** */
+
+    /**  */
+    interface OnClickListener {
+        fun onBtnLeftClick()
+        fun onBtnRightClick()
     }
 }

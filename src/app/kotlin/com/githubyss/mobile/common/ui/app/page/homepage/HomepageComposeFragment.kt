@@ -8,9 +8,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.fragment.app.viewModels
 import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
 import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
-import com.githubyss.mobile.common.kit.util.ActivityUtils
-import com.githubyss.mobile.common.kit.util.FragmentUtils
-import com.githubyss.mobile.common.kit.util.getStringFromRes
+import com.githubyss.mobile.common.kit.util.*
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment
@@ -109,7 +107,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_recycler_view)) {
             switchFragment(RecyclerViewFragment(), RecyclerViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
-        
+
         LayoutWeightHorizontal {
             ButtonClickDefault(
                 text = getStringFromRes(R.string.comui_homepage_button_dialog), modifier = Modifier.weight(1F),
@@ -125,10 +123,19 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
                 text = "提示对话框",
                 modifier = Modifier.weight(1F),
             ) {
-                HintDialog.showDialog(
+                HintDialog.instance.showDialog(
                     parentFragmentManager,
                     "这是标题", "这是内容，可以在这里写下给用户的提示信息。这是内容，可以在这里写下给用户的提示信息。",
-                    HintDialogVm.BTN_LEFT_DEFAULT, HintDialogVm.BTN_RIGHT_DEFAULT)
+                    HintDialogVm.BTN_LEFT_DEFAULT, HintDialogVm.BTN_RIGHT_DEFAULT,
+                    {
+                        logD(msg = "调用方点击了左按钮")
+                        showToast("调用方点击了左按钮")
+                    },
+                    {
+                        logD(msg = "调用方点击了右按钮")
+                        showToast("调用方点击了右按钮")
+                    },
+                    false)
             }
         }
 

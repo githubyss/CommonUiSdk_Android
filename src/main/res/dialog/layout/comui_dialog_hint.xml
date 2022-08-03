@@ -12,8 +12,13 @@
             />
 
         <variable
-            name="onClickPresenter"
-            type="com.githubyss.mobile.common.ui.dialog.hint.HintDialog.OnClickPresenter"
+            name="hintDialogView"
+            type="com.githubyss.mobile.common.ui.dialog.hint.HintDialog"
+            />
+
+        <variable
+            name="onClickListener"
+            type="com.githubyss.mobile.common.ui.dialog.hint.HintDialog.OnClickListener"
             />
     </data>
 
@@ -63,7 +68,7 @@
             android:id="@+id/btn_left"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:onClick="@{onClickPresenter::onBtnLeftClick}"
+            android:onClick="@{() -> onClickListener.onBtnLeftClick()}"
             android:text="@{hintDialogVm.btnLeft}"
             app:layout_constraintTop_toBottomOf="@id/tv_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -76,7 +81,7 @@
             android:id="@+id/btn_right"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:onClick="@{onClickPresenter::onBtnRightClick}"
+            android:onClick="@{() -> onClickListener.onBtnRightClick()}"
             android:text="@{hintDialogVm.btnRight}"
             app:layout_constraintTop_toTopOf="@id/btn_left"
             app:layout_constraintBottom_toBottomOf="@id/btn_left"
