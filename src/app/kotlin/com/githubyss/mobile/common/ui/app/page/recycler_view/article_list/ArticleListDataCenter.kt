@@ -17,49 +17,69 @@ object ArticleListDataCenter {
     val items by lazy {
         val items = ArrayList<BindingAdapterItem>()
         items.add(ItemDatetime(0, "今天"))
-        items.add(ItemArticleTitle("20899", "人民网这样说！", false, true))
-        items.add(ItemArticleTitle("20765", "金士顿火了！", true, true))
+        items.add(ItemTitle("20899", "人民网这样说！", false, true))
+        items.add(ItemTitle("20765", "金士顿火了！", true, true))
         items.add(ItemDatetime(1, "昨天"))
-        items.add(ItemArticleTitle("20033", "Google 宣布以下事项！", false, false))
+        items.add(ItemTitle("20033", "Google 宣布以下事项！", false, false))
         items.add(ItemDatetime(2, "一个月前"))
-        items.add(ItemArticleTitle("20011", "苏宁进入退市流程！", false, false))
-        items.add(ItemArticleTitle("19766", "互联网寒冬还要持续多久！", false, false))
-        items.add(ItemArticleTitle("19679", "三亚热死人了！", false, false))
+        items.add(ItemTitle("20011", "苏宁进入退市流程！", false, false))
+        items.add(ItemTitle("19766", "互联网寒冬还要持续多久！", false, false))
+        items.add(ItemTitle("19679", "三亚热死人了！", false, false))
         items
     }
 
     @JvmStatic
-    val itemsEditable by lazy {
+    val itemsEditing by lazy {
         val items = ArrayList<BindingAdapterItem>()
-        items.add(ItemDatetimeEditable("今天", CheckState.CHECK_YES))
-        items.add(ItemArticleTitleEditable("20899", "人民网这样说！", CheckState.CHECK_YES))
-        items.add(ItemArticleTitleEditable("20765", "金士顿火了！", CheckState.CHECK_YES))
-        items.add(ItemDatetimeEditable("昨天", CheckState.CHECK_NO))
-        items.add(ItemArticleTitleEditable("20033", "Google 宣布以下事项！", CheckState.CHECK_NO))
-        items.add(ItemDatetimeEditable("一个月前", CheckState.CHECK_PARTLY))
-        items.add(ItemArticleTitleEditable("20011", "苏宁进入退市流程！", CheckState.CHECK_YES))
-        items.add(ItemArticleTitleEditable("19766", "互联网寒冬还要持续多久！", CheckState.CHECK_YES))
-        items.add(ItemArticleTitleEditable("19679", "三亚热死人了！", CheckState.CHECK_NO))
+        items.add(ItemDatetimeEditing("今天", CheckState.CHECK_YES))
+        items.add(ItemTitleEditing("20899", "人民网这样说！", CheckState.CHECK_YES))
+        items.add(ItemTitleEditing("20765", "金士顿火了！", CheckState.CHECK_YES))
+        items.add(ItemDatetimeEditing("昨天", CheckState.CHECK_NO))
+        items.add(ItemTitleEditing("20033", "Google 宣布以下事项！", CheckState.CHECK_NO))
+        items.add(ItemDatetimeEditing("一个月前", CheckState.CHECK_PARTLY))
+        items.add(ItemTitleEditing("20011", "苏宁进入退市流程！", CheckState.CHECK_YES))
+        items.add(ItemTitleEditing("19766", "互联网寒冬还要持续多久！", CheckState.CHECK_YES))
+        items.add(ItemTitleEditing("19679", "三亚热死人了！", CheckState.CHECK_NO))
         items
     }
 
     @JvmStatic
     val itemsCombine by lazy {
         val items = ArrayList<BindingAdapterDoubleLayerItem>()
-        val articleList1 = ArrayList<ItemArticleTitle>()
-        articleList1.add(ItemArticleTitle("20899", "人民网这样说！", false, true))
-        articleList1.add(ItemArticleTitle("20765", "金士顿火了！", true, true))
-        items.add(ItemArticleCombine(0, "今天", CheckState.CHECK_YES, articleList1))
+        val articleList1 = ArrayList<ItemTitle>()
+        articleList1.add(ItemTitle("20899", "人民网这样说！", false, true))
+        articleList1.add(ItemTitle("20765", "金士顿火了！", true, true))
+        items.add(ItemCombine(0, "今天", articleList1))
 
-        val articleList2 = ArrayList<ItemArticleTitle>()
-        articleList2.add(ItemArticleTitle("20033", "Google 宣布以下事项！", false, false))
-        items.add(ItemArticleCombine(1, "昨天", CheckState.CHECK_YES, articleList2))
+        val articleList2 = ArrayList<ItemTitle>()
+        articleList2.add(ItemTitle("20033", "Google 宣布以下事项！", false, false))
+        items.add(ItemCombine(1, "昨天", articleList2))
 
-        val articleList3 = ArrayList<ItemArticleTitle>()
-        articleList3.add(ItemArticleTitle("20011", "苏宁进入退市流程！", false, false))
-        articleList3.add(ItemArticleTitle("19766", "互联网寒冬还要持续多久！", false, false))
-        articleList3.add(ItemArticleTitle("19679", "三亚热死人了！", false, false))
-        items.add(ItemArticleCombine(2, "一个月前", CheckState.CHECK_YES, articleList3))
+        val articleList3 = ArrayList<ItemTitle>()
+        articleList3.add(ItemTitle("20011", "苏宁进入退市流程！", false, false))
+        articleList3.add(ItemTitle("19766", "互联网寒冬还要持续多久！", false, false))
+        articleList3.add(ItemTitle("19679", "三亚热死人了！", false, false))
+        items.add(ItemCombine(2, "一个月前", articleList3))
+        items
+    }
+
+    @JvmStatic
+    val itemsCombineEditing by lazy {
+        val items = ArrayList<BindingAdapterDoubleLayerItem>()
+        val articleList1 = ArrayList<ItemTitleEditing>()
+        articleList1.add(ItemTitleEditing("20899", "人民网这样说！", CheckState.CHECK_YES))
+        articleList1.add(ItemTitleEditing("20765", "金士顿火了！", CheckState.CHECK_YES))
+        items.add(ItemCombineEditing("今天", CheckState.CHECK_YES, articleList1))
+
+        val articleList2 = ArrayList<ItemTitleEditing>()
+        articleList2.add(ItemTitleEditing("20033", "Google 宣布以下事项！", CheckState.CHECK_NO))
+        items.add(ItemCombineEditing("昨天", CheckState.CHECK_YES, articleList2))
+
+        val articleList3 = ArrayList<ItemTitleEditing>()
+        articleList3.add(ItemTitleEditing("20011", "苏宁进入退市流程！", CheckState.CHECK_YES))
+        articleList3.add(ItemTitleEditing("19766", "互联网寒冬还要持续多久！", CheckState.CHECK_YES))
+        articleList3.add(ItemTitleEditing("19679", "三亚热死人了！", CheckState.CHECK_NO))
+        items.add(ItemCombineEditing("一个月前", CheckState.CHECK_YES, articleList3))
         items
     }
 }

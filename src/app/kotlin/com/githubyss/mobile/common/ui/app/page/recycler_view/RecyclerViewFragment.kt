@@ -1,14 +1,13 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view
 
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
-import com.githubyss.mobile.common.kit.enumeration.CheckState
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.*
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentRecyclerViewBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterDoubleLayerItem
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
+import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewDoubleLayerAdapter
 
 
@@ -44,40 +43,36 @@ class RecyclerViewFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFra
     }
 
     override fun setupData() {
-        bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
+        when (recyclerViewVm.inEdit.value) {
+            true -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombineEditing)
+            false -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
+            else -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
+        }
         bindingRecyclerViewAdapter.onItemClickListener = object : BindingRecyclerViewDoubleLayerAdapter.OnItemClickListener {
             override fun onItemClick(data: BindingAdapterDoubleLayerItem) {
-                when (data) {
-                    is ItemArticleCombine -> {
-                        when (data.checkState.get()) {
-                            CheckState.CHECK_YES -> data.checkState.set(CheckState.CHECK_NO)
-                            CheckState.CHECK_NO -> data.checkState.set(CheckState.CHECK_YES)
-                        }
-                    }
-                }
+                recyclerViewVm.refreshCheckState(data)
+            }
+        }
+        bindingRecyclerViewAdapter.onInnerItemClickListener = object : BindingRecyclerViewAdapter.OnItemClickListener {
+            override fun onItemClick(data: BindingAdapterItem) {
+                recyclerViewVm.refreshCheckState(data)
             }
         }
     }
 
     /**  */
-    override fun bindLifecycleOwner() {
-        binding.lifecycleOwner = viewLifecycleOwner
-    }
-
-    /**  */
     override fun bindXmlData() {
         binding.recyclerViewVm = recyclerViewVm
+        binding.recyclerViewPage = this
         binding.bindingRecyclerViewAdapter = bindingRecyclerViewAdapter
     }
 
     /**  */
     override fun observeViewModelData() {
-        this.recyclerViewVm.viewId?.observe(viewLifecycleOwner, vmObserverViewId)
     }
 
     /**  */
     override fun removeViewModelObserver() {
-        this.recyclerViewVm.viewId?.removeObservers(viewLifecycleOwner)
     }
 
     /**  */
@@ -90,15 +85,13 @@ class RecyclerViewFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFra
 
     /** ****************************** Functions ****************************** */
 
-
-    /** ****************************** Implementations ****************************** */
-
     /**  */
-    private val vmObserverViewId = Observer<Int> { t ->
-        when (t) {
-            R.id.button_recycler_view_multi_type -> {}
-            R.id.button_recycler_view_multi_view -> {}
-            R.id.button_recycler_view_three_layer -> {}
+    fun onButtonEditClick() {
+        recyclerViewVm.inEdit.value = recyclerViewVm.inEdit.value?.not()
+        when (recyclerViewVm.inEdit.value) {
+            true -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombineEditing)
+            false -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
+            else -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
         }
     }
 }

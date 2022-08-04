@@ -10,7 +10,7 @@
 
         <variable
             name="item"
-            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemArticleCombine"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemCombine"
             />
 
         <variable
@@ -82,7 +82,7 @@
             android:adapter="@{innerRecyclerViewAdapter}"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/v_line2"
-            app:layout_constraintStart_toStartOf="@id/v_line2"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />

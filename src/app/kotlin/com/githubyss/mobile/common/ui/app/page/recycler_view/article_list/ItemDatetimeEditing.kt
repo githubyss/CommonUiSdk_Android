@@ -6,18 +6,18 @@ import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterI
 
 
 /**
- * ItemDatetimeEditable
+ * ItemDatetimeEditing
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2022/08/04 11:11:40
  */
-class ItemDatetimeEditable(var datetime: String, checkState: String) : BindingAdapterItem {
+class ItemDatetimeEditing(var datetime: String, checkState: String) : BindingAdapterItem {
     val checkState by lazy { ObservableField<String>() }
 
     init {
         this.checkState.set(checkState)
     }
 
-    override val layoutId: Int = R.layout.comui_item_article_list_datetime_editable
+    override val layoutId: Int = R.layout.comui_item_article_list_datetime_editing
 }

@@ -3,6 +3,13 @@ package com.githubyss.mobile.common.ui.app.page.recycler_view
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.githubyss.mobile.common.kit.enumeration.CheckState
+import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemCombine
+import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemCombineEditing
+import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemTitle
+import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemTitleEditing
+import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterDoubleLayerItem
+import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
 
 
 /**
@@ -13,45 +20,22 @@ import androidx.lifecycle.ViewModel
  * @createdTime 2022/02/16 17:50:44
  */
 class RecyclerViewViewModel : ViewModel() {
+    val inEdit by lazy { MutableLiveData<Boolean>(false) }
 
-    /** ****************************** Properties ****************************** */
-
-    /** model（数据源 Java Bean） */
-
-    /** 数据绑定，绑定到 UI 的字段（data field） */
-    var viewId: MutableLiveData<Int>? = null
-
-
-    /** ****************************** Constructors ****************************** */
-
-    init {
-        initViewModelField()
-    }
-
-
-    /** ****************************** Override ****************************** */
-
-    override fun onCleared() {
-        super.onCleared()
-        clearData()
-    }
-
-
-    /** ****************************** Functions ****************************** */
-
-    /** ******************** Data Handling ******************** */
-
-    private fun initViewModelField() {
-        this.viewId = MutableLiveData()
-    }
-
-    private fun clearData() {
-        this.viewId = null
-    }
-
-    /** ******************** Event Handling ******************** */
-
-    fun onAnyButtonClick(view: View) {
-        this.viewId?.value = view.id
+    fun refreshCheckState(data: BindingAdapterItem) {
+        when (data) {
+            is ItemCombineEditing -> {
+                when (data.checkState.get()) {
+                    CheckState.CHECK_YES -> data.checkState.set(CheckState.CHECK_NO)
+                    CheckState.CHECK_NO -> data.checkState.set(CheckState.CHECK_YES)
+                }
+            }
+            is ItemTitleEditing -> {
+                when (data.checkState.get()) {
+                    CheckState.CHECK_YES -> data.checkState.set(CheckState.CHECK_NO)
+                    CheckState.CHECK_NO -> data.checkState.set(CheckState.CHECK_YES)
+                }
+            }
+        }
     }
 }

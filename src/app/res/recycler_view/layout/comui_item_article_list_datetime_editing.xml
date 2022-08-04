@@ -10,7 +10,7 @@
 
         <variable
             name="item"
-            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemDatetimeEditable"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemDatetimeEditing"
             />
 
         <variable

@@ -31,10 +31,7 @@ class BindingRecyclerViewAdapter() : RecyclerView.Adapter<BindingRecyclerViewAda
     private lateinit var items: List<BindingAdapterItem>
 
     /**  */
-    var onItemClickListener = object : OnItemClickListener {
-        override fun onItemClick(data: BindingAdapterItem) {
-        }
-    }
+    lateinit var onItemClickListener: OnItemClickListener
 
 
     /** ****************************** Constructors ****************************** */

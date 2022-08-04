@@ -12,6 +12,11 @@
             />
 
         <variable
+            name="recyclerViewPage"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewFragment"
+            />
+
+        <variable
             name="bindingRecyclerViewAdapter"
             type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewDoubleLayerAdapter"
             />
@@ -33,56 +38,21 @@
             android:adapter="@{bindingRecyclerViewAdapter}"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/ll_btn"
+            app:layout_constraintBottom_toTopOf="@id/button_edit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />
 
-        <com.google.android.flexbox.FlexboxLayout
-            android:id="@+id/ll_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/comres_sideMargin_normal"
-            android:paddingBottom="@dimen/comres_sideMargin_normal"
+        <Button
+            style="@style/comres_equant_horizontal_button_style"
+            android:id="@+id/button_edit"
+            android:onClick="@{() -> recyclerViewPage.onButtonEditClick()}"
+            android:text="编辑"
             app:layout_constraintTop_toBottomOf="@id/rv_list"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:flexDirection="column"
-            app:justifyContent="flex_start"
-            app:alignItems="center"
-            >
-
-            <com.google.android.flexbox.FlexboxLayout style="@style/comres_equant_horizontal_flex_style">
-
-                <Button
-                    style="@style/comres_equant_horizontal_button_style"
-                    android:id="@+id/button_recycler_view_multi_type"
-                    android:onClick="@{recyclerViewVm::onAnyButtonClick}"
-                    android:text="@string/comui_recycler_view_button_multi_type"
-                    />
-            </com.google.android.flexbox.FlexboxLayout>
-
-            <com.google.android.flexbox.FlexboxLayout style="@style/comres_equant_horizontal_flex_style">
-
-                <Button
-                    style="@style/comres_equant_horizontal_button_style"
-                    android:id="@+id/button_recycler_view_multi_view"
-                    android:onClick="@{recyclerViewVm::onAnyButtonClick}"
-                    android:text="@string/comui_recycler_view_button_multi_view"
-                    />
-            </com.google.android.flexbox.FlexboxLayout>
-
-            <com.google.android.flexbox.FlexboxLayout style="@style/comres_equant_horizontal_flex_style">
-
-                <Button
-                    style="@style/comres_equant_horizontal_button_style"
-                    android:id="@+id/button_recycler_view_three_layer"
-                    android:onClick="@{recyclerViewVm::onAnyButtonClick}"
-                    android:text="@string/comui_recycler_view_button_three_layer"
-                    />
-            </com.google.android.flexbox.FlexboxLayout>
-        </com.google.android.flexbox.FlexboxLayout>
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

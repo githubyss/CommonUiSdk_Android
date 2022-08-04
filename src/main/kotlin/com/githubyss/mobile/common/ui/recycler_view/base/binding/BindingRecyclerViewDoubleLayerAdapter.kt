@@ -15,7 +15,7 @@ import com.githubyss.mobile.common.ui.BR
  * @github githubyss
  * @createdTime 2022/08/04 15:08:15
  */
-class BindingRecyclerViewDoubleLayerAdapter() : RecyclerView.Adapter<BindingRecyclerViewDoubleLayerAdapter.BindingViewHolder>() {
+class BindingRecyclerViewDoubleLayerAdapter : RecyclerView.Adapter<BindingRecyclerViewDoubleLayerAdapter.BindingViewHolder>() {
 
     /** ****************************** Companion ****************************** */
 
@@ -29,14 +29,11 @@ class BindingRecyclerViewDoubleLayerAdapter() : RecyclerView.Adapter<BindingRecy
 
     /**  */
     private lateinit var items: List<BindingAdapterDoubleLayerItem>
+    private lateinit var innerRecyclerViewAdapter: BindingRecyclerViewAdapter
 
     /**  */
-    var onItemClickListener = object : OnItemClickListener {
-        override fun onItemClick(data: BindingAdapterDoubleLayerItem) {
-        }
-    }
-
-    var innerRecyclerViewAdapter = BindingRecyclerViewAdapter()
+    lateinit var onItemClickListener: OnItemClickListener
+    lateinit var onInnerItemClickListener: BindingRecyclerViewAdapter.OnItemClickListener
 
 
     /** ****************************** Override ****************************** */
@@ -64,6 +61,7 @@ class BindingRecyclerViewDoubleLayerAdapter() : RecyclerView.Adapter<BindingRecy
         holder.bindXmlClickListener(onItemClickListener)
         innerRecyclerViewAdapter = BindingRecyclerViewAdapter()
         innerRecyclerViewAdapter.updateDataList(items[position].innerItems)
+        innerRecyclerViewAdapter.onItemClickListener = onInnerItemClickListener
         holder.bindXmlInnerRecyclerViewAdapter(innerRecyclerViewAdapter)
     }
 

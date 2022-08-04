@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="com.githubyss.mobile.common.kit.enumeration.CheckState" />
+
+        <variable
+            name="item"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemCombineEditing"
+            />
+
+        <variable
+            name="onItemClickListener"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewDoubleLayerAdapter.OnItemClickListener"
+            />
+
+        <variable
+            name="innerRecyclerViewAdapter"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <CheckBox
+            android:id="@+id/cb_select"
+            android:background="@{item.checkState == CheckState.CHECK_YES ? @drawable/comres_icon_check_yes_round_tick : item.checkState == CheckState.CHECK_NO ? @drawable/comres_icon_check_no_round_tick : @drawable/comres_icon_check_partly_round_tick}"
+            android:button="@null"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:onClick="@{() -> onItemClickListener.onItemClick(item)}"
+            app:layout_constraintTop_toTopOf="@id/tv_datetime"
+            app:layout_constraintBottom_toBottomOf="@id/tv_datetime"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_marginStart="12dp"
+            android:gravity="center"
+            android:text="@{item.datetime}"
+            android:textColor="@color/comres_color_393d4b"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cb_select"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_article_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:adapter="@{innerRecyclerViewAdapter}"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/cb_select"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
