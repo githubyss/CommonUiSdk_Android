@@ -13,7 +13,7 @@
 
         <variable
             name="bindingRecyclerViewAdapter"
-            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewDoubleLayerAdapter"
             />
     </data>
 

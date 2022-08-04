@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="com.githubyss.mobile.common.kit.enumeration.CheckState" />
+
+        <variable
+            name="item"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemArticleTitleEditable"
+            />
+
+        <variable
+            name="onItemClickListener"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter.OnItemClickListener"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        >
+
+        <CheckBox
+            android:id="@+id/cb_select"
+            android:background="@{item.checkState == CheckState.CHECK_YES ? @drawable/comres_icon_check_yes_round_tick : @drawable/comres_icon_check_no_round_tick}"
+            android:button="@null"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="29dp"
+            android:onClick="@{() -> onItemClickListener.onItemClick(item)}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.title}"
+            android:textColor="@color/comres_color_3f434f"
+            android:textSize="15sp"
+            app:layout_constraintTop_toTopOf="@id/cb_select"
+            app:layout_constraintBottom_toBottomOf="@id/cb_select"
+            app:layout_constraintStart_toEndOf="@id/cb_select"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
