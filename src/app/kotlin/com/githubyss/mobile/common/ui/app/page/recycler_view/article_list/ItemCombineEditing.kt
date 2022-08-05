@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterI
  * @github githubyss
  * @createdTime 2022/08/04 16:20:27
  */
-class ItemCombineEditing(var datetime: String, checkState: String, override val innerItems: List<ItemTitleEditing>) : BindingAdapterDoubleLayerItem {
+class ItemCombineEditing(var datetime: String, checkState: String, override var innerItems: List<ItemTitleEditing>) : BindingAdapterDoubleLayerItem {
     val checkState by lazy { ObservableField<String>() }
 
     init {

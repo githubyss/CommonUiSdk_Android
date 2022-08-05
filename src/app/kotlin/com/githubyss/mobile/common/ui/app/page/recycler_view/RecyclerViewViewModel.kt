@@ -8,8 +8,11 @@ import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemCo
 import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemCombineEditing
 import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemTitle
 import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemTitleEditing
+import com.githubyss.mobile.common.ui.dialog.voice_select.VoiceTone
+import com.githubyss.mobile.common.ui.dialog.voice_select.VoiceToneSelectState
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterDoubleLayerItem
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
+import java.io.DataInput
 
 
 /**
@@ -26,16 +29,31 @@ class RecyclerViewViewModel : ViewModel() {
         when (data) {
             is ItemCombineEditing -> {
                 when (data.checkState.get()) {
-                    CheckState.CHECK_YES -> data.checkState.set(CheckState.CHECK_NO)
-                    CheckState.CHECK_NO -> data.checkState.set(CheckState.CHECK_YES)
+                    CheckState.CHECK_YES -> {
+                        data.checkState.set(CheckState.CHECK_NO)
+                        data.innerItems = data.innerItems.changeAllCheckState(CheckState.CHECK_NO)
+                    }
+                    CheckState.CHECK_NO -> {
+                        data.checkState.set(CheckState.CHECK_YES)
+                        data.innerItems = data.innerItems.changeAllCheckState(CheckState.CHECK_YES)
+                    }
                 }
             }
             is ItemTitleEditing -> {
                 when (data.checkState.get()) {
-                    CheckState.CHECK_YES -> data.checkState.set(CheckState.CHECK_NO)
-                    CheckState.CHECK_NO -> data.checkState.set(CheckState.CHECK_YES)
+                    CheckState.CHECK_YES -> {
+                        data.checkState.set(CheckState.CHECK_NO)
+                    }
+                    CheckState.CHECK_NO -> {
+                        data.checkState.set(CheckState.CHECK_YES)
+                    }
                 }
             }
         }
+    }
+
+    private fun List<ItemTitleEditing>.changeAllCheckState(checkState: String) = this.map {
+        it.checkState.set(checkState)
+        it
     }
 }
