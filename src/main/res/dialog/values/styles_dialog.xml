@@ -22,8 +22,8 @@
 
     <style name="comui_dialog_button_clickable_hint_right"
            parent="comres_button_clickable_common">
-        <item name="android:background">@drawable/comres_button_clickable_bg_graylight_no_border_rectangle_8dp_round_bottomright</item>
-        <item name="android:textColor">@drawable/comres_button_clickable_bg_graylight_no_border_rectangle_8dp_round_bottomright</item>
+        <item name="android:background">@drawable/comres_button_clickable_bg_graylight_1_no_border_rectangle_8dp_round_bottomright</item>
+        <item name="android:textColor">@drawable/comres_button_clickable_bg_graylight_1_no_border_rectangle_8dp_round_bottomright</item>
         <item name="android:textSize">14sp</item>
     </style>
 

@@ -12,7 +12,7 @@ import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterI
  * @github githubyss
  * @createdTime 2022/08/04 11:11:24
  */
-class ItemTitleEditing(var id: String, var title: String, checkState: String) : BindingAdapterItem {
+class ItemTitleEditing(var id: String, var title: String, var datetime: String, checkState: String) : BindingAdapterItem {
     val checkState by lazy { ObservableField<String>() }
 
     init {

@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="recyclerViewVm"
             type="com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewViewModel"
@@ -27,31 +29,104 @@
         android:background="@color/comres_layoutBg_lightGray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="@dimen/comres_sideMargin_normal"
         android:paddingStart="@dimen/comres_sideMargin_normal"
         android:paddingEnd="@dimen/comres_sideMargin_normal"
         >
 
+        <TextView
+            android:id="@+id/tv_article_list"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="听单列表"
+            android:textSize="@dimen/comres_textSize_18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rv_article_list"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Button
+            style="@style/comres_button_clickable_transparent_2_with_border_rectangle_4dp_round_all"
+            android:id="@+id/btn_article_edit"
+            android:layout_width="85dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="@{() -> recyclerViewPage.onButtonEditClick()}"
+            android:text="编辑"
+            android:textSize="@dimen/comres_textSize_14sp"
+            android:visibility="@{recyclerViewVm.isEditing ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintTop_toTopOf="@id/tv_article_list"
+            app:layout_constraintBottom_toBottomOf="@id/tv_article_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Button
+            style="@style/comres_button_clickable_transparent_4_with_border_rectangle_4dp_round_all"
+            android:id="@+id/btn_article_edit_finish"
+            android:layout_width="85dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="@{() -> recyclerViewPage.onButtonEditFinishClick()}"
+            android:text="完成"
+            android:textSize="@dimen/comres_textSize_14sp"
+            android:visibility="@{recyclerViewVm.isEditing ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintTop_toTopOf="@id/tv_article_list"
+            app:layout_constraintBottom_toBottomOf="@id/tv_article_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_list"
+            android:id="@+id/rv_article_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="18dp"
             android:adapter="@{bindingRecyclerViewAdapter}"
             android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/button_edit"
+            app:layout_constraintTop_toBottomOf="@id/tv_article_list"
+            app:layout_constraintBottom_toTopOf="@id/button_select_all"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />
 
         <Button
-            style="@style/comres_equant_horizontal_button_style"
-            android:id="@+id/button_edit"
-            android:onClick="@{() -> recyclerViewPage.onButtonEditClick()}"
-            android:text="编辑"
-            app:layout_constraintTop_toBottomOf="@id/rv_list"
+            style="@style/comres_button_clickable_graylight_2_no_border_rectangle_4dp_round_topbottomleft"
+            android:id="@+id/button_select_all"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:onClick="@{() -> recyclerViewPage.onButtonSelectAllClick()}"
+            android:text="全部选择"
+            android:textSize="@dimen/comres_textSize_16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/v_line_bottom_button"
+            />
+
+        <View
+            android:id="@+id/v_line_bottom_button"
+            android:background="@color/comres_color_white"
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_select_all"
+            app:layout_constraintEnd_toStartOf="@id/button_delete"
+            />
+
+        <Button
+            style="@style/comres_button_clickable_graylight_2_no_border_rectangle_4dp_round_topbottomright"
+            android:id="@+id/button_delete"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:enabled="false"
+            android:onClick="@{() -> recyclerViewPage.onButtonDeleteClick()}"
+            android:text="删除"
+            android:textSize="@dimen/comres_textSize_16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/v_line_bottom_button"
             app:layout_constraintEnd_toEndOf="parent"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>

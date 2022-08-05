@@ -43,7 +43,7 @@ class RecyclerViewFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFra
     }
 
     override fun setupData() {
-        when (recyclerViewVm.inEdit.value) {
+        when (recyclerViewVm.isEditing.value) {
             true -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombineEditing)
             false -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
             else -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
@@ -87,11 +87,25 @@ class RecyclerViewFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFra
 
     /**  */
     fun onButtonEditClick() {
-        recyclerViewVm.inEdit.value = recyclerViewVm.inEdit.value?.not()
-        when (recyclerViewVm.inEdit.value) {
-            true -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombineEditing)
-            false -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
-            else -> bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
-        }
+        // recyclerViewVm.isEditing.value = recyclerViewVm.isEditing.value?.not()
+        recyclerViewVm.isEditing.value = true
+        bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombineEditing)
+    }
+
+    /**  */
+    fun onButtonEditFinishClick() {
+        recyclerViewVm.isEditing.value = false
+        bindingRecyclerViewAdapter.updateDataList(ArticleListDataCenter.itemsCombine)
+    }
+
+    /**  */
+    fun onButtonSelectAllClick() {
+        recyclerViewVm.isAllSelected.value = recyclerViewVm.isAllSelected.value?.not()
+        ArticleListDataCenter.selectAllItems(recyclerViewVm.isAllSelected.value ?: return)
+    }
+
+    /**  */
+    fun onButtonDeleteClick() {
+
     }
 }
