@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.githubyss.mobile.common.kit.enumeration.CheckState" />
+
+        <variable
+            name="item"
+            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemCombineAll"
+            />
+
+        <variable
+            name="onItemClickListener"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewDoubleLayerAdapter.OnItemClickListener"
+            />
+
+        <variable
+            name="innerRecyclerViewAdapter"
+            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <View
+            android:id="@+id/v_line"
+            android:background="@color/comres_color_d2d4da"
+            android:layout_width="1dp"
+            android:layout_height="23dp"
+            android:visibility="@{item.isEditing ? View.GONE : item.position == 0 ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintTop_toTopOf="@id/tv_datetime"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <View
+            android:id="@+id/v_line2"
+            android:background="@color/comres_color_d2d4da"
+            android:layout_width="1dp"
+            android:layout_height="23dp"
+            android:visibility="@{item.isEditing ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/tv_datetime"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_time_line"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/time_line"
+            android:visibility="@{item.isEditing ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toTopOf="@id/tv_datetime"
+            app:layout_constraintBottom_toBottomOf="@id/tv_datetime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cb_select"
+            />
+
+        <CheckBox
+            android:id="@+id/cb_select"
+            android:background="@{item.checkState == CheckState.CHECK_YES ? @drawable/comres_icon_check_yes_round_tick : item.checkState == CheckState.CHECK_NO ? @drawable/comres_icon_check_no_round_tick : @drawable/comres_icon_check_partly_round_tick}"
+            android:button="@null"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:onClick="@{() -> onItemClickListener.onItemClick(item)}"
+            android:visibility="@{item.isEditing ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="@id/tv_datetime"
+            app:layout_constraintBottom_toBottomOf="@id/tv_datetime"
+            app:layout_constraintStart_toEndOf="@id/iv_time_line"
+            app:layout_constraintEnd_toStartOf="@id/tv_datetime"
+            />
+
+        <TextView
+            android:id="@+id/tv_datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_marginStart="12dp"
+            android:gravity="center"
+            android:onClick="@{() -> onItemClickListener.onItemClick(item)}"
+            android:text="@{item.datetime}"
+            android:textColor="@color/comres_color_393d4b"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rv_article_title_list"
+            app:layout_constraintStart_toEndOf="@id/cb_select"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_article_title_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:adapter="@{innerRecyclerViewAdapter}"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/v_line2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

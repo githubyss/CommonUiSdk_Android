@@ -1,8 +1,6 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view.article_list
 
 import com.githubyss.mobile.common.kit.enumeration.CheckState
-import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ArticleListDataCenter.changeAllCheckState
-import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterDoubleLayerItem
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
 
 
@@ -90,6 +88,44 @@ object ArticleListDataCenter {
         items
     }
 
+    @JvmStatic
+    val itemsCombineAll by lazy {
+        val items = ArrayList<ItemCombineAll>()
+        var articleList: ArrayList<ItemTitleAll>
+
+        articleList = ArrayList()
+        items += ItemCombineAll(0, "今天", articleList, false, CheckState.CHECK_YES)
+        articleList += ItemTitleAll("20899", "人民网这样说！", false, true, "今天", false, CheckState.CHECK_YES)
+        articleList += ItemTitleAll("20765", "金士顿火了！", true, true, "今天", false, CheckState.CHECK_YES)
+
+        articleList = ArrayList()
+        items += ItemCombineAll(1, "昨天", articleList, false, CheckState.CHECK_YES)
+        articleList += ItemTitleAll("20033", "Google 宣布以下事项！", false, false, "昨天", false, CheckState.CHECK_NO)
+
+        articleList = ArrayList()
+        items += ItemCombineAll(2, "一个月前", articleList, false, CheckState.CHECK_PARTLY)
+        articleList += ItemTitleAll("20011", "苏宁进入退市流程！", false, false, "一个月前", false, CheckState.CHECK_YES)
+        articleList += ItemTitleAll("19766", "互联网寒冬还要持续多久！", false, false, "一个月前", false, CheckState.CHECK_YES)
+        articleList += ItemTitleAll("19679", "三亚热死人了！", false, false, "一个月前", false, CheckState.CHECK_NO)
+
+        items
+    }
+
+    fun setEditing(isEditing: Boolean) {
+        // for (itemCombine in itemsCombine) {
+        //     itemCombine.isEditing.set(isEditing)
+        //     itemCombine.innerItems = itemCombine.innerItems.changeAllEditState(isEditing)
+        // }
+    }
+
+    fun selectAllItems(selectAll: Boolean) {
+        val checkState = if (selectAll) CheckState.CHECK_YES else CheckState.CHECK_NO
+        for (itemCombineEditing in itemsCombineEditing) {
+            itemCombineEditing.checkState.set(checkState)
+            itemCombineEditing.innerItems = itemCombineEditing.innerItems.changeAllCheckState(checkState)
+        }
+    }
+
     fun selectItemCombine(data: ItemCombineEditing) {
         val checkState = when (data.checkState.get()) {
             CheckState.CHECK_YES -> {
@@ -126,16 +162,17 @@ object ArticleListDataCenter {
         }
     }
 
-    fun selectAllItems(selectAll: Boolean) {
-        val checkState = if (selectAll) CheckState.CHECK_YES else CheckState.CHECK_NO
-        for (itemCombineEditing in itemsCombineEditing) {
-            itemCombineEditing.checkState.set(checkState)
-            itemCombineEditing.innerItems = itemCombineEditing.innerItems.changeAllCheckState(checkState)
-        }
+    fun deleteItemTitle(titles: List<ItemTitleEditing>) {
+
     }
 
     fun List<ItemTitleEditing>.changeAllCheckState(checkState: String) = this.map {
         it.checkState.set(checkState)
         it
+    }
+
+    fun List<ItemTitle>.changeAllEditState(isEditing: Boolean) = this.map {
+        // it.isEditing.set(isEditing)
+        // it
     }
 }
