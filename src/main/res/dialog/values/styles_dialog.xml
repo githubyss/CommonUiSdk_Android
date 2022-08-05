@@ -34,7 +34,7 @@
     </style>
 
     <style name="comui_dialog_button_clickable_voice_select_cancel"
-           parent="comres_button_clickable_white_with_border_rectangle_4dp_round_all">
+           parent="comres_button_clickable_transparent_3_with_border_rectangle_4dp_round_all">
         <item name="android:textSize">14sp</item>
     </style>
 </resources>
