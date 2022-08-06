@@ -46,7 +46,7 @@
             android:gravity="center"
             android:lines="1"
             android:text="@{item.title}"
-            android:textColor="@color/comres_color_3f434f"
+            android:textColor="@color/comres_color_3f434f70pct"
             android:textSize="15sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

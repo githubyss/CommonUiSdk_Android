@@ -68,7 +68,7 @@
             android:ellipsize="end"
             android:lines="1"
             android:text="@{item.title}"
-            android:textColor="@{item.isPlaying ? @color/play_list_title_playing_yes : @color/play_list_title_playing_no}"
+            android:textColor="@{item.isPlaying ? @color/comui_play_list_title_playing_yes : @color/comui_play_list_title_playing_no}"
             android:textSize="15sp"
             app:layout_constraintTop_toTopOf="@id/iv_tag_new"
             app:layout_constraintBottom_toBottomOf="@id/iv_tag_new"

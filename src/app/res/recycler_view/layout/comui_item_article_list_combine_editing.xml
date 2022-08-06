@@ -61,7 +61,7 @@
             android:layout_height="0dp"
             android:adapter="@{innerRecyclerViewAdapter}"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/cb_select"
+            app:layout_constraintTop_toBottomOf="@id/tv_datetime"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
