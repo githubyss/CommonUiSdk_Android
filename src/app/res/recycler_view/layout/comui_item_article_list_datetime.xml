@@ -29,7 +29,7 @@
             android:background="@color/comres_color_d2d4da"
             android:layout_width="1dp"
             android:layout_height="23dp"
-            android:visibility="@{item.position == 0 ? View.INVISIBLE : View.VISIBLE}"
+            android:visibility="@{item.isFirst ? View.INVISIBLE : View.VISIBLE}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />

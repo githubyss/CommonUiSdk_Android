@@ -13,6 +13,6 @@ import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterI
  * @github githubyss
  * @createdTime 2022/08/04 14:43:05
  */
-open class ItemCombine(var position: Int, var datetime: String, override var innerItems: List<ItemTitle>) : BindingAdapterDoubleLayerItem {
+open class ItemCombine(var datetime: String, var isFirst: Boolean, override var innerItems: ArrayList<ItemTitle>) : BindingAdapterDoubleLayerItem {
     override val layoutId: Int = R.layout.comui_item_article_list_combine
 }

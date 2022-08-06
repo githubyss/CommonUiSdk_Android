@@ -12,7 +12,7 @@ import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterI
  * @github githubyss
  * @createdTime 2022/08/05 16:22:16
  */
-class ItemTitleAll(id: String, title: String, isPlaying: Boolean, isNew: Boolean, var datetime: String, isEditing: Boolean, checkState: String) : ItemTitle(id, title, isPlaying, isNew) {
+class ItemTitleAll(var id: String, var title: String, var isPlaying: Boolean, var isNew: Boolean, var datetime: String, isEditing: Boolean, checkState: String) : BindingAdapterItem {
     val isEditing by lazy { ObservableField<Boolean>() }
     val checkState by lazy { ObservableField<String>() }
 

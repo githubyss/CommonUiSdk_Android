@@ -11,6 +11,6 @@ import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterI
  * @github githubyss
  * @createdTime 2022/08/03 15:47:28
  */
-class ItemDatetime(var position: Int, var datetime: String) : BindingAdapterItem {
+class ItemDatetime(var datetime: String, var isFirst: Boolean) : BindingAdapterItem {
     override val layoutId: Int = R.layout.comui_item_article_list_datetime
 }

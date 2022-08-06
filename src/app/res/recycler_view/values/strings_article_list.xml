@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button -->
+    <string name="comui_article_list_select_all">全部选择</string>
+    <string name="comui_article_list_unselect_all">取消全选</string>
+</resources>

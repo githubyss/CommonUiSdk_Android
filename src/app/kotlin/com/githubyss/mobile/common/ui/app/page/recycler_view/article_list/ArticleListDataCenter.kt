@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view.article_list
 
 import com.githubyss.mobile.common.kit.enumeration.CheckState
+import com.githubyss.mobile.common.kit.util.*
 import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
 
 
@@ -13,109 +14,78 @@ import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterI
  */
 object ArticleListDataCenter {
     @JvmStatic
-    val items by lazy {
-        val items = ArrayList<BindingAdapterItem>()
-        items += ItemDatetime(0, "今天")
-        items += ItemTitle("20899", "人民网这样说！", false, true)
-        items += ItemTitle("20765", "金士顿火了！", true, true)
-        items += ItemDatetime(1, "昨天")
-        items += ItemTitle("20033", "Google 宣布以下事项！", false, false)
-        items += ItemDatetime(2, "一个月前")
-        items += ItemTitle("20011", "苏宁进入退市流程！", false, false)
-        items += ItemTitle("19766", "互联网寒冬还要持续多久！", false, false)
-        items += ItemTitle("19679", "三亚热死人了！", false, false)
-        items
-    }
+    val items by lazy { ArrayList<BindingAdapterItem>() }
 
     @JvmStatic
-    val itemsEditing by lazy {
-        val items = ArrayList<BindingAdapterItem>()
-        items += ItemDatetimeEditing("今天", CheckState.CHECK_YES)
-        items += ItemTitleEditing("20899", "人民网这样说！", "今天", CheckState.CHECK_YES)
-        items += ItemTitleEditing("20765", "金士顿火了！", "今天", CheckState.CHECK_YES)
-        items += ItemDatetimeEditing("昨天", CheckState.CHECK_NO)
-        items += ItemTitleEditing("20033", "Google 宣布以下事项！", "昨天", CheckState.CHECK_NO)
-        items += ItemDatetimeEditing("一个月前", CheckState.CHECK_PARTLY)
-        items += ItemTitleEditing("20011", "苏宁进入退市流程！", "一个月前", CheckState.CHECK_YES)
-        items += ItemTitleEditing("19766", "互联网寒冬还要持续多久！", "一个月前", CheckState.CHECK_YES)
-        items += ItemTitleEditing("19679", "三亚热死人了！", "一个月前", CheckState.CHECK_NO)
-        items
-    }
+    val itemsEditing by lazy { ArrayList<BindingAdapterItem>() }
 
     @JvmStatic
-    val itemsCombine by lazy {
-        val items = ArrayList<ItemCombine>()
-        var articleList: ArrayList<ItemTitle>
-
-        articleList = ArrayList()
-        items += ItemCombine(0, "今天", articleList)
-        articleList += ItemTitle("20899", "人民网这样说！", false, true)
-        articleList += ItemTitle("20765", "金士顿火了！", true, true)
-
-        articleList = ArrayList()
-        items += ItemCombine(1, "昨天", articleList)
-        articleList += ItemTitle("20033", "Google 宣布以下事项！", false, false)
-
-        articleList = ArrayList()
-        items += ItemCombine(2, "一个月前", articleList)
-        articleList += ItemTitle("20011", "苏宁进入退市流程！", false, false)
-        articleList += ItemTitle("19766", "互联网寒冬还要持续多久！", false, false)
-        articleList += ItemTitle("19679", "三亚热死人了！", false, false)
-
-        items
-    }
+    val itemsCombine by lazy { ArrayList<ItemCombine>() }
 
     @JvmStatic
-    val itemsCombineEditing by lazy {
-        val items = ArrayList<ItemCombineEditing>()
-        var articleList: ArrayList<ItemTitleEditing>
-
-        articleList = ArrayList()
-        items += ItemCombineEditing("今天", CheckState.CHECK_YES, articleList)
-        articleList += ItemTitleEditing("20899", "人民网这样说！", "今天", CheckState.CHECK_YES)
-        articleList += ItemTitleEditing("20765", "金士顿火了！", "今天", CheckState.CHECK_YES)
-
-        articleList = ArrayList()
-        items += ItemCombineEditing("昨天", CheckState.CHECK_YES, articleList)
-        articleList += ItemTitleEditing("20033", "Google 宣布以下事项！", "昨天", CheckState.CHECK_NO)
-
-        articleList = ArrayList()
-        items += ItemCombineEditing("一个月前", CheckState.CHECK_PARTLY, articleList)
-        articleList += ItemTitleEditing("20011", "苏宁进入退市流程！", "一个月前", CheckState.CHECK_YES)
-        articleList += ItemTitleEditing("19766", "互联网寒冬还要持续多久！", "一个月前", CheckState.CHECK_YES)
-        articleList += ItemTitleEditing("19679", "三亚热死人了！", "一个月前", CheckState.CHECK_NO)
-
-        items
-    }
+    val itemsCombineEditing by lazy { ArrayList<ItemCombineEditing>() }
 
     @JvmStatic
-    val itemsCombineAll by lazy {
-        val items = ArrayList<ItemCombineAll>()
-        var articleList: ArrayList<ItemTitleAll>
+    val itemsCombineAll by lazy { ArrayList<ItemCombineAll>() }
 
-        articleList = ArrayList()
-        items += ItemCombineAll(0, "今天", articleList, false, CheckState.CHECK_YES)
-        articleList += ItemTitleAll("20899", "人民网这样说！", false, true, "今天", false, CheckState.CHECK_YES)
-        articleList += ItemTitleAll("20765", "金士顿火了！", true, true, "今天", false, CheckState.CHECK_YES)
+    fun updateData() {
+        val jsonObject = getJSONObjectFromAssets("json/netres/article/mock_request_articles.json")
+        val articlesJson = jsonObject.jsonObject("data").jsonArray("articles") ?: return
 
-        articleList = ArrayList()
-        items += ItemCombineAll(1, "昨天", articleList, false, CheckState.CHECK_YES)
-        articleList += ItemTitleAll("20033", "Google 宣布以下事项！", false, false, "昨天", false, CheckState.CHECK_NO)
+        items.clear()
+        itemsEditing.clear()
+        itemsCombine.clear()
+        itemsCombineEditing.clear()
 
-        articleList = ArrayList()
-        items += ItemCombineAll(2, "一个月前", articleList, false, CheckState.CHECK_PARTLY)
-        articleList += ItemTitleAll("20011", "苏宁进入退市流程！", false, false, "一个月前", false, CheckState.CHECK_YES)
-        articleList += ItemTitleAll("19766", "互联网寒冬还要持续多久！", false, false, "一个月前", false, CheckState.CHECK_YES)
-        articleList += ItemTitleAll("19679", "三亚热死人了！", false, false, "一个月前", false, CheckState.CHECK_NO)
+        var isFirst = true
+        var dateGet = ""
 
-        items
-    }
+        var titleList = ArrayList<ItemTitle>()
+        var titleEditingList = ArrayList<ItemTitleEditing>()
+        var titleAllList = ArrayList<ItemTitleAll>()
+        for (article in articlesJson) {
+            val id = article.string("id") ?: ""
+            val title = article.string("title") ?: ""
+            val createDate = article.string("createDate") ?: ""
 
-    fun setEditing(isEditing: Boolean) {
-        // for (itemCombine in itemsCombine) {
-        //     itemCombine.isEditing.set(isEditing)
-        //     itemCombine.innerItems = itemCombine.innerItems.changeAllEditState(isEditing)
-        // }
+            val datetimeString = when {
+                createDate.equalTodayForUtc -> "今天"
+                createDate.equalYesterdayForUtc -> "昨天"
+                createDate.beforeMonthForUtc -> "一个月前"
+                else -> createDate.datetimeStringForUtc("M月d日")
+            }
+
+            when (dateGet) {
+                datetimeString -> {
+                    items += ItemTitle(id, title, false, false)
+                    itemsEditing += ItemTitleEditing(id, title, datetimeString, CheckState.CHECK_NO)
+                }
+                else -> {
+                    items += ItemDatetime(datetimeString, isFirst)
+                    itemsEditing += ItemDatetimeEditing(datetimeString, CheckState.CHECK_NO)
+                }
+            }
+
+            when (dateGet) {
+                datetimeString -> {}
+                else -> {
+                    titleList = ArrayList()
+                    itemsCombine += ItemCombine(datetimeString, isFirst, titleList)
+
+                    titleEditingList = ArrayList()
+                    itemsCombineEditing += ItemCombineEditing(datetimeString, CheckState.CHECK_NO, titleEditingList)
+                    dateGet = datetimeString
+
+                    titleAllList = ArrayList()
+                    itemsCombineAll += ItemCombineAll(datetimeString, isFirst, titleAllList, false, CheckState.CHECK_NO)
+                }
+            }
+
+            titleList += ItemTitle(id, title, false, false)
+            titleEditingList += ItemTitleEditing(id, title, datetimeString, CheckState.CHECK_NO)
+            titleAllList += ItemTitleAll(id, title, false, false, datetimeString, false, CheckState.CHECK_NO)
+            isFirst = false
+        }
     }
 
     fun selectAllItems(selectAll: Boolean) {
@@ -162,14 +132,29 @@ object ArticleListDataCenter {
         }
     }
 
-    fun deleteItemTitle(titles: List<ItemTitleEditing>) {
-
+    fun deleteItemTitle(ids: Set<String>) {
+        itemsCombine.forEach {
+            val iterator = it.innerItems.iterator()
+            while (iterator.hasNext()) {
+                if (ids.contains(iterator.next().id)) {
+                    iterator.remove()
+                }
+            }
+        }
+        itemsCombineEditing.forEach {
+            val iterator = it.innerItems.iterator()
+            while (iterator.hasNext()) {
+                if (ids.contains(iterator.next().id)) {
+                    iterator.remove()
+                }
+            }
+        }
     }
 
     fun List<ItemTitleEditing>.changeAllCheckState(checkState: String) = this.map {
         it.checkState.set(checkState)
         it
-    }
+    } as ArrayList
 
     fun List<ItemTitle>.changeAllEditState(isEditing: Boolean) = this.map {
         // it.isEditing.set(isEditing)
