@@ -1,8 +1,8 @@
 package com.githubyss.mobile.common.ui.app.page.speech_recognition
 
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarActivity
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline_root.inflate
-import com.githubyss.mobile.common.kit.databinding.ComkitActivityBaseToolbarBinding
+import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarActivity
+import com.githubyss.common.base.activity_fragment.binding_inline_root.inflate
+import com.githubyss.common.base.databinding.CombaseActivityBaseToolbarBinding
 import com.githubyss.mobile.common.ui.R
 
 
@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.ui.R
  * @github githubyss
  * @createdTime 2021/12/27 14:29:03
  */
-class SpeechRecognitionActivity : BaseInlineBindingToolbarActivity<ComkitActivityBaseToolbarBinding>() {
+class SpeechRecognitionActivity : BaseInlineBindingToolbarActivity<CombaseActivityBaseToolbarBinding>() {
 
     /** ****************************** Companion ****************************** */
 
@@ -26,7 +26,7 @@ class SpeechRecognitionActivity : BaseInlineBindingToolbarActivity<ComkitActivit
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val _binding by inflate<ComkitActivityBaseToolbarBinding>()
+    private val _binding by inflate<CombaseActivityBaseToolbarBinding>()
 
 
     /** ****************************** Override ****************************** */

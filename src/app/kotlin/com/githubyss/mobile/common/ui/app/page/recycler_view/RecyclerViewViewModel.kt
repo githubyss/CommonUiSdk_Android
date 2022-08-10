@@ -2,9 +2,9 @@ package com.githubyss.mobile.common.ui.app.page.recycler_view
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.githubyss.common.base.recycler_view.binding.BindingAdapterItem
 import com.githubyss.mobile.common.kit.enumeration.CheckState
 import com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.*
-import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
 
 
 /**

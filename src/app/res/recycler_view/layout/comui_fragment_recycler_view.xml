@@ -20,7 +20,7 @@
 
         <variable
             name="bindingRecyclerViewAdapter"
-            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewDoubleLayerAdapter"
+            type="com.githubyss.common.base.recycler_view.binding.BindingRecyclerViewDoubleLayerAdapter"
             />
     </data>
 

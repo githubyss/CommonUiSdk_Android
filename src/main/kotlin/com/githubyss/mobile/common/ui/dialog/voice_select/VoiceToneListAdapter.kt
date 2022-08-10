@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.dialog.voice_select
 
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiItemVoiceToneBinding
-import com.githubyss.mobile.common.ui.recycler_view.base.binding.BaseBindingRecyclerViewAdapter
+import com.githubyss.common.base.recycler_view.binding.BaseBindingRecyclerViewAdapter
 
 
 /**

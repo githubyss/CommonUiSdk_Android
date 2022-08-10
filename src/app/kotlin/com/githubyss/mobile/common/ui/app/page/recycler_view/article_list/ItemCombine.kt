@@ -1,9 +1,7 @@
 package com.githubyss.mobile.common.ui.app.page.recycler_view.article_list
 
-import androidx.databinding.ObservableField
+import com.githubyss.common.base.recycler_view.binding.BindingAdapterDoubleLayerItem
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterDoubleLayerItem
-import com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingAdapterItem
 
 
 /**

@@ -1,11 +1,10 @@
 package com.githubyss.mobile.common.ui.app.application
 
-import android.app.Application
 import android.content.Context
+import com.githubyss.common.base.application.BaseApplication
 import com.githubyss.mobile.common.kit.manager.speech_recognition.SpeechRecognitionManager
 import com.githubyss.mobile.common.net.ComnetApplicationConfig
-import com.githubyss.mobile.common.kit.base.application.BaseApplication
-import kotlin.properties.Delegates
+import com.githubyss.mobile.common.net.ComnetApplicationConfig.application
 
 
 /**
@@ -20,14 +19,9 @@ class ComuiApplication : BaseApplication() {
     /** ****************************** Properties ****************************** */
 
     companion object {
-        private var instance: ComuiApplication by Delegates.notNull()
-            private set
-
         private val TAG: String = ComuiApplication::class.java.simpleName
 
-        fun getApp(): ComuiApplication {
-            return instance
-        }
+        fun getApp() = BaseApplication.instance
     }
 
 
@@ -43,8 +37,7 @@ class ComuiApplication : BaseApplication() {
 
     /** ****************************** Open ****************************** */
 
-    override fun initComnet(application: Application) {
-        super.initComnet(application)
+    override fun initComnet() {
         ComnetApplicationConfig.init(application)
     }
 

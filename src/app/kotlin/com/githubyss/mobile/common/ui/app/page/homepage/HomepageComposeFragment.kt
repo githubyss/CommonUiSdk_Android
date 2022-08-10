@@ -6,8 +6,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.fragment.app.viewModels
-import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
-import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
+import com.githubyss.common.base.activity_fragment.classical.BaseActivity
+import com.githubyss.common.base.activity_fragment.compose.BaseComposeToolbarFragment
 import com.githubyss.mobile.common.kit.util.*
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 import com.githubyss.mobile.common.ui.R

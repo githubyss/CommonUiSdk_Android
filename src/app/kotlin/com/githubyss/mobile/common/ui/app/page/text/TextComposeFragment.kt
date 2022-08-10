@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.viewModels
-import com.githubyss.mobile.common.kit.base.activity_fragment.compose.BaseComposeToolbarFragment
+import com.githubyss.common.base.activity_fragment.compose.BaseComposeToolbarFragment
 import com.githubyss.mobile.common.res.common.dimen.*
 import com.githubyss.mobile.common.ui.page.compose.PagePadding
 import com.githubyss.mobile.common.ui.text.compose.TextCommon

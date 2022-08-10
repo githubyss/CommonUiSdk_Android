@@ -2,7 +2,7 @@ package com.githubyss.mobile.common.ui.recycler_view.template.emptynone
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.githubyss.mobile.common.ui.recycler_view.base.binding_inline.inflate
+import com.githubyss.common.base.recycler_view.binding_inline_root.bindView
 import com.githubyss.mobile.common.ui.databinding.ComuiListItemEmptyNoneBinding
 import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemAdapter
 import com.githubyss.mobile.common.ui.recycler_view.base.classical.BaseItemModel
@@ -28,7 +28,7 @@ class EmptyNoneAdapter constructor(private val dataList: List<BaseItemModel>) : 
     /** ****************************** Override ****************************** */
     
     override fun onCreateViewHolder(parent: ViewGroup, @ItemType viewType: Int): RecyclerView.ViewHolder {
-        return inflate<ComuiListItemEmptyNoneBinding>(parent)
+        return bindView<ComuiListItemEmptyNoneBinding>(parent)
     }
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

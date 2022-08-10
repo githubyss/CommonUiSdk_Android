@@ -15,7 +15,7 @@
 
         <variable
             name="onItemClickListener"
-            type="com.githubyss.mobile.common.ui.recycler_view.base.binding.BindingRecyclerViewAdapter.OnItemClickListener"
+            type="com.githubyss.common.base.recycler_view.binding.BindingRecyclerViewAdapter.OnItemClickListener"
             />
     </data>
 

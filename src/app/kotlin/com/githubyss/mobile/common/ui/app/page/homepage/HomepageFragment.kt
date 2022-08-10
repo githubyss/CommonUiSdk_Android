@@ -3,8 +3,8 @@ package com.githubyss.mobile.common.ui.app.page.homepage
 import android.content.Context
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
-import com.githubyss.mobile.common.kit.base.activity_fragment.classical.BaseActivity
+import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
+import com.githubyss.common.base.activity_fragment.classical.BaseActivity
 import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.FragmentUtils
 import com.githubyss.mobile.common.ui.R

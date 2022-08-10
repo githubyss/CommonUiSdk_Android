@@ -4,9 +4,9 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.graphics.Point
 import android.view.View
+import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
+import com.githubyss.common.base.activity_fragment.binding_inline_root.bindView
 import com.githubyss.mobile.common.kit.ComkitApplicationConfig
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline_root.bindView
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.PointEvaluator

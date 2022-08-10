@@ -1,7 +1,7 @@
 package com.githubyss.mobile.common.ui.app.page.homepage
 
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect.BaseReflectBindingActivity
-import com.githubyss.mobile.common.kit.databinding.ComkitActivityBaseBinding
+import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingActivity
+import com.githubyss.common.base.databinding.CombaseActivityBaseBinding
 
 
 /**
@@ -11,7 +11,7 @@ import com.githubyss.mobile.common.kit.databinding.ComkitActivityBaseBinding
  * @github githubyss
  * @createdTime 2021/03/09 10:54:13
  */
-class HomepageActivity : BaseReflectBindingActivity<ComkitActivityBaseBinding>() {
+class HomepageActivity : BaseReflectBindingActivity<CombaseActivityBaseBinding>() {
 
     /** ****************************** Companion ****************************** */
 

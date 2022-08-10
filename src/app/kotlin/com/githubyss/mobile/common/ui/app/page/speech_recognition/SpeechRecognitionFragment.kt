@@ -3,8 +3,8 @@ package com.githubyss.mobile.common.ui.app.page.speech_recognition
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_inline_root.bindView
+import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
+import com.githubyss.common.base.activity_fragment.binding_inline_root.bindView
 import com.githubyss.mobile.common.kit.manager.speech_recognition.SpeechRecognitionManager
 import com.githubyss.mobile.common.kit.manager.speech_recognition.VoiceJsonParser
 import com.githubyss.mobile.common.kit.util.logD

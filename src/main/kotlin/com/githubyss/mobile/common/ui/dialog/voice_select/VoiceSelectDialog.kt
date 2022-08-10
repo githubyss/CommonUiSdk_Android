@@ -13,7 +13,7 @@ import com.githubyss.mobile.common.kit.util.showToast
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiDialogVoiceSelectBinding
 import com.githubyss.mobile.common.ui.dialog.binding_reflect.BaseReflectBindingViewModelDialogFragment
-import com.githubyss.mobile.common.ui.recycler_view.base.binding.BaseBindingRecyclerViewAdapter
+import com.githubyss.common.base.recycler_view.binding.BaseBindingRecyclerViewAdapter
 
 
 /**

@@ -6,7 +6,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.githubyss.mobile.common.kit.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
+import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
 import com.githubyss.mobile.common.kit.manager.audio_player.model.AudioModel
 import com.githubyss.mobile.common.kit.util.dp2Px
 import com.githubyss.mobile.common.kit.util.logD
