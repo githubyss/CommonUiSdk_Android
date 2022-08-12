@@ -17,7 +17,7 @@ import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.githubyss.common.base.lifecycle.lifecycle_subscriber.ActivityLifecycleSubscriber
+import com.githubyss.common.base.lifecycle.LifecycleConstant
 import com.githubyss.design_pattern.singleton.SingletonHolder1Arg
 import com.githubyss.mobile.common.kit.constant.Constants
 import com.githubyss.mobile.common.kit.enumeration.VersionCode
@@ -155,7 +155,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
 
     private fun initLocalBroadcastReceiver() {
         val intentFilter = IntentFilter()
-        intentFilter.addAction(ActivityLifecycleSubscriber.INTENT_ACTION_IS_FOREGROUND)
+        intentFilter.addAction(LifecycleConstant.INTENT_ACTION_IS_FOREGROUND)
         intentFilter.addAction(Constants.INTENT_ACTION_CLOSE_FLOAT)
         // 注册广播接收器
         LocalBroadcastManager.getInstance(containerContext ?: return)
@@ -310,7 +310,7 @@ class SystemFloatingIcon : SystemFloatingInterface<SystemFloatingIcon, IconViewM
         override fun onReceive(context: Context, intent: Intent) {
             val action = intent.action
             // 前后台事件
-            if (action == ActivityLifecycleSubscriber.INTENT_ACTION_IS_FOREGROUND) {
+            if (action == LifecycleConstant.INTENT_ACTION_IS_FOREGROUND) {
                 // 回到前台
                 if (intent.getBooleanExtra("isForeground", true)) {
                     refreshViewWhenAppForeground()
