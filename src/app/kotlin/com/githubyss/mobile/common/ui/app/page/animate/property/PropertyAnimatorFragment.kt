@@ -6,7 +6,7 @@ import android.graphics.Point
 import android.view.View
 import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
 import com.githubyss.common.base.activity_fragment.binding_inline_root.bindView
-import com.githubyss.mobile.common.kit.ComkitApplicationConfig
+import com.githubyss.common.base.application.BaseApplicationHolder
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.PointEvaluator
@@ -168,7 +168,7 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment<ComuiFragmentP
             }
 
             R.id.btnShow -> {
-                ComuiAutoHideFloatingWindow.instance.show(ComkitApplicationConfig.getApp())
+                ComuiAutoHideFloatingWindow.instance.show(BaseApplicationHolder.getApp())
             }
 
             R.id.btnHide -> {

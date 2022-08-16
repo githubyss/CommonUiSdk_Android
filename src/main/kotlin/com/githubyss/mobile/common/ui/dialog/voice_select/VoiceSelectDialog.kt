@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
+import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelDialogFragment
+import com.githubyss.common.base.recycler_view.binding.BaseBindingRecyclerViewAdapter
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.kit.util.showToast
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiDialogVoiceSelectBinding
-import com.githubyss.mobile.common.ui.dialog.binding_reflect.BaseReflectBindingViewModelDialogFragment
-import com.githubyss.common.base.recycler_view.binding.BaseBindingRecyclerViewAdapter
 
 
 /**
@@ -25,7 +25,7 @@ import com.githubyss.common.base.recycler_view.binding.BaseBindingRecyclerViewAd
  */
 class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : BaseReflectBindingViewModelDialogFragment<ComuiDialogVoiceSelectBinding>() {
 
-    /** ****************************** Companion ****************************** */
+    /** ****************************** Object ****************************** */
 
     /**  */
     companion object {
@@ -37,6 +37,11 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
         private const val KEY_BTN_CONFIRM = "btnConfirm"
         private const val KEY_BTN_CANCEL = "btnCancel"
         private const val KEY_VOICE_TONE_LIST = "voiceToneList"
+    }
+
+    /**  */
+    private object Holder {
+        val INSTANCE = VoiceSelectDialog()
     }
 
 
@@ -85,14 +90,6 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
     }
 
     /**  */
-    override fun observeViewModelData() {
-    }
-
-    /**  */
-    override fun removeViewModelObserver() {
-    }
-
-    /**  */
     override fun show(manager: FragmentManager, tag: String?) {
         // 父类中的 show 方法使用的是 ft.commit()，而使用这个方法，有可能会出现 Can not perform this action after onSaveInstanceState 报错。
         // super.show(manager, tag)
@@ -129,11 +126,6 @@ class VoiceSelectDialog @SuppressLint("ValidFragment") private constructor() : B
 
 
     /** ****************************** Class ****************************** */
-
-    /**  */
-    private object Holder {
-        val INSTANCE = VoiceSelectDialog()
-    }
 
     /**  */
     inner class OnClickPresenter {

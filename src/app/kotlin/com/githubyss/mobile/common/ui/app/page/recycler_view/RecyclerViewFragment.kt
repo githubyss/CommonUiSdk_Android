@@ -48,6 +48,7 @@ class RecyclerViewFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFra
         when (recyclerViewVm.isEditing.value) {
             true -> bindingRecyclerViewAdapter.updateDataList(recyclerViewVm.itemsCombineEditing)
             false -> bindingRecyclerViewAdapter.updateDataList(recyclerViewVm.itemsCombine)
+            else -> {}
         }
         bindingRecyclerViewAdapter.onItemClickListener = object : BindingRecyclerViewDoubleLayerAdapter.OnItemClickListener {
             override fun onItemClick(data: BindingAdapterDoubleLayerItem) {

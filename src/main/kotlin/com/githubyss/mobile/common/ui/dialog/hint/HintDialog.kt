@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
+import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelDialogFragment
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.kit.util.showToast
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiDialogHintBinding
-import com.githubyss.mobile.common.ui.dialog.binding_reflect.BaseReflectBindingViewModelDialogFragment
 
 
 /**
@@ -96,14 +96,6 @@ class HintDialog : BaseReflectBindingViewModelDialogFragment<ComuiDialogHintBind
         // binding.onClickPresenter = onClickPresenter
         binding.onClickListener = onClickListener
         binding.hintDialogView = this
-    }
-
-    /**  */
-    override fun observeViewModelData() {
-    }
-
-    /**  */
-    override fun removeViewModelObserver() {
     }
 
     /**  */

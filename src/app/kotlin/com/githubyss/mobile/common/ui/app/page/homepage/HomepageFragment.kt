@@ -5,8 +5,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
 import com.githubyss.common.base.activity_fragment.classical.BaseActivity
-import com.githubyss.mobile.common.kit.util.ActivityUtils
 import com.githubyss.mobile.common.kit.util.FragmentUtils
+import com.githubyss.mobile.common.kit.util.startActivityExt
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment
 import com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowFragment
@@ -135,7 +135,7 @@ class HomepageFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmen
             }
 
             R.id.button_speech_recognition -> {
-                ActivityUtils.startActivity(activity, SpeechRecognitionActivity::class.java)
+                startActivityExt(activity, SpeechRecognitionActivity::class.java)
             }
         }
     }

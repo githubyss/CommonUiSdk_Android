@@ -144,7 +144,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_speech_recognition)) {
-            ActivityUtils.startActivity(activity, SpeechRecognitionActivity::class.java)
+            startActivityExt(activity, SpeechRecognitionActivity::class.java)
         }
 
         LayoutWeightHorizontal {
