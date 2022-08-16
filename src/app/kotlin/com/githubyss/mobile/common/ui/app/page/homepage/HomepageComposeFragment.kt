@@ -75,19 +75,19 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
     @Composable
     private fun Buttons() {
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_button_compose)) {
-            FragmentUtils.switchFragmentByAddHideShow(ButtonComposeFragment(), ButtonComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            switchFragmentByAddHideShow(ButtonComposeFragment(), ButtonComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_card_compose)) {
-            FragmentUtils.switchFragmentByAddHideShow(CardComposeFragment(), CardComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            switchFragmentByAddHideShow(CardComposeFragment(), CardComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_text_compose)) {
-            FragmentUtils.switchFragmentByAddHideShow(TextComposeFragment(), TextComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            switchFragmentByAddHideShow(TextComposeFragment(), TextComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_text_field_compose)) {
-            FragmentUtils.switchFragmentByAddHideShow(TextFieldComposeFragment(), TextFieldComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            switchFragmentByAddHideShow(TextFieldComposeFragment(), TextFieldComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
         LayoutWeightHorizontal {
@@ -95,7 +95,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
                 text = getStringFromRes(R.string.comui_homepage_button_property_animation),
                 modifier = Modifier.weight(1F),
             ) {
-                FragmentUtils.switchFragmentByAddHideShow(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+                switchFragmentByAddHideShow(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
             }
             ButtonClickDefault(
                 text = getStringFromRes(R.string.comui_homepage_button_tween_animation),
@@ -190,7 +190,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         }
 
         ButtonClickDefault(text = "自定义View") {
-            FragmentUtils.switchFragmentByAddHideShow(CustomViewFragment(), CustomViewFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            switchFragmentByAddHideShow(CustomViewFragment(), CustomViewFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
     }
 }

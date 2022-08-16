@@ -5,8 +5,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
 import com.githubyss.common.base.activity_fragment.classical.BaseActivity
-import com.githubyss.mobile.common.kit.util.FragmentUtils
 import com.githubyss.mobile.common.kit.util.startActivityExt
+import com.githubyss.mobile.common.kit.util.switchFragmentByAddHideShow
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment
 import com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowFragment
@@ -104,7 +104,7 @@ class HomepageFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmen
     /**  */
     private val vmObserverViewId = Observer<Int> { t ->
         when (t) {
-            R.id.button_property_animation -> FragmentUtils.switchFragmentByAddHideShow(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, true)
+            R.id.button_property_animation -> switchFragmentByAddHideShow(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_TOOLBAR_CONTAINER_ID, true)
             R.id.button_tween_animation -> {
             }
 
