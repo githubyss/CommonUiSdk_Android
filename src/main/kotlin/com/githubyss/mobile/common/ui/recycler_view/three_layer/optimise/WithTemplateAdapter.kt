@@ -153,7 +153,7 @@ class WithTemplateAdapter(private val mContext: Context,
             }
             var oncePageWidth = rlNewLayout.layoutParams.width + (10 * phoneDensity).toInt()
             templateItem?.detail?.let {
-                // GlideUtils.loadImage(mContext, it.newBgImgUrl, ivNewBackground)
+                // loadImage(mContext, it.newBgImgUrl, ivNewBackground)
                 tvNewRightBottom.text = it.newBtnName ?: ""
                 //tvNewLeftNum.text = it.newRate ?: ""
                 // splitRateStr(it.newRate, tvNewLeftNum, tvNewLeftNum2)
@@ -570,9 +570,9 @@ class WithTemplateAdapter(private val mContext: Context,
         private var ivActivityThree: ImageView = itemView.findViewById(R.id.iv_activity_three) as ImageView
 
         override fun bindHolder(templateItem: ProductInfo.ProductTemplate.ProductTemplateItem?, pos: Int) {
-            // GlideUtils.loadImage(mContext, templateItem?.detail?.hotEventImgUrl1, ivActivityOne)
-            // GlideUtils.loadImage(mContext, templateItem?.detail?.hotEventImgUrl2, ivActivityTwo)
-            // GlideUtils.loadImage(mContext, templateItem?.detail?.hotEventImgUrl3, ivActivityThree)
+            // loadImage(mContext, templateItem?.detail?.hotEventImgUrl1, ivActivityOne)
+            // loadImage(mContext, templateItem?.detail?.hotEventImgUrl2, ivActivityTwo)
+            // loadImage(mContext, templateItem?.detail?.hotEventImgUrl3, ivActivityThree)
 
             ivActivityOne.setOnClickListener(object : OnGapClickListener() {
                 override fun onGapClick(v: View?) {
@@ -655,7 +655,7 @@ class WithTemplateAdapter(private val mContext: Context,
                 // splitRateStr(it.hotRate, tvHotNum, tvHotNum2)
                 tvHotNumSign.text = it.hotSign ?: ""
                 tvHotMiddleDesc.text = it.hotRateComment ?: ""
-                // GlideUtils.loadImage(mContext, it.hotBgImgUrl, ivProductBg)
+                // loadImage(mContext, it.hotBgImgUrl, ivProductBg)
                 if (it.hotDesc1.isNullOrBlank()) {
                     tvHotDescOne.visibility = View.GONE
                 }
@@ -891,7 +891,7 @@ class WithTemplateAdapter(private val mContext: Context,
         private var itemTypeBannerSingle: ImageView = itemView.findViewById(R.id.item_type_banner_single) as ImageView
 
         override fun bindHolder(templateItem: ProductInfo.ProductTemplate.ProductTemplateItem?, pos: Int) {
-            // GlideUtils.loadImage(mContext, templateItem?.detail?.bannerImgUrl, itemTypeBannerSingle)
+            // loadImage(mContext, templateItem?.detail?.bannerImgUrl, itemTypeBannerSingle)
             itemTypeBannerSingle.setOnClickListener(object : OnGapClickListener() {
                 override fun onGapClick(v: View?) {
                     if (templateItem != null) {
@@ -1056,7 +1056,7 @@ class WithTemplateAdapter(private val mContext: Context,
                 else {
                     tvFundDesc2.text = StringBuilder().append(it.fundDesc2).append(it.fundDesc3).append("").toString()
                 }
-                // GlideUtils.loadImage(mContext, it.fundImgUrl, rivFundImage)
+                // loadImage(mContext, it.fundImgUrl, rivFundImage)
             }
             itemView.setOnClickListener(object : OnGapClickListener() {
                 override fun onGapClick(v: View?) {
@@ -1537,7 +1537,7 @@ class WithTemplateAdapter(private val mContext: Context,
                 // rlTypeCommon.setBackgroundResource(getBgResourceID(homePageBgType))
                 tvCommonName.text = it.productName
                 tvCommonDesc.text = it.productDesc
-                // GlideUtils.loadImage(mContext, it.productIcon, ivCommonIcon)
+                // loadImage(mContext, it.productIcon, ivCommonIcon)
                 rlTypeCommon.setOnClickListener(object : OnGapClickListener() {
                     override fun onGapClick(v: View?) {
                         if (templateItem.joinType == Strs.ONE || templateItem.joinType == Strs.ZERO || templateItem.joinType == Strs.FOUR
@@ -1570,7 +1570,7 @@ class WithTemplateAdapter(private val mContext: Context,
             flLoanTopView.visibility = View.VISIBLE
             templateItem?.detail?.let {
                 tvLoanTopProductName.text = it.productName
-                // GlideUtils.loadImage(mContext, it.hotIcon, ivLoanTopHotIcon)
+                // loadImage(mContext, it.hotIcon, ivLoanTopHotIcon)
 
                 if (isSpace(it.desc1)) {
                     tvLoanTopDesc1.visibility = View.GONE

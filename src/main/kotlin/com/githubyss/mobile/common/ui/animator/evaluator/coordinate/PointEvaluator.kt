@@ -6,7 +6,6 @@ import android.graphics.Point
 /**
  * PointEvaluator
  * <Description>
- * <Details>
  *
  * @author Ace Yan
  * @github githubyss

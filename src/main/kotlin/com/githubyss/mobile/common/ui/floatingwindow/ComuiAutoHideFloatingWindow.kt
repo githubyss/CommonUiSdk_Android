@@ -13,7 +13,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.RequiresPermission
-import com.githubyss.mobile.common.kit.glide.GlideUtils
+import com.githubyss.mobile.common.kit.glide.loadImage
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.kit.util.logE
 import com.githubyss.mobile.common.kit.util.windowManager
@@ -242,7 +242,7 @@ class ComuiAutoHideFloatingWindow private constructor() : View.OnClickListener, 
 
     fun setImage(path: String): ComuiAutoHideFloatingWindow {
         viewHolder?.ivCenter ?: return this@ComuiAutoHideFloatingWindow
-        GlideUtils.loadImage(viewHolder?.ivCenter, this, path)
+        loadImage(viewHolder?.ivCenter, this, path)
         return this@ComuiAutoHideFloatingWindow
     }
 

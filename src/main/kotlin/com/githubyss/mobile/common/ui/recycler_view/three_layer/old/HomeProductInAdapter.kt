@@ -154,7 +154,7 @@
 //             }
 //             var oncePageWidth = rlNewLayout.layoutParams.width + (10 * phoneDensity).toInt()
 //             productItem?.item?.let {
-//                 // GlideUtils.loadImage(mContext, it.newBgImgUrl, ivNewBackground)
+//                 // loadImage(mContext, it.newBgImgUrl, ivNewBackground)
 //                 tvNewRightBottom.text = it.newBtnName ?: ""
 //                 //tvNewLeftNum.text = it.newRate ?: ""
 //                 // splitRateStr(it.newRate, tvNewLeftNum, tvNewLeftNum2)
@@ -548,9 +548,9 @@
 //         private var ivActivityThree: ImageView = itemView.findViewById(R.id.iv_activity_three) as ImageView
 //
 //         override fun bindHolder(productItem: ProductItem?, pos: Int) {
-//             // GlideUtils.loadImage(mContext, productItem?.item?.hotEventImgUrl1, ivActivityOne)
-//             // GlideUtils.loadImage(mContext, productItem?.item?.hotEventImgUrl2, ivActivityTwo)
-//             // GlideUtils.loadImage(mContext, productItem?.item?.hotEventImgUrl3, ivActivityThree)
+//             // loadImage(mContext, productItem?.item?.hotEventImgUrl1, ivActivityOne)
+//             // loadImage(mContext, productItem?.item?.hotEventImgUrl2, ivActivityTwo)
+//             // loadImage(mContext, productItem?.item?.hotEventImgUrl3, ivActivityThree)
 //
 //             ivActivityOne.setOnClickListener(object : OnGapClickListener() {
 //                 override fun onGapClick(v: View?) {
@@ -630,7 +630,7 @@
 //                 // splitRateStr(it.hotRate, tvHotNum, tvHotNum2)
 //                 tvHotNumSign.text = it.hotSign ?: ""
 //                 tvHotMiddleDesc.text = it.hotRateComment ?: ""
-//                 // GlideUtils.loadImage(mContext, it.hotBgImgUrl, ivProductBg)
+//                 // loadImage(mContext, it.hotBgImgUrl, ivProductBg)
 //                 if (it.hotDesc1.isNullOrBlank()) {
 //                     tvHotDescOne.visibility = View.GONE
 //                 } else {
@@ -860,7 +860,7 @@
 //         private var itemTypeBannerSingle: ImageView = itemView.findViewById(R.id.item_type_banner_single) as ImageView
 //
 //         override fun bindHolder(productItem: ProductItem?, pos: Int) {
-//             // GlideUtils.loadImage(mContext, productItem?.item?.bannerImgUrl, itemTypeBannerSingle)
+//             // loadImage(mContext, productItem?.item?.bannerImgUrl, itemTypeBannerSingle)
 //             itemTypeBannerSingle.setOnClickListener(object : OnGapClickListener() {
 //                 override fun onGapClick(v: View?) {
 //                     if (productItem != null) {
@@ -1023,7 +1023,7 @@
 //                 } else {
 //                     tvFundDesc2.text = StringBuilder().append(it.fundDesc2).append(it.fundDesc3).append("").toString()
 //                 }
-//                 // GlideUtils.loadImage(mContext, it.fundImgUrl, rivFundImage)
+//                 // loadImage(mContext, it.fundImgUrl, rivFundImage)
 //             }
 //             itemView.setOnClickListener(object : OnGapClickListener() {
 //                 override fun onGapClick(v: View?) {
@@ -1486,7 +1486,7 @@
 //                 rlTypeCommon.setBackgroundResource(getBgResourceID(homePageBgType))
 //                 tvCommonName.text = it.productName
 //                 tvCommonDesc.text = it.productDesc
-//                 // GlideUtils.loadImage(mContext, it.productIcon, ivCommonIcon)
+//                 // loadImage(mContext, it.productIcon, ivCommonIcon)
 //                 rlTypeCommon.setOnClickListener(object : OnGapClickListener() {
 //                     override fun onGapClick(v: View?) {
 //                         if (productItem.joinType == Strs.ONE || productItem.joinType == Strs.ZERO || productItem.joinType == Strs.FOUR
@@ -1520,7 +1520,7 @@
 //                 flLoanTopView.visibility = View.VISIBLE
 //                 productItem?.item?.let {
 //                     tvLoanTopProductName.text = it.productName
-//                     // GlideUtils.loadImage(mContext, it.hotIcon, ivLoanTopHotIcon)
+//                     // loadImage(mContext, it.hotIcon, ivLoanTopHotIcon)
 //
 //                     if (isSpace(it.desc1)) {
 //                         tvLoanTopDesc1.visibility = View.GONE

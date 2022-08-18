@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.githubyss.mobile.common.kit.glide.GlideUtils
+import com.githubyss.mobile.common.kit.glide.loadImage
 import com.githubyss.mobile.common.kit.util.isNotEmpty
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.recycler_view.enumeration.ItemType
@@ -64,7 +64,7 @@ class BannerPagerAdapter : PagerAdapter() {
                         if (banner.imageUrl.startsWith("file:///")) {
                             loadBitmapDefault(container.context, banner.imageUrl.substring(8), imageView)
                         } else {
-                            GlideUtils.loadImage(imageView, container, banner.imageUrl)
+                            loadImage(imageView, container, banner.imageUrl)
                         }
                     }
                 }
@@ -147,7 +147,7 @@ class BannerPagerAdapter : PagerAdapter() {
      * @return
      */
     private fun loadBitmapDefault(context: Context, iconName: String, imageView: ImageView?) {
-        GlideUtils.loadImage(imageView, context, iconName)
+        loadImage(imageView, context, iconName)
     }
     
     

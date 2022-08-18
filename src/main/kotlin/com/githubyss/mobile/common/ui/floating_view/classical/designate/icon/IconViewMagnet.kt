@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View.OnClickListener
 import androidx.annotation.DrawableRes
 import androidx.annotation.LayoutRes
-import com.githubyss.mobile.common.kit.glide.GlideUtils
+import com.githubyss.mobile.common.kit.glide.loadImage
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiFloatingIconBinding
 import com.githubyss.mobile.common.ui.floating_view.classical.feature.magnet.MagnetView
@@ -74,12 +74,12 @@ class IconViewMagnet : MagnetView, IconViewInterface {
     
     override fun customIcon(drawableId: Int) {
         iconDrawableId = drawableId
-        GlideUtils.loadImage(binding.imageViewIcon, designateContext, iconDrawableId)
+        loadImage(binding.imageViewIcon, designateContext, iconDrawableId)
     }
     
     override fun customIcon(url: String?) {
         iconUrl = url
-        GlideUtils.loadImage(binding.imageViewIcon, designateContext, iconUrl)
+        loadImage(binding.imageViewIcon, designateContext, iconUrl)
     }
     
     override fun customIcon(drawable: Drawable?) {
