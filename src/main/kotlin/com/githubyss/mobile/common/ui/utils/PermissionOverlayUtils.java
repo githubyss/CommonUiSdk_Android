@@ -23,7 +23,6 @@ import java.util.List;
 
 /**
  * PermissionOverlayUtils
- * <Description>
  *
  * @author Ace Yan
  * @github githubyss
@@ -41,7 +40,6 @@ public class PermissionOverlayUtils {
     /**
      * PermissionOverlayUtils.hasPermission([context])
      * 是否拥有权限
-     * <Details>
      *
      * @param [context]
      * @return boolean
@@ -95,7 +93,6 @@ public class PermissionOverlayUtils {
     /**
      * PermissionOverlayUtils.needPermission([])
      * 是否需要获取权限
-     * <Details>
      *
      * @param []
      * @return boolean
@@ -113,7 +110,6 @@ public class PermissionOverlayUtils {
     /**
      * PermissionOverlayUtils.isFlyme([])
      * 是否是魅族系统
-     * <Details>
      *
      * @param []
      * @return boolean
@@ -138,7 +134,6 @@ public class PermissionOverlayUtils {
     /**
      * PermissionOverlayUtils.isMiui([])
      * 是否是小米系统
-     * <Details>
      *
      * @param []
      * @return boolean
@@ -216,8 +211,7 @@ public class PermissionOverlayUtils {
     
     /**
      * PermissionOverlayUtils.hasPermissionBelowMarshmallow([context])
-     * Marshmallow (6.0) 以下判断是否有权限
-     * <Details> 理论上 6.0 以上才需处理权限，但有的国内 Rom 在 6.0 以下就添加了权限
+     * Marshmallow (6.0) 以下判断是否有权限 理论上 6.0 以上才需处理权限，但有的国内 Rom 在 6.0 以下就添加了权限
      * 其实此方式也可以用于判断 6.0 以上版本，只不过有更简单的 Settings.canDrawOverlays 代替
      *
      * @param [context]

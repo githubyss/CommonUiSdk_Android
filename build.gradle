@@ -150,11 +150,13 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':DesignPatternLibrary_Android')
+    implementation project(':CommonBaseSdk_Android')
     implementation project(':CommonResSdk_Android')
     implementation project(':CommonKitSdk_Android')
 
     implementation dependenciesLib.androidx_appcompat
     implementation dependenciesLib.androidx_activity_compose
+    implementation dependenciesLib.androidx_fragment_ktx
     implementation dependenciesLib.androidx_localbroadcastmanager
     implementation dependenciesLib.androidx_constraintlayout
     implementation dependenciesLib.androidx_constraintlayout_compose
@@ -164,9 +166,6 @@ dependencies {
     implementation dependenciesLib.google_flexbox
 
     if (isLaunchApp) {
-        appImplementation project(':CommonBaseSdk_Android')
         appImplementation project(':CommonNetSdk_Android')
-
-        appImplementation dependenciesLib.androidx_fragment_ktx
     }
 }
