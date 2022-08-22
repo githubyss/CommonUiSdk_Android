@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="TimeCountdown">
+    <declare-styleable name="ComuiTimeCountdown">
         <attr name="remainingMillisecond"
               format="string" />
-        <attr name="currentTimeStampMillisecond"
+        <attr name="startTimeStampMillisecond"
               format="string" />
         <attr name="endTimeStampMillisecond"
               format="string" />

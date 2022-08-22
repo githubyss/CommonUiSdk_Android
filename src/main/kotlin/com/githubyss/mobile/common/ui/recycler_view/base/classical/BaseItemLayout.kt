@@ -3,6 +3,7 @@ package com.githubyss.mobile.common.ui.recycler_view.base.classical
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import androidx.databinding.ViewDataBinding
 import androidx.viewbinding.ViewBinding
 import com.githubyss.common.base.frame_layout.binding_reflect.BaseReflectBindingFrameLayout
 
@@ -15,7 +16,7 @@ import com.githubyss.common.base.frame_layout.binding_reflect.BaseReflectBinding
  * @github githubyss
  * @createdTime 2021/04/12 18:32:46
  */
-abstract class BaseItemLayout<B : ViewBinding> : BaseReflectBindingFrameLayout<B> {
+abstract class BaseItemLayout<B : ViewDataBinding> : BaseReflectBindingFrameLayout<B> {
     
     /** ****************************** Properties ****************************** */
     

@@ -33,7 +33,6 @@
 
         <activity
             android:name=".app.page.speech_recognition.SpeechRecognitionActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/comres_activity_noActionBar_theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"

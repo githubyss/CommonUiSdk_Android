@@ -77,6 +77,7 @@ android {
                 srcDirs 'src/main/res/banner'
                 srcDirs 'src/main/res/dialog'
                 srcDirs 'src/main/res/time_countdown'
+                srcDirs 'src/main/res/toolbar'
 
                 srcDirs 'src/main/res/auto_hide_floating_window'
                 srcDirs 'src/main/res/floating_audio_player'

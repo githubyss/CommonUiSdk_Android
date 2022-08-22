@@ -20,6 +20,8 @@ import com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewFragmen
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognitionActivity
 import com.githubyss.mobile.common.ui.app.page.text.TextComposeFragment
 import com.githubyss.mobile.common.ui.app.page.text_field.TextFieldComposeFragment
+import com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownComposeFragment
+import com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownFragment
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.dialog.hint.HintDialog
 import com.githubyss.mobile.common.ui.dialog.hint.HintDialogVm
@@ -41,22 +43,29 @@ import com.githubyss.mobile.common.ui.toolbar.compose.TopNavigationBar
  */
 class HomepageComposeFragment : BaseComposeToolbarFragment() {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Object ****************************** */
 
+    /**  */
     companion object {
         val TAG: String = HomepageComposeFragment::class.java.simpleName
     }
 
+
+    /** ****************************** Properties ****************************** */
+
+    /**  */
     private val homepageVm: HomepageComposeViewModel by viewModels()
 
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     @Composable
     override fun Toolbar() {
         TopNavigationBar(homepageVm.title)
     }
 
+    /**  */
     @Preview
     @Composable
     override fun Content() {
@@ -72,6 +81,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     @Composable
     private fun Buttons() {
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_button_compose)) {
@@ -79,15 +89,15 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_card_compose)) {
-            switchFragmentByAddHideShow(CardComposeFragment(), CardComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            switchFragment(CardComposeFragment(), CardComposeFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_text_compose)) {
-            switchFragmentByAddHideShow(TextComposeFragment(), TextComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            switchFragment(TextComposeFragment(), TextComposeFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_text_field_compose)) {
-            switchFragmentByAddHideShow(TextFieldComposeFragment(), TextFieldComposeFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            switchFragment(TextFieldComposeFragment(), TextFieldComposeFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
 
         LayoutWeightHorizontal {
@@ -95,7 +105,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
                 text = getStringFromRes(R.string.comui_homepage_button_property_animation),
                 modifier = Modifier.weight(1F),
             ) {
-                switchFragmentByAddHideShow(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+                switchFragment(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
             }
             ButtonClickDefault(
                 text = getStringFromRes(R.string.comui_homepage_button_tween_animation),
@@ -190,7 +200,11 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         }
 
         ButtonClickDefault(text = "自定义View") {
-            switchFragmentByAddHideShow(CustomViewFragment(), CustomViewFragment.TAG, this, parentFragmentManager, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            switchFragment(CustomViewFragment(), CustomViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+        }
+
+        ButtonClickDefault(text = "倒计时") {
+            switchFragment(TimeCountdownFragment(), TimeCountdownFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
     }
 }

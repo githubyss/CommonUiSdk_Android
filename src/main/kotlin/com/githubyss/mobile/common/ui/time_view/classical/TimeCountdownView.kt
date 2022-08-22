@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.CountDownTimer
 import android.util.AttributeSet
 import com.githubyss.common.base.frame_layout.binding_reflect.BaseReflectBindingFrameLayout
+import com.githubyss.common.base.view_group.BaseReflectBindingViewGroup
 import com.githubyss.mobile.common.kit.enumeration.TimeUnit
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiTimeCountdownBinding
@@ -16,53 +17,63 @@ import com.githubyss.mobile.common.ui.databinding.ComuiTimeCountdownBinding
  * @github githubyss
  * @createdTime 2021/08/23 10:02:00
  */
-class TimeCountdownView : BaseReflectBindingFrameLayout<ComuiTimeCountdownBinding> {
+class TimeCountdownView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseReflectBindingViewGroup<ComuiTimeCountdownBinding>(context, attrs, defStyleAttr) {
 
-    /** ****************************** Properties ****************************** */
+    /** ****************************** Object ****************************** */
 
+    /**  */
     companion object {
         val TAG: String = TimeCountdownView::class.java.simpleName
     }
 
-    var remainingMillisecond: Long = 0L
+
+    /** ****************************** Properties ****************************** */
+
+    /** 剩余时间 */
+    var remainingMillisecond: Long? = 0L
+        set(value) = startCountdown(value)
+
+    /** 开始时间戳 */
+    var startTimeStampMillisecond: Long = 0L
         set(value) {
-            startCountdown(value)
+            if (endTimeStampMillisecond > 0) {
+                startCountdown(value, endTimeStampMillisecond)
+            }
         }
 
-    var currentTimeStampMillisecond: Long = 0L
-        set(value) {
-            if (endTimeStampMillisecond > 0) startCountdown(value, endTimeStampMillisecond)
-        }
-
+    /** 停止时间戳 */
     var endTimeStampMillisecond: Long = 0L
         set(value) {
-            if (currentTimeStampMillisecond > 0) startCountdown(currentTimeStampMillisecond, value)
+            if (startTimeStampMillisecond > 0) {
+                startCountdown(startTimeStampMillisecond, value)
+            }
         }
 
 
-    /** ****************************** Constructors ****************************** */
+    /** ****************************** Constructor ****************************** */
 
-    constructor(context: Context) : this(context, null, 0)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        initAttrs(context, attrs)
+    /**  */
+    init {
+        // initAttrs(context, attrs)
     }
 
 
     /** ****************************** Functions ****************************** */
 
-    private fun initAttrs(context: Context, attrs: AttributeSet?) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TimeCountdown)
-        remainingMillisecond = typedArray.getString(R.styleable.TimeCountdown_remainingMillisecond)?.toLong() ?: 0L
-        typedArray.recycle()
-    }
+    /** 使用 xml 配置控件参数，不优雅，弃用 */
+    // private fun initAttrs(context: Context, attrs: AttributeSet?) {
+    //     val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ComuiTimeCountdown)
+    //     remainingMillisecond = typedArray.getString(R.styleable.ComuiTimeCountdown_remainingMillisecond)?.toLong() ?: 0L
+    //     typedArray.recycle()
+    // }
 
-    private fun startCountdown(remainingMs: Long) {
-        var remainingMs = remainingMs
-        val countDownTimer = object : CountDownTimer(remainingMs, 1000) {
+    /**  */
+    private fun startCountdown(remainingMs: Long?) {
+        var remaining = remainingMs ?: return
+        val countDownTimer = object : CountDownTimer(remaining, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                remainingMs -= 1000
-                refreshTime(remainingMs)
+                remaining -= 1000
+                refreshTime(remaining)
             }
 
             override fun onFinish() {
@@ -71,10 +82,12 @@ class TimeCountdownView : BaseReflectBindingFrameLayout<ComuiTimeCountdownBindin
         countDownTimer.start()
     }
 
-    private fun startCountdown(currentTimeStampMs: Long, endTimeStampMs: Long) {
-        startCountdown(endTimeStampMs - currentTimeStampMs)
+    /**  */
+    private fun startCountdown(startTimeStampMs: Long, endTimeStampMs: Long) {
+        startCountdown(endTimeStampMs - startTimeStampMs)
     }
 
+    /**  */
     private fun refreshTime(remainingMs: Long) {
         val hour = remainingMs / TimeUnit.HOUR
         val minute = (remainingMs - hour * TimeUnit.HOUR) / TimeUnit.MINUTE

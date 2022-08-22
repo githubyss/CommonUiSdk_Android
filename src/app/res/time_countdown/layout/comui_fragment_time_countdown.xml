@@ -2,54 +2,27 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".app.page.mvvm.MvvmActivity"
     >
 
     <data>
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
+        android:background="@color/comres_layoutBg_lightGray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/comres_layoutBg_lightGray"
+        android:paddingTop="@dimen/comres_sideMargin_normal"
+        android:paddingBottom="@dimen/comres_sideMargin_normal"
+        android:paddingLeft="@dimen/comres_sideMargin_normal"
+        android:paddingRight="@dimen/comres_sideMargin_normal"
         android:orientation="vertical"
         >
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbars="none"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-                <com.google.android.flexbox.FlexboxLayout
-                    android:id="@+id/flexbox_page_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="@dimen/comres_sideMargin_normal"
-                    android:paddingRight="@dimen/comres_sideMargin_normal"
-                    android:paddingBottom="@dimen/comres_sideMargin_normal"
-                    android:paddingLeft="@dimen/comres_sideMargin_normal"
-                    app:flexDirection="column"
-                    app:justifyContent="space_between"
-                    >
-
-                    <com.githubyss.mobile.common.ui.time_view.classical.TimeCountdownView
-                        android:id="@+id/tcv_countdown"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-                </com.google.android.flexbox.FlexboxLayout>
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+        <com.githubyss.mobile.common.ui.time_view.classical.TimeCountdownView
+            android:id="@+id/timeCountdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </FrameLayout>
 </layout>
