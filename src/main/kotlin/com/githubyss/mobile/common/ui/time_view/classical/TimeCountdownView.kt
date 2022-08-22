@@ -3,7 +3,7 @@ package com.githubyss.mobile.common.ui.time_view.classical
 import android.content.Context
 import android.os.CountDownTimer
 import android.util.AttributeSet
-import com.githubyss.common.base.frame_layout.binding_reflect.BaseReflectBindingFrameLayout
+import com.githubyss.common.base.layout.frame_layout.binding_reflect.BaseReflectBindingFrameLayout
 import com.githubyss.mobile.common.kit.enumeration.TimeUnit
 import com.githubyss.mobile.common.ui.databinding.ComuiTimeCountdownBinding
 
