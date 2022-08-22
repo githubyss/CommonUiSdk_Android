@@ -4,9 +4,7 @@ import android.content.Context
 import android.os.CountDownTimer
 import android.util.AttributeSet
 import com.githubyss.common.base.frame_layout.binding_reflect.BaseReflectBindingFrameLayout
-import com.githubyss.common.base.view_group.BaseReflectBindingViewGroup
 import com.githubyss.mobile.common.kit.enumeration.TimeUnit
-import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiTimeCountdownBinding
 
 
@@ -17,7 +15,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiTimeCountdownBinding
  * @github githubyss
  * @createdTime 2021/08/23 10:02:00
  */
-class TimeCountdownView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseReflectBindingViewGroup<ComuiTimeCountdownBinding>(context, attrs, defStyleAttr) {
+class TimeCountdownView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseReflectBindingFrameLayout<ComuiTimeCountdownBinding>(context, attrs, defStyleAttr) {
 
     /** ****************************** Object ****************************** */
 
@@ -30,11 +28,11 @@ class TimeCountdownView @JvmOverloads constructor(context: Context, attrs: Attri
     /** ****************************** Properties ****************************** */
 
     /** 剩余时间 */
-    var remainingMillisecond: Long? = 0L
+    var remainingMillisecond = 0L
         set(value) = startCountdown(value)
 
     /** 开始时间戳 */
-    var startTimeStampMillisecond: Long = 0L
+    var startTimeStampMillisecond = 0L
         set(value) {
             if (endTimeStampMillisecond > 0) {
                 startCountdown(value, endTimeStampMillisecond)
@@ -42,7 +40,7 @@ class TimeCountdownView @JvmOverloads constructor(context: Context, attrs: Attri
         }
 
     /** 停止时间戳 */
-    var endTimeStampMillisecond: Long = 0L
+    var endTimeStampMillisecond = 0L
         set(value) {
             if (startTimeStampMillisecond > 0) {
                 startCountdown(startTimeStampMillisecond, value)
@@ -68,8 +66,8 @@ class TimeCountdownView @JvmOverloads constructor(context: Context, attrs: Attri
     // }
 
     /**  */
-    private fun startCountdown(remainingMs: Long?) {
-        var remaining = remainingMs ?: return
+    private fun startCountdown(remainingMs: Long) {
+        var remaining = remainingMs
         val countDownTimer = object : CountDownTimer(remaining, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 remaining -= 1000

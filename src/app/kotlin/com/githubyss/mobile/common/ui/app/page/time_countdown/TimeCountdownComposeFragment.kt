@@ -61,7 +61,7 @@ class TimeCountdownComposeFragment : BaseComposeToolbarFragment() {
     @Composable
     private fun TimeCountdown() {
         AndroidView(factory = { context ->
-            TimeCountdownView(context).apply { remainingMillisecond = timeCountdownVm.remainingMillisecond.value }
+            TimeCountdownView(context).apply { remainingMillisecond = timeCountdownVm.remainingMillisecond.value ?: return@apply }
         })
     }
 }
