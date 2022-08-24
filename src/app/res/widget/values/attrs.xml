@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="ResourceName">
+
+    <declare-styleable name="ComuiAppWidgetAttrs">
+        <attr name="appWidgetRadius"
+              format="dimension" />
+        <attr name="appWidgetInnerRadius"
+              format="dimension" />
+        <attr name="appWidgetPadding"
+              format="dimension" />
+    </declare-styleable>
+</resources>

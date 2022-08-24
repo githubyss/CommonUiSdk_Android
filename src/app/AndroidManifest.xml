@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,6 +17,20 @@
         android:supportsRtl="true"
         android:theme="@style/comres_app_gray_theme"
         >
+
+        <receiver
+            android:name=".app.widget.AppWidget"
+            android:exported="false"
+            >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/comui_app_widget_info"
+                />
+        </receiver>
 
         <activity
             android:name=".app.page.homepage.HomepageActivity"

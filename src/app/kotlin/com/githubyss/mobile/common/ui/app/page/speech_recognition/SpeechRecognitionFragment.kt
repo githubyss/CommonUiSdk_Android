@@ -3,8 +3,8 @@ package com.githubyss.mobile.common.ui.app.page.speech_recognition
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
-import com.githubyss.common.base.activity_fragment.binding_inline_root.bindView
+import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
+import com.githubyss.common.base.ext.bindView
 import com.githubyss.mobile.common.kit.manager.speech_recognition.SpeechRecognitionManager
 import com.githubyss.mobile.common.kit.manager.speech_recognition.VoiceJsonParser
 import com.githubyss.mobile.common.kit.util.logD
@@ -26,7 +26,7 @@ import com.githubyss.mobile.common.ui.databinding.ComuiFragmentSpeechRecognition
  * @github githubyss
  * @createdTime 2021/12/27 14:36:49
  */
-class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment<ComuiFragmentSpeechRecognitionBinding>(R.layout.comui_fragment_speech_recognition) {
+class SpeechRecognitionFragment : BaseReflectBindingToolbarFragment<ComuiFragmentSpeechRecognitionBinding>() {
 
     /** ****************************** Companion ****************************** */
 
@@ -38,16 +38,11 @@ class SpeechRecognitionFragment : BaseInlineBindingToolbarFragment<ComuiFragment
 
     /** ****************************** Properties ****************************** */
 
-    /**  */
-    private val _binding by bindView<ComuiFragmentSpeechRecognitionBinding>()
-
 
     /** ****************************** Override ****************************** */
 
     /**  */
     override fun setupUi() {
-        binding = _binding
-
         binding.recordImageButton.setVoiceListener(voiceListener)
         binding.voiceBtnHelp.setOnClickListener(onClickListener)
         binding.voiceBtnClose.setOnClickListener(onClickListener)

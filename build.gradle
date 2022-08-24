@@ -119,6 +119,7 @@ android {
                     srcDirs 'src/app/res/recycler_view/multi'
                     srcDirs 'src/app/res/recycler_view/three_layer'
                     srcDirs 'src/app/res/speech_recognition'
+                    srcDirs 'src/app/res/widget'
                 }
                 manifest {
                     srcFile 'src/app/AndroidManifest.xml'
@@ -138,12 +139,13 @@ android {
         }
     }
 
-    dataBinding {
-        enabled feature.isDataBindingEnabled
-    }
+    // dataBinding {
+    //     enabled feature.isDataBindingEnabled
+    // }
 
     buildFeatures {
         compose feature.isComposeEnabled
+        dataBinding feature.isDataBindingEnabled
     }
 }
 

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="ComuiTimeCountdown">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="ResourceName">
+
+    <declare-styleable name="ComuiTimeCountdownAttrs">
         <attr name="remainingMillisecond"
               format="string" />
         <attr name="startTimeStampMillisecond"

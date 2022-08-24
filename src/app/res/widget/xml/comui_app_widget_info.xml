@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/comui_app_widget_description"
+    android:minWidth="40dp"
+    android:minHeight="40dp"
+    android:minResizeWidth="250dp"
+    android:minResizeHeight="110dp"
+    android:targetCellWidth="3"
+    android:targetCellHeight="2"
+    android:initialKeyguardLayout="@layout/comui_app_widget"
+    android:initialLayout="@layout/comui_app_widget"
+    android:previewImage="@drawable/comui_example_appwidget_preview"
+    android:previewLayout="@layout/comui_app_widget"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="86400000"
+    android:widgetCategory="home_screen"
+    android:widgetFeatures="reconfigurable"
+    />
+
+    <!--
+    android:description 小组件说明。可以在小组件预览的下方展示额外的说明，便于用户更好地了解其功能定位。
+
+    android:minWidth 小组件的默认宽度。
+    android:minHeight 小组件的默认高度。
+
+    android:minResizeWidth 小组件的允许配置的最大尺寸。
+    android:minResizeHeight 小组件的允许配置的最大尺寸。
+
+    android:targetCellWidth 小组件的默认 Launcher Cell 宽格数。用以替代 minWidth。
+    android:targetCellHeight 小组件的默认 Launcher Cell 高格数。用以替代 minHeight。
+    事实上 Launcher 是以 Cell 的单位来展示小组件的，所以直接指定 Cell 数显然更合理。
+
+    android:initialKeyguardLayout
+    android:initialLayout
+
+    android:previewImage 展示一张预览图。功能迭代的过程中忘记更新它的话，可能导致预览和实际效果发生偏差。
+    android:previewLayout 展示小组件的实际布局。使得用户能够在小组件的选择器里看到更加接近实际效果的视图，而不再是一层不变的静态图片。
+
+    android:resizeMode
+
+    android:updatePeriodMillis
+
+    android:widgetCategory
+
+    android:widgetFeatures 小组件特性。
+    reconfigurable 长按后即可灵活调节
+    configuration_optional 让用户快速看到效果，即不想展示这个画面的话
+
+    -->

@@ -4,8 +4,7 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.graphics.Point
 import android.view.View
-import com.githubyss.common.base.activity_fragment.binding_inline.BaseInlineBindingToolbarFragment
-import com.githubyss.common.base.activity_fragment.binding_inline_root.bindView
+import com.githubyss.common.base.activity_fragment.binding_reflect.BaseReflectBindingToolbarFragment
 import com.githubyss.common.base.application.BaseApplicationHolder
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
@@ -21,7 +20,7 @@ import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
  * @github githubyss
  * @createdTime 2021/03/09 11:10:20
  */
-class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment<ComuiFragmentPropertyAnimatorBinding>(R.layout.comui_fragment_property_animator) {
+class PropertyAnimatorFragment : BaseReflectBindingToolbarFragment<ComuiFragmentPropertyAnimatorBinding>() {
 
     /** ****************************** Companion ****************************** */
 
@@ -34,8 +33,6 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment<ComuiFragmentP
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val _binding by bindView<ComuiFragmentPropertyAnimatorBinding>()
-
     private var moveValueAnimator: ValueAnimator? = null
     private var scaleValueAnimator: ValueAnimator? = null
     private var moveObjectAnimator: ObjectAnimator? = null
@@ -46,8 +43,6 @@ class PropertyAnimatorFragment : BaseInlineBindingToolbarFragment<ComuiFragmentP
 
     /**  */
     override fun setupUi() {
-        binding = _binding
-
         binding.btnMove.setOnClickListener(onClickListener)
         binding.btnScale.setOnClickListener(onClickListener)
         binding.btnShow.setOnClickListener(onClickListener)
