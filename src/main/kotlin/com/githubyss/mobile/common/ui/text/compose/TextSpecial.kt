@@ -18,8 +18,8 @@ import com.githubyss.mobile.common.res.common.dimen.SpaceNone
 
 @Composable
 fun TextTag1Line(
-    modifier: Modifier = Modifier,
     text: String,
+    modifier: Modifier = Modifier,
     textColor: Color = Color.Unspecified,
     textBackground: Color = Color.Unspecified,
     fontSize: TextUnit = TextUnit.Unspecified,
@@ -43,17 +43,17 @@ fun TextTag1Line(
     isFillMaxHeight: Boolean = false,
     onTextLayout: (TextLayoutResult) -> Unit = {},
 ) {
-    val textAlign: TextAlign = TextAlign.Center
-    val textDirection: TextDirection = TextDirection.Ltr
-    val textIndent: TextIndent = TextIndent.None
-    val softWrap: Boolean = false
-    val maxLines: Int = 1
-    val width: Dp = 0.dp
-    val isFillMaxWidth: Boolean = false
+    val textAlign = TextAlign.Center
+    val textDirection = TextDirection.Ltr
+    val textIndent = TextIndent.None
+    val softWrap = false
+    val maxLines = 1
+    val width = 0.dp
+    val isFillMaxWidth = false
 
     TextCommon(
-        modifier,
         text,
+        modifier,
         textColor,
         textBackground,
         textDecoration,

@@ -164,7 +164,11 @@ dependencies {
     implementation dependenciesLib.androidx_recyclerview
     implementation dependenciesLib.androidx_compose_material
     implementation dependenciesLib.androidx_compose_ui_tooling
+
     implementation dependenciesLib.google_flexbox
+    // implementation dependenciesLib.coil
+    // implementation dependenciesLib.coil_gif
+    implementation dependenciesLib.coil_compose
 
     if (isLaunchApp) {
         appImplementation project(':CommonNetSdk_Android')

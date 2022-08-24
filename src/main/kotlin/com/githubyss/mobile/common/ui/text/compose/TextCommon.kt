@@ -23,8 +23,8 @@ import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
 
 @Composable
 fun TextCommon(
-    modifier: Modifier = Modifier,
     text: String,
+    modifier: Modifier = Modifier,
     textColor: Color = Color.Unspecified,
     textBackground: Color = Color.Unspecified,
     textDecoration: TextDecoration = TextDecoration.None,
@@ -55,7 +55,7 @@ fun TextCommon(
     isFillMaxHeight: Boolean = false,
     onTextLayout: (TextLayoutResult) -> Unit = {},
 ) {
-    val modifierText: Modifier = modifier
+    val modifierText = modifier
         .padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
         .modifierWidthAssemble(width, isFillMaxWidth)
         .modifierHeightAssemble(height, isFillMaxHeight)
@@ -64,11 +64,11 @@ fun TextCommon(
         .padding(top = paddingTop, bottom = paddingBottom, start = paddingStart, end = paddingEnd)
 
     // 这里在 TextStyle 中设置 background，只会渲染文字部分。
-    val textStyleExtra: TextStyle = TextStyle(
+    val textStyleExtra = TextStyle(
         background = textBackground,
         textDirection = textDirection, textIndent = textIndent,
     )
-    val textStyleRevised: TextStyle = textStyle.plus(textStyleExtra)
+    val textStyleRevised = textStyle.plus(textStyleExtra)
 
     Text(
         text,
