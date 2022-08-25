@@ -140,13 +140,9 @@ android {
         }
     }
 
-    // dataBinding {
-    //     enabled feature.isDataBindingEnabled
-    // }
-
     buildFeatures {
-        compose feature.isComposeEnabled
         dataBinding feature.isDataBindingEnabled
+        compose feature.isComposeEnabled
     }
 }
 

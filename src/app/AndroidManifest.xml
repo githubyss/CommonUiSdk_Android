@@ -19,7 +19,7 @@
         >
 
         <receiver
-            android:name=".app.widget.WidgetDefault"
+            android:name=".app.widget.widget_default.WidgetDefault"
             android:exported="false"
             >
             <intent-filter>
@@ -35,7 +35,7 @@
         </receiver>
 
         <receiver
-            android:name=".app.widget.WidgetSchedule"
+            android:name=".app.widget.widget_schedule.WidgetSchedule"
             android:exported="false"
             >
             <intent-filter>

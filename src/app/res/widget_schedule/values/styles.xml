@@ -4,12 +4,7 @@
     <style name="comuiStyle_WidgetScheduleContainer"
            parent="android:Widget">
         <item name="android:id">@android:id/background</item>
-        <item name="android:background">?android:attr/colorBackground</item>
-    </style>
-
-    <style name="comuiStyle_WidgetScheduleInnerView"
-           parent="android:Widget">
-        <item name="android:background">?android:attr/colorBackground</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:padding">?attr/widgetSchedulePadding</item>
+        <item name="android:background">@drawable/comui_widget_schedule_background</item>
     </style>
 </resources>

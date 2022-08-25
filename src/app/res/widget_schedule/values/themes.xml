@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="comuiTheme_WidgetScheduleContainerParent"
+           parent="@android:style/Theme.DeviceDefault">
+        <item name="widgetScheduleRadius">16dp</item>
+        <item name="widgetScheduleInnerRadius">8dp</item>
+    </style>
+
     <style name="comuiTheme_WidgetScheduleContainer"
            parent="comuiTheme_WidgetScheduleContainerParent">
         <item name="widgetSchedulePadding">16dp</item>
