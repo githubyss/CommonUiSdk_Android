@@ -119,7 +119,7 @@ android {
                     srcDirs 'src/app/res/recycler_view/multi'
                     srcDirs 'src/app/res/recycler_view/three_layer'
                     srcDirs 'src/app/res/speech_recognition'
-                    srcDirs 'src/app/res/widget'
+                    srcDirs 'src/app/res/widget_default'
                     srcDirs 'src/app/res/widget_schedule'
                 }
                 manifest {
