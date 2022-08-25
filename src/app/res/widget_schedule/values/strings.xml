@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="MissingTranslation">
+
+    <string name="comui_add_widget_schedule">添加日程小组件</string>
+    <string name="comui_widget_schedule_description">这是一个日程小组件</string>
+</resources>

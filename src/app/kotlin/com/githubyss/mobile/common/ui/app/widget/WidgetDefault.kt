@@ -8,18 +8,19 @@ import com.githubyss.mobile.common.ui.R
 
 
 /**
- * AppWidget
+ * WidgetDefault
+ *
  * Implementation of App Widget functionality.
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2022/08/24 15:50:33
  */
-class AppWidget : AppWidgetProvider() {
+class WidgetDefault : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+            updateWidgetDefault(context, appWidgetManager, appWidgetId)
         }
     }
 
@@ -32,7 +33,8 @@ class AppWidget : AppWidgetProvider() {
     }
 }
 
-internal fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
+/**  */
+internal fun updateWidgetDefault(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
     val widgetText = context.getString(R.string.comui_app_widget_text)
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.comui_app_widget)

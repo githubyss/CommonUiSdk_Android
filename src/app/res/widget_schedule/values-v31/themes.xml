@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="comuiTheme_WidgetScheduleContainerParent"
+           parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="widgetScheduleRadius">@android:dimen/system_app_widget_background_radius</item>
+        <item name="widgetScheduleInnerRadius">@android:dimen/system_app_widget_inner_radius</item>
+    </style>
+</resources>

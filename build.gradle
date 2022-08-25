@@ -120,6 +120,7 @@ android {
                     srcDirs 'src/app/res/recycler_view/three_layer'
                     srcDirs 'src/app/res/speech_recognition'
                     srcDirs 'src/app/res/widget'
+                    srcDirs 'src/app/res/widget_schedule'
                 }
                 manifest {
                     srcFile 'src/app/AndroidManifest.xml'
@@ -167,6 +168,7 @@ dependencies {
     implementation dependenciesLib.androidx_compose_material
     implementation dependenciesLib.androidx_compose_ui_tooling
 
+    implementation dependenciesLib.google_material
     implementation dependenciesLib.google_flexbox
     // implementation dependenciesLib.coil
     // implementation dependenciesLib.coil_gif
