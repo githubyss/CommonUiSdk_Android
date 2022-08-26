@@ -6,13 +6,13 @@ import com.githubyss.mobile.common.kit.util.currentDatetimeString
 
 
 /**
- * WidgetScheduleVm
+ * ScheduleWidgetVm
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2022/08/25 13:40:41
  */
-class WidgetScheduleVm : ViewModel() {
+class ScheduleWidgetVm : ViewModel() {
 
     /** ****************************** Properties ****************************** */
 

@@ -29,14 +29,14 @@ import java.util.List;
  * @createdTime 2020/12/17 11:24:04
  */
 public class PermissionOverlayUtils {
-    
+
     // ---------- ---------- ---------- Properties ---------- ---------- ----------
-    
+
     private static int OP_SYSTEM_ALERT_WINDOW = 24;
-    
-    
+
+
     // ---------- ---------- ---------- Public Methods ---------- ---------- ----------
-    
+
     /**
      * PermissionOverlayUtils.hasPermission([context])
      * 是否拥有权限
@@ -60,7 +60,8 @@ public class PermissionOverlayUtils {
         else if (Build.VERSION.SDK_INT >= VersionCode.KITKAT) {
             if (needPermission()) {
                 return hasPermissionBelowMarshmallow(context);
-            } else {
+            }
+            else {
                 return true;
             }
         }
@@ -69,27 +70,28 @@ public class PermissionOverlayUtils {
             return true;
         }
     }
-    
+
     public static boolean isMiUiO() {
         return (Build.VERSION.SDK_INT == VersionCode.O || Build.VERSION.SDK_INT == VersionCode.O_MR1) && isMiui();
     }
-    
+
     public static void jumpToOverlayPermission(Context context) {
         try {
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setData(Uri.parse("package:" + context.getPackageName()));
             context.startActivity(intent);
-        } catch (ActivityNotFoundException e) {
+        }
+        catch (ActivityNotFoundException e) {
             Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
             intent.setData(Uri.fromParts("package", context.getPackageName(), null));
             context.startActivity(intent);
         }
     }
-    
-    
+
+
     // ---------- ---------- ---------- Private Methods ---------- ---------- ----------
-    
+
     /**
      * PermissionOverlayUtils.needPermission([])
      * 是否需要获取权限
@@ -106,7 +108,7 @@ public class PermissionOverlayUtils {
         }
         return false;
     }
-    
+
     /**
      * PermissionOverlayUtils.isFlyme([])
      * 是否是魅族系统
@@ -119,18 +121,19 @@ public class PermissionOverlayUtils {
      */
     public static boolean isFlyme() {
         try {
-            String  display                   = Build.DISPLAY;
-            String  fingerprint               = Build.FINGERPRINT;
-            String  incremental               = Build.VERSION.INCREMENTAL;
-            boolean isDisplayContainFlyme     = !TextUtils.isEmpty(display) && display.contains("Flyme");
+            String display = Build.DISPLAY;
+            String fingerprint = Build.FINGERPRINT;
+            String incremental = Build.VERSION.INCREMENTAL;
+            boolean isDisplayContainFlyme = !TextUtils.isEmpty(display) && display.contains("Flyme");
             boolean isFingerprintContainFlyme = !TextUtils.isEmpty(fingerprint) && fingerprint.contains("Flyme");
             boolean isIncrementalContainFlyme = !TextUtils.isEmpty(incremental) && incremental.contains("Flyme");
             return isDisplayContainFlyme || isFingerprintContainFlyme || isIncrementalContainFlyme;
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return false;
         }
     }
-    
+
     /**
      * PermissionOverlayUtils.isMiui([])
      * 是否是小米系统
@@ -143,7 +146,7 @@ public class PermissionOverlayUtils {
      */
     public static boolean isMiui() {
         List<String> versionList = getSystemProperties(new String[]{"ro.miui.ui.version.name"});
-        
+
         if (versionList.isEmpty()) {
             return false;
         }
@@ -152,14 +155,14 @@ public class PermissionOverlayUtils {
         }
         return false;
     }
-    
+
     private static List<String> getSystemProperties(String[] commands) {
-        Process          process       = null;
-        BufferedReader   successReader = null;
-        BufferedReader   errorReader   = null;
-        DataOutputStream dos           = null;
-        List<String>     resultList    = new ArrayList<>();
-        
+        Process process = null;
+        BufferedReader successReader = null;
+        BufferedReader errorReader = null;
+        DataOutputStream dos = null;
+        List<String> resultList = new ArrayList<>();
+
         if (commands == null || commands.length == 0) {
             return resultList;
         }
@@ -177,7 +180,7 @@ public class PermissionOverlayUtils {
             }
             dos.writeBytes("exit\n");
             dos.flush();
-            int    status = process.waitFor();
+            int status = process.waitFor();
             String lineStr;
             successReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
@@ -186,9 +189,12 @@ public class PermissionOverlayUtils {
             }
             // while ((lineStr = errorReader.readLine()) != null) {
             // }
-        } catch (IOException e) {
-        } catch (Exception e) {
-        } finally {
+        }
+        catch (IOException e) {
+        }
+        catch (Exception e) {
+        }
+        finally {
             try {
                 if (dos != null) {
                     dos.close();
@@ -199,16 +205,17 @@ public class PermissionOverlayUtils {
                 if (errorReader != null) {
                     errorReader.close();
                 }
-            } catch (IOException e) {
             }
-            
+            catch (IOException e) {
+            }
+
             if (process != null) {
                 process.destroy();
             }
         }
         return resultList;
     }
-    
+
     /**
      * PermissionOverlayUtils.hasPermissionBelowMarshmallow([context])
      * Marshmallow (6.0) 以下判断是否有权限 理论上 6.0 以上才需处理权限，但有的国内 Rom 在 6.0 以下就添加了权限
@@ -222,10 +229,11 @@ public class PermissionOverlayUtils {
      */
     private static boolean hasPermissionBelowMarshmallow(Context context) {
         try {
-            AppOpsManager manager        = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
-            Method        dispatchMethod = AppOpsManager.class.getMethod("checkOp", int.class, int.class, String.class);
+            AppOpsManager manager = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+            Method dispatchMethod = AppOpsManager.class.getMethod("checkOp", int.class, int.class, String.class);
             return AppOpsManager.MODE_ALLOWED == (Integer) dispatchMethod.invoke(manager, OP_SYSTEM_ALERT_WINDOW, Binder.getCallingUid(), context.getApplicationContext().getPackageName());
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return false;
         }
     }
