@@ -27,6 +27,7 @@ class ScheduleWidget : AppWidgetProvider() {
     private val scheduleWidgetVm by lazy { ScheduleWidgetVm() }
     var m = (0..1000).random() // 随机数
 
+
     /** ****************************** Override ****************************** */
 
     /**  */

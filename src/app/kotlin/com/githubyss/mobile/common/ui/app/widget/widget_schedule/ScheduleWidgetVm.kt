@@ -16,6 +16,7 @@ class ScheduleWidgetVm : ViewModel() {
 
     /** ****************************** Properties ****************************** */
 
+    /**  */
     val date by lazy { MutableLiveData<String>("") }
     val weekday by lazy { MutableLiveData<String>("") }
     val scheduleList by lazy { MutableLiveData(ArrayList<ScheduleData>()) }
@@ -23,6 +24,7 @@ class ScheduleWidgetVm : ViewModel() {
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     fun setupDate() {
         val dateValue = currentDatetimeString("M月d日")
         val weekdayValue = currentDatetimeString("EEEE")
