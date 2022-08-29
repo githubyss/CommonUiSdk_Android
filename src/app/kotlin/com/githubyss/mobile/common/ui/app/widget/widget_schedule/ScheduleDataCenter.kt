@@ -14,8 +14,8 @@ object ScheduleDataCenter {
     /**  */
     private fun buildScheduleData(): ArrayList<ScheduleData> {
         val scheduleList = ArrayList<ScheduleData>()
-        scheduleList.add(ScheduleData("10:30", "合肥-青岛三日自驾游"))
-        scheduleList.add(ScheduleData("11:30", "小川洋风料理"))
+        // scheduleList.add(ScheduleData("10:30", "合肥-青岛三日自驾游"))
+        // scheduleList.add(ScheduleData("11:30", "小川洋风料理"))
         return scheduleList
     }
 }

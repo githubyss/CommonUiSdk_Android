@@ -42,7 +42,7 @@
 
             <!-- 此处设置 Widget 更新动作
             <intent-filter> 元素必须包含一个 <action> 元素与 android:name 属性。
-            这个属性指定 AppWidgetProvider 接受系统的 ACTION_APPWIDGET_UPDATE 广播。
+            这个属性指定 AppWidgetProvider 接受系统的 AppWidgetManager.ACTION_APPWIDGET_UPDATE 广播。
             这是唯一的广播申明，您必须显式地声明，代表此类就是一个widget。
             AppWidgetManager 自动发送所有其他应用程序部件广播此注册的广播才能收到，也就是说我们必须要指定识别为 Widget 的 action，当然你需要这个 AppWidgetProvider 接收接她 action。
             -->

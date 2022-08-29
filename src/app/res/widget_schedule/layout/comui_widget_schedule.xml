@@ -12,7 +12,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_gravity="center"
         >
 
         <TextView
@@ -29,7 +29,6 @@
 
         <TextView
             android:id="@+id/text_weekday"
-            android:background="@color/comres_color_transparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
@@ -51,22 +50,58 @@
             />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/text_day"
-        android:background="@color/comres_color_transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_alignBottom="@id/text_date"
-        android:layout_toEndOf="@id/text_date"
-        android:text="Today"
-        android:textColor="#464B5C"
-        android:textSize="@dimen/comres_textSize_11sp"
-        />
-
-    <ListView
-        android:id="@+id/list_schedule"
+    <LinearLayout
+        android:id="@+id/layout_schedule_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:gravity="start"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/text_day"
+            android:background="@color/comres_color_transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="Today"
+            android:textColor="#464B5C"
+            android:textSize="@dimen/comres_textSize_11sp"
+            />
+
+        <ListView
+            android:id="@+id/list_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_schedule_none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:id="@+id/image_schedule_none"
+            android:layout_width="66dp"
+            android:layout_height="69dp"
+            android:src="@drawable/comui_image_schedule_none"
+            />
+
+        <TextView
+            android:id="@+id/text_schedule_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="暂无行程"
+            android:textColor="#9DA0AB"
+            android:textSize="@dimen/comres_textSize_10sp"
+            />
+    </LinearLayout>
 </LinearLayout>

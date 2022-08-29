@@ -58,7 +58,7 @@ class ScheduleWidget : BaseAppWidget() {
         val widgetComponentName = ComponentName(context, ScheduleWidget::class.java)
 
         // 把 Widget 绑定到 RemoteViewsService
-        val intent = Intent(context, ScheduleWidgetListViewService::class.java).apply {
+        val listIntent = Intent(context, ScheduleWidgetListViewService::class.java).apply {
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         }
 
@@ -74,6 +74,7 @@ class ScheduleWidget : BaseAppWidget() {
         val itemIntent = context.getIntent<ScheduleWidget>()?.apply {
             // 设置 Action，方便在 onReceive 中区别点击事件
             action = "item"
+            // 这是为了让 intent 能够带上 extras 数据一起传递，否则在 intent 的比较的过程中会被忽略掉。
             data = Uri.parse(this.toUri(Intent.URI_INTENT_SCHEME))
         }
         val itemPendingIntent = context.getPendingIntent<ScheduleWidget>(itemIntent, 0, "")
@@ -97,11 +98,12 @@ class ScheduleWidget : BaseAppWidget() {
             setTextViewText(R.id.text_weekday, scheduleWidgetVm.weekday.value)
 
             // 设置列表适配器
-            setRemoteAdapter(R.id.list_schedule, intent)
+            setRemoteAdapter(R.id.list_schedule, listIntent)
             // 设置当显示的 list 为空时，显示的 View
-            // setEmptyView(R.id.list_schedule, R.layout.comui_widget_schedule_list_empty)
+            setEmptyView(R.id.list_schedule, R.id.layout_schedule_none)
 
             // 设置列表点击事件
+            // listView 使用 setPendingIntentTemplate 方法，当你点击 ListView 中的任何一个 item 时都会发送 itemPendingIntent，而在我们的 RemoteViewsService 的 RemoteViewsFactory 中的 getViewAt() 方法中，为每一个 item 都设置了一个 intent。
             setPendingIntentTemplate(R.id.list_schedule, itemPendingIntent)
 
             // 设置图标点击事件
