@@ -22,6 +22,7 @@ import com.githubyss.mobile.common.ui.app.page.text.TextComposeFragment
 import com.githubyss.mobile.common.ui.app.page.text_field.TextFieldComposeFragment
 import com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownComposeFragment
 import com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownFragment
+import com.githubyss.mobile.common.ui.app.page.widget.WidgetComposeFragment
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.dialog.hint.HintDialog
 import com.githubyss.mobile.common.ui.dialog.hint.HintDialogVm
@@ -157,6 +158,18 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
             startActivityExt(activity, SpeechRecognitionActivity::class.java)
         }
 
+        ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_widget)) {
+            switchFragment(WidgetComposeFragment(), WidgetComposeFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+        }
+
+        ButtonClickDefault(text = "自定义View") {
+            switchFragment(CustomViewFragment(), CustomViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+        }
+
+        ButtonClickDefault(text = "倒计时") {
+            switchFragment(TimeCountdownComposeFragment(), TimeCountdownComposeFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+        }
+
         LayoutWeightHorizontal {
             ButtonClickDefault(
                 text = homepageVm.playController,
@@ -197,14 +210,6 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
             ) {
                 AppFloatingAudioPlayer.getInstance(activity as Context).designateView?.stop()
             }
-        }
-
-        ButtonClickDefault(text = "自定义View") {
-            switchFragment(CustomViewFragment(), CustomViewFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
-        }
-
-        ButtonClickDefault(text = "倒计时") {
-            switchFragment(TimeCountdownFragment(), TimeCountdownFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
         }
     }
 }

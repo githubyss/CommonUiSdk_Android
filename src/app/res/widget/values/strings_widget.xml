@@ -2,7 +2,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools"
            tools:ignore="MissingTranslation">
 
+    <!-- Title -->
+    <string name="comui_widget_title">倒计时</string>
+
     <!-- Button -->
-    <string name="comui_article_list_select_all">全部选择</string>
-    <string name="comui_article_list_unselect_all">取消全选</string>
+
+    <!-- Content -->
 </resources>

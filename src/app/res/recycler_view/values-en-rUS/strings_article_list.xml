@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Button -->
-    <string name="comui_article_list_select_all">Select All</string>
-    <string name="comui_article_list_unselect_all">Unselect All</string>
-</resources>
