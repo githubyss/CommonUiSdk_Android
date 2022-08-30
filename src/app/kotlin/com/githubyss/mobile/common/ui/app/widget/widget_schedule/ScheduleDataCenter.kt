@@ -18,4 +18,8 @@ object ScheduleDataCenter {
         // scheduleList.add(ScheduleData("11:30", "小川洋风料理"))
         return scheduleList
     }
+
+    fun clear() {
+        scheduleList.clear()
+    }
 }

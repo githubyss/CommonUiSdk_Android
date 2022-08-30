@@ -1,11 +1,13 @@
 package com.githubyss.mobile.common.ui.app.widget.widget_schedule
 
 import android.appwidget.AppWidgetManager
+import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
+import androidx.annotation.IdRes
 import com.githubyss.common.base.app_widget.classical.BaseAppWidget
 import com.githubyss.mobile.common.kit.util.*
 import com.githubyss.mobile.common.ui.R
@@ -124,16 +126,15 @@ class ScheduleWidget : BaseAppWidget() {
         intent ?: return
 
         when (intent.action) {
+            "date" -> {
+
+            }
             "item" -> {
                 logD(TAG, "点击了项目")
             }
             "icon" -> {
-                val widgetManager = AppWidgetManager.getInstance(context)
-                val widgetComponentName = ComponentName(context, ScheduleWidget::class.java)
                 ScheduleDataCenter.scheduleList.add(ScheduleData("12:00", "一个时间"))
-
-                // 这句话会调用 RemoteViewsService 中 RemoteViewsFactory 的 onDataSetChanged() 方法
-                widgetManager.notifyAppWidgetViewDataChanged(widgetManager.getAppWidgetIds(widgetComponentName), R.id.list_schedule)
+                context.refreshWidget<ScheduleWidget>(R.id.list_schedule)
             }
         }
     }

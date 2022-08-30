@@ -26,31 +26,35 @@ class ScheduleWidgetListRemoteViewsFactory(val context: Context, intent: Intent?
     /** 得到原来的 WidgetId */
     var appWidgetId = intent?.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
 
+    private val scheduleList by lazy { ArrayList<ScheduleData>() }
+
 
     /** ****************************** Override ****************************** */
 
     /**  */
     override fun onCreate() {
         super.onCreate()
-        // ScheduleDataCenter.scheduleList.addAll(ScheduleDataCenter.scheduleList)
+        scheduleList.addAll(ScheduleDataCenter.scheduleList)
     }
 
     /**  */
     override fun onDataSetChanged() {
         super.onDataSetChanged()
-        // ScheduleDataCenter.scheduleList.addAll(ScheduleDataCenter.scheduleList)
+        scheduleList.clear()
+        scheduleList.addAll(ScheduleDataCenter.scheduleList)
     }
 
     /**  */
     override fun onDestroy() {
-        ScheduleDataCenter.scheduleList.clear()
+        scheduleList.clear()
+        ScheduleDataCenter.clear()
         super.onDestroy()
     }
 
     /**  */
     override fun getCount(): Int {
         super.getCount()
-        return ScheduleDataCenter.scheduleList.size
+        return scheduleList.size
     }
 
     /**  */
@@ -59,7 +63,7 @@ class ScheduleWidgetListRemoteViewsFactory(val context: Context, intent: Intent?
 
         if (position < 0 || position >= count) return null
 
-        val schedule = ScheduleDataCenter.scheduleList[position]
+        val schedule = scheduleList[position]
         logD(TAG, "position: $position, schedule: $schedule")
 
         // 创建在当前索引位置要显示的 View

@@ -37,14 +37,12 @@ class ScheduleWidgetVm : ViewModel() {
 
     /**  */
     fun setupDate() {
-        val dateValue = currentDatetimeString("M月d日")
-        val weekdayValue = currentDatetimeString("EEEE")
-        date = dateValue
-        weekday.value = weekdayValue
+        date = currentDatetimeString("M月d日")
+        weekday.value = currentDatetimeString("EEEE")
     }
 
     /**  */
     fun changeDate() {
-        this.date = currentDatetimeString("yyyy年M月d日")
+        date = currentDatetimeString("yyyy年M月d日")
     }
 }
