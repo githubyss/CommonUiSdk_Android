@@ -47,14 +47,14 @@
                         style="@style/comres_equant_horizontal_button_style"
                         android:id="@+id/button_property_animation"
                         android:onClick="@{homepageVm::onAnyButtonClick}"
-                        android:text="@string/comui_homepage_button_property_animation"
+                        android:text="@string/comui_homepage_button_animate_property"
                         />
 
                     <Button
                         style="@style/comres_equant_horizontal_button_style"
                         android:id="@+id/button_tween_animation"
                         android:onClick="@{homepageVm::onAnyButtonClick}"
-                        android:text="@string/comui_homepage_button_tween_animation"
+                        android:text="@string/comui_homepage_button_animate_tween"
                         />
                 </com.google.android.flexbox.FlexboxLayout>
 

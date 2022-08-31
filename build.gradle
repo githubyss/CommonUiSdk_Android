@@ -167,6 +167,11 @@ dependencies {
 
     implementation dependenciesLib.google_material
     implementation dependenciesLib.google_flexbox
+
+    // implementation dependenciesLib.airbnb_lottie
+    // implementation dependenciesLib.airbnb_lottie_compose
+    implementation dependenciesLib.sahasbhop_apng_view
+
     // implementation dependenciesLib.coil
     // implementation dependenciesLib.coil_gif
     implementation dependenciesLib.coil_compose

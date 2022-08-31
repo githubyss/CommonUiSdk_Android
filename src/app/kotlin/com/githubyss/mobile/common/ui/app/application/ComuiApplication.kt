@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.app.application
 
 import android.content.Context
+import com.github.sahasbhop.apngview.ApngImageLoader
 import com.githubyss.common.base.application.BaseApplication
 import com.githubyss.mobile.common.kit.BuildConfig
 import com.githubyss.mobile.common.kit.manager.speech_recognition.SpeechRecognitionManager
@@ -37,6 +38,7 @@ class ComuiApplication : BaseApplication() {
         super.onCreate()
         instance = this
 
+        ApngImageLoader.getInstance().init(applicationContext);
         initSpeechRecognition(instance)
     }
 

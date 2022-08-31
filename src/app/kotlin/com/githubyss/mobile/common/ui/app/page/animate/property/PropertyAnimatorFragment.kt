@@ -9,7 +9,7 @@ import com.githubyss.common.base.application.BaseApplicationHolder
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.animator.evaluator.coordinate.PointEvaluator
-import com.githubyss.mobile.common.ui.databinding.ComuiFragmentPropertyAnimatorBinding
+import com.githubyss.mobile.common.ui.databinding.ComuiFragmentAnimatePropertyBinding
 import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
 
 
@@ -20,7 +20,7 @@ import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
  * @github githubyss
  * @createdTime 2021/03/09 11:10:20
  */
-class PropertyAnimatorFragment : BaseReflectBindingToolbarFragment<ComuiFragmentPropertyAnimatorBinding>() {
+class PropertyAnimatorFragment : BaseReflectBindingToolbarFragment<ComuiFragmentAnimatePropertyBinding>() {
 
     /** ****************************** Companion ****************************** */
 
@@ -59,6 +59,14 @@ class PropertyAnimatorFragment : BaseReflectBindingToolbarFragment<ComuiFragment
         super.onDestroy()
         stopAnimator()
         ComuiAutoHideFloatingWindow.instance.hide()
+    }
+
+    /**  */
+    override fun stopAnimator() {
+        moveValueAnimator?.cancel()
+        scaleValueAnimator?.cancel()
+        moveObjectAnimator?.cancel()
+        scaleObjectAnimator?.cancel()
     }
 
 
@@ -133,14 +141,6 @@ class PropertyAnimatorFragment : BaseReflectBindingToolbarFragment<ComuiFragment
         scaleObjectAnimator?.repeatCount = ObjectAnimator.INFINITE
         scaleObjectAnimator?.repeatMode = ObjectAnimator.REVERSE
         scaleObjectAnimator?.start()
-    }
-
-    /**  */
-    private fun stopAnimator() {
-        moveValueAnimator?.cancel()
-        scaleValueAnimator?.cancel()
-        moveObjectAnimator?.cancel()
-        scaleObjectAnimator?.cancel()
     }
 
     /**  */

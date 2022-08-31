@@ -11,6 +11,7 @@ import com.githubyss.common.base.activity_fragment.compose.BaseComposeToolbarFra
 import com.githubyss.mobile.common.kit.util.*
 import com.githubyss.mobile.common.res.common.dimen.SpaceNormal
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.app.page.animate.apng.ApngFragment
 import com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment
 import com.githubyss.mobile.common.ui.app.page.button.ButtonComposeFragment
 import com.githubyss.mobile.common.ui.app.page.card.CardComposeFragment
@@ -21,7 +22,6 @@ import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognit
 import com.githubyss.mobile.common.ui.app.page.text.TextComposeFragment
 import com.githubyss.mobile.common.ui.app.page.text_field.TextFieldComposeFragment
 import com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownComposeFragment
-import com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownFragment
 import com.githubyss.mobile.common.ui.app.page.widget.WidgetComposeFragment
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.dialog.hint.HintDialog
@@ -103,13 +103,27 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
 
         LayoutWeightHorizontal {
             ButtonClickDefault(
-                text = getStringFromRes(R.string.comui_homepage_button_property_animation),
+                text = getStringFromRes(R.string.comui_homepage_button_animate_property),
                 modifier = Modifier.weight(1F),
             ) {
                 switchFragment(PropertyAnimatorFragment(), PropertyAnimatorFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
             }
             ButtonClickDefault(
-                text = getStringFromRes(R.string.comui_homepage_button_tween_animation),
+                text = getStringFromRes(R.string.comui_homepage_button_animate_tween),
+                modifier = Modifier.weight(1F),
+            ) {
+            }
+        }
+
+        LayoutWeightHorizontal {
+            ButtonClickDefault(
+                text = getStringFromRes(R.string.comui_homepage_button_animate_apng),
+                modifier = Modifier.weight(1F),
+            ) {
+                switchFragment(ApngFragment(), ApngFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            }
+            ButtonClickDefault(
+                text = getStringFromRes(R.string.comui_homepage_button_animate_lottie),
                 modifier = Modifier.weight(1F),
             ) {
             }

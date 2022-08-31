@@ -16,6 +16,7 @@
         android:label="${APP_NAME}"
         android:roundIcon="@mipmap/comres_ic_launcher_default_round"
         android:supportsRtl="true"
+        tools:replace="android:label,android:allowBackup"
         >
 
         <!--<receiver-->
@@ -70,7 +71,6 @@
             android:name=".app.page.homepage.HomepageActivity"
             android:theme="@style/comresTheme_activity_noActionBar"
             android:exported="true"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             >
