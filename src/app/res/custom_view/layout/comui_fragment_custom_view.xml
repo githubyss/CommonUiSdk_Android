@@ -6,16 +6,16 @@
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
+        android:background="@color/comres_layoutBg_lightGray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/comres_layoutBg_lightGray"
-        android:orientation="vertical"
         >
 
         <com.githubyss.mobile.common.ui.custom.CustomView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
             />
-    </LinearLayout>
+    </FrameLayout>
 </layout>

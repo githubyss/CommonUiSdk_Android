@@ -14,15 +14,34 @@
         android:background="@color/comres_color_gray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         >
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageApng"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:onClick="@{() -> page.onImageClick()}"
-            android:src="@drawable/comui_anim_speaking"
+            android:visibility="visible"
+            />
+
+        <Button
+            style="@style/comres_button_clickable_graydark_no_border_rectangle_2dp_round_all"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="@dimen/comres_sideMargin_normal"
+            android:layout_gravity="start|bottom"
+            android:onClick="@{() -> page.onLoadImageSpeakingClick()}"
+            />
+
+        <Button
+            style="@style/comres_button_clickable_graydark_no_border_rectangle_2dp_round_all"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="@dimen/comres_sideMargin_normal"
+            android:layout_gravity="end|bottom"
+            android:onClick="@{() -> page.onLoadImageListeningClick()}"
             />
     </FrameLayout>
 </layout>

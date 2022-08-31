@@ -2,11 +2,9 @@ package com.githubyss.mobile.common.ui.app.page.animate.apng
 
 import com.github.sahasbhop.apngview.ApngDrawable
 import com.github.sahasbhop.apngview.ApngImageLoader
-import com.github.sahasbhop.apngview.ApngImageLoader.ApngConfig
 import com.githubyss.common.base.activity_fragment.binding_reflect_view_model.BaseReflectBindingViewModelToolbarFragment
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.databinding.ComuiFragmentAnimateApngBinding
-import com.githubyss.mobile.common.ui.floatingwindow.ComuiAutoHideFloatingWindow
 
 
 /**
@@ -29,7 +27,17 @@ class ApngFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmentAni
     /** ****************************** Properties ****************************** */
 
     /**  */
-    private val apngDrawable by lazy { ApngDrawable.getFromView(binding.imageApng) }
+    private val apngDrawable
+        get() = ApngDrawable.getFromView(binding.imageApng)
+
+    // Display image from a file in assets
+    private var uri = ""
+
+    // Display image from a file in file path
+    // var uri = "file:///sdcard/apng_geneva_drive.png"
+
+    // Display image from a file in web url
+    // var uri = "http://littlesvr.ca/apng/images/clock.png"
 
 
     /** ****************************** Override ****************************** */
@@ -40,23 +48,6 @@ class ApngFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmentAni
     }
 
     /**  */
-    override fun setupUi() {
-        // Display image from a file in assets
-        val uri = "assets://apng/comui_anim_speaking.png"
-
-        // Display image from a file in file path
-        // val uri = "file:///sdcard/apng_geneva_drive.png"
-
-        // Display image from a file in web url
-        // val uri = "http://littlesvr.ca/apng/images/clock.png"
-
-        // 加载 Apng
-        ApngImageLoader.getInstance().displayImage(uri, binding.imageApng)
-
-        // 加载 Apng 后立即开始动画
-        // ApngImageLoader.getInstance().displayApng(uri, binding.imageApng, ApngConfig(3, true))
-    }
-
     override fun bindXmlData() {
         binding.page = this
     }
@@ -77,11 +68,25 @@ class ApngFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmentAni
 
     /**  */
     fun onImageClick() {
-        if (apngDrawable.isRunning) {
-            stopAnimator()
+        when {
+            apngDrawable.isRunning -> stopAnimator()
+            else -> startAnimator()
         }
-        else {
-            startAnimator()
-        }
+    }
+
+    /**  */
+    fun onLoadImageSpeakingClick() {
+        // 加载 Apng
+        uri = "assets://apng/comui_anim_speaking.png"
+        ApngImageLoader.getInstance().displayImage(uri, binding.imageApng)
+
+        // 加载 Apng 后立即开始动画
+        // ApngImageLoader.getInstance().displayApng(uri, binding.imageApng, ApngConfig(3, true))
+    }
+
+    /**  */
+    fun onLoadImageListeningClick() {
+        uri = "assets://apng/comui_anim_listening.png"
+        ApngImageLoader.getInstance().displayImage(uri, binding.imageApng)
     }
 }
