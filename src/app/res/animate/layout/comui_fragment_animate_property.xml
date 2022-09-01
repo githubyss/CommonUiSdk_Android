@@ -97,6 +97,7 @@
             <Button
                 style="@style/comui_button_animate"
                 android:id="@+id/buttonAlpha"
+                android:onClick="@{() -> page.onButtonAlphaClick()}"
                 android:text="透明度"
                 />
         </LinearLayout>

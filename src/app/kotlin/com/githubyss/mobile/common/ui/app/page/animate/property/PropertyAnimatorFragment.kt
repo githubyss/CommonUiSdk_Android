@@ -41,11 +41,13 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
     private lateinit var animatorRotation: ValueAnimator
     private lateinit var animatorRotationX: ValueAnimator
     private lateinit var animatorRotationY: ValueAnimator
+    private lateinit var animatorAlpha: ValueAnimator
 
     private val deltaTranslation = 100F
     private val deltaLength = 100
     private val deltaScale = 0.5F
     private val deltaRotation = 20F
+    private val deltaAlpha = 0.5F
 
 
     /** ****************************** Override ****************************** */
@@ -119,6 +121,12 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
     }
 
     /**  */
+    fun onButtonAlphaClick() {
+        refreshText("透明度")
+        animatorAlpha.start()
+    }
+
+    /**  */
     fun onButtonPlaySequentiallyClick() {
         startAnimatorSequentially()
     }
@@ -164,6 +172,7 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
         configAnimatorRotation(view, engine)
         configAnimatorRotationX(view, engine)
         configAnimatorRotationY(view, engine)
+        configAnimatorAlpha(view, engine)
     }
 
     /**  */
@@ -289,6 +298,27 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
                 }
             }
             AnimatorEngine.Object -> ObjectAnimator.ofFloat(view, "rotationY", *angleArray).apply {
+                defaultAnimatorConfig()
+                addUpdateListener {
+                }
+            }
+        }
+    }
+
+    /**  */
+    private fun configAnimatorAlpha(view: View, engine: AnimatorEngine) {
+        val alpha0 = view.alpha
+        val alpha1 = alpha0 - deltaAlpha
+        val alphaArray = floatArrayOf(alpha0, alpha1, alpha0)
+
+        animatorAlpha = when (engine) {
+            AnimatorEngine.Value -> ValueAnimator.ofFloat(*alphaArray).apply {
+                defaultAnimatorConfig()
+                addUpdateListener { animation ->
+                    view.alpha = animation.animatedValue as Float
+                }
+            }
+            AnimatorEngine.Object -> ObjectAnimator.ofFloat(view, "alpha", *alphaArray).apply {
                 defaultAnimatorConfig()
                 addUpdateListener {
                 }
