@@ -38,7 +38,7 @@
             android:onClick="@{page::onTextObjectAnimatorClick}"
             android:text="Object"
             app:layout_constraintTop_toBottomOf="@id/textValueAnimator"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/buttonPlaySequentially"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/layoutActions"
             />
@@ -100,5 +100,38 @@
                 android:text="透明度"
                 />
         </LinearLayout>
+
+        <Button
+            style="@style/comui_button_animate"
+            android:id="@+id/buttonPlaySequentially"
+            android:layout_width="0dp"
+            android:onClick="@{() -> page.onButtonPlaySequentiallyClick()}"
+            android:text="逐个播放"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/buttonPlayTogether"
+            />
+
+        <Button
+            style="@style/comui_button_animate"
+            android:id="@+id/buttonPlayTogether"
+            android:layout_width="0dp"
+            android:onClick="@{() -> page.onButtonPlayTogetherClick()}"
+            android:text="同时播放"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonPlaySequentially"
+            app:layout_constraintEnd_toStartOf="@id/buttonStop"
+            />
+
+        <Button
+            style="@style/comui_button_animate"
+            android:id="@+id/buttonStop"
+            android:layout_width="0dp"
+            android:onClick="@{() -> page.onButtonStopClick()}"
+            android:text="停止"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonPlayTogether"
+            app:layout_constraintEnd_toStartOf="@id/layoutActions"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,5 +1,6 @@
 package com.githubyss.mobile.common.ui.app.page.animate.property
 
+import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.graphics.Point
@@ -62,7 +63,10 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
     override fun stopAnimator() {
         animatorTranslation.cancel()
         animatorLength.cancel()
+        animatorScaleX.cancel()
+        animatorRotation.cancel()
         animatorRotationX.cancel()
+        animatorRotationY.cancel()
     }
 
 
@@ -70,52 +74,100 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
 
     /**  */
     fun onTextValueAnimatorClick(view: View) {
-        textAnimator(view, AnimatorEngine.Value)
+        configAnimatorAll(view, AnimatorEngine.Value)
     }
 
     /**  */
     fun onTextObjectAnimatorClick(view: View) {
-        textAnimator(view, AnimatorEngine.Object)
+        configAnimatorAll(view, AnimatorEngine.Object)
     }
 
     /**  */
     fun onButtonTranslationClick() {
-        textAnimator = this::animatorTranslation
         refreshText("位移")
+        animatorTranslation.start()
     }
 
     /**  */
     fun onButtonLengthXClick() {
-        textAnimator = this::animatorLengthX
         refreshText("长度 X")
+        animatorLength.start()
     }
 
     /**  */
     fun onButtonScaleXClick() {
-        textAnimator = this::animatorScaleX
         refreshText("伸缩 X")
+        animatorScaleX.start()
     }
 
     /**  */
     fun onButtonRotationClick() {
-        textAnimator = this::animatorRotation
         refreshText("旋转")
+        animatorRotation.start()
     }
 
     /**  */
     fun onButtonRotationXClick() {
-        textAnimator = this::animatorRotationX
         refreshText("旋转 X")
+        animatorRotationX.start()
     }
 
     /**  */
     fun onButtonRotationYClick() {
-        textAnimator = this::animatorRotationY
         refreshText("旋转 Y")
+        animatorRotationY.start()
     }
 
     /**  */
-    private fun animatorTranslation(view: View, engine: AnimatorEngine) {
+    fun onButtonPlaySequentiallyClick() {
+        startAnimatorSequentially()
+    }
+
+    /**  */
+    fun onButtonPlayTogetherClick() {
+        startAnimatorTogether()
+    }
+
+    /**  */
+    fun onButtonStopClick() {
+        stopAnimator()
+    }
+
+    /**  */
+    private fun startAnimatorSequentially() {
+        // AnimatorSet().apply {
+        //     playSequentially(animatorTranslation, animatorLength, animatorScaleX, animatorRotation, animatorRotationX, animatorRotationY)
+        //     start()
+        // }
+
+        AnimatorSet().apply {
+            play(animatorRotationX).with(animatorRotationY)
+            play(animatorTranslation).after(3000)
+            play(animatorTranslation).before(animatorLength)
+            start()
+        }
+    }
+
+    /**  */
+    private fun startAnimatorTogether() {
+        AnimatorSet().apply {
+            playTogether(animatorTranslation, animatorLength, animatorScaleX, animatorRotation, animatorRotationX, animatorRotationY)
+            start()
+        }
+    }
+
+    /**  */
+    private fun configAnimatorAll(view: View, engine: AnimatorEngine) {
+        configAnimatorTranslation(view, engine)
+        configAnimatorLengthX(view, engine)
+        configAnimatorScaleX(view, engine)
+        configAnimatorRotation(view, engine)
+        configAnimatorRotationX(view, engine)
+        configAnimatorRotationY(view, engine)
+    }
+
+    /**  */
+    private fun configAnimatorTranslation(view: View, engine: AnimatorEngine) {
         val pointX = view.x.toInt()
         val pointY = view.y.toInt()
         val point0 = Point(pointX, pointY)
@@ -139,7 +191,7 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
     }
 
     /**  */
-    private fun animatorLengthX(view: View, engine: AnimatorEngine) {
+    private fun configAnimatorLengthX(view: View, engine: AnimatorEngine) {
         val width0 = view.layoutParams.width
         val width1 = width0 + deltaLength
         val widthArray = intArrayOf(width0, width1, width0)
@@ -157,13 +209,11 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
                 addUpdateListener {
                 }
             }
-        }.apply {
-            start()
         }
     }
 
     /**  */
-    private fun animatorScaleX(view: View, engine: AnimatorEngine) {
+    private fun configAnimatorScaleX(view: View, engine: AnimatorEngine) {
         val scale0 = 1.0F
         val scale1 = scale0 + deltaScale
         val scaleArray = floatArrayOf(scale0, scale1, scale0)
@@ -180,13 +230,11 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
                 addUpdateListener {
                 }
             }
-        }.apply {
-            start()
         }
     }
 
     /**  */
-    private fun animatorRotation(view: View, engine: AnimatorEngine) {
+    private fun configAnimatorRotation(view: View, engine: AnimatorEngine) {
         val angle0 = view.rotation
         val angle1 = angle0 + deltaRotation
         val angleArray = floatArrayOf(angle0, angle1, angle0)
@@ -203,13 +251,11 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
                 addUpdateListener {
                 }
             }
-        }.apply {
-            start()
         }
     }
 
     /**  */
-    private fun animatorRotationX(view: View, engine: AnimatorEngine) {
+    private fun configAnimatorRotationX(view: View, engine: AnimatorEngine) {
         val angle0 = view.rotationX
         val angle1 = angle0 + deltaRotation
         val angleArray = floatArrayOf(angle0, angle1, angle0)
@@ -226,13 +272,11 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
                 addUpdateListener {
                 }
             }
-        }.apply {
-            start()
         }
     }
 
     /**  */
-    private fun animatorRotationY(view: View, engine: AnimatorEngine) {
+    private fun configAnimatorRotationY(view: View, engine: AnimatorEngine) {
         val angle0 = view.rotationY
         val angle1 = angle0 + deltaRotation
         val angleArray = floatArrayOf(angle0, angle1, angle0)
@@ -249,8 +293,6 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
                 addUpdateListener {
                 }
             }
-        }.apply {
-            start()
         }
     }
 
