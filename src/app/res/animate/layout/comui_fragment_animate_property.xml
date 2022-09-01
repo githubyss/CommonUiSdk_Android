@@ -1,96 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
 
+        <variable
+            name="page"
+            type="com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment"
+            />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:background="@color/comres_layoutBg_lightGray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/comres_sideMargin_normal"
-            android:layout_marginRight="@dimen/comres_sideMargin_normal"
-            android:gravity="center"
-            android:orientation="vertical"
-            >
+        <TextView
+            style="@style/comui_text_animator"
+            android:id="@+id/textValueAnimator"
+            android:background="@color/comres_color_464b5c"
+            android:onClick="@{page::onTextValueAnimatorClick}"
+            android:text="Value"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textObjectAnimator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layoutActions"
+            />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/comres_sideMargin_normal"
-                android:layout_marginRight="@dimen/comres_sideMargin_normal"
-                android:gravity="center"
-                android:orientation="horizontal"
-                >
-
-                <Button
-                    style="@style/comres_button_clickable_blue_no_border_rectangle_2dp_round_all"
-                    android:id="@+id/btnMove"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="Move"
-                    />
-
-                <Button
-                    style="@style/comres_button_clickable_blue_no_border_rectangle_2dp_round_all"
-                    android:id="@+id/btnScale"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="20dp"
-                    android:text="Scale"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="@dimen/comres_sideMargin_normal"
-                android:layout_marginRight="@dimen/comres_sideMargin_normal"
-                android:gravity="center"
-                android:orientation="horizontal"
-                >
-
-                <Button
-                    style="@style/comres_button_clickable_blue_no_border_rectangle_2dp_round_all"
-                    android:id="@+id/btnShow"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="Show"
-                    />
-
-                <Button
-                    style="@style/comres_button_clickable_blue_no_border_rectangle_2dp_round_all"
-                    android:id="@+id/btnHide"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="20dp"
-                    android:text="Hide"
-                    />
-            </LinearLayout>
-        </LinearLayout>
+        <TextView
+            style="@style/comui_text_animator"
+            android:id="@+id/textObjectAnimator"
+            android:background="@color/comres_color_464b5c"
+            android:onClick="@{page::onTextObjectAnimatorClick}"
+            android:text="Object"
+            app:layout_constraintTop_toBottomOf="@id/textValueAnimator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layoutActions"
+            />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/layoutActions"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
             >
 
             <Button
-                style="@style/comres_button_clickable_blue_no_border_rectangle_2dp_round_all"
-                android:id="@+id/btnAnimator"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                style="@style/comui_button_animate"
+                android:id="@+id/buttonTranslation"
+                android:onClick="@{() -> page.onButtonTranslationClick()}"
+                android:text="位移"
+                />
+
+            <Button
+                style="@style/comui_button_animate"
+                android:id="@+id/buttonLengthX"
+                android:onClick="@{() -> page.onButtonLengthXClick()}"
+                android:text="长度 X"
+                />
+
+            <Button
+                style="@style/comui_button_animate"
+                android:id="@+id/buttonScaleX"
+                android:onClick="@{() -> page.onButtonScaleXClick()}"
+                android:text="伸缩 X"
+                />
+
+            <Button
+                style="@style/comui_button_animate"
+                android:id="@+id/buttonRotation"
+                android:onClick="@{() -> page.onButtonRotationClick()}"
+                android:text="旋转"
+                />
+
+            <Button
+                style="@style/comui_button_animate"
+                android:id="@+id/buttonRotationX"
+                android:onClick="@{() -> page.onButtonRotationXClick()}"
+                android:text="旋转 X"
+                />
+
+            <Button
+                style="@style/comui_button_animate"
+                android:id="@+id/buttonRotationY"
+                android:onClick="@{() -> page.onButtonRotationYClick()}"
+                android:text="旋转 Y"
+                />
+
+            <Button
+                style="@style/comui_button_animate"
+                android:id="@+id/buttonAlpha"
+                android:text="透明度"
                 />
         </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -31,15 +31,18 @@ class TimeCountdownFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFr
 
     /** ****************************** Override ****************************** */
 
+    /**  */
     override fun setupData() {
         binding.timeCountdown.remainingMillisecond = timeCountdownVm.remainingMillisecond.value ?: return
     }
 
+    /**  */
     override fun setToolbarTitle() {
         setToolbarTitle(R.string.comui_time_countdown_title)
     }
 
-
-    /** ****************************** Functions ****************************** */
-
+    /**  */
+    override fun bindXmlData() {
+        binding.page = this
+    }
 }

@@ -6,6 +6,10 @@
 
     <data>
 
+        <variable
+            name="page"
+            type="com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownFragment"
+            />
     </data>
 
     <FrameLayout

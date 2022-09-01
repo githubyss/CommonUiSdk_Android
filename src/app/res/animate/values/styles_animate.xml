@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="comui_button_animate"
+           parent="comres_button_clickable_graydark_no_border_rectangle_2dp_round_all">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_margin">@dimen/comres_sideMargin_micro</item>
+    </style>
+
+    <style name="comui_text_animator">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/comres_color_yellow</item>
+        <item name="android:textSize">@dimen/comres_textSize_large</item>
+    </style>
+</resources>

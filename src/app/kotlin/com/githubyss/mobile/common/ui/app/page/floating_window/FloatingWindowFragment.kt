@@ -50,11 +50,6 @@ class FloatingWindowFragment : BaseReflectBindingViewModelToolbarFragment<ComuiF
     }
 
     /**  */
-    override fun bindLifecycleOwner() {
-        binding.lifecycleOwner = viewLifecycleOwner
-    }
-
-    /**  */
     override fun bindXmlData() {
         binding.floatingWindowVm = floatingWindowVm
     }
