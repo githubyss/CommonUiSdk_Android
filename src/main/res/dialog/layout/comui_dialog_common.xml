@@ -54,7 +54,7 @@
                     />
         </LinearLayout>
 
-        <include layout="@layout/comres_view_separator_horizontal_gray" />
+        <include layout="@layout/comui_view_separator_horizontal_gray" />
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                     android:id="@+id/vSeparator"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/comres_separator_gray"
+                    android:background="@color/comui_separator_gray"
                     />
 
             <Button

@@ -38,6 +38,18 @@
             android:onClick="@{page::onTextObjectAnimatorClick}"
             android:text="Object"
             app:layout_constraintTop_toBottomOf="@id/textValueAnimator"
+            app:layout_constraintBottom_toTopOf="@id/textViewPropertyAnimator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layoutActions"
+            />
+
+        <TextView
+            style="@style/comui_text_animator"
+            android:id="@+id/textViewPropertyAnimator"
+            android:background="@color/comres_color_464b5c"
+            android:onClick="@{page::onTextViewPropertyAnimatorClick}"
+            android:text="ViewProperty"
+            app:layout_constraintTop_toBottomOf="@id/textObjectAnimator"
             app:layout_constraintBottom_toTopOf="@id/buttonPlaySequentially"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/layoutActions"
@@ -70,7 +82,7 @@
                 style="@style/comui_button_animate"
                 android:id="@+id/buttonScaleX"
                 android:onClick="@{() -> page.onButtonScaleXClick()}"
-                android:text="伸缩 X"
+                android:text="缩放 X"
                 />
 
             <Button

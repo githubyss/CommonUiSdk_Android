@@ -34,7 +34,7 @@
             android:id="@+id/ib_close"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:src="@drawable/comres_icon_close_no_border"
+            android:src="@drawable/comres_icon_close_no_border_drakgray"
             app:layout_constraintTop_toTopOf="@id/tv_title"
             app:layout_constraintBottom_toBottomOf="@id/tv_title"
             app:layout_constraintStart_toStartOf="parent"

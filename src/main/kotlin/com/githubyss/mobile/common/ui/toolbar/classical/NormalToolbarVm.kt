@@ -20,8 +20,8 @@ class NormalToolbarVm : ViewModel() {
     /**  */
     companion object {
         val TEXT_DEFAULT = ""
-        val ACTION_LEFT_DEFAULT = R.drawable.comres_icon_close_no_border
-        val ACTION_RIGHT_DEFAULT = R.drawable.comres_icon_close_no_border
+        val ACTION_LEFT_DEFAULT = R.drawable.comres_icon_close_no_border_drakgray
+        val ACTION_RIGHT_DEFAULT = R.drawable.comres_icon_close_no_border_drakgray
     }
 
 

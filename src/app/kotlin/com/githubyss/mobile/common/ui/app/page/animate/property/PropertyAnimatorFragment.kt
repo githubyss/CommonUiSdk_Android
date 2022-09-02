@@ -85,6 +85,13 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
     }
 
     /**  */
+    fun onTextViewPropertyAnimatorClick(view: View) {
+        view.animate().apply {
+            start()
+        }
+    }
+
+    /**  */
     fun onButtonTranslationClick() {
         refreshText("位移")
         animatorTranslation.start()
@@ -98,7 +105,7 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
 
     /**  */
     fun onButtonScaleXClick() {
-        refreshText("伸缩 X")
+        refreshText("缩放 X")
         animatorScaleX.start()
     }
 
@@ -342,8 +349,8 @@ class PropertyAnimatorFragment : BaseReflectBindingViewModelToolbarFragment<Comu
     /**  */
     private fun ValueAnimator.defaultAnimatorConfig() {
         startDelay = 0
-        duration = 1000
-        // repeatCount = 0
+        duration = 3000
+        repeatCount = 1
         // repeatMode = ValueAnimator.REVERSE
     }
 

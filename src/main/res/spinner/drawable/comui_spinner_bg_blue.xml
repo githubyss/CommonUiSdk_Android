@@ -1,0 +1,22 @@
+<?xml version="1.0"encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:height="40dp"
+        android:width="160dp"
+        >
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" />
+            <solid android:color="#5f7be4" />
+            <padding android:right="30dp" />
+        </shape>
+    </item>
+
+    <item>
+        <bitmap
+            android:gravity="end"
+            android:src="@drawable/comres_icon_arrow_down_no_border_white"
+            />
+    </item>
+</layer-list>
