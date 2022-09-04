@@ -87,7 +87,6 @@ android {
                 srcDirs 'src/main/res/floating_icon'
 
                 srcDirs 'src/main/res/recycler_view'
-                srcDirs 'src/main/res/recycler_view/three_layer'
                 srcDirs 'src/main/res/slide_to_refresh_scroll_view'
             }
             manifest {
@@ -121,6 +120,7 @@ android {
                     srcDirs 'src/app/res/recycler_view/search'
                     srcDirs 'src/app/res/recycler_view/multi'
                     srcDirs 'src/app/res/recycler_view/three_layer'
+                    srcDirs 'src/app/res/spinner'
                     srcDirs 'src/app/res/speech_recognition'
                     srcDirs 'src/app/res/widget'
                     srcDirs 'src/app/res/widget_default'

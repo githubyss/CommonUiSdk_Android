@@ -13,7 +13,7 @@
 // import android.view.View
 // import android.view.ViewGroup
 // import com.suning.mobile.snbank.R
-// import com.githubyss.mobile.common.ui.recycler_view.three_layer.old.ProductItem
+// import com.ace.sample.list.page.three_layer.ProductItem
 // import com.suning.mobile.snbank.homek.view.HomeItemClickListener
 //
 // /**

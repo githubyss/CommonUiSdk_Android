@@ -19,24 +19,28 @@ class HomepageComposeViewModel : ViewModel() {
 
     /** ****************************** Properties ****************************** */
 
+    /**  */
     private val titleDefault = getStringFromRes(R.string.comui_homepage_title)
     val playControllerPlay = getStringFromRes(R.string.comres_audio_player_play)
     val playControllerPause = getStringFromRes(R.string.comres_audio_player_pause)
 
-    /** 数据绑定，绑定到 UI 的字段（data field） */
+    /**  */
     var title: String by mutableStateOf(titleDefault)
         private set
 
+    /**  */
     var playController: String by mutableStateOf(playControllerPlay)
         private set
 
 
     /** ****************************** Functions ****************************** */
 
+    /**  */
     fun changeTitle(title: String) {
         this.title = title
     }
 
+    /**  */
     fun switchPlayText(text: String) {
         this.playController = text
     }

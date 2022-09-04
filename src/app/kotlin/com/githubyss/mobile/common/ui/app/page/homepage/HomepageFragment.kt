@@ -49,7 +49,7 @@ class HomepageFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmen
 
     /**  */
     override fun setToolbarTitle() {
-        setToolbarTitle(R.string.comui_homepage_title)
+        setToolbarTitle(homepageVm.title)
     }
 
     /**  */
@@ -72,32 +72,6 @@ class HomepageFragment : BaseReflectBindingViewModelToolbarFragment<ComuiFragmen
         this.homepageVm.viewId?.removeObservers(viewLifecycleOwner)
     }
 
-    /**  */
-    override fun onStart() {
-        super.onStart()
-        attachView()
-    }
-
-    /**  */
-    override fun onStop() {
-        super.onStop()
-        detachView()
-    }
-
-
-    /** ****************************** Functions ****************************** */
-
-    /**  */
-    private fun attachView() {
-        AppFloatingIcon.getInstance(activity as Context)
-            .attach(binding.layoutPage)
-    }
-
-    /**  */
-    private fun detachView() {
-        AppFloatingIcon.getInstance(activity as Context)
-            .detach(binding.layoutPage)
-    }
 
     /** ****************************** Implementations ****************************** */
 

@@ -4,9 +4,11 @@
     android:id="@+id/text1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="@dimen/comres_sideMargin_normal"
+    android:paddingBottom="@dimen/comres_sideMargin_normal"
     android:ellipsize="marquee"
     android:gravity="center"
     android:singleLine="true"
-    android:textcolor="#000000"
-    android:textsize="28px"
+    android:textColor="#000000"
+    android:textSize="14sp"
     />

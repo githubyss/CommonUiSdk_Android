@@ -19,8 +19,8 @@
 // import android.widget.TextView
 // import com.suning.mobile.snbank.R
 // import com.suning.mobile.snbank.bankcard.util.PinYinUtil
-// import com.githubyss.mobile.common.ui.recycler_view.three_layer.old.ProductInfo
-// import com.githubyss.mobile.common.ui.recycler_view.three_layer.old.ProductItem
+// import com.ace.sample.list.page.three_layer.ProductInfo
+// import com.ace.sample.list.page.three_layer.ProductItem
 // import com.suning.mobile.snbank.homek.view.HomeItemClickListener
 // import com.suning.mobile.snbank.kit.common.Strs
 // import com.suning.mobile.snbank.ums.UmsClickListener

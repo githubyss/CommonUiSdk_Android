@@ -15,7 +15,10 @@
     <string name="comui_homepage_button_animate_apng">Apng 动画</string>
     <string name="comui_homepage_button_animate_lottie">Lottie 动画</string>
     <string name="comui_homepage_button_recycler_view">列表</string>
-    <string name="comui_homepage_button_dialog">对话框</string>
+    <string name="comui_homepage_button_spinner">下拉框</string>
+    <string name="comui_homepage_button_spinner_compose">下拉框 Compose</string>
+    <string name="comui_homepage_button_dialog_hint">提示对话框</string>
+    <string name="comui_homepage_button_dialog_voice_select">音选对话框</string>
     <string name="comui_homepage_button_floating_window">悬浮窗</string>
     <string name="comui_homepage_button_widget">桌面小组件</string>
     <string name="comui_homepage_button_speech_recognition">语音识别</string>

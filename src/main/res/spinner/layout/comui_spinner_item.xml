@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/textviewcustom"
+    android:id="@+id/text1"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/comres_sideMargin_none"
+    android:paddingBottom="@dimen/comres_sideMargin_none"
     android:ellipsize="marquee"
+    android:gravity="center"
     android:singleLine="true"
-    android:textAlignment="center"
     android:textColor="#FFFFFF"
-    android:textSize="28px"
+    android:textSize="14sp"
     />

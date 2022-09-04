@@ -19,6 +19,8 @@ import com.githubyss.mobile.common.ui.app.page.custom_view.CustomViewFragment
 import com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowFragment
 import com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewFragment
 import com.githubyss.mobile.common.ui.app.page.speech_recognition.SpeechRecognitionActivity
+import com.githubyss.mobile.common.ui.app.page.spinner.SpinnerComposeFragment
+import com.githubyss.mobile.common.ui.app.page.spinner.SpinnerFragment
 import com.githubyss.mobile.common.ui.app.page.text.TextComposeFragment
 import com.githubyss.mobile.common.ui.app.page.text_field.TextFieldComposeFragment
 import com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownComposeFragment
@@ -135,17 +137,19 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
 
         LayoutWeightHorizontal {
             ButtonClickDefault(
-                text = getStringFromRes(R.string.comui_homepage_button_dialog), modifier = Modifier.weight(1F),
+                text = getStringFromRes(R.string.comui_homepage_button_spinner), modifier = Modifier.weight(1F),
             ) {
-                VoiceSelectDialog.instance.showDialog(
-                    parentFragmentManager,
-                    VoiceSelectDialogVm.TITLE_DEFAULT,
-                    VoiceSelectDialogVm.BTN_CONFIRM_DEFAULT, VoiceSelectDialogVm.BTN_CANCEL_DEFAULT,
-                    VoiceToneDataCenter.voiceToneList)
+                switchFragment(SpinnerFragment(), SpinnerFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
             }
-
             ButtonClickDefault(
-                text = "提示对话框",
+                text = getStringFromRes(R.string.comui_homepage_button_spinner_compose), modifier = Modifier.weight(1F),
+            ) {
+                switchFragment(SpinnerComposeFragment(), SpinnerComposeFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            }
+        }
+        LayoutWeightHorizontal {
+            ButtonClickDefault(
+                text = getStringFromRes(R.string.comui_homepage_button_dialog_hint),
                 modifier = Modifier.weight(1F),
             ) {
                 HintDialog.instance.showDialog(
@@ -161,6 +165,16 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
                         showToast("调用方点击了右按钮")
                     },
                     false)
+            }
+
+            ButtonClickDefault(
+                text = getStringFromRes(R.string.comui_homepage_button_dialog_voice_select), modifier = Modifier.weight(1F),
+            ) {
+                VoiceSelectDialog.instance.showDialog(
+                    parentFragmentManager,
+                    VoiceSelectDialogVm.TITLE_DEFAULT,
+                    VoiceSelectDialogVm.BTN_CONFIRM_DEFAULT, VoiceSelectDialogVm.BTN_CANCEL_DEFAULT,
+                    VoiceToneDataCenter.voiceToneList)
             }
         }
 
