@@ -125,6 +125,7 @@ android {
                     srcDirs 'src/app/res/widget'
                     srcDirs 'src/app/res/widget_default'
                     srcDirs 'src/app/res/widget_schedule'
+                    srcDirs 'src/app/res/widget_player'
                 }
                 manifest {
                     srcFile 'src/app/AndroidManifest.xml'

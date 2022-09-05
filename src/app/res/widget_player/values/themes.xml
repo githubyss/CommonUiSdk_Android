@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="comuiTheme_WidgetPlayerContainerParent"
+           parent="@android:style/Theme.DeviceDefault">
+        <item name="widgetPlayerRadius">16dp</item>
+        <item name="widgetPlayerInnerRadius">8dp</item>
+    </style>
+
+    <style name="comuiTheme_WidgetPlayerContainer"
+           parent="comuiTheme_WidgetPlayerContainerParent">
+        <item name="widgetPlayerPadding">16dp</item>
+    </style>
+</resources>

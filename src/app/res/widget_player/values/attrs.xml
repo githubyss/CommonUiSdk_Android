@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="ResourceName">
+
+    <declare-styleable name="ComuiWidgetPlayerAttrs">
+        <attr name="widgetPlayerRadius"
+              format="dimension" />
+        <attr name="widgetPlayerInnerRadius"
+              format="dimension" />
+        <attr name="widgetPlayerPadding"
+              format="dimension" />
+    </declare-styleable>
+</resources>

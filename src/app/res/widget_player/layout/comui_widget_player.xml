@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/comuiStyle_WidgetPlayerContainer"
+    android:theme="@style/comuiTheme_WidgetPlayerContainer"
+    android:id="@+id/layout_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="月日"
+            android:textColor="#464B5C"
+            android:textSize="@dimen/comres_textSize_18sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/text_weekday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_alignBottom="@id/text_date"
+            android:layout_toEndOf="@id/text_date"
+            android:text="星期"
+            android:textColor="#464B5C"
+            android:textSize="@dimen/comres_textSize_12sp"
+            />
+
+        <ImageView
+            android:id="@+id/image_player"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="44dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/text_date"
+            android:src="@drawable/comui_icon_player"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_player_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/text_day"
+            android:background="@color/comres_color_transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="Today"
+            android:textColor="#464B5C"
+            android:textSize="@dimen/comres_textSize_11sp"
+            />
+
+        <ListView
+            android:id="@+id/list_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_player_none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:id="@+id/image_player_none"
+            android:layout_width="66dp"
+            android:layout_height="69dp"
+            android:src="@drawable/comui_image_player_none"
+            />
+
+        <TextView
+            android:id="@+id/text_player_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="暂无行程"
+            android:textColor="#9DA0AB"
+            android:textSize="@dimen/comres_textSize_10sp"
+            />
+    </LinearLayout>
+</LinearLayout>

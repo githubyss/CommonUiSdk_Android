@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="MissingTranslation">
+
+    <string name="comui_widget_player_add">添加播放器小组件</string>
+    <string name="comui_widget_player_description">这是一个播放器小组件</string>
+</resources>
