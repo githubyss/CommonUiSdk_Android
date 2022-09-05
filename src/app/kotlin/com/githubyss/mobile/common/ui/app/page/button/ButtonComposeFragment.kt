@@ -20,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -66,6 +67,7 @@ class ButtonComposeFragment : BaseComposeToolbarFragment() {
     }
 
     /**  */
+    @Preview
     @Composable
     override fun Content() {
         PagePadding(
@@ -193,6 +195,16 @@ class ButtonComposeFragment : BaseComposeToolbarFragment() {
             )
             ButtonClickDefault(
                 text = "1/2宽，固定高度，默认外间距，默认内间距",
+                modifier = Modifier.weight(1F),
+            )
+        }
+        LayoutWeightHorizontal {
+            ButtonTextClickBlueWeightHorizontal(
+                text = "1/2宽",
+                modifier = Modifier.weight(1F),
+            )
+            ButtonTextClickBlueWeightHorizontal(
+                text = "1/2宽",
                 modifier = Modifier.weight(1F),
             )
         }

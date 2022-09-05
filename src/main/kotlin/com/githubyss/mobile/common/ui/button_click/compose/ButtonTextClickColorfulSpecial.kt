@@ -1,15 +1,18 @@
 package com.githubyss.mobile.common.ui.button_click.compose
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ButtonElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import com.githubyss.mobile.common.res.button_click.buttonClickBlueBorder
 import com.githubyss.mobile.common.res.button_click.buttonClickFontSize
-import com.githubyss.mobile.common.res.button_click.buttonClickShape
+import com.githubyss.mobile.common.res.button_click.buttonClickShapeRound
 import com.githubyss.mobile.common.res.common.dimen.SpaceButtonPaddingDefault
 import com.githubyss.mobile.common.res.common.dimen.SpaceNano
 import com.githubyss.mobile.common.res.common.dimen.SpaceNone
@@ -27,7 +30,9 @@ fun ButtonTextClickBluePadding(
     modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = TextUnit.buttonClickFontSize,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    fontFamily: FontFamily = FontFamily.Default,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickBlueBorder,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -46,8 +51,8 @@ fun ButtonTextClickBluePadding(
 ) {
     ButtonTextClickBlue(
         modifier,
-        text, fontSize,
-        shape,
+        text, fontSize, fontFamily,
+        shape, border,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
@@ -70,7 +75,9 @@ fun ButtonTextClickBlueMarginPadding(
     modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = TextUnit.buttonClickFontSize,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    fontFamily: FontFamily = FontFamily.Default,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickBlueBorder,
     marginTop: Dp = Dp.SpaceNano,
     marginBottom: Dp = Dp.SpaceNano,
     marginStart: Dp = Dp.SpaceNano,
@@ -89,8 +96,8 @@ fun ButtonTextClickBlueMarginPadding(
 ) {
     ButtonTextClickBlue(
         modifier,
-        text, fontSize,
-        shape,
+        text, fontSize, fontFamily,
+        shape, border,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
@@ -113,7 +120,9 @@ fun ButtonTextClickBlueWeightHorizontal(
     modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = TextUnit.buttonClickFontSize,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    fontFamily: FontFamily = FontFamily.Default,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickBlueBorder,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -133,8 +142,8 @@ fun ButtonTextClickBlueWeightHorizontal(
 
     ButtonTextClickBlue(
         modifier,
-        text, fontSize,
-        shape,
+        text, fontSize, fontFamily,
+        shape, border,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         width, height,
@@ -157,7 +166,9 @@ fun ButtonTextClickBlueWeightHorizontalPadding(
     modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = TextUnit.buttonClickFontSize,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    fontFamily: FontFamily = FontFamily.Default,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickBlueBorder,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -174,8 +185,8 @@ fun ButtonTextClickBlueWeightHorizontalPadding(
 ) {
     ButtonTextClickBlueWeightHorizontal(
         modifier,
-        text, fontSize,
-        shape,
+        text, fontSize, fontFamily,
+        shape, border,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         height,
@@ -198,7 +209,9 @@ fun ButtonTextClickBlueWeightHorizontalMarginPadding(
     modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = TextUnit.buttonClickFontSize,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    fontFamily: FontFamily = FontFamily.Default,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickBlueBorder,
     marginTop: Dp = Dp.SpaceNano,
     marginBottom: Dp = Dp.SpaceNano,
     marginStart: Dp = Dp.SpaceNano,
@@ -215,8 +228,8 @@ fun ButtonTextClickBlueWeightHorizontalMarginPadding(
 ) {
     ButtonTextClickBlueWeightHorizontal(
         modifier,
-        text, fontSize,
-        shape,
+        text, fontSize, fontFamily,
+        shape, border,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
         height,

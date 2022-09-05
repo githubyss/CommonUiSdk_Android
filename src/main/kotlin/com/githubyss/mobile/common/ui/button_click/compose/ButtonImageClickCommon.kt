@@ -1,8 +1,11 @@
 package com.githubyss.mobile.common.ui.button_click.compose
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.ButtonColors
@@ -20,22 +23,27 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.githubyss.mobile.common.res.common.dimen.SpaceNone
+import com.githubyss.mobile.common.ui.image.ImageCommon
+import com.githubyss.mobile.common.ui.utils.modifierHeightAssemble
+import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
 
 
 /**
- * 可点击文本按钮
- * 内容固定为一个文本框
+ * 可点击图像按钮
+ * 内容固定为一个图像
  * 无外边距，无内边距
  *
  * @param
  * @return
  */
 @Composable
-fun ButtonTextClickCommon(
+fun ButtonImageClickCommon(
     modifier: Modifier = Modifier,
-    text: String,
-    fontSize: TextUnit = TextUnit.Unspecified,
-    fontFamily: FontFamily = FontFamily.Default,
+    @DrawableRes imageResId: Int,
+    imageWidth: Dp = 0.dp,
+    imageHeight: Dp = 0.dp,
+    imageFillMaxWidth: Boolean = false,
+    imageFillMaxHeight: Boolean = false,
     shape: Shape,
     border: BorderStroke,
     colors: ButtonColors,
@@ -69,14 +77,11 @@ fun ButtonTextClickCommon(
         onClick,
     )
     {
-        Text(
-            text = text,
-            fontSize = fontSize,
-            fontFamily = fontFamily,
-            textAlign = TextAlign.Center,
+        ImageCommon(
+            imageResId = imageResId,
             modifier = Modifier
-                .wrapContentWidth()
-                .wrapContentHeight()
+                .modifierWidthAssemble(imageWidth, imageFillMaxWidth)
+                .modifierHeightAssemble(imageHeight, imageFillMaxHeight)
                 .background(Color.Transparent),
         )
     }

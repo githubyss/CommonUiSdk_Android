@@ -122,7 +122,7 @@ fun ImageCommon(
 }
 
 
-/** ********** 尺寸边距留白 ********** */
+/** ********** 三大类型 ********** */
 
 @Composable
 fun ImageCommon(

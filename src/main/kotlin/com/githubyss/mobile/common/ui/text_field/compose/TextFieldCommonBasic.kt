@@ -2,6 +2,7 @@ package com.githubyss.mobile.common.ui.text_field.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.foundation.text.BasicTextField
@@ -204,6 +205,10 @@ fun TextFieldCommonBasic(
     val indicatorColor: Color = colors.indicatorColor(enabled = enabled, isError = isError, interactionSource = interactionSource).value
 
     val modifierTextField: Modifier = modifier
+        .defaultMinSize(
+            minWidth = 50.dp,
+            minHeight = TextFieldDefaults.MinHeight
+        )
         .padding(top = marginTop, bottom = marginBottom, start = marginStart, end = marginEnd)
         .modifierWidthAssemble(width, isFillMaxWidth)
         .modifierHeightAssemble(height, isFillMaxHeight)

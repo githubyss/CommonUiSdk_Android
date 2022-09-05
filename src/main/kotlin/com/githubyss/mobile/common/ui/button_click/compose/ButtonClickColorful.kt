@@ -28,7 +28,8 @@ import com.githubyss.mobile.common.res.common.dimen.SpaceNone
 @Composable
 fun ButtonClickBlue(
     modifier: Modifier = Modifier,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickBlueBorder,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -47,7 +48,6 @@ fun ButtonClickBlue(
     content: @Composable () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
-    val border: BorderStroke = ButtonDefaults.buttonClickBlueBorder
     val colors: ButtonColors = ButtonDefaults.buttonClickBlueBackground(interactionSource.collectIsPressedAsState().value)
 
     ButtonClickCommon(
@@ -82,7 +82,8 @@ fun ButtonClickBlue(
 @Composable
 fun ButtonClickWhite(
     modifier: Modifier = Modifier,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickWhiteBorder,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -101,7 +102,6 @@ fun ButtonClickWhite(
     content: @Composable () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
-    val border: BorderStroke = ButtonDefaults.buttonClickWhiteBorder
     val colors: ButtonColors = ButtonDefaults.buttonClickWhiteBackground(interactionSource.collectIsPressedAsState().value)
 
     ButtonClickCommon(
@@ -136,7 +136,8 @@ fun ButtonClickWhite(
 @Composable
 fun ButtonClickTransparent(
     modifier: Modifier = Modifier,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickTransparentBorder,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -155,7 +156,6 @@ fun ButtonClickTransparent(
     content: @Composable () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
-    val border: BorderStroke = ButtonDefaults.buttonClickTransparentBorder
     val colors: ButtonColors = ButtonDefaults.buttonClickTransparentBackground(interactionSource.collectIsPressedAsState().value)
 
     ButtonClickCommon(

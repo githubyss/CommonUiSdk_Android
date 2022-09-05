@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -37,7 +38,9 @@ fun ButtonTextClickBlue(
     modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = TextUnit.buttonClickFontSize,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    fontFamily: FontFamily = FontFamily.Default,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickBlueBorder,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -55,12 +58,11 @@ fun ButtonTextClickBlue(
     onClick: () -> Unit = {},
 ) {
     val interactionSource = remember { MutableInteractionSource() }
-    val border: BorderStroke = ButtonDefaults.buttonClickBlueBorder
     val colors: ButtonColors = ButtonDefaults.buttonClickBlueBackground(interactionSource.collectIsPressedAsState().value)
 
     ButtonTextClickCommon(
         modifier,
-        text, fontSize,
+        text, fontSize, fontFamily,
         shape, border, colors,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
@@ -88,7 +90,9 @@ fun ButtonTextClickWhite(
     modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = TextUnit.buttonClickFontSize,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    fontFamily: FontFamily = FontFamily.Default,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickWhiteBorder,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -106,12 +110,11 @@ fun ButtonTextClickWhite(
     onClick: () -> Unit = {},
 ) {
     val interactionSource = remember { MutableInteractionSource() }
-    val border: BorderStroke = ButtonDefaults.buttonClickWhiteBorder
     val colors: ButtonColors = ButtonDefaults.buttonClickWhiteBackground(interactionSource.collectIsPressedAsState().value)
 
     ButtonTextClickCommon(
         modifier,
-        text, fontSize,
+        text, fontSize, fontFamily,
         shape, border, colors,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
@@ -139,7 +142,9 @@ fun ButtonTextClickTransparent(
     modifier: Modifier = Modifier,
     text: String,
     fontSize: TextUnit = TextUnit.buttonClickFontSize,
-    shape: Shape = ButtonDefaults.buttonClickShape,
+    fontFamily: FontFamily = FontFamily.Default,
+    shape: Shape = ButtonDefaults.buttonClickShapeRound,
+    border: BorderStroke = ButtonDefaults.buttonClickTransparentBorder,
     marginTop: Dp = Dp.SpaceNone,
     marginBottom: Dp = Dp.SpaceNone,
     marginStart: Dp = Dp.SpaceNone,
@@ -157,12 +162,11 @@ fun ButtonTextClickTransparent(
     onClick: () -> Unit = {},
 ) {
     val interactionSource = remember { MutableInteractionSource() }
-    val border: BorderStroke = ButtonDefaults.buttonClickTransparentBorder
     val colors: ButtonColors = ButtonDefaults.buttonClickTransparentBackground(interactionSource.collectIsPressedAsState().value)
 
     ButtonTextClickCommon(
         modifier,
-        text, fontSize,
+        text, fontSize, fontFamily,
         shape, border, colors,
         marginTop, marginBottom, marginStart, marginEnd,
         paddingTop, paddingBottom, paddingStart, paddingEnd,
