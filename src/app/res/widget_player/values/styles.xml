@@ -5,6 +5,6 @@
            parent="android:Widget">
         <item name="android:id">@android:id/background</item>
         <item name="android:padding">?attr/widgetPlayerPadding</item>
-        <item name="android:background">@drawable/comui_widget_player_background</item>
+        <item name="android:background">@drawable/comui_widget_player_bg_card</item>
     </style>
 </resources>

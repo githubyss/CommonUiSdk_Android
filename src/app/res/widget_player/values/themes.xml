@@ -9,6 +9,6 @@
 
     <style name="comuiTheme_WidgetPlayerContainer"
            parent="comuiTheme_WidgetPlayerContainerParent">
-        <item name="widgetPlayerPadding">16dp</item>
+        <item name="widgetPlayerPadding">0dp</item>
     </style>
 </resources>

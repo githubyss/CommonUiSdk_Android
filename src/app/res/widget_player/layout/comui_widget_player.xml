@@ -10,98 +10,127 @@
     >
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:background="@drawable/comui_widget_player_bg_player"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:padding="20dp"
         >
 
         <TextView
-            android:id="@+id/text_date"
-            android:layout_width="wrap_content"
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="月日"
+            android:layout_alignParentStart="true"
+            android:maxLines="2"
+            android:text="XXX"
             android:textColor="#464B5C"
-            android:textSize="@dimen/comres_textSize_18sp"
+            android:textSize="@dimen/comres_textSize_14sp"
             android:textStyle="bold"
             />
 
+        <ImageView
+            android:id="@+id/imagePlayerPrevious"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@id/imagePlayerPlay"
+            android:layout_alignBottom="@id/imagePlayerPlay"
+            android:layout_toStartOf="@id/imagePlayerPlay"
+            android:src="@drawable/comui_widget_player_icon_previous"
+            />
+
+        <ImageView
+            android:id="@+id/imagePlayerPlay"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/comui_widget_player_icon_play"
+            />
+
+        <ImageView
+            android:id="@+id/imagePlayerNext"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/imagePlayerPlay"
+            android:layout_alignBottom="@id/imagePlayerPlay"
+            android:layout_toEndOf="@id/imagePlayerPlay"
+            android:src="@drawable/comui_widget_player_icon_next"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_player_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        >
+
+        <ImageView
+            android:id="@+id/imageList"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:padding="4dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/comui_widget_player_icon_list"
+            />
+
         <TextView
-            android:id="@+id/text_weekday"
+            android:id="@+id/textList"
+            android:background="@color/comres_color_transparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:layout_alignBottom="@id/text_date"
-            android:layout_toEndOf="@id/text_date"
-            android:text="星期"
+            android:layout_alignTop="@id/imageList"
+            android:layout_alignBottom="@id/imageList"
+            android:layout_toEndOf="@id/imageList"
+            android:gravity="center_vertical"
+            android:text="听单列表"
             android:textColor="#464B5C"
             android:textSize="@dimen/comres_textSize_12sp"
             />
 
-        <ImageView
-            android:id="@+id/image_player"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="44dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/text_date"
-            android:src="@drawable/comui_icon_player"
-            />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_player_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        >
-
-        <TextView
-            android:id="@+id/text_day"
-            android:background="@color/comres_color_transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:text="Today"
-            android:textColor="#464B5C"
-            android:textSize="@dimen/comres_textSize_11sp"
-            />
-
         <ListView
-            android:id="@+id/list_player"
+            android:id="@+id/listPlay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_player_none"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone"
-        >
-
-        <ImageView
-            android:id="@+id/image_player_none"
-            android:layout_width="66dp"
-            android:layout_height="69dp"
-            android:src="@drawable/comui_image_player_none"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/imageList"
+            android:divider="#00000000"
+            android:dividerHeight="8dp"
+            android:visibility="gone"
             />
 
-        <TextView
-            android:id="@+id/text_player_none"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layout_player_none"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="暂无行程"
-            android:textColor="#9DA0AB"
-            android:textSize="@dimen/comres_textSize_10sp"
-            />
-    </LinearLayout>
+            android:layout_marginTop="17dp"
+            android:layout_below="@id/imageList"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible"
+            >
+
+            <ImageView
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:src="@drawable/comui_widget_player_image_qc"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="⼿机端扫码进⾏链接导⼊"
+                android:textColor="#464B5C"
+                android:textSize="@dimen/comres_textSize_11sp"
+                />
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
