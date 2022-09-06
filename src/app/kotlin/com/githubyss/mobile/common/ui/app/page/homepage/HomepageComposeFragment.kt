@@ -24,7 +24,7 @@ import com.githubyss.mobile.common.ui.app.page.spinner.SpinnerFragment
 import com.githubyss.mobile.common.ui.app.page.text.TextComposeFragment
 import com.githubyss.mobile.common.ui.app.page.text_field.TextFieldComposeFragment
 import com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownComposeFragment
-import com.githubyss.mobile.common.ui.app.page.widget.WidgetComposeFragment
+import com.githubyss.mobile.common.ui.app.page.widget.WidgetComposeActivity
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
 import com.githubyss.mobile.common.ui.dialog.hint.HintDialog
 import com.githubyss.mobile.common.ui.dialog.hint.HintDialogVm
@@ -187,7 +187,7 @@ class HomepageComposeFragment : BaseComposeToolbarFragment() {
         }
 
         ButtonClickDefault(text = getStringFromRes(R.string.comui_homepage_button_widget)) {
-            switchFragment(WidgetComposeFragment(), WidgetComposeFragment.TAG, this, BaseActivity.FRAGMENT_BASE_CONTAINER_ID, true)
+            startActivityExt(activity, WidgetComposeActivity::class.java)
         }
 
         ButtonClickDefault(text = "自定义View") {

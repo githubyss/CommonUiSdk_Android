@@ -44,21 +44,11 @@ inline fun LayoutConstraintCommon(
 
     LayoutConstraintCommon(
         modifier,
-        shape,
-        border,
-        background,
-        marginTop,
-        marginBottom,
-        marginStart,
-        marginEnd,
-        paddingTop,
-        paddingBottom,
-        paddingStart,
-        paddingEnd,
-        width,
-        height,
-        isFillMaxWidth,
-        isFillMaxHeight,
+        shape, border, background,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
+        width, height,
+        isFillMaxWidth, isFillMaxHeight,
         content,
     )
 }

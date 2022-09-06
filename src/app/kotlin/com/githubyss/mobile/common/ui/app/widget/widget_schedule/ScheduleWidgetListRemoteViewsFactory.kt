@@ -16,7 +16,7 @@ import com.githubyss.mobile.common.ui.R
  * @github githubyss
  * @createdTime 2022/08/26 13:37:06
  */
-class ScheduleWidgetListRemoteViewsFactory(val context: Context, intent: Intent?) : BaseAppWidgetRemoteViewsFactory() {
+class ScheduleWidgetListRemoteViewsFactory(val context: Context, intent: Intent?) : BaseAppWidgetRemoteViewsFactory<ScheduleData>() {
 
     /** ****************************** Properties ****************************** */
 

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/comuiStyle_WidgetPlayerContainer"
     android:theme="@style/comuiTheme_WidgetPlayerContainer"
-    android:id="@+id/layout_container"
+    android:id="@+id/layoutContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -102,11 +102,11 @@
             android:layout_below="@id/imageList"
             android:divider="#00000000"
             android:dividerHeight="8dp"
-            android:visibility="gone"
+            android:visibility="visible"
             />
 
         <LinearLayout
-            android:id="@+id/layout_player_none"
+            android:id="@+id/layoutPlayerNone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
@@ -114,7 +114,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:visibility="visible"
+            android:visibility="gone"
             >
 
             <ImageView

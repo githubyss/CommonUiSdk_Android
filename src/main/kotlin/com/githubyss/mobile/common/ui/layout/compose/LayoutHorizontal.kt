@@ -13,6 +13,38 @@ import com.githubyss.mobile.common.ui.utils.modifierWidthAssemble
 
 
 @Composable
+fun LayoutWeightHorizontal(
+    modifier: Modifier = Modifier,
+    marginTop: Dp = Dp.SpaceNone,
+    marginBottom: Dp = Dp.SpaceNone,
+    marginStart: Dp = Dp.SpaceNone,
+    marginEnd: Dp = Dp.SpaceNone,
+    paddingTop: Dp = Dp.SpaceNone,
+    paddingBottom: Dp = Dp.SpaceNone,
+    paddingStart: Dp = Dp.SpaceNone,
+    paddingEnd: Dp = Dp.SpaceNone,
+    content: @Composable RowScope.() -> Unit,
+) {
+    val width: Dp = 0.dp
+    val height: Dp = 0.dp
+    val isFillMaxWidth: Boolean = true
+    val isFillMaxHeight: Boolean = false
+    val horizontalArrangement = Arrangement.SpaceBetween
+    val verticalAlignment = Alignment.CenterVertically
+
+    LayoutHorizontalCommon(
+        modifier,
+        marginTop, marginBottom, marginStart, marginEnd,
+        paddingTop, paddingBottom, paddingStart, paddingEnd,
+        width, height,
+        isFillMaxWidth, isFillMaxHeight,
+        horizontalArrangement, verticalAlignment,
+    ) {
+        content()
+    }
+}
+
+@Composable
 fun LayoutHorizontalCommon(
     modifier: Modifier = Modifier,
     marginTop: Dp = Dp.SpaceNone,
@@ -43,18 +75,6 @@ fun LayoutHorizontalCommon(
         modifierRow,
         horizontalArrangement,
         verticalAlignment,
-    ) {
-        content()
-    }
-}
-
-@Composable
-fun LayoutWeightHorizontal(content: @Composable RowScope.() -> Unit) {
-    LayoutHorizontalCommon(
-        isFillMaxWidth = true,
-        isFillMaxHeight = false,
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
     ) {
         content()
     }
