@@ -136,14 +136,14 @@ class ScheduleWidget : BaseAppWidget() {
                 val remoteViews = RemoteViews(context.packageName, R.layout.comui_widget_schedule).apply {
                     setTextViewText(R.id.text_date, intent.getStringExtra("date"))
                 }
-                context.refreshAppWidget<ScheduleWidget>(R.id.text_date)
+                context.refreshAppWidgetList<ScheduleWidget>(R.id.text_date)
             }
             "item" -> {
                 logD(TAG, "点击了项目")
             }
             "icon" -> {
                 ScheduleDataCenter.clear()
-                context.refreshAppWidget<ScheduleWidget>(R.id.list_schedule)
+                context.refreshAppWidgetList<ScheduleWidget>(R.id.list_schedule)
             }
         }
     }

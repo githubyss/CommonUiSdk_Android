@@ -9,7 +9,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.githubyss.common.base.activity_fragment.compose.BaseComposeToolbarActivity
 import com.githubyss.mobile.common.kit.util.getStringFromRes
-import com.githubyss.mobile.common.kit.util.refreshAppWidget
+import com.githubyss.mobile.common.kit.util.refreshAppWidgetList
 import com.githubyss.mobile.common.res.common.dimen.*
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.ui.ButtonClickDefault
@@ -87,11 +87,11 @@ class WidgetComposeActivity : BaseComposeToolbarActivity() {
                 ScheduleDataCenter.scheduleList.add(ScheduleData("10:30", "合肥-青岛三日自驾游"))
                 ScheduleDataCenter.scheduleList.add(ScheduleData("11:30", "小川洋风料理"))
                 ScheduleDataCenter.scheduleList.add(ScheduleData("15:00", "帆船探险"))
-                refreshAppWidget<ScheduleWidget>(R.id.list_schedule)
+                refreshAppWidgetList<ScheduleWidget>(R.id.list_schedule)
             }
             ButtonClickDefault(text = "清空列表", modifier = Modifier.weight(1F)) {
                 ScheduleDataCenter.clear()
-                refreshAppWidget<ScheduleWidget>(R.id.list_schedule)
+                refreshAppWidgetList<ScheduleWidget>(R.id.list_schedule)
             }
         }
 
@@ -99,11 +99,11 @@ class WidgetComposeActivity : BaseComposeToolbarActivity() {
         LayoutWeightHorizontal {
             ButtonClickDefault(text = "更新列表项", modifier = Modifier.weight(1F)) {
                 ScheduleDataCenter.scheduleList.add(ScheduleData("12:00", "一个时间"))
-                refreshAppWidget<ScheduleWidget>(R.id.list_schedule)
+                refreshAppWidgetList<ScheduleWidget>(R.id.list_schedule)
             }
             ButtonClickDefault(text = "清空列表", modifier = Modifier.weight(1F)) {
                 ScheduleDataCenter.clear()
-                refreshAppWidget<ScheduleWidget>(R.id.list_schedule)
+                refreshAppWidgetList<ScheduleWidget>(R.id.list_schedule)
             }
         }
     }

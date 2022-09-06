@@ -130,7 +130,7 @@ class PlayerWidget : BaseAppWidget() {
             }
             "icon" -> {
                 ScheduleDataCenter.scheduleList.add(ScheduleData("12:00", "一个时间"))
-                context.refreshAppWidget<PlayerWidget>(R.id.list_schedule)
+                context.refreshAppWidgetList<PlayerWidget>(R.id.list_schedule)
             }
         }
     }
