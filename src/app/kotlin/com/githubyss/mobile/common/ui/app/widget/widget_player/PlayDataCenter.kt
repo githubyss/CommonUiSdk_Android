@@ -1,7 +1,6 @@
 package com.githubyss.mobile.common.ui.app.widget.widget_player
 
 import com.githubyss.mobile.common.kit.util.logD
-import com.githubyss.mobile.common.ui.app.widget.widget_schedule.ScheduleDataCenter
 
 
 /**
@@ -23,7 +22,7 @@ object PlayDataCenter {
 
     /**  */
     var title = ""
-        get() = field.also { logD(ScheduleDataCenter.TAG, "title: $it") }
+        get() = field.also { logD(TAG, "title: $it") }
 
 
     /** ****************************** Functions ****************************** */
@@ -36,8 +35,8 @@ object PlayDataCenter {
     /**  */
     fun buildPlayList() {
         playList.clear()
-        playList.add(PlayData("合肥-青岛三日自驾游"))
-        playList.add(PlayData("小川洋风料理"))
+        playList.add(PlayData("最新！新增本⼟356例，本⼟⽆症状4272例"))
+        playList.add(PlayData("这些⼈，⽤⻘春为中国核电造“芯”"))
     }
 
     fun clearPlayList() {

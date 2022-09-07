@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import com.githubyss.mobile.common.res.common.dimen.ElevationNone
 import com.githubyss.mobile.common.res.common.dimen.SpaceNone
 import com.githubyss.mobile.common.ui.image.ImageCommon
 import com.githubyss.mobile.common.ui.utils.modifierHeightAssemble
@@ -59,11 +60,12 @@ fun ButtonImageClickCommon(
     height: Dp = 0.dp,
     isFillMaxWidth: Boolean = false,
     isFillMaxHeight: Boolean = false,
-    elevation: ButtonElevation = ButtonDefaults.elevation(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     enabled: Boolean = true,
     onClick: () -> Unit = {},
 ) {
+    val elevation: ButtonElevation = ButtonDefaults.elevation(Dp.ElevationNone, Dp.ElevationNone, Dp.ElevationNone)
+
     ButtonClickCommon(
         modifier,
         shape, border, colors,

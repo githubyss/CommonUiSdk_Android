@@ -2,10 +2,8 @@ package com.githubyss.mobile.common.ui.app.widget.widget_player
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.annotation.LayoutRes
 import com.githubyss.common.base.app_widget.classical.BaseAppWidgetRemoteViews
-import com.githubyss.mobile.common.kit.util.getIntent
 import com.githubyss.mobile.common.kit.util.getPendingIntent
 import com.githubyss.mobile.common.ui.R
 import com.githubyss.mobile.common.ui.app.page.widget.WidgetComposeActivity

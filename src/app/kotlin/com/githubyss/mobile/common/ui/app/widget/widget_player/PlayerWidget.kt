@@ -6,8 +6,6 @@ import android.content.Intent
 import com.githubyss.common.base.app_widget.classical.BaseAppWidget
 import com.githubyss.mobile.common.kit.util.*
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.app.widget.widget_schedule.ScheduleDataCenter
-import com.githubyss.mobile.common.ui.app.widget.widget_schedule.ScheduleWidget
 
 
 /**
