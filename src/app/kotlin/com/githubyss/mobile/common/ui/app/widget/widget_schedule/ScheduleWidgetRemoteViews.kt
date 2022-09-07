@@ -1,6 +1,7 @@
 package com.githubyss.mobile.common.ui.app.widget.widget_schedule
 
 import android.app.PendingIntent
+import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -28,7 +29,7 @@ class ScheduleWidgetRemoteViews(context: Context?, @LayoutRes layoutId: Int = R.
 
 
         // 把 Widget 绑定到 RemoteViewsService
-        val listIntent = Intent(context, ScheduleWidgetListViewService::class.java).apply {
+        val listIntent = Intent(context, ScheduleWidgetListRemoteViewsService::class.java).apply {
             // putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         }
         // 设置列表适配器
@@ -36,6 +37,8 @@ class ScheduleWidgetRemoteViews(context: Context?, @LayoutRes layoutId: Int = R.
         // 设置当显示的 list 为空时，显示的 View
         setEmptyView(R.id.list_schedule, R.id.layout_schedule_none)
 
+
+        /** Intent 传入 Widget 实例，意图为发送广播 */
 
         // 列表点击事件
         // val itemIntent = Intent(context, ScheduleWidget::class.java).apply {
@@ -49,7 +52,7 @@ class ScheduleWidgetRemoteViews(context: Context?, @LayoutRes layoutId: Int = R.
             // 设置 Action，方便在 onReceive 中区别点击事件
             action = "item"
             // 这是为了让 intent 能够带上 extras 数据一起传递，否则在 intent 的比较的过程中会被忽略掉。
-            data = Uri.parse(this.toUri(Intent.URI_INTENT_SCHEME))
+            data = Uri.parse(toUri(Intent.URI_INTENT_SCHEME))
         }
         val itemPendingIntent = context.getPendingIntent<ScheduleWidget>(itemIntent)
         // 设置列表点击事件
@@ -57,8 +60,7 @@ class ScheduleWidgetRemoteViews(context: Context?, @LayoutRes layoutId: Int = R.
         setPendingIntentTemplate(R.id.list_schedule, itemPendingIntent)
 
 
-        /** Intent 传入 Widget 实例，意图为发送广播 */
-
+        // 界面点击事件
         // 日期点击事件
         val dateIntent = Intent(context, ScheduleWidget::class.java).apply {
             action = "datetime"

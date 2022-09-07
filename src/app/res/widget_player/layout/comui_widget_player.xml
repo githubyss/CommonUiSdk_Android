@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:maxLines="2"
+            android:lines="2"
             android:text="XXX"
             android:textColor="#464B5C"
             android:textSize="@dimen/comres_textSize_14sp"

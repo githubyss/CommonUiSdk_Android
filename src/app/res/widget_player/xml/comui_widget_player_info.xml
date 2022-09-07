@@ -2,8 +2,8 @@
 <appwidget-provider
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:description="@string/comui_widget_player_description"
-    android:minWidth="208dp"
-    android:minHeight="108dp"
+    android:targetCellWidth="3"
+    android:targetCellHeight="3"
     android:initialKeyguardLayout="@layout/comui_widget_player"
     android:initialLayout="@layout/comui_widget_player"
     android:previewLayout="@layout/comui_widget_player"

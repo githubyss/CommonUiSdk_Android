@@ -7,6 +7,7 @@ import android.widget.RemoteViews
 import com.githubyss.common.base.app_widget.classical.BaseAppWidgetRemoteViewsFactory
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.app.widget.widget_schedule.ScheduleDataCenter.scheduleList
 
 
 /**
@@ -26,44 +27,33 @@ class ScheduleWidgetListRemoteViewsFactory(val context: Context, intent: Intent?
     /** 得到原来的 WidgetId */
     var appWidgetId = intent?.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
 
-    private val scheduleList by lazy { ArrayList<ScheduleData>() }
-
 
     /** ****************************** Override ****************************** */
 
     /**  */
-    override fun onCreate() {
-        super.onCreate()
-        scheduleList.addAll(ScheduleDataCenter.scheduleList)
+    override val dataList by lazy { ArrayList<ScheduleData>() }
+
+    /**  */
+    override fun setupData() {
+        dataList.addAll(ScheduleDataCenter.scheduleList)
     }
 
     /**  */
-    override fun onDataSetChanged() {
-        super.onDataSetChanged()
-        scheduleList.clear()
-        scheduleList.addAll(ScheduleDataCenter.scheduleList)
+    override fun updateData() {
+        dataList.clear()
+        dataList.addAll(ScheduleDataCenter.scheduleList)
     }
 
     /**  */
-    override fun onDestroy() {
-        scheduleList.clear()
+    override fun clearData() {
         ScheduleDataCenter.clearScheduleList()
-        super.onDestroy()
     }
 
     /**  */
-    override fun getCount(): Int {
-        super.getCount()
-        return scheduleList.size
-    }
-
-    /**  */
-    override fun getViewAt(position: Int): RemoteViews? {
-        super.getViewAt(position)
-
+    override fun refreshView(position: Int): RemoteViews? {
         if (position < 0 || position >= count) return null
 
-        val schedule = scheduleList[position]
+        val schedule = dataList[position]
         logD(TAG, "position: $position, schedule: $schedule")
 
         // 创建在当前索引位置要显示的 View

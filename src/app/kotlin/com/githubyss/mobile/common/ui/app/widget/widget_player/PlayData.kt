@@ -5,23 +5,23 @@ import android.os.Parcelable
 
 
 /**
- * PlayerData
+ * PlayData
  *
  * @author Ace Yan
  * @github githubyss
  * @createdTime 2022/09/05 16:16:46
  */
-data class PlayerData(val title: String) : Parcelable {
+data class PlayData(val title: String) : Parcelable {
 
     /** ****************************** Object ****************************** */
 
     /**  */
-    companion object CREATOR : Parcelable.Creator<PlayerData> {
-        override fun createFromParcel(parcel: Parcel): PlayerData {
-            return PlayerData(parcel)
+    companion object CREATOR : Parcelable.Creator<PlayData> {
+        override fun createFromParcel(parcel: Parcel): PlayData {
+            return PlayData(parcel)
         }
 
-        override fun newArray(size: Int): Array<PlayerData?> {
+        override fun newArray(size: Int): Array<PlayData?> {
             return arrayOfNulls(size)
         }
     }

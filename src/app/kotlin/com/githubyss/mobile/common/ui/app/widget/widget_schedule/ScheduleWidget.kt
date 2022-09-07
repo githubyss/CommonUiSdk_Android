@@ -66,12 +66,12 @@ class ScheduleWidget : BaseAppWidget() {
         val remoteViews = ScheduleWidgetRemoteViews(context)
 
         when (intent.action) {
+            "item" -> {
+                logD(TAG, "点击了项目")
+            }
             "datetime" -> {
                 ScheduleDataCenter.changeDatetime()
                 context.refreshAppWidgetViewByComponentName<ScheduleWidget>(remoteViews)
-            }
-            "item" -> {
-                logD(TAG, "点击了项目")
             }
             "list" -> {
                 ScheduleDataCenter.buildScheduleList()

@@ -16,7 +16,7 @@ import com.githubyss.mobile.common.ui.R
  * @github githubyss
  * @createdTime 2022/09/05 16:20:09
  */
-class PlayerWidgetListRemoteViewsFactory(val context: Context, intent: Intent?) : BaseAppWidgetRemoteViewsFactory<PlayerData>() {
+class PlayerWidgetListRemoteViewsFactory(val context: Context, intent: Intent?) : BaseAppWidgetRemoteViewsFactory<PlayData>() {
 
     /** ****************************** Properties ****************************** */
 
@@ -26,25 +26,26 @@ class PlayerWidgetListRemoteViewsFactory(val context: Context, intent: Intent?) 
     /** 得到原来的 WidgetId */
     var appWidgetId = intent?.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
 
-    override val dataList: ArrayList<PlayerData> by lazy { ArrayList<PlayerData>() }
-
 
     /** ****************************** Override ****************************** */
 
     /**  */
+    override val dataList by lazy { ArrayList<PlayData>() }
+
+    /**  */
     override fun setupData() {
-        dataList.addAll(PlayerDataCenter.playList)
+        dataList.addAll(PlayDataCenter.playList)
     }
 
     /**  */
     override fun updateData() {
         dataList.clear()
-        dataList.addAll(PlayerDataCenter.playList)
+        dataList.addAll(PlayDataCenter.playList)
     }
 
     /**  */
     override fun clearData() {
-        PlayerDataCenter.clear()
+        PlayDataCenter.clearPlayList()
     }
 
     /**  */
@@ -55,16 +56,21 @@ class PlayerWidgetListRemoteViewsFactory(val context: Context, intent: Intent?) 
         logD(TAG, "position: $position, playerData: $playerData")
 
         // 创建在当前索引位置要显示的 View
-        val remoteViews = RemoteViews(context.packageName, R.layout.comui_widget_player_list_item)
-        // 设置要显示的内容
-        remoteViews.setTextViewText(R.id.textTitle, playerData.title)
+        val remoteViews = RemoteViews(context.packageName, R.layout.comui_widget_player_list_item).apply {
+            // 设置要显示的内容
+            setTextViewText(R.id.textTitle, playerData.title)
 
-        // 填充 Intent，填充在 AppWidgetProvider 中创建的 PendingIntent
-        val fillInIntent = Intent()
-        // 传入点击行的数据
-        fillInIntent.putExtra("content", playerData)
-        // remoteViews 的 setOnClickFillInIntent() 是将 fillInIntent 合并到现有的 itemPendingIntent 中去。就是两个 intent 合并了。
-        remoteViews.setOnClickFillInIntent(R.id.layoutRoot, fillInIntent)
+
+            // 填充 Intent，填充在 AppWidgetProvider 中创建的 PendingIntent
+            val fillInIntent = Intent().apply {
+                // 传入点击行的数据
+                putExtra("position", position)
+                putExtra("content", playerData)
+            }
+            // remoteViews 的 setOnClickFillInIntent() 是将 fillInIntent 合并到现有的 itemPendingIntent 中去。就是两个 intent 合并了。
+            setOnClickFillInIntent(R.id.layoutRoot, fillInIntent)
+        }
+
 
         return remoteViews
     }

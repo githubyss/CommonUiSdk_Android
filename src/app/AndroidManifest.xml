@@ -62,7 +62,27 @@
         </receiver>
 
         <service
-            android:name=".app.widget.widget_schedule.ScheduleWidgetListViewService"
+            android:name=".app.widget.widget_schedule.ScheduleWidgetListRemoteViewsService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            />
+
+        <receiver
+            android:name=".app.widget.widget_player.PlayerWidget"
+            android:exported="false"
+            >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/comui_widget_player_info"
+                />
+        </receiver>
+
+        <service
+            android:name=".app.widget.widget_player.PlayerWidgetListRemoteViewsService"
             android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS"
             />
