@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:clickable="true"
             android:text="月日"
             android:textColor="#464B5C"
             android:textSize="@dimen/comres_textSize_18sp"
@@ -41,13 +40,25 @@
             />
 
         <ImageView
-            android:id="@+id/image_schedule"
+            android:id="@+id/image_schedule_list"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="44dp"
+            android:layout_alignTop="@id/text_date"
+            android:layout_alignBottom="@id/text_date"
+            android:layout_toStartOf="@id/image_schedule_delete"
+            android:src="@drawable/comres_icon_list_circle"
+            />
+
+        <ImageView
+            android:id="@+id/image_schedule_delete"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@id/text_date"
-            android:src="@drawable/comui_icon_schedule"
+            android:layout_alignBottom="@id/text_date"
+            android:src="@drawable/comres_icon_delete_filled"
             />
     </RelativeLayout>
 

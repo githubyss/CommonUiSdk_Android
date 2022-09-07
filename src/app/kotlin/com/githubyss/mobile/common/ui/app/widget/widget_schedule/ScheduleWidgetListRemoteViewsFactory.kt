@@ -47,7 +47,7 @@ class ScheduleWidgetListRemoteViewsFactory(val context: Context, intent: Intent?
     /**  */
     override fun onDestroy() {
         scheduleList.clear()
-        ScheduleDataCenter.clear()
+        ScheduleDataCenter.clearScheduleList()
         super.onDestroy()
     }
 
