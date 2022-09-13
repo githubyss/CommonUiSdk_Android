@@ -30,6 +30,7 @@ object PlayDataCenter {
     /**  */
     fun setupDate() {
         title = ""
+        buildPlayList()
     }
 
     /**  */

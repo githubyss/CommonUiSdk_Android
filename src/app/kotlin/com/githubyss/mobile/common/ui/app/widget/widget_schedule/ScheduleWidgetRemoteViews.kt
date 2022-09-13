@@ -30,6 +30,9 @@ class ScheduleWidgetRemoteViews(context: Context?, @LayoutRes layoutId: Int = R.
 
         // 把 Widget 绑定到 RemoteViewsService
         val listIntent = Intent(context, ScheduleWidgetListRemoteViewsService::class.java).apply {
+            // 有些机器上，需要设置下面这一句 data，才能实现初次创建 Widget 就执行列表刷新，原因未知。
+            // data = Uri.fromParts("content", appWidgetId.toString() + m.toString(), null)
+            // 将 appWidgetId 传递到 RemoteViewsFactory 中，供视图渲染的时候可以用。
             // putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         }
         // 设置列表适配器

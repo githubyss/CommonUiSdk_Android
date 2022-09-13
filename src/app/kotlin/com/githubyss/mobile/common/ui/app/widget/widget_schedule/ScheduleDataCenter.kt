@@ -37,6 +37,7 @@ object ScheduleDataCenter {
     fun setupDate() {
         datetime = currentDatetimeString("M月d日")
         weekday = currentDatetimeString("EEEE")
+        buildScheduleList()
     }
 
     fun buildScheduleList() {

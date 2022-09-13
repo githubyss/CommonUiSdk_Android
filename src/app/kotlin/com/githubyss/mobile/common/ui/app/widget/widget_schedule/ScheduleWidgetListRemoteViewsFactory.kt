@@ -7,7 +7,6 @@ import android.widget.RemoteViews
 import com.githubyss.common.base.app_widget.classical.BaseAppWidgetRemoteViewsFactory
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
-import com.githubyss.mobile.common.ui.app.widget.widget_schedule.ScheduleDataCenter.scheduleList
 
 
 /**

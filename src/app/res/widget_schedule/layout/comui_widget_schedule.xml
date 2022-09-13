@@ -47,7 +47,7 @@
             android:layout_alignTop="@id/text_date"
             android:layout_alignBottom="@id/text_date"
             android:layout_toStartOf="@id/image_schedule_delete"
-            android:src="@drawable/comres_icon_list_circle"
+            android:src="@drawable/comres_icon_list_circle_round_blue"
             />
 
         <ImageView
@@ -58,7 +58,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@id/text_date"
             android:layout_alignBottom="@id/text_date"
-            android:src="@drawable/comres_icon_delete_filled"
+            android:src="@drawable/comres_icon_delete_filled_red"
             />
     </RelativeLayout>
 
