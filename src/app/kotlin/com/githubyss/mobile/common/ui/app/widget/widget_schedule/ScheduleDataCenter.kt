@@ -20,6 +20,8 @@ object ScheduleDataCenter {
     /**  */
     val TAG: String = ScheduleDataCenter::class.java.simpleName
 
+    var m = (0..1000).random() //随机数
+
     /**  */
     val scheduleList by lazy { ArrayList<ScheduleData>() }
 

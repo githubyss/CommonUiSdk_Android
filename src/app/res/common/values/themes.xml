@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="comui_app_theme"
+           parent="@style/comresTheme_application_default_statusNavigationImage">
+
+    </style>
+
+    <!-- 页面 -->
+    <style name="comui_activity_theme"
+           parent="comresTheme_activity_noActionBar" />
+</resources>

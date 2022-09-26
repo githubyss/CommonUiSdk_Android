@@ -31,7 +31,7 @@ class ScheduleWidgetRemoteViews(context: Context?, @LayoutRes layoutId: Int = R.
         // 把 Widget 绑定到 RemoteViewsService
         val listIntent = Intent(context, ScheduleWidgetListRemoteViewsService::class.java).apply {
             // 有些机器上，需要设置下面这一句 data，才能实现初次创建 Widget 就执行列表刷新，原因未知。
-            // data = Uri.fromParts("content", appWidgetId.toString() + m.toString(), null)
+            // data = Uri.fromParts("content", appWidgetId.toString() + ScheduleDataCenter.m.toString(), null)
             // 将 appWidgetId 传递到 RemoteViewsFactory 中，供视图渲染的时候可以用。
             // putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         }
@@ -72,24 +72,19 @@ class ScheduleWidgetRemoteViews(context: Context?, @LayoutRes layoutId: Int = R.
             Build.VERSION.SDK_INT >= 31 -> PendingIntent.FLAG_MUTABLE
             else -> PendingIntent.FLAG_UPDATE_CURRENT
         }
-        val datePendingIntent = PendingIntent.getBroadcast(context, 0, dateIntent, flag)
         // 设置日期点击事件
-        setOnClickPendingIntent(R.id.text_date, datePendingIntent)
+        setOnClickPendingIntent(R.id.text_date, PendingIntent.getBroadcast(context, 0, dateIntent, flag))
 
 
         // 图标点击事件、设置图标点击事件
-        val listPendingIntent = context.getPendingIntent<ScheduleWidget>("list")
-        setOnClickPendingIntent(R.id.image_schedule_list, listPendingIntent)
-
-        val deletePendingIntent = context.getPendingIntent<ScheduleWidget>("delete")
-        setOnClickPendingIntent(R.id.image_schedule_delete, deletePendingIntent)
+        setOnClickPendingIntent(R.id.image_schedule_list, context.getPendingIntent<ScheduleWidget>("list"))
+        setOnClickPendingIntent(R.id.image_schedule_delete, context.getPendingIntent<ScheduleWidget>("delete"))
 
 
         /** Intent 传入 Activity 实例，意图为跳转页面 */
 
         // 布局点击事件
-        val containerPendingIntent = context.getPendingIntent<WidgetComposeActivity>()
         // 设置布局点击事件
-        setOnClickPendingIntent(R.id.layout_container, containerPendingIntent)
+        setOnClickPendingIntent(R.id.layout_container, context.getPendingIntent<WidgetComposeActivity>())
     }
 }

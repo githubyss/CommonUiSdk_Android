@@ -7,6 +7,7 @@ import android.widget.RemoteViews
 import com.githubyss.common.base.app_widget.classical.BaseAppWidgetRemoteViewsFactory
 import com.githubyss.mobile.common.kit.util.logD
 import com.githubyss.mobile.common.ui.R
+import com.githubyss.mobile.common.ui.app.widget.widget_player.PlayerWidget
 
 
 /**
@@ -25,6 +26,7 @@ class ScheduleWidgetListRemoteViewsFactory(val context: Context, intent: Intent?
 
     /** 得到原来的 WidgetId */
     var appWidgetId = intent?.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
+    var appWidgetId_ = Integer.valueOf(intent?.data?.schemeSpecificPart) - ScheduleDataCenter.m
 
 
     /** ****************************** Override ****************************** */

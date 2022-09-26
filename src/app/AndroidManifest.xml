@@ -89,7 +89,6 @@
 
         <activity
             android:name=".app.page.homepage.HomepageActivity"
-            android:theme="@style/comresTheme_activity_noActionBar"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -102,14 +101,12 @@
 
         <activity
             android:name=".app.page.speech_recognition.SpeechRecognitionActivity"
-            android:theme="@style/comresTheme_activity_noActionBar"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />
 
         <activity
             android:name=".app.page.widget.WidgetComposeActivity"
-            android:theme="@style/comresTheme_activity_noActionBar"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             />

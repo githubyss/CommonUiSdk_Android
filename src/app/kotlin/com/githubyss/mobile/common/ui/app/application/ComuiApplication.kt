@@ -5,10 +5,7 @@ import com.github.sahasbhop.apngview.ApngImageLoader
 import com.githubyss.common.base.application.BaseApplication
 import com.githubyss.mobile.common.kit.BuildConfig
 import com.githubyss.mobile.common.kit.manager.speech_recognition.SpeechRecognitionManager
-import com.githubyss.mobile.common.kit.util.LOG_LEVEL_VERBOSE
-import com.githubyss.mobile.common.kit.util.disableLog
-import com.githubyss.mobile.common.kit.util.enableLog
-import com.githubyss.mobile.common.kit.util.logLevel
+import com.githubyss.mobile.common.kit.util.*
 import com.githubyss.mobile.common.net.ComnetApplicationConfig
 import com.githubyss.mobile.common.net.ComnetApplicationConfig.application
 
