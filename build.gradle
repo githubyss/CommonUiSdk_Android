@@ -18,19 +18,34 @@ if (isLaunchApp) {
 }
 
 
+apply from: "${rootDir}/config/signingConfigs.gradle"
 apply from: "${rootDir}/config/buildConfigs.gradle"
 apply from: "${rootDir}/config/optionConfigs.gradle"
-apply from: "${rootDir}/config/featureConfigs.gradle"
-apply from: "${rootDir}/config/versionConfigs.gradle"
-apply from: "${rootDir}/config/signingConfigs.gradle"
-apply from: "${rootDir}/config/libConfigs.gradle"
+apply from: "${rootDir}/config/featureExt.gradle"
+apply from: "${rootDir}/config/versionExt.gradle"
+apply from: "${rootDir}/config/dependencyExt.gradle"
+apply from: "${rootDir}/config/dateConvertor.gradle"
+
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
 
 android {
     resourcePrefix 'comui_'
 
     defaultConfig {
-        versionCode 1
-        versionName "1.0"
+        versionCode Integer.valueOf(releaseTime())
+        versionName "Comui_${releaseTime()}"
+    }
+
+    if (isLaunchApp) {
+        applicationVariants.all {
+            variant ->
+                variant.outputs.all {
+                    output ->
+                        outputFileName = "${defaultConfig.versionName}_${buildType.name}.apk"
+                }
+        }
     }
 
     buildTypes {
@@ -57,8 +72,6 @@ android {
             app {
                 dimension 'library'
                 applicationId 'com.githubyss.mobile.common.ui'
-                versionCode 1
-                versionName "1.0"
                 manifestPlaceholders = [APP_NAME: "通用Ui库"]
             }
         }
