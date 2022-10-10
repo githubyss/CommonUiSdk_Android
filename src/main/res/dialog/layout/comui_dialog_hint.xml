@@ -8,17 +8,17 @@
 
         <variable
             name="hintDialogVm"
-            type="com.githubyss.mobile.common.ui.dialog.hint.HintDialogVm"
+            type="com.githubyss.common.ui.dialog.hint.HintDialogVm"
             />
 
         <variable
             name="hintDialogView"
-            type="com.githubyss.mobile.common.ui.dialog.hint.HintDialog"
+            type="com.githubyss.common.ui.dialog.hint.HintDialog"
             />
 
         <variable
             name="onClickListener"
-            type="com.githubyss.mobile.common.ui.dialog.hint.HintDialog.OnClickListener"
+            type="com.githubyss.common.ui.dialog.hint.HintDialog.OnClickListener"
             />
     </data>
 

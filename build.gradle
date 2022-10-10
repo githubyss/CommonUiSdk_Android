@@ -71,7 +71,7 @@ android {
         if (isLaunchApp) {
             app {
                 dimension 'library'
-                applicationId 'com.githubyss.mobile.common.ui'
+                applicationId 'com.githubyss.common.ui'
                 manifestPlaceholders = [APP_NAME: "通用Ui库"]
             }
         }

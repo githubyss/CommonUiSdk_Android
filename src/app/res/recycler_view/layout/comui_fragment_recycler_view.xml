@@ -10,12 +10,12 @@
 
         <variable
             name="recyclerViewVm"
-            type="com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewViewModel"
+            type="com.githubyss.common.ui.app.page.recycler_view.RecyclerViewViewModel"
             />
 
         <variable
             name="recyclerViewPage"
-            type="com.githubyss.mobile.common.ui.app.page.recycler_view.RecyclerViewFragment"
+            type="com.githubyss.common.ui.app.page.recycler_view.RecyclerViewFragment"
             />
 
         <variable

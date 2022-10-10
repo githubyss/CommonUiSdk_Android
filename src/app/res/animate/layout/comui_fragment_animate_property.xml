@@ -8,7 +8,7 @@
 
         <variable
             name="page"
-            type="com.githubyss.mobile.common.ui.app.page.animate.property.PropertyAnimatorFragment"
+            type="com.githubyss.common.ui.app.page.animate.property.PropertyAnimatorFragment"
             />
     </data>
 

@@ -6,7 +6,7 @@
 
     <data>
 
-        <import type="com.githubyss.mobile.common.ui.app.page.homepage.HomepageViewModel" />
+        <import type="com.githubyss.common.ui.app.page.homepage.HomepageViewModel" />
 
         <variable
             name="homepageVm"

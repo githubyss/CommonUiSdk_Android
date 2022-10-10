@@ -6,7 +6,7 @@
 
     <data>
 
-        <import type="com.githubyss.mobile.common.ui.app.page.floating_window.FloatingWindowViewModel" />
+        <import type="com.githubyss.common.ui.app.page.floating_window.FloatingWindowViewModel" />
 
         <variable
             name="floatingWindowVm"

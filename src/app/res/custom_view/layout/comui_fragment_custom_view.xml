@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         >
 
-        <com.githubyss.mobile.common.ui.custom.CustomView
+        <com.githubyss.common.ui.custom.CustomView
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_gravity="center"

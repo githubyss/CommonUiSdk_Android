@@ -8,17 +8,17 @@
 
         <variable
             name="voiceSelectDialogVm"
-            type="com.githubyss.mobile.common.ui.dialog.voice_select.VoiceSelectDialogVm"
+            type="com.githubyss.common.ui.dialog.voice_select.VoiceSelectDialogVm"
             />
 
         <variable
             name="onClickPresenter"
-            type="com.githubyss.mobile.common.ui.dialog.voice_select.VoiceSelectDialog.OnClickPresenter"
+            type="com.githubyss.common.ui.dialog.voice_select.VoiceSelectDialog.OnClickPresenter"
             />
 
         <variable
             name="voiceToneListAdapter"
-            type="com.githubyss.mobile.common.ui.dialog.voice_select.VoiceToneListAdapter"
+            type="com.githubyss.common.ui.dialog.voice_select.VoiceToneListAdapter"
             />
     </data>
 

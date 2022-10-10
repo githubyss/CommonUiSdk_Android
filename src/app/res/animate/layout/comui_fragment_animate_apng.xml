@@ -6,7 +6,7 @@
 
         <variable
             name="page"
-            type="com.githubyss.mobile.common.ui.app.page.animate.apng.ApngFragment"
+            type="com.githubyss.common.ui.app.page.animate.apng.ApngFragment"
             />
     </data>
 

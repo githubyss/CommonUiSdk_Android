@@ -8,7 +8,7 @@
 
         <variable
             name="page"
-            type="com.githubyss.mobile.common.ui.app.page.time_countdown.TimeCountdownFragment"
+            type="com.githubyss.common.ui.app.page.time_countdown.TimeCountdownFragment"
             />
     </data>
 
@@ -23,7 +23,7 @@
         android:orientation="vertical"
         >
 
-        <com.githubyss.mobile.common.ui.time_view.classical.TimeCountdownView
+        <com.githubyss.common.ui.time_view.classical.TimeCountdownView
             android:id="@+id/timeCountdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

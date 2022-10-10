@@ -8,11 +8,11 @@
 
         <import type="android.view.View" />
 
-        <import type="com.githubyss.mobile.common.kit.enumeration.CheckState" />
+        <import type="com.githubyss.common.kit.enumeration.CheckState" />
 
         <variable
             name="item"
-            type="com.githubyss.mobile.common.ui.app.page.recycler_view.article_list.ItemCombineAll"
+            type="com.githubyss.common.ui.app.page.recycler_view.article_list.ItemCombineAll"
             />
 
         <variable

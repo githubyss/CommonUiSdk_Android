@@ -8,11 +8,11 @@
 
     <data>
 
-        <import type="com.githubyss.mobile.common.ui.dialog.voice_select.VoiceToneSelectState" />
+        <import type="com.githubyss.common.ui.dialog.voice_select.VoiceToneSelectState" />
 
         <variable
             name="voiceTone"
-            type="com.githubyss.mobile.common.ui.dialog.voice_select.VoiceTone"
+            type="com.githubyss.common.ui.dialog.voice_select.VoiceTone"
             />
 
         <variable
